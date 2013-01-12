@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+	<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+
+<meta charset="utf-8">
+
+<meta name="description" content="" />
+<title>Location API</title>
+
+	<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+
+<meta charset="utf-8">
+
+<meta name="description" content="" />
+<title>Location API</title>
+
+    <link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+<div id='header-inner'>
+	<div id='navmenu-left'>
+    <a href='/'>news&nbsp;.&nbsp;thelogbox</a> &nbsp;&nbsp;
+	</div>
+	<div id='navmenu-right'>
+		<a href='#'>rss</a> &nbsp;&nbsp;
+		<a href='mailto:ted@thelogbox.com'>email</a> &nbsp;&nbsp;
+		<a href='/about.html'>about</a>
+	</div>
+</div>
+</header>
+    <article itemscope itemtype="http://schema.org/Article">
+      <div id="post">
+        <h1>Location API</h1>
+        <div itemprop='articleBody'>
+        <p>There are three things you need to do in order to do some location API joojoo on android. These are;</p>
+
+<ol>
+<li>Allow the use Location based service on the device. The user has to do this,  there is no way to enable the service programatically</li>
+<li>Add permissions on the Manifest file</li>
+<li>Use the LocationManager and other related classes on the android.location.* package</li>
+</ol>
+
+
+<h3>1. Allow the use of Location-based service</h3>
+
+<p>On the device.</p>
+
+<ol>
+<li>Go to settings</li>
+<li>Go to Location and Security</li>
+<li>Choose the appropriate settings (use wireless networks and/or use gps sattelites)</li>
+</ol>
+
+
+<h3>2. Changes on the manifest file are highlighted</h3>
+
+<p><img src='../img/android-manifest-xml-gps-permission.png'/></p>
+
+<h3>3.  The code for Location-based API</h3>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/*</span>
+
+<span class="cm"> BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="cm"> All rights reserved.</span>
+
+<span class="cm"> License text: http://thelogbox.com/source-docs/software-license.txt</span>
+
+<span class="cm">*/</span>
+
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.LocationManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.LocationListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.Location</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.Criteria</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.Geocoder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.location.Address</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">GPSView</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span><span class="o">,</span> <span class="n">LocationListener</span> <span class="o">{</span>
+
+  <span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">TextView</span> <span class="n">tv</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">LocationManager</span> <span class="n">locm</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">Location</span> <span class="n">loc</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">Geocoder</span> <span class="n">geo</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">List</span> <span class="n">address</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">Address</span> <span class="n">addr</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">GPSView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextView</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">;</span>
+    <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+
+    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+    <span class="n">addView</span><span class="o">(</span><span class="n">tv</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="n">locm</span> <span class="o">=</span> <span class="o">(</span><span class="n">LocationManager</span><span class="o">)</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">ctx</span><span class="o">.</span><span class="na">LOCATION_SERVICE</span><span class="o">);</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">locm</span><span class="o">.</span><span class="na">getLastKnownLocation</span><span class="o">(</span><span class="n">locm</span><span class="o">.</span><span class="na">getBestProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">Criteria</span><span class="o">(),</span><span class="kc">false</span><span class="o">));</span>
+    <span class="n">geo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Geocoder</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Got Location&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">loc</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+
+      <span class="kt">double</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="na">getLongitude</span><span class="o">();</span>
+      <span class="kt">double</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="na">getLatitude</span><span class="o">();</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">address</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="na">getFromLocation</span><span class="o">(</span><span class="n">lat</span><span class="o">,</span> <span class="n">lon</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+      <span class="o">}</span>
+      <span class="n">addr</span> <span class="o">=</span> <span class="n">address</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;got Lat and Lon and geocode&quot;</span><span class="o">);</span>
+
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;\n&quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;LAT: &quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">lat</span><span class="o">);</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot; | LON: &quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">lon</span><span class="o">);</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot; | Country:  &quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getCountryName</span><span class="o">();</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;, &quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getLocality</span><span class="o">();</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;, &quot;</span><span class="o">;</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getPostalCode</span><span class="o">();</span>
+      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;| &quot;</span><span class="o">;</span>
+
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">addr</span><span class="o">.</span><span class="na">getMaxAddressLineIndex</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">msg</span> <span class="o">+=</span>  <span class="n">addr</span><span class="o">.</span><span class="na">getAddressLine</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="o">;</span>
+      <span class="o">}</span>
+
+      <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;No location&quot;</span><span class="o">);</span>
+      <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;No Location&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onLocationChanged</span><span class="o">(</span><span class="n">Location</span> <span class="n">location</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;location changed&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStatusChanged</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">,</span> <span class="kt">int</span> <span class="n">status</span><span class="o">,</span> <span class="n">Bundle</span> <span class="n">bundle</span><span class="o">){</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;status changed&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProviderEnabled</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">provider</span> <span class="o">+</span> <span class="s">&quot; is enabled&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProviderDisabled</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">provider</span> <span class="o">+</span> <span class="s">&quot;is disabled&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleGPS</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="n">GPSView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<ol>
+<li><p>Get an instance of a LocationManager object, this can be done by calling the getSystemService() method of the Application Context</p></li>
+<li><p>Call the getLastKnownLocation() method of the location manager object to get a Location object</p></li>
+<li><p>From the location object, you can extract the longitude and latitude information, both these methods will return a double data type. At this point, you already have latitude and longitude info---you can stop here if that is all you need. If on the other hand, you need to get a human readable address, like Country, Locality etc. Use the Geocoder class and do a reverse geocoding---continue to <em>step 4</em></p></li>
+<li><p>Create an instance of Geocoder</p></li>
+<li><p>Call the getFromLocation(latitude, longitude, 1) of the geocoder object. The third parameter is the maximum number of results (addresses) that you wish to extract. In the example, we are only interested in 1 address, hence the third parameter is an an int value 1</p></li>
+<li><p>getFromLocation() will return a java.util.List object, it will have only 1 element (because the third parameter that was passed instructed it to return only 1 value). Extract that element, it will be an android.location.Address object</p></li>
+<li><p>Extract the members of the Address object to get the address lines, country name and locality. There are a lot more information on the address object, just look up the API if you need to extract more information</p></li>
+</ol>
+
+
+<p><strong>NOTE:</strong> The LocationListener interface is not necessary if you simply want to get the current GPS information on the device. You will need the the callbacks of the LocationListener if you want something to happen in response to the following;</p>
+
+<ul>
+<li>When the location has changed – onLocationChanged()</li>
+<li>When there is change on status of the GPS provider – onStatusChanged()</li>
+<li>When the GPS provider is disabled – onProviderDisabled()</li>
+<li>When the GPS provider is enabled – onProviderEnabled()</li>
+</ul>
+
+
+        </div>        
+        <div class='content-meta'>
+          posted by 
+          <a href='https://plus.google.com/107317535953221277825?rel=author'>Ted</a>
+          on &nbsp; 12 December 2012
+        </div>
+        
+      </div>
+    </article>
+    <footer>
+<div id='footer-inner'>
+
+
+
+</div></footer>
+
+  </body>
+</html>

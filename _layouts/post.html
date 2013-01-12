@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+	{% include head.html %}
+	<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    {% include head.html %}
+    <link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>{% include header.html %}</header>
+    <article itemscope itemtype="http://schema.org/Article">
+      <div id="post">
+        <h1>{{ page.title }}</h1>
+        <div itemprop='articleBody'>
+        {{ content }}
+        </div>        
+        <div class='content-meta'>
+          posted by 
+          <a href='https://plus.google.com/107317535953221277825?rel=author'>Ted</a>
+          on &nbsp; {{ page.date | date: "%d %B %Y" }}
+        </div>
+        
+      </div>
+    </article>
+    <footer>{% include footer.html%}</footer>
+
+  </body>
+</html>

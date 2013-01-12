@@ -1,19 +1,13 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>http://thelogbox.github.com/one/</loc>
-        <lastmod>2013-01-04T15:54:31+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://thelogbox.github.com/blog/archives/</loc>
-        <lastmod>2013-01-04T15:54:31+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://thelogbox.github.com/</loc>
-        <lastmod>2013-01-04T15:54:31+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://thelogbox.github.com/robots.txt</loc>
-        <lastmod>2013-01-04T15:54:13+08:00</lastmod>
-    </url>
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in site.posts %}
+  <url>
+    <loc>http://news.thelogbox.com/{{ post.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  {% endfor %}
 </urlset>
