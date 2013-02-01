@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to find out which application is using what port: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">How to find out which application is using what port</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <table><tbody>
+<tr class="odd">
+<td align="left"><strong>UPDATE (June 3,2009)</strong></td>
+</tr>
+<tr class="even">
+<td align="left">The original article describes the steps to take on how to find applications that are using your port in a Windows machine, using only tools that came with your Windows installation--no third party apps. I am updating the article now to include a third party tool; WinNetstat is a GUI tool for netstat, it's at winnetstat.zapto.org</td>
+</tr>
+</tbody></table><p>Network-aware applications are a pain in the __ when they are acting up. They are particularly annoying and infuriating when they don't want to start. If you have tried starting Apache or MySQL etc either in stand-alone mode or service mode (daemon mode in UNIX), you'd know what I'm saying.</p>
+<p>The first thing to check when network-aware applications won't start, is of course -- their log files, try to see what's preventing them from starting; Almost always, the log file is going to tell you the reason why the app won't start.</p>
+<p>Lots of times, I encounter the problem of two applications using exactly the same port number -- just to be clear, that's bad -- What the heck is a port number? -- I'd point you to Wikipedia, but it's too geeky and too academe-ish. I'll take a shot of defining what an application port number is instead; I'll segue a bit, then I'll come back to the main point, which is how to hunt an app that's hostaging a port number .. (holding my breath now)</p>
+<h2 id="what-is-an-application-port-number">What is an application port number?</h2>
+<p>Every application that needs to talk to other applications, needs to have a port number. Every computer can give out port numbers ranging from 0 - 65535, and once a port number is given, it cannot be given to another application (while it is running at least) -- so, one application is to one port number. The reason why application have port numbers is so that, when one application (say Firefox) wants to talk to another application (in another computer, say Apache; a web server), Firefox needs to know that when he sends out a message, it will be received by the intended recipient (Apache), and this can only be done if Firefox knows exactly where Apache is. There are 2 components that make up a unique address of an application -- one is the IP address of the machine where the application is running, and the other component is -- you guessed it, the port number; Collectively these two (IP address and port number) are known as a socket, but that's another story, let's stop here -- What's important to know is that, port numbers are -- well, important; they determine the uniqueness of an application within a machine. How to hunt down applications via their port numbers</p>
+<p>I'm sure there could be a more neat - albeit geekier - way of finding out which app is using which port; but will do it verbosely; easier to follow too.</p>
+<p>You will use a command line tool called netstat (network status); netstat is available on Windows, UNIX, and Linux, there are few differences in the parameters though, so I will cover UNIX and Linux separately (in another post that is)</p>
+<p>You will also use another command line utility called findstr (short for find string), it's a Windows command line utility which does -- well, find strings. It locates patterns of strings within a stream of other strings. So, it's a handy utility when searching for very specific words (or part of words) within a large text file. If you've ever used the Find function in a word processor, you get the picture already. The UNIX folks have been enjoying this tool for a long time, it's called grep.</p>
+<p>Anyway, the basic idea is to use the netstat command so that we can list all the applications that are either accepting or sending network traffic, and we'd like to list their port numbers and their process IDs too. Then, when we find the port number we are looking for, we will list all the running processes and make the match using the process ID -- then we'll know who the culprit is.</p>
+<p>Let's say that we are looking for port 80 -- IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. Here is the command.</p>
+<pre><code>C:\&gt;netstat -aon | findstr 0.0:80</code></pre>
+<p>-a means list all active connections and their ports. -o means include their process IDs. -n means display the port numbers numerically.</p>
+<p>The pipe symbol means, that instead of the result of netstat being displayed on the screen, feed it's result to the findstr process -- we are looking specifically for the line which has 0.0:80 -- you actually don't need findstr, but I don't want to scroll down and hunt down manually which app is using port 80. You might see something like this.</p>
+<pre><code>TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 560</code></pre>
+<p>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the process window, and manually look up which app has the process ID 560, or you could enter ..</p>
+<pre><code>C:\&gt;tasklist | findstr 560</code></pre>
+<p>tasklist is another Windows command line utility which shows you a list of all active processes, again I'd feed it to the findstr utility via the pipe operator, and voila -- Skype is the culprit.</p>
+<p>Skype actually doesn't have to use port 80, it can use other port numbers -- but for some reason, it just does. This topic deserves another post (I'm sure somebody else has this covered). But for now, this is what you do.</p>
+<ol style="list-style-type: decimal">
+<li>Shutdown skype, either via the GUI; or if you're feeling geeky enough, you can try taskkill /F /PID 560 (this will be different on your system)</li>
+<li>Start Apache, or IIS or whatever it is that needs to use port 80</li>
+<li>Then start skype again</li>
+</ol><p>if you repeat the procedure of netstat and tasklist, you'll see that skype now happily uses another port number.</p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"How to find out which application is using what port"</span>
+       on 
+       <span itemprop="dateCreated"> 3.Feb.2009 </span>
+       and is filed under 
+      <span itemprop="keywords">apache, internet-ports, howto </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

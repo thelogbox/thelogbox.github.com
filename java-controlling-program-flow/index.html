@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Controlling Program Flow: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Controlling Program Flow</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;</p>
+<ol style="list-style-type: decimal">
+<li>You can execute commands one after another -- <strong>sequencing</strong>
+</li>
+<li>You can execute certain commands when certain conditions are met -- <strong>branching</strong>
+</li>
+<li>You can keep on repeating certain commands while certain conditions are still true -- <strong>looping or iteration</strong>
+</li>
+</ol><h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Write loops and nested loops</li>
+<li>Write if conditions and nested if conditions</li>
+<li>Identify the legal arguments that you can write inside a for loop</li>
+<li>Identify the legal arguments that you can write inside a while loop</li>
+<li>identify legal argumentns you can write inside if statements</li>
+<li>Use the switch statement (when possible)</li>
+</ul><h2 id="the-if-statement">The if statement</h2>
+<pre id="if"><code>if(condition) {
+    statement 1;
+    statement 2;
+    statement n;
+}</code></pre>
+<p>The <em>if</em> statement allows you to conditionally perform some commands. It allows you side-step the main flow of your code. If you remember the flowcharting symbols, when you see the diamond shape, it means you have a fork in the road. When a condition is met, you either go left or right. That is what the <em>if</em> statement does. It allows you to test for conditions. When the condition is true, you go to the beginning of the if block (the opening curly brace) and begin executing all the statements there until all the statements are exhausted. When you have reached the end of the block (the closing curly brace), then there are no more commands to execute. The flow of control will resume immediately after the end of the curly brace.</p>
+<p>The <em>condition</em> in the <em>if</em> statement can be written as expressions that will evaluate to either true or false. This is the most common use you will have of the if statement. On some occassions, you may see the condition written as the literals <em>true</em> or <em>false</em> -- this is rare, but it will still be a legal code.</p>
+<h4 id="a-possible-gotcha-on-the-if-statement">A possible gotcha on the if statement</h4>
+<pre id="gotcha"><code>int i = 0;
+if(i = 1) {
+    System.out.println("but i is equal to one");
+}</code></pre>
+<p>If you have coded in <strong>C</strong> before, you might fall into this gotcha. Do not worry though, Java will not allow you to make a mess like this. This will be caught by the compiler.</p>
+<p>The reason that the gotcha code above is not legal is because <em>i = 1</em> is not a boolean expression. It is an assignment operation. Java requires that the condition evaluate to either true or false.</p>
+<h4 id="nested-if-statements">Nested if statements</h4>
+<p>You can put an if statement inside another if statement. You can in fact nest them up pretty deeply. While there is no set limit on how deep you can nest if statements, practical considerations and code readability should knock some sense into your code.</p>
+<p>From my experience, whenever I am treading dangerously deep into a web of if-else-if-else … I usually take a step back and look if there are other ways of going about routing the program flow. It could be a design or analysis problem already and that using the if-else statement is not the right tool to solve the problem at hand.</p>
+<h2 id="the-while-loop">The while loop</h2>
+<p>The <em>while</em> loop and <em>for</em> loop may overlap at times because they have a similar function. For a beginner, it may not be quite obvious when to use one and not the other. The basic difference of the two loops though is that;</p>
+<ol style="list-style-type: decimal">
+<li>Use the <em>while</em> loop if you do not know how many times you need to loop</li>
+<li>Use the <em>for</em> loop if you actually know how many times you will need to go through the loop</li>
+</ol><p>The canonical form of the <strong>while loop</strong></p>
+<pre id="while"><code>while(condition) {
+    statement 1;
+    statement 2;
+    statement n;
+}</code></pre>
+<p>The <em>condition</em> is either a literal (the keywords true or false) or an expression that will evaluate to either true or false (boolean values).</p>
+<p>The basic ideas in the while loop are the following.</p>
+<ol style="list-style-type: decimal">
+<li>The condition is evaluated for the first time, if the condition is true or resolves to true, then;</li>
+<li>Perform statement 1, then;</li>
+<li>Perform statement 2, then;</li>
+<li>Perform statement n, then;</li>
+<li>The program detects that we are at the end of while block (the closing curly brace is the end of the while block)</li>
+<li>The program will loop back to the condition and re-evaluate it again, if it still true, then;</li>
+<li>Perform statement (again)</li>
+<li>rinse repeat until you get the end of the end of the block again and until you get to re-evaluate the condition (again).</li>
+</ol><p>You will only drop off end of the while block if and when the condition evaluates to false. This is the reason it is best to remember that you need write code inside the while block that will make the condition false at some point in time, lest you end up in a perpetual loop.</p>
+<p>Example code:</p>
+<pre id="while-sample"><code>    import static java.lang.System.out;
+
+    class While {
+
+        public static void main (String [] args){
+
+            boolean condition = true;
+            int counter = 0;
+
+            while(condition) {
+                out.println(counter);
+                counter = counter + 1;
+                if(counter &gt;10) {
+                    condition = false;
+                }
+            }
+        }
+    }</code></pre>
+<p>Like the <em>if</em> statement, you can also nest a while loop inside another while loop.</p>
+<h2 id="the-for-loop">The for loop</h2>
+<pre><code>for(beginning value; ending value; step) {
+    statement 1;
+    statement 2;
+    statement 3;
+}</code></pre>
+<p>The <em>for loop</em> like the <em>while loop</em> allows you to iterate and perform a group of statements over and over again. The for loop though, allows for more control.</p>
+<p>A key concept in using the for loop is the counter (the <strong>step</strong>). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the <strong>step</strong> value is incremented. The incremented step value is then compared to the <strong>ending value</strong>, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block.</p>
+<p>In this example, we print some numeric values from zero (0) to ten (10). This is the exact thing that our <em>while</em> example was doing earlier.</p>
+<pre><code>class for_sample {
+
+    public static void main (String [] args) {
+        for(int i=0; i&lt;=10;i++) {
+            System.out.println(i);
+        }
+    }
+
+}</code></pre>
+<h2 id="the-switch-statement">The switch statement</h2>
+<p>When the nature of the decision you need to make is a bit on the fuzzy side, it could be impractical to use the if-statement, for those kinds of decisions, you will use the switch-statement.</p>
+<p>The syntax of the switch statement is;</p>
+<pre id="switch"><code>switch(expression) {
+  case CONSTANTEXPR:
+  case ENUMCONSTANTNAME:
+  default:
+}</code></pre>
+<p>Where expression can either be a char, byte, short, int OR Character, Byte, Short, Integer OR an enum type. By the way, Character is not the same as char, that wasn't a typo. Character is a Java class which is a wrapper class for the char primitive.</p>
+<p>Let's take a look at some sample code. The <em>SwitchSample.java</em> code extracts the <em>Day of Week</em> value from a Java Calendar object. The Day of Week is returned as integer, which makes it perfect to filter using a Switch statement rather than nested <em>ifs</em></p>
+<pre id="switchsample"><code>import java.util.Calendar;
+
+class SwitchSample {
+
+    public static void main(String args[]){
+
+        Calendar now = Calendar.getInstance();
+        int dow = now.get(Calendar.DAY_OF_WEEK);
+
+        switch(dow) {
+            case 0:
+                System.out.println("Sunday");
+                break;
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            default:
+                System.out.println("What the value really is = " + dow);
+            }
+        }
+}</code></pre>
+<p>The switch is really simple to use, just put the expression which you'd like to test as an argument to the switch statement, then have a series of case statements inside the switch body.</p>
+<p>Each case statement corresponds to a value, if the value of the expression is equivalent to a case value, then instructions immediately right after the colon of the case statement will be executed/evaluated, in fact the rest of the statements will be evaluated, all the way down, until it gets to the last instruction at the bottom of the switch statement; that's not what your intention might be; that is the reason why I put a break statement. Once a case statement evaluates to true, Java blindly executes all the statements after that case, it won't even bother checking the other cases -- so note this, and be careful.</p>
+<h2 id="nesting-for-loops">Nesting For Loops</h2>
+<p>A <em>for loop</em> within another for loop is useful when you need to work with product of more than one set. That maybe a little vague, I would say -- when you need to work with Cartesian products, but I don’t think that will help the vagueness at all. Let me try again.</p>
+<p>Imagine the multiplication table, if we were to generate the multiplication table, the size of which is 3 rows by 5 columns, it would look like this</p>
+
+<p>We all know how to do this arithmetically, but if we were to write a code for this using Java, it may stomp us for a little while. Look closely though and you will start to see a plan of attack. That is, if I write a <em>for loop</em> to walk through the values of the first column (1..6), it would look like.</p>
+<pre><code>for(int i=1; i&lt;=6 ; i++) {
+    print(i);
+    }</code></pre>
+<p>Let’s make a minor change on the statement inside the <em>for loop</em></p>
+<pre><code>for(int i=1; i&lt;=6 ; i++) {
+    print(i * 1);
+}   </code></pre>
+<p>This does not really change our output arithmetically, anything multiplied by 1 is equal to itself. This small modification though gives us further insight into our Cartesian problem and one step closer to the solution.</p>
+<p>We can programatically increase the value of the multiplier by one, which then allows us to generate the values for the rows (2..4). We can use another loop inside the first <em>for loop</em>.</p>
+<pre id="for-example"><code>    for(int i=col; col&lt;=6 ; col++) {
+        for(int row=1;row&lt;=4;row++) {
+            print(col*row);
+        }
+    }</code></pre>
+<h2 id="break-ing-and-continue-ing">Break-ing and Continue-ing</h2>
+<p>The <strong>break</strong> and <strong>continue</strong> keywords disrupts program flow inside loops, whether the for-loop or while-loop.</p>
+<pre id="break"><code>while(condition) {
+    statement 1;
+    statement 2;
+    break;
+    statement 3;
+    statement 4;
+}
+
+statement 5;
+statement n;</code></pre>
+<p>The <strong>break</strong> statement causes the program flow inside a block to forcibly exit (whether for-loop or while-loop). In example code above, as soon as the <strong>break</strong> statement is encountered, the program control will ignore statement 3 and 4. The while loop will go out of scope and program control will be transferred to the first executable statement immediately after the while block -- in this case, statement 5.</p>
+<p>You normally will not use the <strong>break</strong> statement in this fashion because it doesn't make sense. This statement is usually deployed with more logic finesse. Let me show you an example.</p>
+<pre id="break"><code>while(condition) {
+    statement 1;
+    statement 2;
+
+    if(someCondition) {
+        break;
+    }   
+
+    statement 3;
+    statement 4;
+}
+
+statement 5;
+statement n;</code></pre>
+<p>This is a more likely use of the <strong>break</strong> statement. I should warn you though that this is a frowned upon practice. A truly structured programming should have only one entry point and one exit point. Because of the introduction the <strong>break</strong> statement, our control structure now has one entry point and two exit points.</p>
+<p>While this code is innocent enough right now, it could get very hairy and complicated. You will appreciate following the 1-entry-1-exit rule when you have had your fair share of debugging someone else's code and you are wading through a maze of nested structures with lots of breaks peppered into the source code.</p>
+<p>Next is the <strong>continue</strong> keyword. Here is how it behaves.</p>
+<pre id="break"><code>while(condition) {
+    statement 1;
+    statement 2;
+    continue;
+    statement 3;
+    statement 4;
+}
+
+statement 5;
+statement n;</code></pre>
+<p>When the <strong>continue</strong> statement is encountered, statements 3 and 4 will be ignored (just like how it was with the break). Unlike the case in <strong>break</strong> though, the loop will not go out of scope and will not be immediately terminated.</p>
+<p>What the continue statement will do is to go back to the beginning of the loop and forcibly re-evaluate condition. If the condition is still true, then the loop continues normally.</p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Controlling Program Flow"</span>
+       on 
+       <span itemprop="dateCreated"> Nov 2011 </span>
+       and is filed under 
+      <span itemprop="keywords">java, programming concepts </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

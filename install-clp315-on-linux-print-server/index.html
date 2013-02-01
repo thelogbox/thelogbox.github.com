@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Install Samsung CLP 315 on Debian Linux Print Server: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Install Samsung CLP 315 on Debian Linux Print Server</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <h2 id="objective">Objective</h2>
+<ol style="list-style-type: decimal">
+<li>Install the Samsung CLP 315 color laser printer</li>
+<li>To do No.1 on Debian Squeeze</li>
+<li>To do No. 2 on a headless server (no monitor, no keyboard -- it's a server)</li>
+</ol><h2 id="what-you-need">What you need</h2>
+<ol style="list-style-type: decimal">
+<li>A Linux Server configured for printing (CUPS server). If you don't have this yet, read the instruction on <a href="/easy-way-to-install-print-server-linux/">How to install a Linux print server</a>
+</li>
+<li>The Samsung CLP 315, powered and plugged-in to one of the USB ports of your Linux Print server</li>
+<li>An Internet connection, to download the driver from Samsung</li>
+</ol><h2 id="installing-the-clp-315-driver">Installing the CLP 315 driver</h2>
+<ol style="list-style-type: decimal">
+<li>Get the UnifiedLinuxDriver.tar either from the CD that came with the printer or from the <a href="http://www.samsung.com">Samsung site</a>. You need to navigate the site a little bit. Go to <em>Support and Downloads</em> page, then find the printer, there is a wizard</li>
+<li>Find a way to SSH to your Linux Server, <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> should do it</li>
+<li>Find a way to upload UnifiedLinuxDriver.tar.gz to your headless server. FTP or SCP or even Samba shares should do it</li>
+<li>Unzip, or rather, untar the UnifiedLinuxDriver -- <em>$ sudo tar -xzvf UnifiedLinuxDriver.tar.gz</em>
+</li>
+<li>Change directory to <em>cdroot</em>, this is one of the folders that is contained in the UnifiedLinuxDriver</li>
+<li>Run the installer -- <em>$ sudo install.sh</em> . The installer was intended to be ran from GUI workstation, so it will give you some warnings that may look like errors. It will eventually detect that you are not running on a GUI and it will degrade gracefully to a text-based installation. We need to run the installer because we need a very specific file. That file is <strong>rastertosamsungsplc</strong>, it is the PPD file we need for the CLP 315 printer to function normally in Linux</li>
+</ol><h2 id="second-part-of-installation">Second part of installation</h2>
+<p>Copy the rastertosamsungsplc ppd file <em>/usr/lib/cups/filter</em> folder</p>
+<pre><code>$ cd /path/to/where/rastertosamsungsplc-is/
+$ cp rastertosamsungsplc /usr/lib/cups/filter/rastertosamsungsplc
+$ sudo /etc/init.d/cupsd restart</code></pre>
+<p>At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type <em>http://NameOfPrintServer:631</em>. Click <em>Administration --&gt; Add Printer</em></p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Install Samsung CLP 315 on Debian Linux Print Server"</span>
+       on 
+       <span itemprop="dateCreated"> 7.April.2009 </span>
+       and is filed under 
+      <span itemprop="keywords">linux, administration, printer, howto </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

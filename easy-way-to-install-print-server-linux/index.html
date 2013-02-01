@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to install (easily) a linux print server: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">How to install (easily) a linux print server</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <h2 id="objective">Objective</h2>
+<ol style="list-style-type: decimal">
+<li>Make a printer available for sharing over a local area network</li>
+<li>Use Linux as the print server</li>
+<li>Make the printer available over IPP (internet printing protocol) and LPD (Linux Print Daemon)</li>
+</ol><h2 id="what-to-work-with">What to work with</h2>
+<ol style="list-style-type: decimal">
+<li>Minimally installed Debian squeeze - print server</li>
+<li>Samsung CLP-315 color printer</li>
+<li>Single subnet local area network</li>
+</ol><h2 id="steps">Steps</h2>
+<p><strong>Install CUPS</strong> from the Debian repositories..</p>
+<blockquote>
+<p>CUPS is the standards-based, open source printing system developed by Apple Inc for Mac OSX and other UNIX-like operating systems <cite><a href="http://www.cups.org">CUPS.org</a></cite></p>
+</blockquote>
+<pre><code>$ sudo apt-get install cupssys</code></pre>
+<p><strong>Edit /etc/cups/cupsd.conf</strong>. There is a lot of entries on the default cupsd.conf and it could be distracting. One way to ease the cupsd.conf configuration is to start with a clean slate.</p>
+<pre><code>$ cd /etc/cups
+$ sudo cp cupsd.conf cupsd.conf.original
+$ sudo echo "" &gt; cupsd.conf </code></pre>
+<p>Line no. 2 above makes a copy of the original cupsd.conf and line no.3 wipes out the textual content of cupsd.conf, now you can edit cupsd.conf with minimal fuss. The contents of cupsd.conf is as follows</p>
+<pre><code>LogLevel debug
+SystemGroup lpadmin
+# Allow remote access
+Port 631
+Listen /var/run/cups/cups.sock
+# Share local printers on the local network.
+Browsing On
+BrowseOrder allow,deny
+BrowseAddress @LOCAL
+
+#DefaultAuthType Basic
+
+&lt;Location /&gt;
+    Allow localhost
+    Allow 192.168.0.*
+    Allow all
+    # Allow shared printing and remote administration...
+    Order allow,deny
+    Allow all
+&lt;/Location&gt;
+&lt;Location /admin&gt;
+    Allow 192.168.0.*
+    Encryption Required
+    Allow all
+    Allow all
+    # Allow remote administration...
+    Order allow,deny
+    Allow all
+&lt;/Location&gt;
+&lt;Location /admin/conf&gt;
+    Allow 192.168.0.*
+    #  AuthType Default
+    #  Require user @SYSTEM
+    Allow all
+    # Allow remote access to the configuration files...
+    Order allow,deny
+    Allow all
+&lt;/Location&gt;</code></pre>
+<p>Obviously not a very tight and secure cups configuration. If this is your first time to install CUPS, this could a be a good way to start the configuration -- everything is open, then you can tighten it later on.</p>
+<p><strong>Next</strong> <a href="/install-clp315-on-linux-print-server/">Add the Samsung CLP 315 to the print server</a></p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"How to install (easily) a linux print server"</span>
+       on 
+       <span itemprop="dateCreated"> 6.Feb.2009 </span>
+       and is filed under 
+      <span itemprop="keywords">linux, administration, printer-sharing, howto </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

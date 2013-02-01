@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rip youtube videos in Linux and OSX - command line: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Rip youtube videos in Linux and OSX - command line</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <h2 id="motivations">Motivations</h2>
+<ol style="list-style-type: decimal">
+<li>To save youtube videos locally in the hard drive</li>
+<li>To rip the audio portion of the youtube videos</li>
+<li>To do No. 1 and No. 2 without using browser plugins</li>
+<li>To dno No. 1 and No. 2 using command line utilities</li>
+</ol><h2 id="what-you-will-need">What you will need</h2>
+<ol style="list-style-type: decimal">
+<li>
+<a href="http://rg3.github.com/youtube-dl/">youtube-dl</a> - This pull the youtube content, ala curl or wget</li>
+<li>
+<a href="http://ffmpeg.org">ffmpeg</a> and <a href="http://lame.sourceforge.net">lame</a> - These two you will need to transform the downloaded content because youtube-dl will pull a .webm file, if you have capability to play a .webm file, you may not need to transform them. In Lubuntu, the .webm is supported</li>
+</ol><h3 id="preparing-the-software---linux">Preparing the software - Linux</h3>
+<p>This method used the Debian apt-get installer, it will be different for other Linux distros</p>
+<pre><code>$ sudo apt-get install ffmpeg lame youtube-dl</code></pre>
+<h3 id="preparing-the-software---osx">Preparing the software - OSX</h3>
+<p>Either BREW or MacPorts can be used. I used BREW</p>
+<pre><code>$ sudo brew install youtube-dl
+$ sudo brew install ffmpeg
+$ sudo brew install lame</code></pre>
+<h2 id="how-to-rip-youtube-videos">How to rip youtube videos</h2>
+<ol style="list-style-type: decimal">
+<li>Find the url of the youtube video you want to rip</li>
+<li>use youtube-dl to rip the content -- <em>$ youtube-dl {http://YoutubeVideo Address}</em>
+</li>
+<li>The downloaded file is a .webm file, transform it to wav -- <em>$ ffmpeg -i {DownloadedFileName.webm} {TargetFileName.wav}</em>
+</li>
+<li>If .wav is okay for you, you can stop now. If you want to transform further to MP3 format use the lame utility -- <em>$ lame {FileName.wav} {FileName.mp3}</em>
+</li>
+</ol>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Rip youtube videos in Linux and OSX - command line"</span>
+       on 
+       <span itemprop="dateCreated"> 12.April.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">linux, osx, youtube, multimedia </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

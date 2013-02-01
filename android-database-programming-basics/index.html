@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Android Database Programming basics: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Android Database Programming basics</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>SQLite3 is an embedded database. The Android runtime has got this db engine baked into it, so you don't have to install it, its already there. Every Android application you create can use a SQLite3 db.</p>
+<p>For old hands in Java, bad news, because you won't be able to use the JDBC API. There's a new set of API to learn if you want to do db programming in Android---the good news, the API is not very complicated. It won't take you an afternoon to learn.</p>
+<h1 id="use-case">Use case</h1>
+<ol style="list-style-type: decimal">
+<li>Let the user type anything he wants on a free-form editable text component (EditText)</li>
+<li>Get the runtime value of the EditText, then insert this record into the SQLite db</li>
+<li>Read the whole table, display it in a scrollable, non-editable text display component (TextView)</li>
+</ol><h1 id="concepts">Concepts</h1>
+<p>In web or desktop programming, we are used to creating the database using familiar tools like an IDE. In Android development, you will need to master the SQLite APIs even as early as database creation.</p>
+<p>The SQLiteHelper (found in android.database.sqlite.SQLiteHelper) holds the key to activities such as <strong>database creation and upgrade</strong>. You will also use this class to get a handle on either a <em>readable</em> or <em>writable</em> database. Think of it a replacement to the <em>Connection</em> object that you use to love in JDBC.</p>
+<p>Next, learn to use <em>SQLiteDatabase</em> object. If <em>SQLiteOpenHelper</em> is the equivalent of the Connection object, SQLiteDatabase is the equivalent of the <em>Statement</em> object (in JDBC). If you need to perform an <strong>insert</strong> or a raw <strong>execSQL</strong>, SQLiteDatabase is responsible for that.</p>
+<p>Finally, you need to be acquainted with the <em>Cursor</em> object. Think of it as the equivalent of the <em>ResultSet</em> object in JDBC. If you need a handle in actual rows and columns of your db tables, this is the object you will use.</p>
+<h1 id="steps">Steps</h1>
+<p><span class="stress">First, </span>create an Android project, throw in an <em>Activity</em> class during creation. Compose the UI, the res/layout/main.xml might look like this</p>
+<pre><code class="language-xml"><span class="line-numbers">10</span><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="line-numbers">11</span><span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+<span class="line-numbers">12</span>    <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
+<span class="line-numbers">13</span>    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">14</span>    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">15</span>    <span class="tag">&gt;</span>
+<span class="line-numbers">16</span>
+<span class="line-numbers">17</span>    <span class="tag">&lt;EditText</span>
+<span class="line-numbers">18</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">19</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+<span class="line-numbers">20</span>        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/todoedit</span><span class="delimiter">"</span></span>
+<span class="line-numbers">21</span>        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span>
+<span class="line-numbers">22</span>    <span class="tag">/&gt;</span>
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span>    <span class="tag">&lt;ScrollView</span>
+<span class="line-numbers">25</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">26</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+<span class="line-numbers">27</span>        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span>
+<span class="line-numbers">28</span>    <span class="tag">&gt;</span>
+<span class="line-numbers">29</span>
+<span class="line-numbers">30</span>        <span class="tag">&lt;TextView</span>  
+<span class="line-numbers">31</span>            <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
+<span class="line-numbers">32</span>            <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
+<span class="line-numbers">33</span>            <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">I have nothing</span><span class="delimiter">"</span></span>
+<span class="line-numbers">34</span>            <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/tododisplay</span><span class="delimiter">"</span></span>
+<span class="line-numbers">35</span>        <span class="tag">/&gt;</span>
+<span class="line-numbers">36</span>    <span class="tag">&lt;/ScrollView&gt;</span>
+<span class="line-numbers">37</span>    <span class="tag">&lt;Button</span>
+<span class="line-numbers">38</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">39</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+<span class="line-numbers">40</span>        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Add item</span><span class="delimiter">"</span></span>
+<span class="line-numbers">41</span>        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/btnadd</span><span class="delimiter">"</span></span>
+<span class="line-numbers">42</span>        <span class="attribute-name">android:onClick</span>=<span class="string"><span class="delimiter">"</span><span class="content">recAdd</span><span class="delimiter">"</span></span>
+<span class="line-numbers">43</span>        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span>
+<span class="line-numbers">44</span><span class="tag">/&gt;</span>
+<span class="line-numbers">45</span><span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<p>The <em>TextView</em> component is embedded in a <em>ScrollView</em> component so that we can scroll through the contents of the TextView. The ScrollView acts like a viewport. We also used <em>weight</em> property of the layout so that our viewport is given the most screen real-estate. See the note on <a href="/android-layout-weights">how to use weights to maximize screen space</a></p>
+<p>The <em>Button's</em> onClick property is a method called <strong>recAdd</strong> which we need to define inside the Activity class.</p>
+<p><span class="stress">Second</span>, create a class that extends the <em>SQLiteOpenHelper</em> class</p>
+<pre><code class="language-java"><span class="line-numbers">10</span><span class="comment">/*</span>
+<span class="line-numbers">11</span><span class="comment"></span>
+<span class="line-numbers">12</span><span class="comment">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="line-numbers">13</span><span class="comment">All rights reserved.</span>
+<span class="line-numbers">14</span><span class="comment"></span>
+<span class="line-numbers">15</span><span class="comment">License text: http://thelogbox.com/source-docs/software-license.txt</span>
+<span class="line-numbers">16</span><span class="comment"></span>
+<span class="line-numbers">17</span><span class="comment">*/</span>
+<span class="line-numbers">18</span>
+<span class="line-numbers">19</span>
+<span class="line-numbers">20</span><span class="comment">// SQLiteOpenHelper .java</span>
+<span class="line-numbers">21</span>
+<span class="line-numbers">22</span><span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span><span class="keyword">import</span> <span class="include">static</span> <span class="include">android.provider.BaseColumns._ID</span>;
+<span class="line-numbers">25</span><span class="keyword">import</span> <span class="include">android.content.Context</span>;
+<span class="line-numbers">26</span><span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteDatabase</span>;
+<span class="line-numbers">27</span><span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteOpenHelper</span>;
+<span class="line-numbers">28</span>
+<span class="line-numbers">29</span>
+<span class="line-numbers">30</span><span class="directive">public</span> <span class="type">class</span> <span class="class">DbHelper</span> <span class="directive">extends</span> SQLiteOpenHelper {
+<span class="line-numbers">31</span>
+<span class="line-numbers">32</span>    <span class="predefined-type">String</span> sqlcreate = <span class="string"><span class="delimiter">"</span><span class="content">CREATE TABLE todo( </span><span class="delimiter">"</span></span> + _ID  + <span class="string"><span class="delimiter">"</span><span class="content"> INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);</span><span class="delimiter">"</span></span>;
+<span class="line-numbers">33</span>
+<span class="line-numbers">34</span>
+<span class="line-numbers">35</span>    <span class="directive">public</span> DbHelper(<span class="predefined-type">Context</span> ctx) {
+<span class="line-numbers">36</span>        <span class="local-variable">super</span>(ctx,<span class="string"><span class="delimiter">"</span><span class="content">tododb.db</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>, <span class="integer">1</span>);
+<span class="line-numbers">37</span>    }
+<span class="line-numbers">38</span>
+<span class="line-numbers">39</span>    <span class="annotation">@Override</span>
+<span class="line-numbers">40</span>    <span class="directive">public</span> <span class="type">void</span> onCreate(SQLiteDatabase db) {
+<span class="line-numbers">41</span>        db.execSQL(sqlcreate);
+<span class="line-numbers">42</span>    }
+<span class="line-numbers">43</span>
+<span class="line-numbers">44</span>    <span class="annotation">@Override</span>
+<span class="line-numbers">45</span>    <span class="directive">public</span> <span class="type">void</span> onUpgrade(SQLiteDatabase db, <span class="type">int</span> oldversion, <span class="type">int</span> newversion) {
+<span class="line-numbers">46</span>        db.execSQL(<span class="string"><span class="delimiter">"</span><span class="content">DROP TABLE IF EXISTS tododb.db</span><span class="delimiter">"</span></span>);
+<span class="line-numbers">47</span>        onCreate(db);
+<span class="line-numbers">48</span>    }
+<span class="line-numbers">49</span>
+<span class="line-numbers">50</span>}</code></pre>
+<p>You need to do <strong>3 things</strong> at a minimum when defining a SQLiteOpenHelper.</p>
+<ol style="list-style-type: decimal">
+<li><p>Define a public constructor that accepts a <em>Context</em> object. This context is the context of the <em>Activity</em> class where you will instantiate the Helper class. Call the <em>super</em> constructor so that you don't break the chain. The first parameter to super constructor is the <em>context object</em>---you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed <em>null</em> to it. The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the <em>onUpgrade()</em> method kicks in---it will perform some sort of an ALTER database command in your behalf.</p></li>
+<li><p>Override the <em>onCreate()</em> method. This is where you can execute DDL (SQL Data Definition) commands against the database.</p></li>
+<li><p>Override the <em>onUpgrade()</em> method, even if you won't need it yet. You won't be able to compile unless you override this method</p></li>
+</ol><p><span class="stress">Third</span>, Implement the method to insert records and read records from the SQLite db</p>
+<pre><code class="language-java"><span class="line-numbers">10</span><span class="comment">/*</span>
+<span class="line-numbers">11</span><span class="comment"></span>
+<span class="line-numbers">12</span><span class="comment">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="line-numbers">13</span><span class="comment">All rights reserved.</span>
+<span class="line-numbers">14</span><span class="comment"></span>
+<span class="line-numbers">15</span><span class="comment">License text: http://thelogbox.com/source-docs/software-license.txt</span>
+<span class="line-numbers">16</span><span class="comment"></span>
+<span class="line-numbers">17</span><span class="comment">*/</span>
+<span class="line-numbers">18</span>
+<span class="line-numbers">19</span>
+<span class="line-numbers">20</span><span class="comment">// Activity .java}</span>
+<span class="line-numbers">21</span>
+<span class="line-numbers">22</span><span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span><span class="keyword">import</span> <span class="include">android.app.Activity</span>;
+<span class="line-numbers">25</span><span class="keyword">import</span> <span class="include">android.os.Bundle</span>;
+<span class="line-numbers">26</span><span class="keyword">import</span> <span class="include">android.view.View</span>;
+<span class="line-numbers">27</span><span class="keyword">import</span> <span class="include">android.content.Context</span>; 
+<span class="line-numbers">28</span><span class="keyword">import</span> <span class="include">com.thelogbox.DbHelper</span>;
+<span class="line-numbers">29</span><span class="keyword">import</span> <span class="include">android.content.ContentValues</span>;
+<span class="line-numbers">30</span><span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteDatabase</span>;
+<span class="line-numbers">31</span><span class="keyword">import</span> <span class="include">android.database.Cursor</span>;
+<span class="line-numbers">32</span><span class="keyword">import</span> <span class="include">android.widget.TextView</span>;
+<span class="line-numbers">33</span><span class="keyword">import</span> <span class="include">android.widget.EditText</span>;
+<span class="line-numbers">34</span>
+<span class="line-numbers">35</span>
+<span class="line-numbers">36</span><span class="directive">public</span> <span class="type">class</span> <span class="class">DbSample</span> <span class="directive">extends</span> Activity {
+<span class="line-numbers">37</span>
+<span class="line-numbers">38</span>
+<span class="line-numbers">39</span>    DbHelper dh;
+<span class="line-numbers">40</span>    SQLiteDatabase dbwrite;
+<span class="line-numbers">41</span>    SQLiteDatabase dbread;
+<span class="line-numbers">42</span>
+<span class="line-numbers">43</span>    EditText input;
+<span class="line-numbers">44</span>    TextView output;
+<span class="line-numbers">45</span>
+<span class="line-numbers">46</span>
+<span class="line-numbers">47</span>   <span class="comment">/** Called when the activity is first created. */</span>
+<span class="line-numbers">48</span>   <span class="annotation">@Override</span>
+<span class="line-numbers">49</span>   <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
+<span class="line-numbers">50</span>
+<span class="line-numbers">51</span>        dh = <span class="keyword">new</span> DbHelper(getApplicationContext());
+<span class="line-numbers">52</span>        dbwrite = dh.getWritableDatabase();
+<span class="line-numbers">53</span>        dbread = dh.getReadableDatabase();
+<span class="line-numbers">54</span>
+<span class="line-numbers">55</span>        <span class="comment">// you cannot put the findViewById here, it causes errors</span>
+<span class="line-numbers">56</span>
+<span class="line-numbers">57</span>        <span class="local-variable">super</span>.onCreate(savedInstanceState);
+<span class="line-numbers">58</span>      setContentView(R.layout.main);
+<span class="line-numbers">59</span>    }
+<span class="line-numbers">60</span>
+<span class="line-numbers">61</span>
+<span class="line-numbers">62</span>    <span class="directive">public</span> <span class="type">void</span> recAdd(<span class="predefined-type">View</span> v) {
+<span class="line-numbers">63</span>
+<span class="line-numbers">64</span>        input = (EditText) findViewById(R.id.todoedit);
+<span class="line-numbers">65</span>        output = (TextView) findViewById(R.id.tododisplay);
+<span class="line-numbers">66</span>
+<span class="line-numbers">67</span>        <span class="predefined-type">String</span> itemtoadd = input.getText().toString();      
+<span class="line-numbers">68</span>
+<span class="line-numbers">69</span>        ContentValues cv = <span class="keyword">new</span> ContentValues();
+<span class="line-numbers">70</span>        cv.put(<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>, itemtoadd);
+<span class="line-numbers">71</span>        dbwrite.insertOrThrow(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>,cv);
+<span class="line-numbers">72</span>
+<span class="line-numbers">73</span>        <span class="predefined-type">String</span> temptext = (<span class="predefined-type">String</span>) output.getText();
+<span class="line-numbers">74</span>
+<span class="line-numbers">75</span>        <span class="comment">//Write the dbExtraction routine here</span>
+<span class="line-numbers">76</span>
+<span class="line-numbers">77</span>        <span class="comment">//temptext = temptext + "\n";</span>
+<span class="line-numbers">78</span>        output.setText(getTodos());
+<span class="line-numbers">79</span>
+<span class="line-numbers">80</span>    }
+<span class="line-numbers">81</span>
+<span class="line-numbers">82</span>    <span class="directive">private</span> <span class="predefined-type">String</span> getTodos() {
+<span class="line-numbers">83</span>
+<span class="line-numbers">84</span>        <span class="predefined-type">String</span> cols<span class="type">[]</span> = {<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>};
+<span class="line-numbers">85</span>        <span class="predefined-type">StringBuilder</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuilder</span>(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>);
+<span class="line-numbers">86</span>        <span class="predefined-type">Cursor</span> cursor = dbread.query(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,cols,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>);
+<span class="line-numbers">87</span>        startManagingCursor(cursor);
+<span class="line-numbers">88</span>
+<span class="line-numbers">89</span>        <span class="keyword">while</span>(cursor.moveToNext()) {
+<span class="line-numbers">90</span>            sb.append(cursor.getString(<span class="integer">0</span>));
+<span class="line-numbers">91</span>            sb.append(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
+<span class="line-numbers">92</span>        }
+<span class="line-numbers">93</span>        <span class="keyword">return</span> sb.toString();
+<span class="line-numbers">94</span>    }
+<span class="line-numbers">95</span>}</code></pre>
+<p>The <em>DBSample</em> class is a regular <em>Activity</em> class. It's bad coding practice to embed the database logic in the UI, but were just starting out to learn about database programming in Android, we will let it pass for now---if we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).</p>
+<p>We instantiated the DbHelper class so that we can create the database during our first run of this app. We also used the DbHelper to create 2 SQLiteDatabase objects, one for reading (dbread) and another for writing (dbwrite).</p>
+<p>The <strong>recAdd</strong> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
+<p>Once we extracted whatever the user typed inside the EditText (via <em>getText()</em> method), we stored it in the "itemtoadd" String variable.</p>
+<p>The <em>ContentValues</em> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <em>insertOrThrow</em> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an "INSERT INTO todo …" inside an <em>execSQL</em> method, that will do the job just as well.</p>
+<h2 id="run-the-code">Run the code</h2>
+<p>Compile and Test *<em>ant debug install</em>. The <em>onCreate()</em>* method of DbHelper should kick in the first time your app issues a db related command.</p>
+<p></p>
+
+<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+<p></p>
+
+
+<div id="news">
+<span class="stress">Learn more Programming Techniques </span> when you join the <a href="/training-android-java/">Android Programming Workshop</a>
+</div>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Android Database Programming basics"</span>
+       on 
+       <span itemprop="dateCreated"> 22.Jul.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">android tutorial, android database programming, android sqlite, mobile programming </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

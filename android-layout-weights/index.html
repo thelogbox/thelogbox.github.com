@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Maximize screen space using Layout weights: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Maximize screen space using Layout weights</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p><span class="stress">Use Case:</span>Display 3 views (UI components) in a vertical linear layout. An <em>EditText</em> to accept user input, a <em>TextView</em> to display a bunch of Strings (which we may extract from a datasource later) and a <em>Button</em>. The basic idea is whatever the user typed inside the EditText, will be extracted and processed. Whatever the result of the processing, will be displayed using the TextView; and all these will be triggered when the Button is clicked.</p>
+<p>First cut solution looks like this. This is the <em>main.xml</em> of the solution</p>
+<pre><code class="language-xml"><span class="line-numbers">10</span><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="line-numbers">11</span><span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+<span class="line-numbers">12</span>    <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
+<span class="line-numbers">13</span>    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">14</span>    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">15</span>    <span class="tag">&gt;</span>
+<span class="line-numbers">16</span>
+<span class="line-numbers">17</span>    <span class="tag">&lt;EditText</span>
+<span class="line-numbers">18</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">19</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+<span class="line-numbers">20</span>        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/todoedit</span><span class="delimiter">"</span></span>
+<span class="line-numbers">21</span>
+<span class="line-numbers">22</span>    <span class="tag">/&gt;</span>
+<span class="line-numbers">23</span>
+<span class="line-numbers">24</span>    <span class="tag">&lt;TextView</span>  
+<span class="line-numbers">25</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
+<span class="line-numbers">26</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
+<span class="line-numbers">27</span>        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">I have nothing</span><span class="delimiter">"</span></span>
+<span class="line-numbers">28</span>        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/tododisplay</span><span class="delimiter">"</span></span>
+<span class="line-numbers">29</span>
+<span class="line-numbers">30</span>    <span class="tag">/&gt;</span>
+<span class="line-numbers">31</span>
+<span class="line-numbers">32</span>    <span class="tag">&lt;Button</span>
+<span class="line-numbers">33</span>        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+<span class="line-numbers">34</span>        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+<span class="line-numbers">35</span>        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Add item</span><span class="delimiter">"</span></span>
+<span class="line-numbers">36</span>        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/btnadd</span><span class="delimiter">"</span></span>
+<span class="line-numbers">37</span>        <span class="attribute-name">android:onClick</span>=<span class="string"><span class="delimiter">"</span><span class="content">recAdd</span><span class="delimiter">"</span></span>
+<span class="line-numbers">38</span>
+<span class="line-numbers">39</span><span class="tag">/&gt;</span>
+<span class="line-numbers">40</span><span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<p>This layout looks like this</p>
+<img src="/res/article-pix/notes-android/layout-no-weight.png" width="250"><p>This layout is not right because the TextView is supposed to to occupy more space compared to Button and the EditText. The TextView will have multiple lines if it reads a number of records from a datasource later on.</p>
+<p>We can increase the space occupied by the TextView by increasing the number of lines it will occupy. It can be done by adding a statement like <em>android:lines="10"</em> or any number of lines to the TextView declaration. That approach however, have some setbacks, it might work for a 5" screen device but you might need to tweak the number of lines if the app is deployed on another device with a different screen size---so I will abandon that option.</p>
+<p>Another option to solve the layout problem is to use <strong>weights</strong>. Each view can be assigned a <em>weight property</em>. The weight property allows us to specify the amount of remaining space that the component can occupy, relative to the amount of space that the other components are occupying.</p>
+<p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated.</p>
+<pre class="sourceCode xml" id="xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span>
+<span class="kw">&lt;LinearLayout</span><span class="ot"> xmlns:android=</span><span class="st">"http://schemas.android.com/apk/res/android"</span>
+<span class="ot">    android:orientation=</span><span class="st">"vertical"</span>
+<span class="ot">    android:layout_width=</span><span class="st">"fill_parent"</span>
+<span class="ot">    android:layout_height=</span><span class="st">"fill_parent"</span>
+    <span class="kw">&gt;</span>
+
+    <span class="kw">&lt;EditText</span>
+<span class="ot">        android:layout_width=</span><span class="st">"fill_parent"</span>
+<span class="ot">        android:layout_height=</span><span class="st">"wrap_content"</span>
+<span class="ot">        android:id=</span><span class="st">"@+id/todoedit"</span>
+<span class="ot">        android:layout_weight=</span><span class="st">"0"</span>
+    <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;TextView</span>  
+<span class="ot">        android:layout_width=</span><span class="st">"fill_parent"</span> 
+<span class="ot">        android:layout_height=</span><span class="st">"wrap_content"</span> 
+<span class="ot">        android:text=</span><span class="st">"I have nothing"</span>
+<span class="ot">        android:id=</span><span class="st">"@+id/tododisplay"</span>
+<span class="ot">        android:layout_weight=</span><span class="st">"10"</span>
+    <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;Button</span>
+<span class="ot">        android:layout_width=</span><span class="st">"fill_parent"</span>
+<span class="ot">        android:layout_height=</span><span class="st">"wrap_content"</span>
+<span class="ot">        android:text=</span><span class="st">"Add item"</span>
+<span class="ot">        android:id=</span><span class="st">"@+id/btnadd"</span>
+<span class="ot">        android:onClick=</span><span class="st">"recAdd"</span>
+<span class="ot">        android:layout_weight=</span><span class="st">"0"</span>
+<span class="kw">/&gt;</span>
+<span class="kw">&lt;/LinearLayout&gt;</span></code></pre>
+<p>Much better spacing now.</p>
+<img src="/res/article-pix/notes-android/layout-weight.png" width="250"><p>This solution leaves the EditText and Button with their default weight (zero weight)--you actually don't need to declare it explicitly because zero is the default value for the weight property. The TextView was given a weight of ten (10). You can experiment decreasing or increasing this value to suit your taste.</p>
+<h2 id="remember">Remember</h2>
+<ol style="list-style-type: decimal">
+<li>Use the weight property of the view to vary the amount of screen space to be allocated for it</li>
+<li>The weight of all the views will be summed up. If you have 3 views and you gave them all equal weights of 10, it is as good as assigning them equal weights of 1 or 0. The integer value does not matter, it is the proportion of each view relative to its sibling views.</li>
+<li>You can only use the <em>weight property</em> on a LinearLayout. The other layouts will have their own acrobatics to position views in relation to its sibling views and the frame</li>
+</ol><h2 id="resources">Resources</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://developer.android.com/training/basics/firstapp/building-ui.html">developer.android.com</a></li>
+<li>
+<a href="http://www.amazon.com/gp/product/1430239301/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1430239301&amp;linkCode=as2&amp;tag=thelogboxcom-20">Pro Android 4 (Professional Apress)</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1430239301" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;">
+</li>
+</ol><p></p>
+
+<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+<p></p>
+
+<div id="news">
+<span class="stress">Learn more Programming Techniques </span> when you join the <a href="/training-android-java/">Android Programming Workshop</a>
+</div>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Maximize screen space using Layout weights"</span>
+       on 
+       <span itemprop="dateCreated"> 20.Jul.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">android, tutorial, ui, layout, mobile </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

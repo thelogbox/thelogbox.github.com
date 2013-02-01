@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dev Environment Setup: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Dev Environment Setup</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p><span class="stress">CAUTION:</span> just in case you stumble into this page, the only intended reader of this note is me (Ted). This is a checklist on my dev environment for JavaScript.</p>
+<ul>
+<li>
+<strong>Platform</strong> - OSX 10.8 (Mountain Lion)</li>
+<li>
+<strong>Editor(s)</strong> - TextMate 2.0 Alpha, Smultron4</li>
+<li>
+<strong>JavaScript Environments</strong> - SpiderMonkey, RingoJS, NodeJS, Rhino</li>
+<li>
+<strong>Code checker</strong> - JSLint (via JavaScript tools)</li>
+</ul><h1 id="node.js">Node.JS</h1>
+<ol style="list-style-type: decimal">
+<li><p>Go to nodejs.org, download the tar.gz version, then <strong>make install</strong>. This way, the npm installer is also intalled. Yes you can try brew install node, but there were some problems installing the npm. Just the get the source and install using the make tools, like you used to. There is also a .PKG installer, this one is more painless than the source install--use the PKG whenever possible</p></li>
+<li><p>Get docco - sudo install -g docco</p></li>
+<li><p>If you encounter some 404 problems on the registry of npm, you can change the registry. Default registry is npm set registry http://registry.npmjs.org/ , I had to try either one of these two</p></li>
+</ol><ul>
+<li>npm set registry http://85.10.209.91/</li>
+<li>npm set registry http://165.225.128.50:8000</li>
+</ul><h1 id="javascript-tools-for-textmate">JavaScript tools for TextMate</h1>
+<ol style="list-style-type: decimal">
+<li><p>on the CLI, cd to <em>~/Users/ted/Library/Application Support/TextMate/Managed/Bundles</em>. On 1.x version of TextMate, this directory could have been <em>~/Library/Application Support/TextMate/Pristine Copy/Bundles</em></p></li>
+<li><p>git clone https://github.com/subtleGradient/javascript-tools.tmbundle.git</p></li>
+<li><p>Bundle should have been reloaded by now, if not</p></li>
+</ol><h1 id="phantomjs">PhantomJS</h1>
+<p>http://phantomjs.org, this is good for</p>
+<ul>
+<li>headless web testing</li>
+<li>site scraping</li>
+<li>SVG rendering</li>
+<li>network monitoring</li>
+</ul><h1 id="test-tools">Test tools</h1>
+<ul>
+<li>Jasmine</li>
+<li>QUnit</li>
+<li>FuncUnit</li>
+<li>YUI Test</li>
+</ul><p>There are some <a href="http://code.google.com/p/phantomjs/wiki/TestFrameworkIntegration">quick info on</a>. There is also some <a href="http://code.google.com/p/phantomjs/wiki/QuickStart">quickstart docs at</a></p>
+<h1 id="test-web-servers">Test Web servers</h1>
+<p>Ways to run a simple web server. This could be very handy if you are testing JavaScript and HTML5</p>
+<ol style="list-style-type: decimal">
+<li>Python -- just run python -m SimpleHTTPServer on any directory. The dir becomes the docroot. http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python for more info</li>
+<li>nanoc, of course</li>
+<li>LAMP, WAMP or use the default Apache installation in OSX</li>
+<li>Jetty - http://docs.codehaus.org/display/JETTY/Hightide+Documentation</li>
+<li>Apache Tomcat, Jetty</li>
+<li><a href="http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration">LightHttpd</a></li>
+<li>Node - <a href="http://www.sitepoint.com/serving-static-files-with-node-js/">Static file serving</a>. What I probably will use for RD training is http-server. Just "sudo npm -g install http-server" then start with http-server. The current directory will be served up</li>
+</ol>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Dev Environment Setup"</span>
+       on 
+       <span itemprop="dateCreated"> August 20, 2012 </span>
+       and is filed under 
+      <span itemprop="keywords">javascript, setup </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

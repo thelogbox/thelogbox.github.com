@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Compile an Android Project: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Compile an Android Project</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>Gone are the days when we can simply compile a practice project with simple <span class="boxed">javac</span>, then fire the the JRE to appreciate our code at runtime. A lot of the Java projects have fallen victim to unnatural stretching because of increasing complexity---android projects are not immune to this stretching. As the complexity of Java projects got higher and higher, we coped with tools and frameworks. One of these tools is <strong>ant</strong>.</p>
+<p>Ant allows us to tame the complexity of project builds. Ant is a widely used build tool for Java projects, I'm willing to bet that you have seen or used this sometime in the past.</p>
+<pre><code>├── AndroidManifest.xml
+├── ant.properties
+├── bin
+├── build.xml
+├── libs
+├── local.properties
+├── proguard-project.txt
+├── project.properties
+├── res
+│   ├── layout
+│   │   └── main.xml
+│   └── values
+│       └── strings.xml
+└── src
+   └── com
+       └── thelogbox
+           └── Hello.java</code></pre>
+<p>Notice the <strong>build.xml</strong> on the root folder of our project? That is an ant build file. The project creation script generated that for a reason, we are supposed to use ant to compile, build and deploy our android projects.</p>
+<h2 id="compiling-the-android-project">Compiling the android project</h2>
+<ol style="list-style-type: decimal">
+<li><p>If you haven't closed the terminal yet, go to it. If you have closed it, open the terminal again and navigate to the root folder of the android project</p></li>
+<li><p>Try typing <span class="boxed">ant</span> on the terminal. It should echo a bunch of possible targets. We will use the <strong>debug</strong> target to build our android app.</p></li>
+</ol><p>We will use the debug target so that we can side step android's requirement to setup security keys and signing our applications with that key. Let's deal with the application signing later on when we get to deploying and releasing our mobile app in the wild.</p>
+<p>If we use the <strong>debug</strong> target, ant will generate a debug key that will serve as the security key for our app. This is good enough for now because we are just fooling around. Compile the app by typing</p>
+<pre><code>$ ant debug</code></pre>
+<p>You should see a bunch of scrolling echo messages in the terminal. Look for a message (right towards the end) that says something like <em>BUILD SUCCESSFUL</em>. It should be successful for now because we haven't messed around with it yet. There is no reason at this point for the build to fail.</p>
+<pre><code>.
+├── AndroidManifest.xml
+├── ant.properties
+├── bin
+│   ├── AndroidManifest.xml
+│   ├── AndroidManifest.xml.d
+│   ├── Hello-debug-unaligned.apk
+│   ├── Hello-debug-unaligned.apk.d
+│   ├── Hello-debug.apk
+│   ├── Hello.ap_
+│   ├── Hello.ap_.d
+│   ├── build.prop
+│   ├── classes
+│   │   └── com
+│   │       └── thelogbox
+│   │           ├── BuildConfig.class
+│   │           ├── Hello.class
+│   │           ├── R$attr.class
+│   │           ├── R$layout.class
+│   │           ├── R$string.class
+│   │           └── R.class
+│   ├── classes.dex
+│   ├── classes.dex.d
+│   ├── jarlist.cache
+│   ├── proguard.txt
+│   └── res
+├── build.xml
+├── gen
+│   ├── R.java.d
+│   └── com
+│       └── thelogbox
+│           ├── BuildConfig.java
+│           └── R.java
+├── libs
+├── local.properties
+├── proguard-project.txt
+├── project.properties
+├── res
+│   ├── layout
+│   │   └── main.xml
+│   └── values
+│       └── strings.xml
+└── src
+    └── com
+       └── thelogbox
+            └── Hello.java
+
+15 directories, 30 files</code></pre>
+<p>Right after the compilation process, there are lots of changes within our project directory. Quite noticeably, there are now lots of files inside the <strong>bin</strong> and <strong>gen</strong> folders. Somewhere in these jungle lies the executables that we can actually deploy to a real device---but save that for later. Right now, the goal is to just be comfortable with the compilation process.</p>
+<p>In case you encounter a "Cannot find build.xml" error, take a look at your SDK setup. This is usually a config error on the <em>local.properties</em> file. <a href="/cannot-find-buildxml/">Look here for details of the error</a></p>
+<p>Next <img src="/res/arrow-right.png" alt="next"><a href="/android-testing-a-project/">Testing a project</a></p>
+<p>Previous <img src="/res/arrow-left.png" alt="previous"><a href="/android-create-project/">Create an Android project</a></p>
+<p>TOP of tutorial (TOC) <img src="/res/arrow-up.png" alt="toc"><a href="/notes-android/">Android notes main</a></p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Compile an Android Project"</span>
+       on 
+       <span itemprop="dateCreated"> 10.Jul.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">android tutorial, mobile programming </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

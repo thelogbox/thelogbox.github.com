@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to connect Windows 7 to a CUPS printer: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">How to connect Windows 7 to a CUPS printer</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>There are a couple of ways to print to a CUPS printer from a Windows machine--CUPS printer means it's a printer connected to either a UNIX, Linux or an OSX machine, CUPS is the system which these OSes use to serve up print services. One way to print from Windows is via the Samba capabilities of your Linux server, if you have already set it up. Samba appears to be easier for the Windows users because Samba looks and feels just like another Windows box. I won't use Samba for this guide, instead we'll connect to the CUPS printer using internet printing protocol (this is actually oversimplification, the IPP is a much more involved subject than how I'm presenting it here).</p>
+<h2 id="things-you-will-need">Things you will need</h2>
+<ol style="list-style-type: decimal">
+<li><p>A driver for your printer. I don't know what printer you have so I can't list generic resources here. You can use the CD/DVD that came with your printer, or you can get the latest drivers online (always better to get updated drivers). This approach assumes that the Windows machine contains the printer driver locally. This doesn't scale very well for enterprise settings, if you are looking for a setup where CUPS is the RIP (if you don't know what a RIP is, then it's probably not for you) by acting as a generic postscript printer by using PPDs and CUPS filter queues, you can head over to LinuxPrinting.org, printing with CUPS in Samba</p></li>
+<li><p>A properly configured CUPS printer. There are some posts I have written in the past related to installation and configuration of CUPS, here they are If you need to build a linux print server, If you need to add a printer to a CUPS server</p></li>
+</ol><h2 id="connecting-the-dots-...">Connecting the dots ...</h2>
+<ol style="list-style-type: decimal">
+<li><p>Make sure the CUPS printer is powered on, connected, and that you can ping it from your windows machine.</p></li>
+<li><p>From your Windows machine, go to the "Add printers" section--you know how to find this.</p></li>
+<li><p>Choose <strong>Add a network printer</strong>. The CUPS won't be listed, so click "My printer isn't listed"</p></li>
+<li><p>On the box provided, type <strong>http://IpOrNameOfPrintServer:631/printers/nameofQueue</strong> the "printers" subdirectory is pretty common for CUPS printers, the <strong>nameofQueue</strong> is something your Sys Admin (or you) would know, this the name of the printer added to CUPS, if you are not sure, launch a web browser and type http://IpOrNameOfPrintServer:631 then click "Printers" so that you can verify the name of the printer queue</p></li>
+<li><p>After clicking "Next", you will be prompted to select a driver for your printer, just go on ahead and select it.</p></li>
+<li><p>Print a test page</p></li>
+</ol>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"How to connect Windows 7 to a CUPS printer"</span>
+       on 
+       <span itemprop="dateCreated"> 8.April.2009 </span>
+       and is filed under 
+      <span itemprop="keywords">printer, cups, administration, windows, howto </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

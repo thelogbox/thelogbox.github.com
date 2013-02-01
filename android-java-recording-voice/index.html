@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Recording voice using the MIC: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Recording voice using the MIC</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>Voice capture and voice playback in Android is handled by two classes; <em>android.media.MediaRecorder</em> and <em>android.media.MediaPlayer</em>, for recording and playback respectively.</p>
+<p>They are very straightforward to use. The usual sequence in using MediaRecoder and MediaPlayer is;</p>
+<ol style="list-style-type: decimal">
+<li>Create an instance of MediaRecorder</li>
+<li>Set its audiosource to <em>MIC</em>
+</li>
+<li>Set the filename where the audio file will be stored</li>
+<li>Set the encoding</li>
+<li>Call the <em>prepare()</em> method (this is a necessary step, otherwise you will get some IllegalStateException). This method throws an IOException, so you need to handle it appropriately with either a try-cath or throws mechanism</li>
+<li>Call the <em>start()</em> method to begin recording</li>
+<li>Call the <em>stop()</em>, then <em>release()</em> methods when you want to stop recording</li>
+</ol><p>Audio playback follows a similar pattern;</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Create an instance of <em>android.media.MediaPlayer</em>
+</li>
+<li>set the datasource for the MediaPlayer. This is the audio file that you recorded in steps 1-8</li>
+<li>Call the <em>prepare()</em> method of the MediaPlayer object—this too can throw an IOException, so it needs to be handled using either try-catch or throws mechanism as well</li>
+<li>Call the <em>start()</em> method to start playing the audio file</li>
+</ol><p>The source for this exercise is below. There is no main.xml because the UI was built programatically, instead of declaratively</p>
+<pre><code class="language-java"><span class="line-numbers"> 10</span><span class="comment">/*</span>
+<span class="line-numbers"> 11</span><span class="comment"></span>
+<span class="line-numbers"> 12</span><span class="comment">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="line-numbers"> 13</span><span class="comment">All rights reserved.</span>
+<span class="line-numbers"> 14</span><span class="comment"></span>
+<span class="line-numbers"> 15</span><span class="comment">License text: http://thelogbox.com/source-docs/software-license.txt</span>
+<span class="line-numbers"> 16</span><span class="comment"></span>
+<span class="line-numbers"> 17</span><span class="comment">*/</span>
+<span class="line-numbers"> 18</span>
+<span class="line-numbers"> 19</span>
+<span class="line-numbers"> 20</span><span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+<span class="line-numbers"> 21</span>
+<span class="line-numbers"> 22</span><span class="keyword">import</span> <span class="include">android.app.Activity</span>;
+<span class="line-numbers"> 23</span><span class="keyword">import</span> <span class="include">android.os.Bundle</span>;
+<span class="line-numbers"> 24</span><span class="keyword">import</span> <span class="include">android.os.Environment</span>;
+<span class="line-numbers"> 25</span><span class="keyword">import</span> <span class="include">android.widget.LinearLayout</span>;
+<span class="line-numbers"> 26</span><span class="keyword">import</span> <span class="include">android.widget.Button</span>;
+<span class="line-numbers"> 27</span><span class="keyword">import</span> <span class="include">android.content.Context</span>;
+<span class="line-numbers"> 28</span><span class="keyword">import</span> <span class="include">android.view.View</span>;
+<span class="line-numbers"> 29</span><span class="keyword">import</span> <span class="include">android.view.View.OnClickListener</span>;
+<span class="line-numbers"> 30</span><span class="keyword">import</span> <span class="include">android.media.MediaRecorder</span>;
+<span class="line-numbers"> 31</span><span class="keyword">import</span> <span class="include">android.media.MediaPlayer</span>;
+<span class="line-numbers"> 32</span><span class="keyword">import</span> <span class="include">java.io.IOException</span>;
+<span class="line-numbers"> 33</span>
+<span class="line-numbers"> 34</span>
+<span class="line-numbers"> 35</span><span class="directive">public</span> <span class="type">class</span> <span class="class">Recorder</span> <span class="directive">extends</span> Activity {
+<span class="line-numbers"> 36</span>    <span class="comment">/** Called when the activity is first created. */</span>
+<span class="line-numbers"> 37</span>    <span class="annotation">@Override</span>
+<span class="line-numbers"> 38</span>    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
+<span class="line-numbers"> 39</span>        <span class="local-variable">super</span>.onCreate(savedInstanceState);
+<span class="line-numbers"> 40</span>        setContentView(<span class="keyword">new</span> RView(<span class="local-variable">this</span>));
+<span class="line-numbers"> 41</span>    }
+<span class="line-numbers"> 42</span>}
+<span class="line-numbers"> 43</span>
+<span class="line-numbers"> 44</span><span class="type">class</span> <span class="class">RView</span> <span class="directive">extends</span> LinearLayout <span class="directive">implements</span> OnClickListener {
+<span class="line-numbers"> 45</span>
+<span class="line-numbers"> 46</span>    <span class="predefined-type">Button</span> btnstart = <span class="predefined-constant">null</span>;
+<span class="line-numbers"> 47</span>    <span class="predefined-type">Button</span> btnstop = <span class="predefined-constant">null</span>;
+<span class="line-numbers"> 48</span>    MediaPlayer mp = <span class="predefined-constant">null</span>;
+<span class="line-numbers"> 49</span>    MediaRecorder mr = <span class="predefined-constant">null</span>;
+<span class="line-numbers"> 50</span>    <span class="predefined-type">String</span> filename = <span class="predefined-constant">null</span>;
+<span class="line-numbers"> 51</span>
+<span class="line-numbers"> 52</span>    RView(<span class="predefined-type">Context</span> ctx) {
+<span class="line-numbers"> 53</span>        <span class="local-variable">super</span>(ctx);
+<span class="line-numbers"> 54</span>
+<span class="line-numbers"> 55</span>        filename = Environment.getExternalStorageDirectory().getAbsolutePath();
+<span class="line-numbers"> 56</span>        filename += <span class="string"><span class="delimiter">"</span><span class="content">/test.3gp</span><span class="delimiter">"</span></span>;
+<span class="line-numbers"> 57</span>
+<span class="line-numbers"> 58</span>        mr = <span class="keyword">new</span> MediaRecorder();
+<span class="line-numbers"> 59</span>        mp = <span class="keyword">new</span> MediaPlayer();
+<span class="line-numbers"> 60</span>
+<span class="line-numbers"> 61</span>        btnstart = <span class="keyword">new</span> <span class="predefined-type">Button</span>(ctx);
+<span class="line-numbers"> 62</span>        btnstop = <span class="keyword">new</span> <span class="predefined-type">Button</span>(ctx);
+<span class="line-numbers"> 63</span>
+<span class="line-numbers"> 64</span>        btnstart.setText(<span class="string"><span class="delimiter">"</span><span class="content">start</span><span class="delimiter">"</span></span>);
+<span class="line-numbers"> 65</span>        btnstop.setText(<span class="string"><span class="delimiter">"</span><span class="content">stop</span><span class="delimiter">"</span></span>);
+<span class="line-numbers"> 66</span>
+<span class="line-numbers"> 67</span>        btnstart.setOnClickListener(<span class="local-variable">this</span>);
+<span class="line-numbers"> 68</span>        btnstop.setOnClickListener(<span class="local-variable">this</span>);
+<span class="line-numbers"> 69</span>
+<span class="line-numbers"> 70</span>        btnstart.setId(<span class="integer">1</span>);
+<span class="line-numbers"> 71</span>        btnstop.setId(<span class="integer">2</span>);
+<span class="line-numbers"> 72</span>
+<span class="line-numbers"> 73</span>        setOrientation(LinearLayout.VERTICAL);
+<span class="line-numbers"> 74</span>
+<span class="line-numbers"> 75</span>        addView(btnstart);
+<span class="line-numbers"> 76</span>        addView(btnstop);
+<span class="line-numbers"> 77</span>
+<span class="line-numbers"> 78</span>    }
+<span class="line-numbers"> 79</span>
+<span class="line-numbers"> 80</span>    <span class="directive">public</span> <span class="type">void</span> onClick(<span class="predefined-type">View</span> view){
+<span class="line-numbers"> 81</span>        <span class="keyword">if</span>(view.getId() == <span class="integer">1</span>) {
+<span class="line-numbers"> 82</span>            <span class="comment">// START BUTTON</span>
+<span class="line-numbers"> 83</span>            btnstart.setText(<span class="string"><span class="delimiter">"</span><span class="content">Holding ...</span><span class="delimiter">"</span></span>);
+<span class="line-numbers"> 84</span>            btnstop.setClickable(<span class="predefined-constant">true</span>);
+<span class="line-numbers"> 85</span>            btnstart.setClickable(<span class="predefined-constant">false</span>);
+<span class="line-numbers"> 86</span>            startRec();
+<span class="line-numbers"> 87</span>        }
+<span class="line-numbers"> 88</span>        <span class="keyword">else</span> <span class="keyword">if</span>(view.getId() == <span class="integer">2</span>) {
+<span class="line-numbers"> 89</span>            <span class="comment">// STOP BUTTON</span>
+<span class="line-numbers"> 90</span>            btnstart.setClickable(<span class="predefined-constant">true</span>);
+<span class="line-numbers"> 91</span>            btnstart.setText(<span class="string"><span class="delimiter">"</span><span class="content">start</span><span class="delimiter">"</span></span>);
+<span class="line-numbers"> 92</span>            btnstop.setClickable(<span class="predefined-constant">false</span>);
+<span class="line-numbers"> 93</span>            stopRec();
+<span class="line-numbers"> 94</span>        }
+<span class="line-numbers"> 95</span>    }
+<span class="line-numbers"> 96</span>
+<span class="line-numbers"> 97</span>    <span class="type">void</span> startRec() {
+<span class="line-numbers"> 98</span>        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
+<span class="line-numbers"> 99</span>        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+<span class="line-numbers">100</span>        mr.setOutputFile(filename);
+<span class="line-numbers">101</span>        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+<span class="line-numbers">102</span>
+<span class="line-numbers">103</span>        <span class="keyword">try</span> {
+<span class="line-numbers">104</span>            mr.prepare();
+<span class="line-numbers">105</span>        }
+<span class="line-numbers">106</span>        <span class="keyword">catch</span>(<span class="exception">IOException</span> ioe){
+<span class="line-numbers">107</span>            <span class="comment">// Some Logcat here</span>
+<span class="line-numbers">108</span>        }
+<span class="line-numbers">109</span>
+<span class="line-numbers">110</span>        mr.start();
+<span class="line-numbers">111</span>    }
+<span class="line-numbers">112</span>
+<span class="line-numbers">113</span>    <span class="type">void</span> stopRec() {
+<span class="line-numbers">114</span>        mr.stop();
+<span class="line-numbers">115</span>        mr.release();
+<span class="line-numbers">116</span>
+<span class="line-numbers">117</span>        <span class="keyword">try</span> {
+<span class="line-numbers">118</span>            mp.setDataSource(filename);
+<span class="line-numbers">119</span>            mp.prepare();
+<span class="line-numbers">120</span>        }
+<span class="line-numbers">121</span>        <span class="keyword">catch</span>(<span class="exception">IOException</span> ioe) {
+<span class="line-numbers">122</span>            <span class="comment">// some Logcat here</span>
+<span class="line-numbers">123</span>        }
+<span class="line-numbers">124</span>
+<span class="line-numbers">125</span>        mp.start();
+<span class="line-numbers">126</span>
+<span class="line-numbers">127</span>    }
+<span class="line-numbers">128</span>
+<span class="line-numbers">129</span>}</code></pre>
+<h1 id="permissions">Permissions</h1>
+<p>The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the <em>Start</em> button. The <em>MediaRecorder</em> will not initialize properly and hence will hit an <em>IllegalStateException</em> when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the <em>AndroidManifest.xml</em> file, you will need to add the entry <em>&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;</em> to the manifest. Make sure also that you add the permissions entry out the &lt;application .../&gt; node. Here is the full entry of the <em>AndroidManifest.xml</em> for this exercise.</p>
+<pre><code class="language-xml"><span class="line-numbers">10</span><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="line-numbers">11</span><span class="tag">&lt;manifest</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+<span class="line-numbers">12</span>      <span class="attribute-name">package</span>=<span class="string"><span class="delimiter">"</span><span class="content">com.thelogbox</span><span class="delimiter">"</span></span>
+<span class="line-numbers">13</span>      <span class="attribute-name">android:versionCode</span>=<span class="string"><span class="delimiter">"</span><span class="content">1</span><span class="delimiter">"</span></span>
+<span class="line-numbers">14</span>      <span class="attribute-name">android:versionName</span>=<span class="string"><span class="delimiter">"</span><span class="content">1.0</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="line-numbers">15</span>
+<span class="line-numbers">16</span>    <span class="tag">&lt;uses-permission</span> <span class="attribute-name">android:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">android.permission.RECORD_AUDIO</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+<span class="line-numbers">17</span>
+<span class="line-numbers">18</span>    <span class="tag">&lt;application</span> <span class="attribute-name">android:label</span>=<span class="string"><span class="delimiter">"</span><span class="content">@string/app_name</span><span class="delimiter">"</span></span> <span class="tag">&gt;</span>
+<span class="line-numbers">19</span>        <span class="tag">&lt;activity</span> <span class="attribute-name">android:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">Recorder</span><span class="delimiter">"</span></span>
+<span class="line-numbers">20</span>                  <span class="attribute-name">android:label</span>=<span class="string"><span class="delimiter">"</span><span class="content">@string/app_name</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="line-numbers">21</span>            <span class="tag">&lt;intent-filter&gt;</span>
+<span class="line-numbers">22</span>                <span class="tag">&lt;action</span> <span class="attribute-name">android:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">android.intent.action.MAIN</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+<span class="line-numbers">23</span>                <span class="tag">&lt;category</span> <span class="attribute-name">android:name</span>=<span class="string"><span class="delimiter">"</span><span class="content">android.intent.category.LAUNCHER</span><span class="delimiter">"</span></span> <span class="tag">/&gt;</span>
+<span class="line-numbers">24</span>            <span class="tag">&lt;/intent-filter&gt;</span>
+<span class="line-numbers">25</span>        <span class="tag">&lt;/activity&gt;</span>
+<span class="line-numbers">26</span>    <span class="tag">&lt;/application&gt;</span>
+<span class="line-numbers">27</span><span class="tag">&lt;/manifest&gt;</span></code></pre>
+<h2 id="references">References:</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://developer.android.com/guide/topics/media/audio-capture.html">developer.android.com - Audio Capture</a></li>
+<li><a href="http://developer.android.com/reference/android/media/MediaPlayer.html">developer.android.com - MediaPlayer</a></li>
+</ol><p></p>
+
+<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Recording voice using the MIC"</span>
+       on 
+       <span itemprop="dateCreated"> November 5, 2012 </span>
+       and is filed under 
+      <span itemprop="keywords">android, media, tutorial, mobile, java </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

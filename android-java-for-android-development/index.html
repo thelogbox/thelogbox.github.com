@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How much Java do you need for Android Development: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">How much Java do you need for Android Development</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>If you want to build <strong>native</strong> applications in Android, you've got to know Java---there's no way around it. Yes, there are tools like PhoneGap, Titanium etc. but you will eventually hit limitations and ceilings if you choose to code on non-native development platform. So learn Java, it's not that bad.</p>
+<ol style="list-style-type: decimal">
+<li>Set up the development environment</li>
+<li>Get some tools</li>
+<li>Learn to construct the simplest program</li>
+<li>Learn the keywords</li>
+<li>Dig some OOP, actually dig a lot of OOP</li>
+<li>Learn how Java treats value types and reference types</li>
+<li>Learn how to write methods and what access control means</li>
+<li>Discover how GC works</li>
+<li>Learn the data types</li>
+<li>Exercise on some operators</li>
+<li>Dig the control structures, so you can learn block level practices</li>
+<li>Learn how Java does Exception handling</li>
+<li>Some tinsy bitsy java.lang.Util</li>
+<li>Some tinsy bitsy I/O</li>
+<li>Learn parameter passing</li>
+<li>Now, the Thread</li>
+<li>Do the simplest UI in java.swing</li>
+<li>Do the simplest event handling (actionListeners)</li>
+<li>Learn how to use inner classes</li>
+<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
+<li>Dig (but not too deep) some sockets</li>
+<li>Exercise on some httpClient programs</li>
+<li>Get some XML</li>
+<li>Learn ANT a little bit</li>
+</ol><h1 id="set-up-the-environment">1. Set up the environment</h1>
+<p>Whether you are working on Windows, Linux or OSX, the downloads can be found at <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle Technet site</a>. Choose just the JSE without the bundles, to keep it simple.</p>
+<p>OSX (Lion and Mountain Lion) actually has a simpler way of downloading. Open a Terminal.app, then type <em>java</em> on the command line. OSX wizards will kick in and ask you to download the JDK. Just say <strong>yes</strong> to prompt and Java installation will kick in.</p>
+<p>If you are using Windows, you will download the JDK (Java Development Kit), get the latest stable release. Be careful that you are downloading the JDK and not the JRE (Java Runtime Environment) only, you need the JDK to create Java apps.</p>
+<p>Install what you downloaded, it will guide you through the installation process. The questions are straight forward so they don't need to be expounded here.</p>
+<h2 id="set-up-the-path-and-classpath-variable">Set up the PATH and CLASSPATH variable</h2>
+<p><strong>NOTE for OSX Users</strong> - do absolutely nothing, the CLASSPATH AND PATH variable are already setup for you</p>
+<p>On Windows;</p>
+<ol style="list-style-type: decimal">
+<li>Open the <em>System</em> window via the <em>Control Panel</em>, go to <em>Advanced</em>, then <em>Environment variables</em>
+</li>
+<li>Create a variable named <em>JAVA_HOME</em>, the value is where the JDK is installed, if you said yes to the defaults of the installation, it must have been in <em>c:Files1.7xxxxxx</em>.</li>
+<li>Edit the PATH variable (on the same window). There is an edit button for the PATH variable.</li>
+<li>Append this entry to the PATH variable - <strong>;%JAVA_HOME;.%</strong>. The semicolons and the dot are pretty important, so type this slow. If you forget to put these in, you will encounter <em>Bad command or file name</em> kinds of errors later when you execute java and javac</li>
+<li>Create another variable names <em>CLASSPATH</em>, put the value <strong>%JAVA_HOME.jar;.%</strong> -- again, don't forget the semi colon and the dot at the end</li>
+</ol><h1 id="get-some-tools">2. Get some tools</h1>
+<p>Get Apache Ant and a decent program editor. Yes you can use notepad, you can use vi, even nano---that is really up to you. I won't even prescribe an editor at this point, this is the subject of a really intense, almost-religious but quite pointless debate. Just keep coding and try out a couple of editors. Don't get cheap, not because it's free it is the best. I like opensource, I love opensource, but it doesn't mean I will always use it. Choose the best tools for the job, even if it costs money.</p>
+<p>With that disclaimer out of the way, I do use the following editors; Vi and TextMate (if you are on the Windows platform, the e-TextEditor is fine too)</p>
+<h1 id="learn-how-to-write-the-simplest-programs">3. Learn how to write the simplest programs</h1>
+<p>Do the <em>Hello World</em> program. It's mundane, boring and dry but its the simplest program. You need to know how to write the simplest programs before you can try out the more complex ones. This is a larger discussion, <a href="/java-beginning-to-program/">so I wrote it here</a></p>
+<h1 id="learn-the-keywords-of-java">4. Learn the keywords of Java</h1>
+<p>There are a couple of things you will name in Java---meaning, you will think of the name and declare it in your code. These are names of <strong>classes, variables, methods, interfaces, parameters passed to methods and packages</strong>. Collectively, these are known as Java identifiers.</p>
+<h2 id="rules-to-remember-when-creating-identifiers">Rules to remember when creating identifiers</h2>
+<ol style="list-style-type: decimal">
+<li>You can use alphanumeric characters, but the first letter can't be a number</li>
+<li>You can't use special characters, but you can use the dollar sign and underscore</li>
+<li>You can't use a Java keyword (also known as reserved word). You also can't use a Java literals like <strong>true, false or null</strong>
+</li>
+</ol><p><strong>The Java keywords</strong></p>
+<pre><code>for while do throw
+case try catch return 
+
+goto [not used]
+
+break continue
+
+byte short int long float double boolean char
+
+if switch throws else
+
+finally class interface implements extends static new this super
+
+public private protected package default
+
+native transient synchronized import instanceof volatile 
+void abstract final assert enum strictfp 
+
+const[not used]</code></pre>
+<h1 id="dig-some-oop-dig-a-lot-of-it">5. Dig some OOP, dig a lot of it</h1>
+<p>OOP is short for Object Oriented Programming. Java is an object oriented language. Sure you can write all of your codes inside public static void main, but that will not take you far in Android when you encounter stuff like <strong>class MySplashPad extends Activity</strong>.</p>
+<p>OOP is so entrenched in Java---in fact, I think a little bit too entrenched that some developers I know get over excited about creating objects, so they create a gazillion of it. Anyway, I hope you learn temperance about creating objects in your own coding journey, but the point remains, <a href="/java-object-oriented-programming/">you need to know OOP. Read more here ...</a></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Learn how Java treats value types and reference types</li>
+<li>Discover how GC works</li>
+<li>Learn the data types</li>
+<li>Exercise on some operators</li>
+</ol><h1 id="dig-the-control-structures-so-you-can-learn-block-level-practices">10. Dig the control structures, so you can learn block level practices</h1>
+<p>Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;</p>
+<ul>
+<li>You can execute commands one after another -- <strong>sequencing</strong>
+</li>
+<li>You can execute certain commands when certain conditions are met -- <strong>branching</strong>
+</li>
+<li>You can keep on repeating certain commands while certain conditions are still true -- <strong>looping or iteration</strong>. <a href="/java-controlling-program-flow/">Continue reading about control structures ...</a>
+</li>
+</ul><ol start="11" style="list-style-type: decimal">
+<li>Learn how Java does Exception handling</li>
+<li>Some tinsy bitsy java.lang.Util</li>
+<li>Some tinsy bitsy I/O</li>
+<li>Learn parameter passing</li>
+<li>Now, the Thread</li>
+<li>Do the simplest UI in java.swing</li>
+<li>Do the simplest event handling (actionListeners)</li>
+<li>Learn how to use inner classes</li>
+<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
+<li>Dig (but not too deep) some sockets</li>
+<li>Exercise on some httpClient programs</li>
+<li>Get some XML</li>
+<li>Learn ANT a little bit</li>
+</ol>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"How much Java do you need for Android Development"</span>
+       on 
+       <span itemprop="dateCreated"> 15.Jul.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">java, android tutorial </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

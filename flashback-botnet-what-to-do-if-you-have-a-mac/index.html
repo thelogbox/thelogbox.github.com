@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FlashBack botnet, What to do if you are infected: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">FlashBack botnet, What to do if you are infected</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>600,000 Macs were infected by FlashBack botnet, the data is from <a href="http://www.cbsnews.com/8301-501465_162-57409904-501465/over-600000-macs-infected-with-flashback-botnet-patch-released/" title="CBS News">CBS News</a>. Intel-based Macs are the ones prone to infection (Tiger, Leopard, Snow Leopard, Lion).</p>
+<p>There is no obvious way to tell if a machine is infected. A point-and-click solution is not available at the time of this writing.</p>
+<p><a href="http://www.f-secure.com/v-descs/trojan-downloader_osx_flashback_i.shtml">F-secure</a> published a detailed <strong>detection</strong> and <strong>removal</strong> process of the FlashBack botnet. This process involves working on the console.</p>
+<p><strong>First test</strong></p>
+<pre><code>defaults read /Applications/Safari.app/Contents/Info LSEnvironment</code></pre>
+<p>You are looking for a response like this;</p>
+<blockquote>
+<p>The domain/default pair of (/Applications/Safari.app/Contents/Info, LSEnvironment) does not exist --- <cite><a href="http://www.f-secure.com/v-descs/trojan-downloader_osx_flashback_i.shtml">F-secure website</a></cite></p>
+</blockquote>
+<p>So far, so good. If you got a result that is different that the one quoted above, at this point, chances are you already got the FlashBack botnet.</p>
+<p><strong>Second test</strong></p>
+<pre><code>defaults read ~/.MacOSX/environment DYLD_INSERT_LIBRARIES </code></pre>
+<p>This time, you are looking for a response something like this</p>
+<blockquote>
+<p>The domain/default pair of (/Users/joe/.MacOSX/environment, DYLD_INSERT_LIBRARIES) does not exist --- <cite><a href="http://www.f-secure.com/v-descs/trojan-downloader_osx_flashback_i.shtml">F-Secure website</a></cite></p>
+</blockquote>
+<p>If you got the desired responses after running the two terminal commands above, you are (still) on the clear. You are not infected (yet) by the FlashBack botnet.</p>
+<p>If the machine is infected, follow the removal instructions on the <a href="http://www.f-secure.com/v-descs/trojan-downloader_osx_flashback_i.shtml">F-Secure website</a>. Be warned though, the manual steps necessary to remove FlashBack botnet is not a trivial feat. Unless you are very very comfortable working on the command line and have prior experience navigating UNIX directories, you may want to either a) Find a more automated way to remove FlashBack, <a href="http://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-mac-home-edition.aspx">Sophos</a> and <a href="http://www.clamavx.com">ClamavX</a> may have some solutions for you; b) Find somebody, a friend or your IT guys at the office to help you out.</p>
+<h2 id="is-there-an-easier-more-gui-way-of-doing-this">Is there an easier (more GUI way) of doing this?</h2>
+<p>I don't know of any other way to detect the FlashBack botnet, as of time of writing. AS for the removal, the less technically-interested may want to check out <a href="http://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-mac-home-edition.aspx">Sophos</a> or <a href="http://www.clamavx.com">ClamavX</a> for the removal process.</p>
+<h2 id="what-to-do-next">What to do next</h2>
+<p>Patch up your Java installation. The FlashBack botnet actually attacks the vulnerability of the Java installed on your system, more specifically, it attacks the Java instance that is running o the browser.</p>
+<p>If you are a Snow Leopard user, use the <a href="http://support.apple.com/kb/DL1516">Java for Mac OSX 10.6 Update 7</a>. If you are an OSX Lion user, use the <a href="http://support.apple.com/kb/DL1515">Java for OSX Lion 2012-002</a>. By the time I finish writing this, chances are you should be able to pull these updates automatically from the <em>Software Update</em> menu of OSX (Just click the little Apple logo at left-most-uuper-hand corner of your screen).</p>
+<p>For now, to be a bit paranoid about this drive-by attack, you can disable Java in the browser. Don't worry, it will not uninstall Java, you should be able to run applications that require the Java Run Time still (like GotoMeeting). If you disable Java on the browser, it will effectively block FlashBack's drive-by attack.</p>
+<h3 id="how-to-disable-java-on-the-browser">How to disable Java on the browser</h3>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Chrome -</strong>Open Chrome, the type <em>chrome://plugins</em> on the URL box. Find the Java entry then disable it.</li>
+<li>
+<strong>Safari -</strong> Go to System Preferences, then Security. Uncheck the "Enable Java" entry.</li>
+<li>
+<strong>FireFox -</strong>Open FireFox, go to "Tools and Addons", select the Plugins tab, then disable Java</li>
+</ol>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"FlashBack botnet, What to do if you are infected"</span>
+       on 
+       <span itemprop="dateCreated"> 9.April.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">mac, virus, malware, administration, howto </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

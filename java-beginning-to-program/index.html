@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Beginning to Program: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Beginning to Program</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <p>Before we ran, we learned to walk first. Before we walked, we needed to learn how to get up on our feet---and way before that, we crawled.</p>
+<p>Before we build highly scalable web-endpoints or a flashy Android application, we need to do the crawling analog in Java. We need to learn how to write a basic program using the Java language. We need to discover the mechanics of compilation and runtime, what legal statements can we declare and their effects. We need to know how Java statements are organized, what kinds of control structures are available, what kinds of things we can create and manipulate.</p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>The goal of this chapter is take a first step towards a very long road of programming. We need to learn how programs are constructed, what tools and with what materials should we construct them and finally, how should we run them.</p>
+<h2 id="some-concepts-in-java">Some concepts in Java</h2>
+<p>Java is a compiled language. You need to write the programming statements in a source file, compile them to produce an executable format or object code and finally run the executable file. If you did not make syntactical mistakes the source code will compile without problems. If you did commit syntactical errors then the compiler will not let you through, you will not be able to produce an executable format of your source program.</p>
+<p>A Java source file<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> is a simple text file. You can use basic text editors to create and edit a source file. The choice for program editor is at best, a matter of preference, some people swear by the power of vi <sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup>, some by Emacs, Textmate, JEdit and many others. This is not a discussion about text editors so I won't prescribe any to you. You are old enough and discerning enough to choose the tools that feels right. In case you are curious what I use for coding, it is <strong>vi</strong> on either the OSX or Linux platform.</p>
+<p>A Java source file will bear the extension <em>.java</em>, no matter which platform you are using. Don't worry that the extension doesn't follow the usual three letter format, the popular OS platforms can handle that kind of file. You can use the file creation facilities of your choice-editor or any file creation commands available to your platform---such as <em>touch</em> <sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup>. You might have this in Windows if you installed the UnixUtils software from <a href="http://sourceforge.net/projects/unxutils/">SourceForge</a>.</p>
+<p>Java is an OOP <sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> language. This has many consequences that affects you as a programmer, but right now, it affects what we can write inside our very first source file. You can write only <em>classes</em> and <em>interfaces</em> inside a source file. For our first example, we will write a class and not an interface---interfaces are advanced constructs in Java, we will leave that for later. Inside classes, you can write variables, methods and program statements.</p>
+<p>The source file cannot be ran directly on your platform. It needs to be compiled. If you have installed the JDK <sup><a href="#fn5" class="footnoteRef" id="fnref5">5</a></sup> properly on your platform, you can already use the java compiler. The compiler takes on a source file (or source files) as an argument and turns them into executable files. These files do not have <em>.com</em> or <em>.exe</em> extensions, they have <em>.class</em> extensions instead.</p>
+<p>You cannot run <em>.class</em> files directly on top of your OS. Java executables run inside a special environment called the JRE <sup><a href="#fn6" class="footnoteRef" id="fnref6">6</a></sup>. To run Java object files, you need to invoke the JRE and pass the name of the Java executable as a command line argument---like this</p>
+<pre><code>$ java NameOfExecutable </code></pre>
+<p>There are many kinds of Java programs. Some run on webservers (servlet &amp; JSP), some inside browsers (applet) and some on mobile platforms (android). Some Java apps run on the desktop and there are two kinds of those, one with GUI <sup><a href="#fn7" class="footnoteRef" id="fnref7">7</a></sup> and the other without---these are called CLI or <em>Command Line Interface</em> applications. We will create a CLI app for this chapter.</p>
+<p>Before we begin writing programs, I suggest that you create a folder for purposes of trying out the samples in this book. It is best to name the folder without special characters or whitespace.</p>
+<p>Create a file named *<em>Hello.java</em>. For now, just copy the sample code</p>
+<pre><code>/**
+*
+* Our first program
+*
+* This is a block comment 6*
+**/
+
+class Hello {
+    public static void main (String [] args) {
+    System.out.println("Hello World\n"); }
+}</code></pre>
+<p>Compile the source file using . You will have a file named <em>Hello.class</em> as a result of the compilation. Use the command . Do not include the extension <em>.class</em> when running Java programs, only the file name portion of the resulting <em>.class</em> file is required.</p>
+<p>If you typed your program exactly as it appeared above, the program should compile without problems. If you encountered any compilation error, to back to the program editor and check the spelling of each and every word. Make sure you did not miss a curly brace or perhaps spelt <strong>main()</strong> as <strong>Main()</strong>. Java is case sensitive---<strong>main</strong> is different from <strong>Main</strong>. When you are sure that the program is free from syntactical errors, compile it again, then run.</p>
+<p>The output of the sample code is a very uninteresting "Hello World"---true to tradition of every beginning programmer since Kernighan &amp; Ritchie first started it on the first edition of the C Programming Language in 1969.</p>
+<p>Unexciting as the output maybe, it is simple yet rich enough to get our feet wet in Java programming. You need to get used to the structure of the Hello program because a lot of the codes you will write starts out this way.</p>
+<h2 id="what-hello-program-is-made-of">What Hello program is made of</h2>
+<p>The first seven lines of the Hello program are <em>comments</em>. Comments are non-executable statements and you can put them anywhere---inside or outside a class. You can write comments in three ways.</p>
+<ol style="list-style-type: decimal">
+<li><p>// This is an in-line comment, effective only on the current line. Anything to the right of this comment is ignored. This is suitable for commenting individual lines of code</p></li>
+<li><p>/* */ This is a block comment, anything in between the inner asterisks will be ignored by the compiler. These can span multiple lines</p></li>
+<li><p>/** */ Another block comment that is used by JavaDoc, don't worry about this right now. Just experiment with these three for the time being</p></li>
+</ol><p>After the comments is a class block. Java is an OOP language, and a strict one at that. You cannot write anything meaningul outside a class or interface. Even a simple output to the screen has to be within the context of a class. This is the reason why you need to be very comfortable with the structure of the Hello program as early as now---you will not go very far otherwise.</p>
+<p>A Java class is constructed using the keyword <strong>class</strong> followed a class name. The class name is something that you will define, in our example, the name of the class is <em>Hello</em>. The class name is followed by a pair of curly braces. Anything inside the curly braces constitutes the body of the class.</p>
+<p>You might have noticed that our example class name is <strong>Hello</strong> and that is stored in a file named <em>Hello.java</em>. That is incidental and not a requirement at all. It would have been a requirement if we made the class public <sup><a href="#fn8" class="footnoteRef" id="fnref8">8</a></sup>. If we changed our construction to declare a public class</p>
+<pre><code>public class Hello {
+    public static void main(String args[]) {
+
+    }
+}</code></pre>
+<p>then it becomes mandatory that the name of class be consistent with the name of the source file. This is one of the many rules of Java <sup><a href="#fn9" class="footnoteRef" id="fnref9">9</a></sup>.</p>
+<p>The name of the generated object file was <em>Hello.class</em> not because the name of source file is <em>Hello.java</em> but because the name of the class is <strong>Hello</strong>. The name of class affects the name of the object file.</p>
+<p>Inside the class is a <strong>main()</strong> function, <sup><a href="#fn10" class="footnoteRef" id="fnref10">10</a></sup> this is a runtime requirement. Any class that you will pass on the JRE requires a main function. Not all classes will require this function, only those classes that you will use as a starting point of your program. In our example, class Hello is a program starting point.</p>
+<p>Java has a very specific format for a main function. The function needs to be <strong>public</strong>, <strong>static</strong> &amp; <strong>void</strong>. Public static and void are keywords. Each have a specific action but we will defer their discussion to later chapters.</p>
+<p>Inside the main function is <em>System.out.println()</em>. This is a very common command in Java. You can practically put anything inside the parentheses and it will be printed to the screen. The string literal "Hello World" was placed inside the function <strong>println()</strong>. String literals are defined be enclosing words using a pair of double quotation marks. You cannot define a string literal using single quotes---that results into a different action.</p>
+<p><strong>System.out.println("Hello World");</strong> is a simple statement. It invoked the <strong>println</strong> method of System.out. It is possible to create more complex statements in Java. You need to remember to put a semi-colon after each statement---simple or complex.</p>
+<h2 id="exercises">Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create a Java program that prints out your name and email address on two separate lines.</p></li>
+<li><p>Create a Java program that prints outo your name and email address on two separate lines, but you can only use a single  statement.</p></li>
+<li><p>Play around with the source code of the Hello program. Try to compile and run. Record the results of the compilation and execution each time you make a change. (3.1) Change the spelling of function main to Main (3.2) Remove the opening curly brace immediately right after <em>main(String []args)</em> (3.3) Change "Hello World" to "Hello \n nWorld". \n is an escape character that causes the next line of text to be carried over to the next line.</p></li>
+</ol><span class="stress">Bibliography</span>
+<p>
+
+</p><ol style="list-style-type: decimal">
+<li><p>James Gosling, The Java Programming Language. 3rd ed, 1999.</p></li>
+<li><p>James Gosling, Bill Joy, Guy Steele, Gilad Bracha The Java Language Specifi- cation Third Edition, Addison Wesley 2005</p></li>
+</ol><div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Some people refer to it as compilation unit<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>A popular editor in UNIX and Linux platforms. vi is also available on Windows platform<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>touch is natively available for UNIX, Linux and OSX<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Short for Object Oriented Programming<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Java Development Kit<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>Java Runtime Environment<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Graphical User Interface<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>public is an access modifier that is applicable to a class among other things, just go with this for now, the public modifier will be tackled on post RE methods<a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>The rule is---There can only be at most one public class inside a source file. The name of the public class must be consistent with the name of the source file<a href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>A function is also called a method<a href="#fnref10">↩</a></p></li>
+</ol>
+</div>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Beginning to Program"</span>
+       on 
+       <span itemprop="dateCreated"> Nov.2011 </span>
+       and is filed under 
+      <span itemprop="keywords">java tutorial, java for android </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

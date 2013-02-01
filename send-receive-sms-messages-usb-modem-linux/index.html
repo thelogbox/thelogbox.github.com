@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Send and Receive SMS messages using a USB modem - Linux Guide: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Send and Receive SMS messages using a USB modem - Linux Guide</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <h2 id="objectives">Objectives</h2>
+<ol style="list-style-type: decimal">
+<li>To receive and send (but mostly receive) SMS messages using consumer grade (meaning cheap) GSM modems.</li>
+<li>To do No.1 without resorting to WaveComm or iTegra type devices. The project I will be using it on does not require industrial grade throughput, hence, the price of a WaveComm modem is not justified</li>
+<li>To be able to query the SMS messages data-store either via file based parsing or database(d) queries -- database is preferred.</li>
+</ol><h2 id="possible-solution-approaches">Possible solution approaches</h2>
+<ol style="list-style-type: decimal">
+<li>Write your own GSM modem interface. This requires writing the I/O routines. It's mostly serial programming . After that, just a grab a copy of the standard Hayes-AT GSM modem commands to receive/send SMS from the connected device. This should work for both Nokia and non-Nokia GSM modems</li>
+<li>Use <a href="http://www.kannel.org">Kannel</a> as the SMS gateway. This is a very mature project. I'm pretty sure it is more than what you need.</li>
+<li>Use either <a href="http://wiki.gnokii.org">gnokii-sms</a> or <a href="http://wammu.eu/gammu/">gammu</a>. These are also very mature projects like Kannel</li>
+</ol><h2 id="the-choice">The choice</h2>
+<p><strong>No to writing your own software</strong> because I don't have a lot of time. The SMS component is small portion of the solution, this is not a core component. I cannot justify the amount of time that needs to be spent on research, development and testing.</p>
+<p><strong>No to Kannel</strong> because of the sheer size of the application. The learning curve that might be required could be sizeable (learning the APIs and how to integrate it with my application).</p>
+<p><strong>Yes to gnokii-sms</strong>. It is a stand-alone application with a daemon and it uses MySQL database as a datastore. I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the gnokii-sms backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms</p>
+<h2 id="whats-needed">What's needed</h2>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Debian Squeeze</strong> for the platform. I could use Windows or any other Linux distribution but I am very familiar with Debian, so, Debian it is.</li>
+<li>
+<strong>Cheap USB modem</strong> with plan. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.</li>
+</ol><h2 id="how-to-do-it">How to do it</h2>
+<p><strong>Get gnokii-smsd and mysql-server</strong> from the Debian repositories.</p>
+<pre><code>$ sudo apt-get install mysql-server
+$ sudo apt-get install gnokii-smsd-mysql</code></pre>
+<p><strong>Connect and configure the USB modem</strong></p>
+<ol style="list-style-type: decimal">
+<li>Connect the USB modem to Debian</li>
+<li>Find out which port it is using. On the Linux Terminal, issue either</li>
+</ol><pre>
+$ sudo lsbusb 
+$ sudo dmesg | grep USB
+</pre>
+
+<p>You are looking for the modem entry. The USB modem usually uses /dev/tty0, but just to be sure, run the commands anyway.<br>3. Configure <strong>gnokii-smsd</strong> to use the correct ports. The configuration file is at <em>~/.config/gnokii/config</em> 4. You need to make 2 changes on the configuration file, the <strong>PORT</strong> and <strong>model</strong> entries. Set the <em>port = /dev/tty0</em> (or whatever lsusb or dmesg has told you about the actual port). Set <em>model = AT</em>, the default is 6510 which assumes you are using a Nokia phone, you are not. You are using a non-nokia USB modem</p>
+<p><strong>NOTES</strong></p>
+<p>On some Debian variant (CrunchBang for example), the config file was not found in <em>~/.config</em> folder, it does not exist at all. There was a config file though at <em>/etc/xdg/gnokii/config</em>. If this is case, you can simply create the configuration file and directory manually</p>
+<pre><code>$ mkdir ~/.config
+$ cd ~/.config
+$ mkdir gnokii
+$ cd gnokii
+$ cp /etc/xdg/gnokii/config config</code></pre>
+<p>Then make the edits as prescribed on Step No. 4 above.</p>
+<p>To test if everything is in order, you can run the command</p>
+<pre><code>$ sudo gnokii --identify </code></pre>
+<p>This should give you some diagnostics and some quick peek if something is wrong with the configuration file</p>
+<h2 id="prepare-the-database-back-end-for-gnokii-smsd">Prepare the database back-end for gnokii-smsd</h2>
+<p>I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install <em>gnokii-smsd-pgsql</em> instead of <em>gnokii-smsd-mysql</em>.</p>
+<p>Here is how to prepare the MySQL back-end</p>
+<pre><code>$ mysql -u root -p
+$ mysql&gt; create database smsgw;
+$ mysql&gt; use smsgw;
+$ mysql&gt;.\ /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;</code></pre>
+<p>Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find.</p>
+<h2 id="running-and-testing-the-sms-gateway">Running and testing the SMS gateway</h2>
+<p>To enable gnokii-sms to send and receive SMS messages, we need to run its daemon process.</p>
+<pre><code>$ sudo smsd -u root -p &lt;MySQL Password&gt; -d smsgw -c localhost -m mysql</code></pre>
+<p>Try sending some SMS messages to the phone number of the USB modem, then view the messages on the MySQL database.</p>
+<pre><code>$ mysql -u root -p
+$ mysql&gt; use smsgw;
+$ mysql&gt; select * from inbox;</code></pre>
+<p>Try sending some SMS messages from the command line to your phone.</p>
+<pre><code>$ echo "Test message" | gnokii --sendsmd +SMSNO</code></pre>
+<p>Where <em>SMSNO</em> is structured as (countrycode) cell phone number</p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Send and Receive SMS messages using a USB modem - Linux Guide"</span>
+       on 
+       <span itemprop="dateCreated"> 9.Apr.2012 </span>
+       and is filed under 
+      <span itemprop="keywords">project, howto, linux, sms </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ruby Programming Notes: theLogBox.com</title>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc 3.4.0"> 
+
+
+ <!-- Google webmaster and Analytics -->
+    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30546856-1']);
+    _gaq.push(['_setDomainName', '.thelogbox.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+    <!-- end Google webmaster and analytics -->
+
+	<!--
+	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
+	-->
+	
+  </head>
+  <body>
+
+    <!--
+    <div id="mast">
+    </div>
+    -->
+  
+    <div id="main" itemscope itemtype="http://schema.org/Article">
+
+	  { <a href=/> home </a> }<br/><br/>
+	  <div id="articletitle" itemprop="headline">Ruby Programming Notes</div>  
+      <p/><p/>
+	  <div itemprop="articleBody">
+      <h1 id="use-the-ruby-version-manager-rvm">1. Use the Ruby Version Manager (rvm)</h1>
+<p>Don't incur technical debt on this one, you will be sorry if you skip this step — that is for sure. Ruby has crept in lots development areas e.g. web programming, desktop and mobile programming. It has also made its way into lots of other runtimes e.g. JVM (JRuby, Mirah) and the CLR (IronRuby). The variety of these targets will require you to work with very specific versions of Ruby (1.9.x, 1.8.x, JRuby etc). It is impractical (and quite masochistic) to manage all these environments on your own and by hand. So just get the RVM</p>
+<p>OSX already ships with Ruby. In Linux (Debian specifically) I had to get it from a repo (<em>sudo apt-get install ruby</em>). For Windows, go to the <a href="http://www.ruby-lang.org/en/downloads/">ruby-lang</a> site, there are instructions on how to get the rubyinstaller for Windows.</p>
+<p>Open up a terminal.</p>
+<pre><code>
+$ curl -L https://get.rvm.io | bash -s stable --ruby
+
+# to see a list of things you can install
+$ rvm list known
+
+# to install ruby 1.9.3
+$ rvm install 1.9.3
+
+# to use ruby 1.9.3 instead of 
+# the default 1.8.7
+$ rvm use 1.9.3
+
+# to use the default 1.8.7
+$ rvm use system --default
+
+# install a gem, no need for extra syntax
+# just check the version of ruby you are using
+# before doing anything 
+
+$ ruby -v
+$ rvm use 1.9.3
+# ensure that the gems are updated before installing 
+# anything
+$ gem update --system
+$ gem install &lt;gemname&gt; 
+
+# will install the name and will associate it with ruby 1.9.3
+
+$ rvm use system --default
+$ ruby -v
+$ gem update --system
+$ gem install &lt;gemname&gt; 
+
+# will install the gemname and associate it with the default
+# ruby version for your system
+</code></pre>
+<p><strong>NOTE:</strong> You will not need <em>sudo</em> when installing gems with the rvm.</p>
+<h1 id="pry">2. pry</h1>
+<p>A replacement for the ageing <em>irb</em> (interactive ruby interpreter). Get it via gem — <strong>gem install pry</strong></p>
+<pre><code class="language-ruby"><span class="line-numbers">10</span><span class="error">$</span> rvm use <span class="float">1.9</span>.<span class="error">3</span>
+<span class="line-numbers">11</span><span class="constant">Using</span> <span class="regexp"><span class="delimiter">/</span><span class="content">Users</span><span class="delimiter">/</span></span>ted/.rvm/gems/ruby-<span class="float">1.9</span>.<span class="error">3</span>-p286
+<span class="line-numbers">12</span><span class="error">$</span> ruby -v
+<span class="line-numbers">13</span>ruby <span class="float">1.9</span>.<span class="error">3</span>p286 (<span class="integer">2012</span>-<span class="integer">10</span>-<span class="integer">12</span> revision <span class="integer">37165</span>) [x86_64-darwin12.<span class="error">2.0</span>]
+<span class="line-numbers">14</span>
+<span class="line-numbers">15</span><span class="error">$</span> pry
+<span class="line-numbers">16</span>[<span class="integer">1</span>] pry(main)&gt; <span class="keyword">class</span> <span class="class">Foo</span>
+<span class="line-numbers">17</span>[<span class="integer">1</span>] pry(main)*   <span class="keyword">def</span> <span class="function">initialize</span>(name)
+<span class="line-numbers">18</span>[<span class="integer">1</span>] pry(main)*     <span class="instance-variable">@thename</span> = name
+<span class="line-numbers">19</span>[<span class="integer">1</span>] pry(main)*   <span class="keyword">end</span> 
+<span class="line-numbers">20</span>[<span class="integer">1</span>] pry(main)* <span class="keyword">end</span> 
+<span class="line-numbers">21</span>=&gt; <span class="predefined-constant">nil</span>
+<span class="line-numbers">22</span>[<span class="integer">2</span>] pry(main)&gt; foo = <span class="constant">Foo</span>.new <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>
+<span class="line-numbers">23</span>=&gt; <span class="comment">#&lt;Foo:0x007febd4a83a50 @thename="Ted"&gt;</span>
+<span class="line-numbers">24</span>[<span class="integer">3</span>] pry(main)&gt; quit</code></pre>
+<pre><code>
+$ irb
+1.9.3p286 :001 &gt; class Foo
+1.9.3p286 :002?&gt;   def initialize(name)
+1.9.3p286 :003?&gt;     @thename = name
+1.9.3p286 :004?&gt;     end
+1.9.3p286 :005?&gt;   end
+ =&gt; nil 
+1.9.3p286 :006 &gt; foo = Foo.new "Ted"
+ =&gt; #&lt;Foo:0x007fcd83088b50 @thename="Ted"&gt; 
+1.9.3p286 :007 &gt; 
+</code></pre>
+<p>Pry indents better than irb, it also colorizes the code too. Color and indentation are minor stuff, pry has a lot more tricks like context switching</p>
+	  </div>
+		<p/>
+
+
+
+
+    <div id=categories>
+      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
+      wrote 
+      <span itemprop="about">"Ruby Programming Notes"</span>
+       on 
+       <span itemprop="dateCreated"> September 21, 2012 </span>
+       and is filed under 
+      <span itemprop="keywords">ruby, blog </span>
+      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
+    </div>  
+   
+    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+
+   <!-- DISQUS javascript -->
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+	<!-- END Disqus-->
+
+		<div id="footer">
+			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
+		</div>	
+
+	
+	<!-- Start of StatCounter Code for Default Guide -->
+	
+    <script type="text/javascript">
+    var sc_project=7827488; 
+    var sc_invisible=1; 
+    var sc_security="069357c9"; 
+    </script>
+    <script type="text/javascript"
+        src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><div class="statcounter"><a title="customizable
+        counter" href="http://statcounter.com/free-hit-counter/"
+        target="_blank"><img class="statcounter"
+        src="http://c.statcounter.com/7827488/0/069357c9/1/"
+        alt="customizable counter"></a></div></noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+
+
+    </div>
+
+<!--
+    <div id="sidebar">
+      <ul>
+        <li><a href="/"><img src=/res/home.png></a></li>
+		<li></li>
+        <li><a href="/everything/"><img src=/res/blog.png></a></li>
+		<li><a href="#"><img src=/res/mail.png></a></li>
+      </ul>
+
+      <h2>Community</h2>
+      <ul>
+        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
+        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
+        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
+      </ul>
+
+    </div>
+	
+-->	
+
+  </body>
+
+</html>
