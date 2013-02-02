@@ -1,55 +1,64 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Android Programming - mirah: theLogBox.com</title>
+		<meta charset="utf-8">
+<title>Android Programming - mirah: theLogBox.com</title>
 
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc 3.4.0"> 
+<link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 
 
- <!-- Google webmaster and Analytics -->
-    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
-    <script type="text/javascript">
+<meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-30546856-1']);
-    _gaq.push(['_setDomainName', '.thelogbox.com']);
-    _gaq.push(['_trackPageview']);
+		<!-- Google webmaster and Analytics -->
+   <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+   <script type="text/javascript">
 
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-30546856-1']);
+   _gaq.push(['_setDomainName', '.thelogbox.com']);
+   _gaq.push(['_trackPageview']);
 
-    </script>
-    <!-- end Google webmaster and analytics -->
+   (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
 
-	<!--
-	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
-	-->
-	
+   </script>
+   <!-- end Google webmaster and analytics -->	
   </head>
   <body>
-
-    <!--
-    <div id="mast">
-    </div>
-    -->
-  
+		  
     <div id="main" itemscope itemtype="http://schema.org/Article">
 
-	  { <a href=/> home </a> }<br/><br/>
+	  <header>
+      
+<div id='navleft'>
+<a href='/'>{theLogBox}</a>
+</div>
+
+<div id='navright'>
+  <a href=''>courses</a> &nbsp;&nbsp;
+    <a href=''>blog</a> 
+</div>
+    </header>
+
 	  <div id="articletitle" itemprop="headline">Android Programming - mirah</div>  
-      <p/><p/>
+    <div id='contentmeta'>
+by: 
+<a href="https://plus.google.com/107317535953221277825?rel=author">
+  Ted Hagos
+</a> on 
+
+<span itemprop="dateCreated"> October 18, 2012 </span>
+</div>  
+
 	  <div itemprop="articleBody">
       <div id="update-history">
 <h3>
@@ -104,23 +113,23 @@ Doc history
 <span class="line-numbers">19</span>
 <span class="line-numbers">20</span>
 <span class="line-numbers">21</span><span class="keyword">class</span> <span class="class">ToastView</span> &lt; <span class="constant">LinearLayout</span>
-<span class="line-numbers">22</span>
+<span class="line-numbers">22</span>    
 <span class="line-numbers">23</span>  <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
 <span class="line-numbers">24</span>    <span class="keyword">super</span>(ctx)
-<span class="line-numbers">25</span>
+<span class="line-numbers">25</span>    
 <span class="line-numbers">26</span>    <span class="instance-variable">@ctx</span> = ctx
 <span class="line-numbers">27</span>    <span class="instance-variable">@button</span> = <span class="constant">Button</span>.new ctx 
-<span class="line-numbers">28</span>
+<span class="line-numbers">28</span>    
 <span class="line-numbers">29</span>    <span class="instance-variable">@button</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Toast me!</span><span class="delimiter">"</span></span>
 <span class="line-numbers">30</span>    <span class="instance-variable">@button</span>.setOnClickListener <span class="keyword">do</span> |x|
 <span class="line-numbers">31</span>      notification = <span class="constant">Toast</span>.makeText(<span class="constant">ToastCode</span>.ctx, <span class="string"><span class="delimiter">"</span><span class="content">Yo</span><span class="delimiter">"</span></span>, <span class="constant">Toast</span>.LENGTH_SHORT)
 <span class="line-numbers">32</span>      notification.show()
 <span class="line-numbers">33</span>    <span class="keyword">end</span>
-<span class="line-numbers">34</span>
+<span class="line-numbers">34</span>       
 <span class="line-numbers">35</span>    setOrientation(<span class="constant">LinearLayout</span>.VERTICAL)
 <span class="line-numbers">36</span>    addView(<span class="instance-variable">@button</span>)
 <span class="line-numbers">37</span>  <span class="keyword">end</span>
-<span class="line-numbers">38</span>
+<span class="line-numbers">38</span>    
 <span class="line-numbers">39</span><span class="keyword">end</span>
 <span class="line-numbers">40</span>
 <span class="line-numbers">41</span><span class="keyword">class</span> <span class="class">ToastCode</span> &lt; <span class="constant">Activity</span>
@@ -129,10 +138,10 @@ Doc history
 <span class="line-numbers">44</span>    <span class="keyword">super</span> state    
 <span class="line-numbers">45</span>    <span class="instance-variable">@view</span> = <span class="constant">ToastView</span>.new <span class="predefined-constant">self</span>
 <span class="line-numbers">46</span>    <span class="class-variable">@@ctx</span> = getApplicationContext()
-<span class="line-numbers">47</span>
+<span class="line-numbers">47</span>    
 <span class="line-numbers">48</span>    setContentView <span class="instance-variable">@view</span>
 <span class="line-numbers">49</span>  <span class="keyword">end</span>
-<span class="line-numbers">50</span>
+<span class="line-numbers">50</span>  
 <span class="line-numbers">51</span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">ctx</span>
 <span class="line-numbers">52</span>    <span class="class-variable">@@ctx</span>
 <span class="line-numbers">53</span>  <span class="keyword">end</span>
@@ -161,31 +170,31 @@ end</code></pre>
 <span class="line-numbers">21</span>
 <span class="line-numbers">22</span><span class="keyword">class</span> <span class="class">ToastView</span> &lt; <span class="constant">LinearLayout</span>
 <span class="line-numbers">23</span>  implements <span class="constant">OnClickListener</span>
-<span class="line-numbers">24</span>
+<span class="line-numbers">24</span>  
 <span class="line-numbers">25</span>  <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
 <span class="line-numbers">26</span>    <span class="keyword">super</span> ctx
-<span class="line-numbers">27</span>
+<span class="line-numbers">27</span>    
 <span class="line-numbers">28</span>    <span class="instance-variable">@btnsave</span> = <span class="constant">Button</span>.new ctx       
 <span class="line-numbers">29</span>    <span class="instance-variable">@btnsave</span>.setLayoutParams getLayoutParams    
 <span class="line-numbers">30</span>    <span class="instance-variable">@btnsave</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Save</span><span class="delimiter">"</span></span>    
 <span class="line-numbers">31</span>    <span class="instance-variable">@btnsave</span>.setOnClickListener(<span class="predefined-constant">self</span>)
-<span class="line-numbers">32</span>
+<span class="line-numbers">32</span>    
 <span class="line-numbers">33</span>    <span class="comment"># ADD the widgets to the MainView</span>
-<span class="line-numbers">34</span>
+<span class="line-numbers">34</span>    
 <span class="line-numbers">35</span>    addView <span class="instance-variable">@btnsave</span>
 <span class="line-numbers">36</span>    setOrientation <span class="constant">LinearLayout</span>.VERTICAL    
 <span class="line-numbers">37</span>  <span class="keyword">end</span>
-<span class="line-numbers">38</span>
+<span class="line-numbers">38</span>  
 <span class="line-numbers">39</span>  <span class="keyword">def</span> <span class="function">getLayoutParams</span><span class="symbol">:LayoutParams</span>
 <span class="line-numbers">40</span>    width = <span class="constant">ViewGroup</span>.LayoutParams.FILL_PARENT
 <span class="line-numbers">41</span>    height = <span class="constant">ViewGroup</span>.LayoutParams.WRAP_CONTENT    
 <span class="line-numbers">42</span>    <span class="constant">LayoutParams</span>.new width, height
 <span class="line-numbers">43</span>  <span class="keyword">end</span>
-<span class="line-numbers">44</span>
+<span class="line-numbers">44</span>  
 <span class="line-numbers">45</span>  <span class="keyword">def</span> <span class="function">onClick</span>(view<span class="symbol">:View</span>)
 <span class="line-numbers">46</span>    <span class="comment"># ... code when button is clicked</span>
 <span class="line-numbers">47</span>  <span class="keyword">end</span>
-<span class="line-numbers">48</span>
+<span class="line-numbers">48</span>    
 <span class="line-numbers">49</span><span class="keyword">end</span></code></pre>
 <h2 id="knowing-which-button-was-clicked">Knowing which button was clicked</h2>
 <p>
@@ -202,25 +211,25 @@ end</code></pre>
 <span class="line-numbers">19</span>
 <span class="line-numbers">20</span><span class="keyword">class</span> <span class="class">ButtonsView</span> &lt; <span class="constant">LinearLayout</span>
 <span class="line-numbers">21</span>  implements <span class="constant">OnClickListener</span>
-<span class="line-numbers">22</span>
+<span class="line-numbers">22</span>  
 <span class="line-numbers">23</span>  <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
 <span class="line-numbers">24</span>    <span class="keyword">super</span> ctx
-<span class="line-numbers">25</span>
+<span class="line-numbers">25</span>    
 <span class="line-numbers">26</span>    <span class="instance-variable">@one</span> = <span class="constant">Button</span>.new ctx
 <span class="line-numbers">27</span>    <span class="instance-variable">@two</span> = <span class="constant">Button</span>.new ctx
 <span class="line-numbers">28</span>    <span class="instance-variable">@three</span> = <span class="constant">Button</span>.new ctx
-<span class="line-numbers">29</span>
+<span class="line-numbers">29</span>    
 <span class="line-numbers">30</span>    <span class="instance-variable">@one</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">One</span><span class="delimiter">"</span></span>
 <span class="line-numbers">31</span>    <span class="instance-variable">@two</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Two</span><span class="delimiter">"</span></span>
 <span class="line-numbers">32</span>    <span class="instance-variable">@three</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Three</span><span class="delimiter">"</span></span>
-<span class="line-numbers">33</span>
+<span class="line-numbers">33</span>    
 <span class="line-numbers">34</span>    <span class="comment"># need to set the Id  of each Button obj because this is</span>
 <span class="line-numbers">35</span>    <span class="comment"># is what we will use to determine which of them was clicked</span>
-<span class="line-numbers">36</span>
+<span class="line-numbers">36</span>    
 <span class="line-numbers">37</span>    <span class="instance-variable">@one</span>.setId <span class="integer">1</span>
 <span class="line-numbers">38</span>    <span class="instance-variable">@two</span>.setId <span class="integer">2</span>
 <span class="line-numbers">39</span>    <span class="instance-variable">@three</span>.setId <span class="integer">3</span>
-<span class="line-numbers">40</span>
+<span class="line-numbers">40</span>    
 <span class="line-numbers">41</span>    <span class="instance-variable">@one</span>.setOnClickListener <span class="predefined-constant">self</span>
 <span class="line-numbers">42</span>    <span class="instance-variable">@two</span>.setOnClickListener <span class="predefined-constant">self</span>
 <span class="line-numbers">43</span>    <span class="instance-variable">@three</span>.setOnClickListener <span class="predefined-constant">self</span>
@@ -228,23 +237,23 @@ end</code></pre>
 <span class="line-numbers">45</span>    addView(<span class="instance-variable">@one</span>)
 <span class="line-numbers">46</span>    addView(<span class="instance-variable">@two</span>)
 <span class="line-numbers">47</span>    addView(<span class="instance-variable">@three</span>)
-<span class="line-numbers">48</span>
+<span class="line-numbers">48</span>    
 <span class="line-numbers">49</span>    setOrientation <span class="constant">LinearLayout</span>.VERTICAL
 <span class="line-numbers">50</span>
 <span class="line-numbers">51</span>  <span class="keyword">end</span>
-<span class="line-numbers">52</span>
+<span class="line-numbers">52</span>  
 <span class="line-numbers">53</span>  <span class="keyword">def</span> <span class="function">onClick</span>(v<span class="symbol">:View</span>)
-<span class="line-numbers">54</span>
+<span class="line-numbers">54</span>    
 <span class="line-numbers">55</span>    <span class="comment"># v.getId will return an integer. If you defined the view declaratively, the AAPT</span>
 <span class="line-numbers">56</span>    <span class="comment"># (android asset packaging tool) would have kicked in and generated an R.layout.xxx</span>
 <span class="line-numbers">57</span>    <span class="comment"># java class, we could use that id to determine which button was clicked.</span>
 <span class="line-numbers">58</span>    <span class="comment"># But since the view was done programmatically, the aapt did not kick in, hence</span>
 <span class="line-numbers">59</span>    <span class="comment"># we need to define our own ids for each button</span>
-<span class="line-numbers">60</span>
+<span class="line-numbers">60</span>    
 <span class="line-numbers">61</span>    toast = <span class="constant">Toast</span>.makeText(<span class="constant">Buttons</span>.getAppContext,<span class="string"><span class="delimiter">"</span><span class="inline"><span class="inline-delimiter">#{</span>v.getId<span class="inline-delimiter">}</span></span><span class="delimiter">"</span></span>, <span class="constant">Toast</span>.LENGTH_SHORT)
 <span class="line-numbers">62</span>    toast.show
 <span class="line-numbers">63</span>  <span class="keyword">end</span>
-<span class="line-numbers">64</span>
+<span class="line-numbers">64</span>  
 <span class="line-numbers">65</span><span class="keyword">end</span>
 <span class="line-numbers">66</span>
 <span class="line-numbers">67</span><span class="keyword">class</span> <span class="class">Buttons</span> &lt; <span class="constant">Activity</span>
@@ -253,93 +262,38 @@ end</code></pre>
 <span class="line-numbers">70</span>    <span class="class-variable">@@ctx</span> = getApplicationContext
 <span class="line-numbers">71</span>    setContentView <span class="constant">ButtonsView</span>.new(<span class="predefined-constant">self</span>)
 <span class="line-numbers">72</span>  <span class="keyword">end</span>
-<span class="line-numbers">73</span>
+<span class="line-numbers">73</span>  
 <span class="line-numbers">74</span>  <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">getAppContext</span>
 <span class="line-numbers">75</span>    <span class="class-variable">@@ctx</span>
 <span class="line-numbers">76</span>  <span class="keyword">end</span>
-<span class="line-numbers">77</span>
+<span class="line-numbers">77</span>  
 <span class="line-numbers">78</span><span class="keyword">end</span></code></pre>
 	  </div>
 		<p/>
 
-
-
-
-    <div id=categories>
-      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
-      wrote 
-      <span itemprop="about">"Android Programming - mirah"</span>
-       on 
-       <span itemprop="dateCreated"> October 18, 2012 </span>
-       and is filed under 
-      <span itemprop="keywords">mirah, pindah, android, mobile, programming </span>
-      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
-    </div>  
-   
     <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
-
-   <!-- DISQUS javascript -->
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-	<!-- END Disqus-->
-
-		<div id="footer">
-			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
-		</div>	
-
+    <!-- Start of StatCounter Code for Default Guide -->
 	
-	<!-- Start of StatCounter Code for Default Guide -->
-	
-    <script type="text/javascript">
-    var sc_project=7827488; 
-    var sc_invisible=1; 
-    var sc_security="069357c9"; 
-    </script>
-    <script type="text/javascript"
-        src="http://www.statcounter.com/counter/counter.js"></script>
-    <noscript><div class="statcounter"><a title="customizable
-        counter" href="http://statcounter.com/free-hit-counter/"
-        target="_blank"><img class="statcounter"
-        src="http://c.statcounter.com/7827488/0/069357c9/1/"
-        alt="customizable counter"></a></div></noscript>
-    <!-- End of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+   
+    <footer>
+      &copy 2012-2013 theLogBox.com 
 
+    </foter>
 
     </div>
-
-<!--
-    <div id="sidebar">
-      <ul>
-        <li><a href="/"><img src=/res/home.png></a></li>
-		<li></li>
-        <li><a href="/everything/"><img src=/res/blog.png></a></li>
-		<li><a href="#"><img src=/res/mail.png></a></li>
-      </ul>
-
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
-      </ul>
-
-    </div>
-	
--->	
-
   </body>
 
 </html>

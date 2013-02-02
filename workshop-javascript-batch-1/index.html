@@ -106,7 +106,7 @@ console.log(r);
 
 // 2nd way
 var rommel = {
-
+    
     name: &quot;Rommel&quot;,
     id: &quot;006&quot;,
     dept: &quot;Admin&quot;   
@@ -132,7 +132,7 @@ console.log(r2);
 function goo() {
 
    return &quot;Hello&quot;;   
-
+   
 }
 
 console.log(goo())); // returns &quot;Hello&quot;;
@@ -152,7 +152,7 @@ console.log(goo());  // fails now, because goo is no longer a function
 // an example of a function return another function
 
 var x = function() {
-
+    
     return function() {
         return &quot;Goo&quot;;
     }
@@ -166,10 +166,10 @@ console.log(a());
 <p>You can add functions as a property of an object. This is possible because properties of objects can be of any type, it can be simple types or complex types, like object or arrays. You can conjure a pretty sophisticated data structure by nesting objects within other objects. Functions, being objects themselves, means we can add a function as a property of an object.</p>
 <pre><code>
 function Employee(nameparam, deptparam) {
-
+    
     this.empname = nameparam;
     this.dept = deptparam;
-
+    
     this.work = function () {
         console.log(this.empname + &quot; is working&quot;)   
     }           
@@ -228,24 +228,24 @@ toyota.steering.goLeft();
 //solution 2
 
 var Car = function() {
-
+    
     this.engine = {
         shift : function() {
             console.log(&quot;shifting&quot;);
         }
     }
-
+    
     this.steering =  {
-
+        
         goLeft : function() {
             console.log(&quot;going left&quot;);
         },
         goRight : function() {
             console.log(&quot;going right&quot;);
         }
-
+        
     }
-
+    
 }
 
 var toyota = new Car();
@@ -338,9 +338,9 @@ function elementcollection(){
 }
 
 function input() {
-
+    
     this.innerhtml = &quot;default inner html&quot;;
-
+    
     this.click = function() {
         console.log(&quot;Clicked&quot;);
     }
@@ -384,21 +384,21 @@ console.log(w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].inn
 <p><sub>~</sub></p>
 <p>Fourth.JS</p>
 <pre><code>function foo() {
-
+    
     var form1 = document.forms[0];
     var text1 = form1.elements[0];
-
+    
     var text2 = document.forms[&quot;objform&quot;].elements[&quot;text2&quot;];
     var gcf = document.getElementById(&quot;gcf&quot;);
-
-
+    
+    
     var firstno = parseInt(text1.value);
     var secondno = parseInt(text2.value);
-
+    
     alert(firstno + secondno);
-
+    
     gcf.innerHTML = &quot;This is the GCF&quot;;
-
+        
 }
 </code></pre>
 <p><strong>Fifth.html (inlined JavaScript).</strong> A lot of things in the DOM can be clicked, and you can attach an <em>onclick</em> event even to DIVs in the DOM. This code sample shows that</p>
@@ -412,39 +412,39 @@ console.log(w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].inn
             document.forms[&quot;objform&quot;].elements[&quot;btn1&quot;].onclick = function(){
                 btnclick();
             }
-
+            
             document.getElementById(&quot;section1&quot;).onclick = function(){
                 sectionclick();
             }
-
+            
         }
-
+        
         function sectionclick(){
             alert(&quot;clicked the div&quot;);
         }
-
+        
         function btnclick() {
             alert(&quot;Hello&quot;);
         }
         &lt;/script&gt;
-
+        
         &lt;noscript&gt;
             You have to enable JavaScript
         &lt;/noscript&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+    
     &lt;form name=&quot;objform&quot;&gt;
         &lt;input type=button name=&quot;btn1&quot; value=&quot;hey&quot;/&gt;
     &lt;/form&gt;
-
+    
     &lt;p&gt;
     &lt;div id=&quot;section1&quot; style=&quot;border: 2px solid gray; width:10%;&quot;&gt;
     You can click me
     &lt;/div&gt;
-
-
+    
+    
     &lt;/body&gt;
 
 &lt;/html&gt;
@@ -456,15 +456,15 @@ console.log(w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].inn
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
-
+        
         &lt;script src=&quot;onchange.js&quot;&gt;
-
+            
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;form name=&quot;objform&quot;&gt;
             &lt;textarea name=&quot;txtarea1&quot; rows=&quot;10&quot; cols=&quot;100&quot; onkeyup=&quot;changetext()&quot;&gt;
-
+                
             &lt;/textarea&gt;
             &lt;p&gt;
             &lt;input type=&quot;button&quot; onclick=&quot;btnclick()&quot; value=&quot;click me&quot;&gt;
@@ -478,7 +478,7 @@ console.log(w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].inn
 <p><strong>onchange.js</strong></p>
 <pre><code>
 function btnclick() {
-
+    
     var txtin = objform.elements[&quot;txtarea1&quot;];
     var txtout = document.getElementById(&quot;writetome&quot;);
 
@@ -486,12 +486,12 @@ function btnclick() {
 }
 
 function changetext(){
-
+    
     var txtin = objform.elements[&quot;txtarea1&quot;];
     var txtout = document.getElementById(&quot;writetome&quot;);
 
     txtout.innerHTML = txtin.value;
-
+    
 }
 </code></pre>
 <p>You can experiment with the other <em>onkey</em> events like <strong>onkeypress</strong> and <strong>onkeyup</strong></p>
@@ -515,92 +515,92 @@ function changetext(){
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
-
+        
         &lt;script&gt;
-
+        
         function woot() {
-
+        
             var c = document.getElementById(&quot;mycanvas&quot;);
             var ctx = c.getContext(&quot;2d&quot;);
-
+            
             ctx.fillRect(10,10,50,50);
             ctx.strokeRect(70,10,50,50);
-
+            
             ctx.fillStyle = &quot;rgb(255,0,0)&quot;;
             ctx.fillRect(10,70,50,50);
-
+            
             ctx.strokeStyle = &quot;#ababab&quot;;
             ctx.strokeRect(70,70,50,50);
-
+            
             // DRAW LINES
-
+            
             //The line is gray bec the curr strokeStyle
             //is #ababab
-
+            
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(130, 130);
             ctx.lineTo(0,0);
             ctx.closePath();
             ctx.stroke();
-
+            
             // DRAW some text
-
+            
             ctx.fillText(&quot;Hello&quot;, 130,20);
             ctx.font = &quot;40px serif&quot;; // you can add italics here, just like in css
             ctx.fillText(&quot;Hello&quot;, 130,60);
             ctx.strokeText(&quot;Hello&quot;, 130,100);
-
+            
             //DRAW CIRCLE
-
+            
             ctx.fillStyle = &quot;green&quot;;
             ctx.beginPath();
             ctx.arc(60,180,50,0,Math.PI * 2, false);
             ctx.closePath();
             ctx.fill();
-
+            
             ctx.fillStyle = &quot;orange&quot;;
             ctx.beginPath();
             ctx.arc(60,280,50,0,Math.PI, false);
             ctx.closePath();
             ctx.fill();
-
+            
             //BASIC ROTATION
-
+            
             ctx.rotate(Math.PI/4);
             ctx.fillRect(350,250,40,40);
-
+            
         }
-
+        
         function clearAll(){
             var c = document.getElementById(&quot;mycanvas&quot;);
             var ctx = c.getContext(&quot;2d&quot;);
-
+            
             ctx.clearRect(0,0,300,150);
         }
-
+        
         function getSize(){
             var c = document.getElementById(&quot;mycanvas&quot;);
             var ctx = c.getContext(&quot;2d&quot;);
-
+            
             alert(&quot;width = &quot; + c.width + &quot;\nheight = &quot; + c.height);
         }
-
+        
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body onload=&quot;woot()&quot;&gt;
-
+        
         &lt;canvas id=&quot;mycanvas&quot; style=&quot;border:1px solid gray;&quot; width=500 height=500&gt;
             If you are seeing this, you are using a really old
             browser
         &lt;/canvas&gt;
-
+        
         &lt;p&gt;
         &lt;input type=button value=&quot;Clear all&quot; onclick=&quot;clearAll()&quot;&gt;
         &lt;input type=button value=&quot;Size of C&quot; onclick=&quot;getSize()&quot;&gt;
-
-
+        
+        
     &lt;/body&gt;
 &lt;/html&gt;
 
@@ -617,63 +617,63 @@ function changetext(){
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
-
+        
         &lt;script&gt;
-
+        
         var c = null;
         var cx = null;
         var output = null;
-
+        
         var shouldIPaint = null;
-
+        
         window.onload = function(){
             c = document.getElementById(&quot;mycanvas&quot;);
             cx = c.getContext(&quot;2d&quot;);
-
+            
             shouldIPaint = true;
             output = document.getElementById(&quot;output&quot;);
-
+            
             c.onclick = function(){
                 shouldIPaint = !shouldIPaint;
             }
-
+            
             c.onmousemove = function(){
-
+                
                 c.style.cursor = &#39;crosshair&#39;;
-
+                
                 output.innerHTML = &quot;X : &quot; + event.clientX + &quot; | Y : &quot; + event.clientY;
                 cx.fillStyle = &quot;#ababab&quot;;
-
+        
                 if(shouldIPaint == true){
                     cx.fillRect(event.clientX-20,event.clientY-50,5,5);
                 }
             }
         }
-
+        
         function clearall(){
             cx.clearRect(0,0,c.width,c.height);
         }
-
+        
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
         &lt;input type=button value=&quot;clear&quot; onclick=&quot;clearall()&quot;&gt;
         &lt;p&gt;
         &lt;canvas id=&quot;mycanvas&quot; width=500 height=400 style=&quot;border:1px dotted gray&quot;&gt;
         &lt;/canvas&gt;
-
+        
         &lt;div id=&quot;output&quot;&gt;
         &lt;/div&gt;
         &lt;p&gt;
-
+            
         Additional complexity:&lt;br&gt;
         &lt;pre&gt;
         1. Use circles instead of squares
         2. Use line drawings
         3. Use bezier curves    
         &lt;/pre&gt;  
-
+        
     &lt;/body&gt;
 &lt;/html&gt;
 
@@ -688,25 +688,25 @@ function changetext(){
         &lt;script&gt;
         var c = null;
         var cx = null;
-
+        
         var lastpos; // lets keep track of where we are
-
-
+        
+        
         window.onload = function() {
-
+            
             c = document.getElementById(&quot;mycanvas&quot;);
             cx = c.getContext(&quot;2d&quot;);
-
+            
             lastpos = {x:0,y:0};
-
+            
             output.innerHTML = &quot;READY&quot;;
-
+            
             // arrow keys are only detected onkeydown, not onkeypress
-
+            
             c.onkeydown = function(){
-
+                
                 var action = event.keyCode;
-
+                
                 switch(action) {
                     case 37: // &lt;-
                         moveLeft();
@@ -725,44 +725,44 @@ function changetext(){
                 }
             }
         }
-
+        
         function showStat(key){
             var temp = &quot;ARROW key : &quot; + key + &quot;&lt;br/&gt;&quot;;
             temp = temp + &quot;curr X : &quot; + lastpos.x + &quot; | curr Y : &quot; + lastpos.y;
             output.innerHTML = temp;
         }
-
+        
         function draw(pos){
             cx.clearRect(0,0,c.width, c.height);
             cx.fillRect(pos.x, pos.y, 10,10);
         }
-
+                
         function moveUp() {
             lastpos.y--;
             draw(lastpos);
             showStat(&quot;Up&quot;);
         }
-
+        
         function moveDown(){
             lastpos.y++;
             draw(lastpos);
             showStat(&quot;Down&quot;);
         }
-
+        
         function moveLeft(){
             lastpos.x--;
             draw(lastpos);
             showStat(&quot;Left&quot;);
         }
-
+        
         function moveRight(){
             lastpos.x++;
             draw(lastpos);
             showStat(&quot;Right&quot;);
         }
-
+        
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
         &lt;canvas id=&quot;mycanvas&quot; width=500 height=300 style=&quot;border: 1px dotted gray;&quot; tabindex=1&gt;
@@ -783,32 +783,32 @@ function changetext(){
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
-
+        
         &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
-
+            
             #canv {border:1px solid #ababab;}
             #coloroutput {border:1px dotted orange; width:50px; height:50px;}
 
-
+        
         &lt;/style&gt;
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;imagedata.js&quot;&gt;
-
+            
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+        
         &lt;canvas id=&quot;canv&quot; width=400 height=400&gt;
         &lt;/canvas&gt;
-
+        
         &lt;div id=&quot;coloroutput&quot;&gt;
         &lt;/div&gt;
         &lt;p&gt;
         &lt;div id=&quot;textoutput&quot;&gt;
             Color value
         &lt;/div&gt;
-
-
+        
+        
     &lt;/body&gt;
 &lt;/html&gt;
 
@@ -824,41 +824,41 @@ var textout = null;
 var colorout = null;
 
 window.onload = function() {
-
+    
     c = document.getElementById(&quot;canv&quot;);
     cx = c.getContext(&quot;2d&quot;);
-
+    
     mousepos = {x:0,y:0};
     colorout = document.getElementById(&quot;coloroutput&quot;);
     textout = document.getElementById(&quot;textoutput&quot;);
-
+    
     image = new Image();
     image.src = &quot;colorwheel.png&quot;;
-
+    
     cx.drawImage(image,0,0,c.width,c.height);
-
+    
     c.onmousemove = function(){
-
+        
         //figure out first where the mouse is
-
+        
         mousepos.x = event.clientX;
         mousepos.y = event.clientY;
-
+        
         var imagedata = cx.getImageData(mousepos.x,mousepos.y,1,1);
         var pixel = imagedata.data;
-
+        
         var pred = pixel[0];
         var pgreen = pixel[1];
         var pblue = pixel[2];
         var palpha = pixel[3];
-
+        
         var color = &quot;rgba(&quot; + pred + &quot;,&quot; + pgreen + &quot;,&quot; + pblue + &quot;,&quot; + palpha + &quot;)&quot;;
-
+        
         colorout.style.backgroundColor = color;
         textout.style.color = color;
         textout.innerHTML = color;
-
-
+        
+        
     }
 }
 </code></pre>
@@ -876,60 +876,60 @@ window.onload = function() {
         #canv {border: 1px solid #ababab;}
         &lt;/style&gt;
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+            
         var c = null;
         var cx = null;
-
+        
         var xpos = null;
         var xpos2 = null;
-
+        
         var stopDrawing = null;
-
-
+        
+        
         window.onload = function(){
-
+        
             c = document.getElementById(&quot;canv&quot;);
             cx = c.getContext(&quot;2d&quot;);
-
+            
             xpos = 10;
             xpos2 = 10;
-
+            
             stopDrawing = false;
-
+            
             c.onclick = function(){
                 stopDrawing = !stopDrawing;
             }
-
+            
             draw();
         }
-
+            
         function draw(){
-
+            
             if(!stopDrawing){
                 cx.clearRect(0,0,c.width,c.height);
-
+            
                 if(xpos &gt; c.width){
                     xpos = 0;
                 }
                 else{
                     xpos++;
                 }
-
+                
                 if(xpos2 &gt; c.width){
                     xpos2 = 0;
                 }
                 else {
                     xpos2 += 5
                 }
-
-
+                
+            
                 //setTimeout(draw,30);
                 cx.fillRect(xpos,10,40,40);
                 cx.fillRect(xpos2,40,20,20);
             }
             setTimeout(draw, 30)
         }   
-
+            
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -952,69 +952,69 @@ window.onload = function() {
         #canv {border: 1px solid #ababab;}
         &lt;/style&gt;
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+            
         var c = null;
         var cx = null;
-
+                
         var stopDrawing = null;
         var s1 = null;
         var s2 = null;  
-
-
+            
+            
         window.onload = function(){
-
+        
             c = document.getElementById(&quot;canv&quot;);
             cx = c.getContext(&quot;2d&quot;);
-
+                
             stopDrawing = false;
-
+            
             c.onclick = function(){
                 stopDrawing = !stopDrawing;
             }
-
+        
             s1 = new Square(0,10,60,60);
             s2 = new Square(30,90,20,20);
             s3 = new Square(60,140,10,50);
-
+            
             s2.setAcceleration(30);
             s1.setAcceleration(5);
             s3.setAcceleration(9);
-
+            
             draw();
         }
-
+            
         function draw(){
-
+            
             cx.clearRect(0,0,c.width,c.height);
-
+        
             s1.move2();
             s2.move2();
             s3.move2();
-
+            
             cx.fillRect(s1.x,s1.y,s1.width,s1.height);
             cx.fillRect(s2.x,s2.y,s2.width,s2.height);
             cx.fillRect(s3.x,s3.y,s3.width,s3.height);
-
+            
             setTimeout(draw,33);
         }   
-
+        
         function Square(x,y,width,height){
 
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
-
+            
             this.direction = true; // move left, false is right
-
+            
             var acceleration = 1;
-
+            
             this.setAcceleration = function(accel){
                 acceleration = accel;
             }
-
+            
             this.move2 = function(){
-
+                
                 if(this.direction &amp;&amp; (this.x + this.width) &gt; c.width){
                     this.x = c.width - this.width;
                     this.direction = !this.direction;
@@ -1023,16 +1023,16 @@ window.onload = function() {
                     this.x = 0;;
                     this.direction = !this.direction;
                 }
-
+                
                 if(this.direction){
                     this.x += acceleration;
                 }
                 else {
                     this.x -= acceleration;
                 }
-
+                
             }
-
+            
             this.move = function(){
                 if(this.x &gt; c.width){
                     this.x = 0;
@@ -1042,7 +1042,7 @@ window.onload = function() {
                 }
             }
         }
-
+        
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -1062,23 +1062,23 @@ window.onload = function() {
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
-
+        
         &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
-
+        
         #mysvg {border:1px solid #ababab;}
-
+        
         &lt;/style&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+        
         &lt;svg width=500 height=400&gt;
             &lt;rect id=&quot;rect1&quot; x=&quot;10&quot; y=&quot;10&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
             &lt;rect id=&quot;rect2&quot; x=&quot;70&quot; y=&quot;70&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
         &lt;/svg&gt;
-
+        
         &lt;div id=&quot;watch&quot;&gt;
-
+    
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1090,31 +1090,31 @@ window.onload = function() {
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
         &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
-
+        
         #mycanvas {border:1px solid #ababab;}
-
+        
         &lt;/style&gt;
 
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+        
         var r = null;
-
-
+        
+        
         window.onload = function(){
-
+            
             r = document.getElementById(&quot;therect&quot;);
-
+            
             r.onclick = function(){
                 r.setAttribute(&quot;width&quot;, 200);
             }
-
+                        
         }
-
+            
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+        
         &lt;svg width=500 height=200&gt;
             &lt;rect id=&quot;therect&quot; x=10 y=20 width=50 height=100
             style=&quot;fill: #ababab; stroke:#000;&quot;
@@ -1122,7 +1122,7 @@ window.onload = function() {
 
         &lt;/svg&gt;
         &lt;div id=&quot;watch&quot;&gt;
-
+    
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1134,28 +1134,28 @@ window.onload = function() {
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
         &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
-
+        
         #mysvg {border:1px solid #ababab;}
-
+        
         &lt;/style&gt;
 
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+        
         var rect = null;
         //var rectx = 0;
-
+        
         window.onload = function(){
             rect = document.getElementById(&quot;therect&quot;);
             anim();
         };
-
+        
         function anim(){
-
-
+        
+        
             var rectedge = parseInt(rect.getAttribute(&quot;x&quot;)) + parseInt(rect.getAttribute(&quot;width&quot;));
             var svgedge = parseInt(document.getElementById(&quot;mysvg&quot;).getAttribute(&quot;width&quot;));
             var rectx = parseInt(rect.getAttribute(&quot;x&quot;));
-
+            
             if(rectedge &lt; svgedge){
                 rect.setAttribute(&quot;x&quot;, rectx += 5);
             }
@@ -1164,15 +1164,15 @@ window.onload = function() {
             }
             document.getElementById(&quot;watch&quot;).innerHTML = &quot;rect &quot; + rectedge + &quot; | svg edge : &quot; + svgedge;
             setTimeout(anim, 10);
-
+            
         }
-
-
+        
+            
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+        
         &lt;svg id=&quot;mysvg&quot; width=800 height=200&gt;
             &lt;rect id=&quot;therect&quot; x=10 y=20 width=50 height=100
             style=&quot;stroke:gray;fill=gray;&quot;
@@ -1180,7 +1180,7 @@ window.onload = function() {
 
         &lt;/svg&gt;
         &lt;div id=&quot;watch&quot;&gt;
-
+    
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1200,65 +1200,65 @@ window.onload = function() {
     &lt;head&gt;
         &lt;title&gt;&lt;/title&gt;
         &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
-
+        
         &lt;/style&gt;
 
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+            
         var NS=&quot;http://www.w3.org/2000/svg&quot;;
         var svg = null;
         var rect = null;
         var watch = null;
-
+            
         window.onload = function(){
-
+        
             watch = document.getElementById(&quot;watch&quot;);
-
+        
             svg = document.createElementNS(NS, &quot;svg&quot;);
             svg.setAttributeNS(NS, &quot;width&quot;, &#39;700px&#39;);
             svg.setAttributeNS(NS, &quot;height&quot;, &#39;400px&#39;);
-
+            
             //svg.width = 800;
             //svg.height = 400;
-
+            
             rect = document.createElementNS(NS,&quot;rect&quot;);
             rect.setAttribute(&quot;x&quot;, 10);
             rect.setAttribute(&quot;y&quot;, 10);
-
+            
             rect.setAttribute(&quot;rx&quot;, 10);
             rect.setAttribute(&quot;ry&quot;, 10);
-
+            
             rect.setAttribute(&quot;width&quot;, 50);
             rect.setAttribute(&quot;height&quot;, 50);
-
+            
             document.body.appendChild(svg);
             svg.appendChild(rect)
-
+                        
             rect.onclick = function(){
-
+                
                 var svgheight = parseInt(svg.getAttributeNS(NS, &quot;height&quot;));
                 var svgwidth = parseInt(svg.getAttributeNS(NS, &quot;width&quot;));
-
+                
                 var newx = Math.round(Math.random() * svgwidth);
                 var newy = Math.round(Math.random() * svgheight);
-
+                
                 var message = &quot;X : &quot; + newx + &quot; | Y : &quot; + newy;
                 rect.setAttribute(&quot;x&quot;, newx);
                 rect.setAttribute(&quot;y&quot;, newy);
                 watch.innerHTML = message;              
 
             }
-
+            
         }
-
-
+    
+            
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
 
         &lt;div id=&quot;watch&quot;&gt;
-
+    
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1287,32 +1287,32 @@ window.onload = function() {
 
         &lt;script charset=&quot;utf-8&quot; src=&quot;raphael-min.js&quot;&gt;&lt;/script&gt;
         &lt;script charset=&quot;utf-8&quot;&gt;
-
+            
         var paper = null;
-
+        
         window.onload = function(){
-
+        
             paper = Raphael(0,0,500,300);
-
+        
             var circle = paper.circle(200,150,100);
-
+            
             circle.attr(&quot;fill&quot;, &quot;#ffffff&quot;);
             circle.attr(&quot;stroke&quot;, &quot;#000000&quot;);
-
+            
             circle.click(circleclick);
-
+                        
         }
-
+        
         function circleclick(){
             alert(&quot;Hello&quot;);
         }
 
-
+            
         &lt;/script&gt;
-
+        
     &lt;/head&gt;
     &lt;body&gt;
-
+        
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1333,37 +1333,37 @@ window.onload = function() {
 
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;raphael-min.js&quot;&gt;&lt;/script&gt;
         &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-
+            
         var paper = null;
         var circle = null;  
-
+            
         window.onload = function(){
-
+                
             paper = Raphael(0,0,750,400);
             circle = paper.circle(150,150,70);
-
+            
             circle.attr(&quot;fill&quot;, &quot;#ababab&quot;);
             circle.attr(&quot;stroke&quot;, &quot;#000000&quot;);
-
+            
             var move = function(){
                 circle.attr({cx: event.clientX, cy: event.clientY});
                 circle.animate({r: 100, opacity: .25},100);
             }
-
+            
             var start = function(){
                 circle.attr({cx: event.clientX, cy: event.clientY});
             }
-
+            
             var up = function(){
                 //circle.attr({cx: event.clientX, cy: event.clientY});
                 circle.animate({r:70, opacity: .5},100);
             }
-
+            
             circle.drag(move,start,up);
-
-
+            
+                
         }
-
+                    
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
