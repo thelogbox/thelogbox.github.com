@@ -2,13 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://thelogbox.com/</id>
   <title>theLogbox Atom feed</title>
-  <updated>2012-11-04T16:00:00Z</updated>
+  <updated>2013-02-10T16:00:00Z</updated>
   <link rel="alternate" href="http://thelogbox.com/"/>
   <link rel="self" href="http://thelogbox.com/feed.xml"/>
   <author>
     <name>Ted Hagos</name>
     <uri>http://thelogbox.com/about/</uri>
   </author>
+  <entry>
+    <id>tag:thelogbox.com,2013-02-11:/improve-your-team/</id>
+    <title type="html">Improve your team</title>
+    <published>2013-02-10T16:00:00Z</published>
+    <updated>2013-02-10T16:00:00Z</updated>
+    <author>
+      <name>Ted Hagos</name>
+      <uri>http://thelogbox.com/about/</uri>
+    </author>
+    <link rel="alternate" href="http://thelogbox.com/improve-your-team/"/>
+    <content type="html">&lt;p&gt;Each course in theLogBox is carefully thought out. They are the product of the trainer's field experience on technical areas. The courses are delivered by trainers who have both content knowledge (technical) and pedagogical knowledge, which were acquired from years of teaching.&lt;/p&gt;
+&lt;p&gt;When a participant joins the training, he will have a &lt;strong&gt;learning plan&lt;/strong&gt; prepared for him, carefully crafted &lt;strong&gt;learning materials&lt;/strong&gt; and other supplemental learning sources e.g. videos and bibliographies for further pursuit of knowledge.&lt;/p&gt;
+&lt;p&gt;A participant also is automatically joined to an &lt;em&gt;invited-only&lt;/em&gt; Q &amp;amp; A forum which acts as a secondary knowledge base for the courses they enrolled in.&lt;/p&gt;
+&lt;p&gt;The courses are filled with relevant code examples, they are not mere academic exercises. Quite a few of the code samples are lifted from live projects where the trainer has participated in, so they are germane and non-trivial.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>tag:thelogbox.com,2012-11-05:/android-java-recording-voice/</id>
     <title type="html">Recording voice using the MIC</title>
@@ -312,6 +327,225 @@
   &lt;/ul&gt;
 &lt;/ol&gt;
 </content>
+  </entry>
+  <entry>
+    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
+    <title type="html">Android Programming - mirah</title>
+    <published>2012-10-17T16:00:00Z</published>
+    <updated>2012-10-17T16:00:00Z</updated>
+    <author>
+      <name>Ted Hagos</name>
+      <uri>http://thelogbox.com/about/</uri>
+    </author>
+    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
+    <content type="html">&lt;div id="update-history"&gt;
+&lt;h3&gt;
+Doc history
+&lt;/h3&gt;
+19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
+&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
+&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
+&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
+&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
+&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
+&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
+&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;
+&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
+&lt;li&gt;cd toastcode&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
+&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.os.Bundle
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Toast
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;      notification.show()
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;       
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;50&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;52&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
+&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Anonymous method
+
+@button = Button.new context
+@button.setOnClickListener do |x|
+  # code here ...
+end&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
+&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.ViewGroup
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.LinearLayout.LayoutParams
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Toast
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
+&lt;span class="line-numbers"&gt;50&lt;/span&gt;
+&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;52&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;54&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;55&lt;/span&gt;    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
+&lt;span class="line-numbers"&gt;56&lt;/span&gt;    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;57&lt;/span&gt;    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
+&lt;span class="line-numbers"&gt;58&lt;/span&gt;    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
+&lt;span class="line-numbers"&gt;59&lt;/span&gt;    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
+&lt;span class="line-numbers"&gt;60&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;61&lt;/span&gt;    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+&lt;span class="line-numbers"&gt;62&lt;/span&gt;    toast.show
+&lt;span class="line-numbers"&gt;63&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;64&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;66&lt;/span&gt;
+&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+&lt;span class="line-numbers"&gt;68&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+&lt;span class="line-numbers"&gt;69&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state
+&lt;span class="line-numbers"&gt;70&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
+&lt;span class="line-numbers"&gt;71&lt;/span&gt;    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;72&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;73&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;74&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
+&lt;span class="line-numbers"&gt;75&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;76&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;77&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;78&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
   </entry>
   <entry>
     <id>tag:thelogbox.com,2012-10-18:/html5-canvas-programming/</id>
@@ -906,431 +1140,5 @@ Contents
 &lt;span class="line-numbers"&gt;78&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
 &lt;span class="line-numbers"&gt;79&lt;/span&gt;    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
-    <title type="html">Android Programming - mirah</title>
-    <published>2012-10-17T16:00:00Z</published>
-    <updated>2012-10-17T16:00:00Z</updated>
-    <author>
-      <name>Ted Hagos</name>
-      <uri>http://thelogbox.com/about/</uri>
-    </author>
-    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
-    <content type="html">&lt;div id="update-history"&gt;
-&lt;h3&gt;
-Doc history
-&lt;/h3&gt;
-19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
-&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
-&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
-&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
-&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
-&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
-&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
-&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;
-&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
-&lt;li&gt;cd toastcode&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
-&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.os.Bundle
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;      notification.show()
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;       
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
-&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Anonymous method
-
-@button = Button.new context
-@button.setOnClickListener do |x|
-  # code here ...
-end&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
-&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.ViewGroup
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.LinearLayout.LayoutParams
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;    toast.show
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
-&lt;span class="line-numbers"&gt;75&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;76&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;77&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;78&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
-  </entry>
-  <entry>
-    <id>tag:thelogbox.com,2012-10-15:/web-development-tools/</id>
-    <title type="html">Web Development Tools</title>
-    <published>2012-10-14T16:00:00Z</published>
-    <updated>2012-10-14T16:00:00Z</updated>
-    <author>
-      <name>Ted Hagos</name>
-      <uri>http://thelogbox.com/about/</uri>
-    </author>
-    <link rel="alternate" href="http://thelogbox.com/web-development-tools/"/>
-    <content type="html">&lt;div id="update-history"&gt;
-&lt;h3&gt;
-Doc History
-&lt;/h3&gt;
-&lt;br&gt; 15.October.2012(created)
-&lt;/div&gt;
-
-
-&lt;h1 id="haml-for-html-template"&gt;1. Haml for HTML template&lt;/h1&gt;
-&lt;p&gt;Can be used stand alone or integrated into frameworks like Sinatra, Rails etc. It can be downloaded form the Haml Site or simply via rubygem---gem install haml. If you use it stand alone, it is an HTML generator, if you use within a framework, it can be a filter or a template&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-/ filename: first.haml
-/ forward slash is an inline comment
-
--# a minus sign followed by hash char is also another way
--# comment. This kind of haml comemnt, this won't be emitted to html
-
-!!!5  / &amp;lt;!DOCTYPE html&amp;gt;
-%html
-    %head
-
-        %title First haml
-        %link{:rel =&amp;gt; "stylesheet", :href=&amp;gt;"stylesheet.css"}
-        %script{:src =&amp;gt; "one.js"}
-    
-    %body
-        
-        %div{:id=&amp;gt;"canvas"} / this a way to define a div
-
-        #hello Hi there / shorter way to define a div with id
-        .content Output a div with class attribute
-
-        %a{:href =&amp;gt; "http://haml.info/docs/yardoc/file.REFERENCE.html"} Haml Site - Reference
-
-        %something-else{:class =&amp;gt; "define-this-in-css"} Inside something else
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;$ haml first.html&lt;/strong&gt; emits the resulting HTML file into stdout (screen). &lt;strong&gt;$ haml first.haml first.html&lt;/strong&gt; emits the output to &lt;em&gt;first.html&lt;/em&gt;. The syntax reference can be found at &lt;a href="http://haml.info/docs/yardoc/file.REFERENCE.html"&gt;Haml Ref Site&lt;/a&gt;. Haml syntax is sensitive to indentation, so be careful, a really good editor will be very helpful here.&lt;/p&gt;
-&lt;h1 id="sass-syntactically-awesome-style-sheets"&gt;2. SaSS (Syntactically Awesome Style Sheets)&lt;/h1&gt;
-&lt;p&gt;Install using ruby gems. &lt;strong&gt;$ gem install sass&lt;/strong&gt;. Try it out&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-css"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="constant"&gt;#main&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;  &lt;span class="key"&gt;width&lt;/span&gt;: &lt;span class="float"&gt;80%&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;  &lt;span class="key"&gt;height&lt;/span&gt;: &lt;span class="float"&gt;23px&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;  &lt;span class="key"&gt;ul&lt;/span&gt; { &lt;span class="key"&gt;list-style-type&lt;/span&gt;: &lt;span class="value"&gt;none&lt;/span&gt;; }
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;  &lt;span class="key"&gt;li&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    &lt;span class="key"&gt;float&lt;/span&gt;: &lt;span class="value"&gt;left&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    &lt;span class="key"&gt;a&lt;/span&gt; { &lt;span class="key"&gt;font-weight&lt;/span&gt;: &lt;span class="value"&gt;bold&lt;/span&gt;; }
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;  }
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When processed using the &lt;strong&gt;saas&lt;/strong&gt; command, it will emit the following;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-css"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="constant"&gt;#main&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;  &lt;span class="key"&gt;width&lt;/span&gt;: &lt;span class="float"&gt;80%&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;  &lt;span class="key"&gt;height&lt;/span&gt;: &lt;span class="float"&gt;23px&lt;/span&gt;; }
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;  &lt;span class="constant"&gt;#main&lt;/span&gt; &lt;span class="type"&gt;ul&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;    &lt;span class="key"&gt;list-style-type&lt;/span&gt;: &lt;span class="value"&gt;none&lt;/span&gt;; }
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;  &lt;span class="constant"&gt;#main&lt;/span&gt; &lt;span class="type"&gt;li&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    &lt;span class="key"&gt;float&lt;/span&gt;: &lt;span class="value"&gt;left&lt;/span&gt;; }
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    &lt;span class="constant"&gt;#main&lt;/span&gt; &lt;span class="type"&gt;li&lt;/span&gt; &lt;span class="type"&gt;a&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;      &lt;span class="key"&gt;font-weight&lt;/span&gt;: &lt;span class="value"&gt;bold&lt;/span&gt;; }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;strong&gt;saas&lt;/strong&gt; command line tool has a &lt;strong&gt;--watch&lt;/strong&gt; option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file&lt;/p&gt;
-&lt;p&gt;SAAS is a superset of CSS3, the extra syntax are syntactic sugar to enable cleaner nestings, provide modular approach to CSS source file management using @import, string interpolations, mixins (for inheritance), use of variables inside the CSS etc. Head over to &lt;a href="http://sass-lang.com/tutorial.html"&gt;SasS lang site tutorial&lt;/a&gt; for more info.&lt;/p&gt;
-&lt;h1 id="web-server"&gt;3. Web Server&lt;/h1&gt;
-&lt;p&gt;For quick and dirty serving up of static files without server-side processing, here are my two favorites&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.1 Python&lt;/strong&gt;, invoke &lt;em&gt;python -m SimpleHTTPServer&lt;/em&gt; on any directory or folder, the contents of the folder will be served up on &lt;strong&gt;http://localhost:8000&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.2 Node.&lt;/strong&gt; Get a terminal window,&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo npm -g install http-server
-$ cd /path/to/your/web/files
-$ http-server
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This will serve the contents of the dir to http://localhost:8080&lt;/p&gt;
-&lt;h1 id="test-restful-web-endpoints"&gt;4. Test RESTful web endpoints&lt;/h1&gt;
-&lt;h2 id="sinatra"&gt;4.1 Sinatra&lt;/h2&gt;
-&lt;p&gt;Sinatra a small ruby DSL (Domain Specific Language), it's often referred to as a microframework. There are other microframeworks e.g. &lt;a href="http://www.sparkjava.com/"&gt;Spark (Java)&lt;/a&gt;, &lt;a href="http://flask.pocoo.org/"&gt;Flask (Python)&lt;/a&gt;, &lt;a href="http://www.cherrypy.org/"&gt;CherryPy (Python)&lt;/a&gt;, Limonade (PHP), &lt;a href="http://www.slimframework.com/"&gt;Slim (PHP)&lt;/a&gt; and many others.&lt;/p&gt;
-&lt;p&gt;You need &lt;strong&gt;ruby &amp;amp; rubygems&lt;/strong&gt; before you can install sinatra. Install instructions for Ruby are on the ruby site&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-# install sinatra
-
-$ gem install sinatra
-$ gem install sinatra-contrib
-$ gem install thin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You actually don't need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# quick (but not dirty) and simple&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;# restful web endpoint&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="comment"&gt;# this app will listen on http://localhost:4567&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;&lt;span class="comment"&gt;# filename: first.rb &lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;&lt;span class="comment"&gt;# how to run : $ ruby first.rb &lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;require &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;rubygems&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="keyword"&gt;if&lt;/span&gt; &lt;span class="predefined-constant"&gt;RUBY_VERSION&lt;/span&gt; &amp;lt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;1.9&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;require &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;sinatra&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;get &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;/&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="keyword"&gt;do&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;return something&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;get &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;/somethingelse&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class="keyword"&gt;do&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;return something else&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;http://localhost:4567 displays "return something"; http://localhost:4567/somethingelse displays "return something else" in the browser.&lt;/p&gt;
-&lt;p&gt;Each get in the sinatra source file is a method call, a route actually. You don't have to write literal ruby strings, it can be function calls, expressions etc, as long as it resolves to a string. This is handy when (quickly) mocking up server end points for AJAX clients. There are some &lt;a href="/sinatra/"&gt;Sinatra notes here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="node"&gt;4.2 Node&lt;/h2&gt;
-&lt;p&gt;Node is JavaScript on the server side. You need to understand JavaScript core language (pretty well, cut and paste JavaScript experience won't cut it here).&lt;/p&gt;
-&lt;p&gt;The &lt;a href="http://nodejs.org/"&gt;NodeJS site&lt;/a&gt; has the install instructions, head over there to download, install npm too (Node Package Manager). It can also be instlled via brew on OSX (brew install node)&lt;/p&gt;
-&lt;p&gt;The simplest node program from the (NodeJS website)&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;// server.js&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; http = require(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;http&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;http.createServer(&lt;span class="keyword"&gt;function&lt;/span&gt; (req, res) {
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;  res.writeHead(&lt;span class="integer"&gt;200&lt;/span&gt;, {&lt;span class="key"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Content-Type&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;text/plain&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;});
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;  res.end(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Hello World&lt;/span&gt;&lt;span class="content"&gt;\n&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;}).listen(&lt;span class="integer"&gt;1337&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;127.0.0.1&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;console.log(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Server running at http://127.0.0.1:1337/&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Run it &lt;strong&gt;$ node server.js&lt;/strong&gt;, get a browser and open http://localhost:1337. You can already use this to mock REST endpoints, just replace the string inside res.end('Hello World');&lt;/p&gt;
-&lt;p&gt;A more involved node server code sample is below&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;// BSD License: Copyright (c) 2009-2012 Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;// All rights reserved.&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="comment"&gt;// License text: URL/software-license.txt&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; http = require(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;http&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; path = require(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;path&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; fs = require(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;fs&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; url = require(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;url&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; pages = {
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    &lt;span class="key"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Landing page&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;,
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;    &lt;span class="key"&gt;about&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;About&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="key"&gt;foo&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yeah Foo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;,
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    &lt;span class="key"&gt;goo&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yeah Goo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;,
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="key"&gt;xoo&lt;/span&gt;: callxoo()
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;};
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;&lt;span class="keyword"&gt;function&lt;/span&gt; &lt;span class="function"&gt;callxoo&lt;/span&gt;(){
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="keyword"&gt;var&lt;/span&gt; retval = {
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;        &lt;span class="key"&gt;empname&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Ted Hagos&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;,
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;        &lt;span class="key"&gt;email&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;tedhagos@gmail.com&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    };
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;// I cannot return the bare JS object because&lt;/span&gt;
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;// the HTTP object of node will throw an error.&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    &lt;span class="comment"&gt;// First type argument must be a string or buffer&lt;/span&gt;
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="keyword"&gt;return&lt;/span&gt; JSON.stringify(retval);
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;http.createServer(
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="keyword"&gt;function&lt;/span&gt;(request,response){
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;        &lt;span class="keyword"&gt;var&lt;/span&gt; lookup = path.basename(decodeURI(request.url));
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;        &lt;span class="keyword"&gt;var&lt;/span&gt; thedata = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;        &lt;span class="keyword"&gt;var&lt;/span&gt; temp = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;        &lt;span class="comment"&gt;// Check first if we are looking for an HTML file&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;        fs.exists(lookup, &lt;span class="keyword"&gt;function&lt;/span&gt;(exists){
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;            &lt;span class="keyword"&gt;if&lt;/span&gt;(exists){
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;                fs.readFile(lookup, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;utf-8&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="keyword"&gt;function&lt;/span&gt;(woops, filecontent){
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;                    &lt;span class="keyword"&gt;if&lt;/span&gt;(!woops) {
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;                        &lt;span class="comment"&gt;//console.log(filecontent);&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;                        response.writeHead(&lt;span class="integer"&gt;200&lt;/span&gt;, {&lt;span class="key"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Content-Type&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;text/html&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;});
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;                        response.end(filecontent);
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;                    }
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;                });             
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;            }
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;            &lt;span class="keyword"&gt;else&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;                console.log(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;inside the else&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;            }
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;        });
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;                
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;        &lt;span class="keyword"&gt;if&lt;/span&gt; (pages[lookup] != &lt;span class="predefined-constant"&gt;undefined&lt;/span&gt;){
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;            console.log(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;inside pages&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;            response.writeHead(&lt;span class="integer"&gt;200&lt;/span&gt;, {&lt;span class="key"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Content-Type&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;text/html&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;});
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;            response.end(pages[lookup]);
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;        }                       
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;).listen(&lt;span class="integer"&gt;8080&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This will listen on locahost:8080, if you want to change the port of the webserver, just replace the port number, it's the line .&lt;strong&gt;listen(8080)&lt;/strong&gt;, remember not to pick port numbers lower than 1024, they are privileged ports.&lt;/p&gt;
-&lt;p&gt;The routes here are inside the pages object literal, replace them with your own RESTful endpoints&lt;/p&gt;
-&lt;h1 id="object-oriented-javascript-for-html5-animation-programming"&gt;5. Object Oriented JavaScript for HTML5 Animation programming&lt;/h1&gt;
-&lt;p&gt;You can just tough it out, do not pay attention to OO abstractions for HTML5 Canvas, SVG or WebGL programming; just code it on the fly, really up to you--but it can get very hairy (it will, and pretty quickly). A coarse grained abstractions of the animation objects goes a long way. JavaScript is equipped with Prototypal inheritance and Functions are pretty much object factories; You can use them to achieve coarse grained abstractions of the problem domain.&lt;/p&gt;
-&lt;p&gt;To use a more classical OO approach in JavaScript there are plenty of extensions to the JavaScript language, a &lt;a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS"&gt;list of things that compile or extend JavaScript is here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Two of my favorites are TypeScript and CoffeeScript. See the &lt;a href="/typescript-first-notes/"&gt;TypeScript first notes&lt;/a&gt; for a quick introduction.&lt;/p&gt;
-&lt;h1 id="debug-watch-testing-tools"&gt;6. Debug, Watch &amp;amp; Testing Tools&lt;/h1&gt;
-&lt;p&gt;Developing in JavaScript is painful without debug and watch tools. Webkit browsers (Safari and Chrome) have Developer tools, they can very useful during development. Another tool to use is &lt;a href="http://getfirebug.com/"&gt;FireBug&lt;/a&gt; of Mozilla FireFox browser.&lt;/p&gt;
-&lt;p&gt;You've got to do unit-testing, you just got to---this shouldn't be up for debate anymore. Things to use are;&lt;/p&gt;
-&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;
-&lt;a href="http://pivotal.github.com/jasmine/"&gt;Jasmine&lt;/a&gt; - A BDD (Behavior Driven Development) test framework&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="http://qunitjs.com/"&gt;QUnit&lt;/a&gt; - Used by JQuery, JQueryUI and JQuery Mobile projects. A unit test framework.&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="http://funcunit.com/"&gt;FuncUnit&lt;/a&gt; - uses JQuery syntax&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="http://developer.yahoo.com/yui/yuitest/"&gt;YUITest&lt;/a&gt; - by Yahoo&lt;/li&gt;
-&lt;/ol&gt;</content>
   </entry>
 </feed>
