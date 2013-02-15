@@ -19,16 +19,14 @@
       <uri>http://thelogbox.com/about/</uri>
     </author>
     <link rel="alternate" href="http://thelogbox.com/improve-your-team/"/>
-    <content type="html">&lt;h2 id="follow-the-tutorials-some-of-them-are-freely-accessible"&gt;1. Follow the tutorials (some of them are freely accessible)&lt;/h2&gt;
-&lt;p&gt;(work in progress)&lt;/p&gt;
-&lt;h2 id="follow-the-blog"&gt;2. Follow the blog&lt;/h2&gt;
-&lt;p&gt;(work in progress)&lt;/p&gt;
-&lt;h2 id="enroll-in-a-course"&gt;3. Enroll in a course&lt;/h2&gt;
+    <content type="html">&lt;h2 id="enroll-in-a-course"&gt;1. Enroll in a course&lt;/h2&gt;
 &lt;p&gt;Each course in theLogBox is carefully thought out. They are the product of the trainer's field experience on technical areas. The courses are delivered by trainers who have both content knowledge (technical) and pedagogical knowledge, which were acquired from years of teaching.&lt;/p&gt;
 &lt;p&gt;When a participant joins the training, he will have a &lt;strong&gt;learning plan&lt;/strong&gt; prepared for him, carefully crafted &lt;strong&gt;learning materials&lt;/strong&gt; and other supplemental learning sources e.g. videos and bibliographies for further pursuit of knowledge.&lt;/p&gt;
-&lt;p&gt;A participant also is automatically joined to an &lt;em&gt;invited-only&lt;/em&gt; Q &amp;amp; A forum which acts as a secondary knowledge base for the courses they enrolled in.&lt;/p&gt;
 &lt;p&gt;The courses are filled with relevant code examples, they are not mere academic exercises. Quite a few of the code samples are lifted from live projects where the trainer has participated in, so they are germane and non-trivial.&lt;/p&gt;
-&lt;p&gt;Click &lt;a href="/courses/"&gt;here for the list of courses&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;Click &lt;a href="/courses/"&gt;here for the list of courses&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="follow-the-tutorials"&gt;2. Follow the tutorials&lt;/h2&gt;
+&lt;h2 id="join-the-discussion-groups"&gt;3. Join the discussion groups&lt;/h2&gt;
+&lt;p&gt;Each enrolled course participant is automatically joined to &lt;strong&gt;thelogbox's&lt;/strong&gt; discussion groups. Questions &#8212; and more importantly answers &#8212; about technology and programming are raised in the discussion groups. It acts as a secondary knowledge base for participants.&lt;/p&gt;</content>
   </entry>
   <entry>
     <id>tag:thelogbox.com,2012-11-05:/android-java-recording-voice/</id>
@@ -333,6 +331,225 @@
   &lt;/ul&gt;
 &lt;/ol&gt;
 </content>
+  </entry>
+  <entry>
+    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
+    <title type="html">Android Programming - mirah</title>
+    <published>2012-10-17T16:00:00Z</published>
+    <updated>2012-10-17T16:00:00Z</updated>
+    <author>
+      <name>Ted Hagos</name>
+      <uri>http://thelogbox.com/about/</uri>
+    </author>
+    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
+    <content type="html">&lt;div id="update-history"&gt;
+&lt;h3&gt;
+Doc history
+&lt;/h3&gt;
+19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
+&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
+&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
+&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
+&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
+&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
+&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
+&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;
+&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
+&lt;li&gt;cd toastcode&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
+&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.os.Bundle
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Toast
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;      notification.show()
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;       
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;50&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;52&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
+&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Anonymous method
+
+@button = Button.new context
+@button.setOnClickListener do |x|
+  # code here ...
+end&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
+&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.ViewGroup
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.LinearLayout.LayoutParams
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
+&lt;span class="line-numbers"&gt;11&lt;/span&gt;
+&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
+&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.widget.LinearLayout
+&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Button
+&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
+&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
+&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
+&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Toast
+&lt;span class="line-numbers"&gt;19&lt;/span&gt;
+&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+&lt;span class="line-numbers"&gt;21&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+&lt;span class="line-numbers"&gt;22&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+&lt;span class="line-numbers"&gt;29&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;32&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+&lt;span class="line-numbers"&gt;33&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
+&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
+&lt;span class="line-numbers"&gt;36&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
+&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
+&lt;span class="line-numbers"&gt;39&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
+&lt;span class="line-numbers"&gt;40&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;41&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;43&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+&lt;span class="line-numbers"&gt;44&lt;/span&gt;
+&lt;span class="line-numbers"&gt;45&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;46&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;47&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;49&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
+&lt;span class="line-numbers"&gt;50&lt;/span&gt;
+&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;52&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;54&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;55&lt;/span&gt;    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
+&lt;span class="line-numbers"&gt;56&lt;/span&gt;    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;57&lt;/span&gt;    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
+&lt;span class="line-numbers"&gt;58&lt;/span&gt;    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
+&lt;span class="line-numbers"&gt;59&lt;/span&gt;    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
+&lt;span class="line-numbers"&gt;60&lt;/span&gt;    
+&lt;span class="line-numbers"&gt;61&lt;/span&gt;    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+&lt;span class="line-numbers"&gt;62&lt;/span&gt;    toast.show
+&lt;span class="line-numbers"&gt;63&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;64&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;66&lt;/span&gt;
+&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+&lt;span class="line-numbers"&gt;68&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+&lt;span class="line-numbers"&gt;69&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state
+&lt;span class="line-numbers"&gt;70&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
+&lt;span class="line-numbers"&gt;71&lt;/span&gt;    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+&lt;span class="line-numbers"&gt;72&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;73&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;74&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
+&lt;span class="line-numbers"&gt;75&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+&lt;span class="line-numbers"&gt;76&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="line-numbers"&gt;77&lt;/span&gt;  
+&lt;span class="line-numbers"&gt;78&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
   </entry>
   <entry>
     <id>tag:thelogbox.com,2012-10-18:/html5-canvas-programming/</id>
@@ -927,224 +1144,5 @@ Contents
 &lt;span class="line-numbers"&gt;78&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
 &lt;span class="line-numbers"&gt;79&lt;/span&gt;    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
-    <title type="html">Android Programming - mirah</title>
-    <published>2012-10-17T16:00:00Z</published>
-    <updated>2012-10-17T16:00:00Z</updated>
-    <author>
-      <name>Ted Hagos</name>
-      <uri>http://thelogbox.com/about/</uri>
-    </author>
-    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
-    <content type="html">&lt;div id="update-history"&gt;
-&lt;h3&gt;
-Doc history
-&lt;/h3&gt;
-19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
-&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
-&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
-&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
-&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
-&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
-&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
-&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;
-&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
-&lt;li&gt;cd toastcode&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
-&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.os.Bundle
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;      notification.show()
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;       
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
-&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Anonymous method
-
-@button = Button.new context
-@button.setOnClickListener do |x|
-  # code here ...
-end&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
-&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.ViewGroup
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.LinearLayout.LayoutParams
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;    toast.show
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
-&lt;span class="line-numbers"&gt;75&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;76&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;77&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;78&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
   </entry>
 </feed>
