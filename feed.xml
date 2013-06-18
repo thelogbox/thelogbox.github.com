@@ -66,146 +66,146 @@
 &lt;li&gt;Call the &lt;em&gt;prepare()&lt;/em&gt; method of the MediaPlayer object&#8212;this too can throw an IOException, so it needs to be handled using either try-catch or throws mechanism as well&lt;/li&gt;
 &lt;li&gt;Call the &lt;em&gt;start()&lt;/em&gt; method to start playing the audio file&lt;/li&gt;
 &lt;/ol&gt;&lt;p&gt;The source for this exercise is below. There is no main.xml because the UI was built programatically, instead of declaratively&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-java"&gt;&lt;span class="line-numbers"&gt; 10&lt;/span&gt;&lt;span class="comment"&gt;/*&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 11&lt;/span&gt;&lt;span class="comment"&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 12&lt;/span&gt;&lt;span class="comment"&gt;BSD License: Copyright (c) 2009-2012 Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 13&lt;/span&gt;&lt;span class="comment"&gt;All rights reserved.&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 14&lt;/span&gt;&lt;span class="comment"&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 15&lt;/span&gt;&lt;span class="comment"&gt;License text: http://thelogbox.com/source-docs/software-license.txt&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 16&lt;/span&gt;&lt;span class="comment"&gt;    &lt;/span&gt;
-&lt;span class="line-numbers"&gt; 17&lt;/span&gt;&lt;span class="comment"&gt;*/&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 18&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 19&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 20&lt;/span&gt;&lt;span class="keyword"&gt;package&lt;/span&gt; &lt;span class="namespace"&gt;com.thelogbox&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 21&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 22&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.app.Activity&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 23&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.os.Bundle&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 24&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.os.Environment&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 25&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.widget.LinearLayout&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 26&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.widget.Button&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 27&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.content.Context&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 28&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.view.View&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 29&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.view.View.OnClickListener&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 30&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.media.MediaRecorder&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 31&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.media.MediaPlayer&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 32&lt;/span&gt;&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;java.io.IOException&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 33&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 34&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 35&lt;/span&gt;&lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Recorder&lt;/span&gt; &lt;span class="directive"&gt;extends&lt;/span&gt; Activity {
-&lt;span class="line-numbers"&gt; 36&lt;/span&gt;    &lt;span class="comment"&gt;/** Called when the activity is first created. */&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 37&lt;/span&gt;    &lt;span class="annotation"&gt;@Override&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 38&lt;/span&gt;    &lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;void&lt;/span&gt; onCreate(Bundle savedInstanceState) {
-&lt;span class="line-numbers"&gt; 39&lt;/span&gt;        &lt;span class="local-variable"&gt;super&lt;/span&gt;.onCreate(savedInstanceState);
-&lt;span class="line-numbers"&gt; 40&lt;/span&gt;        setContentView(&lt;span class="keyword"&gt;new&lt;/span&gt; RView(&lt;span class="local-variable"&gt;this&lt;/span&gt;));
-&lt;span class="line-numbers"&gt; 41&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt; 42&lt;/span&gt;}
-&lt;span class="line-numbers"&gt; 43&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 44&lt;/span&gt;&lt;span class="type"&gt;class&lt;/span&gt; &lt;span class="class"&gt;RView&lt;/span&gt; &lt;span class="directive"&gt;extends&lt;/span&gt; LinearLayout &lt;span class="directive"&gt;implements&lt;/span&gt; OnClickListener {
-&lt;span class="line-numbers"&gt; 45&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 46&lt;/span&gt;    &lt;span class="predefined-type"&gt;Button&lt;/span&gt; btnstart = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 47&lt;/span&gt;    &lt;span class="predefined-type"&gt;Button&lt;/span&gt; btnstop = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 48&lt;/span&gt;    MediaPlayer mp = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 49&lt;/span&gt;    MediaRecorder mr = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 50&lt;/span&gt;    &lt;span class="predefined-type"&gt;String&lt;/span&gt; filename = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 51&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 52&lt;/span&gt;    RView(&lt;span class="predefined-type"&gt;Context&lt;/span&gt; ctx) {
-&lt;span class="line-numbers"&gt; 53&lt;/span&gt;        &lt;span class="local-variable"&gt;super&lt;/span&gt;(ctx);
-&lt;span class="line-numbers"&gt; 54&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 55&lt;/span&gt;        filename = Environment.getExternalStorageDirectory().getAbsolutePath();
-&lt;span class="line-numbers"&gt; 56&lt;/span&gt;        filename += &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;/test.3gp&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
-&lt;span class="line-numbers"&gt; 57&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 58&lt;/span&gt;        mr = &lt;span class="keyword"&gt;new&lt;/span&gt; MediaRecorder();
-&lt;span class="line-numbers"&gt; 59&lt;/span&gt;        mp = &lt;span class="keyword"&gt;new&lt;/span&gt; MediaPlayer();
-&lt;span class="line-numbers"&gt; 60&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 61&lt;/span&gt;        btnstart = &lt;span class="keyword"&gt;new&lt;/span&gt; &lt;span class="predefined-type"&gt;Button&lt;/span&gt;(ctx);
-&lt;span class="line-numbers"&gt; 62&lt;/span&gt;        btnstop = &lt;span class="keyword"&gt;new&lt;/span&gt; &lt;span class="predefined-type"&gt;Button&lt;/span&gt;(ctx);
-&lt;span class="line-numbers"&gt; 63&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 64&lt;/span&gt;        btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;start&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 65&lt;/span&gt;        btnstop.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stop&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 66&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 67&lt;/span&gt;        btnstart.setOnClickListener(&lt;span class="local-variable"&gt;this&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 68&lt;/span&gt;        btnstop.setOnClickListener(&lt;span class="local-variable"&gt;this&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 69&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 70&lt;/span&gt;        btnstart.setId(&lt;span class="integer"&gt;1&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 71&lt;/span&gt;        btnstop.setId(&lt;span class="integer"&gt;2&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 72&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 73&lt;/span&gt;        setOrientation(LinearLayout.VERTICAL);
-&lt;span class="line-numbers"&gt; 74&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 75&lt;/span&gt;        addView(btnstart);
-&lt;span class="line-numbers"&gt; 76&lt;/span&gt;        addView(btnstop);
-&lt;span class="line-numbers"&gt; 77&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 78&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt; 79&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 80&lt;/span&gt;    &lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;void&lt;/span&gt; onClick(&lt;span class="predefined-type"&gt;View&lt;/span&gt; view){
-&lt;span class="line-numbers"&gt; 81&lt;/span&gt;        &lt;span class="keyword"&gt;if&lt;/span&gt;(view.getId() == &lt;span class="integer"&gt;1&lt;/span&gt;) {
-&lt;span class="line-numbers"&gt; 82&lt;/span&gt;            &lt;span class="comment"&gt;// START BUTTON&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 83&lt;/span&gt;            btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Holding ...&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 84&lt;/span&gt;            btnstop.setClickable(&lt;span class="predefined-constant"&gt;true&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 85&lt;/span&gt;            btnstart.setClickable(&lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 86&lt;/span&gt;            startRec();
-&lt;span class="line-numbers"&gt; 87&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt; 88&lt;/span&gt;        &lt;span class="keyword"&gt;else&lt;/span&gt; &lt;span class="keyword"&gt;if&lt;/span&gt;(view.getId() == &lt;span class="integer"&gt;2&lt;/span&gt;) {
-&lt;span class="line-numbers"&gt; 89&lt;/span&gt;            &lt;span class="comment"&gt;// STOP BUTTON&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 90&lt;/span&gt;            btnstart.setClickable(&lt;span class="predefined-constant"&gt;true&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 91&lt;/span&gt;            btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;start&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 92&lt;/span&gt;            btnstop.setClickable(&lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
-&lt;span class="line-numbers"&gt; 93&lt;/span&gt;            stopRec();
-&lt;span class="line-numbers"&gt; 94&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt; 95&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt; 96&lt;/span&gt;
-&lt;span class="line-numbers"&gt; 97&lt;/span&gt;    &lt;span class="type"&gt;void&lt;/span&gt; startRec() {
-&lt;span class="line-numbers"&gt; 98&lt;/span&gt;        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-&lt;span class="line-numbers"&gt; 99&lt;/span&gt;        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-&lt;span class="line-numbers"&gt;100&lt;/span&gt;        mr.setOutputFile(filename);
-&lt;span class="line-numbers"&gt;101&lt;/span&gt;        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-&lt;span class="line-numbers"&gt;102&lt;/span&gt;
-&lt;span class="line-numbers"&gt;103&lt;/span&gt;        &lt;span class="keyword"&gt;try&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;104&lt;/span&gt;            mr.prepare();
-&lt;span class="line-numbers"&gt;105&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt;106&lt;/span&gt;        &lt;span class="keyword"&gt;catch&lt;/span&gt;(&lt;span class="exception"&gt;IOException&lt;/span&gt; ioe){
-&lt;span class="line-numbers"&gt;107&lt;/span&gt;            &lt;span class="comment"&gt;// Some Logcat here&lt;/span&gt;
-&lt;span class="line-numbers"&gt;108&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt;109&lt;/span&gt;
-&lt;span class="line-numbers"&gt;110&lt;/span&gt;        mr.start();
-&lt;span class="line-numbers"&gt;111&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt;112&lt;/span&gt;
-&lt;span class="line-numbers"&gt;113&lt;/span&gt;    &lt;span class="type"&gt;void&lt;/span&gt; stopRec() {
-&lt;span class="line-numbers"&gt;114&lt;/span&gt;        mr.stop();
-&lt;span class="line-numbers"&gt;115&lt;/span&gt;        mr.release();
-&lt;span class="line-numbers"&gt;116&lt;/span&gt;
-&lt;span class="line-numbers"&gt;117&lt;/span&gt;        &lt;span class="keyword"&gt;try&lt;/span&gt; {
-&lt;span class="line-numbers"&gt;118&lt;/span&gt;            mp.setDataSource(filename);
-&lt;span class="line-numbers"&gt;119&lt;/span&gt;            mp.prepare();
-&lt;span class="line-numbers"&gt;120&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt;121&lt;/span&gt;        &lt;span class="keyword"&gt;catch&lt;/span&gt;(&lt;span class="exception"&gt;IOException&lt;/span&gt; ioe) {
-&lt;span class="line-numbers"&gt;122&lt;/span&gt;            &lt;span class="comment"&gt;// some Logcat here&lt;/span&gt;
-&lt;span class="line-numbers"&gt;123&lt;/span&gt;        }
-&lt;span class="line-numbers"&gt;124&lt;/span&gt;
-&lt;span class="line-numbers"&gt;125&lt;/span&gt;        mp.start();
-&lt;span class="line-numbers"&gt;126&lt;/span&gt;
-&lt;span class="line-numbers"&gt;127&lt;/span&gt;    }
-&lt;span class="line-numbers"&gt;128&lt;/span&gt;
-&lt;span class="line-numbers"&gt;129&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-java"&gt;&lt;span class="comment"&gt;/*
+
+BSD License: Copyright (c) 2009-2012 Ted Hagos
+All rights reserved.
+
+License text: http://thelogbox.com/source-docs/software-license.txt
+
+*/&lt;/span&gt;
+
+
+&lt;span class="keyword"&gt;package&lt;/span&gt; &lt;span class="namespace"&gt;com.thelogbox&lt;/span&gt;;
+
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.app.Activity&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.os.Bundle&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.os.Environment&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.widget.LinearLayout&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.widget.Button&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.content.Context&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.view.View&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.view.View.OnClickListener&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.media.MediaRecorder&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;android.media.MediaPlayer&lt;/span&gt;;
+&lt;span class="keyword"&gt;import&lt;/span&gt; &lt;span class="include"&gt;java.io.IOException&lt;/span&gt;;
+
+
+&lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Recorder&lt;/span&gt; &lt;span class="directive"&gt;extends&lt;/span&gt; Activity {
+    &lt;span class="comment"&gt;/** Called when the activity is first created. */&lt;/span&gt;
+    &lt;span class="annotation"&gt;@Override&lt;/span&gt;
+    &lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;void&lt;/span&gt; onCreate(Bundle savedInstanceState) {
+        &lt;span class="local-variable"&gt;super&lt;/span&gt;.onCreate(savedInstanceState);
+        setContentView(&lt;span class="keyword"&gt;new&lt;/span&gt; RView(&lt;span class="local-variable"&gt;this&lt;/span&gt;));
+    }
+}
+
+&lt;span class="type"&gt;class&lt;/span&gt; &lt;span class="class"&gt;RView&lt;/span&gt; &lt;span class="directive"&gt;extends&lt;/span&gt; LinearLayout &lt;span class="directive"&gt;implements&lt;/span&gt; OnClickListener {
+
+    &lt;span class="predefined-type"&gt;Button&lt;/span&gt; btnstart = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
+    &lt;span class="predefined-type"&gt;Button&lt;/span&gt; btnstop = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
+    MediaPlayer mp = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
+    MediaRecorder mr = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
+    &lt;span class="predefined-type"&gt;String&lt;/span&gt; filename = &lt;span class="predefined-constant"&gt;null&lt;/span&gt;;
+
+    RView(&lt;span class="predefined-type"&gt;Context&lt;/span&gt; ctx) {
+        &lt;span class="local-variable"&gt;super&lt;/span&gt;(ctx);
+
+        filename = Environment.getExternalStorageDirectory().getAbsolutePath();
+        filename += &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;/test.3gp&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
+
+        mr = &lt;span class="keyword"&gt;new&lt;/span&gt; MediaRecorder();
+        mp = &lt;span class="keyword"&gt;new&lt;/span&gt; MediaPlayer();
+
+        btnstart = &lt;span class="keyword"&gt;new&lt;/span&gt; &lt;span class="predefined-type"&gt;Button&lt;/span&gt;(ctx);
+        btnstop = &lt;span class="keyword"&gt;new&lt;/span&gt; &lt;span class="predefined-type"&gt;Button&lt;/span&gt;(ctx);
+
+        btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;start&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+        btnstop.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stop&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+
+        btnstart.setOnClickListener(&lt;span class="local-variable"&gt;this&lt;/span&gt;);
+        btnstop.setOnClickListener(&lt;span class="local-variable"&gt;this&lt;/span&gt;);
+
+        btnstart.setId(&lt;span class="integer"&gt;1&lt;/span&gt;);
+        btnstop.setId(&lt;span class="integer"&gt;2&lt;/span&gt;);
+
+        setOrientation(LinearLayout.VERTICAL);
+
+        addView(btnstart);
+        addView(btnstop);
+
+    }
+
+    &lt;span class="directive"&gt;public&lt;/span&gt; &lt;span class="type"&gt;void&lt;/span&gt; onClick(&lt;span class="predefined-type"&gt;View&lt;/span&gt; view){
+        &lt;span class="keyword"&gt;if&lt;/span&gt;(view.getId() == &lt;span class="integer"&gt;1&lt;/span&gt;) {
+            &lt;span class="comment"&gt;// START BUTTON&lt;/span&gt;
+            btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Holding ...&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+            btnstop.setClickable(&lt;span class="predefined-constant"&gt;true&lt;/span&gt;);
+            btnstart.setClickable(&lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
+            startRec();
+        }
+        &lt;span class="keyword"&gt;else&lt;/span&gt; &lt;span class="keyword"&gt;if&lt;/span&gt;(view.getId() == &lt;span class="integer"&gt;2&lt;/span&gt;) {
+            &lt;span class="comment"&gt;// STOP BUTTON&lt;/span&gt;
+            btnstart.setClickable(&lt;span class="predefined-constant"&gt;true&lt;/span&gt;);
+            btnstart.setText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;start&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+            btnstop.setClickable(&lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
+            stopRec();
+        }
+    }
+
+    &lt;span class="type"&gt;void&lt;/span&gt; startRec() {
+        mr.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mr.setOutputFile(filename);
+        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+        &lt;span class="keyword"&gt;try&lt;/span&gt; {
+            mr.prepare();
+        }
+        &lt;span class="keyword"&gt;catch&lt;/span&gt;(&lt;span class="exception"&gt;IOException&lt;/span&gt; ioe){
+            &lt;span class="comment"&gt;// Some Logcat here&lt;/span&gt;
+        }
+
+        mr.start();
+    }
+
+    &lt;span class="type"&gt;void&lt;/span&gt; stopRec() {
+        mr.stop();
+        mr.release();
+
+        &lt;span class="keyword"&gt;try&lt;/span&gt; {
+            mp.setDataSource(filename);
+            mp.prepare();
+        }
+        &lt;span class="keyword"&gt;catch&lt;/span&gt;(&lt;span class="exception"&gt;IOException&lt;/span&gt; ioe) {
+            &lt;span class="comment"&gt;// some Logcat here&lt;/span&gt;
+        }
+
+        mp.start();
+
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id="permissions"&gt;Permissions&lt;/h1&gt;
 &lt;p&gt;The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the &lt;em&gt;Start&lt;/em&gt; button. The &lt;em&gt;MediaRecorder&lt;/em&gt; will not initialize properly and hence will hit an &lt;em&gt;IllegalStateException&lt;/em&gt; when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the &lt;em&gt;AndroidManifest.xml&lt;/em&gt; file, you will need to add the entry &lt;em&gt;&amp;lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&amp;gt;&lt;/em&gt; to the manifest. Make sure also that you add the permissions entry out the &amp;lt;application .../&amp;gt; node. Here is the full entry of the &lt;em&gt;AndroidManifest.xml&lt;/em&gt; for this exercise.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-xml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="preprocessor"&gt;&amp;lt;?xml version="1.0" encoding="utf-8"?&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;manifest&lt;/span&gt; &lt;span class="attribute-name"&gt;xmlns:android&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://schemas.android.com/apk/res/android&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;      &lt;span class="attribute-name"&gt;package&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;com.thelogbox&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;      &lt;span class="attribute-name"&gt;android:versionCode&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;1&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;      &lt;span class="attribute-name"&gt;android:versionName&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;1.0&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    &lt;span class="tag"&gt;&amp;lt;uses-permission&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.permission.RECORD_AUDIO&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;    &lt;span class="tag"&gt;&amp;lt;application&lt;/span&gt; &lt;span class="attribute-name"&gt;android:label&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;@string/app_name&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;        &lt;span class="tag"&gt;&amp;lt;activity&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Recorder&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;                  &lt;span class="attribute-name"&gt;android:label&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;@string/app_name&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;            &lt;span class="tag"&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;                &lt;span class="tag"&gt;&amp;lt;action&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.intent.action.MAIN&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;                &lt;span class="tag"&gt;&amp;lt;category&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.intent.category.LAUNCHER&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;            &lt;span class="tag"&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;        &lt;span class="tag"&gt;&amp;lt;/activity&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="tag"&gt;&amp;lt;/application&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&lt;span class="preprocessor"&gt;&amp;lt;?xml version="1.0" encoding="utf-8"?&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;manifest&lt;/span&gt; &lt;span class="attribute-name"&gt;xmlns:android&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://schemas.android.com/apk/res/android&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="attribute-name"&gt;package&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;com.thelogbox&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="attribute-name"&gt;android:versionCode&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;1&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="attribute-name"&gt;android:versionName&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;1.0&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class="tag"&gt;&amp;lt;uses-permission&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.permission.RECORD_AUDIO&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class="tag"&gt;&amp;lt;application&lt;/span&gt; &lt;span class="attribute-name"&gt;android:label&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;@string/app_name&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&amp;lt;activity&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Recorder&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+                  &lt;span class="attribute-name"&gt;android:label&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;@string/app_name&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="tag"&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
+                &lt;span class="tag"&gt;&amp;lt;action&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.intent.action.MAIN&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span class="tag"&gt;&amp;lt;category&lt;/span&gt; &lt;span class="attribute-name"&gt;android:name&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;android.intent.category.LAUNCHER&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="tag"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="tag"&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;&amp;lt;/activity&amp;gt;&lt;/span&gt;
+    &lt;span class="tag"&gt;&amp;lt;/application&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="references"&gt;References:&lt;/h2&gt;
 &lt;ol style="list-style-type: decimal"&gt;
 &lt;li&gt;&lt;a href="http://developer.android.com/guide/topics/media/audio-capture.html"&gt;developer.android.com - Audio Capture&lt;/a&gt;&lt;/li&gt;
@@ -233,7 +233,7 @@
   &lt;li&gt;Understand WebWorkers&lt;/li&gt;
   &lt;li&gt;Learn to work with Server-Sent events to refresh a web page&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The training will cover the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the &amp;#8220;flash killer&amp;#8221;. When you see a job advertisement looking for HTML5 developers, most likely they are referring the HTML5 Canvas programmers. Knowledge of the structural elements and other goodies of HTML5, important as they are, are eclipsed by knowledge of Canvas programming&amp;#8212;simply because this is the skill that is rising in demand.&lt;/p&gt;
+&lt;p&gt;The training will cover the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the "flash killer". When you see a job advertisement looking for HTML5 developers, most likely they are referring the HTML5 Canvas programmers. Knowledge of the structural elements and other goodies of HTML5, important as they are, are eclipsed by knowledge of Canvas programming---simply because this is the skill that is rising in demand.&lt;/p&gt;
 &lt;h2&gt;What will be covered&lt;/h2&gt;
 &lt;div id='sidebarright'&gt;
   &lt;h3&gt;Who should attend&lt;/h3&gt;
@@ -342,6 +342,225 @@
 </content>
   </entry>
   <entry>
+    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
+    <title type="html">Android Programming - mirah</title>
+    <published>2012-10-17T16:00:00Z</published>
+    <updated>2012-10-17T16:00:00Z</updated>
+    <author>
+      <name>Ted Hagos</name>
+      <uri>http://thelogbox.com/about/</uri>
+    </author>
+    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
+    <content type="html">&lt;div id="update-history"&gt;
+&lt;h3&gt;
+Doc history
+&lt;/h3&gt;
+19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
+&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
+&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
+&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
+&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
+&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
+&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
+&lt;ol style="list-style-type: decimal"&gt;
+&lt;li&gt;
+&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
+&lt;li&gt;cd toastcode&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
+&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
+&lt;li&gt;
+&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;package com.thelogbox
+
+import android.app.Activity
+import android.os.Bundle
+import android.widget.Toast
+import android.content.Context
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.Button
+
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
+
+    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
+    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
+
+    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
+      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+      notification.show()
+    &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
+    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
+    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
+
+    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
+    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
+&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Anonymous method
+
+@button = Button.new context
+@button.setOnClickListener do |x|
+  # code here ...
+end&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
+&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
+
+import android.view.View
+import android.content.Context
+import android.widget.LinearLayout
+import android.widget.Button
+import android.view.ViewGroup
+import android.view.View.OnClickListener
+import android.widget.LinearLayout.LayoutParams
+import android.view.View.OnClickListener
+
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+
+    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
+    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
+    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
+    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+
+    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
+
+    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
+    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
+    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
+    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
+    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
+&lt;p&gt;
+
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;package com.thelogbox
+
+import android.app.Activity
+import android.widget.LinearLayout
+import android.widget.Button
+import android.content.Context
+import android.view.View
+import android.view.View.OnClickListener
+import android.widget.Toast
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+
+    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
+    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
+
+    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
+    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
+    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
+
+    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
+
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+
+    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
+    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
+    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
+    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
+    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
+
+    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+    toast.show
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; state
+    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
+    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
+    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+  </entry>
+  <entry>
     <id>tag:thelogbox.com,2012-10-18:/html5-canvas-programming/</id>
     <title type="html">HTML5 Canvas Programming</title>
     <published>2012-10-17T16:00:00Z</published>
@@ -402,79 +621,79 @@ Contents
 &lt;p&gt;Programmers coming from other languages (such as Java, C++, Ruby, Python) who are quite adept with data structures and algorithms will feel right at home. HTML5 canvas programming requires programming experience because it is quite close to the metal. There are frameworks that may help doing some basic animations, but you do really need to understand the JavaScript language, be comfortable structuring data (in OO way would be very helpful) and you need to genuinely enjoy breaking down problems into component solutions. As mentioned before, it is close to the metal programming; canvas lets you manipulate individual pixels in a bounded region, after that, you are pretty much on your own.&lt;/p&gt;
 &lt;h1 id="basic-plumbing"&gt;1. Basic plumbing&lt;/h1&gt;
 &lt;p&gt;A canvas HTMLElement needs to be defined in the page.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-html"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="doctype"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;style&amp;gt;&lt;/span&gt;#mycanvas {border:1px solid gray;}&lt;span class="tag"&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;"canvas programming"&lt;span class="tag"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class="inline"&gt;src=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;canvas.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    &lt;span class="tag"&gt;&amp;lt;canvas&lt;/span&gt; &lt;span class="attribute-name"&gt;id&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;width=500 height=300&lt;span class="tag"&gt;&amp;lt;/canvas&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;  &lt;span class="tag"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&lt;span class="doctype"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;style&amp;gt;&lt;/span&gt;#mycanvas {border:1px solid gray;}&lt;span class="tag"&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;"canvas programming"&lt;span class="tag"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class="inline"&gt;src=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;canvas.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class="tag"&gt;&amp;lt;canvas&lt;/span&gt; &lt;span class="attribute-name"&gt;id&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;width=500 height=300&lt;span class="tag"&gt;&amp;lt;/canvas&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;// filename: canvas.js&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keyword"&gt;function&lt;/span&gt;(){
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;    &lt;span class="keyword"&gt;var&lt;/span&gt; canv = document.getElementById(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;    &lt;span class="keyword"&gt;var&lt;/span&gt; context = canv.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="comment"&gt;// filename: canvas.js&lt;/span&gt;
+
+window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keyword"&gt;function&lt;/span&gt;(){
+
+    &lt;span class="keyword"&gt;var&lt;/span&gt; canv = document.getElementById(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+    &lt;span class="keyword"&gt;var&lt;/span&gt; context = canv.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The HTMLElement canvas is not the programming platform, you need it simply to get the actual reference to the 2d platform. The &lt;strong&gt;mycanvas&lt;/strong&gt; is just a DOM element, think of it as a viewport, you cannot paint 2d drawing primitives in that element. The &lt;strong&gt;context&lt;/strong&gt; object is the 2d platform, use this to draw the drawing primitives.&lt;/p&gt;
 &lt;h2 id="drawing-primitives-of-the-canvas"&gt;1.1 Drawing primitives of the Canvas&lt;/h2&gt;
 &lt;p&gt;
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;// filename: canvas.js&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keyword"&gt;function&lt;/span&gt;(){
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;    &lt;span class="keyword"&gt;var&lt;/span&gt; canv = document.getElementById(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;    &lt;span class="keyword"&gt;var&lt;/span&gt; context = canv.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    ctx.fillRect(&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;    ctx.strokeRect(&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;rgb(255,0,0)&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;    ctx.fillRect(&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;    ctx.strokeStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;#ababab&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    ctx.strokeRect(&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="comment"&gt;// DRAW LINES&lt;/span&gt;
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="comment"&gt;//The line is gray bec the curr strokeStyle&lt;/span&gt;
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="comment"&gt;//is #ababab&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    ctx.lineWidth = &lt;span class="integer"&gt;1&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    ctx.beginPath();
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    ctx.moveTo(&lt;span class="integer"&gt;130&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    ctx.lineTo(&lt;span class="integer"&gt;0&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    ctx.closePath();
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    ctx.stroke();
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="comment"&gt;// DRAW some text&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    ctx.fillText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;20&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    ctx.font = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;40px serif&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;; &lt;span class="comment"&gt;// you can add italics here, just like in css&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    ctx.fillText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;60&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;    ctx.strokeText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;100&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="comment"&gt;//DRAW CIRCLE&lt;/span&gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;green&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    ctx.beginPath();
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;    ctx.arc(&lt;span class="integer"&gt;60&lt;/span&gt;,&lt;span class="integer"&gt;180&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;,Math.PI * &lt;span class="integer"&gt;2&lt;/span&gt;, &lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;    ctx.closePath();
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;    ctx.fill();
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;orange&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;    ctx.beginPath();
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;    ctx.arc(&lt;span class="integer"&gt;60&lt;/span&gt;,&lt;span class="integer"&gt;280&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;,Math.PI, &lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;    ctx.closePath();
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;    ctx.fill();
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="comment"&gt;// filename: canvas.js&lt;/span&gt;
+
+window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keyword"&gt;function&lt;/span&gt;(){
+
+    &lt;span class="keyword"&gt;var&lt;/span&gt; canv = document.getElementById(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+    &lt;span class="keyword"&gt;var&lt;/span&gt; context = canv.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
+
+    ctx.fillRect(&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
+    ctx.strokeRect(&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
+
+    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;rgb(255,0,0)&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
+    ctx.fillRect(&lt;span class="integer"&gt;10&lt;/span&gt;,&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
+
+    ctx.strokeStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;#ababab&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
+    ctx.strokeRect(&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;70&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;);
+
+    &lt;span class="comment"&gt;// DRAW LINES&lt;/span&gt;
+
+    &lt;span class="comment"&gt;//The line is gray bec the curr strokeStyle&lt;/span&gt;
+    &lt;span class="comment"&gt;//is #ababab&lt;/span&gt;
+
+    ctx.lineWidth = &lt;span class="integer"&gt;1&lt;/span&gt;;
+    ctx.beginPath();
+    ctx.moveTo(&lt;span class="integer"&gt;130&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;);
+    ctx.lineTo(&lt;span class="integer"&gt;0&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;);
+    ctx.closePath();
+    ctx.stroke();
+
+    &lt;span class="comment"&gt;// DRAW some text&lt;/span&gt;
+
+    ctx.fillText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;20&lt;/span&gt;);
+    ctx.font = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;40px serif&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;; &lt;span class="comment"&gt;// you can add italics here, just like in css&lt;/span&gt;
+    ctx.fillText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;60&lt;/span&gt;);
+    ctx.strokeText(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Hello&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="integer"&gt;130&lt;/span&gt;,&lt;span class="integer"&gt;100&lt;/span&gt;);
+
+    &lt;span class="comment"&gt;//DRAW CIRCLE&lt;/span&gt;
+
+    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;green&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
+    ctx.beginPath();
+    ctx.arc(&lt;span class="integer"&gt;60&lt;/span&gt;,&lt;span class="integer"&gt;180&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;,Math.PI * &lt;span class="integer"&gt;2&lt;/span&gt;, &lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;orange&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;;
+    ctx.beginPath();
+    ctx.arc(&lt;span class="integer"&gt;60&lt;/span&gt;,&lt;span class="integer"&gt;280&lt;/span&gt;,&lt;span class="integer"&gt;50&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;,Math.PI, &lt;span class="predefined-constant"&gt;false&lt;/span&gt;);
+    ctx.closePath();
+    ctx.fill();
+
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Lots of things you can do with the &lt;strong&gt;context (ctx)&lt;/strong&gt; object, in fact, everything has to be drawn using the context object, you need to be very comfortable with it. The sample code above demonstrates some primitives of the context object (line, text and arc). There are more examples of Canvas basics at &lt;a href="http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/"&gt;HTML5 Canvas tutorials&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="animation-using-a-timer"&gt;1.2 Animation using a timer&lt;/h2&gt;
 &lt;p&gt;Using barebones JavaScript should still be okay to use for the following examples, but there is no point delaying using the tools mentioned in &lt;strong&gt;Section 0&lt;/strong&gt;, so we will use them.&lt;/p&gt;
@@ -487,175 +706,175 @@ Contents
 &lt;/li&gt;
 &lt;/ol&gt;&lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;/ filename: animate.haml&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;/ compile: haml animate.haml animate.html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="tag"&gt;%html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;    &lt;span class="tag"&gt;%head&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;        &lt;span class="tag"&gt;%title&lt;/span&gt; Basic Time Animation
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt;  &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;animate.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="tag"&gt;%body&lt;/span&gt;
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;300&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="comment"&gt;/ filename: animate.haml&lt;/span&gt;
+&lt;span class="comment"&gt;/ compile: haml animate.haml animate.html&lt;/span&gt;
+
+&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
+
+&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
+
+&lt;span class="tag"&gt;%html&lt;/span&gt;
+    &lt;span class="tag"&gt;%head&lt;/span&gt;
+        &lt;span class="tag"&gt;%title&lt;/span&gt; Basic Time Animation
+
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt;  &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;animate.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+
+    &lt;span class="tag"&gt;%body&lt;/span&gt;
+
+        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;300&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;filename: animate.coffee
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;compile: coffee --compile animate.coffee 
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;&lt;span class="constant"&gt;Desc&lt;/span&gt;:
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="constant"&gt;Basics&lt;/span&gt; of a game loop
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="integer"&gt;1&lt;/span&gt;. Update positions of objects &lt;span class="keyword"&gt;in&lt;/span&gt; the canvas
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="integer"&gt;2&lt;/span&gt;. Clear the canvas
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="integer"&gt;3&lt;/span&gt;. Redraw eveything &lt;span class="keyword"&gt;in&lt;/span&gt; the canvas
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="constant"&gt;This&lt;/span&gt; one is pretty basic, it draws a square primitive
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    everytime the canvas is redrawn. Experiment with the
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    code by removing the hash sign (comment) before the
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    line &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;ctx.clearRect...&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="keyword"&gt;if&lt;/span&gt; that line is commented out
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="keyword"&gt;then&lt;/span&gt; the screen will fill up with random sized squares
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    overtime; &lt;span class="keyword"&gt;if&lt;/span&gt; the line is &lt;span class="keyword"&gt;not&lt;/span&gt; commented, a randomly sized
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    square object will appear everytime the canvas is 
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    redrawn
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Paper&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;    c = &lt;span class="integer"&gt;0&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    ctx = &lt;span class="integer"&gt;0&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    counter = &lt;span class="integer"&gt;0&lt;/span&gt;;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    constructor: (canvas,context) -&amp;gt; 
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;        c = canvas
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;        ctx = context
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;    draw: =&amp;gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;        &lt;span class="comment"&gt;#ctx.clearRect 0, 0, c.width, c.height&lt;/span&gt;
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;        sq = &lt;span class="constant"&gt;Square&lt;/span&gt;.getSquare(c)
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;        ctx.strokeRect sq.x, sq.y, sq.width, sq.height
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;        setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;300&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Square&lt;/span&gt;
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;    &lt;span class="instance-variable"&gt;@getSquare&lt;/span&gt;: (canvas) -&amp;gt;
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;        x = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.width
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;        y = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.height
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;        width = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * &lt;span class="integer"&gt;75&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;        height = width
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;        {x, y, width, height}
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;    paper = new Paper(canvas,context)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
+&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
+
+License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+filename: animate.coffee
+compile: coffee --compile animate.coffee 
+
+&lt;span class="constant"&gt;Desc&lt;/span&gt;:
+
+    &lt;span class="constant"&gt;Basics&lt;/span&gt; of a game loop
+    &lt;span class="integer"&gt;1&lt;/span&gt;. Update positions of objects &lt;span class="keyword"&gt;in&lt;/span&gt; the canvas
+    &lt;span class="integer"&gt;2&lt;/span&gt;. Clear the canvas
+    &lt;span class="integer"&gt;3&lt;/span&gt;. Redraw eveything &lt;span class="keyword"&gt;in&lt;/span&gt; the canvas
+
+    &lt;span class="constant"&gt;This&lt;/span&gt; one is pretty basic, it draws a square primitive
+    everytime the canvas is redrawn. Experiment with the
+    code by removing the hash sign (comment) before the
+    line &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;ctx.clearRect...&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt; &lt;span class="keyword"&gt;if&lt;/span&gt; that line is commented out
+    &lt;span class="keyword"&gt;then&lt;/span&gt; the screen will fill up with random sized squares
+    overtime; &lt;span class="keyword"&gt;if&lt;/span&gt; the line is &lt;span class="keyword"&gt;not&lt;/span&gt; commented, a randomly sized
+    square object will appear everytime the canvas is 
+    redrawn
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Paper&lt;/span&gt;
+
+    c = &lt;span class="integer"&gt;0&lt;/span&gt;;
+    ctx = &lt;span class="integer"&gt;0&lt;/span&gt;;
+    counter = &lt;span class="integer"&gt;0&lt;/span&gt;;
+
+    constructor: (canvas,context) -&amp;gt; 
+        c = canvas
+        ctx = context
+        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
+
+    draw: =&amp;gt;
+        &lt;span class="comment"&gt;#ctx.clearRect 0, 0, c.width, c.height&lt;/span&gt;
+        sq = &lt;span class="constant"&gt;Square&lt;/span&gt;.getSquare(c)
+        ctx.strokeRect sq.x, sq.y, sq.width, sq.height
+        setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;300&lt;/span&gt;
+
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Square&lt;/span&gt;
+
+    &lt;span class="instance-variable"&gt;@getSquare&lt;/span&gt;: (canvas) -&amp;gt;
+        x = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.width
+        y = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.height
+        width = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * &lt;span class="integer"&gt;75&lt;/span&gt;
+        height = width
+        {x, y, width, height}
+
+&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
+    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
+    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
+
+    paper = new Paper(canvas,context)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
 &lt;/p&gt;&lt;h1 id="basic-movements"&gt;2. Basic movements&lt;/h1&gt;
 &lt;h2 id="moving-in-a-straight-line"&gt;2.1 Moving in a straight line&lt;/h2&gt;
 &lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;/ filename: straight.haml&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;/ compile: haml straight.haml straight.html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="tag"&gt;%html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;    &lt;span class="tag"&gt;%head&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;straight.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    &lt;span class="tag"&gt;%body&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;300&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border:1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="comment"&gt;/ filename: straight.haml&lt;/span&gt;
+&lt;span class="comment"&gt;/ compile: haml straight.haml straight.html&lt;/span&gt;
+
+&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
+
+&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
+
+&lt;span class="tag"&gt;%html&lt;/span&gt;
+    &lt;span class="tag"&gt;%head&lt;/span&gt;
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;straight.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+
+    &lt;span class="tag"&gt;%body&lt;/span&gt;
+        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;300&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border:1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="comment"&gt;####&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;filename: straight.coffee
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;compile: coffee --compile straight.coffee
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;&lt;span class="constant"&gt;Desc&lt;/span&gt;: 
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="constant"&gt;Basic&lt;/span&gt; horizontal movement of a context primitive. Each time the screen is
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    redrawn (setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;30&lt;/span&gt;), the y-coordinate of the box object is
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    incremented
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="constant"&gt;This&lt;/span&gt; code sample also demonstrates basic principle of collision detection,
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    once the right edge of the box object (box.x + box.width) has touched the right
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    edge of canvas ( &amp;gt; c.width), we stop redrawing the canvas--sure the &lt;span class="constant"&gt;JavaScript&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    timer goes chugging along still, you cannot stop it, but there is an branching
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    of the logic inside the draw() function -- &lt;span class="keyword"&gt;unless&lt;/span&gt; stop_drawing is &lt;span class="predefined-constant"&gt;true&lt;/span&gt;, we 
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    draw, &lt;span class="keyword"&gt;if&lt;/span&gt; stop_drawing is &lt;span class="predefined-constant"&gt;true&lt;/span&gt; already, we stop
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;&lt;span class="comment"&gt;####&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Stage&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    c = ctx = box = null
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;    stop_drawing = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    constructor: (canvas, context) -&amp;gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;        c = canvas
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;        ctx = context
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;        box = 
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;            x: &lt;span class="integer"&gt;10&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;            y: c.height &lt;span class="regexp"&gt;&lt;span class="delimiter"&gt;/&lt;/span&gt;&lt;span class="content"&gt;2&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            width: 40&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            height: 40&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            speed: 1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;        @draw()&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;    draw: =&amp;gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;        unless stop_drawing&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            ctx.clearRect 0, 0, c.width, c.height&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            box.x += box.speed&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            ctx.strokeRect box.x, box.y, box.width, box.height&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            setTimeout @draw, 30&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;            if box.x + box.width is c.width then stop_drawing = true&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;$(window).ready -&amp;gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;    canvas = $('#mycanvas').get(0)&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;    context = canvas.getContext('2d')&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;&lt;span class="regexp"&gt;&lt;span class="content"&gt;    stage = new Stage(canvas, context)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
+&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
+
+License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="comment"&gt;####&lt;/span&gt;
+
+filename: straight.coffee
+compile: coffee --compile straight.coffee
+
+&lt;span class="constant"&gt;Desc&lt;/span&gt;: 
+
+    &lt;span class="constant"&gt;Basic&lt;/span&gt; horizontal movement of a context primitive. Each time the screen is
+    redrawn (setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;30&lt;/span&gt;), the y-coordinate of the box object is
+    incremented
+
+    &lt;span class="constant"&gt;This&lt;/span&gt; code sample also demonstrates basic principle of collision detection,
+    once the right edge of the box object (box.x + box.width) has touched the right
+    edge of canvas ( &amp;gt; c.width), we stop redrawing the canvas--sure the &lt;span class="constant"&gt;JavaScript&lt;/span&gt;
+    timer goes chugging along still, you cannot stop it, but there is an branching
+    of the logic inside the draw() function -- &lt;span class="keyword"&gt;unless&lt;/span&gt; stop_drawing is &lt;span class="predefined-constant"&gt;true&lt;/span&gt;, we 
+    draw, &lt;span class="keyword"&gt;if&lt;/span&gt; stop_drawing is &lt;span class="predefined-constant"&gt;true&lt;/span&gt; already, we stop
+
+&lt;span class="comment"&gt;####&lt;/span&gt;
+
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Stage&lt;/span&gt;
+
+    c = ctx = box = null
+    stop_drawing = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+
+    constructor: (canvas, context) -&amp;gt;
+        c = canvas
+        ctx = context
+
+        box = 
+            x: &lt;span class="integer"&gt;10&lt;/span&gt;
+            y: c.height &lt;span class="regexp"&gt;&lt;span class="delimiter"&gt;/&lt;/span&gt;&lt;span class="content"&gt;2
+            width: 40
+            height: 40
+            speed: 1
+
+        @draw()
+
+    draw: =&amp;gt;
+
+        unless stop_drawing
+
+            ctx.clearRect 0, 0, c.width, c.height
+            box.x += box.speed
+            ctx.strokeRect box.x, box.y, box.width, box.height
+            setTimeout @draw, 30
+
+            if box.x + box.width is c.width then stop_drawing = true
+
+
+$(window).ready -&amp;gt;
+    canvas = $('#mycanvas').get(0)
+    context = canvas.getContext('2d')
+
+    stage = new Stage(canvas, context)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
 &lt;/p&gt;&lt;h2 id="moving-in-a-uniform-circular-motion"&gt;2.2 Moving in a uniform circular motion&lt;/h2&gt;
@@ -668,99 +887,99 @@ Contents
 
 &lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;/ filename: circlepath.haml&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;/ compile: haml circlepath.haml circlepath.html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="tag"&gt;%html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;    &lt;span class="tag"&gt;%head&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;    &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;    &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;circlepath.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;&lt;span class="tag"&gt;%body&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;600&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;600&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    &lt;span class="constant"&gt;#watch&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="comment"&gt;/ filename: circlepath.haml&lt;/span&gt;
+&lt;span class="comment"&gt;/ compile: haml circlepath.haml circlepath.html&lt;/span&gt;
+
+&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
+
+&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
+
+&lt;span class="tag"&gt;%html&lt;/span&gt;
+    &lt;span class="tag"&gt;%head&lt;/span&gt;
+
+    &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jquery-1.8.1.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+    &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;circlepath.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+
+&lt;span class="tag"&gt;%body&lt;/span&gt;
+    &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;600&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;600&lt;/span&gt;}
+    &lt;span class="constant"&gt;#watch&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;
 
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;filename: circlepath.coffee
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;compile: coffee --compile circlepath.coffee
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;&lt;span class="constant"&gt;Desc&lt;/span&gt;:
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    &lt;span class="constant"&gt;Trace&lt;/span&gt; the path of circle object (defined &lt;span class="keyword"&gt;in&lt;/span&gt; the constructor). That specific
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    circle will &lt;span class="keyword"&gt;not&lt;/span&gt; be drawn, but instead its perimeter will be used as the 
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    path as we draw (&lt;span class="keyword"&gt;and&lt;/span&gt; animate) a smaller circle (drawn using ctx.arc) 
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Paper&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    c = null
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    ctx = null
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    ball = {}
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    circle = {}
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    counter = &lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    constructor: (canvas, context) -&amp;gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;        c = canvas
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;        ctx = context
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;        &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#watch&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).html &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;On the CTOR&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;        ball = 
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;            x:&lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;            y:&lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;            speed: &lt;span class="float"&gt;0.1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;        circle = 
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;            centerX: &lt;span class="integer"&gt;250&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;            centerY: &lt;span class="integer"&gt;250&lt;/span&gt;
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;            radius: &lt;span class="integer"&gt;125&lt;/span&gt;
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;            angle: &lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;    draw: =&amp;gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;        counter += &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;        ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;,  c.width, c.height
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;        ball.x = circle.centerX + &lt;span class="constant"&gt;Math&lt;/span&gt;.cos(circle.angle) * circle.radius
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;        ball.y = circle.centerY + &lt;span class="constant"&gt;Math&lt;/span&gt;.sin(circle.angle) * circle.radius
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;        ctx.beginPath()
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;        ctx.arc ball.x, ball.y, &lt;span class="integer"&gt;15&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="constant"&gt;Math&lt;/span&gt;.PI * &lt;span class="integer"&gt;2&lt;/span&gt;, &lt;span class="predefined-constant"&gt;true&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;        ctx.closePath()
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;        ctx.stroke()
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;        circle.angle += ball.speed
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;        &lt;span class="comment"&gt;# why is this not being called&lt;/span&gt;
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;75&lt;/span&gt;        &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#watch&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).html &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Loop counter = &lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;counter&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;76&lt;/span&gt;        setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;1000&lt;/span&gt;
-&lt;span class="line-numbers"&gt;77&lt;/span&gt;
-&lt;span class="line-numbers"&gt;78&lt;/span&gt;
-&lt;span class="line-numbers"&gt;79&lt;/span&gt;&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
-&lt;span class="line-numbers"&gt;80&lt;/span&gt;    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;81&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;82&lt;/span&gt;
-&lt;span class="line-numbers"&gt;83&lt;/span&gt;    paper = new Paper(canvas, context)
-&lt;span class="line-numbers"&gt;84&lt;/span&gt;    paper.draw()&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
+&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
+
+License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+filename: circlepath.coffee
+compile: coffee --compile circlepath.coffee
+
+&lt;span class="constant"&gt;Desc&lt;/span&gt;:
+    &lt;span class="constant"&gt;Trace&lt;/span&gt; the path of circle object (defined &lt;span class="keyword"&gt;in&lt;/span&gt; the constructor). That specific
+    circle will &lt;span class="keyword"&gt;not&lt;/span&gt; be drawn, but instead its perimeter will be used as the 
+    path as we draw (&lt;span class="keyword"&gt;and&lt;/span&gt; animate) a smaller circle (drawn using ctx.arc) 
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Paper&lt;/span&gt;
+
+    c = null
+    ctx = null
+
+    ball = {}
+    circle = {}
+
+    counter = &lt;span class="integer"&gt;0&lt;/span&gt;
+
+    constructor: (canvas, context) -&amp;gt;
+        c = canvas
+        ctx = context
+        &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#watch&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).html &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;On the CTOR&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+
+        ball = 
+            x:&lt;span class="integer"&gt;0&lt;/span&gt;
+            y:&lt;span class="integer"&gt;0&lt;/span&gt;
+            speed: &lt;span class="float"&gt;0.1&lt;/span&gt;
+
+        circle = 
+            centerX: &lt;span class="integer"&gt;250&lt;/span&gt;
+            centerY: &lt;span class="integer"&gt;250&lt;/span&gt;
+            radius: &lt;span class="integer"&gt;125&lt;/span&gt;
+            angle: &lt;span class="integer"&gt;0&lt;/span&gt;
+
+    draw: =&amp;gt;
+
+        counter += &lt;span class="integer"&gt;1&lt;/span&gt;
+
+        ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;,  c.width, c.height
+        ball.x = circle.centerX + &lt;span class="constant"&gt;Math&lt;/span&gt;.cos(circle.angle) * circle.radius
+        ball.y = circle.centerY + &lt;span class="constant"&gt;Math&lt;/span&gt;.sin(circle.angle) * circle.radius
+
+        ctx.beginPath()
+        ctx.arc ball.x, ball.y, &lt;span class="integer"&gt;15&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="constant"&gt;Math&lt;/span&gt;.PI * &lt;span class="integer"&gt;2&lt;/span&gt;, &lt;span class="predefined-constant"&gt;true&lt;/span&gt;
+        ctx.closePath()
+        ctx.stroke()
+
+        circle.angle += ball.speed
+
+        &lt;span class="comment"&gt;# why is this not being called&lt;/span&gt;
+
+        &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#watch&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).html &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Loop counter = &lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;counter&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+        setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;1000&lt;/span&gt;
+
+
+&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
+    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
+    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
+
+    paper = new Paper(canvas, context)
+    paper.draw()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;
 
 &lt;h1 id="acceleration"&gt;3. Acceleration&lt;/h1&gt;
@@ -768,390 +987,171 @@ Contents
 &lt;iframe src="/source-docs/acceleration.html" width="100%" height="550px" frameborder="0"&gt;
 &lt;/iframe&gt;
 
-&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;/ filename: acceleration.haml&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;&lt;span class="tag"&gt;%html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    &lt;span class="tag"&gt;%head&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;        &lt;span class="tag"&gt;%link&lt;/span&gt;{&lt;span class="symbol"&gt;:rel&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stylesheet&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:href&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stylesheet.css&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://code.jquery.com/jquery-1.8.2.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jcanvas.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;acceleration.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    &lt;span class="tag"&gt;%body&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border: 1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="comment"&gt;/ filename: acceleration.haml&lt;/span&gt;
+&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
+
+
+&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
+
+&lt;span class="tag"&gt;%html&lt;/span&gt;
+    &lt;span class="tag"&gt;%head&lt;/span&gt;
+        &lt;span class="tag"&gt;%link&lt;/span&gt;{&lt;span class="symbol"&gt;:rel&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stylesheet&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:href&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;stylesheet.css&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://code.jquery.com/jquery-1.8.2.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;jcanvas.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;acceleration.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+    &lt;span class="tag"&gt;%body&lt;/span&gt;
+        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border: 1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="comment"&gt;# filename: accelerate.coffee&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="comment"&gt;# date: Sat Oct 27 15:33:22 PHT 2012 &lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;&lt;span class="constant"&gt;To&lt;/span&gt; accelerate, increase the speed of the box each time it is redrawn. 
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;class &lt;span class="constant"&gt;Stage&lt;/span&gt; 
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    c = ctx = box = null
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    stopAnimation = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    constructor: (canvas, context) -&amp;gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;        c = canvas
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;        ctx = context
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;        box = 
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;            x: c.width/&lt;span class="integer"&gt;2&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;            y: &lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;            width: &lt;span class="integer"&gt;10&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;            height: &lt;span class="integer"&gt;10&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;            speed: &lt;span class="integer"&gt;1&lt;/span&gt; 
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;            acceleration: .&lt;span class="error"&gt;98&lt;/span&gt; 
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    draw: =&amp;gt;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;        &lt;span class="keyword"&gt;unless&lt;/span&gt; box.y &amp;gt; c.height
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;            ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;, c.width, c.height
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;            box.y += box.speed
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;            box.speed += box.acceleration
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;            ctx.strokeRect box.x, box.y, box.width, box.height
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;            setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;60&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;            &lt;span class="keyword"&gt;if&lt;/span&gt; box.y &amp;gt; c.height
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;                box.speed = &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;                box.y = &lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;                box.x = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * c.width
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
+&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
+
+License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="comment"&gt;# filename: accelerate.coffee&lt;/span&gt;
+&lt;span class="comment"&gt;# date: Sat Oct 27 15:33:22 PHT 2012 &lt;/span&gt;
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;To&lt;/span&gt; accelerate, increase the speed of the box each time it is redrawn. 
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+class &lt;span class="constant"&gt;Stage&lt;/span&gt; 
+
+    c = ctx = box = null
+    stopAnimation = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+
+    constructor: (canvas, context) -&amp;gt;
+        c = canvas
+        ctx = context
+
+        box = 
+            x: c.width/&lt;span class="integer"&gt;2&lt;/span&gt;
+            y: &lt;span class="integer"&gt;0&lt;/span&gt;
+            width: &lt;span class="integer"&gt;10&lt;/span&gt;
+            height: &lt;span class="integer"&gt;10&lt;/span&gt;
+            speed: &lt;span class="integer"&gt;1&lt;/span&gt; 
+            acceleration: .&lt;span class="error"&gt;98&lt;/span&gt; 
+
+        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
+
+    draw: =&amp;gt;
+
+        &lt;span class="keyword"&gt;unless&lt;/span&gt; box.y &amp;gt; c.height
+
+            ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;,&lt;span class="integer"&gt;0&lt;/span&gt;, c.width, c.height
+            box.y += box.speed
+            box.speed += box.acceleration
+
+            ctx.strokeRect box.x, box.y, box.width, box.height
+            setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;60&lt;/span&gt;
+
+            &lt;span class="keyword"&gt;if&lt;/span&gt; box.y &amp;gt; c.height
+                box.speed = &lt;span class="integer"&gt;1&lt;/span&gt;
+                box.y = &lt;span class="integer"&gt;0&lt;/span&gt;
+                box.x = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * c.width
+
+
+&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
+    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
+    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
+
+    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="accelerate-then-stop"&gt;3.1 Accelerate, then stop&lt;/h2&gt;
 &lt;p&gt;Combination of techniques now. Make the box accelerate as it falls down, then detect if the bottom of the box &lt;em&gt;(box.y + box.height)&lt;/em&gt; has already touched the canvas floor &lt;em&gt;(canvas.height)&lt;/em&gt;. Make the box rest there.&lt;/p&gt;
 &lt;p&gt;Click &lt;strong&gt;fall&lt;/strong&gt; button below to see the demo&lt;/p&gt;
 &lt;iframe src="/source-docs/fall-stop.html" width="100%" height="550px" frameborder="0"&gt;
 &lt;/iframe&gt;
 
-&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;/ filename: fall-stop.haml&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;&lt;span class="tag"&gt;%html&lt;/span&gt;
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;    &lt;span class="tag"&gt;%head&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://code.jquery.com/jquery-1.8.2.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;fall-stop.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;    &lt;span class="tag"&gt;%body&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border: 1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-haml"&gt;&lt;span class="comment"&gt;/ filename: fall-stop.haml&lt;/span&gt;
+&lt;span class="comment"&gt;/ author: Ted Hagos&lt;/span&gt;
+
+
+&lt;span class="doctype"&gt;!!!5&lt;/span&gt;
+
+&lt;span class="tag"&gt;%html&lt;/span&gt;
+    &lt;span class="tag"&gt;%head&lt;/span&gt;
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;http://code.jquery.com/jquery-1.8.2.min.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+        &lt;span class="tag"&gt;%script&lt;/span&gt;{&lt;span class="symbol"&gt;:src&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;fall-stop.js&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}
+    &lt;span class="tag"&gt;%body&lt;/span&gt;
+        &lt;span class="tag"&gt;%canvas&lt;/span&gt;{&lt;span class="symbol"&gt;:id&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="symbol"&gt;:width&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:height&lt;/span&gt; =&amp;gt; &lt;span class="integer"&gt;500&lt;/span&gt;, &lt;span class="symbol"&gt;:style&lt;/span&gt; =&amp;gt; &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;border: 1px solid gray&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;&lt;span class="comment"&gt;# filename: fall-stop.coffee&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="comment"&gt;# date: Sat Oct 27 19:13:30 PHT 2012&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;&lt;span class="constant"&gt;Accelerate&lt;/span&gt; downwards, apply collision detection &lt;span class="keyword"&gt;when&lt;/span&gt; the bottom of the
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;box hits the floor (height value of the canvas) to make the box rest on
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;the bottom
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Box&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    canvas = null
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    box = null
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    constructor: (&lt;span class="instance-variable"&gt;@canvas&lt;/span&gt;) -&amp;gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;        &lt;span class="instance-variable"&gt;@x&lt;/span&gt; = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.width
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;        &lt;span class="instance-variable"&gt;@y&lt;/span&gt; = &lt;span class="integer"&gt;0&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;        &lt;span class="instance-variable"&gt;@width&lt;/span&gt; = &lt;span class="integer"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;        &lt;span class="instance-variable"&gt;@height&lt;/span&gt; = &lt;span class="integer"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;        &lt;span class="instance-variable"&gt;@speed&lt;/span&gt; = &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;        &lt;span class="instance-variable"&gt;@acceleration&lt;/span&gt; = .&lt;span class="error"&gt;98&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;        &lt;span class="instance-variable"&gt;@at_rest&lt;/span&gt; = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Stage&lt;/span&gt; 
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    c = ctx = box = null
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    stopAnimation = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;    constructor: (canvas, context) -&amp;gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;        c = canvas
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;        ctx = context
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;        box = new Box(c)
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;    draw: =&amp;gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;        ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;, c.width, c.height
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;        &lt;span class="comment"&gt;# to smooth out the collission&lt;/span&gt;
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;        &lt;span class="keyword"&gt;if&lt;/span&gt; (box.y + box.height) &amp;lt;= (c.height - box.height)
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;            box.y += box.speed
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;            box.speed += box.acceleration
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;            ctx.strokeRect box.x, box.y, box.width, box.height
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;            foo = setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;60&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;        &lt;span class="keyword"&gt;else&lt;/span&gt;
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;            ctx.strokeRect box.x, c.height - box.height, box.width, box.height
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;            &lt;span class="comment"&gt;#clearTimeout foo&lt;/span&gt;
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;        
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;        &lt;span class="comment"&gt;# What happens to this box after it has fallen off the canvas? does it&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;        &lt;span class="comment"&gt;# still consume memory?&lt;/span&gt;
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;
-&lt;span class="line-numbers"&gt;75&lt;/span&gt;
-&lt;span class="line-numbers"&gt;76&lt;/span&gt;&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
-&lt;span class="line-numbers"&gt;77&lt;/span&gt;    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;78&lt;/span&gt;    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;79&lt;/span&gt;    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;BSD&lt;/span&gt; &lt;span class="constant"&gt;License&lt;/span&gt;: &lt;span class="constant"&gt;Copyright&lt;/span&gt; (c) &lt;span class="integer"&gt;2009&lt;/span&gt;-&lt;span class="integer"&gt;2012&lt;/span&gt; &lt;span class="constant"&gt;Ted&lt;/span&gt; &lt;span class="constant"&gt;Hagos&lt;/span&gt;
+&lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
+
+License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="comment"&gt;# filename: fall-stop.coffee&lt;/span&gt;
+&lt;span class="comment"&gt;# date: Sat Oct 27 19:13:30 PHT 2012&lt;/span&gt;
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="constant"&gt;Accelerate&lt;/span&gt; downwards, apply collision detection &lt;span class="keyword"&gt;when&lt;/span&gt; the bottom of the
+box hits the floor (height value of the canvas) to make the box rest on
+the bottom
+
+&lt;span class="comment"&gt;###&lt;/span&gt;
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Box&lt;/span&gt;
+
+    canvas = null
+    box = null
+
+    constructor: (&lt;span class="instance-variable"&gt;@canvas&lt;/span&gt;) -&amp;gt;
+
+        &lt;span class="instance-variable"&gt;@x&lt;/span&gt; = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.width
+        &lt;span class="instance-variable"&gt;@y&lt;/span&gt; = &lt;span class="integer"&gt;0&lt;/span&gt;
+        &lt;span class="instance-variable"&gt;@width&lt;/span&gt; = &lt;span class="integer"&gt;50&lt;/span&gt;
+        &lt;span class="instance-variable"&gt;@height&lt;/span&gt; = &lt;span class="integer"&gt;50&lt;/span&gt;
+        &lt;span class="instance-variable"&gt;@speed&lt;/span&gt; = &lt;span class="integer"&gt;1&lt;/span&gt;
+        &lt;span class="instance-variable"&gt;@acceleration&lt;/span&gt; = .&lt;span class="error"&gt;98&lt;/span&gt;
+        &lt;span class="instance-variable"&gt;@at_rest&lt;/span&gt; = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+
+&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Stage&lt;/span&gt; 
+
+    c = ctx = box = null
+    stopAnimation = &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+
+    constructor: (canvas, context) -&amp;gt;
+        c = canvas
+        ctx = context
+        box = new Box(c)
+
+        &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;()
+
+    draw: =&amp;gt;
+
+        ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;, c.width, c.height
+
+        &lt;span class="comment"&gt;# to smooth out the collission&lt;/span&gt;
+        &lt;span class="keyword"&gt;if&lt;/span&gt; (box.y + box.height) &amp;lt;= (c.height - box.height)
+
+            box.y += box.speed
+            box.speed += box.acceleration
+            ctx.strokeRect box.x, box.y, box.width, box.height
+            foo = setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;60&lt;/span&gt;
+        &lt;span class="keyword"&gt;else&lt;/span&gt;
+            ctx.strokeRect box.x, c.height - box.height, box.width, box.height
+            &lt;span class="comment"&gt;#clearTimeout foo&lt;/span&gt;
+
+        &lt;span class="comment"&gt;# What happens to this box after it has fallen off the canvas? does it&lt;/span&gt;
+        &lt;span class="comment"&gt;# still consume memory?&lt;/span&gt;
+
+
+&lt;span class="error"&gt;$&lt;/span&gt;(window).ready -&amp;gt;
+    canvas = &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).get(&lt;span class="integer"&gt;0&lt;/span&gt;)
+    context = canvas.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;)
+    stage = new Stage(canvas, context)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>tag:thelogbox.com,2012-10-18:/android-programming-mirah-pindah/</id>
-    <title type="html">Android Programming - mirah</title>
-    <published>2012-10-17T16:00:00Z</published>
-    <updated>2012-10-17T16:00:00Z</updated>
-    <author>
-      <name>Ted Hagos</name>
-      <uri>http://thelogbox.com/about/</uri>
-    </author>
-    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
-    <content type="html">&lt;div id="update-history"&gt;
-&lt;h3&gt;
-Doc history
-&lt;/h3&gt;
-19.Oct.2012 &#8212; date of creation&lt;br&gt; 08.Nov.2012 &#8212; update, Intents&lt;br&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See &lt;a href="http://www.mirah.org"&gt;official Mirah site&lt;/a&gt; for more info about the language.&lt;/p&gt;
-&lt;p&gt;To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &#8212; we will use &lt;a href="https://github.com/mirah/pindah"&gt;pindah&lt;/a&gt;. Pindah works great as a replacement for the &lt;em&gt;android create project ...&lt;/em&gt; CLI, it is also a great replacement for the &lt;em&gt;ant&lt;/em&gt; build scripts, it uses &lt;em&gt;rake&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id="setup"&gt;Setup&lt;/h1&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;Get ruby and rubygems&lt;/li&gt;
-&lt;li&gt;Get RVM (Ruby Version Manager)&lt;/li&gt;
-&lt;li&gt;Get JRuby &#8212; &lt;em&gt;rvm install jruby&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get mirah &#8212; &lt;em&gt;gem install mirah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Get pindah &#8212; &lt;em&gt;gem install pindah&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Make sure you have a really good source code editor&lt;/li&gt;
-&lt;li&gt;Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it&lt;/li&gt;
-&lt;li&gt;Brush up on the android SDK and API, best source of information on the APIs is &lt;a href="http://developer.android.com/develop/index.html"&gt;developer.android.com&lt;/a&gt;. There are lots of tutorials you can follow on Android development.&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;h1 id="button-event-handling-and-toast"&gt;Button event handling and Toast&lt;/h1&gt;
-&lt;p&gt;&lt;span class="stress"&gt;Steps: &lt;/span&gt;&lt;/p&gt;
-&lt;ol style="list-style-type: decimal"&gt;
-&lt;li&gt;
-&lt;em&gt;pindah create com.thelogbox toastcode ToastCode&lt;/em&gt; to create the project&lt;/li&gt;
-&lt;li&gt;cd toastcode&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;android update project -p . &#8212;target 8&lt;/strong&gt; to set the target API to level 8 (Froyo)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; will produce exactly the same project layout as would &lt;em&gt;android create project&lt;/em&gt;, so go the &lt;em&gt;src&lt;/em&gt; folder and work on the generated &lt;em&gt;ToastCode.mirah&lt;/em&gt; source file&lt;/li&gt;
-&lt;li&gt;Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)&lt;/li&gt;
-&lt;li&gt;
-&lt;strong&gt;pindah&lt;/strong&gt; generated a rake file, so use it &lt;strong&gt;rake debug install&lt;/strong&gt;; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.os.Bundle
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;      notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;      notification.show()
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;       
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state    
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The generated &lt;strong&gt;R.layout.main&lt;/strong&gt; is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class &lt;strong&gt;ToastCode&lt;/strong&gt; extending the LinearLayout class.&lt;/p&gt;
-&lt;p&gt;To handle the onClick of the button, usually you will need an &lt;strong&gt;OnClickListener&lt;/strong&gt; object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Anonymous method
-
-@button = Button.new context
-@button.setOnClickListener do |x|
-  # code here ...
-end&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper &lt;em&gt;OnClickListener&lt;/em&gt; objects might be a cleaner approach&lt;/p&gt;
-&lt;p&gt;To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;&lt;span class="comment"&gt;# handling click event using OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.ViewGroup
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.LinearLayout.LayoutParams
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
-&lt;p&gt;
-
-&lt;/p&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="line-numbers"&gt;10&lt;/span&gt;package com.thelogbox
-&lt;span class="line-numbers"&gt;11&lt;/span&gt;
-&lt;span class="line-numbers"&gt;12&lt;/span&gt;import android.app.Activity
-&lt;span class="line-numbers"&gt;13&lt;/span&gt;import android.widget.LinearLayout
-&lt;span class="line-numbers"&gt;14&lt;/span&gt;import android.widget.Button
-&lt;span class="line-numbers"&gt;15&lt;/span&gt;import android.content.Context
-&lt;span class="line-numbers"&gt;16&lt;/span&gt;import android.view.View
-&lt;span class="line-numbers"&gt;17&lt;/span&gt;import android.view.View.OnClickListener
-&lt;span class="line-numbers"&gt;18&lt;/span&gt;import android.widget.Toast
-&lt;span class="line-numbers"&gt;19&lt;/span&gt;
-&lt;span class="line-numbers"&gt;20&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
-&lt;span class="line-numbers"&gt;21&lt;/span&gt;  implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
-&lt;span class="line-numbers"&gt;22&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;23&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;24&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
-&lt;span class="line-numbers"&gt;25&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;26&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;27&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;28&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
-&lt;span class="line-numbers"&gt;29&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;30&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;31&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;32&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
-&lt;span class="line-numbers"&gt;33&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;34&lt;/span&gt;    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
-&lt;span class="line-numbers"&gt;35&lt;/span&gt;    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
-&lt;span class="line-numbers"&gt;36&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;37&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
-&lt;span class="line-numbers"&gt;38&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
-&lt;span class="line-numbers"&gt;39&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
-&lt;span class="line-numbers"&gt;40&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;41&lt;/span&gt;    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;42&lt;/span&gt;    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;43&lt;/span&gt;    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
-&lt;span class="line-numbers"&gt;44&lt;/span&gt;
-&lt;span class="line-numbers"&gt;45&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;46&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;47&lt;/span&gt;    addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;48&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;49&lt;/span&gt;    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
-&lt;span class="line-numbers"&gt;50&lt;/span&gt;
-&lt;span class="line-numbers"&gt;51&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;52&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;53&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;54&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;55&lt;/span&gt;    &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
-&lt;span class="line-numbers"&gt;56&lt;/span&gt;    &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;57&lt;/span&gt;    &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
-&lt;span class="line-numbers"&gt;58&lt;/span&gt;    &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
-&lt;span class="line-numbers"&gt;59&lt;/span&gt;    &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
-&lt;span class="line-numbers"&gt;60&lt;/span&gt;    
-&lt;span class="line-numbers"&gt;61&lt;/span&gt;    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
-&lt;span class="line-numbers"&gt;62&lt;/span&gt;    toast.show
-&lt;span class="line-numbers"&gt;63&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;64&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;65&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;66&lt;/span&gt;
-&lt;span class="line-numbers"&gt;67&lt;/span&gt;&lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
-&lt;span class="line-numbers"&gt;68&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onCreate&lt;/span&gt;(state)
-&lt;span class="line-numbers"&gt;69&lt;/span&gt;    &lt;span class="keyword"&gt;super&lt;/span&gt; state
-&lt;span class="line-numbers"&gt;70&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
-&lt;span class="line-numbers"&gt;71&lt;/span&gt;    setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
-&lt;span class="line-numbers"&gt;72&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;73&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;74&lt;/span&gt;  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
-&lt;span class="line-numbers"&gt;75&lt;/span&gt;    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
-&lt;span class="line-numbers"&gt;76&lt;/span&gt;  &lt;span class="keyword"&gt;end&lt;/span&gt;
-&lt;span class="line-numbers"&gt;77&lt;/span&gt;  
-&lt;span class="line-numbers"&gt;78&lt;/span&gt;&lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
   </entry>
 </feed>

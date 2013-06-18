@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -323,10 +336,6 @@ pre code, .keyword, .directive, .type,
 .local-variable {
   color: blue;
 }
-
-
-
-
 
 </style>
 		<meta charset="utf-8">
@@ -448,10 +457,10 @@ date:
 using System;
 
 class Hello {
-    
+
     public static int Main(){
         Console.WriteLine("Hello World");
-        
+
         return 0;
     }   
 }
@@ -499,15 +508,15 @@ C:\&gt; Hello.exe
 using System;
 
 class Vars {
-    
+
     public static int Main(){
-        
+
         int a = 1;
         Console.WriteLine(a); // prints 1
-        
+
         a = 2;
         Console.WriteLine(a); // prints 2
-        
+
         return 0;
     }
 }
@@ -518,15 +527,15 @@ class Vars {
 using System;
 
 class Vars {
-    
+
     public static int Main(){
-        
+
         int a = 1;
         Console.WriteLine(a); // 
-        
+
         a = "2";
         Console.WriteLine(a);
-        
+
         return 0;
     }
 }
@@ -598,11 +607,11 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <pre><code>
 {
    /*
-   
+
    Statements inside a block are executed in a linear fashion, top to bottom.
-   
+
    */
-   
+
 }
 </code></pre>
 <p>A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as <strong>if, while, for etc</strong>.</p>
@@ -617,25 +626,25 @@ if(condition is true){
 <p>The <strong>if</strong> statement actually includes some optional forms, like the <strong>else if and else</strong> branches. The complete form of the <strong>if</strong> statement is as follows;</p>
 <pre><code>
 if(condition is true){
-   
+
 }
 
 else if(another condition){
-   
+
 }
 
 else if(yet another condition){
-   
 
-   
+
+
 }
 
 else if(condition_n…){
-   
+
 }
 
 else {
-   
+
 }
 </code></pre>
 <p>You can write as many <strong>else ifs</strong> as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first <strong>if</strong> block will be performed and then the if block is exited. The other conditions stated on <strong>else ifs and else</strong> will not be executed.</p>
@@ -645,11 +654,11 @@ else {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -671,11 +680,11 @@ class If {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -693,11 +702,11 @@ class If {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -714,11 +723,11 @@ class If {
 using System;
 
 class Switch {
-    
+
     public static void Main(){
-        
+
         int a = 3;
-        
+
         switch(a){
             case 1:
                 Console.WriteLine("One");
@@ -742,11 +751,11 @@ class Switch {
 using System;
 
 class Switch {
-    
+
     public static void Main(){
-        
+
         string a = "1";
-        
+
         switch(a){
             case "1":
                 Console.WriteLine("One");
@@ -771,15 +780,15 @@ class Switch {
 using System;
 
 class While {
-    
+
     public static void Main(){
-        
+
         int a = 0;
-        
+
         while(a &lt; 10){
             Console.WriteLine("Value of a = " + a++);
         }
-        
+
     }
 }
 </code></pre>
@@ -795,9 +804,9 @@ class ForLoop {
     public static void Main(){
 
         for(int a = 0; a &lt; 10 ; a++){
-            
+
             Console.WriteLine("Value of a = " + a);
-        
+
         }       
     }
 }
@@ -820,12 +829,12 @@ class ForLoop {
     public static void Main(){
 
         for(int a = 0, b = 10; a &lt; 10 ; a++, b--, foo()){
-            
+
             Console.WriteLine("Value of a, b = " + a + " , " + b);
-        
+
         }       
     }
-    
+
     static void foo(){
         Console.WriteLine("Foo");
     }
@@ -847,7 +856,7 @@ class ForLoop {
             }
         }       
     }
-        
+
 }
 
 /*
@@ -913,7 +922,7 @@ class ForLoop {
             Console.WriteLine();
         }       
     }
-        
+
 }
 
 /*
@@ -973,23 +982,22 @@ class ForLoop {
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 

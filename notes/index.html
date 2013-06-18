@@ -1,55 +1,405 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Tech notes: theLogBox.com</title>
+		<style>
+* {
+  font-size: .99em;
+  background: #FFFFFF;
+  /*color: #414141;*/
+  color: #686868;
+}
 
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+ol, li, p {
+  font-family: 'Open Sans';
+  line-height: 1.5em;
+}
+
+#shock-left {
+  font-family: 'Rokkitt';
+  font-size: 250%;
+  font-weight:normal;
+  letter-spacing: -1.5px;
+  color: #61768a;
+  text-align: center;
+  width: 100%;
+  float:left;
+  height: 5em;
+  padding-top:10px;
+  margin-top:50px;
+}
+
+  #shock-left a:link, #shock-left a:visited {
+    color: #61768a;
+    border-bottom: 2px dotted #61768a;
+  }
+  #shock-left a:hover {
+    color: #61768a;
+    border-bottom: 2px solid #61768a;;
+  }
+
+  #shock-right {
+    padding-top:70px;
+    font-family: 'Rokkitt';
+    font-size: 450%;
+    font-weight:normal;
+    letter-spacing: -1.5px;
+    line-height: -.7em;
+    color: #61768a;
+    text-align:center;
+  }
+
+/*
+#shock-right {
+  font-size: 350%;
+  font-weight:bold;
+  letter-spacing: -1.5px;
+  color: #004646;
+  float: right;
+  height: 250px;
+  width:40%;
+  padding-top:30px;
+  text-align: right;
+  margin-right:50px;
+}
+*/
+  
+body {
+  font-family: 'Open Sans';
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  height:4.5em;
+  margin-top:10px;
+  border-bottom:0px dotted #009494;
+}
+
+#navleft, #navright {
+  font-family: 'Rokkitt';
+  font-size: 22px;
+}
+
+#navleft a:link, #navleft a:visited {
+  color: #CACACA;
+  float:left;
+  /*font-size:250%;*/
+  font-weight:normal;
+  margin-left:0px;  
+}
+  #navleft a:hover {
+    color: #61768a;
+    border-bottom: 0px solid #61768a;
+  }
+
+#navright a:link, #navright a:visited {
+  padding-left:5px;
+  padding-right:5px;
+  float:right;
+  /*font-size: 110%; */
+  color: #CACACA;
+  text-decoration:none;
+}
+
+  #navright a:hover {
+    color: #61768a;
+    border-bottom:1px solid #DEDEDE;
+  }
+
+#spacer {clear:both;margin-bottom:50px;}
+
+#inner {
+
+}
+footer {
+  font-size: 120%;
+  text-align: center;
+  clear:both;
+  display:block;
+  font-size: 90%;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+/* Headings and Titles */
+
+#trainingtitle {
+  font-family: 'Rokkitt';
+  color: #61768a;
+  font-size: 350%;
+  font-weight: normal;
+  text-align: left;
+  padding-top: 20px;
+}
+
+#articletitle {
+  font-family: 'Rokkitt';
+  font-size:280%; 
+  font-weight: normal;
+  color: #61768a;
+  margin-top:20px;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Rokkitt';
+  color: #61768a; 
+  font-weight:normal;
+}
+h1 {font-size: 170%;}
+h2 {font-size: 140%;}
+h3 {font-size: 120%;}
+h4 {font-size: 110%;}
+
+/* LINKS */
+
+a:link, a:visited {
+  color: #004a94;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0072e3;
+  border-bottom: 1px solid #0072e3;
+}
 
 
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc 3.4.0"> 
+/* OTHER BLOCKS */
+
+#minitoc {
+
+  color: #4E4E4E;
+  width: 35%;
+  float: right;
+  margin-left:30px;
+  
+  margin-bottom:30px;
+  padding-top: 10px;
+  padding-bottom:20px;
+  border: 3px solid #E8E8E8;  
+  padding-left:10px;
+  padding-right:20px;
+    
+  line-height:20px;   
+}
+
+#contentmeta {
+  color: gray;
+  text-align: left;
+  margin-bottom:40px;
+}
+
+#sidebarright {
+  float: right;
+  width:300px;
+  /* background: #FFFFC8; */
+  border: 1px solid #FFA500;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+/* MAIL CHIMP CSS*/
+
+#mce-EMAIL {
+  font-family: 'Rokkitt';
+  font-size: 25px;
+  color: #000000;
+  width: 450px;
+  background: #FFFFF6;
+  border:3px solid #000000;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  height: 15px;
+  text-align:center;
+}
+
+#mc-embedded-subscribe {
+  background: #000000;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  width: 200px;
+  border: 0px;
+  font-family: 'Rokkitt';
+  font-size: 25px;
+}
+
+#mc-embedded-subscribe:hover {
+  background: red;
+}  
+
+#mc_embed_signup {
+  border: 0px solid #618a8a ;
+  margin-top: 50px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+/* MAIL CHIMP CSS*/
+
+/* PRE AND CODE AREA */
+
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
+
+pre {
+
+  margin-top: 15px;
+  margin-bottom:0px;
+
+  padding: 10px 5px 10px 15px;
+  font-size: .87em;
+  font-family: 'Source Code Pro';
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
+
+  /*
+  border: 1px solid #DEDEDE;
+  background: #F5F5F5;
+  color: #000;
+
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;  
+  border-radius: 10px;
+  */
+
+}
 
 
- <!-- Google webmaster and Analytics -->
-    <meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
-    <script type="text/javascript">
+pre code, .keyword, .directive, .type, 
+          .string, .function, .class, 
+          .reserved, .content, .comment, 
+          .predefined-type, .preprocessor, .tag,
+          .attribute-name, .include, .predefined-constant, 
+          .local-variable, .key, .class, .instance-variable,
+          .symbol, .constant, .inline, .line-numbers,
+          .integer, .char, .float {
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-30546856-1']);
-    _gaq.push(['_setDomainName', '.thelogbox.com']);
-    _gaq.push(['_trackPageview']);
+      font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+}
 
-    </script>
-    <!-- end Google webmaster and analytics -->
+/* definition of styles for code highlighting */
 
-	<!--
-	<a rel="author" rel="me" href="https://plus.google.com/107317535953221277825/posts"/>
-	-->
-	
+.keyword, .key, .directive, .type, .reserved, .predefined-type, .tag, .class {
+  color: #6e6eFF;
+}
+
+.predefined-constant {
+  color: gray;
+}
+
+.line-numbers {
+
+  font-size: 70%;
+  padding-right: 10px;
+  color: #8E8E8E;
+  font-family: 'Source Code Pro', Courier, "Courier New", monospace;
+}
+
+.include, .preprocessor, .attribute-name {
+  color: #CD7300;
+}
+
+.string {
+  color: #6C0000;
+}
+
+.comment {
+  color: : gray;
+}
+
+.function, .class  {
+  color: #2828A8;
+}
+
+.local-variable {
+  color: blue;
+}
+
+</style>
+		<meta charset="utf-8">
+<title>Tech notes: theLogBox.com</title>
+
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+<!--
+<link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+-->
+
+<meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
+
+<meta name="google-site-verification" content="_fzAU-gezjC_Vaxgr8F_DsNKqRcVvyPztj9i8CRGLbA" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>	
   </head>
   <body>
 
-    <!--
-    <div id="mast">
-    </div>
-    -->
-  
     <div id="main" itemscope itemtype="http://schema.org/Article">
 
-	  { <a href=/> home </a> }<br/><br/>
+	  <header>
+      
+<div id='navleft'>
+<a href='/'>[theLogBox]</a>
+</div>
+
+<div id='navright'>
+  <a href='/courses/'>courses</a> &nbsp;&nbsp;
+  <a href='/blog/'>blog</a> &nbsp;&nbsp;
+  <a href='/tutorials/'>tutorials</a>
+</div>
+    </header>
+
 	  <div id="articletitle" itemprop="headline">Tech notes</div>  
-      <p/><p/>
+    <div id='contentmeta'>
+by: 
+
+<a href="https://plus.google.com/u/0/100317694679641558339?rel=author">
+  Ted Hagos
+</a> on 
+
+<span itemprop="dateCreated">  </span>
+</div>  
+
 	  <div itemprop="articleBody">
       <div id=blog>
 
@@ -115,82 +465,44 @@ Read ALL the <a href=/notes-android/>notes for Android development...</a><br/>
 
 
 
-
-    <div id=categories>
-      <a href="https://plus.google.com/107317535953221277825?rel=author">Ted Hagos</a> 
-      wrote 
-      <span itemprop="about">"Tech notes"</span>
-       on 
-       <span itemprop="dateCreated">  </span>
-       and is filed under 
-      <span itemprop="keywords">(none) </span>
-      <span itemprop="genre" content="tutorial"/>. You can subscribe to the <a href="/subscribe/">e-Mail newsletter</a> for updates.
-    </div>  
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
    
-    <A HREF="http://www.copyscape.com/plagiarism-check/" style="border:0"><IMG SRC="http://banners.copyscape.com/images/cs-wh-120x60.gif" ALT="Protected by Copyscape Web Plagiarism Check" TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page." WIDTH="120" HEIGHT="60" BORDER="0"></A>
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-   <!-- DISQUS javascript -->
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-	<!-- END Disqus-->
-
-		<div id="footer">
-			Copyright &copy 2012 <a itemprop="copyrightholder" href='https://plus.google.com/107317535953221277825?rel=me'> Ted Hagos </a>
-		</div>	
-
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 	
-	<!-- Start of StatCounter Code for Default Guide -->
-	
-    <script type="text/javascript">
-    var sc_project=7827488; 
-    var sc_invisible=1; 
-    var sc_security="069357c9"; 
-    </script>
-    <script type="text/javascript"
-        src="http://www.statcounter.com/counter/counter.js"></script>
-    <noscript><div class="statcounter"><a title="customizable
-        counter" href="http://statcounter.com/free-hit-counter/"
-        target="_blank"><img class="statcounter"
-        src="http://c.statcounter.com/7827488/0/069357c9/1/"
-        alt="customizable counter"></a></div></noscript>
-    <!-- End of StatCounter Code for Default Guide -->
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
 
+    <footer>
+      &copy 2009-2013 theLogBox.com 
+
+    </foter>
 
     </div>
-
-<!--
-    <div id="sidebar">
-      <ul>
-        <li><a href="/"><img src=/res/home.png></a></li>
-		<li></li>
-        <li><a href="/everything/"><img src=/res/blog.png></a></li>
-		<li><a href="#"><img src=/res/mail.png></a></li>
-      </ul>
-
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
-      </ul>
-
-    </div>
-	
--->	
-
   </body>
 
 </html>

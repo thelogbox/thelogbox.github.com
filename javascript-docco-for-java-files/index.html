@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -323,10 +336,6 @@ pre code, .keyword, .directive, .type,
 .local-variable {
   color: blue;
 }
-
-
-
-
 
 </style>
 		<meta charset="utf-8">
@@ -409,28 +418,28 @@ by:
 <li><p>Install docco using npm <strong>sudo npm -g install docco</strong></p></li>
 <li><p>Try to find the docco script <strong>which docco</strong>. It will point you to /usr/local/bin/docco. If you list docco using the -l flag, like so <strong>ls -l /usr/local/bin/docco</strong>, you will notice that it is a link to <em>/usr/local/lib/node_modules/docco/bin/docco</em>. This is the docco the script, but it is not the main script. The main script is at <em>/usr/local/lib/node_modules/docco/lib/docco.js</em></p></li>
 <li><p>Open docco.js, and add the .java entry to the <strong>languages</strong> object literal.</p></li>
-</ol><pre><code class="language-javascript"><span class="line-numbers">10</span>  languages = {
-<span class="line-numbers">11</span>    <span class="key"><span class="delimiter">'</span><span class="content">.coffee</span><span class="delimiter">'</span></span>: {
-<span class="line-numbers">12</span>      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">coffee-script</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">13</span>      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
-<span class="line-numbers">14</span>    },
-<span class="line-numbers">15</span>    <span class="key"><span class="delimiter">'</span><span class="content">.js</span><span class="delimiter">'</span></span>: {
-<span class="line-numbers">16</span>      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">javascript</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">17</span>      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">//</span><span class="delimiter">'</span></span>
-<span class="line-numbers">18</span>    },
-<span class="line-numbers">19</span>    <span class="key"><span class="delimiter">'</span><span class="content">.rb</span><span class="delimiter">'</span></span>: {
-<span class="line-numbers">20</span>      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">ruby</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">21</span>      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
-<span class="line-numbers">22</span>    },
-<span class="line-numbers">23</span>    <span class="key"><span class="delimiter">'</span><span class="content">.py</span><span class="delimiter">'</span></span>: {
-<span class="line-numbers">24</span>      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">python</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">25</span>      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
-<span class="line-numbers">26</span>    },
-<span class="line-numbers">27</span>    <span class="key"><span class="delimiter">'</span><span class="content">.java</span><span class="delimiter">'</span></span>: {
-<span class="line-numbers">28</span>        <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">java</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">29</span>        <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">//</span><span class="delimiter">'</span></span>
-<span class="line-numbers">30</span>    }
-<span class="line-numbers">31</span>  };</code></pre>
+</ol><pre><code class="language-javascript">  languages = {
+    <span class="key"><span class="delimiter">'</span><span class="content">.coffee</span><span class="delimiter">'</span></span>: {
+      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">coffee-script</span><span class="delimiter">'</span></span>,
+      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
+    },
+    <span class="key"><span class="delimiter">'</span><span class="content">.js</span><span class="delimiter">'</span></span>: {
+      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">javascript</span><span class="delimiter">'</span></span>,
+      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">//</span><span class="delimiter">'</span></span>
+    },
+    <span class="key"><span class="delimiter">'</span><span class="content">.rb</span><span class="delimiter">'</span></span>: {
+      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">ruby</span><span class="delimiter">'</span></span>,
+      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
+    },
+    <span class="key"><span class="delimiter">'</span><span class="content">.py</span><span class="delimiter">'</span></span>: {
+      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">python</span><span class="delimiter">'</span></span>,
+      <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">#</span><span class="delimiter">'</span></span>
+    },
+    <span class="key"><span class="delimiter">'</span><span class="content">.java</span><span class="delimiter">'</span></span>: {
+        <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">java</span><span class="delimiter">'</span></span>,
+        <span class="key">symbol</span>: <span class="string"><span class="delimiter">'</span><span class="content">//</span><span class="delimiter">'</span></span>
+    }
+  };</code></pre>
 <p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for .java files.</p>
 <p>Just remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block. Using docco is very simple, run it against any supported file e.g. <strong>docco MyProgram.java</strong> or <strong>docco MyProgram.js</strong>.</p>
 <p>To learn more about Docco, head over it's <a href="http://jashkenas.github.com/docco/">github page</a></p>
@@ -455,23 +464,22 @@ by:
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 

@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -323,10 +336,6 @@ pre code, .keyword, .directive, .type,
 .local-variable {
   color: blue;
 }
-
-
-
-
 
 </style>
 		<meta charset="utf-8">
@@ -409,391 +418,391 @@ by:
 <h1 id="how-to-do-it">How to do it</h1>
 <h2 id="create-the-html-part-filename-line-draw.html">1. Create the HTML part (filename = line-draw.html)</h2>
 <p>
-</p><pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">12</span>    <span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>    <span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">18</span>    <span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">19</span>    <span class="tag">&lt;noscript&gt;</span>This demo will not work if JavaScript is disabled in your browser. 
-<span class="line-numbers">20</span>        Please enable JavaScript in your browser then load this page again. 
-<span class="line-numbers">21</span>        Thanks
-<span class="line-numbers">22</span>    <span class="tag">&lt;/noscript&gt;</span>
-<span class="line-numbers">23</span>    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">MathE.js</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">24</span>    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">output</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">25</span>    <span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">default-canvas</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">26</span>    Your browser is not capable of displaying HTML5 canvas components       
-<span class="line-numbers">27</span>    <span class="tag">&lt;/canvas&gt;</span>
-<span class="line-numbers">28</span>    <span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">29</span><span class="tag">&lt;/html&gt;</span></code></pre>
+</p><pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+    <span class="tag">&lt;head&gt;</span>
+
+
+        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+
+    <span class="tag">&lt;/head&gt;</span>
+    <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;noscript&gt;</span>This demo will not work if JavaScript is disabled in your browser. 
+        Please enable JavaScript in your browser then load this page again. 
+        Thanks
+    <span class="tag">&lt;/noscript&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">MathE.js</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">output</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;canvas</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">default-canvas</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    Your browser is not capable of displaying HTML5 canvas components       
+    <span class="tag">&lt;/canvas&gt;</span>
+    <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>The default-canvas html element is not important to the actual code, it is just a quick and dirty way to check if the browser being used does not support the canvas element, you could use Modernizr.JS for a more proper way of checking for HTML5 capability of the browser. The NOSCRIPT tag is also a quick and dirty way of detecting if JavaScript is disabled in the browser---I just don't see how this can kind of exercise can degrade gracefully if JavaScript is diabled, so its an all or nothing deal; No JavaScript, no demo.</p>
 <h2 id="the-typescript-file">2. The TypeScript file</h2>
 <p>Create a TypeScript source file on the same directory as <em>line-draw.html</em>, for the exercise, I named it <em>MathE.ts</em>, this will later emit a file called <em>MathE.js</em> which is the <strong>src</strong> of our script tag on the HTML file</p>
-<pre><code class="language-java"><span class="line-numbers"> 10</span><span class="comment">// filename : MathE.js </span>
-<span class="line-numbers"> 11</span><span class="comment">// An example of using HTML5 canvas to do primitive lines on a cartesian plane.</span>
-<span class="line-numbers"> 12</span>
-<span class="line-numbers"> 13</span>
-<span class="line-numbers"> 14</span><span class="type">class</span> <span class="class">Paper</span> {
-<span class="line-numbers"> 15</span>
-<span class="line-numbers"> 16</span>    <span class="directive">private</span> isDirty = <span class="predefined-constant">false</span>;
-<span class="line-numbers"> 17</span>    <span class="directive">private</span> clickcount = <span class="integer">0</span>;
-<span class="line-numbers"> 18</span>    <span class="directive">private</span> cartesian: Cartesian;
-<span class="line-numbers"> 19</span>    <span class="directive">private</span> vertices : Vertices;
-<span class="line-numbers"> 20</span>    <span class="directive">private</span> canv: any;
-<span class="line-numbers"> 21</span>    <span class="directive">private</span> ctx : any;
-<span class="line-numbers"> 22</span>    <span class="directive">private</span> lines : Lines;
-<span class="line-numbers"> 23</span>    <span class="directive">private</span> line : <span class="predefined-type">Line</span> = {x1:<span class="integer">0</span>,
-<span class="line-numbers"> 24</span>            y1:<span class="integer">0</span>,
-<span class="line-numbers"> 25</span>            x2:<span class="integer">0</span>,
-<span class="line-numbers"> 26</span>            y2:<span class="integer">0</span>,
-<span class="line-numbers"> 27</span>            pname1:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>,
-<span class="line-numbers"> 28</span>            pname2:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>
-<span class="line-numbers"> 29</span>    };
-<span class="line-numbers"> 30</span>    
-<span class="line-numbers"> 31</span>    <span class="directive">private</span> output : any = <span class="predefined-constant">null</span>;
-<span class="line-numbers"> 32</span>    
-<span class="line-numbers"> 33</span>    constructor(){
-<span class="line-numbers"> 34</span>            
-<span class="line-numbers"> 35</span>        <span class="comment">// setup the canvas</span>
-<span class="line-numbers"> 36</span>        <span class="local-variable">this</span>.canv = &lt;HTMLCanvasElement&gt;document.createElement(<span class="string"><span class="delimiter">"</span><span class="content">canvas</span><span class="delimiter">"</span></span>);
-<span class="line-numbers"> 37</span>        <span class="local-variable">this</span>.canv.width = <span class="integer">600</span>;
-<span class="line-numbers"> 38</span>        <span class="local-variable">this</span>.canv.height = <span class="integer">600</span>
-<span class="line-numbers"> 39</span>        <span class="local-variable">this</span>.canv.style.border = <span class="string"><span class="delimiter">"</span><span class="content">1px solid gray</span><span class="delimiter">"</span></span>;
-<span class="line-numbers"> 40</span>        
-<span class="line-numbers"> 41</span>        <span class="comment">// BEGIN events</span>
-<span class="line-numbers"> 42</span>        <span class="comment">// this gave me a problem, when I am using idiomatic JS to assign </span>
-<span class="line-numbers"> 43</span>        <span class="comment">// a function to onclick, there are weird problems, the number is resulting</span>
-<span class="line-numbers"> 44</span>        <span class="comment">// to isNan, I should investigate why TypeScript is behaving this way.</span>
-<span class="line-numbers"> 45</span>        <span class="comment">// I had to use the arrow functions for closures</span>
-<span class="line-numbers"> 46</span>        
-<span class="line-numbers"> 47</span>        <span class="local-variable">this</span>.canv.onmousedown = ()=&gt; {<span class="local-variable">this</span>.canvClick();};
-<span class="line-numbers"> 48</span>        <span class="local-variable">this</span>.canv.onmousemove = ()=&gt; {<span class="local-variable">this</span>.canvMouseMove();}
-<span class="line-numbers"> 49</span>        
-<span class="line-numbers"> 50</span>        <span class="comment">// END events</span>
-<span class="line-numbers"> 51</span>        
-<span class="line-numbers"> 52</span>        document.body.appendChild(<span class="local-variable">this</span>.canv);
-<span class="line-numbers"> 53</span>        
-<span class="line-numbers"> 54</span>        <span class="local-variable">this</span>.ctx = <span class="local-variable">this</span>.canv.getContext(<span class="string"><span class="delimiter">"</span><span class="content">2d</span><span class="delimiter">"</span></span>);
-<span class="line-numbers"> 55</span>        <span class="local-variable">this</span>.cartesian = <span class="keyword">new</span> Cartesian(<span class="local-variable">this</span>.ctx, <span class="local-variable">this</span>.canv);
-<span class="line-numbers"> 56</span>        <span class="local-variable">this</span>.vertices = <span class="keyword">new</span> Vertices();
-<span class="line-numbers"> 57</span>        <span class="local-variable">this</span>.lines = <span class="keyword">new</span> Lines();
-<span class="line-numbers"> 58</span>        
-<span class="line-numbers"> 59</span>        <span class="local-variable">this</span>.output = &lt;HTMLElement&gt;document.createElement(<span class="string"><span class="delimiter">"</span><span class="content">div</span><span class="delimiter">"</span></span>);
-<span class="line-numbers"> 60</span>        <span class="local-variable">this</span>.output.setAttribute(<span class="string"><span class="delimiter">'</span><span class="content">id</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">"</span><span class="content">output</span><span class="delimiter">"</span></span>); 
-<span class="line-numbers"> 61</span>        
-<span class="line-numbers"> 62</span>        <span class="comment">//this.output.style.border = "1px solid #fafafa";</span>
-<span class="line-numbers"> 63</span>        <span class="comment">//this.output.style.padding = "15px";</span>
-<span class="line-numbers"> 64</span>        <span class="comment">//this.output.style.font-size = "11px";</span>
-<span class="line-numbers"> 65</span>        document.body.appendChild(<span class="local-variable">this</span>.output);
-<span class="line-numbers"> 66</span>        
-<span class="line-numbers"> 67</span>        <span class="local-variable">this</span>.output.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">READY</span><span class="delimiter">"</span></span>;
-<span class="line-numbers"> 68</span>        <span class="comment">//this.output = &lt;HTMLElement&gt;document.getElementById('output');</span>
-<span class="line-numbers"> 69</span>        <span class="comment">//this.output.innerHTML = "I am ready";</span>
-<span class="line-numbers"> 70</span>        
-<span class="line-numbers"> 71</span>        
-<span class="line-numbers"> 72</span>                
-<span class="line-numbers"> 73</span>    }
-<span class="line-numbers"> 74</span>    
-<span class="line-numbers"> 75</span>    <span class="directive">private</span> clearPaper() : <span class="type">void</span> {
-<span class="line-numbers"> 76</span>        <span class="local-variable">this</span>.ctx.clearRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="local-variable">this</span>.ctx.width, <span class="local-variable">this</span>.ctx.height);
-<span class="line-numbers"> 77</span>        <span class="local-variable">this</span>.cartesian.drawX();
-<span class="line-numbers"> 78</span>        <span class="local-variable">this</span>.cartesian.drawY();
-<span class="line-numbers"> 79</span>        <span class="local-variable">this</span>.output.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">READY</span><span class="delimiter">"</span></span>;
-<span class="line-numbers"> 80</span>    }
-<span class="line-numbers"> 81</span>    
-<span class="line-numbers"> 82</span>    <span class="directive">private</span> canvMouseMove(){
-<span class="line-numbers"> 83</span>        
-<span class="line-numbers"> 84</span>        <span class="keyword">if</span>(<span class="local-variable">this</span>.isDirty){
-<span class="line-numbers"> 85</span>            
-<span class="line-numbers"> 86</span>            <span class="local-variable">this</span>.redraw();
-<span class="line-numbers"> 87</span>            
-<span class="line-numbers"> 88</span>            <span class="local-variable">this</span>.ctx.beginPath();
-<span class="line-numbers"> 89</span>            <span class="local-variable">this</span>.ctx.moveTo(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1);
-<span class="line-numbers"> 90</span>            <span class="local-variable">this</span>.ctx.lineTo(event.clientX, event.clientY);
-<span class="line-numbers"> 91</span>            <span class="comment">//this.ctx.closePath();</span>
-<span class="line-numbers"> 92</span>            <span class="local-variable">this</span>.ctx.stroke();
-<span class="line-numbers"> 93</span>            
-<span class="line-numbers"> 94</span>            <span class="comment">//this.redraw();            </span>
-<span class="line-numbers"> 95</span>            <span class="comment">//this.output.innerHTML = "MouseMove";</span>
-<span class="line-numbers"> 96</span>        }
-<span class="line-numbers"> 97</span>    }
-<span class="line-numbers"> 98</span>    
-<span class="line-numbers"> 99</span>    
-<span class="line-numbers">100</span>    <span class="directive">private</span> canvClick() : <span class="type">void</span> {
-<span class="line-numbers">101</span>        
-<span class="line-numbers">102</span>        <span class="keyword">switch</span>(<span class="local-variable">this</span>.clickcount){
-<span class="line-numbers">103</span>            <span class="keyword">case</span> <span class="integer">0</span>:
-<span class="line-numbers">104</span>                <span class="local-variable">this</span>.line.x1 = event.clientX;
-<span class="line-numbers">105</span>                <span class="local-variable">this</span>.line.y1 = event.clientY;
-<span class="line-numbers">106</span>                <span class="local-variable">this</span>.line.pname1 = <span class="local-variable">this</span>.vertices.getNext(); 
-<span class="line-numbers">107</span>                <span class="local-variable">this</span>.markPoint();
-<span class="line-numbers">108</span>                
-<span class="line-numbers">109</span>                <span class="local-variable">this</span>.clickcount++;
-<span class="line-numbers">110</span>                <span class="local-variable">this</span>.isDirty = <span class="predefined-constant">true</span>;
-<span class="line-numbers">111</span>                <span class="keyword">break</span>;
-<span class="line-numbers">112</span>            <span class="keyword">case</span> <span class="integer">1</span>:
-<span class="line-numbers">113</span>                <span class="local-variable">this</span>.isDirty = <span class="predefined-constant">false</span>;
-<span class="line-numbers">114</span>                
-<span class="line-numbers">115</span>                <span class="local-variable">this</span>.line.x2 = event.clientX;
-<span class="line-numbers">116</span>                <span class="local-variable">this</span>.line.y2 = event.clientY;
-<span class="line-numbers">117</span>                <span class="local-variable">this</span>.line.pname2 = <span class="local-variable">this</span>.vertices.getNext();
-<span class="line-numbers">118</span>                <span class="local-variable">this</span>.lines.addLine(<span class="local-variable">this</span>.line);
-<span class="line-numbers">119</span>                
-<span class="line-numbers">120</span>                <span class="local-variable">this</span>.line = {x1:<span class="integer">0</span>,y1:<span class="integer">0</span>,x2:<span class="integer">0</span>,y2:<span class="integer">0</span>,pname1:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>,pname2:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>};
-<span class="line-numbers">121</span>                
-<span class="line-numbers">122</span>                <span class="local-variable">this</span>.redraw();
-<span class="line-numbers">123</span>                
-<span class="line-numbers">124</span>                <span class="local-variable">this</span>.markPoint();
-<span class="line-numbers">125</span>                <span class="local-variable">this</span>.clickcount = <span class="integer">0</span>;
-<span class="line-numbers">126</span>                
-<span class="line-numbers">127</span>                <span class="keyword">break</span>;
-<span class="line-numbers">128</span>            <span class="keyword">default</span>:
-<span class="line-numbers">129</span>                <span class="keyword">break</span>;
-<span class="line-numbers">130</span>                <span class="comment">//I don't know what to do with this one</span>
-<span class="line-numbers">131</span>        }
-<span class="line-numbers">132</span>    }
-<span class="line-numbers">133</span>    
-<span class="line-numbers">134</span>    <span class="directive">private</span> markPoint() : <span class="type">void</span> {
-<span class="line-numbers">135</span>        
-<span class="line-numbers">136</span>        var tempstyle : any = <span class="local-variable">this</span>.ctx.fillStyle;
-<span class="line-numbers">137</span>        <span class="local-variable">this</span>.ctx.fillStyle = <span class="string"><span class="delimiter">"</span><span class="content">blue</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">138</span>        
-<span class="line-numbers">139</span>        <span class="keyword">if</span>(<span class="local-variable">this</span>.isDirty){
-<span class="line-numbers">140</span>            <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname2, <span class="local-variable">this</span>.line.x2 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y2 + <span class="integer">10</span>);
-<span class="line-numbers">141</span>            <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x2, <span class="local-variable">this</span>.line.y2, <span class="integer">5</span>,<span class="integer">5</span>);
-<span class="line-numbers">142</span>        }
-<span class="line-numbers">143</span>        <span class="keyword">else</span> {
-<span class="line-numbers">144</span>            <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname1, <span class="local-variable">this</span>.line.x1 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y1 + <span class="integer">10</span>);
-<span class="line-numbers">145</span>            <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1, <span class="integer">5</span>,<span class="integer">5</span>);
-<span class="line-numbers">146</span>        }
-<span class="line-numbers">147</span>        
-<span class="line-numbers">148</span>        <span class="local-variable">this</span>.ctx.fillStyle = tempstyle;
-<span class="line-numbers">149</span>    }
-<span class="line-numbers">150</span>    
-<span class="line-numbers">151</span>    <span class="directive">private</span> redraw() : <span class="type">void</span> {
-<span class="line-numbers">152</span>        
-<span class="line-numbers">153</span>        var tempStrokeStyle : any = <span class="local-variable">this</span>.ctx.strokeStyle;
-<span class="line-numbers">154</span>        var tempFillStyle : any = <span class="local-variable">this</span>.ctx.fillStyle;
-<span class="line-numbers">155</span>        var tempLineWidth : any = <span class="local-variable">this</span>.ctx.lineWidth;
-<span class="line-numbers">156</span>        
-<span class="line-numbers">157</span>        <span class="local-variable">this</span>.ctx.strokeStyle = <span class="string"><span class="delimiter">"</span><span class="content">gray</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">158</span>        <span class="local-variable">this</span>.ctx.fillStyle = <span class="string"><span class="delimiter">"</span><span class="content">blue</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">159</span>        <span class="local-variable">this</span>.ctx.lineWidth = <span class="float">0.5</span>;
-<span class="line-numbers">160</span>        
-<span class="line-numbers">161</span>        <span class="local-variable">this</span>.ctx.clearRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="local-variable">this</span>.canv.width,<span class="local-variable">this</span>.canv.width);
-<span class="line-numbers">162</span>        
-<span class="line-numbers">163</span>        var deleteme: any = <span class="predefined-constant">null</span>;
-<span class="line-numbers">164</span>        var arrlength = <span class="local-variable">this</span>.lines.length();
-<span class="line-numbers">165</span>        
-<span class="line-numbers">166</span>        <span class="local-variable">this</span>.lines.currpos = <span class="integer">0</span>;
-<span class="line-numbers">167</span>                
-<span class="line-numbers">168</span>        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; arrlength; i++){
-<span class="line-numbers">169</span>                        
-<span class="line-numbers">170</span>            var templine = <span class="local-variable">this</span>.lines.getNext();
-<span class="line-numbers">171</span>        
-<span class="line-numbers">172</span>            <span class="local-variable">this</span>.ctx.fillText(templine.pname1,templine.x1 + <span class="integer">10</span>, templine.y1 + <span class="integer">10</span>);
-<span class="line-numbers">173</span>            <span class="local-variable">this</span>.ctx.fillText(templine.pname2,templine.x2 + <span class="integer">10</span>, templine.y2 + <span class="integer">10</span>);
-<span class="line-numbers">174</span>            <span class="local-variable">this</span>.ctx.fillRect(templine.x1, templine.y1, <span class="integer">5</span>, <span class="integer">5</span>);
-<span class="line-numbers">175</span>            <span class="local-variable">this</span>.ctx.fillRect(templine.x2, templine.y2, <span class="integer">5</span>, <span class="integer">5</span>);
-<span class="line-numbers">176</span>        
-<span class="line-numbers">177</span>            <span class="local-variable">this</span>.ctx.beginPath();
-<span class="line-numbers">178</span>            <span class="local-variable">this</span>.ctx.moveTo(templine.x1, templine.y1);
-<span class="line-numbers">179</span>            <span class="local-variable">this</span>.ctx.lineTo(templine.x2, templine.y2);
-<span class="line-numbers">180</span>            <span class="local-variable">this</span>.ctx.closePath();
-<span class="line-numbers">181</span>            <span class="local-variable">this</span>.ctx.stroke();
-<span class="line-numbers">182</span>                    
-<span class="line-numbers">183</span>        }
-<span class="line-numbers">184</span>        
-<span class="line-numbers">185</span>        
-<span class="line-numbers">186</span>        <span class="comment">// temporary code, because the mousemove erases the first vertex drawn</span>
-<span class="line-numbers">187</span>        <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname1, <span class="local-variable">this</span>.line.x1 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y1 + <span class="integer">10</span>);
-<span class="line-numbers">188</span>        <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1, <span class="integer">5</span>,<span class="integer">5</span>);
-<span class="line-numbers">189</span>        <span class="comment">// end temporary code</span>
-<span class="line-numbers">190</span>        
-<span class="line-numbers">191</span>        <span class="local-variable">this</span>.ctx.strokeStyle = tempStrokeStyle;
-<span class="line-numbers">192</span>        <span class="local-variable">this</span>.ctx.fillStyle = tempFillStyle;
-<span class="line-numbers">193</span>        <span class="local-variable">this</span>.ctx.lineWidth = tempLineWidth;
-<span class="line-numbers">194</span>        
-<span class="line-numbers">195</span>        <span class="local-variable">this</span>.cartesian.drawX();
-<span class="line-numbers">196</span>        <span class="local-variable">this</span>.cartesian.drawY();
-<span class="line-numbers">197</span>        
-<span class="line-numbers">198</span>        <span class="local-variable">this</span>.output.innerHTML = <span class="local-variable">this</span>.lines.toString();
-<span class="line-numbers">199</span>        
-<span class="line-numbers">200</span>    }   
-<span class="line-numbers">201</span>}
-<span class="line-numbers">202</span>
-<span class="line-numbers">203</span><span class="comment">// Vertices class</span>
-<span class="line-numbers">204</span><span class="comment">// A simple stack of vertex names</span>
-<span class="line-numbers">205</span><span class="comment">// currently, it is only from A - Z</span>
-<span class="line-numbers">206</span>
-<span class="line-numbers">207</span><span class="type">class</span> <span class="class">Vertices</span> {
-<span class="line-numbers">208</span>    
-<span class="line-numbers">209</span>    <span class="directive">private</span> varr = <span class="keyword">new</span> <span class="predefined-type">Array</span>();
-<span class="line-numbers">210</span>    <span class="directive">private</span> currpos = <span class="integer">0</span>;
-<span class="line-numbers">211</span>    
-<span class="line-numbers">212</span>    constructor(){
-<span class="line-numbers">213</span>        <span class="keyword">for</span>(var i = <span class="integer">65</span>; i &lt;= <span class="integer">90</span>; i++){
-<span class="line-numbers">214</span>            <span class="local-variable">this</span>.varr.push(<span class="predefined-type">String</span>.fromCharCode(i));
-<span class="line-numbers">215</span>        }
-<span class="line-numbers">216</span>    }
-<span class="line-numbers">217</span>    
-<span class="line-numbers">218</span>    printAll(){
-<span class="line-numbers">219</span>        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; <span class="local-variable">this</span>.varr.length; i++){
-<span class="line-numbers">220</span>            console.log(<span class="local-variable">this</span>.varr[i]);
-<span class="line-numbers">221</span>        }
-<span class="line-numbers">222</span>    }
-<span class="line-numbers">223</span>    
-<span class="line-numbers">224</span>    <span class="comment">// get the next available vertex name</span>
-<span class="line-numbers">225</span>    
-<span class="line-numbers">226</span>    getNext(){
-<span class="line-numbers">227</span>        var retval = <span class="local-variable">this</span>.varr[<span class="local-variable">this</span>.currpos];
-<span class="line-numbers">228</span>        <span class="local-variable">this</span>.currpos++;
-<span class="line-numbers">229</span>        <span class="keyword">return</span> retval;
-<span class="line-numbers">230</span>    }   
-<span class="line-numbers">231</span>}
-<span class="line-numbers">232</span>
-<span class="line-numbers">233</span>
-<span class="line-numbers">234</span><span class="type">class</span> <span class="class">Cartesian</span> {
-<span class="line-numbers">235</span>    
-<span class="line-numbers">236</span>    <span class="directive">private</span> context;
-<span class="line-numbers">237</span>    <span class="directive">private</span> canvas;
-<span class="line-numbers">238</span>    
-<span class="line-numbers">239</span>    <span class="directive">public</span> cartesian_unit: number = <span class="integer">40</span>; <span class="comment">// 40 pixels per cartesian unit</span>
-<span class="line-numbers">240</span>    ax_tick_count: number;
-<span class="line-numbers">241</span>    ay_tick_count: number; 
-<span class="line-numbers">242</span>    
-<span class="line-numbers">243</span>    constructor(cx: any, c: any) {
-<span class="line-numbers">244</span>        <span class="local-variable">this</span>.context = cx;
-<span class="line-numbers">245</span>        <span class="local-variable">this</span>.canvas = c;
-<span class="line-numbers">246</span>        
-<span class="line-numbers">247</span>        <span class="local-variable">this</span>.ax_tick_count = <span class="predefined-type">Math</span>.round(c.width / <span class="local-variable">this</span>.cartesian_unit);
-<span class="line-numbers">248</span>        <span class="local-variable">this</span>.ay_tick_count = <span class="predefined-type">Math</span>.round(c.height / <span class="local-variable">this</span>.cartesian_unit);
-<span class="line-numbers">249</span>        
-<span class="line-numbers">250</span>        <span class="local-variable">this</span>.drawX();
-<span class="line-numbers">251</span>        <span class="local-variable">this</span>.drawY();
-<span class="line-numbers">252</span>    }
-<span class="line-numbers">253</span>    
-<span class="line-numbers">254</span>    <span class="comment">// this is not working as expected ;</span>
-<span class="line-numbers">255</span>    <span class="directive">public</span> <span class="directive">static</span> getCartesianUnits() : number {
-<span class="line-numbers">256</span>        <span class="keyword">return</span> <span class="local-variable">this</span>.cartesian_unit;
-<span class="line-numbers">257</span>    }
-<span class="line-numbers">258</span>    
-<span class="line-numbers">259</span>    <span class="directive">public</span> drawX() : <span class="type">void</span> {
-<span class="line-numbers">260</span>        
-<span class="line-numbers">261</span>        var cx : any = <span class="local-variable">this</span>.context;
-<span class="line-numbers">262</span>        var c : any  = <span class="local-variable">this</span>.canvas; 
-<span class="line-numbers">263</span>        var tickcount : number = c.width / <span class="local-variable">this</span>.cartesian_unit; 
-<span class="line-numbers">264</span>        var y_coord : number = <span class="local-variable">this</span>.cartesian_unit * <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>)<span class="comment">//c.height /2;</span>
-<span class="line-numbers">265</span>        var x_coord : number = <span class="integer">0</span>;
-<span class="line-numbers">266</span>        var counter : number = <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>) * (-<span class="integer">1</span>);
-<span class="line-numbers">267</span>        
-<span class="line-numbers">268</span>        <span class="comment">//cx.beginPath();</span>
-<span class="line-numbers">269</span>        <span class="comment">//cx.moveTo(0,c.height/2);</span>
-<span class="line-numbers">270</span>        <span class="comment">//cx.lineTo(c.width, c.height/2);</span>
-<span class="line-numbers">271</span>        <span class="comment">//cx.stroke();</span>
-<span class="line-numbers">272</span>        
-<span class="line-numbers">273</span>        <span class="comment">// draw the tick marks</span>
-<span class="line-numbers">274</span>        
-<span class="line-numbers">275</span>        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt;= tickcount; i++){
-<span class="line-numbers">276</span>            cx.beginPath();
-<span class="line-numbers">277</span>            <span class="keyword">if</span>(counter == <span class="integer">0</span>){
-<span class="line-numbers">278</span>                cx.moveTo(<span class="integer">0</span>,y_coord);
-<span class="line-numbers">279</span>                cx.lineTo(c.width,y_coord);
-<span class="line-numbers">280</span>            }
-<span class="line-numbers">281</span>            <span class="keyword">else</span> {
-<span class="line-numbers">282</span>                cx.moveTo(x_coord, y_coord);
-<span class="line-numbers">283</span>                cx.lineTo(x_coord, y_coord + <span class="integer">5</span>);
-<span class="line-numbers">284</span>            }
-<span class="line-numbers">285</span>            cx.closePath();
-<span class="line-numbers">286</span>            cx.stroke();
-<span class="line-numbers">287</span>            <span class="keyword">if</span>(counter != <span class="integer">0</span>) cx.fillText(counter, x_coord - <span class="integer">5</span>, y_coord + <span class="integer">15</span>);
-<span class="line-numbers">288</span>            counter++;
-<span class="line-numbers">289</span>            x_coord += <span class="local-variable">this</span>.cartesian_unit;
-<span class="line-numbers">290</span>        }
-<span class="line-numbers">291</span>    }
-<span class="line-numbers">292</span>    
-<span class="line-numbers">293</span>    <span class="directive">public</span> drawY() : <span class="type">void</span> {
-<span class="line-numbers">294</span>        
-<span class="line-numbers">295</span>        var cx : any = <span class="local-variable">this</span>.context;
-<span class="line-numbers">296</span>        var c  : any = <span class="local-variable">this</span>.canvas;
-<span class="line-numbers">297</span>        var tickcount : number = <span class="predefined-type">Math</span>.round(c.height/<span class="local-variable">this</span>.cartesian_unit);
-<span class="line-numbers">298</span>        var x_coord : number =  <span class="local-variable">this</span>.cartesian_unit * <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>);<span class="comment">//c.width/2;</span>
-<span class="line-numbers">299</span>        var y_coord : number = <span class="integer">0</span>; 
-<span class="line-numbers">300</span>        var counter : number = <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>) * -<span class="integer">1</span>;    
-<span class="line-numbers">301</span>                    
-<span class="line-numbers">302</span>        <span class="comment">// draw the tick marks</span>
-<span class="line-numbers">303</span>        
-<span class="line-numbers">304</span>        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt;  tickcount; i++){    
-<span class="line-numbers">305</span>            cx.beginPath();
-<span class="line-numbers">306</span>            <span class="keyword">if</span>(counter == <span class="integer">0</span>){
-<span class="line-numbers">307</span>                cx.moveTo(x_coord,<span class="integer">0</span>);
-<span class="line-numbers">308</span>                cx.lineTo(x_coord,c.height);
-<span class="line-numbers">309</span>            }
-<span class="line-numbers">310</span>            <span class="keyword">else</span> {
-<span class="line-numbers">311</span>                cx.moveTo(x_coord, y_coord);
-<span class="line-numbers">312</span>                cx.lineTo(x_coord+<span class="integer">5</span>, y_coord);
-<span class="line-numbers">313</span>            }
-<span class="line-numbers">314</span>            cx.closePath();
-<span class="line-numbers">315</span>            cx.stroke();
-<span class="line-numbers">316</span>            <span class="keyword">if</span>(counter != <span class="integer">0</span>) cx.fillText(counter * -<span class="integer">1</span>, x_coord - <span class="integer">15</span>, y_coord + <span class="integer">5</span> );
-<span class="line-numbers">317</span>            counter++;
-<span class="line-numbers">318</span>            y_coord += <span class="local-variable">this</span>.cartesian_unit;
-<span class="line-numbers">319</span>        }
-<span class="line-numbers">320</span>    }
-<span class="line-numbers">321</span>}
-<span class="line-numbers">322</span>
-<span class="line-numbers">323</span>
-<span class="line-numbers">324</span><span class="type">interface</span> <span class="class">Line</span> {
-<span class="line-numbers">325</span>    
-<span class="line-numbers">326</span>    x1 : number;
-<span class="line-numbers">327</span>    y1 : number;
-<span class="line-numbers">328</span>    x2 : number;
-<span class="line-numbers">329</span>    y2 : number;
-<span class="line-numbers">330</span>    pname1 : string;
-<span class="line-numbers">331</span>    pname2 : string;
-<span class="line-numbers">332</span>    
-<span class="line-numbers">333</span>}
-<span class="line-numbers">334</span>
-<span class="line-numbers">335</span><span class="type">class</span> <span class="class">Lines</span> {
-<span class="line-numbers">336</span>    
-<span class="line-numbers">337</span>    CU = <span class="integer">40</span>; <span class="comment">// cartesian units, this needs to be refactored</span>
-<span class="line-numbers">338</span>    
-<span class="line-numbers">339</span>    linearr  = <span class="keyword">new</span> <span class="predefined-type">Array</span>();
-<span class="line-numbers">340</span>    currpos = <span class="integer">0</span>;
-<span class="line-numbers">341</span>    
-<span class="line-numbers">342</span>    addLine(line : <span class="predefined-type">Line</span>){
-<span class="line-numbers">343</span>        <span class="local-variable">this</span>.linearr.push(line);
-<span class="line-numbers">344</span>    }
-<span class="line-numbers">345</span>    
-<span class="line-numbers">346</span>    <span class="directive">public</span> getNext() : <span class="predefined-type">Line</span> {
-<span class="line-numbers">347</span>        var retval = <span class="local-variable">this</span>.linearr[<span class="local-variable">this</span>.currpos];
-<span class="line-numbers">348</span>        <span class="local-variable">this</span>.currpos++;
-<span class="line-numbers">349</span>        <span class="keyword">return</span> retval;
-<span class="line-numbers">350</span>    }
-<span class="line-numbers">351</span>    
-<span class="line-numbers">352</span>    <span class="directive">public</span> length(){
-<span class="line-numbers">353</span>        <span class="keyword">return</span> <span class="local-variable">this</span>.linearr.length;
-<span class="line-numbers">354</span>    }   
-<span class="line-numbers">355</span>    
-<span class="line-numbers">356</span>    <span class="directive">public</span> toString() : string {
-<span class="line-numbers">357</span>        
-<span class="line-numbers">358</span>        var temp = <span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">359</span>
-<span class="line-numbers">360</span>        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; <span class="local-variable">this</span>.linearr.length; i++){
-<span class="line-numbers">361</span>            var x = <span class="local-variable">this</span>.linearr[i];
-<span class="line-numbers">362</span>            temp += x.pname1 + x.pname2 + <span class="string"><span class="delimiter">"</span><span class="content"> : </span><span class="delimiter">"</span></span>;
-<span class="line-numbers">363</span>            temp += x.x1/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> , </span><span class="delimiter">"</span></span> + x.y1/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> | </span><span class="delimiter">"</span></span> + x.x2/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> , </span><span class="delimiter">"</span></span>;
-<span class="line-numbers">364</span>            temp += x.y2/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content">&lt;br/&gt;</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">365</span>        }
-<span class="line-numbers">366</span>        <span class="keyword">return</span> temp;
-<span class="line-numbers">367</span>    }
-<span class="line-numbers">368</span>    
-<span class="line-numbers">369</span>}
-<span class="line-numbers">370</span>
-<span class="line-numbers">371</span>var paper = <span class="keyword">new</span> <span class="predefined-type">Paper</span>();</code></pre>
+<pre><code class="language-java"><span class="comment">// filename : MathE.js </span>
+<span class="comment">// An example of using HTML5 canvas to do primitive lines on a cartesian plane.</span>
+
+
+<span class="type">class</span> <span class="class">Paper</span> {
+
+    <span class="directive">private</span> isDirty = <span class="predefined-constant">false</span>;
+    <span class="directive">private</span> clickcount = <span class="integer">0</span>;
+    <span class="directive">private</span> cartesian: Cartesian;
+    <span class="directive">private</span> vertices : Vertices;
+    <span class="directive">private</span> canv: any;
+    <span class="directive">private</span> ctx : any;
+    <span class="directive">private</span> lines : Lines;
+    <span class="directive">private</span> line : <span class="predefined-type">Line</span> = {x1:<span class="integer">0</span>,
+            y1:<span class="integer">0</span>,
+            x2:<span class="integer">0</span>,
+            y2:<span class="integer">0</span>,
+            pname1:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>,
+            pname2:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>
+    };
+
+    <span class="directive">private</span> output : any = <span class="predefined-constant">null</span>;
+
+    constructor(){
+
+        <span class="comment">// setup the canvas</span>
+        <span class="local-variable">this</span>.canv = &lt;HTMLCanvasElement&gt;document.createElement(<span class="string"><span class="delimiter">"</span><span class="content">canvas</span><span class="delimiter">"</span></span>);
+        <span class="local-variable">this</span>.canv.width = <span class="integer">600</span>;
+        <span class="local-variable">this</span>.canv.height = <span class="integer">600</span>
+        <span class="local-variable">this</span>.canv.style.border = <span class="string"><span class="delimiter">"</span><span class="content">1px solid gray</span><span class="delimiter">"</span></span>;
+
+        <span class="comment">// BEGIN events</span>
+        <span class="comment">// this gave me a problem, when I am using idiomatic JS to assign </span>
+        <span class="comment">// a function to onclick, there are weird problems, the number is resulting</span>
+        <span class="comment">// to isNan, I should investigate why TypeScript is behaving this way.</span>
+        <span class="comment">// I had to use the arrow functions for closures</span>
+
+        <span class="local-variable">this</span>.canv.onmousedown = ()=&gt; {<span class="local-variable">this</span>.canvClick();};
+        <span class="local-variable">this</span>.canv.onmousemove = ()=&gt; {<span class="local-variable">this</span>.canvMouseMove();}
+
+        <span class="comment">// END events</span>
+
+        document.body.appendChild(<span class="local-variable">this</span>.canv);
+
+        <span class="local-variable">this</span>.ctx = <span class="local-variable">this</span>.canv.getContext(<span class="string"><span class="delimiter">"</span><span class="content">2d</span><span class="delimiter">"</span></span>);
+        <span class="local-variable">this</span>.cartesian = <span class="keyword">new</span> Cartesian(<span class="local-variable">this</span>.ctx, <span class="local-variable">this</span>.canv);
+        <span class="local-variable">this</span>.vertices = <span class="keyword">new</span> Vertices();
+        <span class="local-variable">this</span>.lines = <span class="keyword">new</span> Lines();
+
+        <span class="local-variable">this</span>.output = &lt;HTMLElement&gt;document.createElement(<span class="string"><span class="delimiter">"</span><span class="content">div</span><span class="delimiter">"</span></span>);
+        <span class="local-variable">this</span>.output.setAttribute(<span class="string"><span class="delimiter">'</span><span class="content">id</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">"</span><span class="content">output</span><span class="delimiter">"</span></span>); 
+
+        <span class="comment">//this.output.style.border = "1px solid #fafafa";</span>
+        <span class="comment">//this.output.style.padding = "15px";</span>
+        <span class="comment">//this.output.style.font-size = "11px";</span>
+        document.body.appendChild(<span class="local-variable">this</span>.output);
+
+        <span class="local-variable">this</span>.output.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">READY</span><span class="delimiter">"</span></span>;
+        <span class="comment">//this.output = &lt;HTMLElement&gt;document.getElementById('output');</span>
+        <span class="comment">//this.output.innerHTML = "I am ready";</span>
+
+
+
+    }
+
+    <span class="directive">private</span> clearPaper() : <span class="type">void</span> {
+        <span class="local-variable">this</span>.ctx.clearRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="local-variable">this</span>.ctx.width, <span class="local-variable">this</span>.ctx.height);
+        <span class="local-variable">this</span>.cartesian.drawX();
+        <span class="local-variable">this</span>.cartesian.drawY();
+        <span class="local-variable">this</span>.output.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">READY</span><span class="delimiter">"</span></span>;
+    }
+
+    <span class="directive">private</span> canvMouseMove(){
+
+        <span class="keyword">if</span>(<span class="local-variable">this</span>.isDirty){
+
+            <span class="local-variable">this</span>.redraw();
+
+            <span class="local-variable">this</span>.ctx.beginPath();
+            <span class="local-variable">this</span>.ctx.moveTo(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1);
+            <span class="local-variable">this</span>.ctx.lineTo(event.clientX, event.clientY);
+            <span class="comment">//this.ctx.closePath();</span>
+            <span class="local-variable">this</span>.ctx.stroke();
+
+            <span class="comment">//this.redraw();            </span>
+            <span class="comment">//this.output.innerHTML = "MouseMove";</span>
+        }
+    }
+
+
+    <span class="directive">private</span> canvClick() : <span class="type">void</span> {
+
+        <span class="keyword">switch</span>(<span class="local-variable">this</span>.clickcount){
+            <span class="keyword">case</span> <span class="integer">0</span>:
+                <span class="local-variable">this</span>.line.x1 = event.clientX;
+                <span class="local-variable">this</span>.line.y1 = event.clientY;
+                <span class="local-variable">this</span>.line.pname1 = <span class="local-variable">this</span>.vertices.getNext(); 
+                <span class="local-variable">this</span>.markPoint();
+
+                <span class="local-variable">this</span>.clickcount++;
+                <span class="local-variable">this</span>.isDirty = <span class="predefined-constant">true</span>;
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="integer">1</span>:
+                <span class="local-variable">this</span>.isDirty = <span class="predefined-constant">false</span>;
+
+                <span class="local-variable">this</span>.line.x2 = event.clientX;
+                <span class="local-variable">this</span>.line.y2 = event.clientY;
+                <span class="local-variable">this</span>.line.pname2 = <span class="local-variable">this</span>.vertices.getNext();
+                <span class="local-variable">this</span>.lines.addLine(<span class="local-variable">this</span>.line);
+
+                <span class="local-variable">this</span>.line = {x1:<span class="integer">0</span>,y1:<span class="integer">0</span>,x2:<span class="integer">0</span>,y2:<span class="integer">0</span>,pname1:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>,pname2:<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>};
+
+                <span class="local-variable">this</span>.redraw();
+
+                <span class="local-variable">this</span>.markPoint();
+                <span class="local-variable">this</span>.clickcount = <span class="integer">0</span>;
+
+                <span class="keyword">break</span>;
+            <span class="keyword">default</span>:
+                <span class="keyword">break</span>;
+                <span class="comment">//I don't know what to do with this one</span>
+        }
+    }
+
+    <span class="directive">private</span> markPoint() : <span class="type">void</span> {
+
+        var tempstyle : any = <span class="local-variable">this</span>.ctx.fillStyle;
+        <span class="local-variable">this</span>.ctx.fillStyle = <span class="string"><span class="delimiter">"</span><span class="content">blue</span><span class="delimiter">"</span></span>;
+
+        <span class="keyword">if</span>(<span class="local-variable">this</span>.isDirty){
+            <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname2, <span class="local-variable">this</span>.line.x2 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y2 + <span class="integer">10</span>);
+            <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x2, <span class="local-variable">this</span>.line.y2, <span class="integer">5</span>,<span class="integer">5</span>);
+        }
+        <span class="keyword">else</span> {
+            <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname1, <span class="local-variable">this</span>.line.x1 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y1 + <span class="integer">10</span>);
+            <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1, <span class="integer">5</span>,<span class="integer">5</span>);
+        }
+
+        <span class="local-variable">this</span>.ctx.fillStyle = tempstyle;
+    }
+
+    <span class="directive">private</span> redraw() : <span class="type">void</span> {
+
+        var tempStrokeStyle : any = <span class="local-variable">this</span>.ctx.strokeStyle;
+        var tempFillStyle : any = <span class="local-variable">this</span>.ctx.fillStyle;
+        var tempLineWidth : any = <span class="local-variable">this</span>.ctx.lineWidth;
+
+        <span class="local-variable">this</span>.ctx.strokeStyle = <span class="string"><span class="delimiter">"</span><span class="content">gray</span><span class="delimiter">"</span></span>;
+        <span class="local-variable">this</span>.ctx.fillStyle = <span class="string"><span class="delimiter">"</span><span class="content">blue</span><span class="delimiter">"</span></span>;
+        <span class="local-variable">this</span>.ctx.lineWidth = <span class="float">0.5</span>;
+
+        <span class="local-variable">this</span>.ctx.clearRect(<span class="integer">0</span>,<span class="integer">0</span>,<span class="local-variable">this</span>.canv.width,<span class="local-variable">this</span>.canv.width);
+
+        var deleteme: any = <span class="predefined-constant">null</span>;
+        var arrlength = <span class="local-variable">this</span>.lines.length();
+
+        <span class="local-variable">this</span>.lines.currpos = <span class="integer">0</span>;
+
+        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; arrlength; i++){
+
+            var templine = <span class="local-variable">this</span>.lines.getNext();
+
+            <span class="local-variable">this</span>.ctx.fillText(templine.pname1,templine.x1 + <span class="integer">10</span>, templine.y1 + <span class="integer">10</span>);
+            <span class="local-variable">this</span>.ctx.fillText(templine.pname2,templine.x2 + <span class="integer">10</span>, templine.y2 + <span class="integer">10</span>);
+            <span class="local-variable">this</span>.ctx.fillRect(templine.x1, templine.y1, <span class="integer">5</span>, <span class="integer">5</span>);
+            <span class="local-variable">this</span>.ctx.fillRect(templine.x2, templine.y2, <span class="integer">5</span>, <span class="integer">5</span>);
+
+            <span class="local-variable">this</span>.ctx.beginPath();
+            <span class="local-variable">this</span>.ctx.moveTo(templine.x1, templine.y1);
+            <span class="local-variable">this</span>.ctx.lineTo(templine.x2, templine.y2);
+            <span class="local-variable">this</span>.ctx.closePath();
+            <span class="local-variable">this</span>.ctx.stroke();
+
+        }
+
+
+        <span class="comment">// temporary code, because the mousemove erases the first vertex drawn</span>
+        <span class="local-variable">this</span>.ctx.fillText(<span class="local-variable">this</span>.line.pname1, <span class="local-variable">this</span>.line.x1 + <span class="integer">10</span>, <span class="local-variable">this</span>.line.y1 + <span class="integer">10</span>);
+        <span class="local-variable">this</span>.ctx.fillRect(<span class="local-variable">this</span>.line.x1, <span class="local-variable">this</span>.line.y1, <span class="integer">5</span>,<span class="integer">5</span>);
+        <span class="comment">// end temporary code</span>
+
+        <span class="local-variable">this</span>.ctx.strokeStyle = tempStrokeStyle;
+        <span class="local-variable">this</span>.ctx.fillStyle = tempFillStyle;
+        <span class="local-variable">this</span>.ctx.lineWidth = tempLineWidth;
+
+        <span class="local-variable">this</span>.cartesian.drawX();
+        <span class="local-variable">this</span>.cartesian.drawY();
+
+        <span class="local-variable">this</span>.output.innerHTML = <span class="local-variable">this</span>.lines.toString();
+
+    }   
+}
+
+<span class="comment">// Vertices class</span>
+<span class="comment">// A simple stack of vertex names</span>
+<span class="comment">// currently, it is only from A - Z</span>
+
+<span class="type">class</span> <span class="class">Vertices</span> {
+
+    <span class="directive">private</span> varr = <span class="keyword">new</span> <span class="predefined-type">Array</span>();
+    <span class="directive">private</span> currpos = <span class="integer">0</span>;
+
+    constructor(){
+        <span class="keyword">for</span>(var i = <span class="integer">65</span>; i &lt;= <span class="integer">90</span>; i++){
+            <span class="local-variable">this</span>.varr.push(<span class="predefined-type">String</span>.fromCharCode(i));
+        }
+    }
+
+    printAll(){
+        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; <span class="local-variable">this</span>.varr.length; i++){
+            console.log(<span class="local-variable">this</span>.varr[i]);
+        }
+    }
+
+    <span class="comment">// get the next available vertex name</span>
+
+    getNext(){
+        var retval = <span class="local-variable">this</span>.varr[<span class="local-variable">this</span>.currpos];
+        <span class="local-variable">this</span>.currpos++;
+        <span class="keyword">return</span> retval;
+    }   
+}
+
+
+<span class="type">class</span> <span class="class">Cartesian</span> {
+
+    <span class="directive">private</span> context;
+    <span class="directive">private</span> canvas;
+
+    <span class="directive">public</span> cartesian_unit: number = <span class="integer">40</span>; <span class="comment">// 40 pixels per cartesian unit</span>
+    ax_tick_count: number;
+    ay_tick_count: number; 
+
+    constructor(cx: any, c: any) {
+        <span class="local-variable">this</span>.context = cx;
+        <span class="local-variable">this</span>.canvas = c;
+
+        <span class="local-variable">this</span>.ax_tick_count = <span class="predefined-type">Math</span>.round(c.width / <span class="local-variable">this</span>.cartesian_unit);
+        <span class="local-variable">this</span>.ay_tick_count = <span class="predefined-type">Math</span>.round(c.height / <span class="local-variable">this</span>.cartesian_unit);
+
+        <span class="local-variable">this</span>.drawX();
+        <span class="local-variable">this</span>.drawY();
+    }
+
+    <span class="comment">// this is not working as expected ;</span>
+    <span class="directive">public</span> <span class="directive">static</span> getCartesianUnits() : number {
+        <span class="keyword">return</span> <span class="local-variable">this</span>.cartesian_unit;
+    }
+
+    <span class="directive">public</span> drawX() : <span class="type">void</span> {
+
+        var cx : any = <span class="local-variable">this</span>.context;
+        var c : any  = <span class="local-variable">this</span>.canvas; 
+        var tickcount : number = c.width / <span class="local-variable">this</span>.cartesian_unit; 
+        var y_coord : number = <span class="local-variable">this</span>.cartesian_unit * <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>)<span class="comment">//c.height /2;</span>
+        var x_coord : number = <span class="integer">0</span>;
+        var counter : number = <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>) * (-<span class="integer">1</span>);
+
+        <span class="comment">//cx.beginPath();</span>
+        <span class="comment">//cx.moveTo(0,c.height/2);</span>
+        <span class="comment">//cx.lineTo(c.width, c.height/2);</span>
+        <span class="comment">//cx.stroke();</span>
+
+        <span class="comment">// draw the tick marks</span>
+
+        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt;= tickcount; i++){
+            cx.beginPath();
+            <span class="keyword">if</span>(counter == <span class="integer">0</span>){
+                cx.moveTo(<span class="integer">0</span>,y_coord);
+                cx.lineTo(c.width,y_coord);
+            }
+            <span class="keyword">else</span> {
+                cx.moveTo(x_coord, y_coord);
+                cx.lineTo(x_coord, y_coord + <span class="integer">5</span>);
+            }
+            cx.closePath();
+            cx.stroke();
+            <span class="keyword">if</span>(counter != <span class="integer">0</span>) cx.fillText(counter, x_coord - <span class="integer">5</span>, y_coord + <span class="integer">15</span>);
+            counter++;
+            x_coord += <span class="local-variable">this</span>.cartesian_unit;
+        }
+    }
+
+    <span class="directive">public</span> drawY() : <span class="type">void</span> {
+
+        var cx : any = <span class="local-variable">this</span>.context;
+        var c  : any = <span class="local-variable">this</span>.canvas;
+        var tickcount : number = <span class="predefined-type">Math</span>.round(c.height/<span class="local-variable">this</span>.cartesian_unit);
+        var x_coord : number =  <span class="local-variable">this</span>.cartesian_unit * <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>);<span class="comment">//c.width/2;</span>
+        var y_coord : number = <span class="integer">0</span>; 
+        var counter : number = <span class="predefined-type">Math</span>.round(tickcount/<span class="integer">2</span>) * -<span class="integer">1</span>;    
+
+        <span class="comment">// draw the tick marks</span>
+
+        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt;  tickcount; i++){    
+            cx.beginPath();
+            <span class="keyword">if</span>(counter == <span class="integer">0</span>){
+                cx.moveTo(x_coord,<span class="integer">0</span>);
+                cx.lineTo(x_coord,c.height);
+            }
+            <span class="keyword">else</span> {
+                cx.moveTo(x_coord, y_coord);
+                cx.lineTo(x_coord+<span class="integer">5</span>, y_coord);
+            }
+            cx.closePath();
+            cx.stroke();
+            <span class="keyword">if</span>(counter != <span class="integer">0</span>) cx.fillText(counter * -<span class="integer">1</span>, x_coord - <span class="integer">15</span>, y_coord + <span class="integer">5</span> );
+            counter++;
+            y_coord += <span class="local-variable">this</span>.cartesian_unit;
+        }
+    }
+}
+
+
+<span class="type">interface</span> <span class="class">Line</span> {
+
+    x1 : number;
+    y1 : number;
+    x2 : number;
+    y2 : number;
+    pname1 : string;
+    pname2 : string;
+
+}
+
+<span class="type">class</span> <span class="class">Lines</span> {
+
+    CU = <span class="integer">40</span>; <span class="comment">// cartesian units, this needs to be refactored</span>
+
+    linearr  = <span class="keyword">new</span> <span class="predefined-type">Array</span>();
+    currpos = <span class="integer">0</span>;
+
+    addLine(line : <span class="predefined-type">Line</span>){
+        <span class="local-variable">this</span>.linearr.push(line);
+    }
+
+    <span class="directive">public</span> getNext() : <span class="predefined-type">Line</span> {
+        var retval = <span class="local-variable">this</span>.linearr[<span class="local-variable">this</span>.currpos];
+        <span class="local-variable">this</span>.currpos++;
+        <span class="keyword">return</span> retval;
+    }
+
+    <span class="directive">public</span> length(){
+        <span class="keyword">return</span> <span class="local-variable">this</span>.linearr.length;
+    }   
+
+    <span class="directive">public</span> toString() : string {
+
+        var temp = <span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>;
+
+        <span class="keyword">for</span>(var i = <span class="integer">0</span>; i &lt; <span class="local-variable">this</span>.linearr.length; i++){
+            var x = <span class="local-variable">this</span>.linearr[i];
+            temp += x.pname1 + x.pname2 + <span class="string"><span class="delimiter">"</span><span class="content"> : </span><span class="delimiter">"</span></span>;
+            temp += x.x1/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> , </span><span class="delimiter">"</span></span> + x.y1/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> | </span><span class="delimiter">"</span></span> + x.x2/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content"> , </span><span class="delimiter">"</span></span>;
+            temp += x.y2/<span class="local-variable">this</span>.CU + <span class="string"><span class="delimiter">"</span><span class="content">&lt;br/&gt;</span><span class="delimiter">"</span></span>;
+        }
+        <span class="keyword">return</span> temp;
+    }
+
+}
+
+var paper = <span class="keyword">new</span> <span class="predefined-type">Paper</span>();</code></pre>
 <p>Compile the TypeScript source; <strong>$ tsc -c MathE.ts</strong>. The -c flag is there so that even the comments in the TypeScript source file will be emitted in resulting JavaScript file.</p>
 	  </div>
 		<p/>
@@ -816,23 +825,22 @@ by:
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 
