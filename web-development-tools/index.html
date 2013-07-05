@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -324,10 +337,6 @@ pre code, .keyword, .directive, .type,
   color: blue;
 }
 
-
-
-
-
 </style>
 		<meta charset="utf-8">
 <title>Web Development Tools: theLogBox.com</title>
@@ -340,11 +349,7 @@ pre code, .keyword, .directive, .type,
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
 
-<meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
 
-<meta name="google-site-verification" content="_fzAU-gezjC_Vaxgr8F_DsNKqRcVvyPztj9i8CRGLbA" />
-
-<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 
 		<script type="text/javascript">
@@ -431,26 +436,26 @@ Doc History
 <p><strong>$ haml first.html</strong> emits the resulting HTML file into stdout (screen). <strong>$ haml first.haml first.html</strong> emits the output to <em>first.html</em>. The syntax reference can be found at <a href="http://haml.info/docs/yardoc/file.REFERENCE.html">Haml Ref Site</a>. Haml syntax is sensitive to indentation, so be careful, a really good editor will be very helpful here.</p>
 <h1 id="sass-syntactically-awesome-style-sheets">2. SaSS (Syntactically Awesome Style Sheets)</h1>
 <p>Install using ruby gems. <strong>$ gem install sass</strong>. Try it out</p>
-<pre><code class="language-css"><span class="line-numbers">10</span><span class="constant">#main</span> {
-<span class="line-numbers">11</span>  <span class="key">width</span>: <span class="float">80%</span>;
-<span class="line-numbers">12</span>  <span class="key">height</span>: <span class="float">23px</span>;
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>  <span class="key">ul</span> { <span class="key">list-style-type</span>: <span class="value">none</span>; }
-<span class="line-numbers">15</span>  <span class="key">li</span> {
-<span class="line-numbers">16</span>    <span class="key">float</span>: <span class="value">left</span>;
-<span class="line-numbers">17</span>    <span class="key">a</span> { <span class="key">font-weight</span>: <span class="value">bold</span>; }
-<span class="line-numbers">18</span>  }
-<span class="line-numbers">19</span>}</code></pre>
+<pre><code class="language-css"><span class="constant">#main</span> {
+  <span class="key">width</span>: <span class="float">80%</span>;
+  <span class="key">height</span>: <span class="float">23px</span>;
+
+  <span class="key">ul</span> { <span class="key">list-style-type</span>: <span class="value">none</span>; }
+  <span class="key">li</span> {
+    <span class="key">float</span>: <span class="value">left</span>;
+    <span class="key">a</span> { <span class="key">font-weight</span>: <span class="value">bold</span>; }
+  }
+}</code></pre>
 <p>When processed using the <strong>saas</strong> command, it will emit the following;</p>
-<pre><code class="language-css"><span class="line-numbers">10</span><span class="constant">#main</span> {
-<span class="line-numbers">11</span>  <span class="key">width</span>: <span class="float">80%</span>;
-<span class="line-numbers">12</span>  <span class="key">height</span>: <span class="float">23px</span>; }
-<span class="line-numbers">13</span>  <span class="constant">#main</span> <span class="type">ul</span> {
-<span class="line-numbers">14</span>    <span class="key">list-style-type</span>: <span class="value">none</span>; }
-<span class="line-numbers">15</span>  <span class="constant">#main</span> <span class="type">li</span> {
-<span class="line-numbers">16</span>    <span class="key">float</span>: <span class="value">left</span>; }
-<span class="line-numbers">17</span>    <span class="constant">#main</span> <span class="type">li</span> <span class="type">a</span> {
-<span class="line-numbers">18</span>      <span class="key">font-weight</span>: <span class="value">bold</span>; }</code></pre>
+<pre><code class="language-css"><span class="constant">#main</span> {
+  <span class="key">width</span>: <span class="float">80%</span>;
+  <span class="key">height</span>: <span class="float">23px</span>; }
+  <span class="constant">#main</span> <span class="type">ul</span> {
+    <span class="key">list-style-type</span>: <span class="value">none</span>; }
+  <span class="constant">#main</span> <span class="type">li</span> {
+    <span class="key">float</span>: <span class="value">left</span>; }
+    <span class="constant">#main</span> <span class="type">li</span> <span class="type">a</span> {
+      <span class="key">font-weight</span>: <span class="value">bold</span>; }</code></pre>
 <p>The <strong>saas</strong> command line tool has a <strong>--watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
 <p>SAAS is a superset of CSS3, the extra syntax are syntactic sugar to enable cleaner nestings, provide modular approach to CSS source file management using @import, string interpolations, mixins (for inheritance), use of variables inside the CSS etc. Head over to <a href="http://sass-lang.com/tutorial.html">SasS lang site tutorial</a> for more info.</p>
 <h1 id="web-server">3. Web Server</h1>
@@ -474,101 +479,101 @@ $ gem install sinatra-contrib
 $ gem install thin
 </code></pre>
 <p>You actually don't need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
-<pre><code class="language-ruby"><span class="line-numbers">10</span><span class="comment"># quick (but not dirty) and simple</span>
-<span class="line-numbers">11</span><span class="comment"># restful web endpoint</span>
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="comment"># this app will listen on http://localhost:4567</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span><span class="comment"># filename: first.rb </span>
-<span class="line-numbers">16</span><span class="comment"># how to run : $ ruby first.rb </span>
-<span class="line-numbers">17</span>
-<span class="line-numbers">18</span>require <span class="string"><span class="delimiter">'</span><span class="content">rubygems</span><span class="delimiter">'</span></span> <span class="keyword">if</span> <span class="predefined-constant">RUBY_VERSION</span> &lt; <span class="string"><span class="delimiter">'</span><span class="content">1.9</span><span class="delimiter">'</span></span>
-<span class="line-numbers">19</span>require <span class="string"><span class="delimiter">'</span><span class="content">sinatra</span><span class="delimiter">'</span></span>
-<span class="line-numbers">20</span>
-<span class="line-numbers">21</span>get <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
-<span class="line-numbers">22</span>    <span class="string"><span class="delimiter">"</span><span class="content">return something</span><span class="delimiter">"</span></span>
-<span class="line-numbers">23</span><span class="keyword">end</span>
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span>get <span class="string"><span class="delimiter">'</span><span class="content">/somethingelse</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
-<span class="line-numbers">26</span>    <span class="string"><span class="delimiter">"</span><span class="content">return something else</span><span class="delimiter">"</span></span>
-<span class="line-numbers">27</span><span class="keyword">end</span></code></pre>
+<pre><code class="language-ruby"><span class="comment"># quick (but not dirty) and simple</span>
+<span class="comment"># restful web endpoint</span>
+
+<span class="comment"># this app will listen on http://localhost:4567</span>
+
+<span class="comment"># filename: first.rb </span>
+<span class="comment"># how to run : $ ruby first.rb </span>
+
+require <span class="string"><span class="delimiter">'</span><span class="content">rubygems</span><span class="delimiter">'</span></span> <span class="keyword">if</span> <span class="predefined-constant">RUBY_VERSION</span> &lt; <span class="string"><span class="delimiter">'</span><span class="content">1.9</span><span class="delimiter">'</span></span>
+require <span class="string"><span class="delimiter">'</span><span class="content">sinatra</span><span class="delimiter">'</span></span>
+
+get <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
+    <span class="string"><span class="delimiter">"</span><span class="content">return something</span><span class="delimiter">"</span></span>
+<span class="keyword">end</span>
+
+get <span class="string"><span class="delimiter">'</span><span class="content">/somethingelse</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
+    <span class="string"><span class="delimiter">"</span><span class="content">return something else</span><span class="delimiter">"</span></span>
+<span class="keyword">end</span></code></pre>
 <p>http://localhost:4567 displays "return something"; http://localhost:4567/somethingelse displays "return something else" in the browser.</p>
 <p>Each get in the sinatra source file is a method call, a route actually. You don't have to write literal ruby strings, it can be function calls, expressions etc, as long as it resolves to a string. This is handy when (quickly) mocking up server end points for AJAX clients. There are some <a href="/sinatra/">Sinatra notes here</a>.</p>
 <h2 id="node">4.2 Node</h2>
 <p>Node is JavaScript on the server side. You need to understand JavaScript core language (pretty well, cut and paste JavaScript experience won't cut it here).</p>
 <p>The <a href="http://nodejs.org/">NodeJS site</a> has the install instructions, head over there to download, install npm too (Node Package Manager). It can also be instlled via brew on OSX (brew install node)</p>
 <p>The simplest node program from the (NodeJS website)</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// server.js</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> http = require(<span class="string"><span class="delimiter">'</span><span class="content">http</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">13</span>http.createServer(<span class="keyword">function</span> (req, res) {
-<span class="line-numbers">14</span>  res.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/plain</span><span class="delimiter">'</span></span>});
-<span class="line-numbers">15</span>  res.end(<span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="content">\n</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">16</span>}).listen(<span class="integer">1337</span>, <span class="string"><span class="delimiter">'</span><span class="content">127.0.0.1</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">17</span>console.log(<span class="string"><span class="delimiter">'</span><span class="content">Server running at http://127.0.0.1:1337/</span><span class="delimiter">'</span></span>);</code></pre>
+<pre><code class="language-javascript"><span class="comment">// server.js</span>
+
+<span class="keyword">var</span> http = require(<span class="string"><span class="delimiter">'</span><span class="content">http</span><span class="delimiter">'</span></span>);
+http.createServer(<span class="keyword">function</span> (req, res) {
+  res.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/plain</span><span class="delimiter">'</span></span>});
+  res.end(<span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="content">\n</span><span class="delimiter">'</span></span>);
+}).listen(<span class="integer">1337</span>, <span class="string"><span class="delimiter">'</span><span class="content">127.0.0.1</span><span class="delimiter">'</span></span>);
+console.log(<span class="string"><span class="delimiter">'</span><span class="content">Server running at http://127.0.0.1:1337/</span><span class="delimiter">'</span></span>);</code></pre>
 <p>Run it <strong>$ node server.js</strong>, get a browser and open http://localhost:1337. You can already use this to mock REST endpoints, just replace the string inside res.end('Hello World');</p>
 <p>A more involved node server code sample is below</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
-<span class="line-numbers">11</span><span class="comment">// All rights reserved.</span>
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="comment">// License text: URL/software-license.txt</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span><span class="keyword">var</span> http = require(<span class="string"><span class="delimiter">'</span><span class="content">http</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">17</span><span class="keyword">var</span> path = require(<span class="string"><span class="delimiter">'</span><span class="content">path</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">18</span><span class="keyword">var</span> fs = require(<span class="string"><span class="delimiter">'</span><span class="content">fs</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">19</span><span class="keyword">var</span> url = require(<span class="string"><span class="delimiter">'</span><span class="content">url</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">20</span>
-<span class="line-numbers">21</span><span class="keyword">var</span> pages = {
-<span class="line-numbers">22</span>    <span class="key"><span class="delimiter">'</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">Landing page</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">23</span>    <span class="key">about</span>: <span class="string"><span class="delimiter">'</span><span class="content">About</span><span class="delimiter">'</span></span>,
-<span class="line-numbers">24</span>    <span class="key">foo</span>: <span class="string"><span class="delimiter">"</span><span class="content">Yeah Foo</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">25</span>    <span class="key">goo</span>: <span class="string"><span class="delimiter">"</span><span class="content">Yeah Goo</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">26</span>    <span class="key">xoo</span>: callxoo()
-<span class="line-numbers">27</span>};
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span><span class="keyword">function</span> <span class="function">callxoo</span>(){
-<span class="line-numbers">30</span>    <span class="keyword">var</span> retval = {
-<span class="line-numbers">31</span>        <span class="key">empname</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted Hagos</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">32</span>        <span class="key">email</span>: <span class="string"><span class="delimiter">"</span><span class="content">tedhagos@gmail.com</span><span class="delimiter">"</span></span>
-<span class="line-numbers">33</span>    };
-<span class="line-numbers">34</span>    <span class="comment">// I cannot return the bare JS object because</span>
-<span class="line-numbers">35</span>    <span class="comment">// the HTTP object of node will throw an error.</span>
-<span class="line-numbers">36</span>    <span class="comment">// First type argument must be a string or buffer</span>
-<span class="line-numbers">37</span>    <span class="keyword">return</span> JSON.stringify(retval);
-<span class="line-numbers">38</span>    
-<span class="line-numbers">39</span>}
-<span class="line-numbers">40</span>
-<span class="line-numbers">41</span>http.createServer(
-<span class="line-numbers">42</span>    <span class="keyword">function</span>(request,response){
-<span class="line-numbers">43</span>        
-<span class="line-numbers">44</span>        <span class="keyword">var</span> lookup = path.basename(decodeURI(request.url));
-<span class="line-numbers">45</span>        <span class="keyword">var</span> thedata = <span class="predefined-constant">null</span>;
-<span class="line-numbers">46</span>        <span class="keyword">var</span> temp = <span class="predefined-constant">null</span>;
-<span class="line-numbers">47</span>        
-<span class="line-numbers">48</span>        <span class="comment">// Check first if we are looking for an HTML file</span>
-<span class="line-numbers">49</span>        fs.exists(lookup, <span class="keyword">function</span>(exists){
-<span class="line-numbers">50</span>            <span class="keyword">if</span>(exists){
-<span class="line-numbers">51</span>                fs.readFile(lookup, <span class="string"><span class="delimiter">'</span><span class="content">utf-8</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(woops, filecontent){
-<span class="line-numbers">52</span>                    <span class="keyword">if</span>(!woops) {
-<span class="line-numbers">53</span>                        <span class="comment">//console.log(filecontent);</span>
-<span class="line-numbers">54</span>                        response.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/html</span><span class="delimiter">'</span></span>});
-<span class="line-numbers">55</span>                        response.end(filecontent);
-<span class="line-numbers">56</span>                    }
-<span class="line-numbers">57</span>                });             
-<span class="line-numbers">58</span>            }
-<span class="line-numbers">59</span>            <span class="keyword">else</span> {
-<span class="line-numbers">60</span>                console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside the else</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">61</span>            }
-<span class="line-numbers">62</span>        });
-<span class="line-numbers">63</span>                
-<span class="line-numbers">64</span>        <span class="keyword">if</span> (pages[lookup] != <span class="predefined-constant">undefined</span>){
-<span class="line-numbers">65</span>            console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside pages</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">66</span>            response.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/html</span><span class="delimiter">'</span></span>});
-<span class="line-numbers">67</span>            response.end(pages[lookup]);
-<span class="line-numbers">68</span>        }                       
-<span class="line-numbers">69</span>    }
-<span class="line-numbers">70</span>).listen(<span class="integer">8080</span>);</code></pre>
+<pre><code class="language-javascript"><span class="comment">// BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="comment">// All rights reserved.</span>
+
+<span class="comment">// License text: URL/software-license.txt</span>
+
+
+<span class="keyword">var</span> http = require(<span class="string"><span class="delimiter">'</span><span class="content">http</span><span class="delimiter">'</span></span>);
+<span class="keyword">var</span> path = require(<span class="string"><span class="delimiter">'</span><span class="content">path</span><span class="delimiter">'</span></span>);
+<span class="keyword">var</span> fs = require(<span class="string"><span class="delimiter">'</span><span class="content">fs</span><span class="delimiter">'</span></span>);
+<span class="keyword">var</span> url = require(<span class="string"><span class="delimiter">'</span><span class="content">url</span><span class="delimiter">'</span></span>);
+
+<span class="keyword">var</span> pages = {
+    <span class="key"><span class="delimiter">'</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">"</span><span class="content">Landing page</span><span class="delimiter">"</span></span>,
+    <span class="key">about</span>: <span class="string"><span class="delimiter">'</span><span class="content">About</span><span class="delimiter">'</span></span>,
+    <span class="key">foo</span>: <span class="string"><span class="delimiter">"</span><span class="content">Yeah Foo</span><span class="delimiter">"</span></span>,
+    <span class="key">goo</span>: <span class="string"><span class="delimiter">"</span><span class="content">Yeah Goo</span><span class="delimiter">"</span></span>,
+    <span class="key">xoo</span>: callxoo()
+};
+
+<span class="keyword">function</span> <span class="function">callxoo</span>(){
+    <span class="keyword">var</span> retval = {
+        <span class="key">empname</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted Hagos</span><span class="delimiter">"</span></span>,
+        <span class="key">email</span>: <span class="string"><span class="delimiter">"</span><span class="content">tedhagos@gmail.com</span><span class="delimiter">"</span></span>
+    };
+    <span class="comment">// I cannot return the bare JS object because</span>
+    <span class="comment">// the HTTP object of node will throw an error.</span>
+    <span class="comment">// First type argument must be a string or buffer</span>
+    <span class="keyword">return</span> JSON.stringify(retval);
+    
+}
+
+http.createServer(
+    <span class="keyword">function</span>(request,response){
+        
+        <span class="keyword">var</span> lookup = path.basename(decodeURI(request.url));
+        <span class="keyword">var</span> thedata = <span class="predefined-constant">null</span>;
+        <span class="keyword">var</span> temp = <span class="predefined-constant">null</span>;
+        
+        <span class="comment">// Check first if we are looking for an HTML file</span>
+        fs.exists(lookup, <span class="keyword">function</span>(exists){
+            <span class="keyword">if</span>(exists){
+                fs.readFile(lookup, <span class="string"><span class="delimiter">'</span><span class="content">utf-8</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(woops, filecontent){
+                    <span class="keyword">if</span>(!woops) {
+                        <span class="comment">//console.log(filecontent);</span>
+                        response.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/html</span><span class="delimiter">'</span></span>});
+                        response.end(filecontent);
+                    }
+                });             
+            }
+            <span class="keyword">else</span> {
+                console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside the else</span><span class="delimiter">"</span></span>);
+            }
+        });
+                
+        <span class="keyword">if</span> (pages[lookup] != <span class="predefined-constant">undefined</span>){
+            console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside pages</span><span class="delimiter">"</span></span>);
+            response.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/html</span><span class="delimiter">'</span></span>});
+            response.end(pages[lookup]);
+        }                       
+    }
+).listen(<span class="integer">8080</span>);</code></pre>
 <p>This will listen on locahost:8080, if you want to change the port of the webserver, just replace the port number, it's the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>
 <p>The routes here are inside the pages object literal, replace them with your own RESTful endpoints</p>
 <h1 id="object-oriented-javascript-for-html5-animation-programming">5. Object Oriented JavaScript for HTML5 Animation programming</h1>
@@ -609,23 +614,22 @@ $ gem install thin
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 

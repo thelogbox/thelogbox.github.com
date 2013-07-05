@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -324,10 +337,6 @@ pre code, .keyword, .directive, .type,
   color: blue;
 }
 
-
-
-
-
 </style>
 		<meta charset="utf-8">
 <title>A small JavaScript tutorial: theLogBox.com</title>
@@ -340,11 +349,7 @@ pre code, .keyword, .directive, .type,
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
 
-<meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
 
-<meta name="google-site-verification" content="_fzAU-gezjC_Vaxgr8F_DsNKqRcVvyPztj9i8CRGLbA" />
-
-<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 
 		<script type="text/javascript">
@@ -493,80 +498,80 @@ Related tutorials/blog entries
 <p><strong>String</strong> - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. "Hello World" is as good as 'Hello World'. You may insert escape characters in Strings like "HelloWorld".</p>
 <p>We will deal with the other data types a little bit later, these three are actually enough to keep us busy for now.</p>
 <p>You will usually bother with data types when you are either declaring variables or returning something from functions. If you need to see for your eyes how the JS runtime really treats this variable, this small code snippet should help</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">/*</span>
-<span class="line-numbers">11</span><span class="comment"></span>
-<span class="line-numbers">12</span><span class="comment">A small test on how JS treats types</span>
-<span class="line-numbers">13</span><span class="comment"></span>
-<span class="line-numbers">14</span><span class="comment">*/</span>
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span><span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">17</span><span class="keyword">var</span> <span class="reserved">int</span> = <span class="integer">1</span>;
-<span class="line-numbers">18</span><span class="keyword">var</span> <span class="reserved">float</span> = <span class="float">1.0</span>;
-<span class="line-numbers">19</span><span class="keyword">var</span> <span class="reserved">boolean</span> = <span class="predefined-constant">true</span>;
-<span class="line-numbers">20</span><span class="keyword">var</span> vnull = <span class="predefined-constant">null</span>;
-<span class="line-numbers">21</span><span class="keyword">var</span> vundefined = <span class="predefined-constant">undefined</span>;
-<span class="line-numbers">22</span><span class="keyword">var</span> obj = <span class="keyword">new</span> Object();
-<span class="line-numbers">23</span><span class="keyword">var</span> arr = <span class="keyword">new</span> Array();
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span><span class="keyword">function</span> <span class="function">x</span>() {
-<span class="line-numbers">26</span>    <span class="keyword">return</span> <span class="integer">1</span>;
-<span class="line-numbers">27</span>}
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span><span class="keyword">function</span> <span class="function">y</span>() {
-<span class="line-numbers">30</span>    <span class="keyword">return</span>
-<span class="line-numbers">31</span>}
-<span class="line-numbers">32</span>
-<span class="line-numbers">33</span><span class="keyword">function</span> <span class="function">z</span>() {
-<span class="line-numbers">34</span>    
-<span class="line-numbers">35</span>}
-<span class="line-numbers">36</span>
-<span class="line-numbers">37</span><span class="comment">// Let's see the typeof results</span>
-<span class="line-numbers">38</span>
-<span class="line-numbers">39</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">s </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(s));
-<span class="line-numbers">40</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">int </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">int</span>));
-<span class="line-numbers">41</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">float </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">float</span>));
-<span class="line-numbers">42</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">boolean </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">boolean</span>));
-<span class="line-numbers">43</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">vnull </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(vnull));
-<span class="line-numbers">44</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">vundefined </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(vundefined));
-<span class="line-numbers">45</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">obj </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(obj));
-<span class="line-numbers">46</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">arr </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(arr));
-<span class="line-numbers">47</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">function x </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(x()));
-<span class="line-numbers">48</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">function y </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(y()));
-<span class="line-numbers">49</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">function z </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(z()));
-<span class="line-numbers">50</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">wildcard </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(wildcard));
-<span class="line-numbers">51</span>
-<span class="line-numbers">52</span><span class="comment">/*</span>
-<span class="line-numbers">53</span><span class="comment"></span>
-<span class="line-numbers">54</span><span class="comment">RETURNS:</span>
-<span class="line-numbers">55</span><span class="comment"></span>
-<span class="line-numbers">56</span><span class="comment">s string</span>
-<span class="line-numbers">57</span><span class="comment">int number</span>
-<span class="line-numbers">58</span><span class="comment">float number</span>
-<span class="line-numbers">59</span><span class="comment">boolean boolean</span>
-<span class="line-numbers">60</span><span class="comment">vnull object</span>
-<span class="line-numbers">61</span><span class="comment">vundefined undefined</span>
-<span class="line-numbers">62</span><span class="comment">obj object</span>
-<span class="line-numbers">63</span><span class="comment">arr object</span>
-<span class="line-numbers">64</span><span class="comment">function x number</span>
-<span class="line-numbers">65</span><span class="comment">function y undefined</span>
-<span class="line-numbers">66</span><span class="comment">function z undefined</span>
-<span class="line-numbers">67</span><span class="comment">wildcard undefined</span>
-<span class="line-numbers">68</span><span class="comment"></span>
-<span class="line-numbers">69</span><span class="comment">*/</span></code></pre>
+<pre><code class="language-javascript"><span class="comment">/*
+
+A small test on how JS treats types
+
+*/</span>
+
+<span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span>;
+<span class="keyword">var</span> <span class="reserved">int</span> = <span class="integer">1</span>;
+<span class="keyword">var</span> <span class="reserved">float</span> = <span class="float">1.0</span>;
+<span class="keyword">var</span> <span class="reserved">boolean</span> = <span class="predefined-constant">true</span>;
+<span class="keyword">var</span> vnull = <span class="predefined-constant">null</span>;
+<span class="keyword">var</span> vundefined = <span class="predefined-constant">undefined</span>;
+<span class="keyword">var</span> obj = <span class="keyword">new</span> Object();
+<span class="keyword">var</span> arr = <span class="keyword">new</span> Array();
+
+<span class="keyword">function</span> <span class="function">x</span>() {
+    <span class="keyword">return</span> <span class="integer">1</span>;
+}
+
+<span class="keyword">function</span> <span class="function">y</span>() {
+    <span class="keyword">return</span>
+}
+
+<span class="keyword">function</span> <span class="function">z</span>() {
+    
+}
+
+<span class="comment">// Let's see the typeof results</span>
+
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">s </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(s));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">int </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">int</span>));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">float </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">float</span>));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">boolean </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(<span class="reserved">boolean</span>));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">vnull </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(vnull));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">vundefined </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(vundefined));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">obj </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(obj));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">arr </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(arr));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">function x </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(x()));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">function y </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(y()));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">function z </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(z()));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">wildcard </span><span class="delimiter">"</span></span> + <span class="keyword">typeof</span>(wildcard));
+
+<span class="comment">/*
+
+RETURNS:
+
+s string
+int number
+float number
+boolean boolean
+vnull object
+vundefined undefined
+obj object
+arr object
+function x number
+function y undefined
+function z undefined
+wildcard undefined
+
+*/</span></code></pre>
 <p>Variables can be declared using the word <strong>var</strong> (or without). I would rather that you always declare your variables using <em>var</em> because it has some effects on the <em>global context</em>--which we will discuss in a bit.</p>
 <h1 id="functions">4. Functions</h1>
 <p>A JS function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">/*</span>
-<span class="line-numbers">11</span><span class="comment">File name: hello.js</span>
-<span class="line-numbers">12</span><span class="comment">The hello world program in JavaScript</span>
-<span class="line-numbers">13</span><span class="comment">*/</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>foo();
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span><span class="keyword">function</span> <span class="function">foo</span>() {
-<span class="line-numbers">18</span>    <span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="char">\n</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">19</span>    console.log(s);
-<span class="line-numbers">20</span>}</code></pre>
+<pre><code class="language-javascript"><span class="comment">/*
+File name: hello.js
+The hello world program in JavaScript
+*/</span>
+
+foo();
+
+<span class="keyword">function</span> <span class="function">foo</span>() {
+    <span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="char">\n</span><span class="delimiter">"</span></span>;
+    console.log(s);
+}</code></pre>
 <p>If you installed node.js (and I hope you did) you can run try this out on the command line using <strong>$ node hello.js</strong></p>
 <p>The hello.js program is actually more verbose than it has to be, it could have been written as</p>
 <pre><code>console.log("Hello World");</code></pre>
@@ -588,15 +593,15 @@ function &lt;name&gt; (&lt;parameters) {
 <li>Calling a function with a return statement and a proper return value - returns the value</li>
 </ol>
 <p><span class="stress">CAUTION:</span> careful how you write your curly braces, JavaScript's defaults might produce unexpected results, see the following code</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">function</span> <span class="function">goo</span>() 
-<span class="line-numbers">11</span>{
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span>    <span class="keyword">return</span>
-<span class="line-numbers">14</span>    {                                   <span class="comment">// this line is unreachable</span>
-<span class="line-numbers">15</span>        <span class="key">objprop</span>: <span class="string"><span class="delimiter">"</span><span class="content">Some obj property</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">16</span>    }
-<span class="line-numbers">17</span>
-<span class="line-numbers">18</span>}</code></pre>
+<pre><code class="language-javascript"><span class="keyword">function</span> <span class="function">goo</span>() 
+{
+
+    <span class="keyword">return</span>
+    {                                   <span class="comment">// this line is unreachable</span>
+        <span class="key">objprop</span>: <span class="string"><span class="delimiter">"</span><span class="content">Some obj property</span><span class="delimiter">"</span></span>;
+    }
+
+}</code></pre>
 <p>The statement will be unreachable because JavaScript would have inserted a semi-colon right after the <strong>return</strong> statement. The object literal is unreachable as a return value.</p>
 <p>Functions are different from JS statements. Statements are executed at once as soon as it is encountered by interpreter. Functions on the other hand are <em>compiled</em> first, they are not executed when first encountered, intead, it will be parsed and stored for later use.</p>
 <p>Theres a lot more to JavaScript functions but we will stop here for now. The other characteristics of functions are better explained when we are the context of Object Oriented JavaScript and some more advanced concepts.</p>
@@ -618,137 +623,137 @@ function &lt;name&gt; (&lt;parameters) {
 <p>These operators allows you to compare things logically and do some equivalence tests. Boolean expresssions yields either true or false.</p>
 <p>The <em>&amp;&amp;</em> (logical AND), <em>||</em> (logical OR) and the <em>unary NOT !</em> operator allows you to perform logical comparissons.</p>
 <p>The <strong>&amp;&amp;</strong> operator yields true only if both operands are result to true. If you are coming from another language where this symbol has a short-circuit behavior, be careful. This operator evaluates both operands before yielding the truth value.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">/*</span>
-<span class="line-numbers">11</span><span class="comment">    Simple test for &amp;&amp; operator</span>
-<span class="line-numbers">12</span><span class="comment">*/</span>
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>console.log(a() &amp;&amp; b());
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span><span class="keyword">function</span> <span class="function">a</span>() {
-<span class="line-numbers">18</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside a</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">19</span>    <span class="keyword">return</span> <span class="predefined-constant">true</span>;
-<span class="line-numbers">20</span>}
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span><span class="keyword">function</span> <span class="function">b</span>() {
-<span class="line-numbers">23</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside b</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">24</span>    <span class="keyword">return</span> <span class="predefined-constant">false</span>;
-<span class="line-numbers">25</span>}
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span>RESULT:
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>inside a
-<span class="line-numbers">30</span>inside b
-<span class="line-numbers">31</span><span class="predefined-constant">false</span></code></pre>
+<pre><code class="language-javascript"><span class="comment">/*
+    Simple test for &amp;&amp; operator
+*/</span>
+
+
+console.log(a() &amp;&amp; b());
+
+<span class="keyword">function</span> <span class="function">a</span>() {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside a</span><span class="delimiter">"</span></span>);
+    <span class="keyword">return</span> <span class="predefined-constant">true</span>;
+}
+
+<span class="keyword">function</span> <span class="function">b</span>() {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside b</span><span class="delimiter">"</span></span>);
+    <span class="keyword">return</span> <span class="predefined-constant">false</span>;
+}
+
+RESULT:
+
+inside a
+inside b
+<span class="predefined-constant">false</span></code></pre>
 <p>the <strong>||</strong> operator on the other hand requires that only one of the operands is true for the expression to return true.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">/*</span>
-<span class="line-numbers">11</span><span class="comment">    Simple test for || operator</span>
-<span class="line-numbers">12</span><span class="comment">*/</span>
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>console.log(a() || b());
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span><span class="keyword">function</span> <span class="function">a</span>() {
-<span class="line-numbers">18</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside a</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">19</span>    <span class="keyword">return</span> <span class="predefined-constant">true</span>;
-<span class="line-numbers">20</span>}
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span><span class="keyword">function</span> <span class="function">b</span>() {
-<span class="line-numbers">23</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside b</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">24</span>    <span class="keyword">return</span> <span class="predefined-constant">false</span>;
-<span class="line-numbers">25</span>}
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span>RESULT:
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>inside a
-<span class="line-numbers">30</span><span class="predefined-constant">true</span></code></pre>
+<pre><code class="language-javascript"><span class="comment">/*
+    Simple test for || operator
+*/</span>
+
+
+console.log(a() || b());
+
+<span class="keyword">function</span> <span class="function">a</span>() {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside a</span><span class="delimiter">"</span></span>);
+    <span class="keyword">return</span> <span class="predefined-constant">true</span>;
+}
+
+<span class="keyword">function</span> <span class="function">b</span>() {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside b</span><span class="delimiter">"</span></span>);
+    <span class="keyword">return</span> <span class="predefined-constant">false</span>;
+}
+
+RESULT:
+
+inside a
+<span class="predefined-constant">true</span></code></pre>
 <p>The || operator did not even evaluate function b() before returning the truth value.</p>
 <p>The other boolean operators <strong>== != &gt; &lt; &lt;= &gt;=</strong> and <strong>!</strong> are straight forward, you can read them in the ECMAScript specification if you prefer.</p>
 <h1 id="control-of-program-flow">8. Control of program flow</h1>
 <p>You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).</p>
 <p><span class="stress">if-else statement</span> is way to branch. When the expression inside the <strong>if()</strong> construct yields true, the statement inside the if block is executed.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> i = <span class="integer">10</span>;
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">if</span> (i == <span class="integer">20</span>) {
-<span class="line-numbers">13</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">14</span>}
-<span class="line-numbers">15</span><span class="keyword">else</span> {
-<span class="line-numbers">16</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">nah!</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">17</span>} 
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>RETURNS nah!</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> i = <span class="integer">10</span>;
+
+<span class="keyword">if</span> (i == <span class="integer">20</span>) {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>);
+}
+<span class="keyword">else</span> {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">nah!</span><span class="delimiter">"</span></span>);
+} 
+
+RETURNS nah!</code></pre>
 <p>Be careful when writing your comparisson operator. Here's a slightly modified version of the code above</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> i = <span class="integer">10</span>;
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">if</span> (i = <span class="integer">20</span>) {
-<span class="line-numbers">13</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">14</span>}
-<span class="line-numbers">15</span><span class="keyword">else</span> {
-<span class="line-numbers">16</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">nah!</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">17</span>} 
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>RETURNS <span class="predefined-constant">true</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> i = <span class="integer">10</span>;
+
+<span class="keyword">if</span> (i = <span class="integer">20</span>) {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>);
+}
+<span class="keyword">else</span> {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">nah!</span><span class="delimiter">"</span></span>);
+} 
+
+RETURNS <span class="predefined-constant">true</span></code></pre>
 <p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value.</p>
 <p><span class="stress">Switch statement</span> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">11</span><span class="keyword">var</span> ret;
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="keyword">switch</span> (s) {
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>    <span class="keyword">case</span> <span class="string"><span class="delimiter">"</span><span class="content">he</span><span class="delimiter">"</span></span>:
-<span class="line-numbers">16</span>        ret = <span class="string"><span class="delimiter">"</span><span class="content">he</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">17</span>        <span class="keyword">break</span>;
-<span class="line-numbers">18</span>    <span class="keyword">case</span> <span class="integer">1</span>:
-<span class="line-numbers">19</span>        ret = <span class="integer">1</span>;
-<span class="line-numbers">20</span>        <span class="keyword">break</span>;
-<span class="line-numbers">21</span>    <span class="keyword">case</span> <span class="predefined-constant">true</span>:
-<span class="line-numbers">22</span>        ret = <span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">23</span>        <span class="keyword">break</span>;
-<span class="line-numbers">24</span>    <span class="keyword">case</span> <span class="string"><span class="delimiter">"</span><span class="content">Hello</span><span class="delimiter">"</span></span>.toLowerCase():
-<span class="line-numbers">25</span>        ret = <span class="string"><span class="delimiter">"</span><span class="content">Hello</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">26</span>        <span class="keyword">break</span>;
-<span class="line-numbers">27</span>    <span class="keyword">default</span>:
-<span class="line-numbers">28</span>        ret = <span class="string"><span class="delimiter">"</span><span class="content">nothing</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">29</span>}
-<span class="line-numbers">30</span>
-<span class="line-numbers">31</span>console.log(ret);
-<span class="line-numbers">32</span>
-<span class="line-numbers">33</span><span class="comment">/*</span>
-<span class="line-numbers">34</span><span class="comment"></span>
-<span class="line-numbers">35</span><span class="comment">RETURNS "Hello"</span>
-<span class="line-numbers">36</span><span class="comment"></span>
-<span class="line-numbers">37</span><span class="comment">*/</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">hello</span><span class="delimiter">"</span></span>;
+<span class="keyword">var</span> ret;
+
+<span class="keyword">switch</span> (s) {
+
+    <span class="keyword">case</span> <span class="string"><span class="delimiter">"</span><span class="content">he</span><span class="delimiter">"</span></span>:
+        ret = <span class="string"><span class="delimiter">"</span><span class="content">he</span><span class="delimiter">"</span></span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="integer">1</span>:
+        ret = <span class="integer">1</span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="predefined-constant">true</span>:
+        ret = <span class="string"><span class="delimiter">"</span><span class="content">true</span><span class="delimiter">"</span></span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="string"><span class="delimiter">"</span><span class="content">Hello</span><span class="delimiter">"</span></span>.toLowerCase():
+        ret = <span class="string"><span class="delimiter">"</span><span class="content">Hello</span><span class="delimiter">"</span></span>;
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        ret = <span class="string"><span class="delimiter">"</span><span class="content">nothing</span><span class="delimiter">"</span></span>;
+}
+
+console.log(ret);
+
+<span class="comment">/*
+
+RETURNS "Hello"
+
+*/</span></code></pre>
 <p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found.</p>
 <p><span class="stress">While statement</span> is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
-<span class="line-numbers">11</span><span class="keyword">var</span> counter = <span class="integer">0</span>;
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="keyword">while</span> (!timetoexit) {
-<span class="line-numbers">14</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
-<span class="line-numbers">15</span>    <span class="keyword">if</span> (counter++ == <span class="integer">10</span>) timetoexit = <span class="predefined-constant">true</span>;
-<span class="line-numbers">16</span>}</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
+<span class="keyword">var</span> counter = <span class="integer">0</span>;
+
+<span class="keyword">while</span> (!timetoexit) {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
+    <span class="keyword">if</span> (counter++ == <span class="integer">10</span>) timetoexit = <span class="predefined-constant">true</span>;
+}</code></pre>
 <p>You can use the <strong>break</strong> keyword to break out of loops, like this</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
-<span class="line-numbers">11</span><span class="keyword">var</span> counter = <span class="integer">0</span>;
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="keyword">while</span> (!timetoexit) {
-<span class="line-numbers">14</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
-<span class="line-numbers">15</span>    <span class="keyword">if</span> (counter++ == <span class="integer">10</span>) <span class="keyword">break</span>;
-<span class="line-numbers">16</span>}</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
+<span class="keyword">var</span> counter = <span class="integer">0</span>;
+
+<span class="keyword">while</span> (!timetoexit) {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
+    <span class="keyword">if</span> (counter++ == <span class="integer">10</span>) <span class="keyword">break</span>;
+}</code></pre>
 <p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.</p>
 <p>Another keyword related to loop structures is the <strong>continue</strong> keyword. It causes program flow to jump also</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
-<span class="line-numbers">11</span><span class="keyword">var</span> counter = <span class="integer">0</span>;
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="keyword">while</span> (!timetoexit) {
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
-<span class="line-numbers">16</span>    <span class="keyword">if</span> (++counter == <span class="integer">10</span>) {
-<span class="line-numbers">17</span>        timetoexit = <span class="predefined-constant">true</span>;
-<span class="line-numbers">18</span>        <span class="keyword">continue</span>;   
-<span class="line-numbers">19</span>    }
-<span class="line-numbers">20</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">*</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">21</span>}</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> timetoexit = <span class="predefined-constant">false</span>;
+<span class="keyword">var</span> counter = <span class="integer">0</span>;
+
+<span class="keyword">while</span> (!timetoexit) {
+
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">counter = </span><span class="delimiter">"</span></span> + counter);
+    <span class="keyword">if</span> (++counter == <span class="integer">10</span>) {
+        timetoexit = <span class="predefined-constant">true</span>;
+        <span class="keyword">continue</span>;   
+    }
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">*</span><span class="delimiter">"</span></span>);
+}</code></pre>
 <p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed.</p>
 <p><span class="stress">For statement</span> is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.</p>
 <pre><code>
@@ -769,38 +774,38 @@ for (i = 1 ; i &lt; 10 ; i++) {
 </code></pre>
 <p>The code sample above defines the starting point at 1 (i = 1), it will stop the loop execution when <em>i &lt; 10</em>. Each time the <em>for</em> loop is evaluated, the i variable will be incremented by 1 (i++).</p>
 <p>Here is a another sample of the for loop.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> util = require(<span class="string"><span class="delimiter">'</span><span class="content">util</span><span class="delimiter">'</span></span>)
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> i = <span class="integer">1</span>;
-<span class="line-numbers">13</span><span class="keyword">var</span> j = <span class="integer">1</span>;
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span><span class="keyword">for</span> (i = <span class="integer">1</span> ; i &lt; <span class="integer">10</span>; i++) {
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>    <span class="keyword">for</span> (j =<span class="integer">1</span> ; j &lt; <span class="integer">10</span>; j++) {
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>        util.print(i * j + <span class="string"><span class="delimiter">"</span><span class="char">\t</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">20</span>
-<span class="line-numbers">21</span>    }
-<span class="line-numbers">22</span>
-<span class="line-numbers">23</span>    util.print(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">24</span>}
-<span class="line-numbers">25</span>
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span><span class="comment">/*</span>
-<span class="line-numbers">28</span><span class="comment"></span>
-<span class="line-numbers">29</span><span class="comment">RESULT</span>
-<span class="line-numbers">30</span><span class="comment"></span>
-<span class="line-numbers">31</span><span class="comment">1   2   3   4   5   6   7   8   9   </span>
-<span class="line-numbers">32</span><span class="comment">2   4   6   8   10  12  14  16  18  </span>
-<span class="line-numbers">33</span><span class="comment">3   6   9   12  15  18  21  24  27  </span>
-<span class="line-numbers">34</span><span class="comment">4   8   12  16  20  24  28  32  36  </span>
-<span class="line-numbers">35</span><span class="comment">5   10  15  20  25  30  35  40  45  </span>
-<span class="line-numbers">36</span><span class="comment">6   12  18  24  30  36  42  48  54  </span>
-<span class="line-numbers">37</span><span class="comment">7   14  21  28  35  42  49  56  63  </span>
-<span class="line-numbers">38</span><span class="comment">8   16  24  32  40  48  56  64  72  </span>
-<span class="line-numbers">39</span><span class="comment">9   18  27  36  45  54  63  72  81</span>
-<span class="line-numbers">40</span><span class="comment"></span>
-<span class="line-numbers">41</span><span class="comment">*/</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string"><span class="delimiter">'</span><span class="content">util</span><span class="delimiter">'</span></span>)
+
+<span class="keyword">var</span> i = <span class="integer">1</span>;
+<span class="keyword">var</span> j = <span class="integer">1</span>;
+
+<span class="keyword">for</span> (i = <span class="integer">1</span> ; i &lt; <span class="integer">10</span>; i++) {
+
+    <span class="keyword">for</span> (j =<span class="integer">1</span> ; j &lt; <span class="integer">10</span>; j++) {
+
+        util.print(i * j + <span class="string"><span class="delimiter">"</span><span class="char">\t</span><span class="delimiter">"</span></span>);
+
+    }
+
+    util.print(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
+}
+
+
+<span class="comment">/*
+
+RESULT
+
+1   2   3   4   5   6   7   8   9   
+2   4   6   8   10  12  14  16  18  
+3   6   9   12  15  18  21  24  27  
+4   8   12  16  20  24  28  32  36  
+5   10  15  20  25  30  35  40  45  
+6   12  18  24  30  36  42  48  54  
+7   14  21  28  35  42  49  56  63  
+8   16  24  32  40  48  56  64  72  
+9   18  27  36  45  54  63  72  81
+
+*/</span></code></pre>
 <p>This code requires the node.js library <em>util</em>. We can't use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it.</p>
 <h1 id="complex-data-types">9. Complex data types</h1>
 <p>JS has some containers (stuff that can contain other stuff, that can contain other stuff … ). We will take a look at two of them right now---Arrays and Objects. These are not simple types like Numbers or Strings or Boolean. Instead of representing single values, Objects and Arrays can represent a collection of values.</p>
@@ -815,14 +820,14 @@ for (i = 1 ; i &lt; 10 ; i++) {
 </ol>
 <p>Try your best to ignore number 3 above (at least for now) -- we will circle around that later when we get to JavaScript OOP.</p>
 <p><span class="stress">Using Object literals</span></p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> obj = {} <span class="comment">// this one constructs an empty object</span>
-<span class="line-numbers">11</span><span class="keyword">var</span> pt  = {<span class="key">x</span>:<span class="integer">0</span>, <span class="key">y</span>:<span class="integer">0</span>} <span class="comment">// an object with simple data types as members</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> person = {
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">John Doe</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">15</span>    <span class="key">email</span>: <span class="string"><span class="delimiter">"</span><span class="content">johndoe@somewhere.com</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>} <span class="comment">// an object that has two members, both of which are Strings</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> obj = {} <span class="comment">// this one constructs an empty object</span>
+<span class="keyword">var</span> pt  = {<span class="key">x</span>:<span class="integer">0</span>, <span class="key">y</span>:<span class="integer">0</span>} <span class="comment">// an object with simple data types as members</span>
+<span class="keyword">var</span> person = {
+
+    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">John Doe</span><span class="delimiter">"</span></span>,
+    <span class="key">email</span>: <span class="string"><span class="delimiter">"</span><span class="content">johndoe@somewhere.com</span><span class="delimiter">"</span></span>,
+
+} <span class="comment">// an object that has two members, both of which are Strings</span></code></pre>
 <p>When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values</p>
 <pre><code>
 person.date_hired = "some date value";
@@ -866,17 +871,17 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
 <h1 id="anonymous-functions">10. Anonymous Functions</h1>
 <p>We have already taken a look at functions earlier. At first glance, functions in Javascript does not seem too special. Like in any other language, we used it to contain a bunch of statements and gave it a name. This name, when we call them at a later time, will execute the set of commands inside its block. We use the function simply as an encapsulation unit for a sequence of statements.</p>
 <p>Functions in JavaScript has some twists that may seem weird at first (depending on where you are coming from). The dynamic characteristic of the language presents a lot of possibilites—and some suprises too. Take a look at the following code</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">function</span> <span class="function">foo</span>() {
-<span class="line-numbers">11</span>    <span class="keyword">return</span> <span class="integer">10</span>;
-<span class="line-numbers">12</span>}
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>console.log(foo());     <span class="comment">//nothing surprising here, it will return 10</span>
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span>foo = <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>;    <span class="comment">//This is allowed in JS, because it is not strongly typed</span>
-<span class="line-numbers">17</span>console.log(foo);       <span class="comment">//This will now output "Hello World". It has already forgotten that it was a function</span>
-<span class="line-numbers">18</span>                        <span class="comment">//befor</span>
-<span class="line-numbers">19</span>
-<span class="line-numbers">20</span>console.log(foo());     <span class="comment">//this one will throw an error, because foo is no longer a function</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">function</span> <span class="function">foo</span>() {
+    <span class="keyword">return</span> <span class="integer">10</span>;
+}
+
+console.log(foo());     <span class="comment">//nothing surprising here, it will return 10</span>
+
+foo = <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>;    <span class="comment">//This is allowed in JS, because it is not strongly typed</span>
+console.log(foo);       <span class="comment">//This will now output "Hello World". It has already forgotten that it was a function</span>
+                        <span class="comment">//befor</span>
+
+console.log(foo());     <span class="comment">//this one will throw an error, because foo is no longer a function</span></code></pre>
 <p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
 <pre><code>
 var foo = function() {
@@ -889,215 +894,215 @@ console.log(foo()); //returns 10
 <h1 id="objects-again">11. Objects, again</h1>
 <p>A few things we need to remember (or know for the first time) about objects.</p>
 <p><span class="stress">1. Objects in JS are reference types</span>, they are not value types, you can declare as many reference variables pointing to the exact same object</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">//filename: multiref.js</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> obj1 = {
-<span class="line-numbers">13</span>    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">firstobject</span><span class="delimiter">"</span></span>
-<span class="line-numbers">14</span>}
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span><span class="keyword">var</span> obj2 = obj1; <span class="comment">// both obj1 and obj2 reference var is pointing to the same object</span>
-<span class="line-numbers">17</span>console.log(obj2.name); <span class="comment">//exact same property as obj1</span>
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>obj2.anothername = <span class="string"><span class="delimiter">"</span><span class="content">still first object</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">20</span>console.log(obj1.anothername); <span class="comment">//obj1 should have "anothername" as well, because </span>
-<span class="line-numbers">21</span>                               <span class="comment">//object 2 is pointing to the same object </span>
-<span class="line-numbers">22</span>                               <span class="comment">//being referenced by obj1</span></code></pre>
+<pre><code class="language-javascript"><span class="comment">//filename: multiref.js</span>
+
+<span class="keyword">var</span> obj1 = {
+    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">firstobject</span><span class="delimiter">"</span></span>
+}
+
+<span class="keyword">var</span> obj2 = obj1; <span class="comment">// both obj1 and obj2 reference var is pointing to the same object</span>
+console.log(obj2.name); <span class="comment">//exact same property as obj1</span>
+
+obj2.anothername = <span class="string"><span class="delimiter">"</span><span class="content">still first object</span><span class="delimiter">"</span></span>;
+console.log(obj1.anothername); <span class="comment">//obj1 should have "anothername" as well, because </span>
+                               <span class="comment">//object 2 is pointing to the same object </span>
+                               <span class="comment">//being referenced by obj1</span></code></pre>
 <p><span class="stress">2. Some object's structure can be modified (mutable)</span>. An array is actually an object, it is a good example of an object that is mutable. Mutability means that as you modify the content or structure of the object, it does not spawn or create newer objects. It modifies the original object that was created.</p>
 <p><span class="stress">3. And then, some objects cannot be modified (immutable)</span>. The String objects that you create are such examples of immutable objects in JS. To add this list, Numbers and Booleans (when wrapped) are also immutable. What this means is that if you apply transformations to immutable objects, they will not modify the original object that was created. The transformation will cause the object to create a new object.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> assert = require(<span class="string"><span class="delimiter">'</span><span class="content">assert</span><span class="delimiter">'</span></span>);
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">A String</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">13</span><span class="keyword">var</span> stemp = s;  <span class="comment">//s and stemp points to "A String"</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span>assert(stemp == s, <span class="string"><span class="delimiter">"</span><span class="content">checking is s is equal to stemp</span><span class="delimiter">"</span></span>); <span class="comment">// result is ok</span>
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>s = s + <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>assert(stemp == s, <span class="string"><span class="delimiter">"</span><span class="content">checking is s is equal to stemp</span><span class="delimiter">"</span></span>); <span class="comment">// result not ok</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> assert = require(<span class="string"><span class="delimiter">'</span><span class="content">assert</span><span class="delimiter">'</span></span>);
+
+<span class="keyword">var</span> s = <span class="string"><span class="delimiter">"</span><span class="content">A String</span><span class="delimiter">"</span></span>;
+<span class="keyword">var</span> stemp = s;  <span class="comment">//s and stemp points to "A String"</span>
+
+assert(stemp == s, <span class="string"><span class="delimiter">"</span><span class="content">checking is s is equal to stemp</span><span class="delimiter">"</span></span>); <span class="comment">// result is ok</span>
+
+s = s + <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>;
+
+assert(stemp == s, <span class="string"><span class="delimiter">"</span><span class="content">checking is s is equal to stemp</span><span class="delimiter">"</span></span>); <span class="comment">// result not ok</span></code></pre>
 <p>If Strings are mutable, then the second assert would not have failed. The references "s" and "stemp" are simply no longer pointing to the same object. Any transformation that you apply on an immutable object will cause the creation of a new object, the original content plus any transformation you applied will now be contained inside the new object. By the way, <strong>assert</strong> works pretty much like a test for truth or falsity, but it behaves violently. When the expression inside the assert (the asserted value) does not evaluate to true, your code will fail with a pretty ugly run-time error. Defensive programmers use this to test their codes mercilessly, better that the code fails during development time, rather than the code failing in front of hte users.</p>
 <span class="stress">4. Pass by Reference</span>a href=""&gt;
 <p>
 
 </p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">function</span> <span class="function">Base</span>() {
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span>    <span class="local-variable">this</span>.prop1 = <span class="string"><span class="delimiter">"</span><span class="content">Property 1</span><span class="delimiter">"</span></span>
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span>}
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span><span class="keyword">var</span> a = <span class="keyword">new</span> Base();     <span class="comment">// Property 1</span>
-<span class="line-numbers">17</span>console.log(a.prop1);
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>paramPass(a);
-<span class="line-numbers">20</span>console.log(a.prop1);   <span class="comment">// Altered prop1</span>
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span>
-<span class="line-numbers">23</span><span class="keyword">function</span> <span class="function">paramPass</span>(arg) {
-<span class="line-numbers">24</span>    arg.prop1 = <span class="string"><span class="delimiter">"</span><span class="content">Altered prop1</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">25</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">While inside ParamPass : Base.prop1 = </span><span class="delimiter">"</span></span> + arg.prop1 );
-<span class="line-numbers">26</span>    <span class="comment">// this outputs Altered prop1</span>
-<span class="line-numbers">27</span>    <span class="keyword">return</span> <span class="integer">0</span>;
-<span class="line-numbers">28</span>}</code></pre>
+<pre><code class="language-javascript"><span class="keyword">function</span> <span class="function">Base</span>() {
+
+    <span class="local-variable">this</span>.prop1 = <span class="string"><span class="delimiter">"</span><span class="content">Property 1</span><span class="delimiter">"</span></span>
+
+}
+
+<span class="keyword">var</span> a = <span class="keyword">new</span> Base();     <span class="comment">// Property 1</span>
+console.log(a.prop1);
+
+paramPass(a);
+console.log(a.prop1);   <span class="comment">// Altered prop1</span>
+
+
+<span class="keyword">function</span> <span class="function">paramPass</span>(arg) {
+    arg.prop1 = <span class="string"><span class="delimiter">"</span><span class="content">Altered prop1</span><span class="delimiter">"</span></span>;
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">While inside ParamPass : Base.prop1 = </span><span class="delimiter">"</span></span> + arg.prop1 );
+    <span class="comment">// this outputs Altered prop1</span>
+    <span class="keyword">return</span> <span class="integer">0</span>;
+}</code></pre>
 <p>When you pass object references to functions as parameters, whatever changes you make to the object (that was passed) will endure even after the function goes out of execution scope.</p>
 <h1 id="objects-with-functions">12. Objects with Functions</h1>
 <p>Objects are easy to create, construct and modify in JS. Adding a property to an object takes nothing more than declarating the name of the property (attached to the object using the dot notation), then simply assigning a value to to it. Just don't forget that objects in JS are like hash tables, each member of the object is a pair of data, the first one is the key and the second one is the value.</p>
 <p>You can put any type of member inside an object. A member could be any data type in JS, simple data or complex data—which means you can put another object inside another object. This is the part we need to make a leap on our JS knowledge. <strong>Functions</strong> in JS are objects as well, that's right. Which means, we can put functions inside objects, and when functions are inside objects, they become methods of the objects.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// file: obj3.js</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">var</span> employee =  {
-<span class="line-numbers">13</span>    
-<span class="line-numbers">14</span>    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
-<span class="line-numbers">15</span>    <span class="function">work</span>: <span class="keyword">function</span>() {
-<span class="line-numbers">16</span>        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
-<span class="line-numbers">17</span>    }
-<span class="line-numbers">18</span>}
-<span class="line-numbers">19</span>
-<span class="line-numbers">20</span>employee.work();</code></pre>
+<pre><code class="language-javascript"><span class="comment">// file: obj3.js</span>
+
+<span class="keyword">var</span> employee =  {
+    
+    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
+    <span class="function">work</span>: <span class="keyword">function</span>() {
+        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
+    }
+}
+
+employee.work();</code></pre>
 <p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named "work". When we invoked the <em>work()</em> property as function—as we should, because it is a function, it then executed whatever was defined inside the function block.</p>
 <p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> employee =  {
-<span class="line-numbers">11</span>    
-<span class="line-numbers">12</span>    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
-<span class="line-numbers">13</span>    <span class="function">work</span>: <span class="keyword">function</span>() {
-<span class="line-numbers">14</span>        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
-<span class="line-numbers">15</span>    }
-<span class="line-numbers">16</span>}
-<span class="line-numbers">17</span>
-<span class="line-numbers">18</span>employee.work();
-<span class="line-numbers">19</span>
-<span class="line-numbers">20</span><span class="keyword">var</span> rommel = {};
-<span class="line-numbers">21</span>rommel.name = <span class="string"><span class="delimiter">"</span><span class="content">Rommel</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">22</span>rommel.<span class="function">work</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">23</span>    console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">24</span>}
-<span class="line-numbers">25</span>
-<span class="line-numbers">26</span>rommel.work();</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> employee =  {
+    
+    <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
+    <span class="function">work</span>: <span class="keyword">function</span>() {
+        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
+    }
+}
+
+employee.work();
+
+<span class="keyword">var</span> rommel = {};
+rommel.name = <span class="string"><span class="delimiter">"</span><span class="content">Rommel</span><span class="delimiter">"</span></span>;
+rommel.<span class="function">work</span> = <span class="keyword">function</span>() {
+    console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>);
+}
+
+rommel.work();</code></pre>
 <p>While this is perfectly legal to do, the idiom used in creating the <em>rommel</em> object is bit bitter to the taste, surely, there has to be a way to achieve some sort <em>Object factory</em> idiom in JS. The code is too malleable (it could be a good thing though). It seems that following this idiom, one can pretty much add properties as you go along. I am sure there is a class of problems where this kind of flexibility and malleability is desired, probably necessary even. Coming from a language that supported classical OOP (like Java), it can send some chill on the spine knowing that I could easily change properties of my object anywhere in the code. Fortunately, JS is very orthogonal language—there are lots of ways of achieving same results, so let's look for something more palatable for classical OO programmers.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// Employee object: Template</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">function</span> <span class="function">Employee</span>(name,id, dept) {
-<span class="line-numbers">13</span>    <span class="local-variable">this</span>.name = name;
-<span class="line-numbers">14</span>    <span class="local-variable">this</span>.id = id;
-<span class="line-numbers">15</span>    <span class="local-variable">this</span>.dept = dept;   
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>    <span class="local-variable">this</span>.<span class="function">work</span> = <span class="keyword">function</span> () {
-<span class="line-numbers">18</span>        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
-<span class="line-numbers">19</span>    }
-<span class="line-numbers">20</span>
-<span class="line-numbers">21</span>}
-<span class="line-numbers">22</span>
-<span class="line-numbers">23</span><span class="comment">// Company object: Template</span>
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span><span class="keyword">function</span> <span class="function">Company</span>() {
-<span class="line-numbers">26</span>    <span class="local-variable">this</span>.employees = [];
-<span class="line-numbers">27</span>    
-<span class="line-numbers">28</span>    <span class="local-variable">this</span>.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
-<span class="line-numbers">29</span>        <span class="local-variable">this</span>.employees.push(employee);
-<span class="line-numbers">30</span>    }
-<span class="line-numbers">31</span>    
-<span class="line-numbers">32</span>    <span class="local-variable">this</span>.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">33</span>        arrlength = <span class="local-variable">this</span>.employees.length;
-<span class="line-numbers">34</span>        <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
-<span class="line-numbers">35</span>            console.log(<span class="local-variable">this</span>.employees[i]);
-<span class="line-numbers">36</span>        }
-<span class="line-numbers">37</span>    }   
-<span class="line-numbers">38</span>}
-<span class="line-numbers">39</span>
-<span class="line-numbers">40</span>
-<span class="line-numbers">41</span><span class="keyword">var</span> ted = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Ted H</span><span class="delimiter">"</span></span>, <span class="integer">39</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span> );
-<span class="line-numbers">42</span><span class="keyword">var</span> kit = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Kit A</span><span class="delimiter">"</span></span>, <span class="integer">31</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">43</span><span class="keyword">var</span> pepper = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Pepper F</span><span class="delimiter">"</span></span>, <span class="integer">2</span>, <span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">44</span>
-<span class="line-numbers">45</span><span class="keyword">var</span> rd = <span class="keyword">new</span> Company();
-<span class="line-numbers">46</span>
-<span class="line-numbers">47</span>
-<span class="line-numbers">48</span>rd.recruit(ted);
-<span class="line-numbers">49</span>rd.recruit(kit);
-<span class="line-numbers">50</span>rd.recruit(pepper);
-<span class="line-numbers">51</span>
-<span class="line-numbers">52</span>rd.listEmployees();</code></pre>
+<pre><code class="language-javascript"><span class="comment">// Employee object: Template</span>
+
+<span class="keyword">function</span> <span class="function">Employee</span>(name,id, dept) {
+    <span class="local-variable">this</span>.name = name;
+    <span class="local-variable">this</span>.id = id;
+    <span class="local-variable">this</span>.dept = dept;   
+
+    <span class="local-variable">this</span>.<span class="function">work</span> = <span class="keyword">function</span> () {
+        console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
+    }
+
+}
+
+<span class="comment">// Company object: Template</span>
+
+<span class="keyword">function</span> <span class="function">Company</span>() {
+    <span class="local-variable">this</span>.employees = [];
+    
+    <span class="local-variable">this</span>.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
+        <span class="local-variable">this</span>.employees.push(employee);
+    }
+    
+    <span class="local-variable">this</span>.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
+        arrlength = <span class="local-variable">this</span>.employees.length;
+        <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
+            console.log(<span class="local-variable">this</span>.employees[i]);
+        }
+    }   
+}
+
+
+<span class="keyword">var</span> ted = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Ted H</span><span class="delimiter">"</span></span>, <span class="integer">39</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span> );
+<span class="keyword">var</span> kit = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Kit A</span><span class="delimiter">"</span></span>, <span class="integer">31</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span>);
+<span class="keyword">var</span> pepper = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Pepper F</span><span class="delimiter">"</span></span>, <span class="integer">2</span>, <span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span>);
+
+<span class="keyword">var</span> rd = <span class="keyword">new</span> Company();
+
+
+rd.recruit(ted);
+rd.recruit(kit);
+rd.recruit(pepper);
+
+rd.listEmployees();</code></pre>
 <p>The preceding code feels a bit firmer than the one before it. This code used the function as some sort of constructor (actually, it is called exactly that, a function constructor). JavaScript does not have class mechanisms like Java or C++. Code reuse is not achieved by class extensions, but rather by Object extensions. By the way, this last code we just did sure looks a lot like the class mechanism, if you could just get over the fact that it said <strong>function</strong> rather than <em>class</em>.</p>
 <p>There a couple of things we need to talk about in this code, specifically they keyword <strong>this</strong>, but before we go there, let's look at another code, it is exactly the <em>Employee</em> and <em>Company</em> constructor code also, but with a bit of modification.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// Company.js</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="comment">// Employee object: Template</span>
-<span class="line-numbers">13</span>
-<span class="line-numbers">14</span><span class="keyword">function</span> <span class="function">Employee</span>(name,id, dept) {
-<span class="line-numbers">15</span>    <span class="local-variable">this</span>.name = name;
-<span class="line-numbers">16</span>    <span class="local-variable">this</span>.id = id;
-<span class="line-numbers">17</span>    <span class="local-variable">this</span>.dept = dept;   
-<span class="line-numbers">18</span>}
-<span class="line-numbers">19</span>
-<span class="line-numbers">20</span>Employee.prototype.<span class="function">work</span> = <span class="keyword">function</span> () {
-<span class="line-numbers">21</span>    console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
-<span class="line-numbers">22</span>}
-<span class="line-numbers">23</span>
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span><span class="comment">// Company object: Template</span>
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span><span class="keyword">function</span> <span class="function">Company</span>() {
-<span class="line-numbers">28</span>    <span class="local-variable">this</span>.employees = [];
-<span class="line-numbers">29</span>}
-<span class="line-numbers">30</span>
-<span class="line-numbers">31</span>Company.prototype.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
-<span class="line-numbers">32</span>    <span class="local-variable">this</span>.employees.push(employee);
-<span class="line-numbers">33</span>}
-<span class="line-numbers">34</span>
-<span class="line-numbers">35</span>Company.prototype.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">36</span>    arrlength = <span class="local-variable">this</span>.employees.length;
-<span class="line-numbers">37</span>    <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
-<span class="line-numbers">38</span>        console.log(<span class="local-variable">this</span>.employees[i]);
-<span class="line-numbers">39</span>    }
-<span class="line-numbers">40</span>}
-<span class="line-numbers">41</span>
-<span class="line-numbers">42</span><span class="keyword">var</span> ted = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Ted H</span><span class="delimiter">"</span></span>, <span class="integer">39</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span> );
-<span class="line-numbers">43</span><span class="keyword">var</span> kit = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Kit A</span><span class="delimiter">"</span></span>, <span class="integer">31</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">44</span><span class="keyword">var</span> pepper = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Pepper F</span><span class="delimiter">"</span></span>, <span class="integer">2</span>, <span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">45</span>
-<span class="line-numbers">46</span><span class="keyword">var</span> rd = <span class="keyword">new</span> Company();
-<span class="line-numbers">47</span>
-<span class="line-numbers">48</span>
-<span class="line-numbers">49</span>rd.recruit(ted);
-<span class="line-numbers">50</span>rd.recruit(kit);
-<span class="line-numbers">51</span>rd.recruit(pepper);
-<span class="line-numbers">52</span>
-<span class="line-numbers">53</span>rd.listEmployees();</code></pre>
+<pre><code class="language-javascript"><span class="comment">// Company.js</span>
+
+<span class="comment">// Employee object: Template</span>
+
+<span class="keyword">function</span> <span class="function">Employee</span>(name,id, dept) {
+    <span class="local-variable">this</span>.name = name;
+    <span class="local-variable">this</span>.id = id;
+    <span class="local-variable">this</span>.dept = dept;   
+}
+
+Employee.prototype.<span class="function">work</span> = <span class="keyword">function</span> () {
+    console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
+}
+
+
+<span class="comment">// Company object: Template</span>
+
+<span class="keyword">function</span> <span class="function">Company</span>() {
+    <span class="local-variable">this</span>.employees = [];
+}
+
+Company.prototype.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
+    <span class="local-variable">this</span>.employees.push(employee);
+}
+
+Company.prototype.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
+    arrlength = <span class="local-variable">this</span>.employees.length;
+    <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
+        console.log(<span class="local-variable">this</span>.employees[i]);
+    }
+}
+
+<span class="keyword">var</span> ted = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Ted H</span><span class="delimiter">"</span></span>, <span class="integer">39</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span> );
+<span class="keyword">var</span> kit = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Kit A</span><span class="delimiter">"</span></span>, <span class="integer">31</span>, <span class="string"><span class="delimiter">"</span><span class="content">swd</span><span class="delimiter">"</span></span>);
+<span class="keyword">var</span> pepper = <span class="keyword">new</span> Employee(<span class="string"><span class="delimiter">"</span><span class="content">Pepper F</span><span class="delimiter">"</span></span>, <span class="integer">2</span>, <span class="string"><span class="delimiter">"</span><span class="content">admin</span><span class="delimiter">"</span></span>);
+
+<span class="keyword">var</span> rd = <span class="keyword">new</span> Company();
+
+
+rd.recruit(ted);
+rd.recruit(kit);
+rd.recruit(pepper);
+
+rd.listEmployees();</code></pre>
 <p>
 
 </p>
 <h1 id="inheritance">13. Inheritance</h1>
 <p>You can use JavaScript pretty much in a procedural way--what I mean by that is, without using coarse grained abstractions for interesting objects of your problem domain--but as soon as you find yourself coding way past 300 lines of code (give or take a 100 lines), you might find yourself in a (pretty) mess. The code becomes incresingly complex and increasingly difficult to change or introduce new features. Soon you need to find a way to compartmentalize the mess, you will still deal with the mess, but with OO abstractions, the messes are in bigger boxes. Inheritance is one of the bigger concepts in OO programming, here's one way to do them in JS.</p>
 <p>[TO DO: Finish the section above with a really simplified explanation of OO abstractions and how to use them in JavaScript]</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> <span class="function">Person</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">11</span>    <span class="local-variable">this</span>.<span class="function">work</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">12</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Person working</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">13</span>    }
-<span class="line-numbers">14</span>    <span class="local-variable">this</span>.<span class="function">managing</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">15</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">should not be implemented here</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">16</span>    }
-<span class="line-numbers">17</span>}
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span><span class="keyword">var</span> <span class="function">Manager</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">20</span>    <span class="local-variable">this</span>.<span class="function">managing</span> = <span class="keyword">function</span>() {
-<span class="line-numbers">21</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">am managing</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">22</span>    }
-<span class="line-numbers">23</span>}
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span>Manager.prototype = <span class="keyword">new</span> Person;
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span><span class="keyword">var</span> m = <span class="keyword">new</span> Manager();
-<span class="line-numbers">28</span>m.work();       <span class="comment">// Person working</span>
-<span class="line-numbers">29</span>m.managing();   <span class="comment">// am managing</span>
-<span class="line-numbers">30</span>
-<span class="line-numbers">31</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">Keys : </span><span class="delimiter">"</span></span> + Object.keys(m));
-<span class="line-numbers">32</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">isPrototypeOf manager : </span><span class="delimiter">"</span></span> + Person.prototype.isPrototypeOf(m)); 
-<span class="line-numbers">33</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">getPrototypeOf m : </span><span class="delimiter">"</span></span> + Object.getPrototypeOf(m));
-<span class="line-numbers">34</span>
-<span class="line-numbers">35</span>
-<span class="line-numbers">36</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Manager  :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Manager)); <span class="comment">//true</span>
-<span class="line-numbers">37</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Person   :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Person)); <span class="comment">//true</span>
-<span class="line-numbers">38</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instance of Object  :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Object)); <span class="comment">//true</span>
-<span class="line-numbers">39</span>console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Function :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Function)); <span class="comment">//false</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> <span class="function">Person</span> = <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.<span class="function">work</span> = <span class="keyword">function</span>() {
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Person working</span><span class="delimiter">"</span></span>);
+    }
+    <span class="local-variable">this</span>.<span class="function">managing</span> = <span class="keyword">function</span>() {
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">should not be implemented here</span><span class="delimiter">"</span></span>);
+    }
+}
+
+<span class="keyword">var</span> <span class="function">Manager</span> = <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.<span class="function">managing</span> = <span class="keyword">function</span>() {
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">am managing</span><span class="delimiter">"</span></span>);
+    }
+}
+
+Manager.prototype = <span class="keyword">new</span> Person;
+
+<span class="keyword">var</span> m = <span class="keyword">new</span> Manager();
+m.work();       <span class="comment">// Person working</span>
+m.managing();   <span class="comment">// am managing</span>
+
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">Keys : </span><span class="delimiter">"</span></span> + Object.keys(m));
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">isPrototypeOf manager : </span><span class="delimiter">"</span></span> + Person.prototype.isPrototypeOf(m)); 
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">getPrototypeOf m : </span><span class="delimiter">"</span></span> + Object.getPrototypeOf(m));
+
+
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Manager  :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Manager)); <span class="comment">//true</span>
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Person   :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Person)); <span class="comment">//true</span>
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instance of Object  :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Object)); <span class="comment">//true</span>
+console.log(<span class="string"><span class="delimiter">"</span><span class="content">m instanceof Function :</span><span class="delimiter">"</span></span> + (m <span class="keyword">instanceof</span> Function)); <span class="comment">//false</span></code></pre>
 <p>JavaScript is an OO language but it is not class-based. There are no templates (classes) you can use to create objects. Objects, in JavaScript are created using other objects; more specifically, they are created using the function object. There is a way to create an object in JS using a literal, but we are not interested in those, we are interested in objects created using constructor functions.</p>
 <p>When you create a constructor function (like Manager and Person, in the examples above), they will have a property called <em>prototype</em>. A prototype is an object whose properties are shared by all the objects that have that prototype . In the example above, Manager inherits from Person via the code <strong>Manager.prototype = new Person</strong>. Whatever Person have, Manager will also have.</p>
 <p>To override an inherited method, simply redefine (reimplement) the method in inheriting class (the child class), that makes the method polymorphic. When you invoke a method against an object, the method will be searched (first) on the child class, if the method is not found, the search will go up the prototype chain until the method definition is found.</p>
@@ -1105,27 +1110,27 @@ console.log(foo()); //returns 10
 <p>[TODO: finish this section]</p>
 <h1 id="javascript-in-the-browser">15. JavaScript in the browser</h1>
 <p>So far, by far, the JavaScript we have been doing lives on the CLI (Command Line Interface), it actually lives on the Node.JS runtime, to be specific. JavaScript also lives in the browser.</p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span><span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">16</span><span class="inline">    document.write(<span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">17</span><span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">20</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span> 
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+<span class="inline">    document.write(<span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>);</span>
+<span class="tag">&lt;/script&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>JavaScript lives inside the <em>script</em> tag of an HTML page, in this example, the JavaScript code is inline, meaning it is written on the same source file where the HTML codes are also written in.</p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">14</span>
-<span class="line-numbers">15</span><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">hellojavascript.js</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">18</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">hellojavascript.js</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>In this example, the script element has an src attribute which is given a value "hellojavascript.js"---this is a JavaScript source file. You can write whatever legal JavaScript statements in that source file.</p>
 <p>The code document.write() , when executed, will erase the whole content of the HTML page (specifically the whole of the body element) and then replace it with whatever you supplied as parameter to the write() method—that's probably not what you would like to do, so be careful using that command, you normally see that code on introductory codes of JavaScript on the browser so that you can quickly get a tactile feel of JS coding. In order to produce dynamic HTML with JavaScript you will need to know a little bit about the DOM (Document Object Model).</p>
 An HTML page is composed tags (elements) which in turn can contain other elements. If element1 contains element2 and element3, the relationship between these elements is that; element2 and element3 are child nodes of element1, another way of saying it is that, element1 is the parent node of element2 and element3. If you try to picture the relationship of HTML elements to one another, it might resemble something like a tree structure. The trunk, the main node is the
@@ -1138,53 +1143,53 @@ and
 <p>The document object model allows you programmatic access to these elements and their attributes. Navigating the DOM is an essential skill of a JavaScript programmer. Below is a rough pictorial representation of DOM (Level 0)</p>
 <img src="/res/article-pix/notes-javascript/dom-level-0.png" width="550"><p>Each node in the DOM is an object, so you can use the dot notation to reference each element. The root element of the DOM is the window object, this is the most global space in client-side JavaScript. It has many child nodes, you have already seen one of them in action a while back, the document object. When we wrote document.write(), we actually meant window.document.write(), but we don't have the write the window object explicitly.</p>
 <p>I already mentioned that each node in the DOM is an object, which means if you want to do something to one of elements, you need to know their methods so you can do something meaningful to them.</p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">12</span>    <span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">13</span>        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>     
-<span class="line-numbers">14</span>    <span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">15</span>    <span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">16</span>        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">17</span>    
-<span class="line-numbers">18</span>        <span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">19</span>
-<span class="line-numbers">20</span>        <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">21</span><span class="inline"></span>
-<span class="line-numbers">22</span><span class="inline">        <span class="keyword">var</span> out = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">23</span><span class="inline">        out.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>;</span>
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span>        <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">26</span>
-<span class="line-numbers">27</span>    <span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">28</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+    <span class="tag">&lt;head&gt;</span>
+        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>     
+    <span class="tag">&lt;/head&gt;</span>
+    <span class="tag">&lt;body&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    
+        <span class="tag">&lt;/div&gt;</span>
+
+        <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+        <span class="keyword">var</span> out = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);
+        out.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>;</span>
+
+        <span class="tag">&lt;/script&gt;</span>
+
+    <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>The document object has a method---which you will use quite a lot---the getElementById(). It is used to locate an HTML element that has a specific ID. When the element is found, a programmatic reference to that object is returned. After that, you can call the methods of the HTML element. In the example above, a div named "watch" was defined in the HTML. You can use document.getElementById("watch") to obtain an object reference to that div just like what we did on the sample code. The innerHTML is a property of any div element, this is a read-write property so you can pretty much use it like this</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> x = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">11</span>x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Writing to the div</span><span class="delimiter">"</span></span>;  <span class="comment">// writes to the div</span>
-<span class="line-numbers">12</span>
-<span class="line-numbers">13</span><span class="keyword">var</span> y = x.innerHTML; <span class="comment">// reading the runtime content of the div</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> x = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);
+x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Writing to the div</span><span class="delimiter">"</span></span>;  <span class="comment">// writes to the div</span>
+
+<span class="keyword">var</span> y = x.innerHTML; <span class="comment">// reading the runtime content of the div</span></code></pre>
 <p>Let's re-arrange the codes in our sample</p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">12</span>    <span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">13</span>        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>     
-<span class="line-numbers">14</span>    <span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">15</span>    <span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">16</span>
-<span class="line-numbers">17</span>        <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">18</span><span class="inline"></span>
-<span class="line-numbers">19</span><span class="inline">        <span class="keyword">var</span> out = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">20</span><span class="inline">        out.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>;</span>
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span>        <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">23</span>
-<span class="line-numbers">24</span>        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">25</span>    
-<span class="line-numbers">26</span>        <span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">27</span>
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>
-<span class="line-numbers">30</span>    <span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">31</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+    <span class="tag">&lt;head&gt;</span>
+        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>     
+    <span class="tag">&lt;/head&gt;</span>
+    <span class="tag">&lt;body&gt;</span>
+
+        <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+        <span class="keyword">var</span> out = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);
+        out.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hello JavaScript</span><span class="delimiter">"</span></span>;</span>
+
+        <span class="tag">&lt;/script&gt;</span>
+
+        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    
+        <span class="tag">&lt;/div&gt;</span>
+
+
+
+    <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>In this version, the script comes before the div definition, if you run this code, you will see nothing---because there will be an error. The variable out will contain null. The reason for this is because we tried to obtain an object reference to a div element which does not exist yet. The div "watch" must be defined and loaded in the DOM before we can obtain a programming reference to it. It is time to step back a little bit and try to get some more understanding of how the browser, DOM, and JavaScript works.</p>
 <img src="/res/article-pix/notes-javascript/dom-javascript-rendering.png" width="275" style="float:left; padding-right:65px; padding-top:5px; padding-bottom:10px; padding-left:50px"><p>When a web page is received by browser, it will go to work by scanning through all the HTML elements in the page. It will be interrupted shortly when it encounters elements that have an src attribute, because that attribute means that whatever information follows the src, it is not part of the current document being rendered---the browser will make another roundtrip requesting the resource from the server, then coming back again. This is the reason why sometimes, the browser seems to load for a very long time, because it is trying to complete all the elements in the web page. If the element has an src attribute, it will be fetched before the browser can complete rendering the complete DOM.</p>
 <p>The other occassion when the browser will stop rendering the DOM is when it encounters the &lt;script&gt; element. JavaScript has the ability to alter the DOM, that is why the browser needs to suspend operation when a JavaScript code is running. When the script is done, the DOM rendering can resume.</p>
@@ -1226,59 +1231,59 @@ and
 <h3 id="by-binding-the-event-using-the-attribute-of-an-html-element">15.1.1 By binding the event using the attribute of an HTML element</h3>
 <p>
 </p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span>    <span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">14</span>        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">15</span>        <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">16</span><span class="inline"></span>
-<span class="line-numbers">17</span><span class="inline">        <span class="keyword">function</span> <span class="function">btnClick</span>() {</span>
-<span class="line-numbers">18</span><span class="inline">            <span class="keyword">var</span> x = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">19</span><span class="inline">            x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hi World</span><span class="delimiter">"</span></span>;</span>
-<span class="line-numbers">20</span><span class="inline">        }</span>
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span>        <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">23</span>
-<span class="line-numbers">24</span>    <span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">25</span>    <span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">26</span>        <span class="tag">&lt;form&gt;</span>
-<span class="line-numbers">27</span>        <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">button</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me to see</span><span class="delimiter">"</span></span> <span class="attribute-name">onclick</span>=<span class="inline"><span class="inline-delimiter">"</span>btnClick()<span class="inline-delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">28</span>        <span class="tag">&lt;/form&gt;</span>
-<span class="line-numbers">29</span>
-<span class="line-numbers">30</span>        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">31</span>    <span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">32</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+    <span class="tag">&lt;head&gt;</span>
+        <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+        <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+        <span class="keyword">function</span> <span class="function">btnClick</span>() {
+            <span class="keyword">var</span> x = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>);
+            x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hi World</span><span class="delimiter">"</span></span>;
+        }</span>
+
+        <span class="tag">&lt;/script&gt;</span>
+
+    <span class="tag">&lt;/head&gt;</span>
+    <span class="tag">&lt;body&gt;</span>
+        <span class="tag">&lt;form&gt;</span>
+        <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">button</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me to see</span><span class="delimiter">"</span></span> <span class="attribute-name">onclick</span>=<span class="inline"><span class="inline-delimiter">"</span>btnClick()<span class="inline-delimiter">"</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;/form&gt;</span>
+
+        <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>The onClick attribute of the input element is assigned a name of the JavaScript function. When the user clicks the button, btnClick() will be called. This is fine if you are experimenting on JavaScript, but this style of coding is obstrusive, it sullies the HTML code.</p>
 <h3 id="using-callbacks-programmatically">15.1.2 using callbacks programmatically</h3>
 <p>
 
 </p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">14</span>    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">15</span>    <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">16</span><span class="inline"></span>
-<span class="line-numbers">17</span><span class="inline">    window.<span class="function">onload</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">18</span><span class="inline">        <span class="keyword">var</span> btn = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">btn</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">19</span><span class="inline">        btn.<span class="function">onclick</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">20</span><span class="inline">            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>).innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hi World</span><span class="delimiter">"</span></span>;</span>
-<span class="line-numbers">21</span><span class="inline">        }</span>
-<span class="line-numbers">22</span><span class="inline">    }</span>
-<span class="line-numbers">23</span>
-<span class="line-numbers">24</span>
-<span class="line-numbers">25</span>    <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">26</span><span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">27</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">28</span>    <span class="tag">&lt;form&gt;</span>
-<span class="line-numbers">29</span>    <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">button</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me to see</span><span class="delimiter">"</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">btn</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
-<span class="line-numbers">30</span>    <span class="tag">&lt;/form&gt;</span>
-<span class="line-numbers">31</span>
-<span class="line-numbers">32</span>    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">33</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">34</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+    window.<span class="function">onload</span> = <span class="keyword">function</span>(){
+        <span class="keyword">var</span> btn = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">btn</span><span class="delimiter">"</span></span>);
+        btn.<span class="function">onclick</span> = <span class="keyword">function</span>(){
+            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>).innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Hi World</span><span class="delimiter">"</span></span>;
+        }
+    }</span>
+
+
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;form&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">button</span><span class="delimiter">"</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me to see</span><span class="delimiter">"</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">btn</span><span class="delimiter">"</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/form&gt;</span>
+
+    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>The second version of our code is a bit cleaner. There are no programming instructions on the input element, just styling and bare instructions. The onclick event was bound to the button entirely inside the &lt;script&gt; element. All of our logic are wrapped inside the window.onload callback because we need the DOM to have completely rendered before we get a reference to both the div and the button input element.</p>
 <p>Most input elements of the DOM have the onclick event, you can even use it on document object itself, if you want to.</p>
 <p>I really did not intend to list down all of the input elements and their events in this page because you can easily access that information elsewhere (a book perhaps, although I think will try to google it first, before reading a JavaScript book), however, to get started quickly without being constantly being stopped by syntax issues, here are some of the most common events that you might need.</p>
@@ -1296,151 +1301,151 @@ and
 <p>
 
 </p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">14</span>    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">15</span>    <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">16</span><span class="inline"></span>
-<span class="line-numbers">17</span><span class="inline">    window.<span class="function">onload</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">18</span><span class="inline"></span>
-<span class="line-numbers">19</span><span class="inline">        <span class="keyword">var</span> txtobj = document.forms[<span class="integer">0</span>].elements[<span class="string"><span class="delimiter">"</span><span class="content">txtarea1</span><span class="delimiter">"</span></span>];</span>
-<span class="line-numbers">20</span><span class="inline"></span>
-<span class="line-numbers">21</span><span class="inline">        txtobj.<span class="function">onkeyup</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">22</span><span class="inline">            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>).innerHTML = txtobj.value;</span>
-<span class="line-numbers">23</span><span class="inline">        }</span>
-<span class="line-numbers">24</span><span class="inline">    }</span>
-<span class="line-numbers">25</span>    <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">26</span><span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">27</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span><span class="tag">&lt;form</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">objform</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">30</span>    <span class="tag">&lt;textarea</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">txtarea1</span><span class="delimiter">"</span></span> <span class="attribute-name">rows</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span> <span class="attribute-name">cols</span>=<span class="string"><span class="delimiter">"</span><span class="content">100</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">31</span>
-<span class="line-numbers">32</span>    <span class="tag">&lt;/textarea&gt;</span>
-<span class="line-numbers">33</span>
-<span class="line-numbers">34</span>    <span class="tag">&lt;p&gt;</span>
-<span class="line-numbers">35</span><span class="tag">&lt;/form&gt;</span>
-<span class="line-numbers">36</span><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="line-numbers">37</span>    This text will change
-<span class="line-numbers">38</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">39</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">40</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+    window.<span class="function">onload</span> = <span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> txtobj = document.forms[<span class="integer">0</span>].elements[<span class="string"><span class="delimiter">"</span><span class="content">txtarea1</span><span class="delimiter">"</span></span>];
+
+        txtobj.<span class="function">onkeyup</span> = <span class="keyword">function</span>(){
+            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span>).innerHTML = txtobj.value;
+        }
+    }</span>
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;form</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">objform</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;textarea</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">"</span><span class="content">txtarea1</span><span class="delimiter">"</span></span> <span class="attribute-name">rows</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span> <span class="attribute-name">cols</span>=<span class="string"><span class="delimiter">"</span><span class="content">100</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;/textarea&gt;</span>
+
+    <span class="tag">&lt;p&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">writetome</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    This text will change
+<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>Everytime the text inside the textarea element changes, we get the value of textarea (txtobj.value) then we assign that to the innerHTML property of the div</p>
 <h3 id="handling-the-right-click">Handling the right click</h3>
 <p>
 
 </p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">14</span>    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span>    <span class="tag">&lt;style&gt;</span>
-<span class="line-numbers">17</span>        #thearea {
-<span class="line-numbers">18</span>            border:4px solid gray;
-<span class="line-numbers">19</span>            width: 500px;
-<span class="line-numbers">20</span>            height: 200px;
-<span class="line-numbers">21</span>        }
-<span class="line-numbers">22</span>        #watch {
-<span class="line-numbers">23</span>            border:5px solid green;
-<span class="line-numbers">24</span>            padding-top: 50px;
-<span class="line-numbers">25</span>            width:500px;
-<span class="line-numbers">26</span>        }
-<span class="line-numbers">27</span>    <span class="tag">&lt;/style&gt;</span>
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>    <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">30</span><span class="inline"></span>
-<span class="line-numbers">31</span><span class="inline">    window.<span class="function">onload</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">32</span><span class="inline"></span>
-<span class="line-numbers">33</span><span class="inline">        <span class="keyword">var</span> objarea = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">34</span><span class="inline"></span>
-<span class="line-numbers">35</span><span class="inline">        objarea.<span class="function">oncontextmenu</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">36</span><span class="inline">            <span class="keyword">return</span> <span class="predefined-constant">false</span>;</span>
-<span class="line-numbers">37</span><span class="inline">        }</span>
-<span class="line-numbers">38</span><span class="inline"></span>
-<span class="line-numbers">39</span><span class="inline">        objarea.<span class="function">onmousedown</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">40</span><span class="inline"></span>
-<span class="line-numbers">41</span><span class="inline">            <span class="keyword">var</span> watch = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">42</span><span class="inline">            <span class="keyword">var</span> x = event.clientX;</span>
-<span class="line-numbers">43</span><span class="inline">            <span class="keyword">var</span> y = event.clientY;</span>
-<span class="line-numbers">44</span><span class="inline">            <span class="keyword">var</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">X : </span><span class="delimiter">"</span></span> + x + <span class="string"><span class="delimiter">"</span><span class="content"> | Y: </span><span class="delimiter">"</span></span> + y;</span>
-<span class="line-numbers">45</span><span class="inline"></span>
-<span class="line-numbers">46</span><span class="inline">            <span class="keyword">switch</span>(event.which){</span>
-<span class="line-numbers">47</span><span class="inline">                <span class="keyword">case</span> <span class="integer">1</span>: <span class="comment">// left click</span></span>
-<span class="line-numbers">48</span><span class="inline">                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Left </span><span class="delimiter">"</span></span> + msg;</span>
-<span class="line-numbers">49</span><span class="inline">                    <span class="keyword">break</span>; </span>
-<span class="line-numbers">50</span><span class="inline">                <span class="keyword">case</span> <span class="integer">2</span>: <span class="comment">// middle click</span></span>
-<span class="line-numbers">51</span><span class="inline">                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Midle </span><span class="delimiter">"</span></span> + msg;</span>
-<span class="line-numbers">52</span><span class="inline">                    <span class="keyword">break</span>;</span>
-<span class="line-numbers">53</span><span class="inline">                <span class="keyword">case</span> <span class="integer">3</span>: <span class="comment">// right click</span></span>
-<span class="line-numbers">54</span><span class="inline">                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Right </span><span class="delimiter">"</span></span> + msg;</span>
-<span class="line-numbers">55</span><span class="inline">                    <span class="keyword">break</span>;</span>
-<span class="line-numbers">56</span><span class="inline">            }</span>
-<span class="line-numbers">57</span><span class="inline">        }</span>
-<span class="line-numbers">58</span><span class="inline"></span>
-<span class="line-numbers">59</span><span class="inline">    }</span>
-<span class="line-numbers">60</span>
-<span class="line-numbers">61</span>    <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">62</span><span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">63</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">64</span>
-<span class="line-numbers">65</span><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>Right click inside the box. Then right click outside 
-<span class="line-numbers">66</span>the box. The context menu will not be triggered inside this div
-<span class="line-numbers">67</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">68</span><span class="tag">&lt;p&gt;</span>
-<span class="line-numbers">69</span><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">70</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">71</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+
+    <span class="tag">&lt;style&gt;</span>
+        #thearea {
+            border:4px solid gray;
+            width: 500px;
+            height: 200px;
+        }
+        #watch {
+            border:5px solid green;
+            padding-top: 50px;
+            width:500px;
+        }
+    <span class="tag">&lt;/style&gt;</span>
+
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+    window.<span class="function">onload</span> = <span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> objarea = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span>);
+
+        objarea.<span class="function">oncontextmenu</span> = <span class="keyword">function</span>(){
+            <span class="keyword">return</span> <span class="predefined-constant">false</span>;
+        }
+
+        objarea.<span class="function">onmousedown</span> = <span class="keyword">function</span>(){
+
+            <span class="keyword">var</span> watch = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>);
+            <span class="keyword">var</span> x = event.clientX;
+            <span class="keyword">var</span> y = event.clientY;
+            <span class="keyword">var</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">X : </span><span class="delimiter">"</span></span> + x + <span class="string"><span class="delimiter">"</span><span class="content"> | Y: </span><span class="delimiter">"</span></span> + y;
+
+            <span class="keyword">switch</span>(event.which){
+                <span class="keyword">case</span> <span class="integer">1</span>: <span class="comment">// left click</span>
+                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Left </span><span class="delimiter">"</span></span> + msg;
+                    <span class="keyword">break</span>; 
+                <span class="keyword">case</span> <span class="integer">2</span>: <span class="comment">// middle click</span>
+                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Midle </span><span class="delimiter">"</span></span> + msg;
+                    <span class="keyword">break</span>;
+                <span class="keyword">case</span> <span class="integer">3</span>: <span class="comment">// right click</span>
+                    watch.innerHTML = <span class="string"><span class="delimiter">"</span><span class="content">Right </span><span class="delimiter">"</span></span> + msg;
+                    <span class="keyword">break</span>;
+            }
+        }
+
+    }</span>
+
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>Right click inside the box. Then right click outside 
+the box. The context menu will not be triggered inside this div
+<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;p&gt;</span>
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>We need to override the <strong>oncontextmenu</strong> function so that the default context menu will not kick in. The key to detecting which mouse button was used to click is the <strong>which</strong> property of the event object---note though that there have been inconsistencies on the values of which, sometime in the past, I remember 0 = left click, 1 = middle and 2 = right; Do your proper testing, you have been warned.</p>
 <h3 id="tracking-the-mouse-position">Tracking the mouse position</h3>
 <p>The X and Y position of the mouse is always reported by the event object, in the following code sample, the mouse position is captured during the <strong>onmousemove</strong> of a div element.</p>
-<pre><code class="language-html"><span class="line-numbers">10</span><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="tag">&lt;html&gt;</span>
-<span class="line-numbers">13</span><span class="tag">&lt;head&gt;</span>
-<span class="line-numbers">14</span>    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
-<span class="line-numbers">15</span>
-<span class="line-numbers">16</span>    <span class="tag">&lt;style&gt;</span>
-<span class="line-numbers">17</span>        #thearea {
-<span class="line-numbers">18</span>            border:4px solid gray;
-<span class="line-numbers">19</span>            width: 500px;
-<span class="line-numbers">20</span>            height: 200px;
-<span class="line-numbers">21</span>        }
-<span class="line-numbers">22</span>        #watch {
-<span class="line-numbers">23</span>            border:5px solid green;
-<span class="line-numbers">24</span>            padding-top: 50px;
-<span class="line-numbers">25</span>            width:500px;
-<span class="line-numbers">26</span>        }
-<span class="line-numbers">27</span>    <span class="tag">&lt;/style&gt;</span>
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>    <span class="tag">&lt;script&gt;</span>
-<span class="line-numbers">30</span><span class="inline"></span>
-<span class="line-numbers">31</span><span class="inline">    window.<span class="function">onload</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">32</span><span class="inline"></span>
-<span class="line-numbers">33</span><span class="inline">        <span class="keyword">var</span> objarea = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span>);</span>
-<span class="line-numbers">34</span><span class="inline"></span>
-<span class="line-numbers">35</span><span class="inline">        objarea.<span class="function">onmousemove</span> = <span class="keyword">function</span>(){</span>
-<span class="line-numbers">36</span><span class="inline"></span>
-<span class="line-numbers">37</span><span class="inline">            <span class="keyword">var</span> xpos = event.clientX;</span>
-<span class="line-numbers">38</span><span class="inline">            <span class="keyword">var</span> ypos = event.clientY;</span>
-<span class="line-numbers">39</span><span class="inline">            <span class="keyword">var</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">X : </span><span class="delimiter">"</span></span> + xpos + <span class="string"><span class="delimiter">"</span><span class="content"> | Y : </span><span class="delimiter">"</span></span> + ypos;</span>
-<span class="line-numbers">40</span><span class="inline"></span>
-<span class="line-numbers">41</span><span class="inline">            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>).innerHTML = msg; </span>
-<span class="line-numbers">42</span><span class="inline">        }</span>
-<span class="line-numbers">43</span><span class="inline">    }</span>
-<span class="line-numbers">44</span>
-<span class="line-numbers">45</span>    <span class="tag">&lt;/script&gt;</span>
-<span class="line-numbers">46</span><span class="tag">&lt;/head&gt;</span>
-<span class="line-numbers">47</span><span class="tag">&lt;body&gt;</span>
-<span class="line-numbers">48</span>
-<span class="line-numbers">49</span><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>Just hover your mouse inside box<span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">50</span><span class="tag">&lt;p&gt;</span>
-<span class="line-numbers">51</span><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-<span class="line-numbers">52</span><span class="tag">&lt;/body&gt;</span>
-<span class="line-numbers">53</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span><span class="tag">&lt;/title&gt;</span>
+
+    <span class="tag">&lt;style&gt;</span>
+        #thearea {
+            border:4px solid gray;
+            width: 500px;
+            height: 200px;
+        }
+        #watch {
+            border:5px solid green;
+            padding-top: 50px;
+            width:500px;
+        }
+    <span class="tag">&lt;/style&gt;</span>
+
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">
+    window.<span class="function">onload</span> = <span class="keyword">function</span>(){
+
+        <span class="keyword">var</span> objarea = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span>);
+
+        objarea.<span class="function">onmousemove</span> = <span class="keyword">function</span>(){
+
+            <span class="keyword">var</span> xpos = event.clientX;
+            <span class="keyword">var</span> ypos = event.clientY;
+            <span class="keyword">var</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">X : </span><span class="delimiter">"</span></span> + xpos + <span class="string"><span class="delimiter">"</span><span class="content"> | Y : </span><span class="delimiter">"</span></span> + ypos;
+
+            document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span>).innerHTML = msg; 
+        }
+    }</span>
+
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">thearea</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>Just hover your mouse inside box<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;p&gt;</span>
+<span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 <p>The event object has two members, clientX and clientY which corresponds to exact position of mousepointer at the time of capture. You need to be careful when using event.clientX and event.clientY*, these may not be the same from one browser to another--which is why its worthwhile using JavaScript libraries that takes away our worries of cross-browser coding, like JQuery; which is coming up next.</p>
 <h1 id="jquery">16. JQuery</h1>
 <p>[TO DO: finish this section]</p>
@@ -1511,23 +1516,22 @@ ECMA 6
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 

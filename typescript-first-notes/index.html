@@ -3,9 +3,10 @@
   <head>
 		<style>
 * {
-  font-size: .98em;
+  font-size: .99em;
   background: #FFFFFF;
-  color: #414141;
+  /*color: #414141;*/
+  color: #686868;
 }
 
 ol, li, p {
@@ -138,7 +139,7 @@ footer {
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: center;
+  text-align: left;
 }
 
 h1, h2, h3, h4, h5 {
@@ -186,7 +187,7 @@ a:hover {
 
 #contentmeta {
   color: gray;
-  text-align: center;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -248,17 +249,27 @@ a:hover {
 
 /* PRE AND CODE AREA */
 
+#lst {
+	font-family: 'Open Sans';
+	font-style:normal;
+	background:#DEDEDE;
+	margin-top:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+
+}
 
 pre {
 
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: 75%;
+  font-size: .87em;
   font-family: 'Source Code Pro';
-  border: 2px solid #cacaca;
-  background: white;
+  border: 3px solid #DEDEDE;
+  background: #FBFCF9; 
 
   /*
   border: 1px solid #DEDEDE;
@@ -283,6 +294,8 @@ pre code, .keyword, .directive, .type,
           .integer, .char, .float {
 
       font-family: 'Source Code Pro';
+      font-size: 1em;
+      background: #FBFCF9; 
 
 }
 
@@ -324,10 +337,6 @@ pre code, .keyword, .directive, .type,
   color: blue;
 }
 
-
-
-
-
 </style>
 		<meta charset="utf-8">
 <title>TypeScript, first notes: theLogBox.com</title>
@@ -340,11 +349,7 @@ pre code, .keyword, .directive, .type,
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
 
-<meta name="google-site-verification" content="h3sz9mbRignTr-OFf8zOhJa_-2HaneH4frxtac50oFU" />
 
-<meta name="google-site-verification" content="_fzAU-gezjC_Vaxgr8F_DsNKqRcVvyPztj9i8CRGLbA" />
-
-<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 
 		<script type="text/javascript">
@@ -437,13 +442,13 @@ Options:
 <li>If you are using TextMate in OSX, it won't know how to handle .ts files, so when you see the "Recommended Grammars" dialog box, just use JavaScript.</li>
 </ol><h2 id="try-out-the-simplest-codes">Try out the simplest codes</h2>
 <p>The "Hello World" test</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">// filename: Hello.ts</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="keyword">function</span> <span class="function">Hello</span>(args) {
-<span class="line-numbers">13</span>    console.log(<span class="string"><span class="delimiter">"</span><span class="content">Hello </span><span class="delimiter">"</span></span> + args);
-<span class="line-numbers">14</span>    <span class="keyword">return</span> <span class="integer">0</span>;
-<span class="line-numbers">15</span>}
-<span class="line-numbers">16</span>Hello(<span class="string"><span class="delimiter">"</span><span class="content">John</span><span class="delimiter">"</span></span>);</code></pre>
+<pre><code class="language-javascript"><span class="comment">// filename: Hello.ts</span>
+
+<span class="keyword">function</span> <span class="function">Hello</span>(args) {
+    console.log(<span class="string"><span class="delimiter">"</span><span class="content">Hello </span><span class="delimiter">"</span></span> + args);
+    <span class="keyword">return</span> <span class="integer">0</span>;
+}
+Hello(<span class="string"><span class="delimiter">"</span><span class="content">John</span><span class="delimiter">"</span></span>);</code></pre>
 <p>Compile it using <strong>tsc Hello.ts</strong>, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.</p>
 <pre><code>
 function Hello(args) {
@@ -465,93 +470,93 @@ Hello("John");
 <h1 id="coding-notes">Coding notes</h1>
 <h2 id="class-constructs">1.1 Class constructs</h2>
 <p>Trying out the class and interface facilities of TypeScript</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="comment">//BoxSample.ts</span>
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span><span class="reserved">interface</span> IBox {
-<span class="line-numbers">13</span>    
-<span class="line-numbers">14</span>    <span class="key">x</span> : number;
-<span class="line-numbers">15</span>    y : number;
-<span class="line-numbers">16</span>    height : number;
-<span class="line-numbers">17</span>    width : number;
-<span class="line-numbers">18</span>    
-<span class="line-numbers">19</span>}
-<span class="line-numbers">20</span>
-<span class="line-numbers">21</span><span class="reserved">class</span> Box {
-<span class="line-numbers">22</span>    
-<span class="line-numbers">23</span>    <span class="reserved">public</span> x: number;
-<span class="line-numbers">24</span>    <span class="reserved">public</span> y: number;
-<span class="line-numbers">25</span>    <span class="reserved">public</span> height: number;
-<span class="line-numbers">26</span>    <span class="reserved">public</span> width: number;
-<span class="line-numbers">27</span>    
-<span class="line-numbers">28</span>    <span class="reserved">public</span> setDim(obj: IBox){
-<span class="line-numbers">29</span>        
-<span class="line-numbers">30</span>        <span class="local-variable">this</span>.x = obj.x;
-<span class="line-numbers">31</span>        <span class="local-variable">this</span>.y = obj.y;
-<span class="line-numbers">32</span>        <span class="local-variable">this</span>.height = obj.height;
-<span class="line-numbers">33</span>        <span class="local-variable">this</span>.width = obj.width;
-<span class="line-numbers">34</span>    
-<span class="line-numbers">35</span>    }   
-<span class="line-numbers">36</span>}
-<span class="line-numbers">37</span>
-<span class="line-numbers">38</span><span class="keyword">var</span> b = <span class="keyword">new</span> Box();
-<span class="line-numbers">39</span><span class="keyword">var</span> a = <span class="keyword">new</span> Box();
-<span class="line-numbers">40</span>
-<span class="line-numbers">41</span>a.setDim({<span class="key">x</span>:<span class="integer">0</span>,<span class="key">y</span>:<span class="integer">0</span>,<span class="key">width</span>:<span class="integer">10</span>, <span class="key">height</span>:<span class="integer">10</span>});
-<span class="line-numbers">42</span>b.setDim({<span class="key">x</span>:<span class="integer">1</span>,<span class="key">y</span>:<span class="integer">1</span>,<span class="key">width</span>:<span class="integer">10</span>, <span class="key">height</span>:<span class="integer">10</span>});
-<span class="line-numbers">43</span>
-<span class="line-numbers">44</span>console.log(b.constructor);
-<span class="line-numbers">45</span>console.log(<span class="keyword">typeof</span> b);
-<span class="line-numbers">46</span>
-<span class="line-numbers">47</span>console.log(b.x);
-<span class="line-numbers">48</span>console.log(b.y);
-<span class="line-numbers">49</span>
-<span class="line-numbers">50</span>console.log(a.x);
-<span class="line-numbers">51</span>console.log(a.y);
-<span class="line-numbers">52</span>
-<span class="line-numbers">53</span><span class="comment">/*</span>
-<span class="line-numbers">54</span><span class="comment"></span>
-<span class="line-numbers">55</span><span class="comment">compile using;</span>
-<span class="line-numbers">56</span><span class="comment"></span>
-<span class="line-numbers">57</span><span class="comment">    tsc BoxSample.ts</span>
-<span class="line-numbers">58</span><span class="comment"></span>
-<span class="line-numbers">59</span><span class="comment">outputs;</span>
-<span class="line-numbers">60</span><span class="comment"></span>
-<span class="line-numbers">61</span><span class="comment">    BoxSample.js</span>
-<span class="line-numbers">62</span><span class="comment"></span>
-<span class="line-numbers">63</span><span class="comment">*/</span>
-<span class="line-numbers">64</span>
-<span class="line-numbers">65</span><span class="comment">//BoxSample.js</span>
-<span class="line-numbers">66</span>
-<span class="line-numbers">67</span><span class="keyword">var</span> Box = (<span class="keyword">function</span> () {
-<span class="line-numbers">68</span>    <span class="keyword">function</span> <span class="function">Box</span>() { }
-<span class="line-numbers">69</span>    Box.prototype.<span class="function">setDim</span> = <span class="keyword">function</span> (obj) {
-<span class="line-numbers">70</span>        <span class="local-variable">this</span>.x = obj.x;
-<span class="line-numbers">71</span>        <span class="local-variable">this</span>.y = obj.y;
-<span class="line-numbers">72</span>        <span class="local-variable">this</span>.height = obj.height;
-<span class="line-numbers">73</span>        <span class="local-variable">this</span>.width = obj.width;
-<span class="line-numbers">74</span>    };
-<span class="line-numbers">75</span>    <span class="keyword">return</span> Box;
-<span class="line-numbers">76</span>})();
-<span class="line-numbers">77</span><span class="keyword">var</span> b = <span class="keyword">new</span> Box();
-<span class="line-numbers">78</span><span class="keyword">var</span> a = <span class="keyword">new</span> Box();
-<span class="line-numbers">79</span>a.setDim({
-<span class="line-numbers">80</span>    <span class="key">x</span>: <span class="integer">0</span>,
-<span class="line-numbers">81</span>    <span class="key">y</span>: <span class="integer">0</span>,
-<span class="line-numbers">82</span>    <span class="key">width</span>: <span class="integer">10</span>,
-<span class="line-numbers">83</span>    <span class="key">height</span>: <span class="integer">10</span>
-<span class="line-numbers">84</span>});
-<span class="line-numbers">85</span>b.setDim({
-<span class="line-numbers">86</span>    <span class="key">x</span>: <span class="integer">1</span>,
-<span class="line-numbers">87</span>    <span class="key">y</span>: <span class="integer">1</span>,
-<span class="line-numbers">88</span>    <span class="key">width</span>: <span class="integer">10</span>,
-<span class="line-numbers">89</span>    <span class="key">height</span>: <span class="integer">10</span>
-<span class="line-numbers">90</span>});
-<span class="line-numbers">91</span>console.log(b.constructor);
-<span class="line-numbers">92</span>console.log(<span class="keyword">typeof</span> b);
-<span class="line-numbers">93</span>console.log(b.x);
-<span class="line-numbers">94</span>console.log(b.y);
-<span class="line-numbers">95</span>console.log(a.x);
-<span class="line-numbers">96</span>console.log(a.y);</code></pre>
+<pre><code class="language-javascript"><span class="comment">//BoxSample.ts</span>
+
+<span class="reserved">interface</span> IBox {
+    
+    <span class="key">x</span> : number;
+    y : number;
+    height : number;
+    width : number;
+    
+}
+
+<span class="reserved">class</span> Box {
+    
+    <span class="reserved">public</span> x: number;
+    <span class="reserved">public</span> y: number;
+    <span class="reserved">public</span> height: number;
+    <span class="reserved">public</span> width: number;
+    
+    <span class="reserved">public</span> setDim(obj: IBox){
+        
+        <span class="local-variable">this</span>.x = obj.x;
+        <span class="local-variable">this</span>.y = obj.y;
+        <span class="local-variable">this</span>.height = obj.height;
+        <span class="local-variable">this</span>.width = obj.width;
+    
+    }   
+}
+
+<span class="keyword">var</span> b = <span class="keyword">new</span> Box();
+<span class="keyword">var</span> a = <span class="keyword">new</span> Box();
+
+a.setDim({<span class="key">x</span>:<span class="integer">0</span>,<span class="key">y</span>:<span class="integer">0</span>,<span class="key">width</span>:<span class="integer">10</span>, <span class="key">height</span>:<span class="integer">10</span>});
+b.setDim({<span class="key">x</span>:<span class="integer">1</span>,<span class="key">y</span>:<span class="integer">1</span>,<span class="key">width</span>:<span class="integer">10</span>, <span class="key">height</span>:<span class="integer">10</span>});
+
+console.log(b.constructor);
+console.log(<span class="keyword">typeof</span> b);
+
+console.log(b.x);
+console.log(b.y);
+
+console.log(a.x);
+console.log(a.y);
+
+<span class="comment">/*
+
+compile using;
+
+    tsc BoxSample.ts
+
+outputs;
+
+    BoxSample.js
+
+*/</span>
+
+<span class="comment">//BoxSample.js</span>
+
+<span class="keyword">var</span> Box = (<span class="keyword">function</span> () {
+    <span class="keyword">function</span> <span class="function">Box</span>() { }
+    Box.prototype.<span class="function">setDim</span> = <span class="keyword">function</span> (obj) {
+        <span class="local-variable">this</span>.x = obj.x;
+        <span class="local-variable">this</span>.y = obj.y;
+        <span class="local-variable">this</span>.height = obj.height;
+        <span class="local-variable">this</span>.width = obj.width;
+    };
+    <span class="keyword">return</span> Box;
+})();
+<span class="keyword">var</span> b = <span class="keyword">new</span> Box();
+<span class="keyword">var</span> a = <span class="keyword">new</span> Box();
+a.setDim({
+    <span class="key">x</span>: <span class="integer">0</span>,
+    <span class="key">y</span>: <span class="integer">0</span>,
+    <span class="key">width</span>: <span class="integer">10</span>,
+    <span class="key">height</span>: <span class="integer">10</span>
+});
+b.setDim({
+    <span class="key">x</span>: <span class="integer">1</span>,
+    <span class="key">y</span>: <span class="integer">1</span>,
+    <span class="key">width</span>: <span class="integer">10</span>,
+    <span class="key">height</span>: <span class="integer">10</span>
+});
+console.log(b.constructor);
+console.log(<span class="keyword">typeof</span> b);
+console.log(b.x);
+console.log(b.y);
+console.log(a.x);
+console.log(a.y);</code></pre>
 <p>The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;</p>
 <ol style="list-style-type: decimal">
 <li><p>TS adds static type checking, so the general form is <strong>variable name [ : type ]</strong>. It seems I can use <strong>string, bool and number</strong> for static type checking. In the language spec of TypeScript, there was also a mention of the <strong>any</strong> type, which can stand for either <em>bool, string, number and undefined</em>*. If I use the <strong>any</strong> type though, I lose the static type checking that TS performs, I probably should not do it, since I like type checking.</p></li>
@@ -569,176 +574,176 @@ class Box implements {
 <h2 id="inheritance-and-overriding">1.2 Inheritance and Overriding</h2>
 <p>
 
-</p><pre><code class="language-javascript"><span class="line-numbers">10</span><span class="reserved">class</span> Shape {
-<span class="line-numbers">11</span>    
-<span class="line-numbers">12</span>    <span class="key">mname</span>: string = <span class="string"><span class="delimiter">"</span><span class="content">default name</span><span class="delimiter">"</span></span>;
-<span class="line-numbers">13</span>        
-<span class="line-numbers">14</span>    getName() {
-<span class="line-numbers">15</span>        <span class="keyword">return</span> name;
-<span class="line-numbers">16</span>    }
-<span class="line-numbers">17</span>    
-<span class="line-numbers">18</span>    setName(val : string) {
-<span class="line-numbers">19</span>        <span class="local-variable">this</span>.mname = val;
-<span class="line-numbers">20</span>    }
-<span class="line-numbers">21</span>    
-<span class="line-numbers">22</span>    draw() {
-<span class="line-numbers">23</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">drawing Shape</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">24</span>    }
-<span class="line-numbers">25</span>    
-<span class="line-numbers">26</span>}
-<span class="line-numbers">27</span>
-<span class="line-numbers">28</span><span class="reserved">class</span> Circle : Shape {
-<span class="line-numbers">29</span>    
-<span class="line-numbers">30</span>    draw(){
-<span class="line-numbers">31</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Drawing Circle</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">32</span>    }
-<span class="line-numbers">33</span>
-<span class="line-numbers">34</span>}
-<span class="line-numbers">35</span>
-<span class="line-numbers">36</span>
-<span class="line-numbers">37</span><span class="keyword">var</span> a = <span class="keyword">new</span> Shape();
-<span class="line-numbers">38</span><span class="keyword">var</span> b = <span class="keyword">new</span> Circle();
-<span class="line-numbers">39</span>b.setName(<span class="string"><span class="delimiter">"</span><span class="content">the circle</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">40</span>
-<span class="line-numbers">41</span>console.log(a.mname);
-<span class="line-numbers">42</span>console.log(b.mname);
-<span class="line-numbers">43</span>
-<span class="line-numbers">44</span>a.draw();
-<span class="line-numbers">45</span>b.draw();</code></pre>
+</p><pre><code class="language-javascript"><span class="reserved">class</span> Shape {
+    
+    <span class="key">mname</span>: string = <span class="string"><span class="delimiter">"</span><span class="content">default name</span><span class="delimiter">"</span></span>;
+        
+    getName() {
+        <span class="keyword">return</span> name;
+    }
+    
+    setName(val : string) {
+        <span class="local-variable">this</span>.mname = val;
+    }
+    
+    draw() {
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">drawing Shape</span><span class="delimiter">"</span></span>);
+    }
+    
+}
+
+<span class="reserved">class</span> Circle : Shape {
+    
+    draw(){
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Drawing Circle</span><span class="delimiter">"</span></span>);
+    }
+
+}
+
+
+<span class="keyword">var</span> a = <span class="keyword">new</span> Shape();
+<span class="keyword">var</span> b = <span class="keyword">new</span> Circle();
+b.setName(<span class="string"><span class="delimiter">"</span><span class="content">the circle</span><span class="delimiter">"</span></span>);
+
+console.log(a.mname);
+console.log(b.mname);
+
+a.draw();
+b.draw();</code></pre>
 <p>Inheritance works as expected, no big surprises. TypeScript uses the <strong>extends</strong> keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the <em>extends</em>* keyword with a colon (pretty much like in CSharp), it seems to have the same effect as <strong>extends</strong> too—but better stick with <em>extends</em>, that is what the lang spec specifies for inheritance anyway.</p>
 <p>The rule is pretty basic on inheritance. Everything that on the base class that is defined to have <strong>public</strong> access is automatically inherited on the derived class. That is why the <em>Circle</em> type has a <strong>setName() and getName()</strong> method, they were inherited from <em>Shape</em>.</p>
 <p>Override works as expected also, just redefine the method on the the derived class and the method becomes polymorphic</p>
 <h2 id="super">super</h2>
 <p><strong>super</strong> refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="reserved">class</span> Base {
-<span class="line-numbers">11</span>    
-<span class="line-numbers">12</span>    foo(){
-<span class="line-numbers">13</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::foo</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">14</span>    }
-<span class="line-numbers">15</span>    
-<span class="line-numbers">16</span>    constructor(){
-<span class="line-numbers">17</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::ctor</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">18</span>    }
-<span class="line-numbers">19</span>    
-<span class="line-numbers">20</span>}
-<span class="line-numbers">21</span>
-<span class="line-numbers">22</span><span class="reserved">class</span> Derived <span class="reserved">extends</span> Base {
-<span class="line-numbers">23</span>    
-<span class="line-numbers">24</span>    foo(){
-<span class="line-numbers">25</span>        <span class="reserved">super</span>.foo();
-<span class="line-numbers">26</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::foo</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">27</span>    }
-<span class="line-numbers">28</span>    
-<span class="line-numbers">29</span>    constructor(){
-<span class="line-numbers">30</span>        <span class="reserved">super</span>();
-<span class="line-numbers">31</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::ctor</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">32</span>    }   
-<span class="line-numbers">33</span>}
-<span class="line-numbers">34</span>
-<span class="line-numbers">35</span><span class="keyword">var</span> a = <span class="keyword">new</span> Derived();
-<span class="line-numbers">36</span>a.foo();</code></pre>
+<pre><code class="language-javascript"><span class="reserved">class</span> Base {
+    
+    foo(){
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::foo</span><span class="delimiter">"</span></span>);
+    }
+    
+    constructor(){
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::ctor</span><span class="delimiter">"</span></span>);
+    }
+    
+}
+
+<span class="reserved">class</span> Derived <span class="reserved">extends</span> Base {
+    
+    foo(){
+        <span class="reserved">super</span>.foo();
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::foo</span><span class="delimiter">"</span></span>);
+    }
+    
+    constructor(){
+        <span class="reserved">super</span>();
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::ctor</span><span class="delimiter">"</span></span>);
+    }   
+}
+
+<span class="keyword">var</span> a = <span class="keyword">new</span> Derived();
+a.foo();</code></pre>
 <h2 id="optional-arguments-to-functions">Optional arguments to functions</h2>
 <p>Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="reserved">class</span> Square {
-<span class="line-numbers">11</span>    
-<span class="line-numbers">12</span>    <span class="key">pname</span>: string;
-<span class="line-numbers">13</span>    pcolor: string;
-<span class="line-numbers">14</span>    
-<span class="line-numbers">15</span>    constructor(mname? :string , mcolor? : string){
-<span class="line-numbers">16</span>        <span class="keyword">if</span>(!mname) { <span class="local-variable">this</span>.pname = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
-<span class="line-numbers">17</span>        <span class="keyword">else</span> {
-<span class="line-numbers">18</span>            <span class="local-variable">this</span>.pname = mname;
-<span class="line-numbers">19</span>        }
-<span class="line-numbers">20</span>        
-<span class="line-numbers">21</span>        <span class="keyword">if</span>(!mcolor) {<span class="local-variable">this</span>.pcolor = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
-<span class="line-numbers">22</span>        <span class="keyword">else</span> {
-<span class="line-numbers">23</span>            <span class="local-variable">this</span>.pcolor = mcolor;
-<span class="line-numbers">24</span>        }
-<span class="line-numbers">25</span>    }
-<span class="line-numbers">26</span>}
-<span class="line-numbers">27</span>
-<span class="line-numbers">28</span><span class="reserved">class</span> Circle {
-<span class="line-numbers">29</span>
-<span class="line-numbers">30</span>    <span class="key">pname</span>: string;
-<span class="line-numbers">31</span>    pcolor: string;
-<span class="line-numbers">32</span>
-<span class="line-numbers">33</span>    constructor(mname = <span class="string"><span class="delimiter">"</span><span class="content">def name</span><span class="delimiter">"</span></span> , mcolor = <span class="string"><span class="delimiter">"</span><span class="content">black</span><span class="delimiter">"</span></span>){
-<span class="line-numbers">34</span>        <span class="local-variable">this</span>.pname = mname;
-<span class="line-numbers">35</span>        <span class="local-variable">this</span>.pcolor = mcolor;
-<span class="line-numbers">36</span>    }
-<span class="line-numbers">37</span>}
-<span class="line-numbers">38</span>
-<span class="line-numbers">39</span><span class="keyword">var</span> c = <span class="keyword">new</span> Circle();
-<span class="line-numbers">40</span>console.log(c.pcolor);
-<span class="line-numbers">41</span>console.log(c.pname);
-<span class="line-numbers">42</span>
-<span class="line-numbers">43</span><span class="keyword">var</span> s = <span class="keyword">new</span> Square();
-<span class="line-numbers">44</span>console.log(s.pcolor);
-<span class="line-numbers">45</span>console.log(s.pname);
-<span class="line-numbers">46</span>
-<span class="line-numbers">47</span><span class="keyword">var</span> s2 = <span class="keyword">new</span> Square(<span class="string"><span class="delimiter">"</span><span class="content">new square</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">red</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">48</span>console.log(s2.pcolor);
-<span class="line-numbers">49</span>console.log(s2.pname);</code></pre>
+<pre><code class="language-javascript"><span class="reserved">class</span> Square {
+    
+    <span class="key">pname</span>: string;
+    pcolor: string;
+    
+    constructor(mname? :string , mcolor? : string){
+        <span class="keyword">if</span>(!mname) { <span class="local-variable">this</span>.pname = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
+        <span class="keyword">else</span> {
+            <span class="local-variable">this</span>.pname = mname;
+        }
+        
+        <span class="keyword">if</span>(!mcolor) {<span class="local-variable">this</span>.pcolor = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
+        <span class="keyword">else</span> {
+            <span class="local-variable">this</span>.pcolor = mcolor;
+        }
+    }
+}
+
+<span class="reserved">class</span> Circle {
+
+    <span class="key">pname</span>: string;
+    pcolor: string;
+
+    constructor(mname = <span class="string"><span class="delimiter">"</span><span class="content">def name</span><span class="delimiter">"</span></span> , mcolor = <span class="string"><span class="delimiter">"</span><span class="content">black</span><span class="delimiter">"</span></span>){
+        <span class="local-variable">this</span>.pname = mname;
+        <span class="local-variable">this</span>.pcolor = mcolor;
+    }
+}
+
+<span class="keyword">var</span> c = <span class="keyword">new</span> Circle();
+console.log(c.pcolor);
+console.log(c.pname);
+
+<span class="keyword">var</span> s = <span class="keyword">new</span> Square();
+console.log(s.pcolor);
+console.log(s.pname);
+
+<span class="keyword">var</span> s2 = <span class="keyword">new</span> Square(<span class="string"><span class="delimiter">"</span><span class="content">new square</span><span class="delimiter">"</span></span>,<span class="string"><span class="delimiter">"</span><span class="content">red</span><span class="delimiter">"</span></span>);
+console.log(s2.pcolor);
+console.log(s2.pname);</code></pre>
 <p>
 
 
 </p><h2 id="overloading">Overloading</h2>
 <p>Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="reserved">class</span> Line {
-<span class="line-numbers">11</span>
-<span class="line-numbers">12</span>    
-<span class="line-numbers">13</span>    <span class="key">x</span>: number;
-<span class="line-numbers">14</span>    y: number;
-<span class="line-numbers">15</span>    
-<span class="line-numbers">16</span>    width: number;
-<span class="line-numbers">17</span>    height: number;
-<span class="line-numbers">18</span>    
-<span class="line-numbers">19</span>    <span class="comment">/*</span>
-<span class="line-numbers">20</span><span class="comment">    </span>
-<span class="line-numbers">21</span><span class="comment">    this does not work, if you vary the number of arguments on the overload</span>
-<span class="line-numbers">22</span><span class="comment">    declarations, it throws a compile error</span>
-<span class="line-numbers">23</span><span class="comment"></span>
-<span class="line-numbers">24</span><span class="comment">    constructor();</span>
-<span class="line-numbers">25</span><span class="comment">    constructor(x:number, y:number);</span>
-<span class="line-numbers">26</span><span class="comment">    </span>
-<span class="line-numbers">27</span><span class="comment">    */</span>
-<span class="line-numbers">28</span>
-<span class="line-numbers">29</span>
-<span class="line-numbers">30</span>    constructor(dim: {<span class="key">x</span>:number; y:number; width:number; height:number;}){
-<span class="line-numbers">31</span>    
-<span class="line-numbers">32</span>        <span class="local-variable">this</span>.x = dim.x;
-<span class="line-numbers">33</span>        <span class="local-variable">this</span>.y = dim.y;
-<span class="line-numbers">34</span>        <span class="local-variable">this</span>.width = dim.width;
-<span class="line-numbers">35</span>        <span class="local-variable">this</span>.height = dim.width;
-<span class="line-numbers">36</span>    
-<span class="line-numbers">37</span>    }
-<span class="line-numbers">38</span>    
-<span class="line-numbers">39</span>    <span class="comment">/*</span>
-<span class="line-numbers">40</span><span class="comment"></span>
-<span class="line-numbers">41</span><span class="comment">    The overloaded forms of foo() is accepted because I only varied the type of x.      </span>
-<span class="line-numbers">42</span><span class="comment"></span>
-<span class="line-numbers">43</span><span class="comment">    */</span>
-<span class="line-numbers">44</span>
-<span class="line-numbers">45</span>    foo(x:number);
-<span class="line-numbers">46</span>    foo(x:string);
-<span class="line-numbers">47</span>    foo(x:any){
-<span class="line-numbers">48</span>        
-<span class="line-numbers">49</span>    }
-<span class="line-numbers">50</span>        
-<span class="line-numbers">51</span>}</code></pre>
+<pre><code class="language-javascript"><span class="reserved">class</span> Line {
+
+    
+    <span class="key">x</span>: number;
+    y: number;
+    
+    width: number;
+    height: number;
+    
+    <span class="comment">/*
+    
+    this does not work, if you vary the number of arguments on the overload
+    declarations, it throws a compile error
+
+    constructor();
+    constructor(x:number, y:number);
+    
+    */</span>
+
+
+    constructor(dim: {<span class="key">x</span>:number; y:number; width:number; height:number;}){
+    
+        <span class="local-variable">this</span>.x = dim.x;
+        <span class="local-variable">this</span>.y = dim.y;
+        <span class="local-variable">this</span>.width = dim.width;
+        <span class="local-variable">this</span>.height = dim.width;
+    
+    }
+    
+    <span class="comment">/*
+
+    The overloaded forms of foo() is accepted because I only varied the type of x.      
+
+    */</span>
+
+    foo(x:number);
+    foo(x:string);
+    foo(x:any){
+        
+    }
+        
+}</code></pre>
 <p>You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.</p>
 <h2 id="arrow-expressions">Arrow Expressions</h2>
 <p>This looks purely like syntactic sugar, but just the same, note it. The <strong>() =&gt; {}</strong> notation was added so that you don't have to say <strong>function() {}</strong> --- this reminds me of CoffeeScript though.</p>
-<pre><code class="language-javascript"><span class="line-numbers">10</span><span class="keyword">var</span> box = {
-<span class="line-numbers">11</span>    
-<span class="line-numbers">12</span>    <span class="key">mname</span>: <span class="string"><span class="delimiter">"</span><span class="content">Hello Box</span><span class="delimiter">"</span></span>,
-<span class="line-numbers">13</span>    <span class="key">goo</span>: () =&gt; {
-<span class="line-numbers">14</span>        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Hello Goo</span><span class="delimiter">"</span></span>);
-<span class="line-numbers">15</span>    }
-<span class="line-numbers">16</span>    
-<span class="line-numbers">17</span>}
-<span class="line-numbers">18</span>
-<span class="line-numbers">19</span>box.goo();</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> box = {
+    
+    <span class="key">mname</span>: <span class="string"><span class="delimiter">"</span><span class="content">Hello Box</span><span class="delimiter">"</span></span>,
+    <span class="key">goo</span>: () =&gt; {
+        console.log(<span class="string"><span class="delimiter">"</span><span class="content">Hello Goo</span><span class="delimiter">"</span></span>);
+    }
+    
+}
+
+box.goo();</code></pre>
 <p>
 
 </p><h1 id="impressions-again">2. Impressions (again)</h1>
@@ -770,23 +775,22 @@ class Box implements {
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+    
+<p/></p><p/></p>
+<strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+<div id="mc_embed_signup">
+<form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="To get our updates, enter your email here" required>
+<div class="clear">  
+  <input type="submit" value="Subscribe"
+  name="subscribe" id="mc-embedded-subscribe"
+  class="button">
+</div>
+</form>
+</div>
+
     <footer>
       &copy 2009-2013 theLogBox.com 
 
