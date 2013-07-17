@@ -2,21 +2,30 @@
 <html lang="en">
   <head>
 		<style>
+
 * {
-  font-size: .99em;
+  font-size: 16px;
   background: #FFFFFF;
   /*color: #414141;*/
-  color: #686868;
+  color: #545454;
 }
 
-ol, li, p {
-  font-family: 'Open Sans';
-  line-height: 1.5em;
+ul, ol, li, p {
+  font-family: Arial ;
+  line-height: 160%;
+}
+
+em {
+  font-family: Georgia;
+  color: #41505d;
+}
+
+strong {
+  color: #000000;
 }
 
 #shock-left {
   font-family: 'Rokkitt';
-  font-size: 250%;
   font-weight:normal;
   letter-spacing: -1.5px;
   color: #61768a;
@@ -29,6 +38,7 @@ ol, li, p {
 }
 
   #shock-left a:link, #shock-left a:visited {
+    font-size: 45px;
     color: #61768a;
     border-bottom: 2px dotted #61768a;
   }
@@ -39,8 +49,8 @@ ol, li, p {
 
   #shock-right {
     padding-top:70px;
+    font-size: 85px;
     font-family: 'Rokkitt';
-    font-size: 450%;
     font-weight:normal;
     letter-spacing: -1.5px;
     line-height: -.7em;
@@ -76,17 +86,13 @@ header {
   border-bottom:0px dotted #009494;
 }
 
-#navleft, #navright {
-  font-family: 'Rokkitt';
-  font-size: 22px;
-}
-
+#navleft, #navright {font-family: 'Rokkitt';}
 #navleft a:link, #navleft a:visited {
+  font-size: 22px;
   color: #CACACA;
   float:left;
-  /*font-size:250%;*/
   font-weight:normal;
-  margin-left:0px;  
+  margin-left:0px;
 }
   #navleft a:hover {
     color: #61768a;
@@ -94,10 +100,10 @@ header {
   }
 
 #navright a:link, #navright a:visited {
+  font-size: 22px;
   padding-left:5px;
   padding-right:5px;
   float:right;
-  /*font-size: 110%; */
   color: #CACACA;
   text-decoration:none;
 }
@@ -106,6 +112,7 @@ header {
     color: #61768a;
     border-bottom:1px solid #DEDEDE;
   }
+
 
 #spacer {clear:both;margin-bottom:50px;}
 
@@ -135,16 +142,18 @@ footer {
 
 #articletitle {
   font-family: 'Rokkitt';
-  font-size:280%; 
+  font-size:50px; 
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: left;
+  text-align: center;
+  letter-spacing: -1px;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Rokkitt';
-  color: #61768a; 
+  font-family: Arial;
+  /*color: #61768a;*/
+  color: #373737; 
   font-weight:normal;
 }
 h1 {font-size: 170%;}
@@ -155,7 +164,9 @@ h4 {font-size: 110%;}
 /* LINKS */
 
 a:link, a:visited {
-  color: #004a94;
+  /*color: #004a94;
+  color: #0778e4;*/
+  color: #b30000;
   text-decoration: none;
 }
 
@@ -164,6 +175,11 @@ a:hover {
   border-bottom: 1px solid #0072e3;
 }
 
+hr {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
+}
 
 
 /* OTHER BLOCKS */
@@ -186,9 +202,12 @@ a:hover {
 }
 
 #contentmeta {
+  font-family: Georgia;
+  font-style: oblique;
   color: gray;
   text-align: left;
   margin-bottom:40px;
+  text-align: center;
 }
 
 #sidebarright {
@@ -250,6 +269,7 @@ a:hover {
 /* PRE AND CODE AREA */
 
 #lst {
+  /*
 	font-family: 'Open Sans';
 	font-style:normal;
 	background:#DEDEDE;
@@ -257,7 +277,13 @@ a:hover {
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:10px;
-
+  */
+  
+  font-family: Georgia;
+  font-size: 16px;
+  text-align: center;
+  margin: 15px;
+  color: #000000;
 }
 
 pre {
@@ -266,11 +292,17 @@ pre {
   margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: .87em;
-  font-family: 'Source Code Pro';
-  border: 3px solid #DEDEDE;
+  
+  /*font-size: .87em;*/
+  font-size: 14px;
+  font-family: 'Muli';
+  background: #e8ebef;
+  line-height: 130%;
+  
+  /*
+  border: 1px solid #DEDEDE;
   background: #FBFCF9; 
-
+  */
   /*
   border: 1px solid #DEDEDE;
   background: #F5F5F5;
@@ -283,6 +315,16 @@ pre {
 
 }
 
+pre.codeblock, .codeblock {
+  
+  font-family: 'Muli';
+  font-size: 14px;
+  color: #0000b3;
+  background: #FFFFFF;
+  padding:0px;
+  margin: 0px;
+}
+
 
 pre code, .keyword, .directive, .type, 
           .string, .function, .class, 
@@ -291,16 +333,21 @@ pre code, .keyword, .directive, .type,
           .attribute-name, .include, .predefined-constant, 
           .local-variable, .key, .class, .instance-variable,
           .symbol, .constant, .inline, .line-numbers,
-          .integer, .char, .float {
+          .integer, .char, .float, .annotation, .namespace, 
+          .content, .delimiter {
 
-      font-family: 'Source Code Pro';
-      font-size: 1em;
-      background: #FBFCF9; 
+      font-family: 'Muli';
+      /*font-size: 1em;*/
+      font-size: 14px;
+      background: #e8ebef; 
+      color: #000000;
+      line-height: 130%;
 
 }
 
 /* definition of styles for code highlighting */
 
+/*
 .keyword, .key, .directive, .type, .reserved, .predefined-type, .tag, .class {
   color: #6e6eFF;
 }
@@ -337,6 +384,7 @@ pre code, .keyword, .directive, .type,
   color: blue;
 }
 
+*/
 </style>
 		<meta charset="utf-8">
 <title>A Short Programming Tutorial on Android: theLogBox.com</title>
@@ -345,6 +393,8 @@ pre code, .keyword, .directive, .type,
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
 <!--
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
@@ -397,18 +447,7 @@ by:
 </div>  
 
 	  <div itemprop="articleBody">
-      <div id="update-history">
-<h1>
-Doc History
-</h1>
-<br> 09.Aug.2012 — created<br> 22.Jul.2012 — Added links to DB Programming, event handling, etc<br> 05.Nov.2012 — Added Voice capture using MIC<br>
-</div>
-
-
-
-
-
-<div id="minitoc">
+      <div id="minitoc">
 <h3>
 Contents
 </h3>
@@ -453,7 +492,7 @@ Other Android Tutorials
 </div>
 
 
-<h1 id="a-bit-of-history">A bit of History</h1>
+<h1 id="short-history">SHORT HISTORY</h1>
 <p>Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.</p>
 <p>Shortly thereafer, 200,000 android devices were being activated on a daily basis (at the time of writing, over half million android devices are activated each day). The small-ish mobile phone software began to make waves.</p>
 <p>Android's snowball noticeably gained momentum sometime in 2008 - 2009---this is the time they began using sweet snack monikers on each version of Android; it has been unstoppable since then.</p>
@@ -468,7 +507,7 @@ Other Android Tutorials
 <li>2011 - v3.0 (HoneyComb)</li>
 <li>2011 - v4.0 (Ice Cream Sandwich)</li>
 </ul><p>An article about Andy Rubin and Android, titled <a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">Android Invasion</a> appeared on a NewsWeek article sometime in 2010. Follow the link if you want to know a bit more about Android's history.</p>
-<h1 id="introduction">Introduction</h1>
+<hr><h1 id="introduction">INTRODUCTION</h1>
 <p>Android is;</p>
 <ol style="list-style-type: decimal">
 <li>a Linux based Operating System for mobile devices</li>
@@ -481,7 +520,7 @@ Other Android Tutorials
 <img src="/res/article-pix/notes-android/android-software-stack.png" width="500px"><p>Under the hood of Android is good old Linux--it has been chosen for many reasons, but primarily because of it's stability. Android comes with a lot of libraries, you will notice it has SQLite (for database programming), OpenGL (for graphics programming), Webkit (the browser engine that powers Safari and Chrome to name a few) and SSL (for security).</p>
 <p>The Android runtime (the blue boxes) consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. The Android runtime uses a subset of Apache Harmony. Harmony is an open source, free Java implementation from the Apache Software Foundation--the politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that somewhere else on world wild web.</p>
 <p>Android also comes packaged with Application Frameworks--this is the part of the Android that you will see frequently. As an Android developer you will spend a great deal of time reading, studying, implementing and using these frameworks.</p>
-<h1 id="what-do-you-need-to-get-started-in-android-programming">What Do you need to Get Started in Android Programming</h1>
+<hr><h1 id="what-you-need-to-get-started">WHAT YOU NEED TO GET STARTED</h1>
 <ol style="list-style-type: decimal">
 <li>Either an OSX, Linux or Windows machine</li>
 <li>A good internet connection (the SDK download is bit hefty)</li>
@@ -494,7 +533,7 @@ Other Android Tutorials
 <a href="/blog-studying-and-practicing-android/">A study approach.</a> Like anything important, an attack or approach is need to in order to grow in the direction of skill</li>
 <li>Lastly, a Java Programming background - if you are new to Java, try to check out <a href="/android-java-for-android-development/">how much Java do I need for Android Programming</a> to size up the learning curve and how much you are up against</li>
 </ol><p>Okay, dive in.</p>
-<h1 id="geting-started-on-setups">1. Geting Started on setups</h1>
+<hr><h1 id="setup">SETUP</h1>
 <ol style="list-style-type: decimal">
 <li><p>Download the <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. In my case, it was a zipped file</p></li>
 <li><p>Place the unzipped file somewhere in your directories. It is best not to put in a directory that contains white space. I placed mine inside /Users/myname/prgtools/android-sdk (this is your ANDROID-HOME)</p></li>
@@ -523,26 +562,26 @@ SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\
 <div class="figure">
 <img src="/res/article-pix/notes-android/windows-environment-variables.png"><p class="caption"></p>
 </div>
-<p>If you have local admin rights on the machine, click the <em>New</em> button on <strong>System variables</strong> section. On the variable name, type <strong>ANDROID_HOME</strong>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <strong>PATH</strong>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <em>%ANDROID_HOME%;%ANDROID_HOME%-tools;%ANDROID_HOME%;.</em></p>
+<p>If you have local admin rights on the machine, click the <em>New</em> button on System variables section. On the variable name section, type <em>ANDROID_HOME</em>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <strong>PATH</strong>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <em>%ANDROID_HOME%;%ANDROID_HOME%-tools;%ANDROID_HOME%;.</em></p>
 <p>Once you are done with the setup, try to type <em>android</em> from the command line. If it launches the android SDK manager, then you have set the android paths correctly.</p>
 <img src="/res/article-pix/notes-android/android-sdk-manager.png" width="700px"><p>I've been using this SDK manager for quite sometime now, that is why a lot of tick boxes says "installed". During your first run of this SDK manager, they will mostly be empty. You need to download quite a bit before you can get down and dirty in trying to write your first few apps.</p>
 <p>The top level folders (tick boxes) are numbers which correspond to the Android versions. If you want to develop for Ice Cream Sandwich, Honeycomb, Gingerbread and Froyo, you will need API levels 16, 15, 14, 12, 10 and and 8 respectively, so tick them all, start the download---and get some coffee, it will take some time depending on the speed of your internet connection.</p>
-<h1 id="create-the-first-project">2. Create the first project</h1>
-<p>The <em>Hello World</em> application is probably the most beaten down piece of sample code. Some developers look down on it because it is (already) downright nauseating. This poor example though, still has merits. It is the tiniest step one can take towards programming in unfamiliar territory and as such, the simplest.</p>
+<hr><h1 id="create-a-project">CREATE A PROJECT</h1>
+<p>The Hello World application is probably the most beaten down piece of sample code. Some developers look down on it because it is (already) downright nauseating. This poor example though, still has merits. It is the tiniest step one can take towards programming in unfamiliar territory and as such, the simplest.</p>
 <p>There is no shame in taking baby steps. Knowing (well) how to construct and run the simplest programs goes a long way. Having said that, let's do the Hello World app in Android.</p>
-<p>The <em>Hello World</em> of JSE (Java Standard Edition) is markedly different on the Android platform. It is not a simple case of sending a bunch of characters to the stdout (STDIO's standard out). Android is a platform for rich user interfaces. The Hello World in Android is way more involved than simply creating a simple class, defining <em>static main()</em> and invoking the out.println(). You will need to create and <em>Activity</em> object, override its <em>onCreate()</em> method, invoke the <em>ant</em> build tool, define an AVD (Android Virtual Device) and install the <em>.apk</em> (Android Package) either into the AVD or a physical Android Device--now, I hope you have a new found respect for the Hello World application. Let's get started.</p>
+<p>The Hello World of JSE (Java Standard Edition) is markedly different on the Android platform. It is not a simple case of sending a bunch of characters to the stdout (STDIO's standard out). Android is a platform for rich user interfaces. The Hello World in Android is way more involved than simply creating a simple class, defining <em>static main()</em> and invoking the out.println(). You will need to create and <em>Activity</em> object, override its <em>onCreate()</em> method, invoke the <em>ant</em> build tool, define an AVD (Android Virtual Device) and install the <em>.apk</em> (Android Package) either into the AVD or a physical Android Device--now, I hope you have a new found respect for the Hello World application. Let's get started.</p>
 <p>If you have installed and configured the Android SDK, you should be ready to dive into code. If you haven't, go back to the section above, item 1 of Part 1 (Getting Started on setups). The Android SDK comes equipped with scripts that will assist in creating, debugging, deploying and testing our projects.</p>
 <ol style="list-style-type: decimal">
 <li>Choose a working directory for your project. Open a terminal (Terminal.app on OSX, cmd on Windows and xterm, gnome-terminal etc on Linux)</li>
 <li>You might want to put this project under source control. This is completely optional at this point, but I encourage you to start getting into the habit of putting your dev works under source control, it will save you a lot of heartaches in the future. You can still proceed with the tutorial even if you don't have source control though</li>
-<li>Use the <strong>android create project</strong> command to setup the project. On the terminal, type</li>
-</ol><pre><code>android create project --target 8 path helloworld --activity Hello --package com.thelogbox</code></pre>
-<p>The <strong>android create project</strong> command is available if you have properly setup your PATH variables. If you get an error such as "Bad command or filename" or "command not found" or something to that effect, that is your just OS telling you that the <em>android</em> executable is not properly setup. Go back to <strong>Getting started on setups</strong>.</p>
+<li>Use the <em>android create project</em> command to setup the project. On the terminal, type <code class="codeblock">android create project --target 8 path helloworld --activity Hello --package com.thelogbox </code>
+</li>
+</ol><p>The <code class="codeblock">android create project</code> command is available if you have properly setup your PATH variables. If you get an error such as "Bad command or filename" or "command not found" or something to that effect, that is your just OS telling you that the <code class="codeblock">android</code> executable is not properly setup. Go back to <em>Getting started on setups</em> section above.</p>
 <p>There's quite a bit going on in here, so let's slow down and take look what those flags mean.</p>
-<p><strong>--target</strong> expects an integer value. This value stands for a unique API level for a specific android version. In our example above, <em>level 8</em> was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb will have a different one as well. If you want to see all the possible targets, you can type <em>android list targets</em></p>
-<p><strong>--path</strong> specifies the name of top level folder for your project. Think of it as a project folder. It will be the root directory of your project</p>
-<p><strong>--activitity</strong> will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <em>--activity Hello</em> means that our project will have class named Hello and is a child class of the base class Activity</p>
-<p><strong>--package</strong> an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)</p>
+<p><em>--target</em> expects an integer value. This value stands for a unique API level for a specific android version. In our example above, <em>level 8</em> was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb will have a different one as well. If you want to see all the possible targets, you can type <em>android list targets</em></p>
+<p><em>--path</em> specifies the name of top level folder for your project. Think of it as a project folder. It will be the root directory of your project</p>
+<p><em>--activitity</em> will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <em>--activity Hello</em> means that our project will have class named Hello and is a child class of the base class Activity</p>
+<p><em>--package</em> an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)</p>
 <p>If the command completed successfully, you are supposed to have a directory similar to this one</p>
 <p>What the <em>android create project</em> generated</p>
 <pre><code>├── AndroidManifest.xml
@@ -690,7 +729,7 @@ HelloWorld.java
 
 <p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the onCreate() method. That last statement is an directive on where and how to the get the instructions for building the user interface.</p>
 <p>The <em>setContentView()</em> is an overloaded method of Activity, it can take various parameter(s) and type. In our example, what was passed as param was <em>R.layout.main</em>—it is an integer constant. The <strong>R</strong> class was auto-generated by Android—specifically, it was generated by the appt, short for android asset packaging tool. If you want to take a look at the source, it will be in folder <em>gen/your-package-name/R.java</em>. That is not important right now though, what is important to know is that the Activity class provides for a method (setContentView) where we can point to an XML resource, this XML resource is where we will draw our user interface.</p>
-<p><strong>R.layout.main</strong> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em> Here is what Android generated for us.</p>
+<p><em>R.layout.main</em> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em> Here is what Android generated for us.</p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
@@ -840,7 +879,7 @@ main.xml
 </div>
 
 <p>The adjusted layout looks like this</p>
-<img src="/res/article-pix/notes-android/lin-sample-4.png" width="300"><h1 id="bibliography-and-references">Bibliography and References</h1>
+<img src="/res/article-pix/notes-android/lin-sample-4.png" width="300"><hr><h1 id="references">REFERENCES</h1>
 <ol style="list-style-type: decimal">
 <li><a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">NewsWeek article 2010</a></li>
 <li>Hello Android, Pragmatic Bookshelf 2008</li>
@@ -872,8 +911,11 @@ main.xml
   <!-- End of StatCounter Code for Default Guide -->
    
     
+<!--
 <p/></p><p/></p>
 <strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
+
+-->
 
 <div id="mc_embed_signup">
 <form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>

@@ -2,21 +2,30 @@
 <html lang="en">
   <head>
 		<style>
+
 * {
-  font-size: .99em;
+  font-size: 16px;
   background: #FFFFFF;
   /*color: #414141;*/
-  color: #686868;
+  color: #545454;
 }
 
-ol, li, p {
-  font-family: 'Open Sans';
-  line-height: 1.5em;
+ul, ol, li, p {
+  font-family: Arial ;
+  line-height: 160%;
+}
+
+em {
+  font-family: Georgia;
+  color: #41505d;
+}
+
+strong {
+  color: #000000;
 }
 
 #shock-left {
   font-family: 'Rokkitt';
-  font-size: 250%;
   font-weight:normal;
   letter-spacing: -1.5px;
   color: #61768a;
@@ -29,6 +38,7 @@ ol, li, p {
 }
 
   #shock-left a:link, #shock-left a:visited {
+    font-size: 45px;
     color: #61768a;
     border-bottom: 2px dotted #61768a;
   }
@@ -39,8 +49,8 @@ ol, li, p {
 
   #shock-right {
     padding-top:70px;
+    font-size: 85px;
     font-family: 'Rokkitt';
-    font-size: 450%;
     font-weight:normal;
     letter-spacing: -1.5px;
     line-height: -.7em;
@@ -76,17 +86,13 @@ header {
   border-bottom:0px dotted #009494;
 }
 
-#navleft, #navright {
-  font-family: 'Rokkitt';
-  font-size: 22px;
-}
-
+#navleft, #navright {font-family: 'Rokkitt';}
 #navleft a:link, #navleft a:visited {
+  font-size: 22px;
   color: #CACACA;
   float:left;
-  /*font-size:250%;*/
   font-weight:normal;
-  margin-left:0px;  
+  margin-left:0px;
 }
   #navleft a:hover {
     color: #61768a;
@@ -94,10 +100,10 @@ header {
   }
 
 #navright a:link, #navright a:visited {
+  font-size: 22px;
   padding-left:5px;
   padding-right:5px;
   float:right;
-  /*font-size: 110%; */
   color: #CACACA;
   text-decoration:none;
 }
@@ -106,6 +112,7 @@ header {
     color: #61768a;
     border-bottom:1px solid #DEDEDE;
   }
+
 
 #spacer {clear:both;margin-bottom:50px;}
 
@@ -135,16 +142,18 @@ footer {
 
 #articletitle {
   font-family: 'Rokkitt';
-  font-size:280%; 
+  font-size:50px; 
   font-weight: normal;
   color: #61768a;
   margin-top:20px;
-  text-align: left;
+  text-align: center;
+  letter-spacing: -1px;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Rokkitt';
-  color: #61768a; 
+  font-family: Arial;
+  /*color: #61768a;*/
+  color: #373737; 
   font-weight:normal;
 }
 h1 {font-size: 170%;}
@@ -155,7 +164,9 @@ h4 {font-size: 110%;}
 /* LINKS */
 
 a:link, a:visited {
-  color: #004a94;
+  /*color: #004a94;
+  color: #0778e4;*/
+  color: #b30000;
   text-decoration: none;
 }
 
@@ -164,6 +175,11 @@ a:hover {
   border-bottom: 1px solid #0072e3;
 }
 
+hr {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
+}
 
 
 /* OTHER BLOCKS */
@@ -186,9 +202,12 @@ a:hover {
 }
 
 #contentmeta {
+  font-family: Georgia;
+  font-style: oblique;
   color: gray;
   text-align: left;
   margin-bottom:40px;
+  text-align: center;
 }
 
 #sidebarright {
@@ -250,6 +269,7 @@ a:hover {
 /* PRE AND CODE AREA */
 
 #lst {
+  /*
 	font-family: 'Open Sans';
 	font-style:normal;
 	background:#DEDEDE;
@@ -257,7 +277,13 @@ a:hover {
 	padding-top:10px;
 	padding-bottom:10px;
 	padding-left:10px;
-
+  */
+  
+  font-family: Georgia;
+  font-size: 16px;
+  text-align: center;
+  margin: 15px;
+  color: #000000;
 }
 
 pre {
@@ -266,11 +292,17 @@ pre {
   margin-bottom:0px;
 
   padding: 10px 5px 10px 15px;
-  font-size: .87em;
-  font-family: 'Source Code Pro';
-  border: 3px solid #DEDEDE;
+  
+  /*font-size: .87em;*/
+  font-size: 14px;
+  font-family: 'Muli';
+  background: #e8ebef;
+  line-height: 130%;
+  
+  /*
+  border: 1px solid #DEDEDE;
   background: #FBFCF9; 
-
+  */
   /*
   border: 1px solid #DEDEDE;
   background: #F5F5F5;
@@ -283,6 +315,16 @@ pre {
 
 }
 
+pre.codeblock, .codeblock {
+  
+  font-family: 'Muli';
+  font-size: 14px;
+  color: #0000b3;
+  background: #FFFFFF;
+  padding:0px;
+  margin: 0px;
+}
+
 
 pre code, .keyword, .directive, .type, 
           .string, .function, .class, 
@@ -291,16 +333,21 @@ pre code, .keyword, .directive, .type,
           .attribute-name, .include, .predefined-constant, 
           .local-variable, .key, .class, .instance-variable,
           .symbol, .constant, .inline, .line-numbers,
-          .integer, .char, .float {
+          .integer, .char, .float, .annotation, .namespace, 
+          .content, .delimiter {
 
-      font-family: 'Source Code Pro';
-      font-size: 1em;
-      background: #FBFCF9; 
+      font-family: 'Muli';
+      /*font-size: 1em;*/
+      font-size: 14px;
+      background: #e8ebef; 
+      color: #000000;
+      line-height: 130%;
 
 }
 
 /* definition of styles for code highlighting */
 
+/*
 .keyword, .key, .directive, .type, .reserved, .predefined-type, .tag, .class {
   color: #6e6eFF;
 }
@@ -337,6 +384,7 @@ pre code, .keyword, .directive, .type,
   color: blue;
 }
 
+*/
 </style>
 		<meta charset="utf-8">
 <title>Wireless Linux Music Player: theLogBox.com</title>
@@ -345,6 +393,8 @@ pre code, .keyword, .directive, .type,
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
 <!--
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
@@ -449,8 +499,11 @@ by:
   <!-- End of StatCounter Code for Default Guide -->
    
     
+<!--
 <p/></p><p/></p>
 <strong>For discussions,</strong> please use <a href="https://groups.google.com/group/thelogbox">theLogBox Google Group</a>. Follow me on <a href="https://twitter.com/thelogbox">Twitter</a> or <a href="https://facebook.com/thelogbox.dev">Facebook.com/thelogbox.dev</a>
+
+-->
 
 <div id="mc_embed_signup">
 <form action="http://thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=0117706770" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
