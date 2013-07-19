@@ -6,7 +6,6 @@
 * {
   font-size: 16px;
   background: #FFFFFF;
-  /*color: #414141;*/
   color: #545454;
 }
 
@@ -22,6 +21,12 @@ em {
 
 strong {
   color: #000000;
+}
+
+img {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #shock-left {
@@ -74,7 +79,7 @@ strong {
 */
   
 body {
-  font-family: 'Open Sans';
+  font-family: Arial;
   width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -150,14 +155,15 @@ footer {
   letter-spacing: -1px;
 }
 
-h1, h2, h3, h4, h5 {
+h2, h3, h4, h5 {
   font-family: Arial;
   /*color: #61768a;*/
   color: #373737; 
   font-weight:normal;
 }
-h1 {font-size: 170%;}
+h1 {font-family:'Tauri'; font-size: 200%;}
 h2 {font-size: 140%;}
+  h2.section { border-bottom: 1px solid #CACACA;}
 h3 {font-size: 120%;}
 h4 {font-size: 110%;}
 
@@ -180,7 +186,6 @@ hr {
   color: #61781a;
   border: 3px solid #DEDEDE;
 }
-
 
 /* OTHER BLOCKS */
 
@@ -222,10 +227,10 @@ hr {
 /* MAIL CHIMP CSS*/
 
 #mce-EMAIL {
-  font-family: 'Rokkitt';
-  font-size: 25px;
+  font-size: 20px;
+  letter-spacing: -1px;
   color: #000000;
-  width: 450px;
+  width: 460px;
   background: #FFFFF6;
   border:3px solid #000000;
   margin-bottom: 10px;
@@ -237,6 +242,7 @@ hr {
 }
 
 #mc-embedded-subscribe {
+  font-family: Arial;
   background: #000000;
   color: #FFFFFF;
   padding: 10px 15px;
@@ -247,12 +253,11 @@ hr {
   text-align: center;
   width: 200px;
   border: 0px;
-  font-family: 'Rokkitt';
   font-size: 25px;
 }
 
 #mc-embedded-subscribe:hover {
-  background: red;
+  background: #0072e3;
 }  
 
 #mc_embed_signup {
@@ -318,7 +323,7 @@ pre {
 pre.codeblock, .codeblock {
   
   font-family: 'Muli';
-  font-size: 14px;
+  font-size: 15px;
   color: #0000b3;
   background: #FFFFFF;
   padding:0px;
@@ -334,7 +339,8 @@ pre code, .keyword, .directive, .type,
           .local-variable, .key, .class, .instance-variable,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
-          .content, .delimiter {
+          .content, .delimiter, .st, .sourceCode, .exception,
+          .class-variable {
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -386,19 +392,24 @@ pre code, .keyword, .directive, .type,
 
 */
 </style>
-		<meta charset="utf-8">
-<title>A Short Programming Tutorial on Android: theLogBox.com</title>
+		<!--
 
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+-->
+
+<meta charset="utf-8">
+<title>A Short Programming Tutorial on Android: theLogBox.com</title>
+
 <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
 
 <!--
 <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
 -->
-
 
 
 
@@ -447,232 +458,102 @@ by:
 </div>  
 
 	  <div itemprop="articleBody">
-      <div id="minitoc">
-<h3>
-Contents
-</h3>
-
-<ol style="list-style-type: decimal">
-<li>Android history</li>
-<li>Introduction</li>
-<li>Setup</li>
-<li>Create the first project</li>
-<li>Add UI elements</li>
-</ol>
-<h3>
-Other Android Tutorials
-</h3>
-
-<ol style="list-style-type: decimal">
-<li>
-<a href="/android-layout-weights/">Maximize Screen space using Layout weight</a><br>
+      <h1 id="short-history">SHORT HISTORY</h1>
+<ul>
+<li>2003 - <em>Android Inc., was founded by Andy Rubin</em>
 </li>
-<li>
-<a href="/android-event-handling-declarative/">Declarative event handling</a><br>
+<li>2005 - <em>Android Inc was Acquired by Google</em>
 </li>
-<li>
-<a href="/android-scrolling-edittext-using-scrollview/">Scrolling an EditText</a><br>
+<li>2008 - <em>version 1.0</em>
 </li>
-<li>
-<a href="/android-database-programming-basics/">Android database programming</a><br>
+<li>2009 - <em>version 1.1</em>
 </li>
-<li>
-<a href="/screen-shooting-android/">Screen shooting using ddms</a><br>
+<li>2009 - <em>v1.5 (CupCake), v1.6 (Donut)</em>
 </li>
-<li>
-<a href="/android-error-install-parse-failed/">Install parse failed ..</a><br>
+<li>2009 - <em>v2.0/2.1 (Eclair)</em>
 </li>
-<li>
-<a href="/cannot-find-buildxml/">Cannot find build.xml</a><br>
+<li>2010 - <em>v2.2 (Froyo), v2.3 (GingerBread)</em>
 </li>
-<li>
-<a href="/android-java-recording-voice/">Recording voice using the MIC</a><sup> {new}</sup><br>
+<li>2011 - <em>v3.0 (HoneyComb)</em>
 </li>
-</ol>
+<li>2011 - <em>v4.0 (Ice Cream Sandwich)</em>
+</li>
+<li>2012 - <em>v4.1 (Jelly Bean)</em>
+</li>
+</ul><p>An article about Andy Rubin and Android, titled <a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">Android Invasion</a> appeared on a NewsWeek article sometime in 2010.</p>
+<hr><h1 id="technology-stack">TECHNOLOGY STACK</h1>
+<p>The Android is made up of a slew of tech but the most visible ones are <em>Linux</em> and <em>Java</em>. It is a complete operating system and it provides a container that can support rich applications.</p>
+<img src="/res/article-pix/notes-android/android-architecture.png" width="100%" style="border: 4px solid gray;"><div id="lst">
+Fig 1: Android Architecture
 </div>
 
-
-<h1 id="short-history">SHORT HISTORY</h1>
-<p>Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.</p>
-<p>Shortly thereafer, 200,000 android devices were being activated on a daily basis (at the time of writing, over half million android devices are activated each day). The small-ish mobile phone software began to make waves.</p>
-<p>Android's snowball noticeably gained momentum sometime in 2008 - 2009---this is the time they began using sweet snack monikers on each version of Android; it has been unstoppable since then.</p>
-<ul>
-<li>2003 - Android Inc., was founded by Andy Rubin</li>
-<li>2005 - Android Inc was Acquired by Google</li>
-<li>2008 - Android v1.0</li>
-<li>2009 - Android v1.1</li>
-<li>2009 - v1.5 (CupCake), v1.6 (Donut)</li>
-<li>2009 - v2.0/2.1 (Eclair)</li>
-<li>2010 - v2.2 (Froyo), v2.3 (GingerBread)</li>
-<li>2011 - v3.0 (HoneyComb)</li>
-<li>2011 - v4.0 (Ice Cream Sandwich)</li>
-</ul><p>An article about Andy Rubin and Android, titled <a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">Android Invasion</a> appeared on a NewsWeek article sometime in 2010. Follow the link if you want to know a bit more about Android's history.</p>
-<hr><h1 id="introduction">INTRODUCTION</h1>
-<p>Android is;</p>
-<ol style="list-style-type: decimal">
-<li>a Linux based Operating System for mobile devices</li>
-<li>developed by OHA (Open Handset Alliance) led by Google Inc</li>
-<li>a rich development platform for mobile applications</li>
-<li>free, you can get the SDK (software development kit) without paying anything to anybody</li>
-<li>an approachable platform. You can develop apps using various platforms (OSX, Linux, Windows)</li>
-<li>getting a lot of attention. Over 10 Billion downloads on Google Play (at the time of writing). Over 500,000 apps have been writted (or ported). Over half a million device activations per day</li>
-</ol><p><span class="stress">The Software Stack</span></p>
-<img src="/res/article-pix/notes-android/android-software-stack.png" width="500px"><p>Under the hood of Android is good old Linux--it has been chosen for many reasons, but primarily because of it's stability. Android comes with a lot of libraries, you will notice it has SQLite (for database programming), OpenGL (for graphics programming), Webkit (the browser engine that powers Safari and Chrome to name a few) and SSL (for security).</p>
+<p>Under the hood of Android is Linux. It was chosen for many reasons, but primarily because of it's stability. Android comes with a lot of libraries, you will notice it has SQLite (for database programming), OpenGL (for graphics programming), Webkit (the browser engine that powers Safari and Chrome to name a few) and SSL (for security).</p>
 <p>The Android runtime (the blue boxes) consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. The Android runtime uses a subset of Apache Harmony. Harmony is an open source, free Java implementation from the Apache Software Foundation--the politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that somewhere else on world wild web.</p>
 <p>Android also comes packaged with Application Frameworks--this is the part of the Android that you will see frequently. As an Android developer you will spend a great deal of time reading, studying, implementing and using these frameworks.</p>
-<hr><h1 id="what-you-need-to-get-started">WHAT YOU NEED TO GET STARTED</h1>
+<hr><h1 id="what-you-need-for-development">WHAT YOU NEED FOR DEVELOPMENT</h1>
 <ol style="list-style-type: decimal">
-<li>Either an OSX, Linux or Windows machine</li>
+<li>A development machine with lots of horsepower and lots of RAM. As much as you can afford. Ignore the minimum requirement, splurge on the machine. It doesn't matter what you choose, OSX, Linux or Windows. Android will work on all of them</li>
 <li>A good internet connection (the SDK download is bit hefty)</li>
-<li>A programmer's editor (or an IDE, if you prefer)</li>
-<li>Learning resources, <a href="/choosing-books-for-android/">books on Android programming</a> and other online resources like <a href="http://developer.android.com">developer.android.com</a>
-</li>
+<li>A programmer's editor — vi, emacs, TextMate, Sublime2 etc. You can use an IDE if you like, there are plenty to choose from — NetBeans, Eclipse or Android Studio</li>
 <li>A Java development environment (either JDK 1.5 or 1.6)</li>
 <li>Apache Ant</li>
-<li>
-<a href="/blog-studying-and-practicing-android/">A study approach.</a> Like anything important, an attack or approach is need to in order to grow in the direction of skill</li>
-<li>Lastly, a Java Programming background - if you are new to Java, try to check out <a href="/android-java-for-android-development/">how much Java do I need for Android Programming</a> to size up the learning curve and how much you are up against</li>
-</ol><p>Okay, dive in.</p>
-<hr><h1 id="setup">SETUP</h1>
-<ol style="list-style-type: decimal">
-<li><p>Download the <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. In my case, it was a zipped file</p></li>
-<li><p>Place the unzipped file somewhere in your directories. It is best not to put in a directory that contains white space. I placed mine inside /Users/myname/prgtools/android-sdk (this is your ANDROID-HOME)</p></li>
-<li><p>Go to your ANDROID-HOME/tools, launch the <em>android</em> executable. This will launch the Android SDK Manager. The android SDK needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK, there won't be much. Choose the API levels that you would like to install in your machine.</p></li>
-</ol><p>Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all---be warned though, you will wait for a long time for it to finish.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Include the android tools and platform tools in your shell's path. You will need it if you want to work with android using the command line. The two folders of interest are <strong>ANDROID-HOME/tools</strong> and <strong>ANDROID-HOME/platform-tools</strong>
-</li>
-</ol><p>In OSX, you can add the following entries in th <em>~/.bash_profile</em></p>
-<pre><code>export ANDROID_HOME=/path/to/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools:.
-export PATH=$PATH:$ANDROID_HOME/platform-tools:.</code></pre>
-<p>In Linux, add the following lines to <em>~/.bashrc</em>, if you are using bash</p>
-<pre><code>export ANDROID_HOME=/path/to/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools:.
-export PATH=$PATH:$ANDROID_HOME/platform-tools:.</code></pre>
-<p>Close the terminal, then launch it again in order to reflect the changes we made to the PATH variable.</p>
-<p>In Windows, there are two ways to set the PATH</p>
-<p>The first method is via the command line (cmd.exe).</p>
-<pre><code>
-SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
-SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
-</code></pre>
-<p>You will need to run those commands though, each time you will open a new CMD.exe. Those settings are not remembered by the shell.</p>
-<p>If you want to permanently set these PATHS, you need to do it in the System Properties dialog box. First, open Control Panel, go to System Properties, then Advanced System Settings then click the button <em>Environment variables</em></p>
-<div class="figure">
-<img src="/res/article-pix/notes-android/windows-environment-variables.png"><p class="caption"></p>
-</div>
-<p>If you have local admin rights on the machine, click the <em>New</em> button on System variables section. On the variable name section, type <em>ANDROID_HOME</em>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <strong>PATH</strong>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <em>%ANDROID_HOME%;%ANDROID_HOME%-tools;%ANDROID_HOME%;.</em></p>
-<p>Once you are done with the setup, try to type <em>android</em> from the command line. If it launches the android SDK manager, then you have set the android paths correctly.</p>
-<img src="/res/article-pix/notes-android/android-sdk-manager.png" width="700px"><p>I've been using this SDK manager for quite sometime now, that is why a lot of tick boxes says "installed". During your first run of this SDK manager, they will mostly be empty. You need to download quite a bit before you can get down and dirty in trying to write your first few apps.</p>
-<p>The top level folders (tick boxes) are numbers which correspond to the Android versions. If you want to develop for Ice Cream Sandwich, Honeycomb, Gingerbread and Froyo, you will need API levels 16, 15, 14, 12, 10 and and 8 respectively, so tick them all, start the download---and get some coffee, it will take some time depending on the speed of your internet connection.</p>
-<hr><h1 id="create-a-project">CREATE A PROJECT</h1>
-<p>The Hello World application is probably the most beaten down piece of sample code. Some developers look down on it because it is (already) downright nauseating. This poor example though, still has merits. It is the tiniest step one can take towards programming in unfamiliar territory and as such, the simplest.</p>
-<p>There is no shame in taking baby steps. Knowing (well) how to construct and run the simplest programs goes a long way. Having said that, let's do the Hello World app in Android.</p>
-<p>The Hello World of JSE (Java Standard Edition) is markedly different on the Android platform. It is not a simple case of sending a bunch of characters to the stdout (STDIO's standard out). Android is a platform for rich user interfaces. The Hello World in Android is way more involved than simply creating a simple class, defining <em>static main()</em> and invoking the out.println(). You will need to create and <em>Activity</em> object, override its <em>onCreate()</em> method, invoke the <em>ant</em> build tool, define an AVD (Android Virtual Device) and install the <em>.apk</em> (Android Package) either into the AVD or a physical Android Device--now, I hope you have a new found respect for the Hello World application. Let's get started.</p>
-<p>If you have installed and configured the Android SDK, you should be ready to dive into code. If you haven't, go back to the section above, item 1 of Part 1 (Getting Started on setups). The Android SDK comes equipped with scripts that will assist in creating, debugging, deploying and testing our projects.</p>
-<ol style="list-style-type: decimal">
-<li>Choose a working directory for your project. Open a terminal (Terminal.app on OSX, cmd on Windows and xterm, gnome-terminal etc on Linux)</li>
-<li>You might want to put this project under source control. This is completely optional at this point, but I encourage you to start getting into the habit of putting your dev works under source control, it will save you a lot of heartaches in the future. You can still proceed with the tutorial even if you don't have source control though</li>
-<li>Use the <em>android create project</em> command to setup the project. On the terminal, type <code class="codeblock">android create project --target 8 path helloworld --activity Hello --package com.thelogbox </code>
-</li>
-</ol><p>The <code class="codeblock">android create project</code> command is available if you have properly setup your PATH variables. If you get an error such as "Bad command or filename" or "command not found" or something to that effect, that is your just OS telling you that the <code class="codeblock">android</code> executable is not properly setup. Go back to <em>Getting started on setups</em> section above.</p>
-<p>There's quite a bit going on in here, so let's slow down and take look what those flags mean.</p>
+<li>Lastly, a Java Programming background. Some people tried to learn Java and Android at the same time. While that is possible, I would not recommend that route. Get comfortable in Java first before trying out Android, unless you don't mind the headaches.</li>
+</ol><hr><h1 id="setup">SETUP</h1>
+<p>Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. The expectation however, is that you already are a Java programmer and that these things are old hats to you.</p>
+<p>I used to keep a detailed and step-by-step (even pictorial) instructions of the setup routine in these pages, but they proved to be difficult to maintain and gets outdated quite quickly. Hence, I took them out and replaced them with links to resources that have better chances of being updated.</p>
+<p>First thing to look at is the official site of Android. They keep setup information <a href="http://developer.android.com/sdk/index.html">here</a> and <a href="http://developer.android.com/sdk/index.html">here</a>. If that is still not clear enough, you can look at the <a href="https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing">setup instructions I wrote for my students here</a></p>
+<hr><h1 id="things-you-can-do-with-android">THINGS YOU CAN DO WITH ANDROID</h1>
+<p>A lot of things. As mentioned before, Android is an operating system. It is also has a top-notch and proven development kit (plus libraries). If you add the very large number of developers in the Java Community who are tirelessly working to produce the <em>next best dev framework/library</em> to this equation, then it's a whole new ball game. That means (almost) everything we did on Desktop we can also on the mobile — plus more. I said almost because the mobile platform will play catch up with the desktop platform in terms of processing horse power — but that is just a matter of time.</p>
+<p>The Android development platform has some basic building blocks e.g. <em>Activities</em> for user interfaces, <em>Content Providers</em> for data sources, <em>Intents</em> for event handling — it actually is more than just for event handling and activating windows/apps, but for the purpose of this document, we will settle for that.</p>
+<p>You can create applications that has timers, can multiprocess, can handle media (audio and video) and are <em>network-aware</em>. These are just a few of the things you can do with the Android Development platform.</p>
+<hr><h1 id="getting-started">GETTING STARTED</h1>
+<p>One of the best ways to learn something is to actually do it. In Android programming, that means getting your feet wet very early. Don't worry that you don't understand all of it (yet), that will come eventually. It's very important to get started early and gain a bit of coding confidence on the platform.</p>
+<p>We will start with a very simple applicationn. The Hello World application is probably the most beaten down piece of sample code. Some developers look down on it because it is (already) downright nauseating. This poor example though, still has merits. It is the tiniest step one can take towards programming in unfamiliar territory and as such, the simplest.</p>
+<p>The Hello World of JSE (Java Standard Edition) is markedly different on the Android platform. It is not a simple case of sending a bunch of characters to the stdout (STDIO's standard out). Android is a platform for rich user interfaces.</p>
+<p>The Hello World in Android is way more involved than simply creating a simple class, defining <em>static main()</em> and invoking the out.println(). You will need to create an <em>Activity</em> object, override its <em>onCreate()</em> method, invoke the <em>ant</em> build tool, define an AVD (Android Virtual Device) and install the <em>.apk</em> (Android Package) either into the AVD or a physical Android Device — now, I hope you have a new found respect for the Hello World application.</p>
+<h2 class="section">
+CREATING A PROJECT
+</h2>
+
+<p>An android project is not just a simple java source file. It is made up of configuration files, source files, string resources, properties file etc. It is a non-trivial task to manage them manually that is why the <em>Android SDK</em> includes tools for creating, building, debugging and packaging android projects.</p>
+<p>Use the <em>android create project</em> command to create our first project. Choose your working directory and then execute this command on the terminal.</p>
+<p><code class="codeblock">$ android create project --target 8 path first --activity First --package com.thelogbox </code></p>
+<p>The <code class="codeblock">android create project</code> command is available if you have properly setup your PATH variables. If you get an error such as <em>Bad command or filename</em> or <em>command not found</em> or something to that effect, that is your just OS telling you that the <code class="codeblock">android</code> executable is not properly setup. Check your installation and configuration. See if the <em>android tools</em> and <em>android platform tools</em> are in your <em>SYSTEM PATH</em>.</p>
+<div style="padding: 15px; border:3px solid #FFAE5C;">
+
+<p>There's quite a bit going on in the <em>create project</em> command, so let's slow down and take look what those flags mean.</p>
 <p><em>--target</em> expects an integer value. This value stands for a unique API level for a specific android version. In our example above, <em>level 8</em> was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb will have a different one as well. If you want to see all the possible targets, you can type <em>android list targets</em></p>
 <p><em>--path</em> specifies the name of top level folder for your project. Think of it as a project folder. It will be the root directory of your project</p>
-<p><em>--activitity</em> will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <em>--activity Hello</em> means that our project will have class named Hello and is a child class of the base class Activity</p>
+<p><em>--activity</em> will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <em>--activity First</em> means that our project will have class named First and is a child class of the base class Activity</p>
 <p><em>--package</em> an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)</p>
+</div>
+
 <p>If the command completed successfully, you are supposed to have a directory similar to this one</p>
-<p>What the <em>android create project</em> generated</p>
-<pre><code>├── AndroidManifest.xml
-├── ant.properties
-├── bin
-├── build.xml
-├── libs
-├── local.properties
-├── proguard-project.txt
-├── project.properties
-├── res
-│   ├── layout
-│   │   └── main.xml
-│   └── values
-│       └── strings.xml
-└── src
-   └── com
-       └── thelogbox
-           └── Hello.java</code></pre>
-<div id="lst">
-Folder Structure of an Android project
+<img src="/res/article-pix/notes-android/android-project-structure.png"><div id="lst">
+Fig 2: Folder Structure of an Android project
 </div>
 
 
-<p>It's quite a mouthful and probably enough to stop a beginning programmer to his tracks and pack up, but don't do that. We will explore each and everyone of those files and folders. You can safely ignore them for now. We are just trying to get a feel of how to create a project---remember?</p>
-<p>For now, just play around the project. Open the generated files--don't worry, they are all text files--see what they look like. They might fly over your head at this point, that's okay.</p>
-<p>The <strong>android create project</strong> script actually generated a Java class source file for us, the <em>Hello.java</em>. This is an Activity class, for now just think of an Activity as some sort of window---it is more than that actually, but for now just think of it like a window so we don't have to deal with the complications. You would normally use an Activity class if you want <strong>"the user to do something"</strong>. In this case, we want him to see a simple "Hello World" message.</p>
-<p>You don't have to change the codes at this point. The "Hello World" is actually written for you when we created the project. If you are curious, the Hello message is inside <em>main.xml</em> file--we will explain that in a little while.</p>
-<p>There are a lot of files generated by <em>create project</em> script becauase Android apps needs quite a bit of infrastructure code, unlike simple JSE (Java Standard Edition) programs. This is one reason why the <em>create script</em> includes a build file (build.xml), so that we dont' have muck around whipping up our own compilation scripts.</p>
-<p>The <strong>build.xml</strong> contains instructions on how to compile and deploy your app source code into a working .apk.</p>
-<ol style="list-style-type: decimal">
-<li>If you haven't closed the terminal yet, go to it. If you have closed it, open the terminal again and navigate to the root folder of the android project</li>
-<li>Try typing <strong>ant</strong> on the terminal. It should echo a bunch of possible targets. We will use the debug target to build our android app.</li>
-</ol><p>We will use the debug target so that we can side step android's requirement to setup security keys and signing our applications with that key. Let's deal with the application signing later on when we get to deploying and releasing our mobile app in the wild.</p>
-<p>If we use the <strong>debug</strong> target, ant will generate a debug key that will serve as the security key for our app. This is good enough for now because we are just fooling around. Compile the app by typing</p>
-<pre><code>$ ant debug</code></pre>
+<p>It's quite a mouthful and probably enough to stop a beginning programmer to his tracks and pack up, but don't do that. We will explore each and everyone of those files and folders. You can safely ignore them for now. We are just trying to get a feel of how to create a project. For now, just play around the project. Open the generated files. Don't worry, they are all text files — see what they look like. They might fly over your head at this point, that's okay.</p>
+<p>The <em>android create project</em> script actually generated a Java class source file for us, the <em>Hello.java</em>. This is an Activity class, for now just think of an Activity as some sort of window — it is more than that actually, but for now just think of it like a window so we don't have to deal with the complications. You would normally use an Activity class if you want the user to do something. In this case, we want him to see a simple <em>"Hello World"</em> message.</p>
+<p>You don't have to change the codes at this point. The "Hello World" is actually written for you when we created the project. If you are curious, the Hello message is inside the <em>main.xml</em> file. We will get to examine that in a little while.</p>
+<p>There are quite a few files generated by the <em>create project</em> script because Android apps needs quite a bit of infrastructure code, unlike simple JSE (Java Standard Edition) programs. This is one reason why the <em>create script</em> includes a build file, the <em>build.xml</em>, so that we don't have muck around whipping up our own compilation scripts.</p>
+<p>The <em>build.xml</em> contains instructions on how to compile and deploy your app source code into a working <em>.apk.</em></p>
+<h2 class="section">
+BUILDING A PROJECT
+</h2>
+
+<p>After editing your source files in the project, you will need to build it. By that I meant <em>compiling</em> all the project resources and deploying it either in an emulator or a physical device. This is where the Apache ANT tool comes in handy. On your terminal, type the following</p>
+<p><code class="codeblock">$ ant debug install</code></p>
+<p>We used the <em>debug target</em> so that we can side step Android's requirement to setup security keys and signing our applications with that key. Let's deal with the application signing later on when we get to deploying and releasing our mobile app in the wild.</p>
+<p>The <em>debug target</em> of ANT generated a debug key that served as the security key for our app. This is good enough for now because we are just trying to get our feet wet. If you release your real app, you should generate real security keys and signature.</p>
 <p>You should see a bunch of scrolling echo messages in the terminal. Look for a message (right towards the end) that says something like <em>BUILD SUCCESSFUL</em>. It should be successful for now because we haven't messed around with it yet. There is no reason at this point for the build to fail.</p>
-<pre><code>.
-├── AndroidManifest.xml
-├── ant.properties
-├── bin
-│   ├── AndroidManifest.xml
-│   ├── AndroidManifest.xml.d
-│   ├── Hello-debug-unaligned.apk
-│   ├── Hello-debug-unaligned.apk.d
-│   ├── Hello-debug.apk
-│   ├── Hello.ap_
-│   ├── Hello.ap_.d
-│   ├── build.prop
-│   ├── classes
-│   │   └── com
-│   │       └── thelogbox
-│   │           ├── BuildConfig.class
-│   │           ├── Hello.class
-│   │           ├── R$attr.class
-│   │           ├── R$layout.class
-│   │           ├── R$string.class
-│   │           └── R.class
-│   ├── classes.dex
-│   ├── classes.dex.d
-│   ├── jarlist.cache
-│   ├── proguard.txt
-│   └── res
-├── build.xml
-├── gen
-│   ├── R.java.d
-│   └── com
-│       └── thelogbox
-│           ├── BuildConfig.java
-│           └── R.java
-├── libs
-├── local.properties
-├── proguard-project.txt
-├── project.properties
-├── res
-│   ├── layout
-│   │   └── main.xml
-│   └── values
-│       └── strings.xml
-└── src
-    └── com
-       └── thelogbox
-            └── Hello.java
+<p>Right after the compilation process, there are lots of changes within our project directory. Quite noticeably, there are now lots of files inside the <strong>bin</strong> and <strong>gen</strong> folders. Somewhere in these jungle lies the executables that we can actually deploy to a real device — but save that for later. Right now, the goal is to just be comfortable with the compilation process.</p>
+<p>In case you encounter a <em>Cannot find build.xml</em> error, take a look at your SDK setup. This is usually a config error on the <em>local.properties</em> file. <a href="/cannot-find-buildxml/">Look here for details of the error</a></p>
+<h2 class="section">
+TEST THE APP
+</h2>
 
-15 directories, 30 files</code></pre>
-<div id="lst">
-Folder Structure, after compilation
-</div>
-
-<p>Right after the compilation process, there are lots of changes within our project directory. Quite noticeably, there are now lots of files inside the <strong>bin</strong> and <strong>gen</strong> folders. Somewhere in these jungle lies the executables that we can actually deploy to a real device---but save that for later. Right now, the goal is to just be comfortable with the compilation process. In case you encounter a "Cannot find build.xml" error, take a look at your SDK setup. This is usually a config error on the <em>local.properties</em> file. <a href="/cannot-find-buildxml/">Look here for details of the error</a></p>
-<h3 id="testing-the-app">Testing the app</h3>
 <p>At this point, what we have done is simply compile an .apk, we haven't deployed it yet, either to a physical device or to an AVD. To see and appreciate your app in action, you need to deploy it either to an AVD (Android Virtual Device) or a physical device.</p>
 <p>The AVD is an emulator. You need to create and configure an AVD using the android SDK manager;</p>
 <ol style="list-style-type: decimal">
@@ -681,28 +562,26 @@ Folder Structure, after compilation
 </li>
 <li>Click <em>New</em> to create an AVD.The next screen will ask you a bunch of questions on the technical details of the AVD that want to create. Fill it up with what is applicable to you (screen resolutions, amount of RAM to dedicate etc)</li>
 <li>Launch the AVD when you are done</li>
-</ol><p><strong>NOTE:</strong> The AVD is terribly slow. If you are serious in developing android apps, I urge you to invest (even) on a cheap physical android device because the wait time on deployment using an AVD is counter productive and a gross misuse of developer (your) time.</p>
-<p>If you will use a physical device for testing, you need to just a few things.</p>
-<ol style="list-style-type: decimal">
-<li>Before you connect the device via a USB, you need to check some settings on the device.<br>
-</li>
-<li>Go to <strong>Settings</strong>, then <strong>Applications</strong> then <strong>Development</strong>. You need to <em>enable USB debugging</em>
-</li>
-</ol><div class="figure">
-<img src="/res/article-pix/notes-android/usb-debugging.png" alt="enable usb debugging"><p class="caption">enable usb debugging</p>
+</ol><p>The AVD is terribly slow. If you are serious about developing android apps, I urge you to invest (even) on a cheap physical android device because the wait time on deployment using an AVD is counter productive and a gross misuse of developer (your) time.</p>
+<p>If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device.</p>
+<p>On your device, go to <em>Settings</em> → <em>Applications</em> → <em>Development</em>. You need to <em>enable USB debugging</em></p>
+<img src="/res/article-pix/notes-android/usb-debugging.png" alt="enable usb debugging"><div id="lst">
+Fig 3: Enable USB Debugging in your Phone
 </div>
-<ol start="3" style="list-style-type: decimal">
-<li>Now you can connect the device to the development machine</li>
-</ol><h3 id="deploying-the-app">Deploying the app</h3>
-<p>To deploy the app, either you invoke <strong>ant debug install</strong> or <strong>adb install bin/Hello-debug.apk</strong>. Either one of these commands needs to be typed from the root of the android project folder.</p>
-<div class="figure">
-<img src="/res/article-pix/notes-android/hello-deployed.png" alt="first app"><p class="caption">first app</p>
-</div>
-<h1 id="add-some-ui-element-to-the-project">3. Add some UI element to the project</h1>
-<p>The project we created in Android is a very specific one, it is an Activity project (we did pass the <em>--activity</em> directive when we first created the project). As such, it included a default class that extended <strong>Activity</strong>. You can think of Activities as some sort of UI projects, they are intended to communicate to the user via GUI interfaces.</p>
-<p>Think of Activity classes as some sort of a Window or a Frame in, like in javax.swing, but they are coded an manipulated a little differently. In Swing programming, the individual widgets (buttons, textfields etc) are declared and added to the Frame programmatically. The widgets are instantiated, usually within the same source file where a JFrame has been extended, then they are added to a Container---usually the JFrame. When using Activities, you will need to work with an XML file in order to define the widgets and their layouts. You will also need to work with a Java source file (the class that extended the Activity) in order to respond to events.</p>
-<p>Go to your project folder, to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated for us.</p>
-<pre><code class="language-java"><span class="comment">// src/com/thelogbox/HelloWorld.java</span>
+
+<p>Now you can connect the device to the development machine. The screenshot above was done on a Samsung Galaxy Tab, your device may vary.</p>
+<p>The <em>ant debug install</em> command you issued earlier actually is the command to both build and deploy your app to a device — whether that be the AVD or an actual device. At this point, you should be able to find your test app on your phone</p>
+<img src="/res/article-pix/notes-android/hello-deployed.png" alt="first app"><div id="lst">
+Fig 4: Deployed app on the phone
+</div> 
+
+<hr><h1 id="add-elements-to-the-ui">ADD ELEMENTS TO THE UI</h1>
+<p>Now that you've drawn your first blood in Android programming, you should feel more confident in progressing now. We didn't do much programming in the first exercise. All we did was create a project, compiled it and then tested it. We didn't mess with the source file. Now we will.</p>
+<p>Create a new project. Use the <em>create project</em> command that you learned earlier. This time, name the project folder and the activity <em>Hello</em>.</p>
+<p><code class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox </code></p>
+<p>This will still be an <em>Activity</em> based project. We use the <em>Activity</em> class because it is the simplest way to create user interfaces. Think of Activity classes like they are <em>Windows</em> or <em>Frames</em> in javax.swing.</p>
+<p>After you have created the project, go to your project folder, go to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated.</p>
+<pre><code class="language-java"><span class="comment">// source file: src/com/thelogbox/HelloWorld.java</span>
 
 <span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
 
@@ -712,24 +591,22 @@ Folder Structure, after compilation
 <span class="keyword">import</span> <span class="include">android.content.Context</span>;
 <span class="keyword">import</span> <span class="include">android.view.View</span>;
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">HelloWorld</span> <span class="directive">extends</span> Activity
-{
+<span class="directive">public</span> <span class="type">class</span> <span class="class">HelloWorld</span> <span class="directive">extends</span> Activity {
     <span class="comment">/** Called when the activity is first created. */</span>
+
     <span class="annotation">@Override</span>
-    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState)
-    {
+    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
         <span class="local-variable">super</span>.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-
 }</code></pre>
 <div id="lst">
-HelloWorld.java
+Fig 5: HelloWorld.java
 </div>
 
-<p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the onCreate() method. That last statement is an directive on where and how to the get the instructions for building the user interface.</p>
-<p>The <em>setContentView()</em> is an overloaded method of Activity, it can take various parameter(s) and type. In our example, what was passed as param was <em>R.layout.main</em>—it is an integer constant. The <strong>R</strong> class was auto-generated by Android—specifically, it was generated by the appt, short for android asset packaging tool. If you want to take a look at the source, it will be in folder <em>gen/your-package-name/R.java</em>. That is not important right now though, what is important to know is that the Activity class provides for a method (setContentView) where we can point to an XML resource, this XML resource is where we will draw our user interface.</p>
-<p><em>R.layout.main</em> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em> Here is what Android generated for us.</p>
+<p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the <code class="codeblock">onCreate()</code> method. That last statement is a directive on where and how to the get the instructions for building the user interface.</p>
+<p>The <code class="codeblock">setContentView()</code> is an overloaded method of Activity, it can take various parameter(s) and type. In our example, what was passed as parameter was <em>R.layout.main</em> — it is an integer constant. but don't worry about that now, that is not yet relevant. What is relevant is that the <em>R class</em> was auto-generated by Android — specifically, it was generated by the <code class="codeblock">appt</code>, short for <em>android asset packaging tool</em>.</p>
+<p><em>R.layout.main</em> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em>.</p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
@@ -740,16 +617,18 @@ HelloWorld.java
     <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>
-    <span class="tag">/&gt;</span>
-    
+    <span class="tag">/&gt;</span>    
 <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
 <div id="lst">
-main.xml
+Fig 6: main.xml
 </div>
 
 
-<p>The main node is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android--we will circle back to this later, but for now, let's use the LinearLayout. You can think of the LinearLayout as the equivalent of java.awt.FlowLayout in JSE programming. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom. Inside the main LinearLayout node is a another XML tag, the TextView tag. TextView is the equivalent of java.awt.Label or javax.swing.JLabel, it is a static text widget, you won't be able to edit them, they are good for, well, labels. The order of how the views are defined in the XML affects the order of how the views are displayed. This is the simplest layout, that is why I chose this as a starting point.</p>
-<p>We will add another view to our screen, an editable text component. Go back to the editor and insert another view inside the LinearLayout main node.</p>
+<p>The main node of this XMl file is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.</p>
+<p>Think of the LinearLayout as the equivalent of <em>java.awt.FlowLayout</em> in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom.</p>
+<p>Inside the main LinearLayout node is the <em>TextView</em> tag. This is the equivalent of <em>java.awt.Label</em> or <em>javax.swing.JLabel</em>. It is a static text widget. You won't be able to edit them, they are simple labels.</p>
+<p>The order of how the views are defined in the XML affects the order of how the views are displayed. This is the simplest layout, that is why I chose this as a starting point.</p>
+<p>We will add another <em>View component</em> to our screen, an Editable Text. Go back to the editor and insert another view inside the LinearLayout main node.</p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
@@ -761,25 +640,28 @@ main.xml
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>
     <span class="tag">/&gt;</span>
-    
     <span class="tag">&lt;EditText</span>
         <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
         <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
-
     <span class="tag">/&gt;</span>
-
 <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
 <div id="lst">
-main.xml
+Fig 7: main.xml
 </div>
 
-<p><strong>EditText</strong> is an editable text component, very similar to javax.swing.JTextField. The android platform knows how to handle the EditText. Once this view has focus, the on-screen keyboard will pop so that the user can begin input. You do not need to handle the popping of the keyboard, it will be done for you automatically.</p>
-<p>Save the project, then compile and run.</p>
-<pre><code>$ ant clean
-$ ant debug install</code></pre>
-<p>This is what the app will look like on the device.</p>
-<img src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><p>The layout seems okay but it's a little weird because labels are usually laid out to the left of a text field, not on top. The reason for this is because our LinearLayout's orientation is "vertical" which causes the components to flow from top to bottom. We can change this behavior so that components inside the layout will flow from left to right.</p>
-<p>The reason for this is because <em>LinearLayout</em> as it is defined right now is oriented vertically. That is easy to remedy, just change the orientation of the layout to "horizontal",</p>
+<p><em>EditText</em> is an editable text component that is very similar to javax.swing.JTextField. The android platform knows how to handle the EditText. Once this view has focus, the on-screen keyboard will pop so that the user can begin input. You do not need to handle the popping of the keyboard, it will be done for you automatically.</p>
+<p>Once you are done with edits, compile and test the project — <code class="codeblock">$ ant debug install</code></p>
+<img src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><div id="lst">
+Fig 8: Your second app
+</div>
+
+
+<h2 class="section">
+VERTICAL VS HORIZONTAL LAYOUT
+</h2>
+
+<p>The layout seems okay but a little weird. The abels are usually laid out to the left of a text field and not on top. This is happening because the LinearLayout's orientation is <strong>vertical</strong>. That caused the components to flow from top to bottom.</p>
+<p>We can change the current behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to <strong>horizontal</strong></p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">horizontal</span><span class="delimiter">"</span></span>
@@ -791,22 +673,31 @@ $ ant debug install</code></pre>
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>
     <span class="tag">/&gt;</span>
-    
     <span class="tag">&lt;EditText</span>
         <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
         <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
-
     <span class="tag">/&gt;</span>
-
 <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<div id="lst">
+Fig 9: A horizontal layout
+</div>
+
 <p>Save the project, compile, then run. Notice any difference?</p>
-<img src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><p>The <em>Name</em> TextView is now immediately to the left of the EditText, as compared to our first version of our layout where the <em>Name</em> TextView was on top of the editable text.</p>
+<img src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><div id="lst">
+Fig 10: Second app, modified
+</div>
+
+<p>The <em>Name</em> TextView is now immediately to the left of the EditText, as compared to our first version of our layout where the <em>Name</em> TextView was on top of the editable text.</p>
 <p>There were two changes that made the second layout possible.</p>
 <ol style="list-style-type: decimal">
 <li>Change the <em>android:orientation</em> of LinearLayout from "vertical" to "horizontal", this caused TextView and the EditableText views to flow from left to right, rather than top to bottom</li>
 <li>Change <em>android:layout_width</em> of the TextView from "fill_parent" to "wrap_content". Had we not made that change, the EditableText view would not have been visible. "Fill_parent" causes the view to occupy whatever space is remaining to right of the component. "Wrap_content" on the other hand, simply uses whatever space the component needs to display itself and allows the next component to occupy the next slot.</li>
-</ol><h2 id="add-a-button-to-the-screen">Add a button to the screen</h2>
-<p>The last component we will add to the screen is a Button.</p>
+</ol><h2 class="section">
+HOW TO ADD BUTTONS
+</h2>
+
+<p>Button widgets are very common to GUI applications. They allow users to convey action. Let's learn how to add a button to our app.</p>
+<p>You will do this by editing <em>main.xml</em> again.</p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
@@ -818,30 +709,29 @@ $ ant debug install</code></pre>
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>
     <span class="tag">/&gt;</span>
-    
     <span class="tag">&lt;EditText</span>
         <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
         <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
-
     <span class="tag">/&gt;</span>
-
     <span class="tag">&lt;Button</span>
         <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
         <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
         <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me </span><span class="delimiter">"</span></span>            
     <span class="tag">/&gt;</span>
-
 <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
-<p>As usual, compile and run---you will do the <em>edit-compile-run</em> routine lots of times, you need to get used to this. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run.</p>
-<img src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><p>It is not a pretty sight. The reason for this result are the following;</p>
-<ol style="list-style-type: decimal">
-<li>The Button, TextView and EditText views are inside a single Layout container, which will arrange each view to flow from left to right</li>
-<li>The EditText's layout_width is set to wrap_content, which means in case there is a component right after it, it will generously give the space to the next view</li>
-</ol><p>We will make some changes to <em>main.xml</em> so that:</p>
-<ol style="list-style-type: decimal">
-<li>The Button view does not share the layout container with the TextView and the EditText views. We will place it outside the innder LinearLayout container</li>
-<li>Since the Button view will not share the layout container with the other views, the EditText will be the last component defined in the inner LinearLayout---we should change its layout_width to "fill_parent", so it occupies whatever space is left to its right</li>
-</ol><pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<div id="lst">
+Fig 11: main.xml, add a button
+</div>
+
+
+<p>As usual, compile and run. You will do the <em>edit-compile-run</em> routine lots of times, you need to get used to it. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run.</p>
+<img src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><div id="lst">
+Fig 12: The second app with a button
+</div>
+
+<p>It's not pretty. The app looks this way because the <em>Button, TextView and EditText views</em> are inside a single Layout container, which will arrange each view to flow from left to right. On top of that, the EditText's <em>layout_width</em> is set to <em>wrap_content</em>. That means in case there is a component right after EditText, it will generously give the space to the next view</p>
+<p>To fix this, we need to place the <em>Button</em> in it's own container. It cannot share the container with EditText and Textview. After that, the <em>EditText</em> will be the last component defined in the inner <em>LinearLayout</em>. We must change its <em>layout_width</em> to <em>fill_parent</em>, so it can occupy whatever space will be left to its right</p>
+<pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
@@ -875,20 +765,294 @@ $ ant debug install</code></pre>
     
     <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
 <div id="lst">
-main.xml
+Fig 13: main.xml
 </div>
 
-<p>The adjusted layout looks like this</p>
-<img src="/res/article-pix/notes-android/lin-sample-4.png" width="300"><hr><h1 id="references">REFERENCES</h1>
-<ol style="list-style-type: decimal">
-<li><a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">NewsWeek article 2010</a></li>
-<li>Hello Android, Pragmatic Bookshelf 2008</li>
-<li>Android Essentials, O'Reilly Press</li>
-<li>Professional Android, Wrox Press</li>
-<li>Android Application Development, O'Reilly Press</li>
-<li>Android in Action, Manning Publications</li>
-<li>Pro Android, APress</li>
-</ol>
+<img src="/res/article-pix/notes-android/lin-sample-4.png" width="50%"><div id="lst">
+Fig 14: Second app, adjusted layout
+</div>
+
+
+<hr><h1 id="basic-event-handling">BASIC EVENT HANDLING</h1>
+<p>Now that you know how add <em>Buttons</em> to Activities, learn how to make something happen when the button is clicked.</p>
+<p>There are two ways to handle events in Android programming. You can use the <em>main.xml</em> file to attach the events to a widget, such as a button, or you can programmatically define your Views and programmatically attach events to them — like how did in Core Java Swing Programming.</p>
+<p>You may continue to use either one of the first two projects we have created earlier. I will suggest however that you create a new project for this exercise.</p>
+<p><code class="codeblock"> $ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8 </code></p>
+<p>Add a <em>Button</em> view to the <em>main.xml</em></p>
+<pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="tag">&gt;</span>
+<span class="tag">&lt;TextView</span>
+    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
+    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
+    <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World, TestToast</span><span class="delimiter">"</span></span>
+    <span class="tag">/&gt;</span>
+    
+<span class="tag">&lt;Button</span>
+    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me okay</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:onClick</span>=<span class="string"><span class="delimiter">"</span><span class="content">showMe</span><span class="delimiter">"</span></span>
+<span class="tag">/&gt;</span>
+
+<span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<div id="lst">
+Fig 15: main.xml with event declaration
+</div>
+
+<p>When the <em>main.xml</em> is expanded by <em>aapt</em>, it will create the necessary java codes for the proper handling of the <em>showMe</em> event which we just declared.</p>
+<p><em>showMe</em> is a programmer defined identifier, you can choose whatever name you want in here. On the other hand, <code class="codeblock">android:onClick</code> is not programmer defined, this is a standard attribute of an Android View class (Button is a subclass of View)</p>
+<p>We need to define a method called <em>showMe()</em> inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>.</p>
+<pre><code class="language-java"><span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+
+<span class="keyword">import</span> <span class="include">android.app.Activity</span>;
+<span class="keyword">import</span> <span class="include">android.os.Bundle</span>;
+<span class="keyword">import</span> <span class="include">android.widget.Toast</span>;
+<span class="keyword">import</span> <span class="include">android.content.Context</span>;
+<span class="keyword">import</span> <span class="include">android.view.View</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">TestToast</span> <span class="directive">extends</span> Activity {
+
+<span class="comment">/** Called when the activity is first created. */</span>
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
+        <span class="local-variable">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+
+    <span class="directive">public</span> <span class="type">void</span> showMe(<span class="predefined-type">View</span> v) {
+        <span class="predefined-type">Context</span> ctx = getApplicationContext();
+        <span class="predefined-type">String</span> msg = <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="delimiter">"</span></span>;
+        <span class="type">int</span> duration = Toast.LENGTH_SHORT;
+        Toast notification = Toast.makeText(ctx,msg,duration);
+        notification.show();
+    }
+
+}</code></pre>
+<div id="lst">
+Fig 16: TestToast.java
+</div>
+
+<p>Compile and run — <code class="codeblock">$ ant debug install</code></p>
+<h2 class="section">
+REMEMBER
+</h2>
+
+<p><em>showMe() method</em> is programmer defined, it could be any other name, as long as it is a valid Java identifier and a valid method.</p>
+<p>When you declare an event inside the <em>res/xml</em> file, make sure that a method with the same signature is found on the class that references the xml file as its ContentView — in this case, <em>TestToast</em> references main.xml as its content view. This is why the <em>showMe()</em> method is defined inside the TestToast class.</p>
+<h2 class="section">
+TOAST NOTIFICATION
+</h2> 
+
+<p><em>Toast</em> is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears.</p>
+<hr><h1 id="database-programming">DATABASE PROGRAMMING</h1>
+<p>You know how to create an <em>Activity</em>, how to add UI Views to Activities and how to handle events. Next stop is <em>database programming</em>.</p>
+<p>While there exist a class of applications that do not use databases, they are few. It's almost an automatic expectation that a programmer knows how to deal with databases.</p>
+<p>We will use the built-in database of Android, <strong>SQLite</strong>. To use this database, we simply need to declare it in our <em>import</em> statements. This db is baked right into Android. There are no third party installs necessary.</p>
+<p>If your background in Java database programming is JDBC or Hibernate or something else, there is a slight adjustment you need to make. You won't be able to use JDBC in Android. There is no JDBC in here. Don't worry too much. The SQLite API is not terribly difficult. It won't take you an afternoon to learn the basics.</p>
+<h2 class="section">
+GOAL OF THE EXERCISE
+</h2>
+
+<p>Display a simple form to the user. Let him type anything he wants on a free-form editable UI widget <em>(an EditText)</em>.</p>
+<p>Get the runtime value of the <em>EditText</em> and insert it as a record in the database. Afterwhich, read the whole table and display the contents in scrollable, non-editable widget <em>(TextView)</em></p>
+<h2 class="section">
+CONCEPTS
+</h2>
+
+<p>The class <em>SQLiteOpenHelper</em> is the middle-man that stands between your application logic and the database. You will use this to <em>create and upgrade a database</em>. You will also use it to get a handle on a readable database and writable database — think of it as a replacement of the Connection object in JDBC.</p>
+<p>Another class used in this example is the <em>SQLiteDatabase</em>. Think of it as the equivalent of the Statement object in JDBC. When you need to perform raw SQL statements, this is the class to use.</p>
+<p>Once we have created the database using <em>SQLiteOpenHelper</em> and captured some info from the UI, we need to deal with data retrieval. We need to find a way to get a handle on a readable database, pass a query to it, get the result of the query and save it somewhere else. The <em>Cursor</em> object is what we will use to store the results of the query. In JDBC you might remember this as the <em>ResultSet</em> object.</p>
+<p>Once we have a <em>Cursor</em>, we can simply iterate through it to process the contents of the database.</p>
+<h2 class="section">
+HOW TO DO IT
+</h2>
+
+<p>Create a new android project for the purpose of this exerise. Add the appropriate View elements like TextView, EditText and Button.</p>
+<p><code class="codeblock">$ android create project --target 15 --activity DbSample --path dbsample --package com.thelogbox</code></p>
+<pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="tag">&gt;</span>
+
+    <span class="tag">&lt;EditText</span>
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/todoedit</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span>
+    <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;ScrollView</span>
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">10</span><span class="delimiter">"</span></span>
+    <span class="tag">&gt;</span>
+
+        <span class="tag">&lt;TextView</span>  
+            <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
+            <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
+            <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">I have nothing</span><span class="delimiter">"</span></span>
+            <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/tododisplay</span><span class="delimiter">"</span></span>
+        <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/ScrollView&gt;</span>
+    <span class="tag">&lt;Button</span>
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Add item</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/btnadd</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:onClick</span>=<span class="string"><span class="delimiter">"</span><span class="content">recAdd</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_weight</span>=<span class="string"><span class="delimiter">"</span><span class="content">0</span><span class="delimiter">"</span></span>
+<span class="tag">/&gt;</span>
+<span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<div id="lst">
+Fig 17: main.xml generated by the project
+</div>
+
+<p>The <em>TextView</em> component is embedded in a <em>ScrollView</em> component so that we can scroll through the contents of the TextView. The ScrollView acts like a viewport. We also used <em>weight</em> property of the layout so that our viewport is given the most screen real-estate. See the note on <a href="/android-layout-weights">how to use weights to maximize screen space</a></p>
+<p>The <em>Button's</em> onClick property is a method called <code class="codeblock">recAdd</code> which we need to define inside the Activity class.</p>
+<h2 class="section">
+THE SQLiteOpenHelper CLASS
+</h2>
+
+<p>Create a class that extends the <code class="codeblock">SQLiteOpenHelper</code></p>
+<pre><code class="language-java"><span class="comment">// SQLiteOpenHelper .java</span>
+
+<span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+
+<span class="keyword">import</span> <span class="include">static</span> <span class="include">android.provider.BaseColumns._ID</span>;
+<span class="keyword">import</span> <span class="include">android.content.Context</span>;
+<span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteDatabase</span>;
+<span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteOpenHelper</span>;
+
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">DbHelper</span> <span class="directive">extends</span> SQLiteOpenHelper {
+
+    <span class="predefined-type">String</span> sqlcreate = <span class="string"><span class="delimiter">"</span><span class="content">CREATE TABLE todo( </span><span class="delimiter">"</span></span> + _ID  + <span class="string"><span class="delimiter">"</span><span class="content"> INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);</span><span class="delimiter">"</span></span>;
+
+
+    <span class="directive">public</span> DbHelper(<span class="predefined-type">Context</span> ctx) {
+        <span class="local-variable">super</span>(ctx,<span class="string"><span class="delimiter">"</span><span class="content">tododb.db</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>, <span class="integer">1</span>);
+    }
+    
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> onCreate(SQLiteDatabase db) {
+        db.execSQL(sqlcreate);
+    }
+    
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> onUpgrade(SQLiteDatabase db, <span class="type">int</span> oldversion, <span class="type">int</span> newversion) {
+        db.execSQL(<span class="string"><span class="delimiter">"</span><span class="content">DROP TABLE IF EXISTS tododb.db</span><span class="delimiter">"</span></span>);
+        onCreate(db);
+    }
+    
+}</code></pre>
+<div id="lst">
+Fig 18: SQLiteOpenHelper source
+</div>
+
+<p>You need to do <strong>3 things</strong> at a minimum when defining a SQLiteOpenHelper.</p>
+<p><em>First. Define a public constructor that accepts a Context object.</em> This context is the context of the <em>Activity</em> class where you will instantiate the Helper class. Call the super constructor so that you don't break the chain. The first parameter to super constructor is the <em>context object</em> — you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed <em>null</em> to it.</p>
+<p>The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the <em>onUpgrade()</em> method kicks in---it will perform some sort of an ALTER database command in your behalf.</p>
+<p><em>Second, override the onCreate() method</em>. This is where you can execute DDL (SQL Data Definition) commands against the database.</p>
+<p><em>Third, Override the onUpgrade() method,</em> even if you won't need it yet. You won't be able to compile unless you override this method</p>
+<h2 class="section">
+HOW TO USE SQLiteOpenHelper
+</h2>
+
+
+<p>We will use an instance of the <code class="codeblock">SQLiteOpenHelper</code> for reading and writing to the database</p>
+<pre><code class="language-java"><span class="comment">// Activity .java}</span>
+
+<span class="keyword">package</span> <span class="namespace">com.thelogbox</span>;
+
+<span class="keyword">import</span> <span class="include">android.app.Activity</span>;
+<span class="keyword">import</span> <span class="include">android.os.Bundle</span>;
+<span class="keyword">import</span> <span class="include">android.view.View</span>;
+<span class="keyword">import</span> <span class="include">android.content.Context</span>; 
+<span class="keyword">import</span> <span class="include">com.thelogbox.DbHelper</span>;
+<span class="keyword">import</span> <span class="include">android.content.ContentValues</span>;
+<span class="keyword">import</span> <span class="include">android.database.sqlite.SQLiteDatabase</span>;
+<span class="keyword">import</span> <span class="include">android.database.Cursor</span>;
+<span class="keyword">import</span> <span class="include">android.widget.TextView</span>;
+<span class="keyword">import</span> <span class="include">android.widget.EditText</span>;
+
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">DbSample</span> <span class="directive">extends</span> Activity {
+
+
+    DbHelper dh;
+    SQLiteDatabase dbwrite;
+    SQLiteDatabase dbread;
+    
+    EditText input;
+    TextView output;
+    
+
+   <span class="comment">/** Called when the activity is first created. */</span>
+   <span class="annotation">@Override</span>
+   <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
+            
+        dh = <span class="keyword">new</span> DbHelper(getApplicationContext());
+        dbwrite = dh.getWritableDatabase();
+        dbread = dh.getReadableDatabase();
+        
+        <span class="comment">// you cannot put the findViewById here, it causes errors</span>
+        
+        <span class="local-variable">super</span>.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+    }
+    
+    
+    <span class="directive">public</span> <span class="type">void</span> recAdd(<span class="predefined-type">View</span> v) {
+
+        input = (EditText) findViewById(R.id.todoedit);
+        output = (TextView) findViewById(R.id.tododisplay);
+        
+        <span class="predefined-type">String</span> itemtoadd = input.getText().toString();      
+        
+        ContentValues cv = <span class="keyword">new</span> ContentValues();
+        cv.put(<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>, itemtoadd);
+        dbwrite.insertOrThrow(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>,cv);
+        
+        <span class="predefined-type">String</span> temptext = (<span class="predefined-type">String</span>) output.getText();
+        
+        <span class="comment">//Write the dbExtraction routine here</span>
+        
+        <span class="comment">//temptext = temptext + "\n";</span>
+        output.setText(getTodos());
+        
+    }
+    
+    <span class="directive">private</span> <span class="predefined-type">String</span> getTodos() {
+        
+        <span class="predefined-type">String</span> cols<span class="type">[]</span> = {<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>};
+        <span class="predefined-type">StringBuilder</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuilder</span>(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>);
+        <span class="predefined-type">Cursor</span> cursor = dbread.query(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,cols,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>);
+        startManagingCursor(cursor);
+        
+        <span class="keyword">while</span>(cursor.moveToNext()) {
+            sb.append(cursor.getString(<span class="integer">0</span>));
+            sb.append(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
+        }
+        <span class="keyword">return</span> sb.toString();
+    }
+}</code></pre>
+<div id="lst">
+Fig 19: main Activity class
+</div> 
+
+<p>The <em>DBSample</em> class is a regular <em>Activity</em> class. It's bad coding practice to embed the database logic in the UI, but were just starting out to learn about database programming in Android, we will let it pass for now. If we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).</p>
+<p>We instantiated the DbHelper class so that we can create the database during our first run of this app. We also used the DbHelper to create 2 SQLiteDatabase objects, one for reading (dbread) and another for writing (dbwrite).</p>
+<p>The <code class="codeblock">recAdd</code> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
+<p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
+<p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
+<p>Compile and Test the project — <code class="codeblock">ant debug install</code>. The <em>codeonCreate()</em> method of DbHelper should kick in the first time your app issues a db related command.</p>
 	  </div>
 		<p/>
 
