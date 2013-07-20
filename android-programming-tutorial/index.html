@@ -161,7 +161,11 @@ h2, h3, h4, h5 {
   color: #373737; 
   font-weight:normal;
 }
-h1 {font-family:'Tauri'; font-size: 200%;}
+h1 {
+  font-family:'Tauri'; 
+  font-size: 200%;
+  letter-spacing: -1px;
+}
 h2 {font-size: 140%;}
   h2.section { border-bottom: 1px solid #CACACA;}
 h3 {font-size: 120%;}
@@ -401,7 +405,7 @@ pre code, .keyword, .directive, .type,
 -->
 
 <meta charset="utf-8">
-<title>A Short Programming Tutorial on Android: theLogBox.com</title>
+<title>Android Programming Tutorial: theLogBox.com</title>
 
 <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
@@ -446,7 +450,7 @@ pre code, .keyword, .directive, .type,
 </div>
     </header>
 
-	  <div id="articletitle" itemprop="headline">A Short Programming Tutorial on Android</div>  
+	  <div id="articletitle" itemprop="headline">Android Programming Tutorial</div>  
     <div id='contentmeta'>
 by: 
 
@@ -1053,6 +1057,320 @@ Fig 19: main Activity class
 <p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
 <p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
 <p>Compile and Test the project — <code class="codeblock">ant debug install</code>. The <em>codeonCreate()</em> method of DbHelper should kick in the first time your app issues a db related command.</p>
+<hr><h1 id="layout-weights">LAYOUT WEIGHTS</h1>
+<p>Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that's just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.</p>
+<p>Linear layouts will do exactly what the name implies. It will layout the Views linearly. What it will not do is resize the Views to take advantage of free space. If you do not manage free space in your layout, the design will not appear tight, and a bit, well, amateurish.</p>
+<p>There is one easy thing that if you do, will add a bit of finesse to the UI design. That one thing is to add <em>layout weights</em> to the Views.</p>
+<h2 class="section">
+START WITH A BASIC UI WITHOUT LAYOUT
+</h2>
+
+<p>Create an <em>Activity based</em> project for this example. Use the default vertical linear layout and add an <em>EditText, TextView and Button</em> components</p>
+<pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;LinearLayout</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:orientation</span>=<span class="string"><span class="delimiter">"</span><span class="content">vertical</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+    <span class="tag">&gt;</span>
+
+    <span class="tag">&lt;EditText</span>
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/todoedit</span><span class="delimiter">"</span></span>
+
+    <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;TextView</span>  
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span> 
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
+        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">I have nothing</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/tododisplay</span><span class="delimiter">"</span></span>
+
+    <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;Button</span>
+        <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Add item</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/btnadd</span><span class="delimiter">"</span></span>
+        <span class="attribute-name">android:onClick</span>=<span class="string"><span class="delimiter">"</span><span class="content">recAdd</span><span class="delimiter">"</span></span>
+
+<span class="tag">/&gt;</span>
+<span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
+<div id="lst">
+Fig 20: Default Linear Layout
+</div>
+
+<img src="/res/article-pix/notes-android/layout-no-weight.png" width="50%"><div id="lst">
+Fig 21: What Fig 20 looks like in screen
+</div>
+
+<p>This design suffers from a couple of problems. The vertical space for the <em>TextView</em> is lacking. If the application intends to display multiple lines on the <em>TextView</em> to let users type up inputs and append the results to TextView, then the TextView should have more vertical space than either the <em>Button</em> or the <em>EditText</em>.</p>
+<p>We can increase the space occupied by the <em>TextView</em> by increasing the number of lines it will occupy. It can be done by adding a statement like <em>android:lines="10"</em> or any number of lines to the TextView declaration. That approach however, have some setbacks, it might work for a 5" screen device but you might need to tweak the number of lines if the app is deployed on another device with a different screen size. Specifying absolute values is a dangerous thing to do in UI design. You just don't know the form factor of the device where you will app will run.</p>
+<h2 class="section">
+HOW TO USE LAYOUT WEIGHTS
+</h2>
+
+<p>Each <em>View</em> component can be assigned a <em>weight property</em>. You can specify the amount of remaining space that the component can occupy relative to the amount of space that the other components are occupying.</p>
+<p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated.</p>
+<pre><code>#xml
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    &gt;
+
+    &lt;EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/todoedit"
+        android:layout_weight="0"
+    /&gt;
+
+    &lt;TextView  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="I have nothing"
+        android:id="@+id/tododisplay"
+        android:layout_weight="10"
+    /&gt;
+
+    &lt;Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Add item"
+        android:id="@+id/btnadd"
+        android:onClick="recAdd"
+        android:layout_weight="0"
+/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<div id="lst">
+Fig 22: LinearLayout with weights
+</div>
+
+<img src="/res/article-pix/notes-android/layout-weight.png" width="50%"><div id="lst">
+Fig 23: How it looks with layout weights
+</div>
+
+<h2 class="section">
+REMEMBER
+</h2>
+
+<p>Use the weight property of the view to allocate the amount of screen real estate for it.</p>
+<p>The weight of all the views will be summed up. If you have 3 views and you gave them all equal weights of 10, it is as good as assigning them equal weights of 1 or 0. The integer value does not matter, it is the proportion of each view relative to its sibling views.</p>
+<p>You can only use the <em>weight property</em> on a <strong>LinearLayout</strong>. The other layouts will have their own acrobatics to position views in relation to its sibling views and the frame</p>
+<hr><h1 id="scrolling-multiline-text">SCROLLING MULTILINE TEXT</h1>
+<p>Some of the times, you will need to display multiple lines of text that will exceed the height of visible display. You will need to scroll.</p>
+<p>For example, if you read something from a datasource, a file or a database and display its contents, chances are the number of lines of the datasource will be greater than the height of View component.</p>
+<p>To deal with this challenge, you can wrap an <em>EditText</em> inside a <em>ScrollView</em> component. The ScrollView will act as a viewport to textual content of the EditText.</p>
+<pre class="sourceCode java" id="xml"><code class="sourceCode java">&lt;?xml version=<span class="st">"1.0"</span> encoding=<span class="st">"utf-8"</span>?&gt;
+&lt;LinearLayout xmlns:android=<span class="st">"http://schemas.android.com/apk/res/android"</span>
+    android:orientation=<span class="st">"vertical"</span>
+    android:layout_width=<span class="st">"fill_parent"</span>
+    android:layout_height=<span class="st">"fill_parent"</span>
+    &gt;
+
+    &lt;EditText
+        android:layout_width=<span class="st">"fill_parent"</span>
+        android:layout_height=<span class="st">"wrap_content"</span>
+        android:id=<span class="st">"@+id/todoedit"</span>
+        android:layout_weight=<span class="st">"0"</span>
+    /&gt;
+
+    &lt;ScrollView
+        android:layout_width=<span class="st">"fill_parent"</span>
+        android:layout_height=<span class="st">"wrap_content"</span>
+        android:layout_weight=<span class="st">"10"</span>
+    &gt;
+
+        &lt;TextView  
+            android:layout_width=<span class="st">"fill_parent"</span> 
+            android:layout_height=<span class="st">"wrap_content"</span> 
+            android:text=<span class="st">"I have nothing"</span>
+            android:id=<span class="st">"@+id/tododisplay"</span>
+        /&gt;
+    &lt;/ScrollView&gt;
+    &lt;Button
+        android:layout_width=<span class="st">"fill_parent"</span>
+        android:layout_height=<span class="st">"wrap_content"</span>
+        android:text=<span class="st">"Add item"</span>
+        android:id=<span class="st">"@+id/btnadd"</span>
+        android:onClick=<span class="st">"recAdd"</span>
+        android:layout_weight=<span class="st">"0"</span>
+/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<div id="lst">
+Fig 25: How to use a ScrollView
+</div>
+
+
+<hr><h1 id="advanced-event-handling">ADVANCED EVENT HANDLING</h1>
+<p>You already know how handle events declaratively. You use the XML to declare the handler for a <em>View</em>, e.g. a Button. This works well and is quite friendly for beginning Android programmers but they have some setbacks. There are other events like long-clicks, context-menus, touch and others that really needs to be handled programmatically. That is why we need to learn the other way of handling events.</p>
+<p>We will do event handling without the XML. All the event handling codes will be in the Java source file. We need to know how to work with <em>Listeners</em></p>
+<h2 class="section">
+INPUT EVENTS OF ANDROID
+</h2>
+
+<p>Input events from the user are almost always triggered when the user touches widgets, like Buttons, TextViews etc. These widgets extends the <em>android.view.View</em> class, either directly or indirectly. This is why it is helpful to be aware of the <em>View</em> class's built-in <em>Listeners</em>.</p>
+<p>A <em>Listener</em> is a special object designated by Android. It contains callback methods which the Android runtime invokes when a specific event happens. If you want to intercept the <em>click</em> event for example, you need to create a <em>Listener</em> object that was specifically designed to listen for click events — that would be <em>android.view.View.OnClickListener</em>.</p>
+<p>The <em>OnClickListener</em> is implemented as a nested class inside android.view.View. There are many Listener interfaces that nested inside the View class, you can refer to the <a href="http://developer.android.com/reference/android/view/package-summary.html">android.developer/documentation</a> for the details.</p>
+<p>User input like a long-click, should be handled using the <strong>android.view.View.OnLongClickListener</strong>, if the user pops up the keyboard and you want to intercept the keystrokes -- you use the <em>OnKeyListener</em>; you get the idea by now. Go through the official documentation that was pointed earlier if you need to go through deeper details of the API.</p>
+<h2 class="section">
+PROGRAMMATIC EVENT HANDLING
+</h2>
+
+<p>To handle a click event, you need to create a listener object, it will be a subclass of <em>View.OnClickListener</em> then register the widget of interest (a Button probably) to the listener. This is how the Android runtime will know that when a click happens to the Button, the runtime needs to invoke (to callback) the <em>public void onClick()</em> method.</p>
+<p>I suggest that you crate an <em>Activity</em> based project to do this example.</p>
+<pre id="java"><code>import android.view.View.OnClickListener;
+
+class MyActivity extends Activity {
+
+  // other setup codes here 
+
+  @Override
+  public void onCreate(Bundle sinstance) {
+    
+    super.onCreate(sinstance);
+    button = new Button(getApplicationContext()); 
+  
+    OnClickListener listener = new OnClickListener(){
+  
+      public void(View view) {
+        
+        // your code for click here
+  
+      }
+    } 
+    button.setOnClickListener(listener);
+  }
+}</code></pre>
+<div id="lst">
+Fig 26: How to setup Listeners
+</div>
+
+<p>The example code on <em>Fig 26</em> is not the only way to create listener. You can implement the <em>Listener</em> on the <em>Activity class</em> as well, it may be more efficient that way because you can avoid the performance hit of the extra class loading which was caused by the inner class implementation.</p>
+<p>The samples above should get you started on event programming, but let's take on another sample, this time, the long-click event.</p>
+<pre id="java"><code>import android.view.View.OnLongClickListener;
+
+class MyActivity extends Activity implements OnLongClickListener {
+  public void onCreate(Bundle b) {
+    super.onCreate(b);
+    button = new Button(getApplicationContext());
+    button.setOnLongClickListener(this);
+  }
+
+  public boolean onLongClick(View v) {
+    // your code when user long clicks
+    return true;
+  }
+}</code></pre>
+<div id="lst">
+Fig 27: How to handle the Long Click
+</div>
+
+<p>The long click <em>Listener's</em> method is not identical to the void signature of the <em>click</em> event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully.</p>
+<hr><h1 id="basic-debugging">BASIC DEBUGGING</h1>
+<p>This section is not about some spiffy tool that lets put breakpoints in your IDE or something that allows you to step through your code line-by-line. Nothing like that. This is about how to use a crude and old technique of debugging. Outputting something into your screen at specific points in the code.</p>
+<p>In Core Java, you can simply use the <code class="codeblock">println()</code> method of <em>System.out</em>. — well, that works a little differently in Android.</p>
+<p>You can still write <code class="codeblock">System.out.println</code> in your code but it won't show up on the Android screen. The target of <em>println</em> is the stdout, hence it will show up on your <em>android debugger session (adb)</em> and not the Android device or emulator. Also, instead of using <em>println</em>, use the <strong>Log</strong> class instead if you need to insert some debugging info on your app.</p>
+<pre id="java"><code>import android.util.Log;
+
+public class MyAndroidApp extends Activity {
+    
+  private final String TAG = getClass().getName();
+    
+    ....
+    
+    public void someCallBack() {
+      Log.v(TAG, "string to log");
+    }
+    
+    public void someMethod() {
+      Log.v(TAG, "string to log");
+    }
+}</code></pre>
+<div id="lst">
+Fig 28: How to use the Log class
+</div>
+
+<p>On a terminal window, run <code class="codeblock">adb logcat</code>. The logcat utility supports a couple of flags. Here's how you might use them</p>
+<p><code class="codeblock">adb logcat</code> — Prints everything that happens to the device, on the screen. You probably don’t want this</p>
+<p><code class="codeblock">adb logcat* -S</code> — Direct opposite of adb logcat, this is very silent, you won’t see anything (meaningful)</p>
+<p><code class="codeblock">adb logcat -s <filter></filter></code> — filters the output messages that matches the TAG name</p>
+<p>Okay. Now lets it on the <em>callbacks</em> of the Activity class.</p>
+<pre id="java"><code>package com.thelogbox;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+
+
+class LCycleView extends LinearLayout implements View.OnClickListener {
+  
+  LCycleView(Context ctx) {
+    super(ctx);
+    setOnClickListener(this);
+  }
+
+  public void onClick(View view) {
+    System.out.println("Clicked");
+  }
+}
+
+public class LCycle extends Activity {
+    /** Called when the activity is first created. */
+    
+  String TAG = getClass().getName();
+  
+  @Override
+    public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(new LCycleView(this));
+    Log.v(TAG, "onCreate");
+    }
+  
+  @Override
+  public void onResume() {
+    super.onResume();
+    Log.v(TAG, "onResume");
+  }    
+  
+  @Override
+  public void onRestart() {
+    super.onRestart();
+    Log.v(TAG, "Restart");
+  }
+  
+  @Override
+  public void onPause() {
+    super.onPause();
+    Log.v(TAG, "Paused");
+  }
+  
+  @Override
+  public void onStop() {
+    super.onStop();
+    Log.v(TAG, "Stoppped");
+  }
+  
+  @Override 
+  public void onDestroy(){
+    super.onDestroy();
+    Log.v(TAG, "Destroy");
+  }
+}
+</code></pre>
+<div id="lst">
+Fig 29: The callbacks of Activity Class
+</div>
+
+<p>The above code is one of the few examples an Android developer might spike while beginning to explore Android programming. After reading all about lifecycle of the Activity class, of course you want to know when the events will actually be fired.</p>
+<p>If you simply type <code class="codeblock">adb logcat</code>, everything that an application does (and the operating system) will be displayed on the screen, it will also scroll very fast because there are lots of things that the Android operating system is doing.</p>
+<p>If you want to see only the logs associated with your app, type <code class="codeblock">adb logcat -s com.thelogbox.LCycle</code>.</p>
 	  </div>
 		<p/>
 
