@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -493,7 +517,7 @@ by:
 <span class="tag">/&gt;</span>
 <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
 <p>This layout looks like this</p>
-<img src="/res/article-pix/notes-android/layout-no-weight.png" width="250"><p>This layout is not right because the TextView is supposed to to occupy more space compared to Button and the EditText. The TextView will have multiple lines if it reads a number of records from a datasource later on.</p>
+<img class="small" src="/res/article-pix/notes-android/layout-no-weight.png"><p>This layout is not right because the TextView is supposed to to occupy more space compared to Button and the EditText. The TextView will have multiple lines if it reads a number of records from a datasource later on.</p>
 <p>We can increase the space occupied by the TextView by increasing the number of lines it will occupy. It can be done by adding a statement like <em>android:lines="10"</em> or any number of lines to the TextView declaration. That approach however, have some setbacks, it might work for a 5" screen device but you might need to tweak the number of lines if the app is deployed on another device with a different screen size---so I will abandon that option.</p>
 <p>Another option to solve the layout problem is to use <strong>weights</strong>. Each view can be assigned a <em>weight property</em>. The weight property allows us to specify the amount of remaining space that the component can occupy, relative to the amount of space that the other components are occupying.</p>
 <p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated.</p>
@@ -530,21 +554,13 @@ by:
 /&gt;
 &lt;/LinearLayout&gt;</code></pre>
 <p>Much better spacing now.</p>
-<img src="/res/article-pix/notes-android/layout-weight.png" width="250"><p>This solution leaves the EditText and Button with their default weight (zero weight)--you actually don't need to declare it explicitly because zero is the default value for the weight property. The TextView was given a weight of ten (10). You can experiment decreasing or increasing this value to suit your taste.</p>
+<img class="small" src="/res/article-pix/notes-android/layout-weight.png"><p>This solution leaves the EditText and Button with their default weight (zero weight)--you actually don't need to declare it explicitly because zero is the default value for the weight property. The TextView was given a weight of ten (10). You can experiment decreasing or increasing this value to suit your taste.</p>
 <hr><h2 id="remember">REMEMBER</h2>
 <ol style="list-style-type: decimal">
 <li>Use the weight property of the view to vary the amount of screen space to be allocated for it</li>
 <li>The weight of all the views will be summed up. If you have 3 views and you gave them all equal weights of 10, it is as good as assigning them equal weights of 1 or 0. The integer value does not matter, it is the proportion of each view relative to its sibling views.</li>
 <li>You can only use the <em>weight property</em> on a LinearLayout. The other layouts will have their own acrobatics to position views in relation to its sibling views and the frame</li>
-</ol><hr><h2 id="resources">RESOURCES</h2>
-<ol style="list-style-type: decimal">
-<li><a href="http://developer.android.com/training/basics/firstapp/building-ui.html">developer.android.com</a></li>
-<li>
-<a href="http://www.amazon.com/gp/product/1430239301/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1430239301&amp;linkCode=as2&amp;tag=thelogboxcom-20">Pro Android 4 (Professional Apress)</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1430239301" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;">
-</li>
-</ol><p></p>
-
-<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+</ol><p><a href="/android-programming-tutorial/">Back to Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 

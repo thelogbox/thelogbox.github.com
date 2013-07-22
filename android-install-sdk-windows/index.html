@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -474,10 +498,7 @@ SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\
 </code></pre>
 <p>You will need to run those commands though, each time you will open a new CMD.exe. Those settings are not remembered by the shell.</p>
 <p>If you want to permanently set these PATHS, you need to do it in the System Properties dialog box. First, open Control Panel, go to System Properties, then Advanced System Settings then click the button <em>Environment variables</em></p>
-<div class="figure">
-<img src="/res/article-pix/notes-android/windows-environment-variables.png"><p class="caption"></p>
-</div>
-<p>If you have local admin rights on the machine, click the <em>New</em> button on <strong>System variables</strong> section. On the variable name, type <strong>ANDROID_HOME</strong>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <strong>PATH</strong>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <em>%ANDROID_HOME%;%ANDROID_HOME%-tools;%ANDROID_HOME%;.</em></p>
+<img class="small" src="/res/article-pix/notes-android/windows-environment-variables.png"><p>If you have local admin rights on the machine, click the <em>New</em> button on <em>System variables</em> section. On the variable name, type <em>ANDROID_HOME</em>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <em>PATH</em>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <code class="codeblock">%ANDROID_HOME%;%ANDROID_HOME%-tools;%ANDROID_HOME%;.</code></p>
 <p>Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type "android", it should launch the SDK manager</p>
 	  </div>
 		<p/>

@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -467,10 +491,8 @@ by:
 <ol style="list-style-type: decimal">
 <li><p>Couldn not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the <em>TERM</em> variable equal to <em>term-256color</em>, which I did, but still could not get it to work. The <strong>Prompt</strong> app though worked out of the box, I did not have to fiddle with anything</p></li>
 <li><p>The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p></li>
-</ol><a href="http://www.flickr.com/photos/headtogs/6918694882/" title="issh-scr1 by HeadTogs, on Flickr"><img src="http://farm6.staticflickr.com/5467/6918694882_de11f3dcde.jpg" width="375" height="500" alt="issh-scr1"></a>
-<p>Later, after inspecting my .vimrc on the target machine, I found out that I had a :set columns=100. This was causing the wobbling and the display of weird characters in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
-<a href="http://www.flickr.com/photos/headtogs/7064778929/" title="issh-scr2 by HeadTogs, on Flickr"><img src="http://farm6.staticflickr.com/5080/7064778929_07331f5b14.jpg" width="375" height="500" alt="issh-scr2"></a>
-<ol start="3" style="list-style-type: decimal">
+</ol><img class="shadow" src="/res/article-pix/issh-1.jpg"><p>Later, after inspecting my .vimrc on the target machine, I found out that I had a :set columns=100. This was causing the wobbling and the display of weird characters in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
+<img class="shadow" src="/res/article-pix/issh-2.jpg"><ol start="3" style="list-style-type: decimal">
 <li>The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.</li>
 </ol><p>This is a deal killer, Vim uses this alot when switching between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box</p>
 <h2 id="why-i-chose-prompt-over-issh-despite-issh-being-cheaper.">Why I chose Prompt over iSSH, despite iSSH being cheaper.</h2>

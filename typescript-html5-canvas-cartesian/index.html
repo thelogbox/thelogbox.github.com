@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -459,21 +483,10 @@ by:
 </div>  
 
 	  <div itemprop="articleBody">
-      <h1 id="motivations">Motivations</h1>
-<ol style="list-style-type: decimal">
-<li>Graph lines in a cartesian plane</li>
-<li>Each vertex is associated with a line, vertices are named</li>
-</ol><h1 id="status-of-the-experiment">Status of the experiment</h1>
-<p>Far from complete, but it is already fun to doodle with. The things that don't work yet are;</p>
-<ul>
-<li>The lines cannot be repositioned yet. It doesn't work on FireFox and IE (the calls to event.clientX and event.clientY I think are the culprit here, I need to put some more thoughts on how to approach cross-browser functionalities).</li>
-<li>The vertices are named up until "Z" only (although this is easy to fix, I just dont' want to give this time right now)</li>
-<li>values cannot be inputted yet, then graphed. Needs more work</li>
-</ul><img src="/res/article-pix/notes-canvas/cartesian-canvas.png" width="400" style="float:right; padding-left:20px; padding-bottom:20px"><h1 id="approach">Approach</h1>
-<p>This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way---each vertex and line is a DOM element, which means they can easily be bound to events such as click or mousedown. Anyway, it still a good coding calesthenics, so canvas it is.</p>
+      <p>This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way---each vertex and line is a DOM element, which means they can easily be bound to events such as click or mousedown. Anyway, it still a good coding calesthenics, so canvas it is.</p>
 <p>The exercise has lots of parts. The cartesian plane needs to be drawn, a way to remember what has been drawn on canvas is also needed and the canvas needs a little bit of state management (counting the number of clicks)---one click means that we are about to draw a line, two clicks means we have chosen the second vertex and we need to do three things 1) complete the data of the line 2) store the information of the newly created line and then 3) redraw all of the previous lines we have created. It could be an ardous task if we won't try apply some form of abstractions on all of these things---a procedural-ish code might cut it, will cut it, but an OO style programming I think is warranted, even on this trivial exercise.</p>
 <p><a href="/typescript-first-notes/">TypeScript</a> came out just recently, even at its early stages, its OO and static type checking could be useful to this exercise, hence, TypeScript it is</p>
-<h1 id="how-to-do-it">How to do it</h1>
+<img class="shadow" src="/res/article-pix/notes-canvas/cartesian-canvas.png"><h1 id="how-to-do-it">How to do it</h1>
 <h2 id="create-the-html-part-filename-line-draw.html">1. Create the HTML part (filename = line-draw.html)</h2>
 <p>
 </p><pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>

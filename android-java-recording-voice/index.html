@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -598,7 +622,10 @@ License text: http://thelogbox.com/source-docs/software-license.txt
     }
 
 }</code></pre>
-<h1 id="permissions">Permissions</h1>
+<h2 class="section">
+PERMISSIONS
+</h2>
+
 <p>The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the <em>Start</em> button. The <em>MediaRecorder</em> will not initialize properly and hence will hit an <em>IllegalStateException</em> when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the <em>AndroidManifest.xml</em> file, you will need to add the entry <em>&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;</em> to the manifest. Make sure also that you add the permissions entry out the &lt;application .../&gt; node. Here is the full entry of the <em>AndroidManifest.xml</em> for this exercise.</p>
 <pre><code class="language-xml"><span class="preprocessor">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="tag">&lt;manifest</span> <span class="attribute-name">xmlns:android</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://schemas.android.com/apk/res/android</span><span class="delimiter">"</span></span>
@@ -618,13 +645,7 @@ License text: http://thelogbox.com/source-docs/software-license.txt
         <span class="tag">&lt;/activity&gt;</span>
     <span class="tag">&lt;/application&gt;</span>
 <span class="tag">&lt;/manifest&gt;</span></code></pre>
-<h2 id="references">References:</h2>
-<ol style="list-style-type: decimal">
-<li><a href="http://developer.android.com/guide/topics/media/audio-capture.html">developer.android.com - Audio Capture</a></li>
-<li><a href="http://developer.android.com/reference/android/media/MediaPlayer.html">developer.android.com - MediaPlayer</a></li>
-</ol><p></p>
-
-<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+<p><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 

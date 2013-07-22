@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -484,7 +508,7 @@ by:
 </ul><p>An article about Andy Rubin and Android, titled <a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">Android Invasion</a> appeared on a NewsWeek article sometime in 2010.</p>
 <hr><h1 id="technology-stack">TECHNOLOGY STACK</h1>
 <p>The Android is made up of a slew of tech but the most visible ones are <em>Linux</em> and <em>Java</em>. It is a complete operating system and it provides a container that can support rich applications.</p>
-<img src="/res/article-pix/notes-android/android-architecture.png" width="100%" style="border: 4px solid gray;"><div id="lst">
+<img class="shadow" src="/res/article-pix/notes-android/android-architecture.png" style="border: 1px solid gray"><div id="lst">
 Fig 1: Android Architecture
 </div>
 
@@ -530,7 +554,7 @@ CREATING A PROJECT
 </div>
 
 <p>If the command completed successfully, you are supposed to have a directory similar to this one</p>
-<img src="/res/article-pix/notes-android/android-project-structure.png"><div id="lst">
+<img class="default" src="/res/article-pix/notes-android/android-project-structure.png"><div id="lst">
 Fig 2: Folder Structure of an Android project
 </div>
 
@@ -566,13 +590,13 @@ TEST THE APP
 </ol><p>The AVD is terribly slow. If you are serious about developing android apps, I urge you to invest (even) on a cheap physical android device because the wait time on deployment using an AVD is counter productive and a gross misuse of developer (your) time.</p>
 <p>If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device.</p>
 <p>On your device, go to <em>Settings</em> → <em>Applications</em> → <em>Development</em>. You need to <em>enable USB debugging</em></p>
-<img src="/res/article-pix/notes-android/usb-debugging.png" alt="enable usb debugging"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/usb-debugging.png"><div id="lst">
 Fig 3: Enable USB Debugging in your Phone
 </div>
 
 <p>Now you can connect the device to the development machine. The screenshot above was done on a Samsung Galaxy Tab, your device may vary.</p>
 <p>The <em>ant debug install</em> command you issued earlier actually is the command to both build and deploy your app to a device — whether that be the AVD or an actual device. At this point, you should be able to find your test app on your phone</p>
-<img src="/res/article-pix/notes-android/hello-deployed.png" alt="first app"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/hello-deployed.png"><div id="lst">
 Fig 4: Deployed app on the phone
 </div> 
 
@@ -652,7 +676,7 @@ Fig 7: main.xml
 
 <p><em>EditText</em> is an editable text component that is very similar to javax.swing.JTextField. The android platform knows how to handle the EditText. Once this view has focus, the on-screen keyboard will pop so that the user can begin input. You do not need to handle the popping of the keyboard, it will be done for you automatically.</p>
 <p>Once you are done with edits, compile and test the project — <code class="codeblock">$ ant debug install</code></p>
-<img src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><div id="lst">
 Fig 8: Your second app
 </div>
 
@@ -684,7 +708,7 @@ Fig 9: A horizontal layout
 </div>
 
 <p>Save the project, compile, then run. Notice any difference?</p>
-<img src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><div id="lst">
 Fig 10: Second app, modified
 </div>
 
@@ -726,7 +750,7 @@ Fig 11: main.xml, add a button
 
 
 <p>As usual, compile and run. You will do the <em>edit-compile-run</em> routine lots of times, you need to get used to it. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run.</p>
-<img src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><div id="lst">
 Fig 12: The second app with a button
 </div>
 
@@ -769,7 +793,7 @@ Fig 12: The second app with a button
 Fig 13: main.xml
 </div>
 
-<img src="/res/article-pix/notes-android/lin-sample-4.png" width="50%"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/lin-sample-4.png" width="50%"><div id="lst">
 Fig 14: Second app, adjusted layout
 </div>
 
@@ -1098,7 +1122,7 @@ START WITH A BASIC UI WITHOUT LAYOUT
 Fig 20: Default Linear Layout
 </div>
 
-<img src="/res/article-pix/notes-android/layout-no-weight.png" width="50%"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/layout-no-weight.png" width="50%"><div id="lst">
 Fig 21: What Fig 20 looks like in screen
 </div>
 
@@ -1146,7 +1170,7 @@ HOW TO USE LAYOUT WEIGHTS
 Fig 22: LinearLayout with weights
 </div>
 
-<img src="/res/article-pix/notes-android/layout-weight.png" width="50%"><div id="lst">
+<img class="small" src="/res/article-pix/notes-android/layout-weight.png" width="50%"><div id="lst">
 Fig 23: How it looks with layout weights
 </div>
 

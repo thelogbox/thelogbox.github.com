@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -534,13 +558,11 @@ License text: http://thelogbox.com/source-docs/software-license.txt
 <li>Compile and Run using <em>$ ant debug install</em>
 </li>
 </ol><h1 id="what-to-remember">What to remember</h1>
-<p><strong>showMe() method</strong> - this is a programmer defined method. It could be any other name, as long as it is a valid Java identifier and a valid method.</p>
+<p><em>showMe() method</em> - this is a programmer defined method. It could be any other name, as long as it is a valid Java identifier and a valid method.</p>
 <p>When you declare an event inside the res/xml file, you need to ensure that a method with the same signature is found on the class that references the xml file as its ContentView---in this case, the TestToast class references main.xml as its content view, that is why the <em>showMe()</em> method is defined inside the TestToast class.</p>
 <h1 id="the-toast-notification">The Toast notification</h1>
 <p><em>Toast</em> is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears.</p>
-<p></p>
-
-<h3 id="back-to-android-programming-tutorial"><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></h3>
+<p><a href="/android-programming-tutorial/">← Back to Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 

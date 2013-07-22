@@ -25,9 +25,33 @@ strong {
 
 img {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+  
 
 #shock-left {
   font-family: 'Rokkitt';
@@ -80,7 +104,7 @@ img {
   
 body {
   font-family: Arial;
-  width: 95%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -341,7 +365,7 @@ pre code, .keyword, .directive, .type,
           .symbol, .constant, .inline, .line-numbers,
           .integer, .char, .float, .annotation, .namespace, 
           .content, .delimiter, .st, .sourceCode, .exception,
-          .class-variable {
+          .class-variable, .doctype{
 
       font-family: 'Muli';
       /*font-size: 1em;*/
@@ -459,17 +483,7 @@ by:
 </div>  
 
 	  <div itemprop="articleBody">
-      <h3 id="what-you-need-to-know-for-this-tutorial">What you need to know for this tutorial</h3>
-<ol style="list-style-type: decimal">
-<li><a href="/android-create-project/">How to create a project</a></li>
-</ol><h3 id="learning-objectives">Learning Objectives</h3>
-<ol style="list-style-type: decimal">
-<li>Learn about the Linear layout</li>
-<li>Learn how to add the Button and EditText views in layout</li>
-<li>Learn how to nest layouts</li>
-<li>Learn the effects of using wrap_content and fill_parent</li>
-</ol><h2 id="get-started-using-the-linearlayout">GET STARTED: Using the LinearLayout</h2>
-<p>A newly created android project will have a <em>main.xml</em> that looks a lot like the code below. You can use this as a starting position when experimenting how the GUI of android works.</p>
+      <p>A newly created android project will have a <em>main.xml</em> that looks a lot like the code below. You can use this as a starting position when experimenting how the GUI of android works.</p>
 <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -511,7 +525,7 @@ by:
 <pre><code>$ ant clean
 $ ant debug install</code></pre>
 <p>This is what the app will look like on the device.</p>
-<img src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><p>The layout seems okay but it's a little weird because labels are usually laid out to the left of a text field, not on top. The reason for this is because our LinearLayout's orientation is "vertical" which causes the components to flow from top to bottom. We can change this behavior so that components inside the layout will flow from left to right.</p>
+<img class="small" src="/res/article-pix/notes-android/lin-sample-1.png" width="300"><p>The layout seems okay but it's a little weird because labels are usually laid out to the left of a text field, not on top. The reason for this is because our LinearLayout's orientation is "vertical" which causes the components to flow from top to bottom. We can change this behavior so that components inside the layout will flow from left to right.</p>
 <p>The reason for this is because <em>LinearLayout</em> as it is defined right now is oriented vertically. That is easy to remedy, just change the orientation of the layout to "horizontal",</p>
 <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -533,7 +547,7 @@ $ ant debug install</code></pre>
 
 &lt;/LinearLayout&gt;</code></pre>
 <p>Save the project, compile, then run. Notice any difference?</p>
-<img src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><p>The <em>Name</em> TextView is now immediately to the left of the EditText, as compared to our first version of our layout where the <em>Name</em> TextView was on top of the editable text.</p>
+<img class="small" src="/res/article-pix/notes-android/lin-sample-2.png" width="300"><p>The <em>Name</em> TextView is now immediately to the left of the EditText, as compared to our first version of our layout where the <em>Name</em> TextView was on top of the editable text.</p>
 <p>There were two changes that made the second layout possible.</p>
 <ol style="list-style-type: decimal">
 <li>Change the <em>android:orientation</em> of LinearLayout from "vertical" to "horizontal", this caused TextView and the EditableText views to flow from left to right, rather than top to bottom</li>
@@ -566,21 +580,49 @@ $ ant debug install</code></pre>
 
 &lt;/LinearLayout&gt;</code></pre>
 <p>As usual, compile and run---you will do the <em>edit-compile-run</em> routine lots of times, you need to get used to this. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run.</p>
-<img src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><p>Obviously not a prettys sight. The reason for this result are the following;</p>
+<img class="small" src="/res/article-pix/notes-android/lin-sample-3.png" width="300"><p>Obviously not a prettys sight. The reason for this result are the following;</p>
 <ol style="list-style-type: decimal">
 <li>The Button, TextView and EditText views are inside a single Layout container, which will arrange each view to flow from left to right</li>
 <li>The EditText's layout_width is set to wrap_content, which means in case there is a component right after it, it will generously give the space to the next view</li>
 </ol><p>We will make some changes to <em>main.xml</em> so that:</p>
 <ol style="list-style-type: decimal">
 <li>The Button view does not share the layout container with the TextView and the EditText views. We will place it outside the innder LinearLayout container</li>
-<li>
-<p>Since the Button view will not share the layout container with the other views, the EditText will be the last component defined in the inner LinearLayout---we should change its layout_width to "fill_parent", so it occupies whatever space is left to its right</p>
-<?xml version="1.0" encoding="utf-8"?><linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"><linearlayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"><textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Name "></textview><edittext android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/name"></edittext></linearlayout><button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Click me "></button>
+<li>Since the Button view will not share the layout container with the other views, the EditText will be the last component defined in the inner LinearLayout---we should change its layout_width to "fill_parent", so it occupies whatever space is left to its right</li>
+</ol><pre id="xml"><code>    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+    &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    &gt;
 
-</linearlayout>
-</li>
-</ol><img src="/res/article-pix/notes-android/lin-sample-4.png" width="300"><p>Now it looks better.</p>
-<p>Back to <img src="/res/arrow-up.png" alt="toc"><a href="/notes-android/">Android notes</a></p>
+    &lt;LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    &gt;
+        &lt;TextView  
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Name "
+    /&gt;
+    
+        &lt;EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+        /&gt;
+        
+    &lt;/LinearLayout&gt;
+    
+    &lt;Button
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="Click me "            
+    /&gt;
+    
+    &lt;/LinearLayout&gt;</code></pre>
+<img class="small" src="/res/article-pix/notes-android/lin-sample-4.png"><p>Now it looks better.</p>
+<p><a href="/android-programming-tutorial/">Back to Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 
