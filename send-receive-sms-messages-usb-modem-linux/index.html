@@ -139,7 +139,7 @@ header {
 
   #navright a:hover {
     color: #61768a;
-    border-bottom:1px solid #DEDEDE;
+    border-bottom:0px solid #DEDEDE;
   }
 
   .currentdir {
@@ -483,52 +483,64 @@ by:
 </div>  
 
 	  <div itemprop="articleBody">
-      <h2 id="objectives">Objectives</h2>
+      <p>This small guide uses <em>gnokii-sms</em> to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of <em>WaveComm</em> <em>iTegra</em> type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.</p>
+<h2 class="section">
+SOLUTION APPROACH
+</h2>
+
+<p>There were a couple of other solution approaches but I went for <em>gnokii-sms</em>. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.</p>
+<p>I could have used <em>Kannel</em> but it was so big. I only needed a simple mechanism to receve and send SMS message. I did not need a full gateway with all the bells and whistles.</p>
+<p>GNOKii-SMS and Gammu were mature solutions. I went eventually with <em>gnokii-sms</em> but Gammu would have been a fit as well.</p>
+<p>Hence, this mashup uses <em>gnokii-sms</em>. It is a stand-alone application with a daemon and it uses MySQL database as a datastore. I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the <em>gnokii-sms</em> backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms</p>
+<h2 class="section">
+WHAT YOU WILL NEED FOR THIS EXERCISE
+</h2>
+
 <ol style="list-style-type: decimal">
-<li>To receive and send (but mostly receive) SMS messages using consumer grade (meaning cheap) GSM modems.</li>
-<li>To do No.1 without resorting to WaveComm or iTegra type devices. The project I will be using it on does not require industrial grade throughput, hence, the price of a WaveComm modem is not justified</li>
-<li>To be able to query the SMS messages data-store either via file based parsing or database(d) queries -- database is preferred.</li>
-</ol><h2 id="possible-solution-approaches">Possible solution approaches</h2>
-<ol style="list-style-type: decimal">
-<li>Write your own GSM modem interface. This requires writing the I/O routines. It's mostly serial programming . After that, just a grab a copy of the standard Hayes-AT GSM modem commands to receive/send SMS from the connected device. This should work for both Nokia and non-Nokia GSM modems</li>
-<li>Use <a href="http://www.kannel.org">Kannel</a> as the SMS gateway. This is a very mature project. I'm pretty sure it is more than what you need.</li>
-<li>Use either <a href="http://wiki.gnokii.org">gnokii-sms</a> or <a href="http://wammu.eu/gammu/">gammu</a>. These are also very mature projects like Kannel</li>
-</ol><h2 id="the-choice">The choice</h2>
-<p><strong>No to writing your own software</strong> because I don't have a lot of time. The SMS component is small portion of the solution, this is not a core component. I cannot justify the amount of time that needs to be spent on research, development and testing.</p>
-<p><strong>No to Kannel</strong> because of the sheer size of the application. The learning curve that might be required could be sizeable (learning the APIs and how to integrate it with my application).</p>
-<p><strong>Yes to gnokii-sms</strong>. It is a stand-alone application with a daemon and it uses MySQL database as a datastore. I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the gnokii-sms backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms</p>
-<h2 id="whats-needed">What's needed</h2>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Debian Squeeze</strong> for the platform. I could use Windows or any other Linux distribution but I am very familiar with Debian, so, Debian it is.</li>
-<li>
-<strong>Cheap USB modem</strong> with plan. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.</li>
-</ol><h2 id="how-to-do-it">How to do it</h2>
-<p><strong>Get gnokii-smsd and mysql-server</strong> from the Debian repositories.</p>
-<pre><code>$ sudo apt-get install mysql-server
-$ sudo apt-get install gnokii-smsd-mysql</code></pre>
-<p><strong>Connect and configure the USB modem</strong></p>
-<ol style="list-style-type: decimal">
-<li>Connect the USB modem to Debian</li>
-<li>Find out which port it is using. On the Linux Terminal, issue either</li>
-</ol><pre>
-$ sudo lsbusb 
-$ sudo dmesg | grep USB
+<li>DEBIAN linux</li>
+<li>USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.</li>
+</ol><h2 class="section">
+STEPS
+</h2>
+
+<p>Get gnokii-smsd and mysql-server from the Debian repositories.</p>
+
+<pre class="codeblock">
+
+    $ sudo apt-get install mysql-server
+    $ sudo apt-get install gnokii-smsd-mysql
+
 </pre>
 
-<p>You are looking for the modem entry. The USB modem usually uses /dev/tty0, but just to be sure, run the commands anyway.<br>3. Configure <strong>gnokii-smsd</strong> to use the correct ports. The configuration file is at <em>~/.config/gnokii/config</em> 4. You need to make 2 changes on the configuration file, the <strong>PORT</strong> and <strong>model</strong> entries. Set the <em>port = /dev/tty0</em> (or whatever lsusb or dmesg has told you about the actual port). Set <em>model = AT</em>, the default is 6510 which assumes you are using a Nokia phone, you are not. You are using a non-nokia USB modem</p>
-<p><strong>NOTES</strong></p>
-<p>On some Debian variant (CrunchBang for example), the config file was not found in <em>~/.config</em> folder, it does not exist at all. There was a config file though at <em>/etc/xdg/gnokii/config</em>. If this is case, you can simply create the configuration file and directory manually</p>
-<pre><code>$ mkdir ~/.config
-$ cd ~/.config
-$ mkdir gnokii
-$ cd gnokii
-$ cp /etc/xdg/gnokii/config config</code></pre>
-<p>Then make the edits as prescribed on Step No. 4 above.</p>
-<p>To test if everything is in order, you can run the command</p>
-<pre><code>$ sudo gnokii --identify </code></pre>
-<p>This should give you some diagnostics and some quick peek if something is wrong with the configuration file</p>
-<h2 id="prepare-the-database-back-end-for-gnokii-smsd">Prepare the database back-end for gnokii-smsd</h2>
+<p>Connect the USB modem to Debian and find out which port it is using — <code class="codeblock">sudo lsusb</code> or <code class="codeblock">sudo dmesg | grep USB</code> should do the trick</p>
+<p>What you are looking for is the device name for the modem. Usually, the modem is at <em>/dev/tty0</em>, but just to be sure, run either <em>lsusb</em> or the <em>dmesg</em> command as stated above.</p>
+<p>When you know the device name of the modem, edit the configurationt file of <em>gnokii-sms</em>. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file &amp;mdash the <code class="codeblock">PORT</code> and <code class="codeblock">model</code> entries.</p>
+<p>Set <code class="codeblock">port = /dev/tty0</code> (substitute your actual device name to tth0). Set <code class="codeblock">model = AT</code>, the default is <em>6510</em> which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.</p>
+<h2 class="section">
+EXTRA NOTES
+</h2>
+
+<p>On some Debian variant like <em>CrunchBang</em>, the config file was not found at <em>~/.config</em> folder, it does not exist at all. There was a config file though at <em>/etc/xdg/gnokii/config</em>. If this is your case, you can simply create the configuration file and directory manually</p>
+<pre>
+
+    $ mkdir ~/.config
+    $ cd ~/.config
+    $ mkdir gnokii
+    $ cd gnokii
+    $ cp /etc/xdg/gnokii/config config
+
+</pre>
+
+<p>Then make the edits on PORT and model just the same.</p>
+<h2 class="section">
+TESTING
+</h2>
+
+<p>To test if everything is in order, you can run <code class="codeblock">sudo gnokii --identify</code>. This should give you some diagnostics and some quick peek if something is wrong with the configuration file</p>
+<h2 class="section">
+PREPARING THE DATABASE BACKEND
+</h2>
+
 <p>I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install <em>gnokii-smsd-pgsql</em> instead of <em>gnokii-smsd-mysql</em>.</p>
 <p>Here is how to prepare the MySQL back-end</p>
 <pre><code>$ mysql -u root -p
@@ -536,15 +548,16 @@ $ mysql&gt; create database smsgw;
 $ mysql&gt; use smsgw;
 $ mysql&gt;.\ /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;</code></pre>
 <p>Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find.</p>
-<h2 id="running-and-testing-the-sms-gateway">Running and testing the SMS gateway</h2>
-<p>To enable gnokii-sms to send and receive SMS messages, we need to run its daemon process.</p>
-<pre><code>$ sudo smsd -u root -p &lt;MySQL Password&gt; -d smsgw -c localhost -m mysql</code></pre>
+<h2 class="section">
+TESTING THE SMS GATEWAY
+</h2>
+
+<p>Run gnokii-sms as a daemon process — <code class="codeblock">sudo smsd -u root -p <mysql password> -d smsgw -c localhost -m mysql</mysql></code></p>
 <p>Try sending some SMS messages to the phone number of the USB modem, then view the messages on the MySQL database.</p>
 <pre><code>$ mysql -u root -p
 $ mysql&gt; use smsgw;
 $ mysql&gt; select * from inbox;</code></pre>
-<p>Try sending some SMS messages from the command line to your phone.</p>
-<pre><code>$ echo "Test message" | gnokii --sendsmd +SMSNO</code></pre>
+<p>Try sending some SMS messages from the command line to your phone using <code class="codeblock">echo "Test message" | gnokii --sendsmd +SMSNO</code></p>
 <p>Where <em>SMSNO</em> is structured as (countrycode) cell phone number</p>
 	  </div>
 		<p/>
