@@ -685,7 +685,7 @@ Fig 3: main Activity class
 <p>The <code class="codeblock">recAdd</code> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
 <p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
 <p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
-<hr><h2 class="section">
+<h2 class="section">
 RUNNING THE CODE
 </h2>
 
