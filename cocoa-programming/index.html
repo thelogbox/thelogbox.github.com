@@ -541,7 +541,7 @@ Objective C
 <span class="preprocessor">#import</span> &lt;stdlib.h&gt;
 
 <span class="predefined-type">int</span> main() {
-    
+
     printf(<span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="char">\n</span><span class="delimiter">"</span></span>);
     <span class="keyword">return</span> EXIT_SUCCESS;
 
@@ -556,7 +556,7 @@ Objective C
 <span class="preprocessor">#import</span> &lt;stdlib.h&gt;
 
 <span class="predefined-type">int</span> main (<span class="predefined-type">int</span> argc, <span class="directive">const</span> <span class="predefined-type">char</span>* argv[]) {
-    
+
     NSLog (<span class="error">@</span> <span class="string"><span class="delimiter">"</span><span class="content">Hello World</span><span class="char">\n</span><span class="delimiter">"</span></span>);
     <span class="keyword">return</span> EXIT_SUCCESS;
 
@@ -922,7 +922,7 @@ To set the value of the member var the general the convention is to
     <span class="comment">// NSLog(@ "Class method foo printing %@ ", objname);</span>
     <span class="comment">// Cannot do this, Class methods cannot access instance</span>
     <span class="comment">// members</span>
-    
+
     NSLog(<span class="error">@</span><span class="string"><span class="delimiter">"</span><span class="content">Class method foo</span><span class="delimiter">"</span></span>);
 
 }
@@ -1029,7 +1029,7 @@ To set the value of the member var the general the convention is to
 - (id) init {
 
     self = [super init];
-    
+
     NSLog(<span class="error">@</span> <span class="string"><span class="delimiter">"</span><span class="content">counterInterface = %i</span><span class="delimiter">"</span></span>, ++counterInterface);
     NSLog(<span class="error">@</span> <span class="string"><span class="delimiter">"</span><span class="content">counterImplementation = %i</span><span class="delimiter">"</span></span>, ++counterImplementation);
     <span class="keyword">return</span> self;
@@ -1060,7 +1060,7 @@ To set the value of the member var the general the convention is to
         InstanceCount * obj6 = [[InstanceCount alloc] init];
 
         [obj6 foo];
-    
+
     }
 }
 
@@ -1213,7 +1213,7 @@ NSString * shape;
     [multi fax];
 
     <span class="comment">/*
-    
+
         Here, we declare the what variable as type id, but that it
         needs to conform the Printing protocol. Well, the actual object
         is a Multi type, which of course conforms to the protocol Printing

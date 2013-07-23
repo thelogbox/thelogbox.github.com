@@ -545,7 +545,7 @@ BSD License: Copyright (c) 2009-2012 Ted Hagos
 All rights reserved.
 
 License text: http://thelogbox.com/source-docs/software-license.txt
-    
+
 */</span>
 
 
@@ -567,18 +567,18 @@ License text: http://thelogbox.com/source-docs/software-license.txt
     <span class="directive">public</span> DbHelper(<span class="predefined-type">Context</span> ctx) {
         <span class="local-variable">super</span>(ctx,<span class="string"><span class="delimiter">"</span><span class="content">tododb.db</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>, <span class="integer">1</span>);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onCreate(SQLiteDatabase db) {
         db.execSQL(sqlcreate);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onUpgrade(SQLiteDatabase db, <span class="type">int</span> oldversion, <span class="type">int</span> newversion) {
         db.execSQL(<span class="string"><span class="delimiter">"</span><span class="content">DROP TABLE IF EXISTS tododb.db</span><span class="delimiter">"</span></span>);
         onCreate(db);
     }
-    
+
 }</code></pre>
 <div id="lst">
 Fig 2: SQLiteOpenHelper source
@@ -589,14 +589,14 @@ Fig 2: SQLiteOpenHelper source
 <p>The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the <em>onUpgrade()</em> method kicks in---it will perform some sort of an ALTER database command in your behalf.</p>
 <p><em>Second, override the onCreate() method</em>. This is where you can execute DDL (SQL Data Definition) commands against the database.</p>
 <p><em>Third, Override the onUpgrade() method,</em> even if you won't need it yet. You won't be able to compile unless you override this method</p>
-<p><strong>4. IMPLEMENT THE METHODS</strong>. for reading and writing to the database.</p>
+<p><em>Lastly, implement the methods</em> for reading and writing to the database.</p>
 <pre><code class="language-java"><span class="comment">/*
 
 BSD License: Copyright (c) 2009-2012 Ted Hagos
 All rights reserved.
 
 License text: http://thelogbox.com/source-docs/software-license.txt
-    
+
 */</span>
 
 
@@ -622,53 +622,53 @@ License text: http://thelogbox.com/source-docs/software-license.txt
     DbHelper dh;
     SQLiteDatabase dbwrite;
     SQLiteDatabase dbread;
-    
+
     EditText input;
     TextView output;
-    
+
 
    <span class="comment">/** Called when the activity is first created. */</span>
    <span class="annotation">@Override</span>
    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
-            
+
         dh = <span class="keyword">new</span> DbHelper(getApplicationContext());
         dbwrite = dh.getWritableDatabase();
         dbread = dh.getReadableDatabase();
-        
+
         <span class="comment">// you cannot put the findViewById here, it causes errors</span>
-        
+
         <span class="local-variable">super</span>.onCreate(savedInstanceState);
       setContentView(R.layout.main);
     }
-    
-    
+
+
     <span class="directive">public</span> <span class="type">void</span> recAdd(<span class="predefined-type">View</span> v) {
 
         input = (EditText) findViewById(R.id.todoedit);
         output = (TextView) findViewById(R.id.tododisplay);
-        
+
         <span class="predefined-type">String</span> itemtoadd = input.getText().toString();      
-        
+
         ContentValues cv = <span class="keyword">new</span> ContentValues();
         cv.put(<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>, itemtoadd);
         dbwrite.insertOrThrow(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>,cv);
-        
+
         <span class="predefined-type">String</span> temptext = (<span class="predefined-type">String</span>) output.getText();
-        
+
         <span class="comment">//Write the dbExtraction routine here</span>
-        
+
         <span class="comment">//temptext = temptext + "\n";</span>
         output.setText(getTodos());
-        
+
     }
-    
+
     <span class="directive">private</span> <span class="predefined-type">String</span> getTodos() {
-        
+
         <span class="predefined-type">String</span> cols<span class="type">[]</span> = {<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>};
         <span class="predefined-type">StringBuilder</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuilder</span>(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>);
         <span class="predefined-type">Cursor</span> cursor = dbread.query(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,cols,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>);
         startManagingCursor(cursor);
-        
+
         <span class="keyword">while</span>(cursor.moveToNext()) {
             sb.append(cursor.getString(<span class="integer">0</span>));
             sb.append(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
@@ -685,8 +685,13 @@ Fig 3: main Activity class
 <p>The <code class="codeblock">recAdd</code> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
 <p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
 <p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
-<hr><h2 id="running-the-code">RUNNING THE CODE</h2>
+<hr><h2 class="section">
+RUNNING THE CODE
+</h2>
+
 <p>Compile and Test the project — <code class="codeblock">ant debug install</code>. The <em>codeonCreate()</em> method of DbHelper should kick in the first time your app issues a db related command.</p>
+<p>
+</p><p><a href="/android-programming-tutorial/">← Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 

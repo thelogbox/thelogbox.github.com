@@ -559,28 +559,28 @@ Hello("John");
 <pre><code class="language-javascript"><span class="comment">//BoxSample.ts</span>
 
 <span class="reserved">interface</span> IBox {
-    
+
     <span class="key">x</span> : number;
     y : number;
     height : number;
     width : number;
-    
+
 }
 
 <span class="reserved">class</span> Box {
-    
+
     <span class="reserved">public</span> x: number;
     <span class="reserved">public</span> y: number;
     <span class="reserved">public</span> height: number;
     <span class="reserved">public</span> width: number;
-    
+
     <span class="reserved">public</span> setDim(obj: IBox){
-        
+
         <span class="local-variable">this</span>.x = obj.x;
         <span class="local-variable">this</span>.y = obj.y;
         <span class="local-variable">this</span>.height = obj.height;
         <span class="local-variable">this</span>.width = obj.width;
-    
+
     }   
 }
 
@@ -661,25 +661,25 @@ class Box implements {
 <p>
 
 </p><pre><code class="language-javascript"><span class="reserved">class</span> Shape {
-    
+
     <span class="key">mname</span>: string = <span class="string"><span class="delimiter">"</span><span class="content">default name</span><span class="delimiter">"</span></span>;
-        
+
     getName() {
         <span class="keyword">return</span> name;
     }
-    
+
     setName(val : string) {
         <span class="local-variable">this</span>.mname = val;
     }
-    
+
     draw() {
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">drawing Shape</span><span class="delimiter">"</span></span>);
     }
-    
+
 }
 
 <span class="reserved">class</span> Circle : Shape {
-    
+
     draw(){
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">Drawing Circle</span><span class="delimiter">"</span></span>);
     }
@@ -702,24 +702,24 @@ b.draw();</code></pre>
 <h2 id="super">super</h2>
 <p><strong>super</strong> refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected.</p>
 <pre><code class="language-javascript"><span class="reserved">class</span> Base {
-    
+
     foo(){
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::foo</span><span class="delimiter">"</span></span>);
     }
-    
+
     constructor(){
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">base::ctor</span><span class="delimiter">"</span></span>);
     }
-    
+
 }
 
 <span class="reserved">class</span> Derived <span class="reserved">extends</span> Base {
-    
+
     foo(){
         <span class="reserved">super</span>.foo();
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::foo</span><span class="delimiter">"</span></span>);
     }
-    
+
     constructor(){
         <span class="reserved">super</span>();
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">derived::ctor</span><span class="delimiter">"</span></span>);
@@ -731,16 +731,16 @@ a.foo();</code></pre>
 <h2 id="optional-arguments-to-functions">Optional arguments to functions</h2>
 <p>Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1</p>
 <pre><code class="language-javascript"><span class="reserved">class</span> Square {
-    
+
     <span class="key">pname</span>: string;
     pcolor: string;
-    
+
     constructor(mname? :string , mcolor? : string){
         <span class="keyword">if</span>(!mname) { <span class="local-variable">this</span>.pname = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
         <span class="keyword">else</span> {
             <span class="local-variable">this</span>.pname = mname;
         }
-        
+
         <span class="keyword">if</span>(!mcolor) {<span class="local-variable">this</span>.pcolor = <span class="string"><span class="delimiter">"</span><span class="content">empty</span><span class="delimiter">"</span></span>;}
         <span class="keyword">else</span> {
             <span class="local-variable">this</span>.pcolor = mcolor;
@@ -777,33 +777,33 @@ console.log(s2.pname);</code></pre>
 <p>Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)</p>
 <pre><code class="language-javascript"><span class="reserved">class</span> Line {
 
-    
+
     <span class="key">x</span>: number;
     y: number;
-    
+
     width: number;
     height: number;
-    
+
     <span class="comment">/*
-    
+
     this does not work, if you vary the number of arguments on the overload
     declarations, it throws a compile error
 
     constructor();
     constructor(x:number, y:number);
-    
+
     */</span>
 
 
     constructor(dim: {<span class="key">x</span>:number; y:number; width:number; height:number;}){
-    
+
         <span class="local-variable">this</span>.x = dim.x;
         <span class="local-variable">this</span>.y = dim.y;
         <span class="local-variable">this</span>.width = dim.width;
         <span class="local-variable">this</span>.height = dim.width;
-    
+
     }
-    
+
     <span class="comment">/*
 
     The overloaded forms of foo() is accepted because I only varied the type of x.      
@@ -813,20 +813,20 @@ console.log(s2.pname);</code></pre>
     foo(x:number);
     foo(x:string);
     foo(x:any){
-        
+
     }
-        
+
 }</code></pre>
 <p>You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.</p>
 <h2 id="arrow-expressions">Arrow Expressions</h2>
 <p>This looks purely like syntactic sugar, but just the same, note it. The <strong>() =&gt; {}</strong> notation was added so that you don't have to say <strong>function() {}</strong> --- this reminds me of CoffeeScript though.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> box = {
-    
+
     <span class="key">mname</span>: <span class="string"><span class="delimiter">"</span><span class="content">Hello Box</span><span class="delimiter">"</span></span>,
     <span class="key">goo</span>: () =&gt; {
         console.log(<span class="string"><span class="delimiter">"</span><span class="content">Hello Goo</span><span class="delimiter">"</span></span>);
     }
-    
+
 }
 
 box.goo();</code></pre>

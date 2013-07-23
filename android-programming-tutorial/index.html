@@ -773,21 +773,21 @@ Fig 12: The second app with a button
             <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
             <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Name </span><span class="delimiter">"</span></span>
     <span class="tag">/&gt;</span>
-    
+
         <span class="tag">&lt;EditText</span>
             <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
             <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span>
             <span class="attribute-name">android:id</span>=<span class="string"><span class="delimiter">"</span><span class="content">@+id/name</span><span class="delimiter">"</span></span>
         <span class="tag">/&gt;</span>
-        
+
     <span class="tag">&lt;/LinearLayout&gt;</span>
-    
+
     <span class="tag">&lt;Button</span>
         <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
         <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
         <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Click me </span><span class="delimiter">"</span></span>            
     <span class="tag">/&gt;</span>
-    
+
     <span class="tag">&lt;/LinearLayout&gt;</span></code></pre>
 <div id="lst">
 Fig 13: main.xml
@@ -815,7 +815,7 @@ Fig 14: Second app, adjusted layout
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">wrap_content</span><span class="delimiter">"</span></span> 
     <span class="attribute-name">android:text</span>=<span class="string"><span class="delimiter">"</span><span class="content">Hello World, TestToast</span><span class="delimiter">"</span></span>
     <span class="tag">/&gt;</span>
-    
+
 <span class="tag">&lt;Button</span>
     <span class="attribute-name">android:layout_width</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
     <span class="attribute-name">android:layout_height</span>=<span class="string"><span class="delimiter">"</span><span class="content">fill_parent</span><span class="delimiter">"</span></span>
@@ -964,18 +964,18 @@ THE SQLiteOpenHelper CLASS
     <span class="directive">public</span> DbHelper(<span class="predefined-type">Context</span> ctx) {
         <span class="local-variable">super</span>(ctx,<span class="string"><span class="delimiter">"</span><span class="content">tododb.db</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>, <span class="integer">1</span>);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onCreate(SQLiteDatabase db) {
         db.execSQL(sqlcreate);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onUpgrade(SQLiteDatabase db, <span class="type">int</span> oldversion, <span class="type">int</span> newversion) {
         db.execSQL(<span class="string"><span class="delimiter">"</span><span class="content">DROP TABLE IF EXISTS tododb.db</span><span class="delimiter">"</span></span>);
         onCreate(db);
     }
-    
+
 }</code></pre>
 <div id="lst">
 Fig 18: SQLiteOpenHelper source
@@ -1014,53 +1014,53 @@ HOW TO USE SQLiteOpenHelper
     DbHelper dh;
     SQLiteDatabase dbwrite;
     SQLiteDatabase dbread;
-    
+
     EditText input;
     TextView output;
-    
+
 
    <span class="comment">/** Called when the activity is first created. */</span>
    <span class="annotation">@Override</span>
    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
-            
+
         dh = <span class="keyword">new</span> DbHelper(getApplicationContext());
         dbwrite = dh.getWritableDatabase();
         dbread = dh.getReadableDatabase();
-        
+
         <span class="comment">// you cannot put the findViewById here, it causes errors</span>
-        
+
         <span class="local-variable">super</span>.onCreate(savedInstanceState);
       setContentView(R.layout.main);
     }
-    
-    
+
+
     <span class="directive">public</span> <span class="type">void</span> recAdd(<span class="predefined-type">View</span> v) {
 
         input = (EditText) findViewById(R.id.todoedit);
         output = (TextView) findViewById(R.id.tododisplay);
-        
+
         <span class="predefined-type">String</span> itemtoadd = input.getText().toString();      
-        
+
         ContentValues cv = <span class="keyword">new</span> ContentValues();
         cv.put(<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>, itemtoadd);
         dbwrite.insertOrThrow(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>,cv);
-        
+
         <span class="predefined-type">String</span> temptext = (<span class="predefined-type">String</span>) output.getText();
-        
+
         <span class="comment">//Write the dbExtraction routine here</span>
-        
+
         <span class="comment">//temptext = temptext + "\n";</span>
         output.setText(getTodos());
-        
+
     }
-    
+
     <span class="directive">private</span> <span class="predefined-type">String</span> getTodos() {
-        
+
         <span class="predefined-type">String</span> cols<span class="type">[]</span> = {<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>};
         <span class="predefined-type">StringBuilder</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuilder</span>(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>);
         <span class="predefined-type">Cursor</span> cursor = dbread.query(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,cols,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>);
         startManagingCursor(cursor);
-        
+
         <span class="keyword">while</span>(cursor.moveToNext()) {
             sb.append(cursor.getString(<span class="integer">0</span>));
             sb.append(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);
@@ -1251,16 +1251,16 @@ class MyActivity extends Activity {
 
   @Override
   public void onCreate(Bundle sinstance) {
-    
+
     super.onCreate(sinstance);
     button = new Button(getApplicationContext()); 
-  
+
     OnClickListener listener = new OnClickListener(){
-  
+
       public void(View view) {
-        
+
         // your code for click here
-  
+
       }
     } 
     button.setOnClickListener(listener);
@@ -1298,15 +1298,15 @@ Fig 27: How to handle the Long Click
 <pre id="java"><code>import android.util.Log;
 
 public class MyAndroidApp extends Activity {
-    
+
   private final String TAG = getClass().getName();
-    
+
     ....
-    
+
     public void someCallBack() {
       Log.v(TAG, "string to log");
     }
-    
+
     public void someMethod() {
       Log.v(TAG, "string to log");
     }
@@ -1331,7 +1331,7 @@ import android.widget.LinearLayout;
 
 
 class LCycleView extends LinearLayout implements View.OnClickListener {
-  
+
   LCycleView(Context ctx) {
     super(ctx);
     setOnClickListener(this);
@@ -1344,40 +1344,40 @@ class LCycleView extends LinearLayout implements View.OnClickListener {
 
 public class LCycle extends Activity {
     /** Called when the activity is first created. */
-    
+
   String TAG = getClass().getName();
-  
+
   @Override
     public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(new LCycleView(this));
     Log.v(TAG, "onCreate");
     }
-  
+
   @Override
   public void onResume() {
     super.onResume();
     Log.v(TAG, "onResume");
   }    
-  
+
   @Override
   public void onRestart() {
     super.onRestart();
     Log.v(TAG, "Restart");
   }
-  
+
   @Override
   public void onPause() {
     super.onPause();
     Log.v(TAG, "Paused");
   }
-  
+
   @Override
   public void onStop() {
     super.onStop();
     Log.v(TAG, "Stoppped");
   }
-  
+
   @Override 
   public void onDestroy(){
     super.onDestroy();
