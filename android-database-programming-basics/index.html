@@ -550,7 +550,7 @@ BSD License: Copyright (c) 2009-2012 Ted Hagos
 All rights reserved.
 
 License text: http://thelogbox.com/source-docs/software-license.txt
-    
+
 */</span>
 
 
@@ -572,18 +572,18 @@ License text: http://thelogbox.com/source-docs/software-license.txt
     <span class="directive">public</span> DbHelper(<span class="predefined-type">Context</span> ctx) {
         <span class="local-variable">super</span>(ctx,<span class="string"><span class="delimiter">"</span><span class="content">tododb.db</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>, <span class="integer">1</span>);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onCreate(SQLiteDatabase db) {
         db.execSQL(sqlcreate);
     }
-    
+
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> onUpgrade(SQLiteDatabase db, <span class="type">int</span> oldversion, <span class="type">int</span> newversion) {
         db.execSQL(<span class="string"><span class="delimiter">"</span><span class="content">DROP TABLE IF EXISTS tododb.db</span><span class="delimiter">"</span></span>);
         onCreate(db);
     }
-    
+
 }</code></pre>
 <div id="lst">
 Fig 2: SQLiteOpenHelper source
@@ -601,7 +601,7 @@ BSD License: Copyright (c) 2009-2012 Ted Hagos
 All rights reserved.
 
 License text: http://thelogbox.com/source-docs/software-license.txt
-    
+
 */</span>
 
 
@@ -627,53 +627,53 @@ License text: http://thelogbox.com/source-docs/software-license.txt
     DbHelper dh;
     SQLiteDatabase dbwrite;
     SQLiteDatabase dbread;
-    
+
     EditText input;
     TextView output;
-    
+
 
    <span class="comment">/** Called when the activity is first created. */</span>
    <span class="annotation">@Override</span>
    <span class="directive">public</span> <span class="type">void</span> onCreate(Bundle savedInstanceState) {
-            
+
         dh = <span class="keyword">new</span> DbHelper(getApplicationContext());
         dbwrite = dh.getWritableDatabase();
         dbread = dh.getReadableDatabase();
-        
+
         <span class="comment">// you cannot put the findViewById here, it causes errors</span>
-        
+
         <span class="local-variable">super</span>.onCreate(savedInstanceState);
       setContentView(R.layout.main);
     }
-    
-    
+
+
     <span class="directive">public</span> <span class="type">void</span> recAdd(<span class="predefined-type">View</span> v) {
 
         input = (EditText) findViewById(R.id.todoedit);
         output = (TextView) findViewById(R.id.tododisplay);
-        
+
         <span class="predefined-type">String</span> itemtoadd = input.getText().toString();      
-        
+
         ContentValues cv = <span class="keyword">new</span> ContentValues();
         cv.put(<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>, itemtoadd);
         dbwrite.insertOrThrow(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,<span class="predefined-constant">null</span>,cv);
-        
+
         <span class="predefined-type">String</span> temptext = (<span class="predefined-type">String</span>) output.getText();
-        
+
         <span class="comment">//Write the dbExtraction routine here</span>
-        
+
         <span class="comment">//temptext = temptext + "\n";</span>
         output.setText(getTodos());
-        
+
     }
-    
+
     <span class="directive">private</span> <span class="predefined-type">String</span> getTodos() {
-        
+
         <span class="predefined-type">String</span> cols<span class="type">[]</span> = {<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>};
         <span class="predefined-type">StringBuilder</span> sb = <span class="keyword">new</span> <span class="predefined-type">StringBuilder</span>(<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span>);
         <span class="predefined-type">Cursor</span> cursor = dbread.query(<span class="string"><span class="delimiter">"</span><span class="content">todo</span><span class="delimiter">"</span></span>,cols,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="predefined-constant">null</span>,<span class="string"><span class="delimiter">"</span><span class="content">item</span><span class="delimiter">"</span></span>);
         startManagingCursor(cursor);
-        
+
         <span class="keyword">while</span>(cursor.moveToNext()) {
             sb.append(cursor.getString(<span class="integer">0</span>));
             sb.append(<span class="string"><span class="delimiter">"</span><span class="char">\n</span><span class="delimiter">"</span></span>);

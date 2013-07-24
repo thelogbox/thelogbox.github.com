@@ -72,7 +72,7 @@ BSD License: Copyright (c) 2009-2012 Ted Hagos
 All rights reserved.
 
 License text: http://thelogbox.com/source-docs/software-license.txt
-    
+
 */&lt;/span&gt;
 
 
@@ -230,7 +230,7 @@ PERMISSIONS
   &lt;li&gt;Understand WebWorkers&lt;/li&gt;
   &lt;li&gt;Learn to work with Server-Sent events to refresh a web page&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The training will cover the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the &amp;#8220;flash killer&amp;#8221;. When you see a job advertisement looking for HTML5 developers, most likely they are referring the HTML5 Canvas programmers. Knowledge of the structural elements and other goodies of HTML5, important as they are, are eclipsed by knowledge of Canvas programming&amp;#8212;simply because this is the skill that is rising in demand.&lt;/p&gt;
+&lt;p&gt;The training will cover the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the "flash killer". When you see a job advertisement looking for HTML5 developers, most likely they are referring the HTML5 Canvas programmers. Knowledge of the structural elements and other goodies of HTML5, important as they are, are eclipsed by knowledge of Canvas programming---simply because this is the skill that is rising in demand.&lt;/p&gt;
 &lt;h2&gt;What will be covered&lt;/h2&gt;
 &lt;div id='sidebarright'&gt;
   &lt;h3&gt;Who should attend&lt;/h3&gt;
@@ -347,7 +347,11 @@ PERMISSIONS
       <name>Ted Hagos</name>
       <uri>http://thelogbox.com/about/</uri>
     </author>
+<<<<<<< HEAD
     <link href="http://thelogbox.com/android-programming-mirah-pindah/" rel="alternate"/>
+=======
+    <link rel="alternate" href="http://thelogbox.com/android-programming-mirah-pindah/"/>
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
     <content type="html">&lt;div id="update-history"&gt;
 &lt;h3&gt;
 Doc history
@@ -401,6 +405,7 @@ import android.widget.Button
 
 
 &lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
+<<<<<<< HEAD
     
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
     &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
@@ -408,16 +413,33 @@ import android.widget.Button
     &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
     &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
     
+=======
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt;(ctx)
+
+    &lt;span class="instance-variable"&gt;@ctx&lt;/span&gt; = ctx
+    &lt;span class="instance-variable"&gt;@button&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx 
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
     &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Toast me!&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
     &lt;span class="instance-variable"&gt;@button&lt;/span&gt;.setOnClickListener &lt;span class="keyword"&gt;do&lt;/span&gt; |x|
       notification = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;ToastCode&lt;/span&gt;.ctx, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Yo&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
       notification.show()
     &lt;span class="keyword"&gt;end&lt;/span&gt;
+<<<<<<< HEAD
        
     setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
     addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
   &lt;span class="keyword"&gt;end&lt;/span&gt;
     
+=======
+
+    setOrientation(&lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL)
+    addView(&lt;span class="instance-variable"&gt;@button&lt;/span&gt;)
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
 &lt;span class="keyword"&gt;end&lt;/span&gt;
 
 &lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastCode&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
@@ -426,10 +448,17 @@ import android.widget.Button
     &lt;span class="keyword"&gt;super&lt;/span&gt; state    
     &lt;span class="instance-variable"&gt;@view&lt;/span&gt; = &lt;span class="constant"&gt;ToastView&lt;/span&gt;.new &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
     &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext()
+<<<<<<< HEAD
     
     setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
   &lt;span class="keyword"&gt;end&lt;/span&gt;
   
+=======
+
+    setContentView &lt;span class="instance-variable"&gt;@view&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;ctx&lt;/span&gt;
     &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
   &lt;span class="keyword"&gt;end&lt;/span&gt;
@@ -458,14 +487,22 @@ import android.view.View.OnClickListener
 
 &lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ToastView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
   implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+<<<<<<< HEAD
   
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
     &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
     
+=======
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
     &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx       
     &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setLayoutParams getLayoutParams    
     &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Save&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;    
     &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;.setOnClickListener(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
+<<<<<<< HEAD
     
     &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
     
@@ -473,16 +510,33 @@ import android.view.View.OnClickListener
     setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
   &lt;span class="keyword"&gt;end&lt;/span&gt;
   
+=======
+
+    &lt;span class="comment"&gt;# ADD the widgets to the MainView&lt;/span&gt;
+
+    addView &lt;span class="instance-variable"&gt;@btnsave&lt;/span&gt;
+    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL    
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;getLayoutParams&lt;/span&gt;&lt;span class="symbol"&gt;:LayoutParams&lt;/span&gt;
     width = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.FILL_PARENT
     height = &lt;span class="constant"&gt;ViewGroup&lt;/span&gt;.LayoutParams.WRAP_CONTENT    
     &lt;span class="constant"&gt;LayoutParams&lt;/span&gt;.new width, height
   &lt;span class="keyword"&gt;end&lt;/span&gt;
+<<<<<<< HEAD
   
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
     &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
   &lt;span class="keyword"&gt;end&lt;/span&gt;
     
+=======
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(view&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+    &lt;span class="comment"&gt;# ... code when button is clicked&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
 &lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="knowing-which-button-was-clicked"&gt;Knowing which button was clicked&lt;/h2&gt;
 &lt;p&gt;
@@ -499,6 +553,7 @@ import android.widget.Toast
 
 &lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;ButtonsView&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;
   implements &lt;span class="constant"&gt;OnClickListener&lt;/span&gt;
+<<<<<<< HEAD
   
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
     &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
@@ -518,6 +573,27 @@ import android.widget.Toast
     &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
     &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
     
+=======
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;initialize&lt;/span&gt;(ctx&lt;span class="symbol"&gt;:Context&lt;/span&gt;)
+    &lt;span class="keyword"&gt;super&lt;/span&gt; ctx
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt; = &lt;span class="constant"&gt;Button&lt;/span&gt;.new ctx
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;One&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Two&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setText &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Three&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
+
+    &lt;span class="comment"&gt;# need to set the Id  of each Button obj because this is&lt;/span&gt;
+    &lt;span class="comment"&gt;# is what we will use to determine which of them was clicked&lt;/span&gt;
+
+    &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setId &lt;span class="integer"&gt;1&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setId &lt;span class="integer"&gt;2&lt;/span&gt;
+    &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setId &lt;span class="integer"&gt;3&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
     &lt;span class="instance-variable"&gt;@one&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
     &lt;span class="instance-variable"&gt;@two&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
     &lt;span class="instance-variable"&gt;@three&lt;/span&gt;.setOnClickListener &lt;span class="predefined-constant"&gt;self&lt;/span&gt;
@@ -525,6 +601,7 @@ import android.widget.Toast
     addView(&lt;span class="instance-variable"&gt;@one&lt;/span&gt;)
     addView(&lt;span class="instance-variable"&gt;@two&lt;/span&gt;)
     addView(&lt;span class="instance-variable"&gt;@three&lt;/span&gt;)
+<<<<<<< HEAD
     
     setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
 
@@ -532,16 +609,33 @@ import android.widget.Toast
   
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
     
+=======
+
+    setOrientation &lt;span class="constant"&gt;LinearLayout&lt;/span&gt;.VERTICAL
+
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="function"&gt;onClick&lt;/span&gt;(v&lt;span class="symbol"&gt;:View&lt;/span&gt;)
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
     &lt;span class="comment"&gt;# v.getId will return an integer. If you defined the view declaratively, the AAPT&lt;/span&gt;
     &lt;span class="comment"&gt;# (android asset packaging tool) would have kicked in and generated an R.layout.xxx&lt;/span&gt;
     &lt;span class="comment"&gt;# java class, we could use that id to determine which button was clicked.&lt;/span&gt;
     &lt;span class="comment"&gt;# But since the view was done programmatically, the aapt did not kick in, hence&lt;/span&gt;
     &lt;span class="comment"&gt;# we need to define our own ids for each button&lt;/span&gt;
+<<<<<<< HEAD
     
     toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
     toast.show
   &lt;span class="keyword"&gt;end&lt;/span&gt;
   
+=======
+
+    toast = &lt;span class="constant"&gt;Toast&lt;/span&gt;.makeText(&lt;span class="constant"&gt;Buttons&lt;/span&gt;.getAppContext,&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;v.getId&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;, &lt;span class="constant"&gt;Toast&lt;/span&gt;.LENGTH_SHORT)
+    toast.show
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
 &lt;span class="keyword"&gt;end&lt;/span&gt;
 
 &lt;span class="keyword"&gt;class&lt;/span&gt; &lt;span class="class"&gt;Buttons&lt;/span&gt; &amp;lt; &lt;span class="constant"&gt;Activity&lt;/span&gt;
@@ -550,11 +644,19 @@ import android.widget.Toast
     &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt; = getApplicationContext
     setContentView &lt;span class="constant"&gt;ButtonsView&lt;/span&gt;.new(&lt;span class="predefined-constant"&gt;self&lt;/span&gt;)
   &lt;span class="keyword"&gt;end&lt;/span&gt;
+<<<<<<< HEAD
   
   &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
     &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
   &lt;span class="keyword"&gt;end&lt;/span&gt;
   
+=======
+
+  &lt;span class="keyword"&gt;def&lt;/span&gt; &lt;span class="predefined-constant"&gt;self&lt;/span&gt;.&lt;span class="function"&gt;getAppContext&lt;/span&gt;
+    &lt;span class="class-variable"&gt;@@ctx&lt;/span&gt;
+  &lt;span class="keyword"&gt;end&lt;/span&gt;
+
+>>>>>>> 861ed6a32d90046aa4c587b436ac7e33722620a0
 &lt;span class="keyword"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</content>
   </entry>
   <entry>
@@ -633,10 +735,10 @@ Contents
 &lt;/p&gt;&lt;pre&gt;&lt;code class="language-javascript"&gt;&lt;span class="comment"&gt;// filename: canvas.js&lt;/span&gt;
 
 window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keyword"&gt;function&lt;/span&gt;(){
-    
+
     &lt;span class="keyword"&gt;var&lt;/span&gt; canv = document.getElementById(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;mycanvas&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
     &lt;span class="keyword"&gt;var&lt;/span&gt; context = canv.getContext(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;2d&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;);
-    
+
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The HTMLElement canvas is not the programming platform, you need it simply to get the actual reference to the 2d platform. The &lt;strong&gt;mycanvas&lt;/strong&gt; is just a DOM element, think of it as a viewport, you cannot paint 2d drawing primitives in that element. The &lt;strong&gt;context&lt;/strong&gt; object is the 2d platform, use this to draw the drawing primitives.&lt;/p&gt;
 &lt;h2 id="drawing-primitives-of-the-canvas"&gt;1.1 Drawing primitives of the Canvas&lt;/h2&gt;
@@ -728,7 +830,7 @@ window.&lt;span class="function"&gt;onload&lt;/span&gt; = &lt;span class="keywor
 &lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
 
 License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-    
+
 &lt;span class="comment"&gt;###&lt;/span&gt;
 
 &lt;span class="comment"&gt;###&lt;/span&gt;
@@ -908,7 +1010,7 @@ $(window).ready -&amp;gt;
 &lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
 
 License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-    
+
 &lt;span class="comment"&gt;###&lt;/span&gt;
 
 &lt;span class="comment"&gt;###&lt;/span&gt;
@@ -920,7 +1022,7 @@ compile: coffee --compile circlepath.coffee
     &lt;span class="constant"&gt;Trace&lt;/span&gt; the path of circle object (defined &lt;span class="keyword"&gt;in&lt;/span&gt; the constructor). That specific
     circle will &lt;span class="keyword"&gt;not&lt;/span&gt; be drawn, but instead its perimeter will be used as the 
     path as we draw (&lt;span class="keyword"&gt;and&lt;/span&gt; animate) a smaller circle (drawn using ctx.arc) 
-    
+
 &lt;span class="comment"&gt;###&lt;/span&gt;
 
 
@@ -951,9 +1053,9 @@ compile: coffee --compile circlepath.coffee
             angle: &lt;span class="integer"&gt;0&lt;/span&gt;
 
     draw: =&amp;gt;
-        
+
         counter += &lt;span class="integer"&gt;1&lt;/span&gt;
-        
+
         ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;,  c.width, c.height
         ball.x = circle.centerX + &lt;span class="constant"&gt;Math&lt;/span&gt;.cos(circle.angle) * circle.radius
         ball.y = circle.centerY + &lt;span class="constant"&gt;Math&lt;/span&gt;.sin(circle.angle) * circle.radius
@@ -964,9 +1066,9 @@ compile: coffee --compile circlepath.coffee
         ctx.stroke()
 
         circle.angle += ball.speed
-        
+
         &lt;span class="comment"&gt;# why is this not being called&lt;/span&gt;
-        
+
         &lt;span class="error"&gt;$&lt;/span&gt;(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;#watch&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).html &lt;span class="string"&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;span class="content"&gt;Loop counter = &lt;/span&gt;&lt;span class="inline"&gt;&lt;span class="inline-delimiter"&gt;#{&lt;/span&gt;counter&lt;span class="inline-delimiter"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class="delimiter"&gt;"&lt;/span&gt;&lt;/span&gt;
         setTimeout &lt;span class="instance-variable"&gt;@draw&lt;/span&gt;, &lt;span class="integer"&gt;1000&lt;/span&gt;
 
@@ -1006,7 +1108,7 @@ compile: coffee --compile circlepath.coffee
 &lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
 
 License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-    
+
 &lt;span class="comment"&gt;###&lt;/span&gt;
 
 &lt;span class="comment"&gt;# filename: accelerate.coffee&lt;/span&gt;
@@ -1085,7 +1187,7 @@ class &lt;span class="constant"&gt;Stage&lt;/span&gt;
 &lt;span class="constant"&gt;All&lt;/span&gt; rights reserved.
 
 License text: http&lt;span class="symbol"&gt;:/&lt;/span&gt;/thelogbox.com/source-docs/software-license.txt
-    
+
 &lt;span class="comment"&gt;###&lt;/span&gt;
 
 &lt;span class="comment"&gt;# filename: fall-stop.coffee&lt;/span&gt;
@@ -1105,7 +1207,7 @@ the bottom
     box = null
 
     constructor: (&lt;span class="instance-variable"&gt;@canvas&lt;/span&gt;) -&amp;gt;
-        
+
         &lt;span class="instance-variable"&gt;@x&lt;/span&gt; = &lt;span class="constant"&gt;Math&lt;/span&gt;.random() * canvas.width
         &lt;span class="instance-variable"&gt;@y&lt;/span&gt; = &lt;span class="integer"&gt;0&lt;/span&gt;
         &lt;span class="instance-variable"&gt;@width&lt;/span&gt; = &lt;span class="integer"&gt;50&lt;/span&gt;
@@ -1129,7 +1231,7 @@ the bottom
     draw: =&amp;gt;
 
         ctx.clearRect &lt;span class="integer"&gt;0&lt;/span&gt;, &lt;span class="integer"&gt;0&lt;/span&gt;, c.width, c.height
-        
+
         &lt;span class="comment"&gt;# to smooth out the collission&lt;/span&gt;
         &lt;span class="keyword"&gt;if&lt;/span&gt; (box.y + box.height) &amp;lt;= (c.height - box.height)
 
@@ -1140,7 +1242,7 @@ the bottom
         &lt;span class="keyword"&gt;else&lt;/span&gt;
             ctx.strokeRect box.x, c.height - box.height, box.width, box.height
             &lt;span class="comment"&gt;#clearTimeout foo&lt;/span&gt;
-        
+
         &lt;span class="comment"&gt;# What happens to this box after it has fallen off the canvas? does it&lt;/span&gt;
         &lt;span class="comment"&gt;# still consume memory?&lt;/span&gt;
 

@@ -554,10 +554,10 @@ Contents
 </p><pre><code class="language-javascript"><span class="comment">// filename: canvas.js</span>
 
 window.<span class="function">onload</span> = <span class="keyword">function</span>(){
-    
+
     <span class="keyword">var</span> canv = document.getElementById(<span class="string"><span class="delimiter">"</span><span class="content">mycanvas</span><span class="delimiter">"</span></span>);
     <span class="keyword">var</span> context = canv.getContext(<span class="string"><span class="delimiter">"</span><span class="content">2d</span><span class="delimiter">"</span></span>);
-    
+
 }</code></pre>
 <p>The HTMLElement canvas is not the programming platform, you need it simply to get the actual reference to the 2d platform. The <strong>mycanvas</strong> is just a DOM element, think of it as a viewport, you cannot paint 2d drawing primitives in that element. The <strong>context</strong> object is the 2d platform, use this to draw the drawing primitives.</p>
 <h2 id="drawing-primitives-of-the-canvas">1.1 Drawing primitives of the Canvas</h2>
@@ -649,7 +649,7 @@ window.<span class="function">onload</span> = <span class="keyword">function</sp
 <span class="constant">All</span> rights reserved.
 
 License text: http<span class="symbol">:/</span>/thelogbox.com/source-docs/software-license.txt
-    
+
 <span class="comment">###</span>
 
 <span class="comment">###</span>
@@ -829,7 +829,7 @@ $(window).ready -&gt;
 <span class="constant">All</span> rights reserved.
 
 License text: http<span class="symbol">:/</span>/thelogbox.com/source-docs/software-license.txt
-    
+
 <span class="comment">###</span>
 
 <span class="comment">###</span>
@@ -841,7 +841,7 @@ compile: coffee --compile circlepath.coffee
     <span class="constant">Trace</span> the path of circle object (defined <span class="keyword">in</span> the constructor). That specific
     circle will <span class="keyword">not</span> be drawn, but instead its perimeter will be used as the 
     path as we draw (<span class="keyword">and</span> animate) a smaller circle (drawn using ctx.arc) 
-    
+
 <span class="comment">###</span>
 
 
@@ -872,9 +872,9 @@ compile: coffee --compile circlepath.coffee
             angle: <span class="integer">0</span>
 
     draw: =&gt;
-        
+
         counter += <span class="integer">1</span>
-        
+
         ctx.clearRect <span class="integer">0</span>, <span class="integer">0</span>,  c.width, c.height
         ball.x = circle.centerX + <span class="constant">Math</span>.cos(circle.angle) * circle.radius
         ball.y = circle.centerY + <span class="constant">Math</span>.sin(circle.angle) * circle.radius
@@ -885,9 +885,9 @@ compile: coffee --compile circlepath.coffee
         ctx.stroke()
 
         circle.angle += ball.speed
-        
+
         <span class="comment"># why is this not being called</span>
-        
+
         <span class="error">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">#watch</span><span class="delimiter">'</span></span>).html <span class="string"><span class="delimiter">"</span><span class="content">Loop counter = </span><span class="inline"><span class="inline-delimiter">#{</span>counter<span class="inline-delimiter">}</span></span><span class="delimiter">"</span></span>
         setTimeout <span class="instance-variable">@draw</span>, <span class="integer">1000</span>
 
@@ -927,7 +927,7 @@ compile: coffee --compile circlepath.coffee
 <span class="constant">All</span> rights reserved.
 
 License text: http<span class="symbol">:/</span>/thelogbox.com/source-docs/software-license.txt
-    
+
 <span class="comment">###</span>
 
 <span class="comment"># filename: accelerate.coffee</span>
@@ -1006,7 +1006,7 @@ class <span class="constant">Stage</span>
 <span class="constant">All</span> rights reserved.
 
 License text: http<span class="symbol">:/</span>/thelogbox.com/source-docs/software-license.txt
-    
+
 <span class="comment">###</span>
 
 <span class="comment"># filename: fall-stop.coffee</span>
@@ -1026,7 +1026,7 @@ the bottom
     box = null
 
     constructor: (<span class="instance-variable">@canvas</span>) -&gt;
-        
+
         <span class="instance-variable">@x</span> = <span class="constant">Math</span>.random() * canvas.width
         <span class="instance-variable">@y</span> = <span class="integer">0</span>
         <span class="instance-variable">@width</span> = <span class="integer">50</span>
@@ -1050,7 +1050,7 @@ the bottom
     draw: =&gt;
 
         ctx.clearRect <span class="integer">0</span>, <span class="integer">0</span>, c.width, c.height
-        
+
         <span class="comment"># to smooth out the collission</span>
         <span class="keyword">if</span> (box.y + box.height) &lt;= (c.height - box.height)
 
@@ -1061,7 +1061,7 @@ the bottom
         <span class="keyword">else</span>
             ctx.strokeRect box.x, c.height - box.height, box.width, box.height
             <span class="comment">#clearTimeout foo</span>
-        
+
         <span class="comment"># What happens to this box after it has fallen off the canvas? does it</span>
         <span class="comment"># still consume memory?</span>
 

@@ -541,23 +541,23 @@ import android.widget.Button
 
 
 <span class="keyword">class</span> <span class="class">ToastView</span> &lt; <span class="constant">LinearLayout</span>
-    
+
   <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
     <span class="keyword">super</span>(ctx)
-    
+
     <span class="instance-variable">@ctx</span> = ctx
     <span class="instance-variable">@button</span> = <span class="constant">Button</span>.new ctx 
-    
+
     <span class="instance-variable">@button</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Toast me!</span><span class="delimiter">"</span></span>
     <span class="instance-variable">@button</span>.setOnClickListener <span class="keyword">do</span> |x|
       notification = <span class="constant">Toast</span>.makeText(<span class="constant">ToastCode</span>.ctx, <span class="string"><span class="delimiter">"</span><span class="content">Yo</span><span class="delimiter">"</span></span>, <span class="constant">Toast</span>.LENGTH_SHORT)
       notification.show()
     <span class="keyword">end</span>
-       
+
     setOrientation(<span class="constant">LinearLayout</span>.VERTICAL)
     addView(<span class="instance-variable">@button</span>)
   <span class="keyword">end</span>
-    
+
 <span class="keyword">end</span>
 
 <span class="keyword">class</span> <span class="class">ToastCode</span> &lt; <span class="constant">Activity</span>
@@ -566,10 +566,10 @@ import android.widget.Button
     <span class="keyword">super</span> state    
     <span class="instance-variable">@view</span> = <span class="constant">ToastView</span>.new <span class="predefined-constant">self</span>
     <span class="class-variable">@@ctx</span> = getApplicationContext()
-    
+
     setContentView <span class="instance-variable">@view</span>
   <span class="keyword">end</span>
-  
+
   <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">ctx</span>
     <span class="class-variable">@@ctx</span>
   <span class="keyword">end</span>
@@ -598,31 +598,31 @@ import android.view.View.OnClickListener
 
 <span class="keyword">class</span> <span class="class">ToastView</span> &lt; <span class="constant">LinearLayout</span>
   implements <span class="constant">OnClickListener</span>
-  
+
   <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
     <span class="keyword">super</span> ctx
-    
+
     <span class="instance-variable">@btnsave</span> = <span class="constant">Button</span>.new ctx       
     <span class="instance-variable">@btnsave</span>.setLayoutParams getLayoutParams    
     <span class="instance-variable">@btnsave</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Save</span><span class="delimiter">"</span></span>    
     <span class="instance-variable">@btnsave</span>.setOnClickListener(<span class="predefined-constant">self</span>)
-    
+
     <span class="comment"># ADD the widgets to the MainView</span>
-    
+
     addView <span class="instance-variable">@btnsave</span>
     setOrientation <span class="constant">LinearLayout</span>.VERTICAL    
   <span class="keyword">end</span>
-  
+
   <span class="keyword">def</span> <span class="function">getLayoutParams</span><span class="symbol">:LayoutParams</span>
     width = <span class="constant">ViewGroup</span>.LayoutParams.FILL_PARENT
     height = <span class="constant">ViewGroup</span>.LayoutParams.WRAP_CONTENT    
     <span class="constant">LayoutParams</span>.new width, height
   <span class="keyword">end</span>
-  
+
   <span class="keyword">def</span> <span class="function">onClick</span>(view<span class="symbol">:View</span>)
     <span class="comment"># ... code when button is clicked</span>
   <span class="keyword">end</span>
-    
+
 <span class="keyword">end</span></code></pre>
 <h2 id="knowing-which-button-was-clicked">Knowing which button was clicked</h2>
 <p>
@@ -639,25 +639,25 @@ import android.widget.Toast
 
 <span class="keyword">class</span> <span class="class">ButtonsView</span> &lt; <span class="constant">LinearLayout</span>
   implements <span class="constant">OnClickListener</span>
-  
+
   <span class="keyword">def</span> <span class="function">initialize</span>(ctx<span class="symbol">:Context</span>)
     <span class="keyword">super</span> ctx
-    
+
     <span class="instance-variable">@one</span> = <span class="constant">Button</span>.new ctx
     <span class="instance-variable">@two</span> = <span class="constant">Button</span>.new ctx
     <span class="instance-variable">@three</span> = <span class="constant">Button</span>.new ctx
-    
+
     <span class="instance-variable">@one</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">One</span><span class="delimiter">"</span></span>
     <span class="instance-variable">@two</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Two</span><span class="delimiter">"</span></span>
     <span class="instance-variable">@three</span>.setText <span class="string"><span class="delimiter">"</span><span class="content">Three</span><span class="delimiter">"</span></span>
-    
+
     <span class="comment"># need to set the Id  of each Button obj because this is</span>
     <span class="comment"># is what we will use to determine which of them was clicked</span>
-    
+
     <span class="instance-variable">@one</span>.setId <span class="integer">1</span>
     <span class="instance-variable">@two</span>.setId <span class="integer">2</span>
     <span class="instance-variable">@three</span>.setId <span class="integer">3</span>
-    
+
     <span class="instance-variable">@one</span>.setOnClickListener <span class="predefined-constant">self</span>
     <span class="instance-variable">@two</span>.setOnClickListener <span class="predefined-constant">self</span>
     <span class="instance-variable">@three</span>.setOnClickListener <span class="predefined-constant">self</span>
@@ -665,23 +665,23 @@ import android.widget.Toast
     addView(<span class="instance-variable">@one</span>)
     addView(<span class="instance-variable">@two</span>)
     addView(<span class="instance-variable">@three</span>)
-    
+
     setOrientation <span class="constant">LinearLayout</span>.VERTICAL
 
   <span class="keyword">end</span>
-  
+
   <span class="keyword">def</span> <span class="function">onClick</span>(v<span class="symbol">:View</span>)
-    
+
     <span class="comment"># v.getId will return an integer. If you defined the view declaratively, the AAPT</span>
     <span class="comment"># (android asset packaging tool) would have kicked in and generated an R.layout.xxx</span>
     <span class="comment"># java class, we could use that id to determine which button was clicked.</span>
     <span class="comment"># But since the view was done programmatically, the aapt did not kick in, hence</span>
     <span class="comment"># we need to define our own ids for each button</span>
-    
+
     toast = <span class="constant">Toast</span>.makeText(<span class="constant">Buttons</span>.getAppContext,<span class="string"><span class="delimiter">"</span><span class="inline"><span class="inline-delimiter">#{</span>v.getId<span class="inline-delimiter">}</span></span><span class="delimiter">"</span></span>, <span class="constant">Toast</span>.LENGTH_SHORT)
     toast.show
   <span class="keyword">end</span>
-  
+
 <span class="keyword">end</span>
 
 <span class="keyword">class</span> <span class="class">Buttons</span> &lt; <span class="constant">Activity</span>
@@ -690,11 +690,11 @@ import android.widget.Toast
     <span class="class-variable">@@ctx</span> = getApplicationContext
     setContentView <span class="constant">ButtonsView</span>.new(<span class="predefined-constant">self</span>)
   <span class="keyword">end</span>
-  
+
   <span class="keyword">def</span> <span class="predefined-constant">self</span>.<span class="function">getAppContext</span>
     <span class="class-variable">@@ctx</span>
   <span class="keyword">end</span>
-  
+
 <span class="keyword">end</span></code></pre>
 	  </div>
 		<p/>

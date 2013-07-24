@@ -544,10 +544,10 @@ date:
 using System;
 
 class Hello {
-    
+
     public static int Main(){
         Console.WriteLine("Hello World");
-        
+
         return 0;
     }   
 }
@@ -595,15 +595,15 @@ C:\&gt; Hello.exe
 using System;
 
 class Vars {
-    
+
     public static int Main(){
-        
+
         int a = 1;
         Console.WriteLine(a); // prints 1
-        
+
         a = 2;
         Console.WriteLine(a); // prints 2
-        
+
         return 0;
     }
 }
@@ -614,15 +614,15 @@ class Vars {
 using System;
 
 class Vars {
-    
+
     public static int Main(){
-        
+
         int a = 1;
         Console.WriteLine(a); // 
-        
+
         a = "2";
         Console.WriteLine(a);
-        
+
         return 0;
     }
 }
@@ -694,11 +694,11 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <pre><code>
 {
    /*
-   
+
    Statements inside a block are executed in a linear fashion, top to bottom.
-   
+
    */
-   
+
 }
 </code></pre>
 <p>A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as <strong>if, while, for etc</strong>.</p>
@@ -713,25 +713,25 @@ if(condition is true){
 <p>The <strong>if</strong> statement actually includes some optional forms, like the <strong>else if and else</strong> branches. The complete form of the <strong>if</strong> statement is as follows;</p>
 <pre><code>
 if(condition is true){
-   
+
 }
 
 else if(another condition){
-   
+
 }
 
 else if(yet another condition){
-   
 
-   
+
+
 }
 
 else if(condition_n…){
-   
+
 }
 
 else {
-   
+
 }
 </code></pre>
 <p>You can write as many <strong>else ifs</strong> as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first <strong>if</strong> block will be performed and then the if block is exited. The other conditions stated on <strong>else ifs and else</strong> will not be executed.</p>
@@ -741,11 +741,11 @@ else {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -767,11 +767,11 @@ class If {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -789,11 +789,11 @@ class If {
 using System;
 
 class If {
-    
+
     public static void Main(){
-        
+
         int a = 101;
-        
+
         if(a == 1){
             Console.WriteLine("One");
         }
@@ -810,11 +810,11 @@ class If {
 using System;
 
 class Switch {
-    
+
     public static void Main(){
-        
+
         int a = 3;
-        
+
         switch(a){
             case 1:
                 Console.WriteLine("One");
@@ -838,11 +838,11 @@ class Switch {
 using System;
 
 class Switch {
-    
+
     public static void Main(){
-        
+
         string a = "1";
-        
+
         switch(a){
             case "1":
                 Console.WriteLine("One");
@@ -867,15 +867,15 @@ class Switch {
 using System;
 
 class While {
-    
+
     public static void Main(){
-        
+
         int a = 0;
-        
+
         while(a &lt; 10){
             Console.WriteLine("Value of a = " + a++);
         }
-        
+
     }
 }
 </code></pre>
@@ -891,9 +891,9 @@ class ForLoop {
     public static void Main(){
 
         for(int a = 0; a &lt; 10 ; a++){
-            
+
             Console.WriteLine("Value of a = " + a);
-        
+
         }       
     }
 }
@@ -916,12 +916,12 @@ class ForLoop {
     public static void Main(){
 
         for(int a = 0, b = 10; a &lt; 10 ; a++, b--, foo()){
-            
+
             Console.WriteLine("Value of a, b = " + a + " , " + b);
-        
+
         }       
     }
-    
+
     static void foo(){
         Console.WriteLine("Foo");
     }
@@ -943,7 +943,7 @@ class ForLoop {
             }
         }       
     }
-        
+
 }
 
 /*
@@ -1009,7 +1009,7 @@ class ForLoop {
             Console.WriteLine();
         }       
     }
-        
+
 }
 
 /*

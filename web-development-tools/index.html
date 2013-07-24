@@ -512,9 +512,9 @@ Doc History
         %title First haml
         %link{:rel =&gt; "stylesheet", :href=&gt;"stylesheet.css"}
         %script{:src =&gt; "one.js"}
-    
+
     %body
-        
+
         %div{:id=&gt;"canvas"} / this a way to define a div
 
         #hello Hi there / shorter way to define a div with id
@@ -632,16 +632,16 @@ console.log(<span class="string"><span class="delimiter">'</span><span class="co
     <span class="comment">// the HTTP object of node will throw an error.</span>
     <span class="comment">// First type argument must be a string or buffer</span>
     <span class="keyword">return</span> JSON.stringify(retval);
-    
+
 }
 
 http.createServer(
     <span class="keyword">function</span>(request,response){
-        
+
         <span class="keyword">var</span> lookup = path.basename(decodeURI(request.url));
         <span class="keyword">var</span> thedata = <span class="predefined-constant">null</span>;
         <span class="keyword">var</span> temp = <span class="predefined-constant">null</span>;
-        
+
         <span class="comment">// Check first if we are looking for an HTML file</span>
         fs.exists(lookup, <span class="keyword">function</span>(exists){
             <span class="keyword">if</span>(exists){
@@ -657,7 +657,7 @@ http.createServer(
                 console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside the else</span><span class="delimiter">"</span></span>);
             }
         });
-                
+
         <span class="keyword">if</span> (pages[lookup] != <span class="predefined-constant">undefined</span>){
             console.log(<span class="string"><span class="delimiter">"</span><span class="content">inside pages</span><span class="delimiter">"</span></span>);
             response.writeHead(<span class="integer">200</span>, {<span class="key"><span class="delimiter">'</span><span class="content">Content-Type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">text/html</span><span class="delimiter">'</span></span>});

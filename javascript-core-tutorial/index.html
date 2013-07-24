@@ -613,7 +613,7 @@ A small test on how JS treats types
 }
 
 <span class="keyword">function</span> <span class="function">z</span>() {
-    
+
 }
 
 <span class="comment">// Let's see the typeof results</span>
@@ -1041,7 +1041,7 @@ console.log(a.prop1);   <span class="comment">// Altered prop1</span>
 <pre><code class="language-javascript"><span class="comment">// file: obj3.js</span>
 
 <span class="keyword">var</span> employee =  {
-    
+
     <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
     <span class="function">work</span>: <span class="keyword">function</span>() {
         console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
@@ -1052,7 +1052,7 @@ employee.work();</code></pre>
 <p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named "work". When we invoked the <em>work()</em> property as function—as we should, because it is a function, it then executed whatever was defined inside the function block.</p>
 <p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> employee =  {
-    
+
     <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
     <span class="function">work</span>: <span class="keyword">function</span>() {
         console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
@@ -1086,11 +1086,11 @@ rommel.work();</code></pre>
 
 <span class="keyword">function</span> <span class="function">Company</span>() {
     <span class="local-variable">this</span>.employees = [];
-    
+
     <span class="local-variable">this</span>.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
         <span class="local-variable">this</span>.employees.push(employee);
     }
-    
+
     <span class="local-variable">this</span>.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
         arrlength = <span class="local-variable">this</span>.employees.length;
         <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
@@ -1241,7 +1241,7 @@ and
     <span class="tag">&lt;/head&gt;</span>
     <span class="tag">&lt;body&gt;</span>
         <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    
+
         <span class="tag">&lt;/div&gt;</span>
 
         <span class="tag">&lt;script&gt;</span>
@@ -1274,7 +1274,7 @@ x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="
         <span class="tag">&lt;/script&gt;</span>
 
         <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    
+
         <span class="tag">&lt;/div&gt;</span>
 
 
@@ -1310,7 +1310,7 @@ x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="
     &lt;body&gt;
 
         &lt;div id="watch"&gt;
-    
+
         &lt;/div&gt;
 
     &lt;/body&gt;
