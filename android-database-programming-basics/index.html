@@ -68,8 +68,9 @@ img {
 
   #shock-left a:link, #shock-left a:visited {
     font-size: 45px;
-    color: #61768a;
-    border-bottom: 2px dotted #61768a;
+    /*color: #61768a;*/
+    color: #292929;
+    border-bottom: 2px dotted #000000;
   }
   #shock-left a:hover {
     color: #61768a;
@@ -78,12 +79,13 @@ img {
 
   #shock-right {
     padding-top:70px;
-    font-size: 85px;
+    font-size: 75px;
+    font-weight: bold;
     font-family: 'Rokkitt';
-    font-weight:normal;
     letter-spacing: -1.5px;
     line-height: -.7em;
-    color: #61768a;
+    /*color: #61768a;*/
+    color: #292929;
     text-align:center;
   }
 
@@ -176,11 +178,12 @@ footer {
 }
 
 #articletitle {
-  font-family: 'Rokkitt';
-  font-size:50px; 
+  font-family: 'Tauri';
+  font-size:60px; 
   font-weight: normal;
-  color: #61768a;
-  margin-top:20px;
+  color: #292929;
+  margin-top:0px;
+  margin-bottom: 40px;
   text-align: center;
   letter-spacing: -1px;
 }
@@ -245,8 +248,8 @@ hr {
   font-style: normal;
   color: gray;
   text-align: left;
-  margin-bottom:40px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #sidebarright {
@@ -426,9 +429,10 @@ pre code, .keyword, .directive, .type,
 -->
 
 <meta charset="utf-8">
-<title>Android Database Programming basics: theLogBox.com</title>
+<title>Android Database Programming basics &mdash; theLogBox.com</title>
 
-<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
 
@@ -471,7 +475,6 @@ pre code, .keyword, .directive, .type,
 </div>
     </header>
 
-	  <div id="articletitle" itemprop="headline">Android Database Programming basics</div>  
     <div id='contentmeta'>
 by: 
 
@@ -481,6 +484,8 @@ by:
 
 <span itemprop="dateCreated"> 22.Jul.2012 </span>
 </div>  
+	  <div id="articletitle" itemprop="headline">Android Database Programming basics</div>  
+   
 
 	  <div itemprop="articleBody">
       <p>Database programming is probably the one of the most common programming task. Even entertainment oriented applications has a need for a database backend. The Android platform has a database library and runtime. That's <strong>SQLite3</strong>. This database is baked right into Android. There is no need for a separate installation activity.</p>
@@ -589,7 +594,7 @@ Fig 2: SQLiteOpenHelper source
 <p>The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the <em>onUpgrade()</em> method kicks in---it will perform some sort of an ALTER database command in your behalf.</p>
 <p><em>Second, override the onCreate() method</em>. This is where you can execute DDL (SQL Data Definition) commands against the database.</p>
 <p><em>Third, Override the onUpgrade() method,</em> even if you won't need it yet. You won't be able to compile unless you override this method</p>
-<p><strong>4. IMPLEMENT THE METHODS</strong>. for reading and writing to the database.</p>
+<p><em>Lastly, implement the methods</em> for reading and writing to the database.</p>
 <pre><code class="language-java"><span class="comment">/*
 
 BSD License: Copyright (c) 2009-2012 Ted Hagos
@@ -685,8 +690,13 @@ Fig 3: main Activity class
 <p>The <code class="codeblock">recAdd</code> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
 <p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
 <p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
-<hr><h2 id="running-the-code">RUNNING THE CODE</h2>
+<h2 class="section">
+RUNNING THE CODE
+</h2>
+
 <p>Compile and Test the project — <code class="codeblock">ant debug install</code>. The <em>codeonCreate()</em> method of DbHelper should kick in the first time your app issues a db related command.</p>
+<p>
+</p><p><a href="/android-programming-tutorial/">← Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 
