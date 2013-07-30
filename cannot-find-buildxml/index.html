@@ -501,7 +501,7 @@ Total time: 0 seconds</code></pre>
 <p>Just read the error carefully and you will see. It cannot find the <em>build.xml</em> file on the SDK.DIR (the folder where you installed the android SDK). Line number 83 of build.xml inside your project folder is actually an import directive. It is importing a generic build.xml from SDK.DIR/tools/ folder.</p>
 <h2 id="how-to-fix">How to fix</h2>
 <p>Check carefully that the directory entry on <strong>local.properties</strong> for the sdk.dir is actually correct. The local.properties file is on the root folder of the android project you created. For some reason (that I don't know yet), the sdk.dir value on the properties file incorrect. Just make the necessary adjustments, then try to run <strong>ant</strong> again. It should work by now.</p>
-<p><img src="/res/arrow-up.png" alt="toc"><a href="/notes-android/">Go back to Android notes</a></p>
+<p><a href="/android-programming-tutorial/">Back to Android Programming Tutorial</a></p>
 	  </div>
 		<p/>
 
