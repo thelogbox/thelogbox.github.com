@@ -613,7 +613,7 @@ A small test on how JS treats types
 }
 
 <span class="keyword">function</span> <span class="function">z</span>() {
-
+    
 }
 
 <span class="comment">// Let's see the typeof results</span>
@@ -1041,7 +1041,7 @@ console.log(a.prop1);   <span class="comment">// Altered prop1</span>
 <pre><code class="language-javascript"><span class="comment">// file: obj3.js</span>
 
 <span class="keyword">var</span> employee =  {
-
+    
     <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
     <span class="function">work</span>: <span class="keyword">function</span>() {
         console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
@@ -1052,7 +1052,7 @@ employee.work();</code></pre>
 <p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named "work". When we invoked the <em>work()</em> property as function—as we should, because it is a function, it then executed whatever was defined inside the function block.</p>
 <p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> employee =  {
-
+    
     <span class="key">name</span>: <span class="string"><span class="delimiter">"</span><span class="content">Ted</span><span class="delimiter">"</span></span>, 
     <span class="function">work</span>: <span class="keyword">function</span>() {
         console.log(<span class="local-variable">this</span>.name + <span class="string"><span class="delimiter">"</span><span class="content"> is working</span><span class="delimiter">"</span></span>)
@@ -1086,11 +1086,11 @@ rommel.work();</code></pre>
 
 <span class="keyword">function</span> <span class="function">Company</span>() {
     <span class="local-variable">this</span>.employees = [];
-
+    
     <span class="local-variable">this</span>.<span class="function">recruit</span> = <span class="keyword">function</span>(employee) {
         <span class="local-variable">this</span>.employees.push(employee);
     }
-
+    
     <span class="local-variable">this</span>.<span class="function">listEmployees</span> = <span class="keyword">function</span>() {
         arrlength = <span class="local-variable">this</span>.employees.length;
         <span class="keyword">for</span> (i = <span class="integer">0</span>; i &lt; arrlength; i++) {
@@ -1232,7 +1232,7 @@ and
 
 <p>) elements. The head and body elements can in turn contain other elements like script, style, input, textarea, options, canvas etc.</p>
 <p>The document object model allows you programmatic access to these elements and their attributes. Navigating the DOM is an essential skill of a JavaScript programmer. Below is a rough pictorial representation of DOM (Level 0)</p>
-<img src="/res/article-pix/notes-javascript/dom-level-0.png" width="550"><p>Each node in the DOM is an object, so you can use the dot notation to reference each element. The root element of the DOM is the window object, this is the most global space in client-side JavaScript. It has many child nodes, you have already seen one of them in action a while back, the document object. When we wrote document.write(), we actually meant window.document.write(), but we don't have the write the window object explicitly.</p>
+<img class="default" src="/res/article-pix/notes-javascript/dom-level-0.png" width="550"><p>Each node in the DOM is an object, so you can use the dot notation to reference each element. The root element of the DOM is the window object, this is the most global space in client-side JavaScript. It has many child nodes, you have already seen one of them in action a while back, the document object. When we wrote document.write(), we actually meant window.document.write(), but we don't have the write the window object explicitly.</p>
 <p>I already mentioned that each node in the DOM is an object, which means if you want to do something to one of elements, you need to know their methods so you can do something meaningful to them.</p>
 <pre><code class="language-html"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="tag">&lt;html&gt;</span>
@@ -1241,7 +1241,7 @@ and
     <span class="tag">&lt;/head&gt;</span>
     <span class="tag">&lt;body&gt;</span>
         <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-
+    
         <span class="tag">&lt;/div&gt;</span>
 
         <span class="tag">&lt;script&gt;</span>
@@ -1274,7 +1274,7 @@ x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="
         <span class="tag">&lt;/script&gt;</span>
 
         <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">"</span><span class="content">watch</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-
+    
         <span class="tag">&lt;/div&gt;</span>
 
 
@@ -1282,7 +1282,7 @@ x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="
     <span class="tag">&lt;/body&gt;</span>
 <span class="tag">&lt;/html&gt;</span></code></pre>
 <p>In this version, the script comes before the div definition, if you run this code, you will see nothing---because there will be an error. The variable out will contain null. The reason for this is because we tried to obtain an object reference to a div element which does not exist yet. The div "watch" must be defined and loaded in the DOM before we can obtain a programming reference to it. It is time to step back a little bit and try to get some more understanding of how the browser, DOM, and JavaScript works.</p>
-<img src="/res/article-pix/notes-javascript/dom-javascript-rendering.png" width="275" style="float:left; padding-right:65px; padding-top:5px; padding-bottom:10px; padding-left:50px"><p>When a web page is received by browser, it will go to work by scanning through all the HTML elements in the page. It will be interrupted shortly when it encounters elements that have an src attribute, because that attribute means that whatever information follows the src, it is not part of the current document being rendered---the browser will make another roundtrip requesting the resource from the server, then coming back again. This is the reason why sometimes, the browser seems to load for a very long time, because it is trying to complete all the elements in the web page. If the element has an src attribute, it will be fetched before the browser can complete rendering the complete DOM.</p>
+<img class="shadow" src="/res/article-pix/notes-javascript/dom-javascript-rendering.png"><p>When a web page is received by browser, it will go to work by scanning through all the HTML elements in the page. It will be interrupted shortly when it encounters elements that have an src attribute, because that attribute means that whatever information follows the src, it is not part of the current document being rendered---the browser will make another roundtrip requesting the resource from the server, then coming back again. This is the reason why sometimes, the browser seems to load for a very long time, because it is trying to complete all the elements in the web page. If the element has an src attribute, it will be fetched before the browser can complete rendering the complete DOM.</p>
 <p>The other occassion when the browser will stop rendering the DOM is when it encounters the &lt;script&gt; element. JavaScript has the ability to alter the DOM, that is why the browser needs to suspend operation when a JavaScript code is running. When the script is done, the DOM rendering can resume.</p>
 <p>You need to keep this interplay between the DOM, JavaScript and the browser in mind so that you always know the state of the browser and the DOM before you accessing any element of the DOM.</p>
 <p>This does not mean though that you have to position your scripts on very select places of the HTML page just to ensure that your code is synchronized with the HTML elements. Not only is that an ardous task, it is also bad form. What we need right now is to use a little bit of callbacks.</p>
@@ -1310,7 +1310,7 @@ x.innerHTML = <span class="string"><span class="delimiter">"</span><span class="
     &lt;body&gt;
 
         &lt;div id="watch"&gt;
-
+    
         &lt;/div&gt;
 
     &lt;/body&gt;
