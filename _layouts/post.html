@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>    
+       
+    <div id="wrap">     
+    <article itemscope itemtype="http://schema.org/Article" class="notoc">
+     <header>          
+      <div id="articletitle">{{ page.title }}</div>
+      
+      <div class='content-meta'>
+       by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
+       Ted Hagos</a>, {{ page.date | date: "%B %d , %Y" }} 
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+		</article>
+    
+    
+    <a href="/" class='button'>Home Page</a>
+    <a href="/archives" class='button'>Blog Archives</a>
+    
+  </div> <!-- WRAP -->   
+		
+    <footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+  </body>
+</html>

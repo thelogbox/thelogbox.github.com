@@ -1,0 +1,1557 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/android/feed/" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<meta name="description" content="" />
+<title>C# Programming Notes | theLogBox </title>
+
+		<style>
+
+p, ol, li , .content-meta, body, p, br {
+	font-family: 'Helvetica';
+	font-size: 16px;
+	line-height: 160%;
+  color: #414141;
+}
+/*
+
+#headinner{
+  position:absolute;
+  top:10%;
+  text-align:center;
+  
+}
+*/
+
+/*
+
+.android-head, .blog-head, .courses-head, .phonegap-head {
+  padding-left: 20px;
+  line-height:110%;
+  min-height:200px;
+  font-family: 'Tauri';
+  font-size: 50px;
+  text-align: left;
+  color: #ffffff;
+  position:relative;
+}
+
+*/
+
+.tutorial-writeup {
+  text-align: left;
+  width: 95%;
+  font-size: 16px;
+  margin: 0 auto;
+  color: #2d2d2d;
+  line-height: 130%;
+}
+
+.android-head {
+  
+/*  background-image:url('../img/teapot.jpg'); */
+  
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #F1F1F1;
+  background: #FFFFdd;
+  
+}
+.blog-head {
+
+  /* background-image:url('../img/fruits.JPG'); */
+  padding-left: 20px;
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #CACACA;
+}
+.courses-head {background-image:url('../img/room.jpg');}
+.phonegap-head {background-image:url('../img/fruits.JPG')}
+
+.android-head .content-meta, 
+.android-head a:link, .android-head a:visited,
+.blog-head a:link, .blog-head a:visited {
+  font-family: 'Rokkitt';
+  color: inherit;
+  font-size: 16px ;
+  text-align:inherit;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:95%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+
+.notoc {
+  width:95%;
+}
+
+#articletitle {
+	font-family: 'Rokkitt', 'helvetica', sans-serif;
+	font-size: 45px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 130%;
+  color: #000000;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  font-size: 16px;
+  text-align:left;
+  width:28%;
+  overflow: visible;
+  padding: 10px;
+  border: 0px solid #DEDEDE;
+  float: right;
+  line-height: 150%;
+}
+
+  .toc a:link, .toc a:visited {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    /* color: #bf3f3f; */
+  }
+  .toc h1 {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    padding-left: 38px;
+  }
+  
+  .toc li {
+    color: #bf3f3f;
+    list-style-type: square;
+  }
+
+#blogtitle {
+	margin-bottom:2em;
+}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+	/* color: #435e36;*/
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #373737;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #000000;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:130%;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Arial';
+  font-size: 16px;
+  color: #5e5e5e; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #f1f1f1;
+  display:block;
+  font-family: 'Arial';
+  font-size: 20px;
+  background: #999999;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:130%;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+body {
+    
+  font-family: 'Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+footer {
+	font-family: 'Rokkitt';
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:40px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:1px solid #CACACA;  
+}
+
+#header-right {
+	line-height: 1.5em;
+	font-family: 'arial', 'helvetica', 'sans-serif';
+	font-size: 80%;
+	font-style: normal;
+	position:relative;
+	float:right;
+	padding: 1em;
+	border: 2px solid #CACACA;
+	margin-bottom:1em;
+	margin-left:1em;
+	/*width: 14em;*/
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 1px;
+}
+
+strong {
+  font-family: 'Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+em {
+  font-style:oblique;
+  font-family: Georgia;
+  color: #003D82;
+}
+
+code {
+	font-family: 'Inconsolata','Source Code Pro';
+}
+
+pre {
+	font-family: 'Inconsolata','Source Code Pro';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:0px;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  background: #FFFFFF;
+  font-family: 'Muli';
+  font-size: 15px;
+  color: #0000b3;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 14px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+
+a:link, a:visited {
+  /*color: #004a94;
+  color: #0778e4;*/
+  /*color: #b30000;*/
+  color: #9a3c31;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9a3c31;
+  border-bottom: 1px solid #9a3c31;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+.button {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    font:18px/normal 'Rokkitt';
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -moz-background-clip: padding; /* for Firefox 3.6 */
+    background-clip: padding-box;
+    border-radius: 0.2em;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    color: #fff;
+    background-color: #3c8dde;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+}
+
+.button:active,
+.button.active {
+    border-color: #2a65a0;
+    border-bottom-color: #3884cd;
+    background-color: #3072b3;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
+    background-image: -moz-linear-gradient(#3072b3, #599bdc);
+    background-image: -ms-linear-gradient(#3072b3, #599bdc);
+    background-image: -o-linear-gradient(#3072b3, #599bdc);
+    background-image: linear-gradient(#3072b3, #599bdc);
+}
+
+/* overrides extra padding on button elements in Firefox */
+.button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+/* =============================================================================
+   Button icons
+   ========================================================================== */
+
+.button.icon:before {
+    content: "";
+    position: relative;
+    top: 1px;
+    float:left;
+    width: 12px;
+    height: 12px;
+    margin: 0 0.75em 0 -0.25em;
+    background: url(gh-icons.png) 0 99px no-repeat;
+}
+
+.button.arrowup.icon:before { background-position: 0 0; }
+.button.arrowup.icon:hover:before,
+.button.arrowup.icon:focus:before,
+.button.arrowup.icon:active:before { background-position: -12px 0; }
+
+.button.arrowdown.icon:before { background-position: 0 -12px; }
+.button.arrowdown.icon:hover:before,
+.button.arrowdown.icon:focus:before,
+.button.arrowdown.icon:active:before { background-position: -12px -12px; }
+
+.button.arrowleft.icon:before { background-position: 0 -24px; }
+.button.arrowleft.icon:hover:before,
+.button.arrowleft.icon:focus:before,
+.button.arrowleft.icon:active:before { background-position: -12px -24px; }
+
+.button.arrowright.icon:before { float:right; margin: 0 -0.25em 0 0.5em; background-position: 0 -36px; }
+.button.arrowright.icon:hover:before,
+.button.arrowright.icon:focus:before,
+.button.arrowright.icon:active:before { background-position: -12px -36px; }
+
+.button.approve.icon:before { background-position: 0 -48px; }
+.button.approve.icon:hover:before,
+.button.approve.icon:focus:before,
+.button.approve.icon:active:before { background-position: -12px -48px; }
+
+.button.add.icon:before { background-position: 0 -288px; }
+.button.add.icon:hover:before,
+.button.add.icon:focus:before,
+.button.add.icon:active:before { background-position: -12px -288px; }
+
+.button.remove.icon:before { background-position: 0 -60px; }
+.button.remove.icon:hover:before,
+.button.remove.icon:focus:before,
+.button.remove.icon:active:before { background-position: -12px -60px; }
+
+.button.log.icon:before { background-position: 0 -72px; }
+.button.log.icon:hover:before,
+.button.log.icon:focus:before,
+.button.log.icon:active:before { background-position: -12px -72px; }
+
+.button.calendar.icon:before { background-position: 0 -84px; }
+.button.calendar.icon:hover:before,
+.button.calendar.icon:focus:before,
+.button.calendar.icon:active:before { background-position: -12px -84px; }
+
+.button.chat.icon:before { background-position: 0 -96px; }
+.button.chat.icon:hover:before,
+.button.chat.icon:focus:before,
+.button.chat.icon:active:before { background-position: -12px -96px; }
+
+.button.clock.icon:before { background-position: 0 -108px; }
+.button.clock.icon:hover:before,
+.button.clock.icon:focus:before,
+.button.clock.icon:active:before { background-position: -12px -108px; }
+
+.button.settings.icon:before { background-position: 0 -120px; }
+.button.settings.icon:hover:before,
+.button.settings.icon:focus:before,
+.button.settings.icon:active:before { background-position: -12px -120px; }
+
+.button.comment.icon:before { background-position: 0 -132px; }
+.button.comment.icon:hover:before,
+.button.comment.icon:focus:before,
+.button.comment.icon:active:before { background-position: -12px -132px; }
+
+.button.fork.icon:before { background-position: 0 -144px; }
+.button.fork.icon:hover:before,
+.button.fork.icon:focus:before,
+.button.fork.icon:active:before { background-position: -12px -144px; }
+
+.button.like.icon:before { background-position: 0 -156px; }
+.button.like.icon:hover:before,
+.button.like.icon:focus:before,
+.button.like.icon:active:before { background-position: -12px -156px; }
+
+.button.favorite.icon:before { background-position: 0 -348px; }
+.button.favorite.icon:hover:before,
+.button.favorite.icon:focus:before,
+.button.favorite.icon:active:before { background-position: -12px -348px; }
+
+.button.home.icon:before { background-position: 0 -168px; }
+.button.home.icon:hover:before,
+.button.home.icon:focus:before,
+.button.home.icon:active:before { background-position: -12px -168px; }
+
+.button.key.icon:before { background-position: 0 -180px; }
+.button.key.icon:hover:before,
+.button.key.icon:focus:before,
+.button.key.icon:active:before { background-position: -12px -180px; }
+
+.button.lock.icon:before { background-position: 0 -192px; }
+.button.lock.icon:hover:before,
+.button.lock.icon:focus:before,
+.button.lock.icon:active:before { background-position: -12px -192px; }
+
+.button.unlock.icon:before { background-position: 0 -204px; }
+.button.unlock.icon:hover:before,
+.button.unlock.icon:focus:before,
+.button.unlock.icon:active:before { background-position: -12px -204px; }
+
+.button.loop.icon:before { background-position: 0 -216px; }
+.button.loop.icon:hover:before,
+.button.loop.icon:focus:before,
+.button.loop.icon:active:before { background-position: -12px -216px; }
+
+.button.search.icon:before { background-position: 0 -228px; }
+.button.search.icon:hover:before,
+.button.search.icon:focus:before,
+.button.search.icon:active:before { background-position: -12px -228px; }
+
+.button.mail.icon:before { background-position: 0 -240px; }
+.button.mail.icon:hover:before,
+.button.mail.icon:focus:before,
+.button.mail.icon:active:before { background-position: -12px -240px; }
+
+.button.move.icon:before { background-position: 0 -252px; }
+.button.move.icon:hover:before,
+.button.move.icon:focus:before,
+.button.move.icon:active:before { background-position: -12px -252px; }
+
+.button.edit.icon:before { background-position: 0 -264px; }
+.button.edit.icon:hover:before,
+.button.edit.icon:focus:before,
+.button.edit.icon:active:before { background-position: -12px -264px; }
+
+.button.pin.icon:before { background-position: 0 -276px; }
+.button.pin.icon:hover:before,
+.button.pin.icon:focus:before,
+.button.pin.icon:active:before { background-position: -12px -276px; }
+
+.button.reload.icon:before { background-position: 0 -300px; }
+.button.reload.icon:hover:before,
+.button.reload.icon:focus:before,
+.button.reload.icon:active:before { background-position: -12px -300px; }
+
+.button.rss.icon:before { background-position: 0 -312px; }
+.button.rss.icon:hover:before,
+.button.rss.icon:focus:before,
+.button.rss.icon:active:before { background-position: -12px -312px; }
+
+.button.tag.icon:before { background-position: 0 -324px; }
+.button.tag.icon:hover:before,
+.button.tag.icon:focus:before,
+.button.tag.icon:active:before { background-position: -12px -324px; }
+
+.button.trash.icon:before { background-position: 0 -336px; }
+.button.trash.icon:hover:before,
+.button.trash.icon:focus:before,
+.button.trash.icon:active:before { background-position: -12px -336px; }
+
+.button.user.icon:before { background-position: 0 -360px; }
+.button.user.icon:hover:before,
+.button.user.icon:focus:before,
+.button.user.icon:active:before { background-position: -12px -360px; }
+
+
+/* =============================================================================
+   Button extensions
+   ========================================================================== */
+
+/* Primary button
+   ========================================================================== */
+
+.button.primary {
+    font-weight: bold;
+}
+
+/* Danger button
+   ========================================================================== */
+
+.button.danger {
+    color: #900;
+}
+
+.button.danger:hover,
+.button.danger:focus,
+.button.danger:active {
+    border-color: #b53f3a;
+    border-bottom-color: #a0302a;
+    color: #fff;
+    background-color: #dc5f59;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dc5f59), to(#b33630));
+    background-image: -moz-linear-gradient(#dc5f59, #b33630);
+    background-image: -ms-linear-gradient(#dc5f59, #b33630);
+    background-image: -o-linear-gradient(#dc5f59, #b33630);
+    background-image: linear-gradient(#dc5f59, #b33630);
+}
+
+.button.danger:active,
+.button.danger.active {
+    border-color: #a0302a;
+    border-bottom-color: #bf4843;
+    background-color: #b33630;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b33630), to(#dc5f59));
+    background-image: -moz-linear-gradient(#b33630, #dc5f59);
+    background-image: -ms-linear-gradient(#b33630, #dc5f59);
+    background-image: -o-linear-gradient(#b33630, #dc5f59);
+    background-image: linear-gradient(#b33630, #dc5f59);
+}
+
+/* Pill button
+   ========================================================================== */
+
+.button.pill {
+    border-radius: 50em;
+}
+
+/* Disabled button
+   ========================================================================== */
+
+.button.disable {
+    opacity: 0.5;
+}
+
+/* Big button
+   ========================================================================== */
+
+.button.big {
+    font-size: 14px;
+}
+
+.button.big.icon:before {
+    top: 0;
+}
+
+
+/* =============================================================================
+   Button groups
+   ========================================================================== */
+
+/* Standard group
+   ========================================================================== */
+
+.button-group {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button + .button,
+.button + .button-group,
+.button-group + .button,
+.button-group + .button-group {
+    margin-left: 15px;
+}
+
+.button-group li {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.button-group .button {
+    float: left;
+    margin-left: -1px;
+}
+
+.button-group > .button:not(:first-child):not(:last-child),
+.button-group li:not(:first-child):not(:last-child) .button {
+    border-radius: 0;
+}
+
+.button-group > .button:first-child,
+.button-group li:first-child .button {
+    margin-left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button-group > .button:last-child,
+.button-group li:last-child > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Minor group
+   ========================================================================== */
+
+.button-group.minor-group .button {
+    border: 1px solid #d4d4d4;
+    text-shadow: none;
+    background-image: none;
+    background-color: #fff;
+}
+
+.button-group.minor-group .button:hover,
+.button-group.minor-group .button:focus {
+    background-color: #599bdc;
+}
+
+.button-group.minor-group .button:active,
+.button-group.minor-group .button.active {
+    background-color: #3072b3;
+}
+
+.button-group.minor-group .button.icon:before {
+    opacity: 0.8;
+}
+
+/* =============================================================================
+   Button container (mixing buttons and groups, e.g., nav bar)
+   ========================================================================== */
+
+.button-container .button,
+.button-container .button-group {
+    vertical-align: top;
+}
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>    
+       
+    <div id="wrap">     
+    <article itemscope itemtype="http://schema.org/Article" class="notoc">
+     <header>          
+      <div id="articletitle">C# Programming Notes</div>
+      
+      <div class='content-meta'>
+       by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
+       Ted Hagos</a>, September 23 , 2012 
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <h1>0. Who should read this</h1>
+
+<p>I wrote this note for Steph. Hopefully, she will have a genuine interest in programming and that she may find this note as a useful learning resource as she goes through her college programming subjects---I know that this term, it is C#, hence, this guide. If you happen to find this note on the world wild web, you are probably one of my daughter's classmate, groupmate or one of my former students&mdash;whoever you maybe, I hope you find this note useful. I wrote it to guide beginning programmers on their first few steps towards a very long journey in software development.</p>
+
+<h1>1. Of programs and programming languages</h1>
+
+<p>Programs are the stuff that you run on your computer; or tablets or phones---you probably know them better as <strong>apps</strong>. There are lots of things that you need in order to build an app, but the biggest and probably the most important thing you need is knowledge of a programming language.</p>
+
+<p>A program is just a bunch of executable statements arranged in a specific order. Some statements execute right after another statement; some execute repeatedly while some conditions are true (or not), and then some statements are executed only when conditions are true.</p>
+
+<p>The subject of this field guide is C# (pronounced see sharp) It is intended to be a simple, modern, general-purpose, object-oriented programming language.[6] Its development team is led by Anders Hejlsberg. The most recent version is C# 5.0, which was released on August 15, 2012. <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language)">^1</a>.</p>
+
+<p>There are other things to say about this language, such as it is statically typed, supports class-based OOP, strongly typed and has support for both functional style and imperative type programming, but they won't make sense right now. You need to know some basics about the language before any of these fancy vocabulary will make sense to you, so I will try to explain what they mean along the way. What maybe important to realize right now are the facts that C# is a high-level language and that it is compiled.</p>
+
+<p>To speak loosely, computers can only run low-level instructions (sometimes they are also called machine instructions or assembly instructions). Low level languages are more difficult to write, that is why they are also more difficult to change. A high-level program on the other hand is written in an almost-English-like language. They are easier to learn and write (re-write).</p>
+
+<p>A program written in a high level language will not be readily understood by a machine though, they need to be translated. There are two ways to translate high level languages. One is by <em>compilation</em> and the other is by <em>interpretation</em>. An interpreter is also computer program, it does what it says---it interprets a high-level program to machine language. It does so by reading a the high-level source file one line at the time, and executes them also one line at a time.</p>
+
+<p>A compiler (which is also another computer program) reads a high level source code in its entirety and translates it in one fell swoop, then you can run the program.</p>
+
+<h2>Things you need before you can start programming</h2>
+
+<ol>
+<li>modern PC running a Windows OS</li>
+<li>a recent version of the .NET Framework SDK (Software Development Kit). This will suffice for learning purposes, but when actual .NET programmers rarely (actually, never) use just the SDK alone. They use a proper development tool like Visual Studio</li>
+<li>a good and proper program editor. If you went the Visual Studio route, then it already includes a program editor</li>
+</ol>
+
+
+<p>.NET is not exclusive for Windows, it runs on Linuxes, UNIXes and OSXes too. That is why alternatively, you can also write C# programs those other platforms I mentioned, you just need to install <a href="http://www.go-mono.com/mono-downloads/download.html">mono framework and SDK</a></p>
+
+<h2>First program</h2>
+
+<p>Get a feel of how C# programs are written by writing the age-old "Hello World". There are some things--lots actually--that you won't understand at first. That's ok. The goal of the exercise is just to get a feel on writing, compiling and running a C# program.</p>
+
+<p>You won't be using Visual Studio for this one. In fact, you won't be using Visual Studio for the rest of this guide. Learn the language first, not the tool. When you are good with the language, the tool will not be able to distract you anymore.</p>
+
+<p>Create a folder where you will store all your practice source files. Create a file and name it "Hello.cs". In OSX you can do this on the Terminal.app</p>
+
+<pre class='codeblock'>
+
+$ cd ~/
+$ mkdir csharp
+$ cd csharp
+$ touch Hello.cs
+$ mate Hello.cs
+
+</pre>
+
+
+<p>The last command is not a standard OSX command, it invokes the TextMate editor (if you have it). If you don't have the TextMate editor, you can use any other programming editor (vim perhaps or smultron)</p>
+
+<p>Type the following code inside the editor</p>
+
+<div class="highlight"><pre><code class="c#"><span class="cm">/*</span>
+
+<span class="cm">filename: Hello.cs</span>
+<span class="cm">author: Ted</span>
+<span class="cm">date: </span>
+
+<span class="cm">*/</span>
+
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Hello</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Main</span><span class="p">(){</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+        
+        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>You need the C Sharp Compiler (csc) to build this. If the Framework SDK has been properly setup on your Windows machine, you will have a short-cut to a batch file called <strong>VCVARS32.BAT</strong> somewhere on the windows menu-->Microsoft Visual Studio…</p>
+
+<p>On other platforms using <strong>mono</strong>, you will the <strong>mcs</strong> command to compile our example.</p>
+
+<pre class='codeblock'>
+
+# On UNIXes, Linuxes and OSXes
+
+$ cd /path/to/your/project/folder
+$ mcs Hello.cs
+$ mono Hello.exe
+
+</pre>
+
+
+<p>You cannot simply type "Hello.exe", .NET programs needs a runtime environment to execute, that is why you need to run mono first before you can run Hello.exe. This runtime is called the CLR (Common Language Runtime). I will tackle this subject, but not now.</p>
+
+<pre class='codeblock'>
+
+# On Windows
+
+C:\> cd \path\to\your\project\folder
+C:\> csc Hello.cs
+C:\> Hello.exe 
+
+</pre>
+
+
+<p>On a windows machine, you did not need to invoke the .NET runtime, you simply typed Hello.exe and it runs just fine.Why?--because recent versions of Windows actually includes the .NET runtime already, and if it is intelligent enough to invoke the .NET runtime when it needs to.</p>
+
+<h2>Walk through of the Hello program</h2>
+
+<p><strong>using System;</strong> - The <em>using** keyword allows you to use the Types defined in the </em>System* namespace. When .NET was released, it came not only with the languages, it also came with lots of built-in Types that you can use immediately. There will be a discussion of Types way down the road, but for now, just settle for the explanation that if we did not use the System namespace, instead of writing <strong>Console.WriteLine()</strong> we needed to write <strong>System.Console.WriteLine()</strong>.</p>
+
+<p><strong>class Hello {}</strong> - CSharp is very object oriented, you cannot write anything meaningful outside of a class construct. Unlike C++, where you can still program in a procedural way and only optionally use the OOP constructs, CSharp forces you to use the class constructs---even for a trivial program like the Hello program; <strong>class</strong> is a keyword (reserved word) which denotes that what follows is a name of class you are trying to define.  The pair of curly braces is the body of the class. You can write lots of things inside the class' body, although for now, we just wrote <em>main()</em>.</p>
+
+<p><strong>public static int Main()</strong> - this is called a method, some people may refer to it as a function, they will be right also but in OO languages, generally functions are referred to as methods--I will tell you why later, but not now. Main() is a very special method, all console applications (like our Hello program) is expected to have the Main() method because this is the entry point of the program. When you invoke the program, the .NET runtime will look for method, and if you did not define it---I mean exactly as it is written in the sample code, nothing will happen when you run your program. So make sure you type it exactly as it appeared in the sample code</p>
+
+<p><strong>Console.WriteLine()</strong> - Console is a built-in type under the System namespace, it does lots of things and it has lots of methods. One of the method is WriteLine(). What WriteLine does is to send a string data straight to the stdout (standard out, which means your screen).</p>
+
+<p><strong>Semi colon</strong> - You will notice that all statements in CSharp are terminated using a semi colon, this is important because the semi colon will tell the compiler that you are finished with a statement. It signals the end of a programming statement pretty much as a period signals the end of a sentence in the English language.</p>
+
+<p>CSharp is a case-sensitive language, <strong>main()</strong> is not the same as <strong>Main()</strong>, so type carefully.</p>
+
+<h2>Word power</h2>
+
+<ol>
+<li><strong>Source code</strong> - sometimes called source file. It is a text file where you write CSharp statements.</li>
+<li><strong>High level language</strong> - a computer programming language undertandable by mere mortals, it looks a lot like the English language, but a computer programming language, unlike English does not contain ambiguities. Each statement you write in a programming language has very precise meaning---strive to know them well</li>
+<li><strong>Compiler</strong> - a computer program that takes in a source file as an input, processes it (parsing) then translates it to a format understandable by machines (machine code). CSharp comes with <strong>csc</strong> on Windows and <strong>msc</strong> on mono platform (which can run on platforms other than Windows)</li>
+<li><strong>Main()</strong> - a special function in CSharp, if you will write console applications, you need to be very acquainted with the format of Main(). Whenever you invoke a compiled .NET CLI (command line interface) program, .NET will always look for <strong>public static int Main()</strong>. This is the entry point of your app</li>
+<li><strong>CLR</strong> - The common language runtime is a rich environment which abstracts a lot of what the Operating System can do for your programs. The CLR can open files, network connections, database connections etc. There are things also that a CLR can do for you that the Operating System cannot---the OS cannot do automatic garbage collection for your app, the CLR can; but let's leave GC (garbage collection) for another discussion.</li>
+</ol>
+
+
+<h1>2. Variables and Data types</h1>
+
+<p>Think of a variable as a shoebox or a desk drawer--actually, just a shoebox, it is easier to explain the concept that way. You can put things inside a shoe box like a ball, paper, etc. The box is used basically as a storage. Program variables work that way too, they function as a storage. One time you can put a red-colored ball into the shoebox, then another time you can take the red ball out and replace it with say, a green ball.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Vars</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// prints 1</span>
+        
+        <span class="n">a</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// prints 2</span>
+        
+        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>In the above sample code, we defined a variable called <strong>"a"</strong>, then we assigned the whole number 1 into it. At a later time, we assigned a different value to <strong>a</strong>, then printed it again. This is a typical programming use of variables. You may assign them intially some value, then change that value later on.</p>
+
+<p>Let's mess around with the sample code a little bit and try to break it deliberately. See if you can spot the difference.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Vars</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// </span>
+        
+        <span class="n">a</span> <span class="p">=</span> <span class="s">&quot;2&quot;</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+        
+        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>If you try to compile this source, you would have encountered your first <strong>compiler error</strong>. You probably got a message like this;</p>
+
+<pre clas='codeblock'>
+
+Vars.cs(10,19): error CS0029: Cannot implicitly convert type `string' to `int'
+Compilation failed: 1 error(s), 0 warnings
+
+</pre>
+
+
+<p>The reason you are getting this error is because of the statement <strong>a = "2";</strong> You are no longer assigning the integer 2 to the variable "a". You are trying to assign a String to "a"---and that is not allowed in CSharp. Going back to shoebox example, when you put a red ball into the box, you can change the contents of the box at a later time provided that you put a ball, it could be a green ball or black ball, a tennis ball or pingpong ball---as long as it is ball. When variable <strong>a</strong> was defined in the program, it was defined to be an <strong>int</strong>, it is meant to store integers (numbers that you use for counting things, they don't have decimal parts). You can replace the contents of variable <strong>a</strong> as long as you replace it with another integer.</p>
+
+<p>This characterisc of CSharp is called <strong>strong typing</strong>, it means that when you declare a variable using a specific type, you cannot change the type of the variable anymore. The fact that you need to tell the compiler what kind or type a variable should be is because CSharp is <strong>statically typed</strong> also. Static typing is a pretty deep subject, and you might not be ready for it (just yet). You need to attend a couple more subjects and read a lot more books, but basically here is what it looks like;</p>
+
+<pre class='codeblock'>
+
+# Static and Strong typing
+
+int a = 1;  // Strongly typed languages like C, C++, C# and Java 
+a = 1024;   // not a problem, 1024 is still an int
+a = 1.0;    // problem, 1.0 is not an integer, strong typing kicks in
+a = "1";    // problem, "1" is not an integer, its a String
+
+
+# Weak and dynamic typing 
+
+a = 1       // Languages like ruby, python and JavaScript are weakly and dynamically typed
+a = "1"     // not a problem 
+
+a = function() {return "Hello"}; // a little too weird for now, but this is possible in JavaScript
+
+</pre>
+
+
+<p>Okay, now you know CSharp is strongly typed and statically typed. The Typing system of CSharp (or any programming language for that matter) is just a clever way of classifying the stuff that programs can work on (that means create and manipulate, variables, remember?). It begs the question now, how many kinds of stuff are there? Here they are;</p>
+
+<ol>
+<li><strong>bool</strong> - true or false values</li>
+<li><strong>byte</strong> - whole numbers or counting numbers like the <strong>int</strong> you saw before, but these are way smaller. This is an 8 bit value. The smallest value is zero and highest value is 255</li>
+<li><strong>char</strong></li>
+<li><strong>decimal</strong> - It's quite self-explanatory and obvious what this type is for. Use it for numbers that have decimal parts. There are other types like this, namely the float and the double. Decimal is a 128-bit type, they are far more accurate than a float but it can contain smaller values than a double. Programmers dealing with financial and monetary calculations use this because of its accuracy</li>
+<li><strong>double</strong> - numbers with decimal parts, its accuracy is limited compared to the <strong>decimal type</strong> but it can contain a larger number</li>
+<li><strong>enum</strong></li>
+<li><strong>float</strong> - like a double, only it can contain a smaller number and it is less precise (7 digit precision only, compared to the double which is 16 digits accurage, or the decimal which is 29 digits accurate)</li>
+<li><strong>int</strong> - whole numbers, values range is -2,147,483,648 to 2,147,483,647. Its a 32 bit type</li>
+<li><strong>long</strong> - whole numbers also, this is a 64 bit value. Can contain –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</li>
+<li><strong>sbyte</strong> - like the byte, but this is signed, which means it does not start from zero, it starts from -128 and goes up to 127</li>
+<li><strong>short</strong> - bigger than an int, contains -32,768 to 32,767. Its a 16 bit type</li>
+<li><strong>struct</strong></li>
+<li><strong>uint</strong> - like an int, but this is unsigned, which means it starts from 0 and goes up to 4,294,967,295</li>
+<li><strong>ulong</strong> - like a long, but unsigned. It starts from 0 and goes up to 18,446,744,073,709,551,615</li>
+<li><strong>ushort</strong> - like a short, but unsigned. It start from 0 and goes up to 0 to 65,535</li>
+</ol>
+
+
+<p>The number of bits assigned to a data type is what determines the higher-bound and lower-bound values (at least for integral types like short, byte, int, long etc). The general idea is this;</p>
+
+<ol>
+<li>Lower range is = 2<sup>(n-1)</sup> where n is equal to the number of bits</li>
+<li>Higher range is = 2<sup>(n-1)</sup> - 1 where n is equal to the number of bits</li>
+</ol>
+
+
+<p>There are types I did not define, that's because it will mess up your learning for now, you will not need them in the near future, so a discussion of what they mean right now will be of very little value, but very high in clutter (mind clutter, that is)</p>
+
+<p>Also, the 15 types listed above, is not complete. These are called <strong>Value Types</strong> in CSharp---there is another kind called <strong>Reference Types</strong> but we will hold off on that, you are not yet ready for that until the discussion on OOP (Object Oriented Programming)---however, we cannot put off even a small discussion of the <strong>String</strong> data type. String is not a value type like ints, shorts, or bytes. String is a Reference Type. Without going too deep on Reference vs Value Type discussion, here are some basic things you need to use the String type.</p>
+
+<h1>3. Flow of control</h1>
+
+<p>By far, we have only written programs that are executed one statement or one instruction after another. Non trivial applications usually require program flows that are more sophisticated than merely sequencing (executing commands one after another). CSharp provides quite a few mechanisms that will allow you to control program flow.</p>
+
+<h2>What the {} means -- compound statements</h2>
+
+<p>Whenever you see a pair of curly braces, you will usually find a group of statements inside them. That is precisely their purpose, to group statements.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="p">{</span>
+   <span class="cm">/*</span>
+<span class="cm">   </span>
+<span class="cm">   Statements inside a block are executed in a linear fashion, top to bottom.</span>
+<span class="cm">   </span>
+<span class="cm">   */</span>
+   
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as <strong>if, while, for etc</strong>.</p>
+
+<h2>If</h2>
+
+<p>This is used if you need to branch or you want to decide whether a statement (or a group of statements) should be executed, based on some condition</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
+   <span class="c1">// execute these statements</span>
+   <span class="c1">// ...   </span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>The <strong>if</strong> statement actually includes some optional forms, like the <strong>else if and else</strong> branches. The complete form of the <strong>if</strong> statement is as follows;</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
+   
+<span class="p">}</span>
+
+<span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">another</span> <span class="n">condition</span><span class="p">){</span>
+   
+<span class="p">}</span>
+
+<span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">yet</span> <span class="n">another</span> <span class="n">condition</span><span class="p">){</span>
+   
+
+   
+<span class="p">}</span>
+
+<span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">condition_n</span><span class="err">…</span><span class="p">){</span>
+   
+<span class="p">}</span>
+
+<span class="k">else</span> <span class="p">{</span>
+   
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>You can write as many <strong>else ifs</strong> as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first <strong>if</strong> block will be performed and then the if block is exited. The other conditions stated on <strong>else ifs and else</strong> will not be executed.</p>
+
+<p>On the other hand, if the condition stated on the first <strong>if</strong> is not true, the program flow will trickle down to the else ifs and will test each condition specified in them. If one of the conditions evaluates to true, then that else if block will be executed.</p>
+
+<p>If none of the conditions on the <strong>if and else ifs</strong> return true, then the group of statements inside the <strong>else</strong> branch will be executed. If you did not have an else block, then none of the statements will be executed if none of the specified conditions evaluates to true.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">101</span><span class="p">;</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">1</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">2</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">101</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One Hundred and One&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Clueless&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>In this example, "One hundred and One" will be printed.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">101</span><span class="p">;</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">1</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">2</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Clueless&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>In this example, "Clueless" will be printed because there are no conditions that evaluates to true</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">101</span><span class="p">;</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">1</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="m">2</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>In this example, the program will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no <strong>else</strong> branch</p>
+
+<h2>Switch</h2>
+
+<p>The <strong>switch</strong> statement is another branching mechanism. It passes control though each <em>case</em> statement inside the switch block. The <strong>case</strong> statement expects a constant value, so you cannot do something like <strong>case == 1</strong>. See the example code for more info.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Switch</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+        
+        <span class="k">switch</span><span class="p">(</span><span class="n">a</span><span class="p">){</span>
+            <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="m">3</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Three&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Default&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Why is there a <strong>break</strong> statement inside each <strong>case</strong>--because withou the break statement, the flow of control will cascade to the next <strong>case</strong> or <strong>default</strong> statement--that is not what you want. As a matter of exercise, try removing the <strong>break</strong> on the case statements and see what happens.</p>
+
+<p>The <strong>switch</strong> can also handle string arguments, not only integers.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Switch</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">string</span> <span class="n">a</span> <span class="p">=</span> <span class="s">&quot;1&quot;</span><span class="p">;</span>
+        
+        <span class="k">switch</span><span class="p">(</span><span class="n">a</span><span class="p">){</span>
+            <span class="k">case</span> <span class="s">&quot;1&quot;</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s">&quot;2&quot;</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s">&quot;3&quot;</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Three&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Default&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2>While</h2>
+
+<p>A looping mechanism. Use this if you would like to perform a group of statements repeatedly. General format is <strong>while(expression) statement</strong> -- if you need to execute more than one statmeent, use the curly braces to group the statements. Example;</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">While</span> <span class="p">{</span>
+    
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+        
+        <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        
+        <span class="k">while</span><span class="p">(</span><span class="n">a</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">){</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Value of a = &quot;</span> <span class="p">+</span> <span class="n">a</span><span class="p">++);</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>The expression <strong>a++</strong> is syntactically equivalent to <strong>a = a + 1</strong>, it simply adds one to current value of a;</p>
+
+<h2>For</h2>
+
+<p>The <strong>for</strong> loop is doing what the <strong>while</strong> loop is doing as well, it executes a group of statement repeatedly. The format of the for loop is a bit more involved though. The for loop has three (optional) arguments inside it. The arguments, if you provide it, changes the behavior of the for loop.</p>
+
+<p>Let's rewrite the <strong>while loop</strong> example using the for loop.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">a</span> <span class="p">&lt;</span> <span class="m">10</span> <span class="p">;</span> <span class="n">a</span><span class="p">++){</span>
+            
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Value of a = &quot;</span> <span class="p">+</span> <span class="n">a</span><span class="p">);</span>
+        
+        <span class="p">}</span>        
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Take a closer look at the form of the <em>for-loop</em>, it is actually like this; <strong>for(initializer ; condition ; iterator) statement</strong>.</p>
+
+<ol>
+<li><strong>initializer</strong> - sets the initial value of a counter, in our sample, this counter is the variable <strong>a</strong></li>
+<li><strong>condition</strong> - you have to stop somewhere, other wise you will have a loop that doesn't terminate. This is an expresion that evaluates to a boolean value. While this expression evaluates to true, the statement inside the body for-loop will keep on executing. When this expression evaluates to false, the loop terminates.</li>
+<li><strong>iterator</strong> - this expression defines what happens after each iteration of the loop, this is typically used to either increment or decrement a counter variable, but you can get creative with it</li>
+</ol>
+
+
+<p>The *initializer and iterator** arguments of the for-loop takes more than one value, you just need to separate them with commas. As a beginning programmer though, you probably would have a less easy time making sense of convoluted codes like that, but just to show what else you can do with for-loops, take a look at the following code.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">b</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span> <span class="n">a</span> <span class="p">&lt;</span> <span class="m">10</span> <span class="p">;</span> <span class="n">a</span><span class="p">++,</span> <span class="n">b</span><span class="p">--,</span> <span class="n">foo</span><span class="p">()){</span>
+            
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Value of a, b = &quot;</span> <span class="p">+</span> <span class="n">a</span> <span class="p">+</span> <span class="s">&quot; , &quot;</span> <span class="p">+</span> <span class="n">b</span><span class="p">);</span>
+        
+        <span class="p">}</span>        
+    <span class="p">}</span>
+    
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">foo</span><span class="p">(){</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Foo&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>In this sample code, two variables (a and b) were initialized. Variable <strong>a</strong> was set to 0 and variable <strong>b</strong> was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable <strong>a</strong> is incremented by 1 and variable <strong>b</strong> is decremented by 1---not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.</p>
+
+<h2>Nesting control structures</h2>
+
+<p>You can write loops inside other loops, ifs inside other ifs, switches inside ifs or whatever combination you can imagine (or need). Here is an example of a for-loop nested inside a for-loop.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;=</span> <span class="m">5</span><span class="p">;</span> <span class="n">j</span><span class="p">++){</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;values of i and j are {0} {1}&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>        
+    <span class="p">}</span>
+        
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">the above code produces the output</span>
+
+<span class="cm">values of i and j are 1 1</span>
+<span class="cm">values of i and j are 1 2</span>
+<span class="cm">values of i and j are 1 3</span>
+<span class="cm">values of i and j are 1 4</span>
+<span class="cm">values of i and j are 1 5</span>
+<span class="cm">values of i and j are 2 1</span>
+<span class="cm">values of i and j are 2 2</span>
+<span class="cm">values of i and j are 2 3</span>
+<span class="cm">values of i and j are 2 4</span>
+<span class="cm">values of i and j are 2 5</span>
+<span class="cm">values of i and j are 3 1</span>
+<span class="cm">values of i and j are 3 2</span>
+<span class="cm">values of i and j are 3 3</span>
+<span class="cm">values of i and j are 3 4</span>
+<span class="cm">values of i and j are 3 5</span>
+<span class="cm">values of i and j are 4 1</span>
+<span class="cm">values of i and j are 4 2</span>
+<span class="cm">values of i and j are 4 3</span>
+<span class="cm">values of i and j are 4 4</span>
+<span class="cm">values of i and j are 4 5</span>
+<span class="cm">values of i and j are 5 1</span>
+<span class="cm">values of i and j are 5 2</span>
+<span class="cm">values of i and j are 5 3</span>
+<span class="cm">values of i and j are 5 4</span>
+<span class="cm">values of i and j are 5 5</span>
+
+<span class="cm">*/</span>
+</code></pre></div>
+
+
+<p>The outer loop counts from 1 to 5 using the iterator (variable) <strong>i</strong>, the inner loop counts from 1 to 5 also. This kind of program produces what you might call a <strong>cartesian product</strong>. Notice how the variable <strong>i</strong> is printed 5 times--i is printed for each iteration of <strong>j</strong>. That is the reason why you have 25 rows of output; i iterates up to 5 and j iterates up to 5 also (5 * 5 = 25).</p>
+
+<p><strong>NOTE :</strong> - The curly braces inside the string is called a formatter, it is somewhat similar to the <strong>sprintf</strong> of the C language---but you haven't coded in C, which means you will need some more explanation and examples;</p>
+
+<div class="highlight"><pre><code class="c#"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The value of a is {0}&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="c1">// the actual value of the variable a will be substituted to {0}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;a is {0} and b is {1}&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+<span class="c1">//value of a will be substituted to {0}, and value of b will be subsituted to {1}</span>
+<span class="c1">//0 corresponds to the first actual number right after the string, and 1 to next, so on</span>
+<span class="c1">// and so forth. 0 and 1 are actually positional values of the arguments that follow</span>
+<span class="c1">// string</span>
+</code></pre></div>
+
+
+<p>You can genearate the multiplication table using nested loops, like this;</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;=</span> <span class="m">5</span><span class="p">;</span> <span class="n">j</span><span class="p">++){</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">j</span> <span class="p">+</span> <span class="s">&quot;\t&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+        <span class="p">}</span>        
+    <span class="p">}</span>
+        
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">1  2   3   4   5   </span>
+<span class="cm">2  4   6   8   10  </span>
+<span class="cm">3  6   9   12  15  </span>
+<span class="cm">4  8   12  16  20  </span>
+<span class="cm">5  10  15  20  25</span>
+
+<span class="cm">*/</span>
+</code></pre></div>
+
+
+<p>The <strong>\t</strong> is to simply add a tab in between the numbers. I used <em>Console.Write</em> so that the line won't add a carriage return/line feed after every number. I need the CRLF at the end of the row (that is the reason why there is an empty WriteLine outside the inner loop)</p>
+
+<!--
+
+# 2. Program structure
+# 3. Variables and Data types
+# 4. Looping
+# 5. Branching
+# 6. Basic input output
+
+-->
+
+
+<h1>Bibliography</h1>
+
+<ol>
+<li>Title: Inside C#. Author: Tom Archer, Publisher: Microsoft Press 2001</li>
+<li>Title: Real World Functional Programming with examples in F# and C#. Authors: Thomas Petricek with John Skeet, Publisher: Manning Publications 2010</li>
+</ol>
+
+
+<h2>Footnotes</h2>
+
+        </div>
+							
+		  </div>
+		</article>
+    
+    
+    <a href="/" class='button'>Home Page</a>
+    <a href="/archives" class='button'>Blog Archives</a>
+    
+  </div> <!-- WRAP -->   
+		
+    <footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37635397-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

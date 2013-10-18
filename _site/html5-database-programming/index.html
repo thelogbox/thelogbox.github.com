@@ -1,0 +1,1085 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/android/feed/" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<meta name="description" content="" />
+<title>Database Programming with WebSQL | theLogBox </title>
+
+		<style>
+
+p, ol, li , .content-meta, body, p, br {
+	font-family: 'Helvetica';
+	font-size: 16px;
+	line-height: 160%;
+  color: #414141;
+}
+/*
+
+#headinner{
+  position:absolute;
+  top:10%;
+  text-align:center;
+  
+}
+*/
+
+/*
+
+.android-head, .blog-head, .courses-head, .phonegap-head {
+  padding-left: 20px;
+  line-height:110%;
+  min-height:200px;
+  font-family: 'Tauri';
+  font-size: 50px;
+  text-align: left;
+  color: #ffffff;
+  position:relative;
+}
+
+*/
+
+.tutorial-writeup {
+  text-align: left;
+  width: 95%;
+  font-size: 16px;
+  margin: 0 auto;
+  color: #2d2d2d;
+  line-height: 130%;
+}
+
+.android-head {
+  
+/*  background-image:url('../img/teapot.jpg'); */
+  
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #F1F1F1;
+  background: #FFFFdd;
+  
+}
+.blog-head {
+
+  /* background-image:url('../img/fruits.JPG'); */
+  padding-left: 20px;
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #CACACA;
+}
+.courses-head {background-image:url('../img/room.jpg');}
+.phonegap-head {background-image:url('../img/fruits.JPG')}
+
+.android-head .content-meta, 
+.android-head a:link, .android-head a:visited,
+.blog-head a:link, .blog-head a:visited {
+  font-family: 'Rokkitt';
+  color: inherit;
+  font-size: 16px ;
+  text-align:inherit;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:95%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+
+.notoc {
+  width:95%;
+}
+
+#articletitle {
+	font-family: 'Rokkitt', 'helvetica', sans-serif;
+	font-size: 45px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 130%;
+  color: #000000;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  font-size: 16px;
+  text-align:left;
+  width:28%;
+  overflow: visible;
+  padding: 10px;
+  border: 0px solid #DEDEDE;
+  float: right;
+  line-height: 150%;
+}
+
+  .toc a:link, .toc a:visited {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    /* color: #bf3f3f; */
+  }
+  .toc h1 {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    padding-left: 38px;
+  }
+  
+  .toc li {
+    color: #bf3f3f;
+    list-style-type: square;
+  }
+
+#blogtitle {
+	margin-bottom:2em;
+}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+	/* color: #435e36;*/
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #373737;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #000000;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:130%;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Arial';
+  font-size: 16px;
+  color: #5e5e5e; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #f1f1f1;
+  display:block;
+  font-family: 'Arial';
+  font-size: 20px;
+  background: #999999;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:130%;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+body {
+    
+  font-family: 'Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+footer {
+	font-family: 'Rokkitt';
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:40px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:1px solid #CACACA;  
+}
+
+#header-right {
+	line-height: 1.5em;
+	font-family: 'arial', 'helvetica', 'sans-serif';
+	font-size: 80%;
+	font-style: normal;
+	position:relative;
+	float:right;
+	padding: 1em;
+	border: 2px solid #CACACA;
+	margin-bottom:1em;
+	margin-left:1em;
+	/*width: 14em;*/
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 1px;
+}
+
+strong {
+  font-family: 'Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+em {
+  font-style:oblique;
+  font-family: Georgia;
+  color: #003D82;
+}
+
+code {
+	font-family: 'Inconsolata','Source Code Pro';
+}
+
+pre {
+	font-family: 'Inconsolata','Source Code Pro';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:0px;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  background: #FFFFFF;
+  font-family: 'Muli';
+  font-size: 15px;
+  color: #0000b3;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 14px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+
+a:link, a:visited {
+  /*color: #004a94;
+  color: #0778e4;*/
+  /*color: #b30000;*/
+  color: #9a3c31;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9a3c31;
+  border-bottom: 1px solid #9a3c31;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+.button {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    font:18px/normal 'Rokkitt';
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -moz-background-clip: padding; /* for Firefox 3.6 */
+    background-clip: padding-box;
+    border-radius: 0.2em;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    color: #fff;
+    background-color: #3c8dde;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+}
+
+.button:active,
+.button.active {
+    border-color: #2a65a0;
+    border-bottom-color: #3884cd;
+    background-color: #3072b3;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
+    background-image: -moz-linear-gradient(#3072b3, #599bdc);
+    background-image: -ms-linear-gradient(#3072b3, #599bdc);
+    background-image: -o-linear-gradient(#3072b3, #599bdc);
+    background-image: linear-gradient(#3072b3, #599bdc);
+}
+
+/* overrides extra padding on button elements in Firefox */
+.button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+/* =============================================================================
+   Button icons
+   ========================================================================== */
+
+.button.icon:before {
+    content: "";
+    position: relative;
+    top: 1px;
+    float:left;
+    width: 12px;
+    height: 12px;
+    margin: 0 0.75em 0 -0.25em;
+    background: url(gh-icons.png) 0 99px no-repeat;
+}
+
+.button.arrowup.icon:before { background-position: 0 0; }
+.button.arrowup.icon:hover:before,
+.button.arrowup.icon:focus:before,
+.button.arrowup.icon:active:before { background-position: -12px 0; }
+
+.button.arrowdown.icon:before { background-position: 0 -12px; }
+.button.arrowdown.icon:hover:before,
+.button.arrowdown.icon:focus:before,
+.button.arrowdown.icon:active:before { background-position: -12px -12px; }
+
+.button.arrowleft.icon:before { background-position: 0 -24px; }
+.button.arrowleft.icon:hover:before,
+.button.arrowleft.icon:focus:before,
+.button.arrowleft.icon:active:before { background-position: -12px -24px; }
+
+.button.arrowright.icon:before { float:right; margin: 0 -0.25em 0 0.5em; background-position: 0 -36px; }
+.button.arrowright.icon:hover:before,
+.button.arrowright.icon:focus:before,
+.button.arrowright.icon:active:before { background-position: -12px -36px; }
+
+.button.approve.icon:before { background-position: 0 -48px; }
+.button.approve.icon:hover:before,
+.button.approve.icon:focus:before,
+.button.approve.icon:active:before { background-position: -12px -48px; }
+
+.button.add.icon:before { background-position: 0 -288px; }
+.button.add.icon:hover:before,
+.button.add.icon:focus:before,
+.button.add.icon:active:before { background-position: -12px -288px; }
+
+.button.remove.icon:before { background-position: 0 -60px; }
+.button.remove.icon:hover:before,
+.button.remove.icon:focus:before,
+.button.remove.icon:active:before { background-position: -12px -60px; }
+
+.button.log.icon:before { background-position: 0 -72px; }
+.button.log.icon:hover:before,
+.button.log.icon:focus:before,
+.button.log.icon:active:before { background-position: -12px -72px; }
+
+.button.calendar.icon:before { background-position: 0 -84px; }
+.button.calendar.icon:hover:before,
+.button.calendar.icon:focus:before,
+.button.calendar.icon:active:before { background-position: -12px -84px; }
+
+.button.chat.icon:before { background-position: 0 -96px; }
+.button.chat.icon:hover:before,
+.button.chat.icon:focus:before,
+.button.chat.icon:active:before { background-position: -12px -96px; }
+
+.button.clock.icon:before { background-position: 0 -108px; }
+.button.clock.icon:hover:before,
+.button.clock.icon:focus:before,
+.button.clock.icon:active:before { background-position: -12px -108px; }
+
+.button.settings.icon:before { background-position: 0 -120px; }
+.button.settings.icon:hover:before,
+.button.settings.icon:focus:before,
+.button.settings.icon:active:before { background-position: -12px -120px; }
+
+.button.comment.icon:before { background-position: 0 -132px; }
+.button.comment.icon:hover:before,
+.button.comment.icon:focus:before,
+.button.comment.icon:active:before { background-position: -12px -132px; }
+
+.button.fork.icon:before { background-position: 0 -144px; }
+.button.fork.icon:hover:before,
+.button.fork.icon:focus:before,
+.button.fork.icon:active:before { background-position: -12px -144px; }
+
+.button.like.icon:before { background-position: 0 -156px; }
+.button.like.icon:hover:before,
+.button.like.icon:focus:before,
+.button.like.icon:active:before { background-position: -12px -156px; }
+
+.button.favorite.icon:before { background-position: 0 -348px; }
+.button.favorite.icon:hover:before,
+.button.favorite.icon:focus:before,
+.button.favorite.icon:active:before { background-position: -12px -348px; }
+
+.button.home.icon:before { background-position: 0 -168px; }
+.button.home.icon:hover:before,
+.button.home.icon:focus:before,
+.button.home.icon:active:before { background-position: -12px -168px; }
+
+.button.key.icon:before { background-position: 0 -180px; }
+.button.key.icon:hover:before,
+.button.key.icon:focus:before,
+.button.key.icon:active:before { background-position: -12px -180px; }
+
+.button.lock.icon:before { background-position: 0 -192px; }
+.button.lock.icon:hover:before,
+.button.lock.icon:focus:before,
+.button.lock.icon:active:before { background-position: -12px -192px; }
+
+.button.unlock.icon:before { background-position: 0 -204px; }
+.button.unlock.icon:hover:before,
+.button.unlock.icon:focus:before,
+.button.unlock.icon:active:before { background-position: -12px -204px; }
+
+.button.loop.icon:before { background-position: 0 -216px; }
+.button.loop.icon:hover:before,
+.button.loop.icon:focus:before,
+.button.loop.icon:active:before { background-position: -12px -216px; }
+
+.button.search.icon:before { background-position: 0 -228px; }
+.button.search.icon:hover:before,
+.button.search.icon:focus:before,
+.button.search.icon:active:before { background-position: -12px -228px; }
+
+.button.mail.icon:before { background-position: 0 -240px; }
+.button.mail.icon:hover:before,
+.button.mail.icon:focus:before,
+.button.mail.icon:active:before { background-position: -12px -240px; }
+
+.button.move.icon:before { background-position: 0 -252px; }
+.button.move.icon:hover:before,
+.button.move.icon:focus:before,
+.button.move.icon:active:before { background-position: -12px -252px; }
+
+.button.edit.icon:before { background-position: 0 -264px; }
+.button.edit.icon:hover:before,
+.button.edit.icon:focus:before,
+.button.edit.icon:active:before { background-position: -12px -264px; }
+
+.button.pin.icon:before { background-position: 0 -276px; }
+.button.pin.icon:hover:before,
+.button.pin.icon:focus:before,
+.button.pin.icon:active:before { background-position: -12px -276px; }
+
+.button.reload.icon:before { background-position: 0 -300px; }
+.button.reload.icon:hover:before,
+.button.reload.icon:focus:before,
+.button.reload.icon:active:before { background-position: -12px -300px; }
+
+.button.rss.icon:before { background-position: 0 -312px; }
+.button.rss.icon:hover:before,
+.button.rss.icon:focus:before,
+.button.rss.icon:active:before { background-position: -12px -312px; }
+
+.button.tag.icon:before { background-position: 0 -324px; }
+.button.tag.icon:hover:before,
+.button.tag.icon:focus:before,
+.button.tag.icon:active:before { background-position: -12px -324px; }
+
+.button.trash.icon:before { background-position: 0 -336px; }
+.button.trash.icon:hover:before,
+.button.trash.icon:focus:before,
+.button.trash.icon:active:before { background-position: -12px -336px; }
+
+.button.user.icon:before { background-position: 0 -360px; }
+.button.user.icon:hover:before,
+.button.user.icon:focus:before,
+.button.user.icon:active:before { background-position: -12px -360px; }
+
+
+/* =============================================================================
+   Button extensions
+   ========================================================================== */
+
+/* Primary button
+   ========================================================================== */
+
+.button.primary {
+    font-weight: bold;
+}
+
+/* Danger button
+   ========================================================================== */
+
+.button.danger {
+    color: #900;
+}
+
+.button.danger:hover,
+.button.danger:focus,
+.button.danger:active {
+    border-color: #b53f3a;
+    border-bottom-color: #a0302a;
+    color: #fff;
+    background-color: #dc5f59;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dc5f59), to(#b33630));
+    background-image: -moz-linear-gradient(#dc5f59, #b33630);
+    background-image: -ms-linear-gradient(#dc5f59, #b33630);
+    background-image: -o-linear-gradient(#dc5f59, #b33630);
+    background-image: linear-gradient(#dc5f59, #b33630);
+}
+
+.button.danger:active,
+.button.danger.active {
+    border-color: #a0302a;
+    border-bottom-color: #bf4843;
+    background-color: #b33630;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b33630), to(#dc5f59));
+    background-image: -moz-linear-gradient(#b33630, #dc5f59);
+    background-image: -ms-linear-gradient(#b33630, #dc5f59);
+    background-image: -o-linear-gradient(#b33630, #dc5f59);
+    background-image: linear-gradient(#b33630, #dc5f59);
+}
+
+/* Pill button
+   ========================================================================== */
+
+.button.pill {
+    border-radius: 50em;
+}
+
+/* Disabled button
+   ========================================================================== */
+
+.button.disable {
+    opacity: 0.5;
+}
+
+/* Big button
+   ========================================================================== */
+
+.button.big {
+    font-size: 14px;
+}
+
+.button.big.icon:before {
+    top: 0;
+}
+
+
+/* =============================================================================
+   Button groups
+   ========================================================================== */
+
+/* Standard group
+   ========================================================================== */
+
+.button-group {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button + .button,
+.button + .button-group,
+.button-group + .button,
+.button-group + .button-group {
+    margin-left: 15px;
+}
+
+.button-group li {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.button-group .button {
+    float: left;
+    margin-left: -1px;
+}
+
+.button-group > .button:not(:first-child):not(:last-child),
+.button-group li:not(:first-child):not(:last-child) .button {
+    border-radius: 0;
+}
+
+.button-group > .button:first-child,
+.button-group li:first-child .button {
+    margin-left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button-group > .button:last-child,
+.button-group li:last-child > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Minor group
+   ========================================================================== */
+
+.button-group.minor-group .button {
+    border: 1px solid #d4d4d4;
+    text-shadow: none;
+    background-image: none;
+    background-color: #fff;
+}
+
+.button-group.minor-group .button:hover,
+.button-group.minor-group .button:focus {
+    background-color: #599bdc;
+}
+
+.button-group.minor-group .button:active,
+.button-group.minor-group .button.active {
+    background-color: #3072b3;
+}
+
+.button-group.minor-group .button.icon:before {
+    opacity: 0.8;
+}
+
+/* =============================================================================
+   Button container (mixing buttons and groups, e.g., nav bar)
+   ========================================================================== */
+
+.button-container .button,
+.button-container .button-group {
+    vertical-align: top;
+}
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div class="android-head">   
+      <div class='tutorial-writeup'>
+        
+        <strong>Getting to Grips with HTML5</strong><p/>
+             
+        Notes on Canvas Programming, new HTML5 elements, GEO Location, Web Workers and other stuff in HTML5. If you want get updates on this tutorial, you may want to join the list. Click the button below to join. <p/>
+        
+        <a href='http://eepurl.com/Hcw5X' class='button' target='_blank'>Join the List</a>
+        
+      </div>
+      
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Database Programming with WebSQL</div>
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>There are two ways to persist data on HTML5. One is to use <em>local storage</em> and the other, <em>WebSQL</em>. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.</p>
+
+<p>The other way to persist data is to use the WebSQL API. This is probably the technique that most developers would use for providing database functionality because it is also the more popular. Most programmers have been schooled in database programming using relational databases, that's why SQL is almost a baseline capability for developers.</p>
+
+<h1>WEBSQL</h1>
+
+<p>WebSQL essentially is about issuing SQL commands against a SQLite3 db. If you haven't used SQLite before, it is a lightweight desktop database. It's called  a  desktop database because it does not require a dedicated server side process unlike MySQL, Oracle or MS SQL Server &mdash; those things are called client-server databases.</p>
+
+<p>Databases are good for a wide variety of programming tasks, but mainly they excel for information management, specifically structured record management. An introduction to SQL is beyond the scope of this chapter, in fact, I made a very dangerous assumption that you already have a backround in basic database programming. If you feel you need an introduction to SQL or you need a refresher on it, <a href="http://www.w3schools.com/sql/sql_intro.asp">the SQL introduction</a> of W3Schools.com might be a good place to start.</p>
+
+<p>[Maybe in the future version, I can have an Appendix on basic SQL tutorial]</p>
+
+<p>Most database programs involves boiler plate codes &mdash; plumbing codes, so to speak. No matter what the database program is trying to do, it will always have to cover some generic steps e.g.</p>
+
+<ol>
+<li>Open a connection to the database</li>
+<li>Create a database or connect to an existing one</li>
+<li>Execute SQL statements in order Create, Read, Update or Delete some records</li>
+<li>Close any connection that you opened</li>
+</ol>
+
+
+<p>In the next sections, we will cover the syntax for these boiler plate codes and demonstrate their usage. Towards the end of the chapter, we will use the WebSQL API for a simple TODO list app.</p>
+
+<h1>CREATE AND OPEN A DATABASE</h1>
+
+<p>You will need to create a practice HTML file to follow the exercises. If you are connected to the internet you can simply use either <a href="http://jsfiddle.net">JSFiddle.net</a> or <a href="http://jsbin.com">JSBin.com</a>.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+
+<span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;onload&quot;</span><span class="p">);</span>
+  
+  <span class="kd">var</span> <span class="nx">dbname</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbversion</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbdisplayname</span> <span class="o">=</span> <span class="s2">&quot;TasksDatabase&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbsize</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
+  
+  <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">openDatabase</span><span class="p">(</span><span class="nx">dbname</span><span class="p">,</span> <span class="nx">dbversion</span><span class="p">,</span> <span class="nx">dbdisplayname</span><span class="p">,</span> <span class="nx">dbsize</span><span class="p">);</span>
+  
+  <span class="k">if</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;WebSQL API use is okay&quot;</span><span class="p">);</span> 
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;WebSQL API is not supported&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;title&gt;</span>theLogBox Code Sample<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Database<span class="nt">&lt;/h1&gt;</span>  
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>The above code is a typical usage of the <strong>openDatabase()</strong> function. This function is a member of the <em>window</em> object, hence you can write the statement as <strong>window.openDatabase()</strong> and it would have worked as well &mdash; I did not have to do that anymore because the <em>window</em> object has a global scope, hence I don't need to explicitly reference it anymore.</p>
+
+<p>There are 4 things you need to pass to the <strong>openDatabase</strong> function, the database name, version, display name and size (in bytes).</p>
+
+<hr />
+
+<p>If you are using the Chrome browser, you can use the <strong>Developer Tools</strong> to inspect the datababase. As a web developer, it is in your best interest to be familiar with debugging and profiling tools &mdash; Google Chrome comes with such tools.</p>
+
+<p><img src="/img/html5/chrome-dev-tools.png" alt="Chrome Developer Tools" /></p>
+
+<p>Launch a browser and open the HTML file where you wrote the sample database code. You won't see anything interesting just yet, we've just created the database, but let's take a look under the hood. I hope you used Chrome for testing, because these coding and debugging exercises were all done using Google Chrome.</p>
+
+<p>Once the page is in view, go to the <em>Developer Tools</em> of Chrome, on the <em>Console</em> tab, you should see something like this.</p>
+
+<p><img src="/img/html5/database-creation.png" alt="Database Creation" /></p>
+
+<p>That is the effect of the <strong>console.log()</strong> code.  Anything you pass to the console.log function gets echoed to the <em>Console</em> tab of the dev tools. This is quite a handy way of debugging. It is also less intrusive than the JavaScript <em>alert()</em>.</p>
+
+<p>Now click the <em>Resources</em> tab. You should see something like this.</p>
+
+<p><img src="/img/html5/database-creation-resources.png" alt="Database Creation" /></p>
+
+<p>Under <em>WebSQL</em> you can see that there is a newly created <em>tasks</em> database. This means our code ran as expected.</p>
+
+<p>You can try to refresh the page or run the JavaScript code over and over, but it won't create another <em>tasks</em> database &mdash; if that was you were expecting. The <strong>openDatabase</strong> command only creates a database file (<em>tasks.db</em>, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The <strong>openDatabase()</strong> function is used both to create a not yet existing database file and to open an existing one.</p>
+
+<h2>Creating Tables</h2>
+
+<p>After creating a database, you need to create some tables inside it. The tables are the actual data structures that holds structured information. In this section, we will simply create a single table named TODO. This table will hold our todo items.</p>
+
+<p>You will notice that all of our codes are sequential. The codes to create the database is immediately followed by the table creation, which in turn is immediately followed by some commands that insert data into the table. In practice, this is rarely the case. The routine to create the database and the table will most likely be confined to a special routine that is executed only once. The routine to insert records into the table will most likely be written in a call back function that corresponds to a user-triggered action e.g. a button click. I have written the following example in a rather simplistic and unrealistic way to improve clarity of the code and so that we won't get bogged down by detailed minutiae of event-handling.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  
+  <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">);</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;onload&quot;</span><span class="p">);</span>
+  
+  <span class="kd">var</span> <span class="nx">dbname</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbversion</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbdisplayname</span> <span class="o">=</span> <span class="s2">&quot;TasksDatabase&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbsize</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
+  
+  <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">openDatabase</span><span class="p">(</span><span class="nx">dbname</span><span class="p">,</span> <span class="nx">dbversion</span><span class="p">,</span> <span class="nx">dbdisplayname</span><span class="p">,</span> <span class="nx">dbsize</span><span class="p">);</span>
+  
+  <span class="nx">db</span><span class="p">.</span><span class="nx">transaction</span><span class="p">(</span><span class="nx">createTable</span><span class="p">,</span><span class="nx">createErr</span><span class="p">,</span><span class="nx">createOkay</span><span class="p">);</span>
+  
+  <span class="kd">function</span> <span class="nx">createTable</span><span class="p">(</span><span class="nx">tx</span><span class="p">){</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE IF NOT EXISTS TODO (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT UNIQUE)&quot;</span><span class="p">);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Brush your teeth&quot;</span><span class="p">]);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Eat Vegetables&quot;</span><span class="p">]);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(&#39;Brush your teeth again&#39;)&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="kd">function</span> <span class="nx">createErr</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Err # : &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Err : &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="kd">function</span> <span class="nx">createOkay</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Creation succeeded&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>You will use the <em>transaction()</em> function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the <em>executeSql()</em> function which in turn contains the actual SQL commands.</p>
+
+<p>The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an <em>error</em> object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.</p>
+
+<p>The third parameter is called back after all the SQL commands have been executed and no errors have been encountered.</p>
+
+<h2>Executing SQL commands</h2>
+
+<h2>Debugging and Troubleshooting</h2>
+
+<h2>Putting it all together with a UI example</h2>
+
+        </div>
+							
+		  </div>
+		</article>
+    
+    <div class="toc">
+      <h1>CONTENTS</h1>
+      
+      <ul>
+      <li><a href="/working-with-html5">Introduction</a></li>
+      <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
+      <li><a href="#">Markup Basics</a></li>
+      <li><a href="/html5-canvas-basics">Canvas - Basics</a></li>
+      <li><a href="/html5-moving-straight-line">Canvas -  Moving Objects</a></li>
+      <li><a href="/html5-canvas-acceleration">Canvas - Accelerating Objects</a></li>
+      <li><a href="/html5-canvas-handling-clicks">Canvas - Event handling</a></li>
+      <li><a href="/html5-canvas-objects-with-different-speeds">Canvas - Moving at Different speeds</a></li>
+      <li><a href="/html5-canvas-managing-complexity">Canvas - Managing Complexity</a></li>
+      <li><a href="/html5-database-programming">Database Programming with WebSQL</a></li>
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37635397-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

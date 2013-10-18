@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}  
+  </head>
+  <body>
+    
+    <div class="android-head">   
+      <div class='tutorial-writeup'>
+        
+        <strong>ANDROID PROGRAMMING</strong><p/>
+        <p>     
+        This mini site contains learning materials and programming notes for the Android platform. These notes go back since Android's version was Gingerbread and gets updated from time to time. The contents have been updated for JellyBean. If you want to get notified for updates, please join the list, the link is below<p/>
+        
+        <a href='http://eepurl.com/HcFof' class='button' target='_blank'>Get Updates</a>
+        
+      </div>
+      
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">{{ page.title }}</div>
+      <div class='vspacer'></div>
+    </header>
+    
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+		</article>
+    
+    <div class="toc">
+      <h1>CONTENTS</h1>
+      
+      <ul>
+      <li><a href="/android-programming-tutorial">Introduction to Android Programming</a></li>
+      <li><a href="/android-background-information">Background Information</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>
+      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-getting-started">Getting Started</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text inside a viewport</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Using the Camera</a></li>
+      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
+      <li><a href="/blog-am-i-ready-for-android-programming">Android Programming Readiness</a></li>
+      <li><a href="/blog-choosing-books-for-android">Resource Materials</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Planning</a></li>
+    </ul>
+    
+    <h1>RELATED MATERIALS</h1>
+    
+    <ul>
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+    </ul>
+    
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+  </body>
+</html>

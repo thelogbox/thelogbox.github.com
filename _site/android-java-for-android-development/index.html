@@ -1,0 +1,1100 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/android/feed/" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<meta name="description" content="" />
+<title>How Much Java Do you need for Android Development | theLogBox </title>
+
+		<style>
+
+p, ol, li , .content-meta, body, p, br {
+	font-family: 'Helvetica';
+	font-size: 16px;
+	line-height: 160%;
+  color: #414141;
+}
+/*
+
+#headinner{
+  position:absolute;
+  top:10%;
+  text-align:center;
+  
+}
+*/
+
+/*
+
+.android-head, .blog-head, .courses-head, .phonegap-head {
+  padding-left: 20px;
+  line-height:110%;
+  min-height:200px;
+  font-family: 'Tauri';
+  font-size: 50px;
+  text-align: left;
+  color: #ffffff;
+  position:relative;
+}
+
+*/
+
+.tutorial-writeup {
+  text-align: left;
+  width: 95%;
+  font-size: 16px;
+  margin: 0 auto;
+  color: #2d2d2d;
+  line-height: 130%;
+}
+
+.android-head {
+  
+/*  background-image:url('../img/teapot.jpg'); */
+  
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #F1F1F1;
+  background: #FFFFdd;
+  
+}
+.blog-head {
+
+  /* background-image:url('../img/fruits.JPG'); */
+  padding-left: 20px;
+  line-height:110%;
+  padding-bottom: 20px;
+  font-family: 'Rokkitt';
+  font-size: 60px;
+  padding-top: 30px;
+  text-align: center;
+  color: #000000;
+  position:relative;
+  border-bottom: 1px solid #CACACA;
+}
+.courses-head {background-image:url('../img/room.jpg');}
+.phonegap-head {background-image:url('../img/fruits.JPG')}
+
+.android-head .content-meta, 
+.android-head a:link, .android-head a:visited,
+.blog-head a:link, .blog-head a:visited {
+  font-family: 'Rokkitt';
+  color: inherit;
+  font-size: 16px ;
+  text-align:inherit;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:95%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+
+.notoc {
+  width:95%;
+}
+
+#articletitle {
+	font-family: 'Rokkitt', 'helvetica', sans-serif;
+	font-size: 45px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 130%;
+  color: #000000;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  font-size: 16px;
+  text-align:left;
+  width:28%;
+  overflow: visible;
+  padding: 10px;
+  border: 0px solid #DEDEDE;
+  float: right;
+  line-height: 150%;
+}
+
+  .toc a:link, .toc a:visited {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    /* color: #bf3f3f; */
+  }
+  .toc h1 {
+    font-family: 'Tauri';
+    color: #bf3f3f;
+    padding-left: 38px;
+  }
+  
+  .toc li {
+    color: #bf3f3f;
+    list-style-type: square;
+  }
+
+#blogtitle {
+	margin-bottom:2em;
+}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+	/* color: #435e36;*/
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #373737;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #000000;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:130%;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Arial';
+  font-size: 16px;
+  color: #5e5e5e; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #f1f1f1;
+  display:block;
+  font-family: 'Arial';
+  font-size: 20px;
+  background: #999999;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:130%;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+body {
+    
+  font-family: 'Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+footer {
+	font-family: 'Rokkitt';
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:40px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:1px solid #CACACA;  
+}
+
+#header-right {
+	line-height: 1.5em;
+	font-family: 'arial', 'helvetica', 'sans-serif';
+	font-size: 80%;
+	font-style: normal;
+	position:relative;
+	float:right;
+	padding: 1em;
+	border: 2px solid #CACACA;
+	margin-bottom:1em;
+	margin-left:1em;
+	/*width: 14em;*/
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 1px;
+}
+
+strong {
+  font-family: 'Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+em {
+  font-style:oblique;
+  font-family: Georgia;
+  color: #003D82;
+}
+
+code {
+	font-family: 'Inconsolata','Source Code Pro';
+}
+
+pre {
+	font-family: 'Inconsolata','Source Code Pro';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:0px;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  background: #FFFFFF;
+  font-family: 'Muli';
+  font-size: 15px;
+  color: #0000b3;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 14px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+
+a:link, a:visited {
+  /*color: #004a94;
+  color: #0778e4;*/
+  /*color: #b30000;*/
+  color: #9a3c31;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9a3c31;
+  border-bottom: 1px solid #9a3c31;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 40%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+.button {
+    position: relative;
+    overflow: visible;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    font:18px/normal 'Rokkitt';
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    background-color: #ececec;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+    background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+    background-image: -o-linear-gradient(#f4f4f4, #ececec);
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    -moz-background-clip: padding; /* for Firefox 3.6 */
+    background-clip: padding-box;
+    border-radius: 0.2em;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    color: #fff;
+    background-color: #3c8dde;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+}
+
+.button:active,
+.button.active {
+    border-color: #2a65a0;
+    border-bottom-color: #3884cd;
+    background-color: #3072b3;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
+    background-image: -moz-linear-gradient(#3072b3, #599bdc);
+    background-image: -ms-linear-gradient(#3072b3, #599bdc);
+    background-image: -o-linear-gradient(#3072b3, #599bdc);
+    background-image: linear-gradient(#3072b3, #599bdc);
+}
+
+/* overrides extra padding on button elements in Firefox */
+.button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+/* =============================================================================
+   Button icons
+   ========================================================================== */
+
+.button.icon:before {
+    content: "";
+    position: relative;
+    top: 1px;
+    float:left;
+    width: 12px;
+    height: 12px;
+    margin: 0 0.75em 0 -0.25em;
+    background: url(gh-icons.png) 0 99px no-repeat;
+}
+
+.button.arrowup.icon:before { background-position: 0 0; }
+.button.arrowup.icon:hover:before,
+.button.arrowup.icon:focus:before,
+.button.arrowup.icon:active:before { background-position: -12px 0; }
+
+.button.arrowdown.icon:before { background-position: 0 -12px; }
+.button.arrowdown.icon:hover:before,
+.button.arrowdown.icon:focus:before,
+.button.arrowdown.icon:active:before { background-position: -12px -12px; }
+
+.button.arrowleft.icon:before { background-position: 0 -24px; }
+.button.arrowleft.icon:hover:before,
+.button.arrowleft.icon:focus:before,
+.button.arrowleft.icon:active:before { background-position: -12px -24px; }
+
+.button.arrowright.icon:before { float:right; margin: 0 -0.25em 0 0.5em; background-position: 0 -36px; }
+.button.arrowright.icon:hover:before,
+.button.arrowright.icon:focus:before,
+.button.arrowright.icon:active:before { background-position: -12px -36px; }
+
+.button.approve.icon:before { background-position: 0 -48px; }
+.button.approve.icon:hover:before,
+.button.approve.icon:focus:before,
+.button.approve.icon:active:before { background-position: -12px -48px; }
+
+.button.add.icon:before { background-position: 0 -288px; }
+.button.add.icon:hover:before,
+.button.add.icon:focus:before,
+.button.add.icon:active:before { background-position: -12px -288px; }
+
+.button.remove.icon:before { background-position: 0 -60px; }
+.button.remove.icon:hover:before,
+.button.remove.icon:focus:before,
+.button.remove.icon:active:before { background-position: -12px -60px; }
+
+.button.log.icon:before { background-position: 0 -72px; }
+.button.log.icon:hover:before,
+.button.log.icon:focus:before,
+.button.log.icon:active:before { background-position: -12px -72px; }
+
+.button.calendar.icon:before { background-position: 0 -84px; }
+.button.calendar.icon:hover:before,
+.button.calendar.icon:focus:before,
+.button.calendar.icon:active:before { background-position: -12px -84px; }
+
+.button.chat.icon:before { background-position: 0 -96px; }
+.button.chat.icon:hover:before,
+.button.chat.icon:focus:before,
+.button.chat.icon:active:before { background-position: -12px -96px; }
+
+.button.clock.icon:before { background-position: 0 -108px; }
+.button.clock.icon:hover:before,
+.button.clock.icon:focus:before,
+.button.clock.icon:active:before { background-position: -12px -108px; }
+
+.button.settings.icon:before { background-position: 0 -120px; }
+.button.settings.icon:hover:before,
+.button.settings.icon:focus:before,
+.button.settings.icon:active:before { background-position: -12px -120px; }
+
+.button.comment.icon:before { background-position: 0 -132px; }
+.button.comment.icon:hover:before,
+.button.comment.icon:focus:before,
+.button.comment.icon:active:before { background-position: -12px -132px; }
+
+.button.fork.icon:before { background-position: 0 -144px; }
+.button.fork.icon:hover:before,
+.button.fork.icon:focus:before,
+.button.fork.icon:active:before { background-position: -12px -144px; }
+
+.button.like.icon:before { background-position: 0 -156px; }
+.button.like.icon:hover:before,
+.button.like.icon:focus:before,
+.button.like.icon:active:before { background-position: -12px -156px; }
+
+.button.favorite.icon:before { background-position: 0 -348px; }
+.button.favorite.icon:hover:before,
+.button.favorite.icon:focus:before,
+.button.favorite.icon:active:before { background-position: -12px -348px; }
+
+.button.home.icon:before { background-position: 0 -168px; }
+.button.home.icon:hover:before,
+.button.home.icon:focus:before,
+.button.home.icon:active:before { background-position: -12px -168px; }
+
+.button.key.icon:before { background-position: 0 -180px; }
+.button.key.icon:hover:before,
+.button.key.icon:focus:before,
+.button.key.icon:active:before { background-position: -12px -180px; }
+
+.button.lock.icon:before { background-position: 0 -192px; }
+.button.lock.icon:hover:before,
+.button.lock.icon:focus:before,
+.button.lock.icon:active:before { background-position: -12px -192px; }
+
+.button.unlock.icon:before { background-position: 0 -204px; }
+.button.unlock.icon:hover:before,
+.button.unlock.icon:focus:before,
+.button.unlock.icon:active:before { background-position: -12px -204px; }
+
+.button.loop.icon:before { background-position: 0 -216px; }
+.button.loop.icon:hover:before,
+.button.loop.icon:focus:before,
+.button.loop.icon:active:before { background-position: -12px -216px; }
+
+.button.search.icon:before { background-position: 0 -228px; }
+.button.search.icon:hover:before,
+.button.search.icon:focus:before,
+.button.search.icon:active:before { background-position: -12px -228px; }
+
+.button.mail.icon:before { background-position: 0 -240px; }
+.button.mail.icon:hover:before,
+.button.mail.icon:focus:before,
+.button.mail.icon:active:before { background-position: -12px -240px; }
+
+.button.move.icon:before { background-position: 0 -252px; }
+.button.move.icon:hover:before,
+.button.move.icon:focus:before,
+.button.move.icon:active:before { background-position: -12px -252px; }
+
+.button.edit.icon:before { background-position: 0 -264px; }
+.button.edit.icon:hover:before,
+.button.edit.icon:focus:before,
+.button.edit.icon:active:before { background-position: -12px -264px; }
+
+.button.pin.icon:before { background-position: 0 -276px; }
+.button.pin.icon:hover:before,
+.button.pin.icon:focus:before,
+.button.pin.icon:active:before { background-position: -12px -276px; }
+
+.button.reload.icon:before { background-position: 0 -300px; }
+.button.reload.icon:hover:before,
+.button.reload.icon:focus:before,
+.button.reload.icon:active:before { background-position: -12px -300px; }
+
+.button.rss.icon:before { background-position: 0 -312px; }
+.button.rss.icon:hover:before,
+.button.rss.icon:focus:before,
+.button.rss.icon:active:before { background-position: -12px -312px; }
+
+.button.tag.icon:before { background-position: 0 -324px; }
+.button.tag.icon:hover:before,
+.button.tag.icon:focus:before,
+.button.tag.icon:active:before { background-position: -12px -324px; }
+
+.button.trash.icon:before { background-position: 0 -336px; }
+.button.trash.icon:hover:before,
+.button.trash.icon:focus:before,
+.button.trash.icon:active:before { background-position: -12px -336px; }
+
+.button.user.icon:before { background-position: 0 -360px; }
+.button.user.icon:hover:before,
+.button.user.icon:focus:before,
+.button.user.icon:active:before { background-position: -12px -360px; }
+
+
+/* =============================================================================
+   Button extensions
+   ========================================================================== */
+
+/* Primary button
+   ========================================================================== */
+
+.button.primary {
+    font-weight: bold;
+}
+
+/* Danger button
+   ========================================================================== */
+
+.button.danger {
+    color: #900;
+}
+
+.button.danger:hover,
+.button.danger:focus,
+.button.danger:active {
+    border-color: #b53f3a;
+    border-bottom-color: #a0302a;
+    color: #fff;
+    background-color: #dc5f59;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dc5f59), to(#b33630));
+    background-image: -moz-linear-gradient(#dc5f59, #b33630);
+    background-image: -ms-linear-gradient(#dc5f59, #b33630);
+    background-image: -o-linear-gradient(#dc5f59, #b33630);
+    background-image: linear-gradient(#dc5f59, #b33630);
+}
+
+.button.danger:active,
+.button.danger.active {
+    border-color: #a0302a;
+    border-bottom-color: #bf4843;
+    background-color: #b33630;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b33630), to(#dc5f59));
+    background-image: -moz-linear-gradient(#b33630, #dc5f59);
+    background-image: -ms-linear-gradient(#b33630, #dc5f59);
+    background-image: -o-linear-gradient(#b33630, #dc5f59);
+    background-image: linear-gradient(#b33630, #dc5f59);
+}
+
+/* Pill button
+   ========================================================================== */
+
+.button.pill {
+    border-radius: 50em;
+}
+
+/* Disabled button
+   ========================================================================== */
+
+.button.disable {
+    opacity: 0.5;
+}
+
+/* Big button
+   ========================================================================== */
+
+.button.big {
+    font-size: 14px;
+}
+
+.button.big.icon:before {
+    top: 0;
+}
+
+
+/* =============================================================================
+   Button groups
+   ========================================================================== */
+
+/* Standard group
+   ========================================================================== */
+
+.button-group {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* IE hacks */
+    zoom: 1;
+    *display: inline;
+}
+
+.button + .button,
+.button + .button-group,
+.button-group + .button,
+.button-group + .button-group {
+    margin-left: 15px;
+}
+
+.button-group li {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.button-group .button {
+    float: left;
+    margin-left: -1px;
+}
+
+.button-group > .button:not(:first-child):not(:last-child),
+.button-group li:not(:first-child):not(:last-child) .button {
+    border-radius: 0;
+}
+
+.button-group > .button:first-child,
+.button-group li:first-child .button {
+    margin-left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button-group > .button:last-child,
+.button-group li:last-child > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Minor group
+   ========================================================================== */
+
+.button-group.minor-group .button {
+    border: 1px solid #d4d4d4;
+    text-shadow: none;
+    background-image: none;
+    background-color: #fff;
+}
+
+.button-group.minor-group .button:hover,
+.button-group.minor-group .button:focus {
+    background-color: #599bdc;
+}
+
+.button-group.minor-group .button:active,
+.button-group.minor-group .button.active {
+    background-color: #3072b3;
+}
+
+.button-group.minor-group .button.icon:before {
+    opacity: 0.8;
+}
+
+/* =============================================================================
+   Button container (mixing buttons and groups, e.g., nav bar)
+   ========================================================================== */
+
+.button-container .button,
+.button-container .button-group {
+    vertical-align: top;
+}
+
+</style>  
+  </head>
+  <body>
+    
+    <div class="android-head">   
+      <div class='tutorial-writeup'>
+        
+        <strong>ANDROID PROGRAMMING</strong><p/>
+        <p>     
+        This mini site contains learning materials and programming notes for the Android platform. These notes go back since Android's version was Gingerbread and gets updated from time to time. The contents have been updated for JellyBean. If you want to get notified for updates, please join the list, the link is below<p/>
+        
+        <a href='http://eepurl.com/HcFof' class='button' target='_blank'>Get Updates</a>
+        
+      </div>
+      
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">How Much Java Do you need for Android Development</div>
+      <div class='vspacer'></div>
+    </header>
+    
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>If you want to build <strong>native</strong> applications in Android, you've got to know Java---there's no way around it. Yes, there are tools like PhoneGap, Titanium etc. but you will eventually hit limitations and ceilings if you choose to code on non-native development platform. So learn Java, it's not that bad.</p>
+
+<ol>
+<li>Set up the development environment</li>
+<li>Get some tools</li>
+<li>Learn to construct the simplest program</li>
+<li>Learn the keywords</li>
+<li>Dig some OOP, actually dig a lot of OOP</li>
+<li>Learn how Java treats value types and reference types</li>
+<li>Learn how to write methods and what access control means</li>
+<li>Discover how GC works</li>
+<li>Learn the data types</li>
+<li>Exercise on some operators</li>
+<li>Dig the control structures, so you can learn block level practices</li>
+<li>Learn how Java does Exception handling</li>
+<li>Some tinsy bitsy java.lang.Util</li>
+<li>Some tinsy bitsy I/O</li>
+<li>Learn parameter passing</li>
+<li>Now, the Thread</li>
+<li>Do the simplest UI in java.swing</li>
+<li>Do the simplest event handling (actionListeners)</li>
+<li>Learn how to use inner classes</li>
+<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
+<li>Dig (but not too deep) some sockets</li>
+<li>Exercise on some httpClient programs</li>
+<li>Get some XML</li>
+<li>Learn ANT a little bit</li>
+</ol>
+
+
+<h1>1. Set up the environment</h1>
+
+<p>Whether you are working on Windows, Linux or OSX, the downloads can be found at <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle Technet site</a>. Choose just the JSE without the bundles, to keep it simple.</p>
+
+<p>OSX (Lion and Mountain Lion) actually has a simpler way of downloading. Open a Terminal.app, then type <em>java</em> on the command line. OSX wizards will kick in and ask you to download the JDK. Just say <strong>yes</strong> to prompt and Java installation will kick in.</p>
+
+<p>If you are using Windows, you will download the JDK (Java Development Kit), get the latest stable release. Be careful that you are downloading the JDK and not the JRE (Java Runtime Environment) only, you need the JDK to create Java apps.</p>
+
+<p>Install what you downloaded, it will guide you through the installation process. The questions are straight forward so they don't need to be expounded here.</p>
+
+<h2>Set up the PATH and CLASSPATH variable</h2>
+
+<p><strong>NOTE for OSX Users</strong> - do absolutely nothing, the CLASSPATH AND PATH variable are already setup for you</p>
+
+<p>On Windows;</p>
+
+<ol>
+<li>Open the <em>System</em> window via the <em>Control Panel</em>, go to <em>Advanced</em>, then <em>Environment variables</em></li>
+<li>Create a variable named <em>JAVA_HOME</em>, the value is where the JDK is installed, if you said yes to the defaults of the installation, it must have been in <em>c:\Program Files\java\jdk1.7xxxxxx</em>.</li>
+<li>Edit the PATH variable (on the same window). There is an edit button for the PATH variable.</li>
+<li>Append this entry to the PATH variable - <strong>;%JAVA_HOME\bin;.%</strong>. The semicolons and the dot are pretty important, so type this slow. If you forget to put these in, you will encounter <em>Bad command or file name</em> kinds of errors later when you execute java and javac</li>
+<li>Create another variable names <em>CLASSPATH</em>, put the value <strong>%JAVA_HOME\jre\lib\rt.jar;.%</strong> -- again, don't forget the semi colon and the dot at the end</li>
+</ol>
+
+
+<h1>2. Get some tools</h1>
+
+<p>Get Apache Ant and a decent program editor. Yes you can use notepad, you can use vi, even nano---that is really up to you. I won't even prescribe an editor at this point, this is the subject of a really intense, almost-religious but quite pointless debate. Just keep coding and try out a couple of editors. Don't get cheap, not because it's free it is the best. I like opensource, I love opensource, but it doesn't mean I will always use it. Choose the best tools for the job, even if it costs money.</p>
+
+<p>With that disclaimer out of the way, I do use the following editors; Vi and TextMate (if you are on the Windows platform, the e-TextEditor is fine too)</p>
+
+<h1>3. Learn how to write the simplest programs</h1>
+
+<p>Do the <em>Hello World</em> program. It's mundane, boring and dry but its the simplest program. You need to know how to write the simplest programs before you can try out the more complex ones. This is a larger discussion, <a href="/java-beginning-to-program/">so I wrote it here</a></p>
+
+<h1>4. Learn the keywords of Java</h1>
+
+<p>There are a couple of things you will name in Java---meaning, you will think of the name and declare it in your code. These are names of <strong>classes, variables, methods, interfaces, parameters passed to methods and packages</strong>. Collectively, these are known as Java identifiers.</p>
+
+<h2>Rules to remember when creating identifiers</h2>
+
+<ol>
+<li>You can use alphanumeric characters, but the first letter can't be a number</li>
+<li>You can't use special characters, but you can use the dollar sign and underscore</li>
+<li>You can't use a Java keyword (also known as reserved word). You also can't use a Java literals like <strong>true, false or null</strong></li>
+</ol>
+
+
+<p><strong>The Java keywords</strong></p>
+
+<p>~~~
+for while do throw
+case try catch return</p>
+
+<p>goto [not used]</p>
+
+<p>break continue</p>
+
+<p>byte short int long float double boolean char</p>
+
+<p>if switch throws else</p>
+
+<p>finally class interface implements extends static new this super</p>
+
+<p>public private protected package default</p>
+
+<p>native transient synchronized import instanceof volatile
+void abstract final assert enum strictfp</p>
+
+<p>const[not used]
+~~~</p>
+
+<h1>5. Dig some OOP, dig a lot of it</h1>
+
+<p>OOP is short for Object Oriented Programming. Java is an object oriented language. Sure you can write all of your codes inside public static void main, but that will not take you far in Android when you encounter stuff like <strong>class MySplashPad extends Activity</strong>.</p>
+
+<p>OOP is so entrenched in Java---in fact, I think a little bit too entrenched that some developers I know get over excited about creating objects, so they create a gazillion of it. Anyway, I hope you learn temperance about creating objects in your own coding journey, but the point remains, <a href="/java-object-oriented-programming/">you need to know OOP. Read more here ...</a></p>
+
+<ol>
+<li>Learn how Java treats value types and reference types</li>
+<li>Discover how GC works</li>
+<li>Learn the data types</li>
+<li>Exercise on some operators</li>
+</ol>
+
+
+<h1>10. Dig the control structures, so you can learn block level practices</h1>
+
+<p>Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;</p>
+
+<ul>
+<li>You can execute commands one after another -- <strong>sequencing</strong></li>
+<li>You can execute certain commands when certain conditions are met -- <strong>branching</strong></li>
+<li><p>You can keep on repeating certain commands while certain conditions are still true -- <strong>looping or iteration</strong>. <a href="/java-controlling-program-flow/">Continue reading about control structures ...</a></p></li>
+<li><p>Learn how Java does Exception handling</p></li>
+<li>Some tinsy bitsy java.lang.Util</li>
+<li>Some tinsy bitsy I/O</li>
+<li>Learn parameter passing</li>
+<li>Now, the Thread</li>
+<li>Do the simplest UI in java.swing</li>
+<li>Do the simplest event handling (actionListeners)</li>
+<li>Learn how to use inner classes</li>
+<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
+<li>Dig (but not too deep) some sockets</li>
+<li>Exercise on some httpClient programs</li>
+<li>Get some XML</li>
+<li>Learn ANT a little bit</li>
+</ul>
+
+
+        </div>
+							
+		  </div>
+		</article>
+    
+    <div class="toc">
+      <h1>CONTENTS</h1>
+      
+      <ul>
+      <li><a href="/android-programming-tutorial">Introduction to Android Programming</a></li>
+      <li><a href="/android-background-information">Background Information</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>
+      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-getting-started">Getting Started</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text inside a viewport</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Using the Camera</a></li>
+      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
+      <li><a href="/blog-am-i-ready-for-android-programming">Android Programming Readiness</a></li>
+      <li><a href="/blog-choosing-books-for-android">Resource Materials</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Planning</a></li>
+    </ul>
+    
+    <h1>RELATED MATERIALS</h1>
+    
+    <ul>
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+    </ul>
+    
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37635397-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+---
+layout: layout
+title: Archives
+---
+
+<div id="wrap" class="notoc">
+<div class="content">
+	{% for post in site.posts %}   
+	
+  <!--
+	<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	<div class='content-meta'>
+		{{ post.date | date: "%B %d, %Y" }}
+	</div>
+  -->   
+  <h3>  
+  <a href="{{ site.baseurl }}{{ post.url }}">
+    {{ post.date | date: "%m.%d.%y" }}
+    {{ post.title }}
+  </a>
+</h3>
+  <em>[{{post.categories | join: '  ,' }}]</em>
+	{{ post.content | strip_html |truncatewords: 50 }}
+
+
+	{% endfor %}
+</div>
+</div> <!-- wrap -->
+<footer>{% include footer.html%}</footer>
+
