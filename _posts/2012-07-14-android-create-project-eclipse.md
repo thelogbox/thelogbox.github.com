@@ -13,10 +13,6 @@ categories:
 ---
 
 
-**NOTICE**. THIS CONTENT HAS BEEN REWRITTEN. The updated content is at [Android Getting Started](/android-getting-started)
-
-***
-
 ## What you need to proceed
 1. [A properly installed Android SDK](/installing-android-sdk/)
 2. [Properly installed Eclipse plugin for Android](/android-install-eclipse-plugin/)

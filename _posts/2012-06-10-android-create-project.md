@@ -12,7 +12,9 @@ categories:
 
 ---
 
+**NOTICE**. THIS CONTENT HAS BEEN REWRITTEN. The updated content is at [Android Getting Started](/android-getting-started)
 
+***
 
 The *Hello World* application in android is very different from what you might remember when you created your first app in Java. Back then, you only needed a single source file where everything you need to output something to the screen was contained. The Hello World application in android requires full project. 
 
