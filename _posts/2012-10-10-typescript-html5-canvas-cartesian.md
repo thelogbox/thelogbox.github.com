@@ -1,14 +1,17 @@
---- 
-title: Line graphing in HTML5 Canvas
-author_name: Ted Hagos
-kind: article
-created_at: October 10, 2012
-categories:
-- typescript
-- javascript
-- html5
-- canvas
 ---
+layout: html5
+
+title: Line Graphing in HTML5 Canvas
+
+description: 
+
+excerpt: 
+
+categories:
+- html5
+
+---
+
 
 
 This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way---each vertex and line is a DOM element, which means they can easily be bound to events such as click or mousedown. Anyway, it still a good coding calesthenics, so canvas it is.  
