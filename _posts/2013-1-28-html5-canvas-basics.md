@@ -1,7 +1,11 @@
 ---
 layout: html5
+
 title: Canvas Basics 
-description: 
+
+description:
+
+categories: 
 - html5
 
 ---
