@@ -13,7 +13,7 @@ categories:
 ---
 
 
-One of the two ways to handle events in Android programming is declaratively---which means we will declare the event using the appropriate *xml* file in the **res** folder. If you create a default android project (like how we have been [creating android projects ](/android-create-project/), there will be a *main.xml* inside the **res folder**. When you add views or widgets using that xml, you can declare the name of the function that will be called when an event is triggered, such as *onClick*. 
+One of the two ways to handle events in Android programming is declaratively---which means we will declare the event using the appropriate *xml* file in the **res** folder. If you create a default android project (like how we have been [creating android projects ](/android-getting-started/), there will be a *main.xml* inside the **res folder**. When you add views or widgets using that xml, you can declare the name of the function that will be called when an event is triggered, such as *onClick*. 
 
 # Steps
 
