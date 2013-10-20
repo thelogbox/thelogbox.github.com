@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
+  <head>				
 		<!--
 <link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -19,9 +19,9 @@
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
 <meta name="description" content="" />
-<title>How Much Java Do you need for Android Development | theLogBox </title>
+<title>How Much Java is required for Android | theLogBox </title>
 
-		<style>
+    <style>
 
 p, ol, li , .content-meta, body, p, br {
 	font-family: 'Helvetica';
@@ -159,9 +159,9 @@ p, ol, li , .content-meta, body, p, br {
     color: #bf3f3f;
     /* color: #bf3f3f; */
   }
-  .toc h1 {
+  .toc h1, .toc h2, .toc h3 {
     font-family: 'Tauri';
-    color: #bf3f3f;
+    color: #CC6565;
     padding-left: 38px;
   }
   
@@ -244,6 +244,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   margin: 20px;
 }
 
+#disqus_thread {
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 body {
     
   font-family: 'Arial';
@@ -285,6 +292,12 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 1px;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
 }
 
 strong {
@@ -860,245 +873,31 @@ img {
     vertical-align: top;
 }
 
-</style>  
+</style>
   </head>
+	
   <body>
-    
-    <div class="android-head">   
-      <div class='tutorial-writeup'>
-        
-        <strong>ANDROID PROGRAMMING</strong><p/>
-        <p>     
-        This mini site contains learning materials and programming notes for the Android platform. These notes go back since Android's version was Gingerbread and gets updated from time to time. The contents have been updated for JellyBean. If you want to get notified for updates, please join the list, the link is below<p/>
-        
-        <a href='http://eepurl.com/HcFof' class='button' target='_blank'>Get Updates</a>
-        
+    <div id="wrap" class='notoc'>
+    <header>
+      <div class='feature-title'>
+        How Much Java is required for Android
       </div>
-      
-    </div>
-    
-    <div id="wrap">
-        
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
-     <header>          
-      <div class='vspacer'></div>
-      <div id="articletitle">How Much Java Do you need for Android Development</div>
-      <div class='vspacer'></div>
     </header>
-    
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    <p>If you want to build <strong>native</strong> applications in Android, you've got to know Java---there's no way around it. Yes, there are tools like PhoneGap, Titanium etc. but you will eventually hit limitations and ceilings if you choose to code on non-native development platform. So learn Java, it's not that bad.</p>
+    <section>
+      <div class='feature article'>
+      <p>  <div id="feature-button"></p>
 
-<ol>
-<li>Set up the development environment</li>
-<li>Get some tools</li>
-<li>Learn to construct the simplest program</li>
-<li>Learn the keywords</li>
-<li>Dig some OOP, actually dig a lot of OOP</li>
-<li>Learn how Java treats value types and reference types</li>
-<li>Learn how to write methods and what access control means</li>
-<li>Discover how GC works</li>
-<li>Learn the data types</li>
-<li>Exercise on some operators</li>
-<li>Dig the control structures, so you can learn block level practices</li>
-<li>Learn how Java does Exception handling</li>
-<li>Some tinsy bitsy java.lang.Util</li>
-<li>Some tinsy bitsy I/O</li>
-<li>Learn parameter passing</li>
-<li>Now, the Thread</li>
-<li>Do the simplest UI in java.swing</li>
-<li>Do the simplest event handling (actionListeners)</li>
-<li>Learn how to use inner classes</li>
-<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
-<li>Dig (but not too deep) some sockets</li>
-<li>Exercise on some httpClient programs</li>
-<li>Get some XML</li>
-<li>Learn ANT a little bit</li>
-</ol>
+<p>This content has moved. You can view it using the link below</p>
+
+<p/>
+    <a href="/android-how-much-java-do-you-need" class='button'>How Much Java Do You Need<a>
+  </div>  
 
 
-<h1>1. Set up the environment</h1>
-
-<p>Whether you are working on Windows, Linux or OSX, the downloads can be found at <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle Technet site</a>. Choose just the JSE without the bundles, to keep it simple.</p>
-
-<p>OSX (Lion and Mountain Lion) actually has a simpler way of downloading. Open a Terminal.app, then type <em>java</em> on the command line. OSX wizards will kick in and ask you to download the JDK. Just say <strong>yes</strong> to prompt and Java installation will kick in.</p>
-
-<p>If you are using Windows, you will download the JDK (Java Development Kit), get the latest stable release. Be careful that you are downloading the JDK and not the JRE (Java Runtime Environment) only, you need the JDK to create Java apps.</p>
-
-<p>Install what you downloaded, it will guide you through the installation process. The questions are straight forward so they don't need to be expounded here.</p>
-
-<h2>Set up the PATH and CLASSPATH variable</h2>
-
-<p><strong>NOTE for OSX Users</strong> - do absolutely nothing, the CLASSPATH AND PATH variable are already setup for you</p>
-
-<p>On Windows;</p>
-
-<ol>
-<li>Open the <em>System</em> window via the <em>Control Panel</em>, go to <em>Advanced</em>, then <em>Environment variables</em></li>
-<li>Create a variable named <em>JAVA_HOME</em>, the value is where the JDK is installed, if you said yes to the defaults of the installation, it must have been in <em>c:\Program Files\java\jdk1.7xxxxxx</em>.</li>
-<li>Edit the PATH variable (on the same window). There is an edit button for the PATH variable.</li>
-<li>Append this entry to the PATH variable - <strong>;%JAVA_HOME\bin;.%</strong>. The semicolons and the dot are pretty important, so type this slow. If you forget to put these in, you will encounter <em>Bad command or file name</em> kinds of errors later when you execute java and javac</li>
-<li>Create another variable names <em>CLASSPATH</em>, put the value <strong>%JAVA_HOME\jre\lib\rt.jar;.%</strong> -- again, don't forget the semi colon and the dot at the end</li>
-</ol>
-
-
-<h1>2. Get some tools</h1>
-
-<p>Get Apache Ant and a decent program editor. Yes you can use notepad, you can use vi, even nano---that is really up to you. I won't even prescribe an editor at this point, this is the subject of a really intense, almost-religious but quite pointless debate. Just keep coding and try out a couple of editors. Don't get cheap, not because it's free it is the best. I like opensource, I love opensource, but it doesn't mean I will always use it. Choose the best tools for the job, even if it costs money.</p>
-
-<p>With that disclaimer out of the way, I do use the following editors; Vi and TextMate (if you are on the Windows platform, the e-TextEditor is fine too)</p>
-
-<h1>3. Learn how to write the simplest programs</h1>
-
-<p>Do the <em>Hello World</em> program. It's mundane, boring and dry but its the simplest program. You need to know how to write the simplest programs before you can try out the more complex ones. This is a larger discussion, <a href="/java-beginning-to-program/">so I wrote it here</a></p>
-
-<h1>4. Learn the keywords of Java</h1>
-
-<p>There are a couple of things you will name in Java---meaning, you will think of the name and declare it in your code. These are names of <strong>classes, variables, methods, interfaces, parameters passed to methods and packages</strong>. Collectively, these are known as Java identifiers.</p>
-
-<h2>Rules to remember when creating identifiers</h2>
-
-<ol>
-<li>You can use alphanumeric characters, but the first letter can't be a number</li>
-<li>You can't use special characters, but you can use the dollar sign and underscore</li>
-<li>You can't use a Java keyword (also known as reserved word). You also can't use a Java literals like <strong>true, false or null</strong></li>
-</ol>
-
-
-<p><strong>The Java keywords</strong></p>
-
-<p>~~~
-for while do throw
-case try catch return</p>
-
-<p>goto [not used]</p>
-
-<p>break continue</p>
-
-<p>byte short int long float double boolean char</p>
-
-<p>if switch throws else</p>
-
-<p>finally class interface implements extends static new this super</p>
-
-<p>public private protected package default</p>
-
-<p>native transient synchronized import instanceof volatile
-void abstract final assert enum strictfp</p>
-
-<p>const[not used]
-~~~</p>
-
-<h1>5. Dig some OOP, dig a lot of it</h1>
-
-<p>OOP is short for Object Oriented Programming. Java is an object oriented language. Sure you can write all of your codes inside public static void main, but that will not take you far in Android when you encounter stuff like <strong>class MySplashPad extends Activity</strong>.</p>
-
-<p>OOP is so entrenched in Java---in fact, I think a little bit too entrenched that some developers I know get over excited about creating objects, so they create a gazillion of it. Anyway, I hope you learn temperance about creating objects in your own coding journey, but the point remains, <a href="/java-object-oriented-programming/">you need to know OOP. Read more here ...</a></p>
-
-<ol>
-<li>Learn how Java treats value types and reference types</li>
-<li>Discover how GC works</li>
-<li>Learn the data types</li>
-<li>Exercise on some operators</li>
-</ol>
-
-
-<h1>10. Dig the control structures, so you can learn block level practices</h1>
-
-<p>Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;</p>
-
-<ul>
-<li>You can execute commands one after another -- <strong>sequencing</strong></li>
-<li>You can execute certain commands when certain conditions are met -- <strong>branching</strong></li>
-<li><p>You can keep on repeating certain commands while certain conditions are still true -- <strong>looping or iteration</strong>. <a href="/java-controlling-program-flow/">Continue reading about control structures ...</a></p></li>
-<li><p>Learn how Java does Exception handling</p></li>
-<li>Some tinsy bitsy java.lang.Util</li>
-<li>Some tinsy bitsy I/O</li>
-<li>Learn parameter passing</li>
-<li>Now, the Thread</li>
-<li>Do the simplest UI in java.swing</li>
-<li>Do the simplest event handling (actionListeners)</li>
-<li>Learn how to use inner classes</li>
-<li>Do some basic CRUD (Create, Read, Update, Delete) using SQLite</li>
-<li>Dig (but not too deep) some sockets</li>
-<li>Exercise on some httpClient programs</li>
-<li>Get some XML</li>
-<li>Learn ANT a little bit</li>
-</ul>
-
-
-        </div>
-							
-		  </div>
-		</article>
-    
-    <div class="toc">
-      <h1>CONTENTS</h1>
-      
-      <ul>
-      <li><a href="/android-programming-tutorial">Introduction to Android Programming</a></li>
-      <li><a href="/android-background-information">Background Information</a></li>
-      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
-      <li><a href="/android-virtual-device">Virtual Device</a></li>
-      <li><a href="/android-physical-device">Physical Device</a></li>      
-      <li><a href="/android-getting-started">Getting Started</a></li>
-      <li><a href="/android-activity">Activity and the UI</a></li>
-      <li><a href="/android-linear-layout">Linear Layout</a></li>
-      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
-      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text inside a viewport</a></li>
-      <li><a href="/logcat">Debugging with LogCat</a></li>
-      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
-      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
-      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
-      <li><a href="/android-database-programming-basics">Database Programming</a></li>
-      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
-      <li><a href="/android-location-api">GEO Location</a></li>
-      <li><a href="/simple-camera-code">Using the Camera</a></li>
-      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
-      <li><a href="/android-project-workflow">Project Workflow</a></li>
-      <li><a href="/signing-an-android-app">Signing your App</a></li>
-      <li><a href="/blog-am-i-ready-for-android-programming">Android Programming Readiness</a></li>
-      <li><a href="/blog-choosing-books-for-android">Resource Materials</a></li>
-      <li><a href="/blog-studying-and-practicing-android">Study Planning</a></li>
-    </ul>
-    
-    <h1>RELATED MATERIALS</h1>
-    
-    <ul>
-      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
-      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
-      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
-      <li><a href="/android-studio">Android Studio</a></li>
-    </ul>
-    
-    </div>    
-    
-
-    </div>  <!--  div wrap -->
-    
-		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
-          Ted Hagos</a> 
-
-</footer>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    <!-- Start of StatCounter Code for Default Guide -->
+    </div>
+    </section>
+  </div>
+  <!-- Start of StatCounter Code for Default Guide -->
 	
   <script type="text/javascript">
   var sc_project=7827488; 
@@ -1113,5 +912,20 @@ void abstract final assert enum strictfp</p>
       src="http://c.statcounter.com/7827488/0/069357c9/1/"
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   </body>
 </html>

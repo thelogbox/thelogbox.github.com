@@ -159,9 +159,9 @@ p, ol, li , .content-meta, body, p, br {
     color: #bf3f3f;
     /* color: #bf3f3f; */
   }
-  .toc h1 {
+  .toc h1, .toc h2, .toc h3 {
     font-family: 'Tauri';
-    color: #bf3f3f;
+    color: #CC6565;
     padding-left: 38px;
   }
   
@@ -244,6 +244,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   margin: 20px;
 }
 
+#disqus_thread {
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 body {
     
   font-family: 'Arial';
@@ -285,6 +292,12 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 1px;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
 }
 
 strong {
@@ -888,33 +901,11 @@ img {
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>There are a couple of things you need to do before you can get started. Here's a few of them</p>
+		    <p>These tutorials started a series of notes and lesson plans. They date back to 2008. They get updated whenever I have to teach an Android programming class or during a project when I have to do some digging.</p>
 
-<ol>
-<li>A development machine with lots of horsepower and lots of RAM. As much as you can afford. Ignore the minimum requirement, splurge on the machine. It doesn't matter what you choose, OSX, Linux or Windows. Android will work on all of them</li>
-<li>A good internet connection (the SDK download is bit hefty)</li>
-<li>A programmer's editor &mdash; vi, emacs, TextMate, Sublime2 etc. You can use an IDE if you like, there are plenty to choose from &mdash; NetBeans, Eclipse or Android Studio</li>
-<li>A Java development environment (either JDK 1.5 or 1.6)</li>
-<li>Apache Ant</li>
-<li>Lastly, a Java Programming background. Some people tried to learn Java and Android at the same time. While that is possible, I would not recommend that route. Get comfortable in Java first before trying out Android, unless you don't mind the headaches.</li>
-</ol>
+<p>My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical management position. I also teach. I taught at Asia Pacific College, IBM Advance Career Education and Ateneo ITI. That's probably what you need to know about the author of this work.</p>
 
-
-<h1>SETUP</h1>
-
-<p>Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. The expectation however, is that you already are a Java programmer and that these things are old hats to you.</p>
-
-<p>I used to keep a detailed and step-by-step (even pictorial) instructions of the setup routine in these pages, but they proved to be difficult to maintain and gets outdated quite quickly. Hence, I took them out and replaced them with links to resources that have better chances of being updated.</p>
-
-<p>First thing to look at is the official site of Android. They keep setup information <a href="http://developer.android.com/sdk/index.html">here</a> and <a href="http://developer.android.com/sdk/index.html">here</a>. If that is still not clear enough, you can look at the <a href="https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing">setup instructions I wrote for my students here</a></p>
-
-<h1>THINGS YOU CAN DO WITH ANDROID</h1>
-
-<p>A lot of things. As mentioned before, Android is an operating system. It is also has a top-notch and proven development kit (plus libraries). If you add the very large number of developers in the Java Community who are tirelessly working to produce the <em>next best dev framework/library</em> to this equation, then it's a whole new ball game. That means (almost) everything we did on Desktop we can also on the mobile &mdash; plus more. I said almost because the mobile platform will play catch up with the desktop platform in terms of processing horse power &mdash; but that is just a matter of time.</p>
-
-<p>The Android development platform has some basic building blocks e.g. <em>Activities</em> for user interfaces, <em>Content Providers</em> for data sources, <em>Intents</em> for event handling &mdash; it actually is more than just for event handling and activating windows/apps, but for the purpose of this document, we will settle for that.</p>
-
-<p>You can create applications that has timers, can multiprocess, can handle media (audio and video) and are <em>network-aware</em>. These are just a few of the things you can do with the Android Development platform.</p>
+<p>There is side navigation bar on this mini site. Use them as you would a <strong>table of contents</strong> in a book. I tried to organize them as such. The side bar is organized sequentially. You can get the most information by following this sequence.</p>
 
         </div>
 							
@@ -925,7 +916,8 @@ img {
       <h1>CONTENTS</h1>
       
       <ul>
-      <li><a href="/android-programming-tutorial">Introduction to Android Programming</a></li>
+      <li><a href="/android-programming-tutorial">Introduction</a></li>
+      <li><a href="/android-how-much-java-do-you-need">How Much Java Do You Need</a></li>
       <li><a href="/android-background-information">Background Information</a></li>
       <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
       <li><a href="/android-virtual-device">Virtual Device</a></li>
@@ -934,7 +926,7 @@ img {
       <li><a href="/android-activity">Activity and the UI</a></li>
       <li><a href="/android-linear-layout">Linear Layout</a></li>
       <li><a href="/android-layout-weights">Using Layout Weights</a></li>
-      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text inside a viewport</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
       <li><a href="/logcat">Debugging with LogCat</a></li>
       <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
       <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
@@ -946,27 +938,44 @@ img {
       <li><a href="/android-location-api">GEO Location</a></li>
       <li><a href="/simple-camera-code">Using the Camera</a></li>
       <li><a href="/android-java-recording-voice">Working with Audio</a></li>
-      <li><a href="/android-project-workflow">Project Workflow</a></li>
       <li><a href="/signing-an-android-app">Signing your App</a></li>
-      <li><a href="/blog-am-i-ready-for-android-programming">Android Programming Readiness</a></li>
-      <li><a href="/blog-choosing-books-for-android">Resource Materials</a></li>
-      <li><a href="/blog-studying-and-practicing-android">Study Planning</a></li>
+  
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
     </ul>
     
-    <h1>RELATED MATERIALS</h1>
+    <h3>related materials</h3>
     
     <ul>
       <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
       <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
       <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
       <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
     </ul>
     
     </div>    
     
 
     </div>  <!--  div wrap -->
-    
+
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
 		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
           Ted Hagos</a> 
 

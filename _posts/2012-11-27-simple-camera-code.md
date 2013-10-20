@@ -10,12 +10,16 @@ categories:
 
 ---
 
-This is not about using the *Intents*. It's bareboned android code
+Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is **NOT** about that. The code example in this chapter uses the camera at an API level. 
+
+Here's a rundown of what we need to do to accomplish the task.
 
 1. import some classes from android.hardware.Camera, specifically the PictureCallback and shutterCallback classes
 2. Get an instance of the Camera by calling the static *open() method*
 3. Create a SurfaceView object. A necessary step in the Android camera operation is to call *setPreview()* method, this method requires a SurfaceView object. A dummy SurfaceView object can be constructed for applications that do not require taking a preview before capturing an image
 4. Call the *takePicture()* method. This method requires three parameters, each of them a callback (a callback in Java can be achieved by using anonymous classes. The first parameter is a shutterCallback, you don’t need to do anything here, but this is a good place to start if you want to say, silence the shutter clicking sound. The second parameter is the rawCallback, we will not use this for this example. I really am interested only in capturing JPEGs, hence the only thing to override is the jpgCallback–this is where we extract the actual picture taken by the camera. The *onPictureTaken()* method contains a byte array data which contains the image file. What is left to do is to serialize this byte array into a stream and save it into the file system
+
+## CODE SAMPLE
 
 {% highlight java %}
 /*

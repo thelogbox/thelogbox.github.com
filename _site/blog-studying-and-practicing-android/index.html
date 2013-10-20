@@ -19,7 +19,7 @@
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
 <meta name="description" content="" />
-<title>The Study and Practice of Android Development | theLogBox </title>
+<title>Study Tips | theLogBox </title>
 
 		<style>
 
@@ -159,9 +159,9 @@ p, ol, li , .content-meta, body, p, br {
     color: #bf3f3f;
     /* color: #bf3f3f; */
   }
-  .toc h1 {
+  .toc h1, .toc h2, .toc h3 {
     font-family: 'Tauri';
-    color: #bf3f3f;
+    color: #CC6565;
     padding-left: 38px;
   }
   
@@ -244,6 +244,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   margin: 20px;
 }
 
+#disqus_thread {
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 body {
     
   font-family: 'Arial';
@@ -285,6 +292,12 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 1px;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
 }
 
 strong {
@@ -882,33 +895,41 @@ img {
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
       <div class='vspacer'></div>
-      <div id="articletitle">The Study and Practice of Android Development</div>
+      <div id="articletitle">Study Tips</div>
       <div class='vspacer'></div>
     </header>
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <ol>
-<li><p>Size up what you are up against. Learning android is not as simple as diving into it or taking it head on. You need prior knowledge of the Java programming language. <a href="/blog-am-i-ready-for-android-programming/">You can quickly find out if you are ready to dive to Android right now</a>, and when you realize finally that you cannot avoid Java, <a href="/android-java-for-android-development/">try to find out how much Java you really need for Android</a></p></li>
-<li><p>Pick up a book on android programming, choose one that is designed for beginner. There are plenty of books to choose from, I used <a href="http://www.amazon.com/gp/product/1449390501/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1449390501&linkCode=as2&tag=thelogboxcom-20">Learning Android</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=1449390501" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. Read <a href="/blog-choosing-books-for-android/">this page</a> if you want to see a short list of books for android</p></li>
-<li><p>Dedicate a notebook for your android learning, I don't mean a computer, I mean a physical notebook. I like this approach because there is something about the tactile feel of notetaking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand---this forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and Autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor <strong>retention</strong> over speed of coverage. Don't skim the headlines</p></li>
-<li><p>Leaf through the first few chapters of the book to familiarize yourself with the vocabulary, there will be quite a few of them</p></li>
-<li><p><a href="/installing-android-sdk/">Set up your development environment</a>. You will need this now to try out your first few dances with the SDK. Start simple, try to understand the <em>Hello World</em> example (I think every beginner book has this example)</p></li>
-<li><p>Understand the <em>Hello World</em> sample, <em>really understand it.</em> Discover for yourself how can <strong>main.xml</strong> (the default layout when you create an android project) get exploded into <strong>R.java</strong>. Why do you need to set the <em>contentView()</em> to R.layout.main? What does a <em>View</em> and <em>ViewGroup</em> mean? Don't follow the examples blindly, ask the tough questions and look for the answers. There is a <a href="/android-programming-tutorial/">short android programming tutorial in this site</a> that could be useful for a beginner</p></li>
-<li><p>At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to <a href="http://www.stackoverflow.com">StackOverflow</a> to get you started.
-If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work</p></li>
-<li><p>Attend some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way. &lt;shameless-plug>
-If you happen to be in Metro Manila, Philippines, I do hold a <a href="/training-android-programming/">workshop on Android Development</a>
-&lt;/shameless-plug></p></li>
-<li><p>Make a firmer schedule for your learning. Set aside a block of time each day, everyday so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular---it might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away. You should have organized your study and reading material ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering---make a journal out of them; this is where the (physical) notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday. I taught a programming concepts course for non-programming folks quite a few times, <a href="/blog-programming-concepts/">you can look at the format of the journal here</a> if you need some sample format.</p></li>
-<li><p>Read voraciously. Pick up a second book, maybe a third book on android. Learn who writes the (reliable and coherent) content for android programming, you can go to <a href="http://android10.org/index.php/articles">android10.org</a> that is a good site to begin with, include <a href="htttp://developer.android.com">developer.android.com</a> as well, it is the official site of android development after all---you can visit <a href="/notes/">theLogbox.com</a> also, I try to write all my notes on Android and Java development on this site quite regularly</p></li>
-<li><p>Read other books not necessarily about android, <a href="http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=020161622X&linkCode=as2&tag=thelogboxcom-20">The Pragmatic Programmer: From Journeyman to Master</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=020161622X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> is good place to start. You will soon run into questions like <em>What editor should I use?</em> and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up <a href="http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=097451408X&linkCode=as2&tag=thelogboxcom-20">Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=097451408X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />, there are lots of gems on this book</p></li>
-<li><p>Do some pet projects on your own. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like <strong>countdown-to-something, anything</strong>, <strong>another note-taker</strong>, <strong>yet another todo list</strong>---you know, those stuff, corny as they are, they will help you get started in coding your first few apps</p></li>
-<li><p>At this point, you can only go one direction. March towards that <strong>10,000 hours</strong> of practice to become an android guru. If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the <em>programmer-for-hire</em> route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay</p></li>
-</ol>
+		    <p><strong>PICK UP A BOOK</strong>. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the <a href="http://localhost:4000/blog-choosing-books-for-android">BIBLIOGRAPHy</a> section of this mini site. There are some ideas there that can get you started in choosing reference materials</p>
 
+<p><strong>START TAKING NOTES</strong> for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor <strong>retention</strong> over speed of coverage. Don't skim the headlines</p>
 
-<p>Now be on your way! Happy coding.</p>
+<p><strong>FLASH CARDS</strong>.  This is old fashioned, but they work.</p>
+
+<p><strong>GET YOUR FEET WET, QUICKLY</strong>. Set up your development environment. Start simple, try to understand the <em>Hello World</em> example (I think every beginner book has this example).</p>
+
+<p>Understand the <em>Hello World</em> sample, <em>really understand it.</em> Discover for yourself how can <strong>main.xml</strong> (the default layout when you create an android project) get exploded into <strong>R.java</strong>. Why do you need to set the <em>contentView()</em> to R.layout.main? What does a <em>View</em> and <em>ViewGroup</em> mean? Don't follow the examples blindly, ask the tough questions and look for the answers.</p>
+
+<p><strong>JOIN A GROUP</strong>. At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to <a href="http://www.stackoverflow.com">StackOverflow</a> to get you started.</p>
+
+<p>If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work</p>
+
+<p><strong>ATTEND SOME CLASSES</strong>. Join some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way</p>
+
+<p><strong>BLOCK TIME</strong> regularly so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular. It might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away.</p>
+
+<p>Organize your study and reading materials ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering. Make a journal out of them. This is where your notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday</p>
+
+<p><strong>GET A SECOND BOOK</strong>. Maybe even a third book on android. Start being a textbook expert. Your field expertise will follow when you become a serial developer of mobile apps</p>
+
+<p><strong>READ OTHER BOOKS</strong> not necessarily about android, <a href="http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=020161622X&linkCode=as2&tag=thelogboxcom-20">The Pragmatic Programmer: From Journeyman to Master</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=020161622X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> is good place to start. You will soon run into questions like <em>What editor should I use?</em> and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up <a href="http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=097451408X&linkCode=as2&tag=thelogboxcom-20">Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=097451408X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />, there are lots of gems on this book</p>
+
+<p><strong>WORK ON YOUR OWN PET PROJECT</strong>. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like <strong>countdown-to-something, anything</strong>, <strong>another note-taker</strong>, <strong>yet another todo list</strong>. These applications have been so beaten down already. You may not be able to make money selling your todo apps, but the purpose is not to sell, just to build so you can get started on practice</p>
+
+<p><strong>10,000 HOURS</strong>. Borrowing a reference from Malcolm Gladwell,  it takes 10k hours to gain expertise. I don't know if you have that kind of patience, for android programming at least. But try to clock some time immersing yourself in Android Programming. The more you do a thing, the better you get at it. There is no magic formula. You just have to do it lots of times</p>
+
+<p>If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the <em>programmer-for-hire</em> route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay</p>
 
         </div>
 							
@@ -919,7 +940,8 @@ If you happen to be in Metro Manila, Philippines, I do hold a <a href="/training
       <h1>CONTENTS</h1>
       
       <ul>
-      <li><a href="/android-programming-tutorial">Introduction to Android Programming</a></li>
+      <li><a href="/android-programming-tutorial">Introduction</a></li>
+      <li><a href="/android-how-much-java-do-you-need">How Much Java Do You Need</a></li>
       <li><a href="/android-background-information">Background Information</a></li>
       <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
       <li><a href="/android-virtual-device">Virtual Device</a></li>
@@ -928,7 +950,7 @@ If you happen to be in Metro Manila, Philippines, I do hold a <a href="/training
       <li><a href="/android-activity">Activity and the UI</a></li>
       <li><a href="/android-linear-layout">Linear Layout</a></li>
       <li><a href="/android-layout-weights">Using Layout Weights</a></li>
-      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text inside a viewport</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
       <li><a href="/logcat">Debugging with LogCat</a></li>
       <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
       <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
@@ -940,27 +962,44 @@ If you happen to be in Metro Manila, Philippines, I do hold a <a href="/training
       <li><a href="/android-location-api">GEO Location</a></li>
       <li><a href="/simple-camera-code">Using the Camera</a></li>
       <li><a href="/android-java-recording-voice">Working with Audio</a></li>
-      <li><a href="/android-project-workflow">Project Workflow</a></li>
       <li><a href="/signing-an-android-app">Signing your App</a></li>
-      <li><a href="/blog-am-i-ready-for-android-programming">Android Programming Readiness</a></li>
-      <li><a href="/blog-choosing-books-for-android">Resource Materials</a></li>
-      <li><a href="/blog-studying-and-practicing-android">Study Planning</a></li>
+  
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
     </ul>
     
-    <h1>RELATED MATERIALS</h1>
+    <h3>related materials</h3>
     
     <ul>
       <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
       <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
       <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
       <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
     </ul>
     
     </div>    
     
 
     </div>  <!--  div wrap -->
-    
+
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
 		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
           Ted Hagos</a> 
 

@@ -10,44 +10,52 @@ categories:
 
 ---
 
-You have to sign the app before other people can install it on their devices.
+You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.
 
-## 1. keytool
-Check if you have *keytool* in your SYSTEM PATH. Just invoke **keytool** on a terminal window and you will soon find out if you have it or not. If you don't have it, review your JDK installation
+**KEYTOOL** 
+Check if you have keytool in your system path. Run the <code class="codeblock">keytool</code> command on a terminal window and you will soon find out if you have it or not. If you don't have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path
 
-## 2. Generate your key
+**GENERATE THE KEY**
 
-*$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000*
+<code class="codeblock">
 
+$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
 
-If you get the exception *Keytool-error: java.io.IOException : Incorrect AVA format*, check if you mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Next, use the **jarsigner**
+</code>
 
+If you get the exception *Keytool-error: java.io.IOException : Incorrect AVA format*, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner
 
-*$ jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk 
+**JARSIGNER**
+
+<code class="codeblock">
+
+jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk 
 alias_name*
 
-**my_application** should be the actual name of your application, as you created it in the **android create project…** command
+</code>
 
-The *jarsigner* prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.
+*my_application* should be the actual name of your application, as you created it during the  <code class="codeblock">android create project</code> command
 
-GOOD TO KNOW: As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.
+The **jarsigner** prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.
 
-## 3. Verify
+*Note:* As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.
 
-Verify that your APK is signed &mdash; run **$ jarsigner -verify my_signed.apk** on the terminal window. You can also use the commands **$ jarsigner -verify -verbose my_application.apk** or **$ jarsigner -verify -verbose -certs my_application.apk**
+**VERIFY**
 
-## 4. Align the package
+Verify that your APK is signed &mdash; run <code class="codeblock">jarsigner -verify my_signed.apk </code> on the terminal window. 
 
-Run zipalign on your apk file after you have signed the apk with your private key. Zipalign ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file. The *zipalign* tool is part of Android SDK, so you should have it on your SYSTEM PATH.
+You can also use the commands <code class="codeblock"> jarsigner -verify -verbose my_application.apk </code> or <code class="codeblock"> jarsigner -verify -verbose -certs my_application.apk </code>
+
+**ALIGN THE PACKAGE**
+
+Run <code class="codeblock">zipalign</code> on your apk file after you have signed the apk with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file.
+
+zipalign is part of Android SDK, so you should have it on your SYSTEM PATH.
 
 Ensuring the alignment at 4 byte boundaries has a positive effect on application performance when installed on a device.
 
-
-*$ zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk*
+<code class="codeblock">zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
+</code>
 
 When aligned, the Android system is able to read files with mmap(), even if they contain binary data with alignment restrictions, rather than copying all of the data from the package. The benefit is a reduction in the amount of RAM consumed by the running application.
-
-## Reference:
-
-[developer.android.com](http://developer.android.com/tools/publishing/app-signing.html) - Web Reference (Nov 2012)
 

@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Android Background Info
+title: Background Info
 
 description:
 
@@ -48,3 +48,5 @@ Under the hood of Android is Linux. It was chosen for many reasons, but primaril
 The Android runtime consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. This runtime has a subset of Apache Harmony which is an open source, free Java implementation from the Apache Software Foundation. The politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that information somewhere else.
 
 Android also comes packaged with Application Frameworks. This is the part of the Android that you will see frequently. As a developer you will spend a great deal of time reading, studying, implementing and using these frameworks. 
+
+**Next &raquo;** [Development Setup](/android-install-sdk-windows)

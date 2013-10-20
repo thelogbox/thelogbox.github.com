@@ -4,13 +4,46 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-19T00:45:06+08:00</updated>
+ <updated>2013-10-20T15:59:56+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>How Much Java Do You Need</title>
+   <link href="http://thelogbox.com/android-how-much-java-do-you-need"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/android-how-much-java-do-you-need</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;INHERITANCE&lt;/strong&gt;. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that you create an Activity class &amp;mdash; that means you will create a class that inherits from android.app.Activity. You must be very familiar with the rules and characteristics of Java Inheritance. Java uses both &lt;em&gt;interface&lt;/em&gt; and &lt;em&gt;class&lt;/em&gt; inheritance, you need both.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;POLYMORPHISM&lt;/strong&gt;. Inheriting from android.app.Activity is one of the most fundamental skill you must have. Second to that is your ability to understand why you need to &lt;em&gt;override&lt;/em&gt; some of its methods. Your knowledge of Polymorphism and how it is used in the Java language is part of a theoretical minimum for Android Programming.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CALLBACK&lt;/strong&gt;. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks &amp;mdash; using only the XML files to hook the events &amp;mdash; but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the &lt;em&gt;click&lt;/em&gt; event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the &lt;strong&gt;Listeners&lt;/strong&gt; in Android.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;XML&lt;/strong&gt;. This is easy and should not be much of a trouble. Event beginning programmers can handle this without breaking a sweat. Android uses XML extensively &amp;mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JAVA FUNDAMENTALS&lt;/strong&gt;. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DATABASE PROGRAMMING&lt;/strong&gt;. Basic SQL so you can CREATE, READ, UPDATE AND DELETE records. The Android way of database programming will feel a bit different than the usual JDBC, but that learning curve is not much trouble. It can be handled with minimum sweat. Android uses SQLite3, so if you will practice for Android, get acquainted with SQLite.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NETWORK PROGRAMMING&lt;/strong&gt;. Learn the basics of HttpClient. Going a bit deeper on socket programming can't hurt either. A mobile application is not always an offline application.&lt;/p&gt;
+
+&lt;p&gt;Times are changing. Applications are getting more connected and consumes cloud-based services. Your familiarity with TCP and associated technologies will go a long way.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;REST&lt;/strong&gt;. Web Services are shifting more and more to RESTful style. Get some familiarity with the associated technologies and idioms of this architecture. This may not be core Java, and in fact borders a lot on JavaScript. JSON (JavaScript Object Notation) is used heavily on RESTful apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DATA STRUCTURES&lt;/strong&gt;. Know the basics of an &lt;em&gt;array&lt;/em&gt; and the &lt;em&gt;Array&lt;/em&gt; class. That's the start. Go deeper with the other collection classes of Java. Know how to handle hash maps, vectors etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;THREADS&lt;/strong&gt;. Modern devices are running on 4 cores. Android can take advantage of multiple cores. You need to know how to execute your code in the background, asynchronously.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;LOGGING&lt;/strong&gt;. Old school debugging using printf and System.out will still be useful. But get some familiarity using Log classes. Be mindful that Android development is starkly different from Desktop or Web programming. Your codes will run on a device, not in your PC. The primary interface with the runtime and debug environment is Android's adb and ddms &amp;mdash; short for android debugger and dalvik device monitor service, which has been replaced by the &lt;strong&gt;monitor&lt;/strong&gt; tool now.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TOOL CHAIN&lt;/strong&gt;. You need to be familiar with the mainstream tools that Java programmer's use. If you will not use the IDEs such as Eclipse, Netbeans or Android Studio, you need to be well acquainted with Apache ANT. Android uses ANT for builds.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Database Programming with WebSQL</title>
@@ -1692,7 +1725,9 @@
    <link href="http://thelogbox.com/simple-camera-code"/>
    <updated>2012-11-27T00:00:00+08:00</updated>
    <id>http://thelogbox.com/simple-camera-code</id>
-   <content type="html">&lt;p&gt;This is not about using the &lt;em&gt;Intents&lt;/em&gt;. It's bareboned android code&lt;/p&gt;
+   <content type="html">&lt;p&gt;Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is &lt;strong&gt;NOT&lt;/strong&gt; about that. The code example in this chapter uses the camera at an API level.&lt;/p&gt;
+
+&lt;p&gt;Here's a rundown of what we need to do to accomplish the task.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;import some classes from android.hardware.Camera, specifically the PictureCallback and shutterCallback classes&lt;/li&gt;
@@ -1701,6 +1736,8 @@
 &lt;li&gt;Call the &lt;em&gt;takePicture()&lt;/em&gt; method. This method requires three parameters, each of them a callback (a callback in Java can be achieved by using anonymous classes. The first parameter is a shutterCallback, you don’t need to do anything here, but this is a good place to start if you want to say, silence the shutter clicking sound. The second parameter is the rawCallback, we will not use this for this example. I really am interested only in capturing JPEGs, hence the only thing to override is the jpgCallback–this is where we extract the actual picture taken by the camera. The &lt;em&gt;onPictureTaken()&lt;/em&gt; method contains a byte array data which contains the image file. What is left to do is to serialize this byte array into a stream and save it into the file system&lt;/li&gt;
 &lt;/ol&gt;
 
+
+&lt;h2&gt;CODE SAMPLE&lt;/h2&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
 
@@ -1951,44 +1988,54 @@
    <link href="http://thelogbox.com/signing-an-android-app"/>
    <updated>2012-11-23T00:00:00+08:00</updated>
    <id>http://thelogbox.com/signing-an-android-app</id>
-   <content type="html">&lt;p&gt;You have to sign the app before other people can install it on their devices.&lt;/p&gt;
+   <content type="html">&lt;p&gt;You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.&lt;/p&gt;
 
-&lt;h2&gt;1. keytool&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;KEYTOOL&lt;/strong&gt;
+Check if you have keytool in your system path. Run the &lt;code class=&quot;codeblock&quot;&gt;keytool&lt;/code&gt; command on a terminal window and you will soon find out if you have it or not. If you don't have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path&lt;/p&gt;
 
-&lt;p&gt;Check if you have &lt;em&gt;keytool&lt;/em&gt; in your SYSTEM PATH. Just invoke &lt;strong&gt;keytool&lt;/strong&gt; on a terminal window and you will soon find out if you have it or not. If you don't have it, review your JDK installation&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GENERATE THE KEY&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2&gt;2. Generate your key&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000&lt;/p&gt;
 
-&lt;p&gt;If you get the exception &lt;em&gt;Keytool-error: java.io.IOException : Incorrect AVA format&lt;/em&gt;, check if you mistyped the command, or if  you have inadvertently added *dname&lt;strong&gt; somewhere in there. Next, use the &lt;/strong&gt;jarsigner**&lt;/p&gt;
+&lt;p&gt;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;$ jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk
-alias_name&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If you get the exception &lt;em&gt;Keytool-error: java.io.IOException : Incorrect AVA format&lt;/em&gt;, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;my_application&lt;/strong&gt; should be the actual name of your application, as you created it in the &lt;strong&gt;android create project…&lt;/strong&gt; command&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JARSIGNER&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The &lt;em&gt;jarsigner&lt;/em&gt; prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;GOOD TO KNOW: As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.&lt;/p&gt;
+&lt;p&gt;jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk
+alias_name*&lt;/p&gt;
 
-&lt;h2&gt;3. Verify&lt;/h2&gt;
+&lt;p&gt;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Verify that your APK is signed &amp;mdash; run &lt;strong&gt;$ jarsigner -verify my_signed.apk&lt;/strong&gt; on the terminal window. You can also use the commands &lt;strong&gt;$ jarsigner -verify -verbose my_application.apk&lt;/strong&gt; or &lt;strong&gt;$ jarsigner -verify -verbose -certs my_application.apk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;my_application&lt;/em&gt; should be the actual name of your application, as you created it during the  &lt;code class=&quot;codeblock&quot;&gt;android create project&lt;/code&gt; command&lt;/p&gt;
 
-&lt;h2&gt;4. Align the package&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;jarsigner&lt;/strong&gt; prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.&lt;/p&gt;
 
-&lt;p&gt;Run zipalign on your apk file after you have signed the apk with your private key. Zipalign ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file. The &lt;em&gt;zipalign&lt;/em&gt; tool is part of Android SDK, so you should have it on your SYSTEM PATH.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;VERIFY&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Verify that your APK is signed &amp;mdash; run &lt;code class=&quot;codeblock&quot;&gt;jarsigner -verify my_signed.apk &lt;/code&gt; on the terminal window.&lt;/p&gt;
+
+&lt;p&gt;You can also use the commands &lt;code class=&quot;codeblock&quot;&gt; jarsigner -verify -verbose my_application.apk &lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt; jarsigner -verify -verbose -certs my_application.apk &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ALIGN THE PACKAGE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;codeblock&quot;&gt;zipalign&lt;/code&gt; on your apk file after you have signed the apk with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file.&lt;/p&gt;
+
+&lt;p&gt;zipalign is part of Android SDK, so you should have it on your SYSTEM PATH.&lt;/p&gt;
 
 &lt;p&gt;Ensuring the alignment at 4 byte boundaries has a positive effect on application performance when installed on a device.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;$ zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;When aligned, the Android system is able to read files with mmap(), even if they contain binary data with alignment restrictions, rather than copying all of the data from the package. The benefit is a reduction in the amount of RAM consumed by the running application.&lt;/p&gt;
-
-&lt;h2&gt;Reference:&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://developer.android.com/tools/publishing/app-signing.html&quot;&gt;developer.android.com&lt;/a&gt; - Web Reference (Nov 2012)&lt;/p&gt;
 </content>
  </entry>
  
@@ -5612,39 +5659,50 @@ $ irb
    <link href="http://thelogbox.com/android-install-sdk-windows"/>
    <updated>2012-08-18T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-install-sdk-windows</id>
-   <content type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Download the &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Get the zipped file. Unzip the file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside &lt;em&gt;*C:\User\yourname*&lt;/em&gt;. Try to remember the full path (including C:\) of the directory where you unzipped the Android SDK, this will be your ANDROID_HOME&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Get a command line (cmd.exe) CD to your ANDROID-HOME/tools, launch the &lt;em&gt;android&lt;/em&gt; executable. This will launch the Android SDK Manager. The android SDK needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won't be much. Choose the API levels that you would like to install in your machine.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+   <content type="html">&lt;p&gt;Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
+&lt;p&gt;If that is still not clear enough, you can look at the &lt;a href=&quot;https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing&quot;&gt;setup instructions I wrote for my students here&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all---be warned though, you will wait for a long time for it to finish.&lt;/p&gt;
+&lt;h1&gt;ANDROID SDK SETUP&lt;/h1&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Include the android tools and platform tools in your shell's path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;DOWNLOAD THE INSTALLER&lt;/strong&gt; from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;GET THE ZIPPED FILE&lt;/strong&gt;. Unzip the file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside &lt;code class=&quot;codeblock&quot;&gt;C:\User\yourname&amp;lt;/code&gt;. Try to remember the full path of the directory where you unzipped the Android SDK, this will be the &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET A TERMINAL WINDOW&lt;/strong&gt;, launch &lt;em&gt;cmd.exe&lt;/em&gt;. Go to the ANDROID-HOME/tools directory, run the &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt; executable. This will launch the Android SDK Manager.&lt;/p&gt;
+
+&lt;p&gt;The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won't be much. Choose the API levels that you would like to install in your machine.&lt;/p&gt;
+
+&lt;p&gt;Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MODIFY THE SYSTEM PATH&lt;/strong&gt;. Include the &lt;em&gt;android tools&lt;/em&gt; and &lt;em&gt;platform tools&lt;/em&gt; in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).&lt;/p&gt;
 
 &lt;pre class='codeblock'&gt; 
 
-  SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
-  SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
+SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
+  
+SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
 
 &lt;/pre&gt;
 
 
-&lt;p&gt;You will need to run those commands though, each time you will open a new CMD.exe. Those settings are not remembered by the shell.&lt;/p&gt;
+&lt;p&gt;You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.&lt;/p&gt;
 
-&lt;p&gt;If you want to permanently set these PATHS, you need to do it in the System Properties dialog box. First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;em&gt;Environment variables&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;small&quot; src=&quot;/img/windows-environment-variables.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;em&gt;Environment variables&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;If you have local admin rights on the machine, click the &lt;em&gt;New&lt;/em&gt; button on &lt;em&gt;System variables&lt;/em&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;em&gt;PATH&lt;/em&gt;, then click the &lt;em&gt;Edit&lt;/em&gt; button. Go to the last character of the existing entry, then add &lt;code class=&quot;codeblock&quot;&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/windows-environment-variables.png&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have local admin rights on the machine, click the &lt;strong&gt;New&lt;/strong&gt; button on &lt;strong&gt;System variables&lt;/strong&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;em&gt;PATH&lt;/em&gt;, then click the &lt;em&gt;Edit&lt;/em&gt; button. Go to the last character of the existing entry, then add &lt;code class=&quot;codeblock&quot;&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type &quot;android&quot;, it should launch the SDK manager&lt;/p&gt;
+
+&lt;p&gt;Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next &amp;raquo;&lt;/strong&gt; &lt;a href=&quot;/android-virtual-device&quot;&gt;Virtual Device&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -9893,7 +9951,7 @@ String b = a.toUpperCase();&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Scrolling Text within a Viewport</title>
+   <title>Scrolling Text</title>
    <link href="http://thelogbox.com/android-scrolling-edittext-using-scrollview"/>
    <updated>2012-07-22T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-scrolling-edittext-using-scrollview</id>
@@ -9940,7 +9998,12 @@ String b = a.toUpperCase();&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;That's it. There is no need to mess around with the Activity class. The scrolling behavior is accomplished on main.xml file&lt;/p&gt;
+
+
+&lt;div id='lst'&gt;/res/layout/main.xml&lt;/div&gt;
+
+
+&lt;p&gt;There is no need to mess around with the Activity class. The scrolling functionality is accomplished on main.xml file&lt;/p&gt;
 </content>
  </entry>
  
@@ -10239,148 +10302,17 @@ String b = a.toUpperCase();&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>How Much Java Do you need for Android Development</title>
+   <title>How Much Java is required for Android</title>
    <link href="http://thelogbox.com/android-java-for-android-development"/>
    <updated>2012-07-15T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-java-for-android-development</id>
-   <content type="html">&lt;p&gt;If you want to build &lt;strong&gt;native&lt;/strong&gt; applications in Android, you've got to know Java---there's no way around it. Yes, there are tools like PhoneGap, Titanium etc. but you will eventually hit limitations and ceilings if you choose to code on non-native development platform. So learn Java, it's not that bad.&lt;/p&gt;
+   <content type="html">&lt;p&gt;  &lt;div id=&quot;feature-button&quot;&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Set up the development environment&lt;/li&gt;
-&lt;li&gt;Get some tools&lt;/li&gt;
-&lt;li&gt;Learn to construct the simplest program&lt;/li&gt;
-&lt;li&gt;Learn the keywords&lt;/li&gt;
-&lt;li&gt;Dig some OOP, actually dig a lot of OOP&lt;/li&gt;
-&lt;li&gt;Learn how Java treats value types and reference types&lt;/li&gt;
-&lt;li&gt;Learn how to write methods and what access control means&lt;/li&gt;
-&lt;li&gt;Discover how GC works&lt;/li&gt;
-&lt;li&gt;Learn the data types&lt;/li&gt;
-&lt;li&gt;Exercise on some operators&lt;/li&gt;
-&lt;li&gt;Dig the control structures, so you can learn block level practices&lt;/li&gt;
-&lt;li&gt;Learn how Java does Exception handling&lt;/li&gt;
-&lt;li&gt;Some tinsy bitsy java.lang.Util&lt;/li&gt;
-&lt;li&gt;Some tinsy bitsy I/O&lt;/li&gt;
-&lt;li&gt;Learn parameter passing&lt;/li&gt;
-&lt;li&gt;Now, the Thread&lt;/li&gt;
-&lt;li&gt;Do the simplest UI in java.swing&lt;/li&gt;
-&lt;li&gt;Do the simplest event handling (actionListeners)&lt;/li&gt;
-&lt;li&gt;Learn how to use inner classes&lt;/li&gt;
-&lt;li&gt;Do some basic CRUD (Create, Read, Update, Delete) using SQLite&lt;/li&gt;
-&lt;li&gt;Dig (but not too deep) some sockets&lt;/li&gt;
-&lt;li&gt;Exercise on some httpClient programs&lt;/li&gt;
-&lt;li&gt;Get some XML&lt;/li&gt;
-&lt;li&gt;Learn ANT a little bit&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;This content has moved. You can view it using the link below&lt;/p&gt;
 
-
-&lt;h1&gt;1. Set up the environment&lt;/h1&gt;
-
-&lt;p&gt;Whether you are working on Windows, Linux or OSX, the downloads can be found at &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/index.html&quot;&gt;Oracle Technet site&lt;/a&gt;. Choose just the JSE without the bundles, to keep it simple.&lt;/p&gt;
-
-&lt;p&gt;OSX (Lion and Mountain Lion) actually has a simpler way of downloading. Open a Terminal.app, then type &lt;em&gt;java&lt;/em&gt; on the command line. OSX wizards will kick in and ask you to download the JDK. Just say &lt;strong&gt;yes&lt;/strong&gt; to prompt and Java installation will kick in.&lt;/p&gt;
-
-&lt;p&gt;If you are using Windows, you will download the JDK (Java Development Kit), get the latest stable release. Be careful that you are downloading the JDK and not the JRE (Java Runtime Environment) only, you need the JDK to create Java apps.&lt;/p&gt;
-
-&lt;p&gt;Install what you downloaded, it will guide you through the installation process. The questions are straight forward so they don't need to be expounded here.&lt;/p&gt;
-
-&lt;h2&gt;Set up the PATH and CLASSPATH variable&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE for OSX Users&lt;/strong&gt; - do absolutely nothing, the CLASSPATH AND PATH variable are already setup for you&lt;/p&gt;
-
-&lt;p&gt;On Windows;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Open the &lt;em&gt;System&lt;/em&gt; window via the &lt;em&gt;Control Panel&lt;/em&gt;, go to &lt;em&gt;Advanced&lt;/em&gt;, then &lt;em&gt;Environment variables&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Create a variable named &lt;em&gt;JAVA_HOME&lt;/em&gt;, the value is where the JDK is installed, if you said yes to the defaults of the installation, it must have been in &lt;em&gt;c:\Program Files\java\jdk1.7xxxxxx&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Edit the PATH variable (on the same window). There is an edit button for the PATH variable.&lt;/li&gt;
-&lt;li&gt;Append this entry to the PATH variable - &lt;strong&gt;;%JAVA_HOME\bin;.%&lt;/strong&gt;. The semicolons and the dot are pretty important, so type this slow. If you forget to put these in, you will encounter &lt;em&gt;Bad command or file name&lt;/em&gt; kinds of errors later when you execute java and javac&lt;/li&gt;
-&lt;li&gt;Create another variable names &lt;em&gt;CLASSPATH&lt;/em&gt;, put the value &lt;strong&gt;%JAVA_HOME\jre\lib\rt.jar;.%&lt;/strong&gt; -- again, don't forget the semi colon and the dot at the end&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;2. Get some tools&lt;/h1&gt;
-
-&lt;p&gt;Get Apache Ant and a decent program editor. Yes you can use notepad, you can use vi, even nano---that is really up to you. I won't even prescribe an editor at this point, this is the subject of a really intense, almost-religious but quite pointless debate. Just keep coding and try out a couple of editors. Don't get cheap, not because it's free it is the best. I like opensource, I love opensource, but it doesn't mean I will always use it. Choose the best tools for the job, even if it costs money.&lt;/p&gt;
-
-&lt;p&gt;With that disclaimer out of the way, I do use the following editors; Vi and TextMate (if you are on the Windows platform, the e-TextEditor is fine too)&lt;/p&gt;
-
-&lt;h1&gt;3. Learn how to write the simplest programs&lt;/h1&gt;
-
-&lt;p&gt;Do the &lt;em&gt;Hello World&lt;/em&gt; program. It's mundane, boring and dry but its the simplest program. You need to know how to write the simplest programs before you can try out the more complex ones. This is a larger discussion, &lt;a href=&quot;/java-beginning-to-program/&quot;&gt;so I wrote it here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1&gt;4. Learn the keywords of Java&lt;/h1&gt;
-
-&lt;p&gt;There are a couple of things you will name in Java---meaning, you will think of the name and declare it in your code. These are names of &lt;strong&gt;classes, variables, methods, interfaces, parameters passed to methods and packages&lt;/strong&gt;. Collectively, these are known as Java identifiers.&lt;/p&gt;
-
-&lt;h2&gt;Rules to remember when creating identifiers&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You can use alphanumeric characters, but the first letter can't be a number&lt;/li&gt;
-&lt;li&gt;You can't use special characters, but you can use the dollar sign and underscore&lt;/li&gt;
-&lt;li&gt;You can't use a Java keyword (also known as reserved word). You also can't use a Java literals like &lt;strong&gt;true, false or null&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;&lt;strong&gt;The Java keywords&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;~~~
-for while do throw
-case try catch return&lt;/p&gt;
-
-&lt;p&gt;goto [not used]&lt;/p&gt;
-
-&lt;p&gt;break continue&lt;/p&gt;
-
-&lt;p&gt;byte short int long float double boolean char&lt;/p&gt;
-
-&lt;p&gt;if switch throws else&lt;/p&gt;
-
-&lt;p&gt;finally class interface implements extends static new this super&lt;/p&gt;
-
-&lt;p&gt;public private protected package default&lt;/p&gt;
-
-&lt;p&gt;native transient synchronized import instanceof volatile
-void abstract final assert enum strictfp&lt;/p&gt;
-
-&lt;p&gt;const[not used]
-~~~&lt;/p&gt;
-
-&lt;h1&gt;5. Dig some OOP, dig a lot of it&lt;/h1&gt;
-
-&lt;p&gt;OOP is short for Object Oriented Programming. Java is an object oriented language. Sure you can write all of your codes inside public static void main, but that will not take you far in Android when you encounter stuff like &lt;strong&gt;class MySplashPad extends Activity&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;OOP is so entrenched in Java---in fact, I think a little bit too entrenched that some developers I know get over excited about creating objects, so they create a gazillion of it. Anyway, I hope you learn temperance about creating objects in your own coding journey, but the point remains, &lt;a href=&quot;/java-object-oriented-programming/&quot;&gt;you need to know OOP. Read more here ...&lt;/a&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Learn how Java treats value types and reference types&lt;/li&gt;
-&lt;li&gt;Discover how GC works&lt;/li&gt;
-&lt;li&gt;Learn the data types&lt;/li&gt;
-&lt;li&gt;Exercise on some operators&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;10. Dig the control structures, so you can learn block level practices&lt;/h1&gt;
-
-&lt;p&gt;Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;You can execute commands one after another -- &lt;strong&gt;sequencing&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;You can execute certain commands when certain conditions are met -- &lt;strong&gt;branching&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;You can keep on repeating certain commands while certain conditions are still true -- &lt;strong&gt;looping or iteration&lt;/strong&gt;. &lt;a href=&quot;/java-controlling-program-flow/&quot;&gt;Continue reading about control structures ...&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Learn how Java does Exception handling&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Some tinsy bitsy java.lang.Util&lt;/li&gt;
-&lt;li&gt;Some tinsy bitsy I/O&lt;/li&gt;
-&lt;li&gt;Learn parameter passing&lt;/li&gt;
-&lt;li&gt;Now, the Thread&lt;/li&gt;
-&lt;li&gt;Do the simplest UI in java.swing&lt;/li&gt;
-&lt;li&gt;Do the simplest event handling (actionListeners)&lt;/li&gt;
-&lt;li&gt;Learn how to use inner classes&lt;/li&gt;
-&lt;li&gt;Do some basic CRUD (Create, Read, Update, Delete) using SQLite&lt;/li&gt;
-&lt;li&gt;Dig (but not too deep) some sockets&lt;/li&gt;
-&lt;li&gt;Exercise on some httpClient programs&lt;/li&gt;
-&lt;li&gt;Get some XML&lt;/li&gt;
-&lt;li&gt;Learn ANT a little bit&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p/&gt;
+    &lt;a href=&quot;/android-how-much-java-do-you-need&quot; class='button'&gt;How Much Java Do You Need&lt;a&gt;
+  &lt;/div&gt;  
 
 </content>
  </entry>
@@ -10948,94 +10880,69 @@ void abstract final assert enum strictfp&lt;/p&gt;
    <link href="http://thelogbox.com/android-programming-tutorial"/>
    <updated>2012-07-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-programming-tutorial</id>
-   <content type="html">&lt;p&gt;There are a couple of things you need to do before you can get started. Here's a few of them&lt;/p&gt;
+   <content type="html">&lt;p&gt;These tutorials started a series of notes and lesson plans. They date back to 2008. They get updated whenever I have to teach an Android programming class or during a project when I have to do some digging.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;A development machine with lots of horsepower and lots of RAM. As much as you can afford. Ignore the minimum requirement, splurge on the machine. It doesn't matter what you choose, OSX, Linux or Windows. Android will work on all of them&lt;/li&gt;
-&lt;li&gt;A good internet connection (the SDK download is bit hefty)&lt;/li&gt;
-&lt;li&gt;A programmer's editor &amp;mdash; vi, emacs, TextMate, Sublime2 etc. You can use an IDE if you like, there are plenty to choose from &amp;mdash; NetBeans, Eclipse or Android Studio&lt;/li&gt;
-&lt;li&gt;A Java development environment (either JDK 1.5 or 1.6)&lt;/li&gt;
-&lt;li&gt;Apache Ant&lt;/li&gt;
-&lt;li&gt;Lastly, a Java Programming background. Some people tried to learn Java and Android at the same time. While that is possible, I would not recommend that route. Get comfortable in Java first before trying out Android, unless you don't mind the headaches.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical management position. I also teach. I taught at Asia Pacific College, IBM Advance Career Education and Ateneo ITI. That's probably what you need to know about the author of this work.&lt;/p&gt;
 
-
-&lt;h1&gt;SETUP&lt;/h1&gt;
-
-&lt;p&gt;Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. The expectation however, is that you already are a Java programmer and that these things are old hats to you.&lt;/p&gt;
-
-&lt;p&gt;I used to keep a detailed and step-by-step (even pictorial) instructions of the setup routine in these pages, but they proved to be difficult to maintain and gets outdated quite quickly. Hence, I took them out and replaced them with links to resources that have better chances of being updated.&lt;/p&gt;
-
-&lt;p&gt;First thing to look at is the official site of Android. They keep setup information &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt;. If that is still not clear enough, you can look at the &lt;a href=&quot;https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing&quot;&gt;setup instructions I wrote for my students here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1&gt;THINGS YOU CAN DO WITH ANDROID&lt;/h1&gt;
-
-&lt;p&gt;A lot of things. As mentioned before, Android is an operating system. It is also has a top-notch and proven development kit (plus libraries). If you add the very large number of developers in the Java Community who are tirelessly working to produce the &lt;em&gt;next best dev framework/library&lt;/em&gt; to this equation, then it's a whole new ball game. That means (almost) everything we did on Desktop we can also on the mobile &amp;mdash; plus more. I said almost because the mobile platform will play catch up with the desktop platform in terms of processing horse power &amp;mdash; but that is just a matter of time.&lt;/p&gt;
-
-&lt;p&gt;The Android development platform has some basic building blocks e.g. &lt;em&gt;Activities&lt;/em&gt; for user interfaces, &lt;em&gt;Content Providers&lt;/em&gt; for data sources, &lt;em&gt;Intents&lt;/em&gt; for event handling &amp;mdash; it actually is more than just for event handling and activating windows/apps, but for the purpose of this document, we will settle for that.&lt;/p&gt;
-
-&lt;p&gt;You can create applications that has timers, can multiprocess, can handle media (audio and video) and are &lt;em&gt;network-aware&lt;/em&gt;. These are just a few of the things you can do with the Android Development platform.&lt;/p&gt;
+&lt;p&gt;There is side navigation bar on this mini site. Use them as you would a &lt;strong&gt;table of contents&lt;/strong&gt; in a book. I tried to organize them as such. The side bar is organized sequentially. You can get the most information by following this sequence.&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
-   <title>The Study and Practice of Android Development</title>
+   <title>Study Tips</title>
    <link href="http://thelogbox.com/blog-studying-and-practicing-android"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-studying-and-practicing-android</id>
-   <content type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Size up what you are up against. Learning android is not as simple as diving into it or taking it head on. You need prior knowledge of the Java programming language. &lt;a href=&quot;/blog-am-i-ready-for-android-programming/&quot;&gt;You can quickly find out if you are ready to dive to Android right now&lt;/a&gt;, and when you realize finally that you cannot avoid Java, &lt;a href=&quot;/android-java-for-android-development/&quot;&gt;try to find out how much Java you really need for Android&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Pick up a book on android programming, choose one that is designed for beginner. There are plenty of books to choose from, I used &lt;a href=&quot;http://www.amazon.com/gp/product/1449390501/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449390501&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Learning Android&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1449390501&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;. Read &lt;a href=&quot;/blog-choosing-books-for-android/&quot;&gt;this page&lt;/a&gt; if you want to see a short list of books for android&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Dedicate a notebook for your android learning, I don't mean a computer, I mean a physical notebook. I like this approach because there is something about the tactile feel of notetaking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand---this forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and Autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor &lt;strong&gt;retention&lt;/strong&gt; over speed of coverage. Don't skim the headlines&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Leaf through the first few chapters of the book to familiarize yourself with the vocabulary, there will be quite a few of them&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/installing-android-sdk/&quot;&gt;Set up your development environment&lt;/a&gt;. You will need this now to try out your first few dances with the SDK. Start simple, try to understand the &lt;em&gt;Hello World&lt;/em&gt; example (I think every beginner book has this example)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Understand the &lt;em&gt;Hello World&lt;/em&gt; sample, &lt;em&gt;really understand it.&lt;/em&gt; Discover for yourself how can &lt;strong&gt;main.xml&lt;/strong&gt; (the default layout when you create an android project) get exploded into &lt;strong&gt;R.java&lt;/strong&gt;. Why do you need to set the &lt;em&gt;contentView()&lt;/em&gt; to R.layout.main? What does a &lt;em&gt;View&lt;/em&gt; and &lt;em&gt;ViewGroup&lt;/em&gt; mean? Don't follow the examples blindly, ask the tough questions and look for the answers. There is a &lt;a href=&quot;/android-programming-tutorial/&quot;&gt;short android programming tutorial in this site&lt;/a&gt; that could be useful for a beginner&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt; to get you started.
-If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Attend some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way. &amp;lt;shameless-plug&gt;
-If you happen to be in Metro Manila, Philippines, I do hold a &lt;a href=&quot;/training-android-programming/&quot;&gt;workshop on Android Development&lt;/a&gt;
-&amp;lt;/shameless-plug&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Make a firmer schedule for your learning. Set aside a block of time each day, everyday so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular---it might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away. You should have organized your study and reading material ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering---make a journal out of them; this is where the (physical) notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday. I taught a programming concepts course for non-programming folks quite a few times, &lt;a href=&quot;/blog-programming-concepts/&quot;&gt;you can look at the format of the journal here&lt;/a&gt; if you need some sample format.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Read voraciously. Pick up a second book, maybe a third book on android. Learn who writes the (reliable and coherent) content for android programming, you can go to &lt;a href=&quot;http://android10.org/index.php/articles&quot;&gt;android10.org&lt;/a&gt; that is a good site to begin with, include &lt;a href=&quot;htttp://developer.android.com&quot;&gt;developer.android.com&lt;/a&gt; as well, it is the official site of android development after all---you can visit &lt;a href=&quot;/notes/&quot;&gt;theLogbox.com&lt;/a&gt; also, I try to write all my notes on Android and Java development on this site quite regularly&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Read other books not necessarily about android, &lt;a href=&quot;http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=020161622X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; is good place to start. You will soon run into questions like &lt;em&gt;What editor should I use?&lt;/em&gt; and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up &lt;a href=&quot;http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=097451408X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=097451408X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;, there are lots of gems on this book&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do some pet projects on your own. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like &lt;strong&gt;countdown-to-something, anything&lt;/strong&gt;, &lt;strong&gt;another note-taker&lt;/strong&gt;, &lt;strong&gt;yet another todo list&lt;/strong&gt;---you know, those stuff, corny as they are, they will help you get started in coding your first few apps&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;At this point, you can only go one direction. March towards that &lt;strong&gt;10,000 hours&lt;/strong&gt; of practice to become an android guru. If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the &lt;em&gt;programmer-for-hire&lt;/em&gt; route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;PICK UP A BOOK&lt;/strong&gt;. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the &lt;a href=&quot;http://localhost:4000/blog-choosing-books-for-android&quot;&gt;BIBLIOGRAPHy&lt;/a&gt; section of this mini site. There are some ideas there that can get you started in choosing reference materials&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;START TAKING NOTES&lt;/strong&gt; for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor &lt;strong&gt;retention&lt;/strong&gt; over speed of coverage. Don't skim the headlines&lt;/p&gt;
 
-&lt;p&gt;Now be on your way! Happy coding.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FLASH CARDS&lt;/strong&gt;.  This is old fashioned, but they work.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET YOUR FEET WET, QUICKLY&lt;/strong&gt;. Set up your development environment. Start simple, try to understand the &lt;em&gt;Hello World&lt;/em&gt; example (I think every beginner book has this example).&lt;/p&gt;
+
+&lt;p&gt;Understand the &lt;em&gt;Hello World&lt;/em&gt; sample, &lt;em&gt;really understand it.&lt;/em&gt; Discover for yourself how can &lt;strong&gt;main.xml&lt;/strong&gt; (the default layout when you create an android project) get exploded into &lt;strong&gt;R.java&lt;/strong&gt;. Why do you need to set the &lt;em&gt;contentView()&lt;/em&gt; to R.layout.main? What does a &lt;em&gt;View&lt;/em&gt; and &lt;em&gt;ViewGroup&lt;/em&gt; mean? Don't follow the examples blindly, ask the tough questions and look for the answers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JOIN A GROUP&lt;/strong&gt;. At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt; to get you started.&lt;/p&gt;
+
+&lt;p&gt;If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ATTEND SOME CLASSES&lt;/strong&gt;. Join some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BLOCK TIME&lt;/strong&gt; regularly so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular. It might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away.&lt;/p&gt;
+
+&lt;p&gt;Organize your study and reading materials ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering. Make a journal out of them. This is where your notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET A SECOND BOOK&lt;/strong&gt;. Maybe even a third book on android. Start being a textbook expert. Your field expertise will follow when you become a serial developer of mobile apps&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;READ OTHER BOOKS&lt;/strong&gt; not necessarily about android, &lt;a href=&quot;http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=020161622X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; is good place to start. You will soon run into questions like &lt;em&gt;What editor should I use?&lt;/em&gt; and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up &lt;a href=&quot;http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=097451408X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=097451408X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;, there are lots of gems on this book&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WORK ON YOUR OWN PET PROJECT&lt;/strong&gt;. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like &lt;strong&gt;countdown-to-something, anything&lt;/strong&gt;, &lt;strong&gt;another note-taker&lt;/strong&gt;, &lt;strong&gt;yet another todo list&lt;/strong&gt;. These applications have been so beaten down already. You may not be able to make money selling your todo apps, but the purpose is not to sell, just to build so you can get started on practice&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10,000 HOURS&lt;/strong&gt;. Borrowing a reference from Malcolm Gladwell,  it takes 10k hours to gain expertise. I don't know if you have that kind of patience, for android programming at least. But try to clock some time immersing yourself in Android Programming. The more you do a thing, the better you get at it. There is no magic formula. You just have to do it lots of times&lt;/p&gt;
+
+&lt;p&gt;If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the &lt;em&gt;programmer-for-hire&lt;/em&gt; route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
-   <title>Study Materials for Android Programming</title>
+   <title>Bibliography</title>
    <link href="http://thelogbox.com/blog-choosing-books-for-android"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-choosing-books-for-android</id>
-   <content type="html">&lt;h1&gt;INTERNET RESOURCES&lt;/h1&gt;
+   <content type="html">&lt;p&gt;This the short list of the books I used for my android learning. I did not list all of them, only the ones I liked and the ones I thought would actually help a beginning developer get into grips with android.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://android-developers.blogspot.com/&quot;&gt;Android Developers Blog&lt;/a&gt; - I am sure there are tons of blogs that you will find on the net about android, but this is the official one, you can't go wrong here. This one made it to my Google Reader&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://developer.android.com/training/index.html&quot;&gt;Android Training&lt;/a&gt; - The training website of developer.android.com, it covers a wide range--from fundamentals to pretty advanced topics. These tutorials will make sense more if you are reading a book material&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1449390501/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449390501&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Learning Android&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1449390501&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - One of early books I used for android development. Typical O'Reilly approach, thorough and dry---but it has loads of useful information. Good starter book for android.&lt;/p&gt;
 
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1118017110/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1118017110&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Beginning Android Application Development (Wrox Programmer to Programmer)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1118017110&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - Good to read after the O'Reilly book. Looking back now, I think I should have read the O'Reilly book and this one side by side. There's 500+ pages on this one. You need to be in front of your machine and ready to code when you are reading this---the examples are prescriptive and recipe type, rather than theoretical and conceptual&lt;/p&gt;
 
-&lt;p&gt;Hopefully, you will add &lt;a href=&quot;http://thelogbox.com/blog/&quot;&gt;theLogBox&lt;/a&gt; to your list.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0321741234/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321741234&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Android Developer's Cookbook: Building Applications with the Android SDK: Building Applications with the Android SDK (Developer's Library)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=0321741234&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - When you are done with the O'Reilly and the Wrox books, you will probably dive into a test project. This recipe (aherm, cookbook) will be very handy. The book is organized according to tasks. It assumes you are already pretty handy at coding android building blocks, so don't pick this up as a first book. Can you do without this? Yes, you can probably spend lots of time lurking into forums, asking questions on stackoverflow and emailing your friends about a specific problem--or you can just get this book, it will take you much less time&lt;/p&gt;
 
-&lt;h1&gt;BOOKS&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1430232439/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1430232439&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practical Android Projects (Books for Professionals by Professionals)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1430232439&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - So you've combed through the three books above, you've gone through developer.android.com/training and most probably attended a local workshop in android. Now you are eager to get clicking some more, gear up for a project that you can submit to Google Play for some bragging rights (or some extra cash, or both). Only, you are stumped and out of ideas on what to build, which is not surprising because at the time of this writing (8.Jul.2012) there is more than half-million apps written for android. Can you really think of an android app so unique that the other hundred-thousand developers haven't thought of yet? If you need some ideas to kickstart your next-killer-app project, you might find some inspiration on this one&lt;/p&gt;
 
-&lt;p&gt;This the short list of the books I used for my android learning. I did not list all of them, only the ones I liked and the ones I thought would actually help a beginning developer get into grips with android.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1934356565/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1934356565&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Hello, Android: Introducing Google's Mobile Development Platform (Pragmatic Programmers)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1934356565&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - It was a pity that I picked this up late. This was the most enjoyable read--or maybe I enjoyed it because I already read the other four? I really can't be sure now, but if you will take some unsolicited advise, I suggest you read the O'Reilly one first, then this.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1449390501/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449390501&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Learning Android&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1449390501&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - One of early books I used for android development. Typical O'Reilly approach, thorough and dry---but it has loads of useful information. Good starter book for android.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1118017110/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1118017110&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Beginning Android Application Development (Wrox Programmer to Programmer)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1118017110&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - Good to read after the O'Reilly book. Looking back now, I think I should have read the O'Reilly book and this one side by side. There's 500+ pages on this one. You need to be in front of your machine and ready to code when you are reading this---the examples are prescriptive and recipe type, rather than theoretical and conceptual&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0321741234/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321741234&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Android Developer's Cookbook: Building Applications with the Android SDK: Building Applications with the Android SDK (Developer's Library)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=0321741234&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - When you are done with the O'Reilly and the Wrox books, you will probably dive into a test project. This recipe (aherm, cookbook) will be very handy. The book is organized according to tasks. It assumes you are already pretty handy at coding android building blocks, so don't pick this up as a first book. Can you do without this? Yes, you can probably spend lots of time lurking into forums, asking questions on stackoverflow and emailing your friends about a specific problem--or you can just get this book, it will take you much less time&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1430232439/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1430232439&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practical Android Projects (Books for Professionals by Professionals)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1430232439&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - So you've combed through the three books above, you've gone through developer.android.com/training and most probably attended a local workshop in android. Now you are eager to get clicking some more, gear up for a project that you can submit to Google Play for some bragging rights (or some extra cash, or both). Only, you are stumped and out of ideas on what to build, which is not surprising because at the time of this writing (8.Jul.2012) there is more than half-million apps written for android. Can you really think of an android app so unique that the other hundred-thousand developers haven't thought of yet? If you need some ideas to kickstart your next-killer-app project, you might find some inspiration on this one&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1934356565/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1934356565&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Hello, Android: Introducing Google's Mobile Development Platform (Pragmatic Programmers)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=1934356565&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - It was a pity that I picked this up late. This was the most enjoyable read--or maybe I enjoyed it because I already read the other four? I really can't be sure now, but if you will take some unsolicited advise, I suggest you read the O'Reilly one first, then this.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;If you want to look at a more extensive list, O'Reilly released the &lt;a href=&quot;http://www.amazon.com/gp/product/B005GMR9S8/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B005GMR9S8&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Android Development Bibliography&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=B005GMR9S8&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; for free. You can read it using Kindle (if you don't have the device, &lt;a href=&quot;http://www.amazon.com/gp/kindle/pc/download&quot;&gt;you can run kindle on your desktop&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to look at a more extensive list, O'Reilly released the &lt;a href=&quot;http://www.amazon.com/gp/product/B005GMR9S8/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B005GMR9S8&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Android Development Bibliography&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=B005GMR9S8&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; for free.&lt;/p&gt;
 </content>
  </entry>
  
@@ -11044,53 +10951,18 @@ If you happen to be in Metro Manila, Philippines, I do hold a &lt;a href=&quot;/
    <link href="http://thelogbox.com/blog-am-i-ready-for-android-programming"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-am-i-ready-for-android-programming</id>
-   <content type="html">&lt;p&gt;Android programming requires a couple of things, chief among them is your knowledge of the Java programming language. You don't need to cover all the knowledge base of Java because android applications are not made exactly the same way as mainstream Java apps. You wouldn't code an android app the same way you would code a web app, the android app would use a different set of libraries and a different set of tech stack.&lt;/p&gt;
+   <content type="html">&lt;p&gt;  &lt;div id=&quot;feature-button&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;To (quickly) check your &lt;em&gt;android dev readiness&lt;/em&gt;, you should be able to answer the following questions:&lt;/p&gt;
+&lt;p&gt;This content has been rewritten. I encourage you to read the more updated material. You can view by clicking the button link just right below .&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;What do you use &lt;em&gt;@Override&lt;/em&gt; annotation for?&lt;/li&gt;
-&lt;li&gt;Why would you use an anonymous inner class for event handling?&lt;/li&gt;
-&lt;li&gt;The &lt;em&gt;extends&lt;/em&gt; keyword is used to inherit from a class while the &lt;em&gt;implements&lt;/em&gt; keyword is used for what?&lt;/li&gt;
-&lt;li&gt;A &lt;em&gt;static&lt;/em&gt; member belongs to what? An &lt;em&gt;instance&lt;/em&gt; member belongs to what?&lt;/li&gt;
-&lt;li&gt;What is the difference between &lt;em&gt;Runnable&lt;/em&gt; and &lt;em&gt;Thread&lt;/em&gt;?&lt;/li&gt;
-&lt;li&gt;When is &lt;em&gt;finalize()&lt;/em&gt; method called, and who calls it?&lt;/li&gt;
-&lt;li&gt;When will you use the &lt;em&gt;addActionListener()&lt;/em&gt; method? Where do you usually use it?&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p/&gt;
 
+&lt;a href=&quot;/android-how-much-java-do-you-need&quot; class='button'&gt;
+   How Much Java Do You Need for Android
+&lt;a&gt;
 
-&lt;p&gt;These are pretty easy for an experienced Java programmer, if you were able to answer the above questions with confidence, you should be ready to dive into android programming.&lt;/p&gt;
+&lt;/div&gt;  
 
-&lt;h2&gt;But I am C# programmer&lt;/h2&gt;
-
-&lt;p&gt;It's nice to know that you are interested in android, I would have thought that the logical step forward is Windows 8 mobile programming (maybe you are also doing that but are curious with android).&lt;/p&gt;
-
-&lt;p&gt;You will not struggle a lot because Java and C# are actually more similar than they are different. You already are indoctrinated on OOP, know the difference between classes and objects and have the coded the basics of UI programming.&lt;/p&gt;
-
-&lt;p&gt;You will miss Visual Studio, especially the GUI builder. Yes there are GUI builders for android but they are not to the same level of ease like VS. You will be alright and will probably coast through it.&lt;/p&gt;
-
-&lt;h2&gt;But I am PHP web programmer&lt;/h2&gt;
-
-&lt;p&gt;You will need a basic Java background. Programming native apps for android is more akin to developing desktop apps rather than web apps.&lt;/p&gt;
-
-&lt;p&gt;To handle events in desktop apps, familiarity with the call-back concept is required (delegates for C# devs), as a web programmer you probably did not have a lot of chances to code this way. Web apps use the request-response mechanism of HTTP to handle events.&lt;/p&gt;
-
-&lt;h1&gt;Getting ready for android development&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Install the android sdk. I put up a &lt;a href=&quot;/installing-android-sdk/&quot;&gt;small set of instructions here&lt;/a&gt;. You must have installed a Java Development (JDK 1.5 or higher) enviroment before you install the android SDK&lt;/li&gt;
-&lt;li&gt;Get a terminal window (Terminal.app if you're on a Mac, xterm or gnome-terminal on Linux and cmd on Windows)&lt;/li&gt;
-&lt;li&gt;Fire up the android SDK manager by typing &lt;strong&gt;android&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Check your internet connection, you will need it to download the SDK tools and APIs&lt;/li&gt;
-&lt;li&gt;Select the API levels and the tools that you want to download. IF you want develop against android Gingerbread, you will select at a minimum the following &lt;strong&gt;a) SDK tools b) platform-tools 3) Android 2.3.3&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Create an AVD (Android Virtual Device). You will need this to deploy and test your android applications. A better idea is to actually buy a (cheap) android physical device. The AVD is excruciatingly and painfully slow&lt;/li&gt;
-&lt;li&gt;You can develop using Eclipse, in which case you need to download the Eclipse ADT. If you will use the CLI (command line) then you are already set.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Next steps is to either get a book on android dev or follow the examples on &lt;a href=&quot;http://developer.android.com/training/index.html&quot;&gt;developer.android.com/training&lt;/a&gt; or maybe &lt;a href=&quot;/training-android-programming/&quot;&gt;attend an android workshop&lt;/a&gt; or all of the above. While you are deciding what to do next, you might want to read &lt;a href=&quot;/blog-studying-and-practicing-android/&quot;&gt;A study plan for learning android programming&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Happy coding.&lt;/p&gt;
 </content>
  </entry>
  
@@ -11716,7 +11588,11 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/android-create-project"/>
    <updated>2012-06-10T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-create-project</id>
-   <content type="html">&lt;p&gt;The &lt;em&gt;Hello World&lt;/em&gt; application in android is very different from what you might remember when you created your first app in Java. Back then, you only needed a single source file where everything you need to output something to the screen was contained. The Hello World application in android requires full project.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;NOTICE&lt;/strong&gt;. THIS CONTENT HAS BEEN REWRITTEN. The updated content is at &lt;a href=&quot;/android-getting-started&quot;&gt;Android Getting Started&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The &lt;em&gt;Hello World&lt;/em&gt; application in android is very different from what you might remember when you created your first app in Java. Back then, you only needed a single source file where everything you need to output something to the screen was contained. The Hello World application in android requires full project.&lt;/p&gt;
 
 &lt;p&gt;An android app will not run on your desktop, in fact, even just to test it, you will need an emulator. Android apps were meant to run on devices, not on desktops. The hardware architecture of mobile devices are starkly different from desktop PCs. This disparity is part of the reason why coding for android is contrastly different from coding a simple Java app.&lt;/p&gt;
 
@@ -11779,7 +11655,7 @@ class MyClass{}&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Android Background Info</title>
+   <title>Background Info</title>
    <link href="http://thelogbox.com/android-background-information"/>
    <updated>2012-06-10T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-background-information</id>
@@ -11823,6 +11699,8 @@ class MyClass{}&lt;/p&gt;
 &lt;p&gt;The Android runtime consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. This runtime has a subset of Apache Harmony which is an open source, free Java implementation from the Apache Software Foundation. The politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that information somewhere else.&lt;/p&gt;
 
 &lt;p&gt;Android also comes packaged with Application Frameworks. This is the part of the Android that you will see frequently. As a developer you will spend a great deal of time reading, studying, implementing and using these frameworks.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next &amp;raquo;&lt;/strong&gt; &lt;a href=&quot;/android-install-sdk-windows&quot;&gt;Development Setup&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -12992,7 +12870,9 @@ while(condition) {
    <link href="http://thelogbox.com/android-virtual-device"/>
    <updated>2011-08-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-virtual-device</id>
-   <content type="html">&lt;p&gt;The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won't be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don't really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is &lt;strong&gt;speed&lt;/strong&gt;. The AVD is notoriously slow, it will slow down your development.&lt;/p&gt;
+   <content type="html">&lt;p&gt;You will need a runtime environment to complete your development setup. The SDK will allow you write and compile android programs. But to test them, you need a place where to deploy and test those programs.&lt;/p&gt;
+
+&lt;p&gt;The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won't be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don't really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is &lt;strong&gt;speed&lt;/strong&gt;. The AVD is notoriously slow, it will slow down your development.&lt;/p&gt;
 
 &lt;h1&gt;CONFIGURATION&lt;/h1&gt;
 
@@ -13005,6 +12885,10 @@ while(condition) {
 &lt;li&gt;Launch the AVD when you are done&lt;/li&gt;
 &lt;/ol&gt;
 
+
+&lt;p&gt;Use the AVD if you only don't have access to a physical android device. The AVD is slow and quite limited for testing real world apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next &amp;raquo;&lt;/strong&gt; &lt;a href=&quot;/android-physical-device&quot;&gt;Setting up a Physical Device&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -13040,9 +12924,9 @@ while(condition) {
 
 &lt;p&gt;Run a simple &lt;code class=&quot;codeblock&quot;&gt;adb&lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt;logcat&lt;/code&gt;command on the terminal to see if it's working. If it's not, the terminal will say &lt;em&gt;waiting for device…&lt;/em&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
-
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; for Windows users. You may need to download a USB driver software for your physical device before you can use it to test and deploy applications to it. OSX and Linux users does not have such concerns.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next &amp;raquo;&lt;/strong&gt; &lt;a href=&quot;/android-getting-started&quot;&gt;Get Started&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  

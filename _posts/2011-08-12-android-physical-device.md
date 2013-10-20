@@ -34,6 +34,6 @@ You can now connect the device to the development machine. The screenshot above 
 
 Run a simple <code class="codeblock">adb</code> or <code class="codeblock">logcat</code>command on the terminal to see if it's working. If it's not, the terminal will say *waiting for device…*
 
-***
-
 **NOTE** for Windows users. You may need to download a USB driver software for your physical device before you can use it to test and deploy applications to it. OSX and Linux users does not have such concerns.
+
+**Next &raquo;** [Get Started](/android-getting-started)

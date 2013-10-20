@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Scrolling Text within a Viewport
+title: Scrolling Text
 
 description:
 
@@ -57,4 +57,6 @@ To deal with this challenge, you can wrap an *EditText* inside a *ScrollView* co
 
 {% endhighlight %}
 
-That's it. There is no need to mess around with the Activity class. The scrolling behavior is accomplished on main.xml file
+<div id='lst'>/res/layout/main.xml</div>
+
+There is no need to mess around with the Activity class. The scrolling functionality is accomplished on main.xml file
