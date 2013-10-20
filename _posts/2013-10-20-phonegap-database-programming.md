@@ -22,7 +22,7 @@ WebSQL essentially is about issuing SQL commands against a SQLite3 databaseprogr
 
 Databases are good for a wide variety of programming tasks, but mainly they excel for information management, specifically structured record management. An introduction to SQL is beyond the scope of this chapter, in fact, I made a very dangerous assumption that you already have a backround in basic database programming. If you feel you need an introduction to SQL or you need a refresher on it, [the SQL introduction](http://www.w3schools.com/sql/sql_intro.asp) of W3Schools.com might be a good place to start.
 
-[Maybe in the future version, I can have an Appendix on basic SQL tutorial]
+
 
 Most database programs involves boiler plate codes &mdash; plumbing codes, so to speak. No matter what the database program is trying to do, it will always have to cover some generic steps e.g.
 
