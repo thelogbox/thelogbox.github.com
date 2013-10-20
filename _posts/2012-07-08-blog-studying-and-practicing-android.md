@@ -13,7 +13,7 @@ categories:
 ---
 
 
-**PICK UP A BOOK**. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the [BIBLIOGRAPHy](http://localhost:4000/blog-choosing-books-for-android) section of this mini site. There are some ideas there that can get you started in choosing reference materials
+**PICK UP A BOOK**. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the [BIBLIOGRAPHY](http://localhost:4000/blog-choosing-books-for-android) section of this mini site. There are some ideas there that can get you started in choosing reference materials
 
 **START TAKING NOTES** for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor **retention** over speed of coverage. Don't skim the headlines 
 
