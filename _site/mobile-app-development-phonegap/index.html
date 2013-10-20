@@ -313,7 +313,11 @@ em {
 }
 
 code {
-	font-family: 'Inconsolata','Source Code Pro';
+	font-family: 'Muli','Inconsolata','Source Code Pro';
+  font-size: 15px;
+  padding:0px;
+  margin: 0px;
+  border: 0px; 
 }
 
 pre {
@@ -392,7 +396,7 @@ img {
     margin-bottom: 40px;
   } 
   img.small {
-    width: 40%;
+    width: 65%;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
@@ -402,6 +406,13 @@ img {
   img.default {
     width: inherit;
   }
+
+aside {
+  
+  padding: 10px;
+  border: 2px solid #CACACA;
+  
+}
 
 /* Pygments stylesheets */
 
@@ -887,8 +898,9 @@ img {
         
         <strong>PhoneGap Programming</strong><p/>
              
-        This is a work in progress. It has development notes for using the PhoneGap 3.0 platform. While PhoneGap supports quite a few mobile platforms, these notes deal exclusively with Android and iOS only, because those are the only two platforms that I write code for. For Windows and Blackberry programmers, you might have to look somewhere else. 
+        This is a work in progress. It has development notes for using the PhoneGap 3.0 platform. While PhoneGap supports quite a few mobile platforms, these notes deal exclusively with Android and iOS only, because those are the only two platforms that I write code for. <p/>
         
+         <a href='http://eepurl.com/HhC_v' class='button' target='_blank'>Get Updates</a>
       </div>
       
     </div>
@@ -906,7 +918,11 @@ img {
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Work in Progress. Come back soon. Very soon.</p>
+		    <p>These notes were lifted from lesson plans. They have undergone quite a few changes chiefly because of the changes from PhoneGap 2.0 to 3.0.</p>
+
+<p>My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical management position. I also teach. I taught at Asia Pacific College, IBM Advance Career Education and Ateneo ITI. That's probably what you need to know about the author of this work.</p>
+
+<p>There is side navigation bar on this mini site. Use them as you would a <strong>table of contents</strong> in a book. I tried to organize them as such. The side bar is organized sequentially. You can get the most information by following this sequence.</p>
 
         </div>
 							
@@ -918,13 +934,15 @@ img {
       
       <ul>
       <li><a href="#">Introduction</a></li>
-      <li><a href="#">Development Environment</a><br/>
-      <li><a href="#">Getting Started</a></li>
+      <li><a href="/phonegap-development-environment-ios">iOS Setup</a></li>
+      <li><a href="/phonegap-development-environment-android">Android Setup</a></li>
+      <li><a href="/phonegap-getting-started">Getting Started</a></li>
       <li><a href="#">Basic Web Site App</a></li>
       <li><a href="#">Hybrid Apps</a></li>
       <li><a href="#">Prettyfing the UI</a></li>
-      <li><a href="#">Database Programming</a></li>
-      <li><a href="#">Network Connectivity</a></li>
+      <li><a href="/phonegap-database-programming">Database Programming</a></li>
+      <li><a href="/phonegap-network-connectivity">Network Connectivity</a></li>
+      <li><a href="#">Device Ready</a></li>
       <li><a href="#">Detecting the Menu Button</a></li>
       <li><a href="#">GEO Location</a></li>
       <li><a href="#">Basic Game Programming</a></li>
@@ -936,8 +954,24 @@ img {
     
 
     </div>  <!--  div wrap -->
-    
-		<footer>Copyright&nbsp; &copy; 2012-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
+		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
           Ted Hagos</a> 
 
 </footer>

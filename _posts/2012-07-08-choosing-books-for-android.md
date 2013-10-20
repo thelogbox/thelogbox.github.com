@@ -1,0 +1,23 @@
+---
+layout: notice
+
+title: Choosing Books for Android
+
+description: 
+
+excerpt: 
+
+categories:
+- android-programming
+---
+
+<div id='feature-button'>
+
+This content has moved. If you click the button link below, it will take you to the updated content.
+
+<p/>
+
+<a href='/blog-choosing-books-for-android' class='button'>Android Programming Bibliography</a>
+
+</div>
+

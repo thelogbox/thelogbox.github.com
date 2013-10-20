@@ -19,7 +19,7 @@ categories:
 
 **CALLBACK**. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks &mdash; using only the XML files to hook the events &mdash; but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the *click* event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the **Listeners** in Android.
 
-**XML**. This is easy and should not be much of a trouble. Event beginning programmers can handle this without breaking a sweat. Android uses XML extensively &mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.
+**XML**. This is easy and should not be much of a trouble. Even beginning programmers can handle this without breaking a sweat. Android uses XML extensively &mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.
 
 **JAVA FUNDAMENTALS**. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.
 

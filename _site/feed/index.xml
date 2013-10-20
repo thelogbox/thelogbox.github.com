@@ -4,13 +4,657 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-20T15:59:56+08:00</updated>
+ <updated>2013-10-20T23:39:31+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Network Connectivity</title>
+   <link href="http://thelogbox.com/phonegap-network-connectivity"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/phonegap-network-connectivity</id>
+   <content type="html">&lt;p&gt;Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not &amp;mdash; there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don't always pull updates if the connection is less than wifi.&lt;/p&gt;
+
+&lt;p&gt;To detect what kind of connectivity the device has, you need to use &lt;em&gt;navigator.connection.type&lt;/em&gt; object. You will need to include the &lt;em&gt;phonegap.js&lt;/em&gt; script in your code.&lt;/p&gt;
+
+&lt;p&gt;The connection.type object requires a plugin installation. You will have to pull some files from the Apache.org repositories.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Create a new project named &lt;em&gt;network&lt;/em&gt; and then pull the necessary plugins.&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+phonegap create network --name &quot;NetworkTest&quot; --id com.thelogbox.network
+
+cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;We won't be needing anything other the &lt;em&gt;index.html&lt;/em&gt; file. As usual, I've deleted the default html file created by phonegap.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Network exercise&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;watch&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;phonegap.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;window onload&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+    
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;deviceready&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Device is ready&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// log(&amp;quot;Connection is : &amp;quot; + navigator.connection.type);&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;CONNECTION [raw] : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Connection constant test : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;UNKNOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;UNKNOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Unknown connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ETHERNET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Ethernet connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WIFI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;WiFi connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_2G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 2G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_3G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 3G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_4G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 4G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell generic connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NONE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;No network connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;CONNECTION : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;br/&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;style &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;media=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  
+  &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Arial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#FBFBFB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F1F1F1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+  
+  &lt;span class=&quot;nf&quot;&gt;#watch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACACA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F1F1F1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Compile, build and run your app.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class='codeblock'&gt;
+
+phonegap build ios
+
+open platforms/ios/NetworkTest.xcodeproj
+
+# run the simulator from within ios
+
+&lt;/pre&gt;
+
+
+&lt;div id='lst'&gt;iOS build and test&lt;/div&gt;
+
+
+
+
+&lt;pre class='codeblock'&gt;
+
+phonegap run android
+
+&lt;/pre&gt;
+
+
+&lt;div id='lst'&gt;Android build and test&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src='/img/phonegap/network-screen.png' class='small' /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Network ConnectivityTest&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Getting Started</title>
+   <link href="http://thelogbox.com/phonegap-getting-started"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/phonegap-getting-started</id>
+   <content type="html">&lt;p&gt;PhoneGap development starts with preparing a project folder. Inside this folder, you will find files and sub folders. This project structure is a collection of specific files that PhoneGap needs to do its work. Inside it are build files, library files, the Apache Cordova middle ware and typical web components/files e.g. HTML, JavaScript, CSS and some image assets. It will be difficult and impractical to assemble them by hand that is why PhoneGap includes a CLI (Command Line Interface) with its SDK.&lt;/p&gt;
+
+&lt;p&gt;The PhoneGap CLI (Command Line Interface) has a set of commands that allows you create, build and install mobile app projects. If you have a proper installation of the PhoneGap development environment, you should be able to execute &lt;em&gt;phonegap&lt;/em&gt; from the command line. In fact, it's a good idea to test it now before you proceed any further, just to make sure that it really is working.&lt;/p&gt;
+
+&lt;p&gt;Invoking &lt;em&gt;phonegap&lt;/em&gt; from cmd line displays its usage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-cli.png&quot; alt=&quot;The phonegap gap command&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;phonegap command&lt;/div&gt;
+
+
+&lt;p&gt;As you can see, there are lots of things we can do with it. We can create, build and install mobile app projects using this command. In this chapter, we will create our first project using the PhoneGap CLI. We won't do anything with it just yet, we simply want to sample the feel of the  workflow and get acquainted with the process of creating, testing and building PhoneGap projects. Before the chapter is done, we would have created, built and tested a sample project in either an iOS simulator or an Android emulator.&lt;/p&gt;
+
+&lt;p&gt;To create a project, get a terminal window (cmd.exe in Windows, Terminal.app in OSX, xterm in Linux)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-create-project-windows.png&quot; alt=&quot;Project Creation. Windows&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Project Creation. Windows&lt;/div&gt;
+
+
+&lt;p&gt;If you are using either Linux or OSX, this is the set of command to follow&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-create-project-osx.png&quot; alt=&quot;Project Creation. OSX&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Project Creation. OSX&lt;/div&gt;
+
+
+&lt;p&gt;The first time you execute the &lt;em&gt;create&lt;/em&gt; command, PhoneGap will try to pull some setup files and libraries from the internet, so you need to be connected while you are doing this.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;create&lt;/em&gt; command will produce a folder named &lt;strong&gt;first&lt;/strong&gt; in the current working directory, go to that folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-project-structure.png&quot; alt=&quot;PhoneGap Project&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;first project folder structure&lt;/div&gt;
+
+
+&lt;h1&gt;&lt;/h1&gt;
+
+&lt;p&gt;A PhoneGap app comes with batteries included. The project creation includes a starter &lt;em&gt;index.html&lt;/em&gt; file that does a couple of things. It detected an event called &lt;em&gt;deviceready&lt;/em&gt; and it will display a nice looking image of PhoneGap.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/programming-workflow.png&quot; alt=&quot;Programming Workflow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-empty-project.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;PhoneGap Project Folder Structure&lt;/div&gt;
+
+
+&lt;h2&gt;Difference from Desktop App or Web App Programming&lt;/h2&gt;
+
+&lt;h2&gt;Building on Android&lt;/h2&gt;
+
+&lt;h2&gt;Building on iOS&lt;/h2&gt;
+
+&lt;p&gt;If you have a physical android, iOS or Windows8 device plugged into the USB of your development machine, you can try to install our first project &amp;mdash; type &lt;code&gt;phonegap run android&lt;/code&gt;. I am using Android that is why the target is &lt;em&gt;android&lt;/em&gt;. This command will pull some more files from the internet, then build an android target, then compile the android target before it finally installs the built &lt;em&gt;.apk&lt;/em&gt; onto your device.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/img/phonegap/generic-phonegap-app.png' class='shadow' /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Firt App&lt;/div&gt;
+
+
+&lt;p&gt;If you have a properly installed Android development setup&lt;/p&gt;
+
+&lt;p&gt;T&gt;If you encounter some problems during compilation and build, try to check where you placed your working folder. The PhoneGap CLI does not like folders that have white spaces in them e.g. &lt;em&gt;C:\Documents and Settings\yourname\workfolder\first&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A&gt; &lt;code&gt;phonegap create first&lt;/code&gt; creates and prepares a Phonegap project folder and files. &lt;code&gt;phonegap run android&lt;/code&gt; adds the android platform to your project, compiles and installs an android project to either a connected physical device or an emulator.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Let's examine the project folder we just created.&lt;/p&gt;
+
+&lt;p&gt;There are four folders. Merges, Platforms, Plugins and WWW. The WWW folder is where you will spend most of your time as a PhoneGap developer. This folder contains all of the User Interface elements that your app will have.&lt;/p&gt;
+
+&lt;p&gt;Try to inspect the contents of index.html. This file was generated by the PhoneGap CLI during project creation.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;format-detection&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;telephone=no&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;css/index.css&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello World&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;PhoneGap&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;deviceready&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blink&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;event listening&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Connecting to Device&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;event received&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Device is Ready&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;phonegap.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;js/index.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That is the default index.html which is responsible for the welcome screen. There are a lot things going in there which we don't need for now, so we will take them out. Edit it and replace it with the following;&lt;/p&gt;
+
+&lt;p&gt;If you would like to deploy this in an IOS device, you will need to do the following.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Go to the project directory, the &quot;first&quot; folder&lt;/li&gt;
+&lt;li&gt;Run the command &lt;code&gt;phonegap build ios&lt;/code&gt;. The PhoneGap CLI may warn you that you don't have the &lt;em&gt;ios-sim&lt;/em&gt; package just yet. It will give you instructions on how to get it, either from homebrew or a git pull&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;platforms/ios&lt;/em&gt; folder and double-click the file that has the &lt;strong&gt;.xcodeproj&lt;/strong&gt; extension.&lt;/li&gt;
+&lt;li&gt;XCode will launch and you can then run the sample code by running the iPhone or iPad simulator&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Recap&lt;/h2&gt;
+
+&lt;p&gt;The basic workflow that you may find your self following is this.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a project using the PhoneGap CLI&lt;/li&gt;
+&lt;li&gt;Inside the project, make the changes to files inside the &lt;strong&gt;WWW&lt;/strong&gt; folder&lt;/li&gt;
+&lt;li&gt;Do a build either in Android, iOS or any platform you like&lt;/li&gt;
+&lt;li&gt;If you are using Android, you can test and deploy using the PhoneGap CLI &amp;mdash; &lt;code&gt;phonegap run android&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If you are on iOS, just build the project using &lt;code&gt;phonegap build ios&lt;/code&gt;, then do the testing, simulation and deployment using XCode&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Regardless of the platform you are targetting, you will make the code changes in the &lt;strong&gt;WWW&lt;/strong&gt; folder of PhoneGap, and the &lt;em&gt;www&lt;/em&gt; of either Android, iOS or WP7/8&lt;/p&gt;
+
+&lt;h2&gt;VOCABULARY&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;PhoneGap CLI&lt;/li&gt;
+&lt;li&gt;XCode&lt;/li&gt;
+&lt;li&gt;Android Emulator&lt;/li&gt;
+&lt;li&gt;iOS Simulator&lt;/li&gt;
+&lt;li&gt;cmd - short for command, so if you see something like &lt;em&gt;cmd line&lt;/em&gt;, that means command line, which means do it from a terminal window.&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>iOS Setup</title>
+   <link href="http://thelogbox.com/phonegap-development-environment-ios"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/phonegap-development-environment-ios</id>
+   <content type="html">&lt;p&gt;You need a Mac. The Apple&amp;reg; tools needed to build iOS applications runs only on Apple&amp;reg; hardware, lest you violate their TOS. Specifically, to build iOS apps using PhoneGap 3.0, you need an Intel based Mac and at least OSX 10.7 (Lion).&lt;/p&gt;
+
+&lt;p&gt;The second thing you need is XCode&amp;reg;, at least version 4.5. Since OSX 10.7, XCode is no longer bundled on the installation DVD, you need to get it from the App Store.&lt;/p&gt;
+
+&lt;p&gt;Once you have procured XCode, there is one more tiny thing to do. Download  the &lt;strong&gt;Command Line Tools&lt;/strong&gt;. To do that, launch XCode, go to &lt;em&gt;Preferences&lt;/em&gt; then click the &lt;em&gt;Downloads&lt;/em&gt; tab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/xcode-pref.png&quot; alt=&quot;XCode Preferences&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;XCode Preferences&lt;/div&gt;
+
+
+&lt;p&gt;Download the Command Line Tools. That will take a while. The size of the Command Line tools is quite hefty. Once the download is finished, launch the Terminal.app so we can quickly test if the tools are working. Run &lt;code class=&quot;codeblock&quot;&gt;clang --version&lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt;gcc --version&lt;/code&gt;. If you did not get a &lt;em&gt;command not found&lt;/em&gt; error, chances are the tools are working.&lt;/p&gt;
+
+&lt;p&gt;Now the XCode part is over, move on to the PhoneGap tool chain.&lt;/p&gt;
+
+&lt;h1&gt;PHONEGAP TOOL CHAIN&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Node Package Manager&lt;/strong&gt;. You need the node packager manager to proceed. You can download it at the &lt;a href=&quot;http://nodejs.org&quot;&gt;NodeJS site&lt;/a&gt;. Another way of getting &lt;strong&gt;npm&lt;/strong&gt; is either via &lt;a href=&quot;http://brew.sh&quot;&gt;HomeBrew&lt;/a&gt; or &lt;a href=&quot;http://macports.org&quot;&gt;MacPorts&lt;/a&gt;, I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.&lt;/p&gt;
+
+&lt;p&gt;When you are done with the npm installation, you can get the PhoneGap installers.&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+$ npm install -g phonegap
+
+$ npm install -g cordova
+
+&lt;/pre&gt;
+
+
+&lt;h1&gt;QUICK TEST&lt;/h1&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+$ mkdir ~/workarea
+
+$ cd ~/workarea
+
+$ phonegap create first
+
+$ cd first
+
+$ phonegap build ios
+
+$ open platforms/ios/first
+
+[phonegap] detecting iOS SDK environment...
+[phonegap] using the local environment
+[phonegap] adding the iOS platform...
+[phonegap] compiling iOS...
+[phonegap] successfully compiled iOS app
+
+$ open platforms/ios/HelloWorld.xcodeproj
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;After that last command, XCode will launch and open the ios project generated by PhoneGap.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/xcode-helloworld.png&quot; alt=&quot;iOS HelloWorld&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;iOS HelloWorld&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Android Setup</title>
+   <link href="http://thelogbox.com/phonegap-development-environment-android"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/phonegap-development-environment-android</id>
+   <content type="html">&lt;p&gt;Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If that is still not clear enough, you can look at the &lt;a href=&quot;https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing&quot;&gt;setup instructions I wrote for my students here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;ANDROID SDK SETUP&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;DOWNLOAD THE INSTALLER&lt;/strong&gt; from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You might be tempted to get the ADT bundle because the link on that one is prominently displayed, that is not the one you need, that is for Eclipse users. Download just SDK, not the bundle.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET THE ZIPPED FILE&lt;/strong&gt;. Unzip the file to a user directory so that you will not need elevated privileges to use the executable files.&lt;/p&gt;
+
+&lt;p&gt;The user directory in Windows is usually inside &lt;code class=&quot;codeblock&quot;&gt;C:\User\yourname&amp;lt;/code&gt;. Try to install on a folder without a white space. White spaces in Windows can become very troublesome when working on the command line. In OSX it will be inside &lt;code class=&quot;codeblock&quot;&gt;/Users/yourname/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Try to remember the full path of the directory where you unzipped the Android SDK, this will be the &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GET A TERMINAL WINDOW&lt;/strong&gt; &amp;mdash; cmd.exe in Windows and Terminal.app in OSX. Go to the ANDROID-HOME/tools directory, run the &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt; executable. This will launch the Android SDK Manager.&lt;/p&gt;
+
+&lt;p&gt;The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won't be much. Choose the API levels that you would like to install in your machine.&lt;/p&gt;
+
+&lt;p&gt;Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Jellybean SDK, for example, then check the box next to API level 17.&lt;/p&gt;
+
+&lt;p&gt;If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete though.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MODIFY THE SYSTEM PATH&lt;/strong&gt;. Include the &lt;em&gt;android tools&lt;/em&gt; and &lt;em&gt;platform tools&lt;/em&gt; in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;WINDOWS&lt;/h2&gt;
+
+&lt;p&gt;There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).&lt;/p&gt;
+
+&lt;pre class='codeblock'&gt; 
+
+SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
+  
+SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.&lt;/p&gt;
+
+&lt;p&gt;If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box.&lt;/p&gt;
+
+&lt;p&gt;First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;em&gt;Environment variables&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/windows-environment-variables.png&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have local admin rights on the machine, click the &lt;strong&gt;New&lt;/strong&gt; button on &lt;strong&gt;System variables&lt;/strong&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;em&gt;PATH&lt;/em&gt;, then click the &lt;em&gt;Edit&lt;/em&gt; button. Go to the last character of the existing entry, then add &lt;code class=&quot;codeblock&quot;&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type &quot;android&quot;, it should launch the SDK manager&lt;/p&gt;
+
+&lt;p&gt;Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.&lt;/p&gt;
+
+&lt;h2&gt;OSX&lt;/h2&gt;
+
+&lt;p&gt;Edit &lt;strong&gt;~/.bash_profile&lt;/strong&gt; and export the Android SDK directories&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+export ANDROID_HOME=/Users/ted/progtools/adnroid-sdk-macosx
+
+export PATH=$PATH:$ANDROID_HOME/platform-tools:.
+
+export PATH=$PATH:$ANDROID_HOME/tools:.
+
+&lt;/pre&gt;
+
+
+
+
+&lt;div id='lst'&gt;/.bash_profile&lt;/div&gt;
+
+
+&lt;h1&gt;PHONEGAP TOOL CHAIN&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Node Package Manager&lt;/strong&gt;. You need the node packager manager to proceed. You can download it at the &lt;a href=&quot;http://nodejs.org&quot;&gt;NodeJS site&lt;/a&gt;. On OSX, another way of getting &lt;strong&gt;npm&lt;/strong&gt; is either via &lt;a href=&quot;http://brew.sh&quot;&gt;HomeBrew&lt;/a&gt; or &lt;a href=&quot;http://macports.org&quot;&gt;MacPorts&lt;/a&gt;, I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.&lt;/p&gt;
+
+&lt;p&gt;When you are done with the npm installation, you can get the PhoneGap installers. Get a terminal window &amp;mdash; cmd.exe for Windows and Terminal.app for OSX&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+npm install -g phonegap
+
+npm install -g cordova
+
+&lt;/pre&gt;
+
+
+&lt;h1&gt;QUICK TEST&lt;/h1&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+$ mkdir ~/workarea
+
+$ cd ~/workarea
+
+$ phonegap create first
+
+$ cd first
+
+$ phonegap build android
+
+$ cd platforms
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;An android project folder should have been created inside the platforms folder. This folder contains the necessary android project structure for testing and deployment.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Database Programming</title>
+   <link href="http://thelogbox.com/phonegap-database-programming"/>
+   <updated>2013-10-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/phonegap-database-programming</id>
+   <content type="html">&lt;p&gt;There are two ways to persist data on PhoneGap. One is to use &lt;em&gt;local storage&lt;/em&gt; and the other, &lt;em&gt;WebSQL&lt;/em&gt;. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.&lt;/p&gt;
+
+&lt;p&gt;The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that's why SQL programming is almost a baseline capability for developers.&lt;/p&gt;
+
+&lt;h1&gt;WEBSQL&lt;/h1&gt;
+
+&lt;p&gt;WebSQL essentially is about issuing SQL commands against a SQLite3 databaseprogramming. If you haven't used SQLite before, it is a lightweight desktop database. It's a desktop database because it does not require a dedicated server side process unlike MySQL, Oracle or MS SQL Server &amp;mdash; those things are called client-server databases.&lt;/p&gt;
+
+&lt;p&gt;Databases are good for a wide variety of programming tasks, but mainly they excel for information management, specifically structured record management. An introduction to SQL is beyond the scope of this chapter, in fact, I made a very dangerous assumption that you already have a backround in basic database programming. If you feel you need an introduction to SQL or you need a refresher on it, &lt;a href=&quot;http://www.w3schools.com/sql/sql_intro.asp&quot;&gt;the SQL introduction&lt;/a&gt; of W3Schools.com might be a good place to start.&lt;/p&gt;
+
+&lt;p&gt;[Maybe in the future version, I can have an Appendix on basic SQL tutorial]&lt;/p&gt;
+
+&lt;p&gt;Most database programs involves boiler plate codes &amp;mdash; plumbing codes, so to speak. No matter what the database program is trying to do, it will always have to cover some generic steps e.g.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open a connection to the database&lt;/li&gt;
+&lt;li&gt;Create a database or connect to an existing one&lt;/li&gt;
+&lt;li&gt;Execute SQL statements in order Create, Read, Update or Delete some records&lt;/li&gt;
+&lt;li&gt;Close any connection that you opened&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;In the next sections, we will cover the syntax for these boiler plate codes and demonstrate their usage. Towards the end of the chapter, we will use the WebSQL API for a simple TODO list app.&lt;/p&gt;
+
+&lt;h1&gt;CREATE AND OPEN A DATABASE&lt;/h1&gt;
+
+&lt;p&gt;We will start with some basic codes that demonstrates how to create a database. We will also take a look at some ways on how we can test and debug our database codes without running the device emulator.&lt;/p&gt;
+
+&lt;p&gt;Best to create a new PhoneGap project so we can try out some database coding.&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;Go to the &lt;em&gt;WWW&lt;/em&gt; folder and edit &lt;em&gt;index.html&lt;/em&gt; so it looks like our sample code.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;utf-8&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;onload&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbversion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbdisplayname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;TasksDatabase&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbsize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;openDatabase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbversion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbdisplayname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;WebSQL API use is okay&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;WebSQL API is not supported&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;theLogBox Code Sample&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Database&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;index.html&lt;/div&gt;
+
+
+&lt;p&gt;The above code is a typical usage of the &lt;code class=&quot;codeblock&quot;&gt;openDatabase()&lt;/code&gt; API. The openDatabase function is a member of the &lt;em&gt;window&lt;/em&gt; object, hence you can write the statement as &lt;code class=&quot;codeblock&quot;&gt;window.openDatabase()&lt;/code&gt; &amp;mdash; I did not have to do that anymore because the &lt;em&gt;window&lt;/em&gt; object has a global scope.&lt;/p&gt;
+
+&lt;p&gt;There are 4 things you need to pass to the &lt;code&gt;openDatabase&lt;/code&gt; function, the database name, version, display name and size (in bytes).&lt;/p&gt;
+
+&lt;p&gt;&lt;aside&gt;&lt;/p&gt;
+
+&lt;p&gt;WebSQL is already part of PhoneGap 3.0. Access to the database feature is no longer via the plugin architecture. This is the reason why you don't have to put your codes inside the &lt;em&gt;deviceready&lt;/em&gt; callback. This is also the reason why you can test your database codes using just a simple browser. There is no need to deploy it to a device or run it in an emulator.&lt;/p&gt;
+
+&lt;p&gt;&lt;/aside&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are using the Chrome browser, you can use the &lt;strong&gt;Developer Tools&lt;/strong&gt; to inspect the datababase. As a web developer, it is in your best interest to be familiar with debugging and profiling tools &amp;mdash; Google Chrome comes with such tools.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/chrome-dev-tools.png&quot; alt=&quot;Chrome Developer Tools&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Launch a browser and open the HTML file where you wrote the sample database code. You won't see anything interesting just yet, we've just created the database, but let's take a look under the hood. I hope you used Chrome for testing, because these coding and debugging exercises were all done using Google Chrome.&lt;/p&gt;
+
+&lt;p&gt;Once the page is in view, go to the &lt;em&gt;Developer Tools&lt;/em&gt; of Chrome, on the &lt;em&gt;Console&lt;/em&gt; tab, you should see something like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/database-creation.png&quot; alt=&quot;Database Creation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That is the effect of the &lt;code&gt;console.log()&lt;/code&gt; code.  Anything you pass to the console.log function gets echoed to the &lt;em&gt;Console&lt;/em&gt; tab of the dev tools. This is quite a handy way of debugging. It is also less intrusive than the JavaScript &lt;em&gt;alert()&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now click the &lt;em&gt;Resources&lt;/em&gt; tab. You should see something like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/database-creation-resources.png&quot; alt=&quot;Database Creation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Under &lt;em&gt;WebSQL&lt;/em&gt; you can see that there is a newly created &lt;em&gt;tasks&lt;/em&gt; database. This means our code ran as expected.&lt;/p&gt;
+
+&lt;p&gt;You can try to refresh the page or run the JavaScript code over and over, but it won't create another &lt;em&gt;tasks&lt;/em&gt; database &amp;mdash; if that was you were expecting. The &lt;code&gt;openDatabase&lt;/code&gt; command only creates a database file (&lt;em&gt;tasks.db&lt;/em&gt;, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The &lt;code&gt;openDatabase()&lt;/code&gt; function is used both to create a not yet existing database file and to open an existing one.&lt;/p&gt;
+
+&lt;h1&gt;CREATING TABLES&lt;/h1&gt;
+
+&lt;p&gt;After creating a database, you need to create some tables inside it. The tables are the actual data structures that holds structured information. In this section, we will simply create a single table named TODO. This table will hold our todo items.&lt;/p&gt;
+
+&lt;p&gt;You will notice that all of our codes are sequential. The codes to create the database is immediately followed by the table creation, which in turn is immediately followed by some commands that insert data into the table. In practice, this is rarely the case. The routine to create the database and the table will most likely be confined to a special routine that is executed only once. The routine to insert records into the table will most likely be written in a call back function that corresponds to a user-triggered action e.g. a button click. I have written the following example in a rather simplistic and unrealistic way to improve clarity of the code and so that we won't get bogged down by detailed minutiae of event-handling.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  
+  &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;output&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;onload&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;tasks&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbversion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbdisplayname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;TasksDatabase&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbsize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;openDatabase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbversion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbdisplayname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dbsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createErr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createOkay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executeSql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;CREATE TABLE IF NOT EXISTS TODO (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT UNIQUE)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executeSql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;INSERT INTO TODO(item) VALUES(?)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Brush your teeth&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executeSql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;INSERT INTO TODO(item) VALUES(?)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Eat Vegetables&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;executeSql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;INSERT INTO TODO(item) VALUES(&amp;#39;Brush your teeth again&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createErr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Err # : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Err : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createOkay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Creation succeeded&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will use the &lt;em&gt;transaction()&lt;/em&gt; function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the &lt;em&gt;executeSql()&lt;/em&gt; function which in turn contains the actual SQL commands.&lt;/p&gt;
+
+&lt;p&gt;The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an &lt;em&gt;error&lt;/em&gt; object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.&lt;/p&gt;
+
+&lt;p&gt;The third parameter is called back after all the SQL commands have been executed and no errors have been encountered.&lt;/p&gt;
+
+&lt;h1&gt;EXECUTING SQL COMMANDS&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create, read, update, delete&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;DEBUGGING AND TROUBLESHOOTING&lt;/h1&gt;
+
+&lt;h1&gt;FULL EXAMPLE&lt;/h1&gt;
+</content>
+ </entry>
  
  <entry>
    <title>How Much Java Do You Need</title>
@@ -23,7 +667,7 @@
 
 &lt;p&gt;&lt;strong&gt;CALLBACK&lt;/strong&gt;. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks &amp;mdash; using only the XML files to hook the events &amp;mdash; but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the &lt;em&gt;click&lt;/em&gt; event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the &lt;strong&gt;Listeners&lt;/strong&gt; in Android.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;XML&lt;/strong&gt;. This is easy and should not be much of a trouble. Event beginning programmers can handle this without breaking a sweat. Android uses XML extensively &amp;mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;XML&lt;/strong&gt;. This is easy and should not be much of a trouble. Even beginning programmers can handle this without breaking a sweat. Android uses XML extensively &amp;mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;JAVA FUNDAMENTALS&lt;/strong&gt;. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.&lt;/p&gt;
 
@@ -1115,7 +1759,11 @@
    <link href="http://thelogbox.com/mobile-app-development-phonegap"/>
    <updated>2013-01-25T00:00:00+08:00</updated>
    <id>http://thelogbox.com/mobile-app-development-phonegap</id>
-   <content type="html">&lt;p&gt;Work in Progress. Come back soon. Very soon.&lt;/p&gt;
+   <content type="html">&lt;p&gt;These notes were lifted from lesson plans. They have undergone quite a few changes chiefly because of the changes from PhoneGap 2.0 to 3.0.&lt;/p&gt;
+
+&lt;p&gt;My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical management position. I also teach. I taught at Asia Pacific College, IBM Advance Career Education and Ateneo ITI. That's probably what you need to know about the author of this work.&lt;/p&gt;
+
+&lt;p&gt;There is side navigation bar on this mini site. Use them as you would a &lt;strong&gt;table of contents&lt;/strong&gt; in a book. I tried to organize them as such. The side bar is organized sequentially. You can get the most information by following this sequence.&lt;/p&gt;
 </content>
  </entry>
  
@@ -10889,11 +11537,31 @@ String b = a.toUpperCase();&lt;/p&gt;
  </entry>
  
  <entry>
+   <title>Choosing Books for Android</title>
+   <link href="http://thelogbox.com/choosing-books-for-android"/>
+   <updated>2012-07-08T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/choosing-books-for-android</id>
+   <content type="html">&lt;div id='feature-button'&gt;
+
+This content has moved. If you click the button link below, it will take you to the updated content.
+
+&lt;p/&gt;
+
+&lt;a href='/blog-choosing-books-for-android' class='button'&gt;Android Programming Bibliography&lt;/a&gt;
+
+&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>Study Tips</title>
    <link href="http://thelogbox.com/blog-studying-and-practicing-android"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-studying-and-practicing-android</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;PICK UP A BOOK&lt;/strong&gt;. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the &lt;a href=&quot;http://localhost:4000/blog-choosing-books-for-android&quot;&gt;BIBLIOGRAPHy&lt;/a&gt; section of this mini site. There are some ideas there that can get you started in choosing reference materials&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;PICK UP A BOOK&lt;/strong&gt;. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the &lt;a href=&quot;http://localhost:4000/blog-choosing-books-for-android&quot;&gt;BIBLIOGRAPHY&lt;/a&gt; section of this mini site. There are some ideas there that can get you started in choosing reference materials&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;START TAKING NOTES&lt;/strong&gt; for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor &lt;strong&gt;retention&lt;/strong&gt; over speed of coverage. Don't skim the headlines&lt;/p&gt;
 

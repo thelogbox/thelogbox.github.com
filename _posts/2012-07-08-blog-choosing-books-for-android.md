@@ -5,8 +5,8 @@ title: Bibliography
 
 description:
 
-except:
-- android-programming
+categories:
+- android-programming, books
 
 ---
 
