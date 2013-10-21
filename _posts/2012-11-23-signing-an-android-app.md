@@ -17,11 +17,11 @@ Check if you have keytool in your system path. Run the <code class="codeblock">k
 
 **GENERATE THE KEY**
 
-<code class="codeblock">
+<pre class="codeblock">
 
 $ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
 
-</code>
+</pre>
 
 If you get the exception *Keytool-error: java.io.IOException : Incorrect AVA format*, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner
 
