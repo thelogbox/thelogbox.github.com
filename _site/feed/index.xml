@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-20T23:52:07+08:00</updated>
+ <updated>2013-10-22T23:48:56+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -2641,11 +2641,12 @@ Check if you have keytool in your system path. Run the &lt;code class=&quot;code
 
 &lt;p&gt;&lt;strong&gt;GENERATE THE KEY&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;&lt;/p&gt;
+&lt;pre class=&quot;codeblock&quot;&gt;
 
-&lt;p&gt;$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000&lt;/p&gt;
+$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
 
-&lt;p&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/pre&gt;
+
 
 &lt;p&gt;If you get the exception &lt;em&gt;Keytool-error: java.io.IOException : Incorrect AVA format&lt;/em&gt;, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner&lt;/p&gt;
 
