@@ -11,7 +11,7 @@ When you start working with non-trivial Canvas applications, you will need to de
 
 The following code sample allows the user to click inside the canvas. Each click produces a random shape e.g. circle, rectangle and square. The app constructs a random object on each click, which will then fall from the top of the canvas and eventually drops off the border.
 
-<a href='http://jsfiddle.net/tedhagos/FYbwH/embedded/result/' class='button>See the Demo</a>
+<a href='http://jsfiddle.net/tedhagos/FYbwH/embedded/result/' class='button'>See the Demo</a>
 
 {% highlight javascript %}
 window.onload = function() {
