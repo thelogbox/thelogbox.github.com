@@ -51,9 +51,6 @@ The workshop is for people who already know the Java programming language and ar
 2. A properly setup android development environment
 3. A physical android device (optional, but highly recommended)
 
-
-# FOR TRAINING DETAILS
-
-<a href="mailto:ted@thelogbox.com" class='button icon mail'>Send me a note for the details</a>
+<a href="mailto:ted@thelogbox.com" class='button'>PLEASE EMAIL FOR TRAINING DETAILS</a>
 
 This is available as a person-led training (if you are in Metro Manila, Philippines)

@@ -34,8 +34,6 @@ categories:
 
 **On the day of the training, you will need** a notebook computer (Windows, Mac or Linux) with a properly installed JDK. The setup of this environment will be given in detailed document prior to the training.
 
-# FOR TRAINING DETAILS
-
-<a href="mailto:ted@thelogbox.com" class='button icon .mail'>Send me a note for the details</a>
+<a href="mailto:ted@thelogbox.com" class='button'>PLEASE SEND A MAIL FOR THE TRAINING DETAILS</a>
 
 This is available as a person-led training (if you are in Metro Manila, Philippines)

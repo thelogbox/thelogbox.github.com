@@ -17,27 +17,33 @@
 <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 
 <meta name="description" content="" />
 <title>Database Programming with WebSQL | theLogBox </title>
 
 		<style>
 
+* {
+  background: #fbfbfb;
+}
+
 p, ol, li , .content-meta, body, p, br {
 	font-family: 'Helvetica','Tahoma';
 	font-size: 16px;
 	line-height: 1.5em;
   /* color: #414141; */
-  color: #222222;
+  color: #3c3c3c;
 
 }
 
 .tutorial-writeup {
   text-align: left;
-  width: 95%;
+  width: 90%;
   font-size: 20px;
   margin: 0 auto;
   color: #555555;
+  background: inherit;
   line-height: 1.5em;
   text-transform: uppercase;
 }
@@ -49,10 +55,9 @@ p, ol, li , .content-meta, body, p, br {
   text-align: center;
   color: #555555;
   position:relative;
-  background: #FFFFdd;
-  border-bottom: 1px solid #f1f1f1;
+  background: #F0F0F0;
 }
-
+.android-head a:link, .android-head a:visited {background: inherit;}
 
 .blog-head {
 
@@ -70,18 +75,21 @@ p, ol, li , .content-meta, body, p, br {
 }
 .courses-head {background-image:url('../img/room.jpg');}
 .phonegap-head {background-image:url('../img/fruits.JPG')}
- 
+
+/* 
 .android-head a:link, .android-head a:visited,
 .blog-head a:link, .blog-head a:visited,
 .phonegap-head a:link, .phonegap-head a:visited {
   color: #cc0000;
 }
+*/
 
+android-head a:hover {border-bottom: 0;}
 
 .vspacer {height:20px;}
 
 #wrap {
-	width:95%;
+	width:90%;
 	margin: 0 auto;
 	padding-top: 1em;
 }
@@ -94,7 +102,7 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 .notoc {
-  width:95%;
+  width:90%;
 }
 
 #articletitle {
@@ -104,7 +112,7 @@ p, ol, li , .content-meta, body, p, br {
   
   text-align: left;
   line-height: 1em;
-  color: #000000;
+  color: #555555;
   /*color: #373737;*/
   /* color:#2d2d2d; */
 }
@@ -118,20 +126,21 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 .toc {
-  font-size: 16px;
   text-align:left;
   width:28%;
   overflow: visible;
   padding: 10px;
-  border: 0px solid #DEDEDE;
   float: right;
-  line-height: 1.6em%;
+  line-height:1.5em;
 }
+.toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
+.toc li {color: #3a5d9f; list-style: square;}
 
+
+/*
   .toc a:link, .toc a:visited {
     font-family: 'Tauri';
     color: #bf3f3f;
-    /* color: #bf3f3f; */
   }
   .toc h1, .toc h2, .toc h3 {
     font-family: 'Tauri';
@@ -139,10 +148,8 @@ p, ol, li , .content-meta, body, p, br {
     padding-left: 38px;
   }
   
-  .toc li {
-    color: #bf3f3f;
-    list-style-type: square;
-  }
+
+*/
 
 #blogtitle {
 	margin-bottom:2em;
@@ -163,7 +170,7 @@ p, ol, li , .content-meta, body, p, br {
 h1, h2, h3, h4, h5 {
 	font-family: 'Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
-	color: #373737;
+	color: #555555;
   font-weight:normal;
 }
 
@@ -178,12 +185,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   min-height: 400px;
   padding-top:40px;
   padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
 }
 
 .feature-title {
   font-family: 'Rokkitt';
   font-size: 70px;
-  color: #000000;
+  color: #2F2F2F;
   text-align: center;
   padding-top:40px;
   padding-bottom:40px;
@@ -194,21 +202,22 @@ h3 {font-size: 20px; margin-bottom:0;}
 
 .feature-article {
   font-family: 'Helvetica','Tahoma';
-  font-size: 16px;
-  color: #5e5e5e;
-  line-height: 1.4em; 
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
   width: 80%;
   margin: 0 auto; 
 }
 
 .feature-banner{
   /* color: #9a3c31; */
-  color: #f1f1f1;
+  color: #ADADAD;
   display:block;
-  font-family: 'Helvetica', 'Arial';
+  font-family: 'Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
-  /* background: #999999; */
-  background: #800000;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
   text-align:center;
@@ -224,7 +233,6 @@ h3 {font-size: 20px; margin-bottom:0;}
 
 #disqus_thread {
   clear: both;
-  width: 95%;
   margin: 0 auto;
   margin-top: 50px;
 }
@@ -240,32 +248,15 @@ body {
 }
 
 footer {
-	font-family: 'Rokkitt';
 	font-style:normal;
 	margin-top:20px;
   padding-top:25px;
-  padding-left:40px;
+  padding-left:30px;
   clear:both;
   text-align: left;
   min-height:40px;
-  border-top:1px solid #CACACA;  
+  border-top:1px dashed #CACACA;  
 }
-
-/*
-#header-right {
-	line-height: 1.5em;
-	font-family: 'arial', 'helvetica', 'sans-serif';
-	font-size: 80%;
-	font-style: normal;
-	position:relative;
-	float:right;
-	padding: 1em;
-	border: 2px solid #CACACA;
-	margin-bottom:1em;
-	margin-left:1em;
-}
-
-*/
 
 hr {
 	border:0;
@@ -289,7 +280,7 @@ strong {
 em {
   font-style:oblique;
   font-family: Georgia;
-  color: #003D82;
+  /* color: #003D82; */
 }
 
 code {
@@ -313,10 +304,11 @@ pre {
 }
 
 .codeblock {
-  background: #FFFFFF;
-  font-family: 'Muli';
+/*  font-family: 'Muli';
   font-size: 15px;
-  color: #0000b3;
+  color: #0000b3; */
+  font-size: 16px;
+  font-family: 'Inconsolata';
   padding:0px;
   margin: 0px;
   border: 0px;  
@@ -345,14 +337,15 @@ a:link, a:visited {
   /*color: #004a94;
   color: #0778e4;*/
   /*color: #b30000;
-  color: #9a3c31; */
-  color: #B30000;
+  color: #9a3c31;
+  color: #B30000; */
+  color: #3a5d9f;
   text-decoration: none;
 }
 
 a:hover {
-  color: #9a3c31;
-  border-bottom: 1px solid #9a3c31;
+  color: #3a5d9f;
+  border-bottom: 1px solid #6083c5;
 }
 
 img {
@@ -461,7 +454,8 @@ aside {
   display: inline-block;
   font-family: Arial;
   display: inline;
-  background: #800000;
+/*  background: #800000; */
+  background: #3a5d9f;
   padding-top: 8px;
   padding-bottom:8px;
   padding-left:20px;
@@ -476,10 +470,8 @@ aside {
   color: white;
 }
 
-.button:hover {background:#000000;}
-.button:active {
-  color: #b30000;
-}
+.button:link, .button:visited {color: #f1f1f1;}
+.button:hover {background:#555555;}
 
 /* overrides extra padding on button elements 
    in Firefox */
@@ -687,7 +679,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		</article>
     
     <div class="toc">
-      <h1>CONTENTS</h1>
       
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
