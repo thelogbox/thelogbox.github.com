@@ -1,0 +1,573 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/thelogbox/feed/" />
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<meta name="description" content="" />
+<title>Introduction | theLogBox </title>
+
+		<style>
+
+* {
+  background: #fbfbfb;
+}
+
+p, ol, li , .content-meta, body, p, br {
+	font-family: 'Helvetica','Tahoma';
+	font-size: 16px;
+	line-height: 1.5em;
+  /* color: #414141; */
+  color: #3c3c3c;
+
+}
+
+.tutorial-writeup {
+  text-align: left;
+  width: 90%;
+  font-size: 20px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  background: #F0F0F0;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+/*
+.courses-head {background-image:url('../img/room.jpg');}
+*/
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:90%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+
+.notoc {
+  width:90%;
+}
+
+#articletitle {
+	font-family: 'Rokkitt', 'Helvetica', sans-serif;
+	font-size: 45px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 1em;
+  color: #555555;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  text-align:left;
+  width:28%;
+  overflow: visible;
+  padding: 10px;
+  float: right;
+}
+.toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.8em;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #555555;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.5em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Helvetica','Tahoma';
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family: 'Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+#feature-button a:link, #feature-button a:visited {color:#ffffff;}
+#feature-button a:hover {border-bottom: 0; text-decoration:none;}
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {
+    
+  font-family: 'Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+footer {
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:30px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:1px dashed #CACACA;  
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 2px;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
+}
+
+strong {
+  font-family: 'Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+em {
+  font-style:oblique;
+  font-family: Georgia;
+  /* color: #003D82; */
+}
+
+code {
+	font-family: 'Inconsolata','Source Code Pro';
+}
+
+pre {
+	font-family: 'Inconsolata','Source Code Pro';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:0px;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+/*  font-family: 'Muli';
+  font-size: 15px;
+  color: #0000b3; */
+  font-size: 16px;
+  font-family: 'Lekton';
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 14px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+
+a:link, a:visited {
+  /*color: #004a94;
+  color: #0778e4;*/
+  /*color: #b30000;
+  color: #9a3c31;
+  color: #B30000; */
+  color: #3a5d9f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3a5d9f;
+  border-bottom: 1px solid #6083c5;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  img.default {
+    width: inherit;
+  }
+
+aside {
+  
+  padding: 10px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family: Arial;
+  display: inline;
+/*  background: #800000; */
+  background: #3a5d9f;
+  padding-top: 8px;
+  padding-bottom:8px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: white;
+}
+
+.button:link, .button:visited {color: #f1f1f1;}
+.button:hover {background:#555555;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div class="running-head">   
+      <div class='tutorial-writeup'>             
+        JAVA PROGRAMMING
+      </div>
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Introduction</div>
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>These are my notes on the Java Programming Language. These notes used to be hosted at <a href="http://tedhagos.com/java-programming">tedhagos.com/java-programming</a>, it was written on a single HTML page. Now, these notes are getting a rewrite. Most probably in tutorial form. There is a navigation bar on the side, please use it as you would a table of contents, I organized these notes as such.</p>
+
+<p>These notes dates back to the late part of the 1990s. I update them from time to time. These were written primarily as a secondary reference for my students in Asia Pacific College and IBM ACE. It was not meant to be an introduction to computing concepts. It assumes that the reader has some degree of familiarization in basic programming concepts which may have been acquired from experience of another programming language.</p>
+
+<p>Having said that, what follows will take you through a very quick tour of the Java programming language. This material was not designed to cover all the aspects of the language, as it will be impractical to do so. The breadth and depth of Java, with all the associated technologies have increased drastically since it was first introduced in 1995.</p>
+
+<p>The code samples and exercises in this material were built using plain editors and the Java Development Kit. The use of simple tools is ideal for learning because there are no magic tricks and convenience facilities (like the case if you use an IDE). As a result, your brain will work harder because you are forced to use primitive tools. In a production environment or consulting environment, this reasoning might not be suitable and hence, the decision for tool selection will be influenced by other factors such as programmer productivity, time schedules and other constraints.</p>
+
+<p>For the purpose of learning programming in Java — which is the goal of this material — we need our brains and faculties to work harder than usual to maximize learning and understanding.</p>
+
+        </div>
+							
+		  </div>
+       <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
+		</article>
+    
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/java-introduction">Introduction</a></li>
+      <li><a href="/java-coding-process">Coding Process</a></li>
+      <li><a href="#">Key Concepts</a></li>
+      <li><a href="#">Data Types</a></li>
+      <li><a href="#">Program Flow</a></li>
+      <li><a href="#">Reference Type</a></li>
+      <li><a href="#">Type System</a></li>
+      <li><a href="#">Object Oriented Programming</a></li>
+      <li><a href="#">Data Structures</a></li>
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+
+		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

@@ -18,6 +18,7 @@
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
 <meta name="description" content="" />
 <title>Getting Started | theLogBox </title>
@@ -220,7 +221,7 @@ hr {
 	border:0;
 	color: #CACACA;
 	background: #CACACA;
-	height: 1px;
+	height: 2px;
 }
 
 hr .section {
@@ -266,7 +267,7 @@ pre {
   font-size: 15px;
   color: #0000b3; */
   font-size: 16px;
-  font-family: 'Inconsolata';
+  font-family: 'Lekton';
   padding:0px;
   margin: 0px;
   border: 0px;  
@@ -515,50 +516,49 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The first time you execute the <em>create</em> command, PhoneGap will try to pull some setup files and libraries from the internet, so you need to be connected while you are doing this.</p>
 
-<p>The <em>create</em> command will produce a folder named <strong>first</strong> in the current working directory, go to that folder.</p>
+<p>The <em>create</em> command will produce a folder named <strong>first</strong> in the current working directory, that folder contains things that are necessary for you to build a project.</p>
 
 <p><img src="/img/phonegap/phonegap-project-structure.png" alt="PhoneGap Project" /></p>
 
-<div id='lst'>first project folder structure</div>
+<div id='lst'>Project Structure</div>
 
 
-<h1></h1>
+<p>You will find a folder called WWW on the root project directory. This WWW folder is where you will add HTML files, JavaScript, CSS and Images which will form part of the mobile application. We will take a look at them shortly.</p>
 
-<p>A PhoneGap app comes with batteries included. The project creation includes a starter <em>index.html</em> file that does a couple of things. It detected an event called <em>deviceready</em> and it will display a nice looking image of PhoneGap.</p>
+<p>A this point, We will not introduce any code changes on the project at this point. We will simply compile, build and deploy the project. The default project created a basic HelloWorld app. You can compile and deploy that one right now.</p>
 
-<p><img src="/img/phonegap/programming-workflow.png" alt="Programming Workflow" /></p>
+<pre class='codeblock'>
+$ phonegap build ios
+$ open platforms/ios/HelloWorld.xcodeproj
+</pre>
 
-<p><img src="/img/phonegap/phonegap-empty-project.png" /></p>
 
-<div id='lst'>PhoneGap Project Folder Structure</div>
+<div id='lst'> How To Build in OSX</div>
 
 
-<h2>Difference from Desktop App or Web App Programming</h2>
 
-<h2>Building on Android</h2>
 
-<h2>Building on iOS</h2>
+<pre class='codeblock'>
+$ phonegap run android
+</pre>
 
-<p>If you have a physical android, iOS or Windows8 device plugged into the USB of your development machine, you can try to install our first project &mdash; type <code>phonegap run android</code>. I am using Android that is why the target is <em>android</em>. This command will pull some more files from the internet, then build an android target, then compile the android target before it finally installs the built <em>.apk</em> onto your device.</p>
+
+<div id='lst'> How To Build and Run in Android</div>
+
+
+<p>I deployed the app quite differently in Android than I did in OSX. I could have used the command <code class='codeblock'>$ phonegap run ios</code> just like the process in Android. I did not. The reason is I did not want to use the <em>ios-sim</em> software to view the application in the iOS simulator. I wanted to open the generated ios project and open it using XCode. I also wanted to use XCode to deploy the app in the simulator that came with XCode and not ios-sim.</p>
 
 <p><img src='/img/phonegap/generic-phonegap-app.png' class='shadow' /></p>
 
 <div id='lst'>Firt App</div>
 
 
-<p>If you have a properly installed Android development setup</p>
 
-<p>T>If you encounter some problems during compilation and build, try to check where you placed your working folder. The PhoneGap CLI does not like folders that have white spaces in them e.g. <em>C:\Documents and Settings\yourname\workfolder\first</em></p>
 
-<p>A> <code>phonegap create first</code> creates and prepares a Phonegap project folder and files. <code>phonegap run android</code> adds the android platform to your project, compiles and installs an android project to either a connected physical device or an emulator.</p>
+<hr class='section'></hr>
 
-<hr />
 
-<p>Let's examine the project folder we just created.</p>
-
-<p>There are four folders. Merges, Platforms, Plugins and WWW. The WWW folder is where you will spend most of your time as a PhoneGap developer. This folder contains all of the User Interface elements that your app will have.</p>
-
-<p>Try to inspect the contents of index.html. This file was generated by the PhoneGap CLI during project creation.</p>
+<p>The WWW folder contains a default index.html. This HTML file was generated by the <em>phonegap create</em> command. This is how it looks like out of the box.</p>
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -587,17 +587,48 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<p>That is the default index.html which is responsible for the welcome screen. There are a lot things going in there which we don't need for now, so we will take them out. Edit it and replace it with the following;</p>
+<p>The code above is what you saw on the welcome screen. You may use it as a baseline for your experimentation. But I think the default html file has lots of things we don't need for now, so we will discard all of it and build a basic HTML file for our experiments.</p>
 
-<p>If you would like to deploy this in an IOS device, you will need to do the following.</p>
+<p>Open index.html using any programming editor of your choice. Replace it with a really basic HTML page.</p>
 
-<ol>
-<li>Go to the project directory, the "first" folder</li>
-<li>Run the command <code>phonegap build ios</code>. The PhoneGap CLI may warn you that you don't have the <em>ios-sim</em> package just yet. It will give you instructions on how to get it, either from homebrew or a git pull</li>
-<li>Go to the <em>platforms/ios</em> folder and double-click the file that has the <strong>.xcodeproj</strong> extension.</li>
-<li>XCode will launch and you can then run the sample code by running the iPhone or iPad simulator</li>
-</ol>
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>My First App<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
+
+<p>Because we made changes on the project source file, we need to go through another compilation and another deployment cycle.</p>
+
+<pre class='codeblock'>
+$ phonegap build ios
+$ open platforms/ios/HelloWorld.xcodeproj
+</pre>
+
+
+<div id='lst'>OSX</div>
+
+
+
+
+<pre class='codeblock'>
+$ phonegap run android
+</pre>
+
+
+<div id='lst'>Android</div>
+
+
+<p>You should see you first app after the deployment step.</p>
+
+<p><img src="/img/phonegap/programming-workflow.png" alt="Programming Workflow" /></p>
+
+<p><img src="/img/phonegap/phonegap-empty-project.png" /></p>
+
+<div id='lst'>PhoneGap Project Folder Structure</div>
+
+
+<h2>Difference from Desktop App or Web App Programming</h2>
 
 <h2>Recap</h2>
 

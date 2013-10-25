@@ -4,13 +4,39 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-24T11:36:33+08:00</updated>
+ <updated>2013-10-24T18:10:50+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Introduction</title>
+   <link href="http://thelogbox.com/java-introduction"/>
+   <updated>2013-10-24T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/java-introduction</id>
+   <content type="html">&lt;p&gt;These are my notes on the Java Programming Language. These notes used to be hosted at &lt;a href=&quot;http://tedhagos.com/java-programming&quot;&gt;tedhagos.com/java-programming&lt;/a&gt;, it was written on a single HTML page. Now, these notes are getting a rewrite. Most probably in tutorial form. There is a navigation bar on the side, please use it as you would a table of contents, I organized these notes as such.&lt;/p&gt;
+
+&lt;p&gt;These notes dates back to the late part of the 1990s. I update them from time to time. These were written primarily as a secondary reference for my students in Asia Pacific College and IBM ACE. It was not meant to be an introduction to computing concepts. It assumes that the reader has some degree of familiarization in basic programming concepts which may have been acquired from experience of another programming language.&lt;/p&gt;
+
+&lt;p&gt;Having said that, what follows will take you through a very quick tour of the Java programming language. This material was not designed to cover all the aspects of the language, as it will be impractical to do so. The breadth and depth of Java, with all the associated technologies have increased drastically since it was first introduced in 1995.&lt;/p&gt;
+
+&lt;p&gt;The code samples and exercises in this material were built using plain editors and the Java Development Kit. The use of simple tools is ideal for learning because there are no magic tricks and convenience facilities (like the case if you use an IDE). As a result, your brain will work harder because you are forced to use primitive tools. In a production environment or consulting environment, this reasoning might not be suitable and hence, the decision for tool selection will be influenced by other factors such as programmer productivity, time schedules and other constraints.&lt;/p&gt;
+
+&lt;p&gt;For the purpose of learning programming in Java — which is the goal of this material — we need our brains and faculties to work harder than usual to maximize learning and understanding.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Coding Process</title>
+   <link href="http://thelogbox.com/java-coding-process"/>
+   <updated>2013-10-24T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/java-coding-process</id>
+   <content type="html">&lt;p&gt;Java source files are unicode text files. They have a &lt;em&gt;.java&lt;/em&gt; extension on their file names. Y&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Network Connectivity</title>
@@ -179,50 +205,49 @@ phonegap run android
 
 &lt;p&gt;The first time you execute the &lt;em&gt;create&lt;/em&gt; command, PhoneGap will try to pull some setup files and libraries from the internet, so you need to be connected while you are doing this.&lt;/p&gt;
 
-&lt;p&gt;The &lt;em&gt;create&lt;/em&gt; command will produce a folder named &lt;strong&gt;first&lt;/strong&gt; in the current working directory, go to that folder.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;create&lt;/em&gt; command will produce a folder named &lt;strong&gt;first&lt;/strong&gt; in the current working directory, that folder contains things that are necessary for you to build a project.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-project-structure.png&quot; alt=&quot;PhoneGap Project&quot; /&gt;&lt;/p&gt;
 
-&lt;div id='lst'&gt;first project folder structure&lt;/div&gt;
+&lt;div id='lst'&gt;Project Structure&lt;/div&gt;
 
 
-&lt;h1&gt;&lt;/h1&gt;
+&lt;p&gt;You will find a folder called WWW on the root project directory. This WWW folder is where you will add HTML files, JavaScript, CSS and Images which will form part of the mobile application. We will take a look at them shortly.&lt;/p&gt;
 
-&lt;p&gt;A PhoneGap app comes with batteries included. The project creation includes a starter &lt;em&gt;index.html&lt;/em&gt; file that does a couple of things. It detected an event called &lt;em&gt;deviceready&lt;/em&gt; and it will display a nice looking image of PhoneGap.&lt;/p&gt;
+&lt;p&gt;A this point, We will not introduce any code changes on the project at this point. We will simply compile, build and deploy the project. The default project created a basic HelloWorld app. You can compile and deploy that one right now.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/phonegap/programming-workflow.png&quot; alt=&quot;Programming Workflow&quot; /&gt;&lt;/p&gt;
+&lt;pre class='codeblock'&gt;
+$ phonegap build ios
+$ open platforms/ios/HelloWorld.xcodeproj
+&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-empty-project.png&quot; /&gt;&lt;/p&gt;
 
-&lt;div id='lst'&gt;PhoneGap Project Folder Structure&lt;/div&gt;
+&lt;div id='lst'&gt; How To Build in OSX&lt;/div&gt;
 
 
-&lt;h2&gt;Difference from Desktop App or Web App Programming&lt;/h2&gt;
 
-&lt;h2&gt;Building on Android&lt;/h2&gt;
 
-&lt;h2&gt;Building on iOS&lt;/h2&gt;
+&lt;pre class='codeblock'&gt;
+$ phonegap run android
+&lt;/pre&gt;
 
-&lt;p&gt;If you have a physical android, iOS or Windows8 device plugged into the USB of your development machine, you can try to install our first project &amp;mdash; type &lt;code&gt;phonegap run android&lt;/code&gt;. I am using Android that is why the target is &lt;em&gt;android&lt;/em&gt;. This command will pull some more files from the internet, then build an android target, then compile the android target before it finally installs the built &lt;em&gt;.apk&lt;/em&gt; onto your device.&lt;/p&gt;
+
+&lt;div id='lst'&gt; How To Build and Run in Android&lt;/div&gt;
+
+
+&lt;p&gt;I deployed the app quite differently in Android than I did in OSX. I could have used the command &lt;code class='codeblock'&gt;$ phonegap run ios&lt;/code&gt; just like the process in Android. I did not. The reason is I did not want to use the &lt;em&gt;ios-sim&lt;/em&gt; software to view the application in the iOS simulator. I wanted to open the generated ios project and open it using XCode. I also wanted to use XCode to deploy the app in the simulator that came with XCode and not ios-sim.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src='/img/phonegap/generic-phonegap-app.png' class='shadow' /&gt;&lt;/p&gt;
 
 &lt;div id='lst'&gt;Firt App&lt;/div&gt;
 
 
-&lt;p&gt;If you have a properly installed Android development setup&lt;/p&gt;
 
-&lt;p&gt;T&gt;If you encounter some problems during compilation and build, try to check where you placed your working folder. The PhoneGap CLI does not like folders that have white spaces in them e.g. &lt;em&gt;C:\Documents and Settings\yourname\workfolder\first&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;A&gt; &lt;code&gt;phonegap create first&lt;/code&gt; creates and prepares a Phonegap project folder and files. &lt;code&gt;phonegap run android&lt;/code&gt; adds the android platform to your project, compiles and installs an android project to either a connected physical device or an emulator.&lt;/p&gt;
+&lt;hr class='section'&gt;&lt;/hr&gt;
 
-&lt;hr /&gt;
 
-&lt;p&gt;Let's examine the project folder we just created.&lt;/p&gt;
-
-&lt;p&gt;There are four folders. Merges, Platforms, Plugins and WWW. The WWW folder is where you will spend most of your time as a PhoneGap developer. This folder contains all of the User Interface elements that your app will have.&lt;/p&gt;
-
-&lt;p&gt;Try to inspect the contents of index.html. This file was generated by the PhoneGap CLI during project creation.&lt;/p&gt;
+&lt;p&gt;The WWW folder contains a default index.html. This HTML file was generated by the &lt;em&gt;phonegap create&lt;/em&gt; command. This is how it looks like out of the box.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
@@ -251,17 +276,48 @@ phonegap run android
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;That is the default index.html which is responsible for the welcome screen. There are a lot things going in there which we don't need for now, so we will take them out. Edit it and replace it with the following;&lt;/p&gt;
+&lt;p&gt;The code above is what you saw on the welcome screen. You may use it as a baseline for your experimentation. But I think the default html file has lots of things we don't need for now, so we will discard all of it and build a basic HTML file for our experiments.&lt;/p&gt;
 
-&lt;p&gt;If you would like to deploy this in an IOS device, you will need to do the following.&lt;/p&gt;
+&lt;p&gt;Open index.html using any programming editor of your choice. Replace it with a really basic HTML page.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Go to the project directory, the &quot;first&quot; folder&lt;/li&gt;
-&lt;li&gt;Run the command &lt;code&gt;phonegap build ios&lt;/code&gt;. The PhoneGap CLI may warn you that you don't have the &lt;em&gt;ios-sim&lt;/em&gt; package just yet. It will give you instructions on how to get it, either from homebrew or a git pull&lt;/li&gt;
-&lt;li&gt;Go to the &lt;em&gt;platforms/ios&lt;/em&gt; folder and double-click the file that has the &lt;strong&gt;.xcodeproj&lt;/strong&gt; extension.&lt;/li&gt;
-&lt;li&gt;XCode will launch and you can then run the sample code by running the iPhone or iPad simulator&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;My First App&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+
+&lt;p&gt;Because we made changes on the project source file, we need to go through another compilation and another deployment cycle.&lt;/p&gt;
+
+&lt;pre class='codeblock'&gt;
+$ phonegap build ios
+$ open platforms/ios/HelloWorld.xcodeproj
+&lt;/pre&gt;
+
+
+&lt;div id='lst'&gt;OSX&lt;/div&gt;
+
+
+
+
+&lt;pre class='codeblock'&gt;
+$ phonegap run android
+&lt;/pre&gt;
+
+
+&lt;div id='lst'&gt;Android&lt;/div&gt;
+
+
+&lt;p&gt;You should see you first app after the deployment step.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/programming-workflow.png&quot; alt=&quot;Programming Workflow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/phonegap-empty-project.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;PhoneGap Project Folder Structure&lt;/div&gt;
+
+
+&lt;h2&gt;Difference from Desktop App or Web App Programming&lt;/h2&gt;
 
 &lt;h2&gt;Recap&lt;/h2&gt;
 
