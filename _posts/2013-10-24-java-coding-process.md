@@ -11,4 +11,5 @@ categories:
 - java
 ---
 
-Java source files are unicode text files. They have a *.java* extension on their file names. Y
+Java source files are unicode text files. They have a *.java* extension on their file names.  
+
