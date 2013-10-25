@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title:  Send | Receive SMS on USB modem &mdash; Linux
+title:  Send/Receive SMS on USB modem [Linux]
 
 description: 
 
@@ -16,8 +16,6 @@ categories:
 
 This small guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
 
-## SOLUTION APPROACH
-
 There were a couple of other solution approaches but I went for *gnokii-sms*. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.  
 
 I could have used *Kannel* but it was so big. I only needed a simple mechanism to receve and send SMS message. I did not need a full gateway with all the bells and whistles.
@@ -26,12 +24,12 @@ GNOKii-SMS and Gammu were mature solutions. I went eventually with *gnokii-sms* 
 
 Hence, this mashup uses *gnokii-sms*. It is a stand-alone application with a daemon and it uses MySQL database as a datastore.  I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the *gnokii-sms* backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms
 
-## WHAT YOU NEED FOR THIS
+You will need the items below to follow this guide.
 
 1. DEBIAN linux
 2. USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.
 
-## STEPS
+# STEPS
 
 Get gnokii-smsd and mysql-server from the Debian repositories.
 

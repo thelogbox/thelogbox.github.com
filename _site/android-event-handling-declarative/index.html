@@ -20,6 +20,8 @@
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
 <meta name="description" content="" />
 <title>Declarative Event Handling | theLogBox </title>
 
@@ -29,16 +31,28 @@
   background: #fbfbfb;
 }
 
-p, ol, li , .content-meta, body, p, br {
-	font-family: 'Helvetica','Tahoma';
+p, li, .content-meta, body, p, br {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.6em;
   /* color: #414141; */
-  color: #3c3c3c;
-
+  color: #323232;
 }
 
+ol, ul { padding-left:20px; line-height:1.8em;}
+li {margin-bottom: 10px;}
+
+/* 
+ol li {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+  color: #323232;
+  margin-left: 10px;
+}
+*/
+
 .tutorial-writeup {
+  font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
   font-size: 20px;
@@ -76,7 +90,7 @@ p, ol, li , .content-meta, body, p, br {
 
 .withtoc {
   float:left;
-  width:68%;
+  width:72%;
 }
 
 .notoc {
@@ -84,8 +98,8 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 #articletitle {
-	font-family: 'Rokkitt', 'Helvetica', sans-serif;
-	font-size: 45px;
+	font-family: 'Libre Baskerville','Rokkitt', 'Helvetica', sans-serif;
+	font-size: 40px;
 	font-weight: normal;
   
   text-align: left;
@@ -105,13 +119,14 @@ p, ol, li , .content-meta, body, p, br {
 
 .toc {
   text-align:left;
-  width:28%;
+  width:24%;
   overflow: visible;
   padding: 10px;
   float: right;
 }
 .toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.8em;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
 
 #blogtitle {margin-bottom:2em;}
 
@@ -127,7 +142,7 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Tauri', 'helvetica', sans-serif;
+	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
 	color: #555555;
   font-weight:normal;
@@ -154,13 +169,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align: center;
   padding-top:40px;
   padding-bottom:40px;
-  line-height:1.5em;
+  line-height:1.3em;
   width: 80%;
   margin: 0 auto;  
 }
 
 .feature-article {
-  font-family: 'Helvetica','Tahoma';
+  font-family: 'Libre Baskerville','Helvetica','Tahoma';
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -172,7 +187,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   /* color: #9a3c31; */
   color: #ADADAD;
   display:block;
-  font-family: 'Helvetica', 'Arial', 'Tahoma';
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
   /* background: #999999; 
   background: #800000; */
@@ -187,8 +202,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align:center;
   margin: 20px;
 }
-#feature-button a:link, #feature-button a:visited {color:#ffffff;}
-#feature-button a:hover {border-bottom: 0; text-decoration:none;}
+
 
 #disqus_thread {
   clear: both;
@@ -198,7 +212,7 @@ h3 {font-size: 20px; margin-bottom:0;}
 
 body {
     
-  font-family: 'Arial';
+  font-family: 'Libre Baskerville','Arial';
     
   margin:0;
   padding:0;
@@ -222,6 +236,8 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 2px;
+  margin-bottom:2.5em;
+  margin-top:2.5em;
 }
 
 hr .section {
@@ -231,7 +247,7 @@ hr .section {
 }
 
 strong {
-  font-family: 'Tauri';
+  font-family: 'Libre Baskerville','Tauri';
   font-weight: normal;
   color: #000000;
 }
@@ -258,16 +274,15 @@ pre {
   */
   border: 1px solid #DEDEDE;
 
-	margin-bottom:0px;
+	margin-bottom:2.5em;
+  margin-top:2.5em;
   white-space: pre-wrap;
 }
 
 .codeblock {
-/*  font-family: 'Muli';
-  font-size: 15px;
-  color: #0000b3; */
   font-size: 16px;
   font-family: 'Lekton';
+  color: #000000;
   padding:0px;
   margin: 0px;
   border: 0px;  
@@ -284,20 +299,14 @@ pre {
 	font-family: 'Rokkitt';
   color: #000000;
 	font-style:normal;
-	font-size: 14px;
+	font-size: 16px;
 	margin-top:5px;
 	padding-top:5px;
 	padding-bottom:10px;
   text-align:center;
 }
 
-
 a:link, a:visited {
-  /*color: #004a94;
-  color: #0778e4;*/
-  /*color: #b30000;
-  color: #9a3c31;
-  color: #B30000; */
   color: #3a5d9f;
   text-decoration: none;
 }
@@ -311,6 +320,8 @@ img {
   display:block;
   margin-left: auto;
   margin-right: auto;
+  margin-top:2.5em;
+  margin-bottom:2.5em;
   width: 100%;
 }
   img.shadow {
@@ -321,16 +332,14 @@ img {
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   } 
   img.small {
     width: 65%;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   }
   img.default {
     width: inherit;
@@ -411,12 +420,13 @@ aside {
 .button {
   position: relative;
   display: inline-block;
-  font-family: Arial;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
   display: inline;
 /*  background: #800000; */
   background: #3a5d9f;
-  padding-top: 8px;
-  padding-bottom:8px;
+  padding-top: 5px;
+  padding-bottom:5px;
   padding-left:20px;
   padding-right:20px;
   text-align:center;
@@ -479,17 +489,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>One of the two ways to handle events in Android programming is declaratively---which means we will declare the event using the appropriate <em>xml</em> file in the <strong>res</strong> folder. If you create a default android project (like how we have been <a href="/android-getting-started/">creating android projects </a>, there will be a <em>main.xml</em> inside the <strong>res folder</strong>. When you add views or widgets using that xml, you can declare the name of the function that will be called when an event is triggered, such as <em>onClick</em>.</p>
+		    <p>Declarative event handling is one of the two ways you can react to user events. The other way of handling events is <em>programmatically</em> &mdash; which is discussed in a chapter of its own.</p>
 
-<h1>Steps</h1>
+<p>Handling events declaratively means you will make the event declaration inside the XML file where the UI is defined. Typically, this will an XML file inside <em>/res/layout</em> folder. You will use the <em>onClick</em> attribute of a widget such as a button and assign it a string value. This string value is usually a name of method which you also need to define on Activity class that is associated with XML file.</p>
 
-<ol>
-<li><p>Create an android project named hellotoast (<em>--path hellotoast</em>)</p>
+<p>To follow the code examples in this chapter, we will need to create a new android project.</p>
 
-<p> $ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8</p></li>
-<li><p>Add a <em>Button</em> view to the <em>main.xml</em> and set the method to call if the Button widget is clicked.</p></li>
-</ol>
+<pre class="codeblock">
 
+$ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8
+
+</pre>
+
+
+<p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
 <div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
@@ -514,11 +527,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<ol>
-<li><p>The <strong>android:onClick="showMe</strong> declaration of the Button widget means that when main.xml is expanded, it will create the necessary hooks for the proper handling of event. You will need to define a method called "showMe()" inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>.</p></li>
-<li><p>Add the <em>showMe()</em> method inside /src/com/thelogbox/TestToast.java.</p></li>
-</ol>
+<p>You will need to implement a method called "showMe()" inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>.</p>
 
+<p>Next, add the <em>showMe()</em> method to the Activity class.</p>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
@@ -550,15 +561,25 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<p>Compile and Run using <code class="codeblock">and debug install</code></p>
 
-<p>The <em>showMe() method</em> - this is a programmer defined method. It could be any other name, as long as it is a valid Java identifier and a valid method.</p>
 
-<p>When you declare an event inside the res/xml  file, you need to ensure that a method with the same signature is found on the class that references the xml file as its ContentView---in this case, the TestToast class references main.xml as its content view, that is why the <em>showMe()</em> method is defined inside the TestToast class.</p>
+<div id='lst'>/src/com/thelogbox/TestToast.java.</div>
 
-<hr />
 
-<p><em>Toast</em> is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears.</p>
+<p>To compile and run this example, use the command</p>
+
+<pre class="codeblock">
+ant debug install
+</pre>
+
+
+<p>The <em>showMe() method</em> is a programmer defined method. It is your responsibility to name it and implement it accordingly.</p>
+
+<p>The entry in the XML which is <code class="codeblock">android:onClick="showMe()"</code> is what makes the event handling possible. Upon compilation, the XML file will be expanded and translated to the necessary Java components that makes both UI display and event handling possible.</p>
+
+<p><aside>
+<em>Toast</em> is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears.
+</aside></p>
 
 <p><strong>Next</strong> &raquo; <a href="/android-event-handling-programmatic">Programmatic Event Handling</a></p>
 

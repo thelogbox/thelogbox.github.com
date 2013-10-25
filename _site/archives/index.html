@@ -20,6 +20,8 @@
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
 <meta name="description" content="" />
 <title>Archives | theLogBox </title>
 
@@ -29,16 +31,28 @@
   background: #fbfbfb;
 }
 
-p, ol, li , .content-meta, body, p, br {
-	font-family: 'Helvetica','Tahoma';
+p, li, .content-meta, body, p, br {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.6em;
   /* color: #414141; */
-  color: #3c3c3c;
-
+  color: #323232;
 }
 
+ol, ul { padding-left:20px; line-height:1.8em;}
+li {margin-bottom: 10px;}
+
+/* 
+ol li {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+  color: #323232;
+  margin-left: 10px;
+}
+*/
+
 .tutorial-writeup {
+  font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
   font-size: 20px;
@@ -76,7 +90,7 @@ p, ol, li , .content-meta, body, p, br {
 
 .withtoc {
   float:left;
-  width:68%;
+  width:72%;
 }
 
 .notoc {
@@ -84,8 +98,8 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 #articletitle {
-	font-family: 'Rokkitt', 'Helvetica', sans-serif;
-	font-size: 45px;
+	font-family: 'Libre Baskerville','Rokkitt', 'Helvetica', sans-serif;
+	font-size: 40px;
 	font-weight: normal;
   
   text-align: left;
@@ -105,13 +119,14 @@ p, ol, li , .content-meta, body, p, br {
 
 .toc {
   text-align:left;
-  width:28%;
+  width:24%;
   overflow: visible;
   padding: 10px;
   float: right;
 }
 .toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.8em;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
 
 #blogtitle {margin-bottom:2em;}
 
@@ -127,7 +142,7 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Tauri', 'helvetica', sans-serif;
+	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
 	color: #555555;
   font-weight:normal;
@@ -154,13 +169,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align: center;
   padding-top:40px;
   padding-bottom:40px;
-  line-height:1.5em;
+  line-height:1.3em;
   width: 80%;
   margin: 0 auto;  
 }
 
 .feature-article {
-  font-family: 'Helvetica','Tahoma';
+  font-family: 'Libre Baskerville','Helvetica','Tahoma';
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -172,7 +187,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   /* color: #9a3c31; */
   color: #ADADAD;
   display:block;
-  font-family: 'Helvetica', 'Arial', 'Tahoma';
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
   /* background: #999999; 
   background: #800000; */
@@ -187,8 +202,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align:center;
   margin: 20px;
 }
-#feature-button a:link, #feature-button a:visited {color:#ffffff;}
-#feature-button a:hover {border-bottom: 0; text-decoration:none;}
+
 
 #disqus_thread {
   clear: both;
@@ -198,7 +212,7 @@ h3 {font-size: 20px; margin-bottom:0;}
 
 body {
     
-  font-family: 'Arial';
+  font-family: 'Libre Baskerville','Arial';
     
   margin:0;
   padding:0;
@@ -222,6 +236,8 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 2px;
+  margin-bottom:2.5em;
+  margin-top:2.5em;
 }
 
 hr .section {
@@ -231,7 +247,7 @@ hr .section {
 }
 
 strong {
-  font-family: 'Tauri';
+  font-family: 'Libre Baskerville','Tauri';
   font-weight: normal;
   color: #000000;
 }
@@ -258,16 +274,15 @@ pre {
   */
   border: 1px solid #DEDEDE;
 
-	margin-bottom:0px;
+	margin-bottom:2.5em;
+  margin-top:2.5em;
   white-space: pre-wrap;
 }
 
 .codeblock {
-/*  font-family: 'Muli';
-  font-size: 15px;
-  color: #0000b3; */
   font-size: 16px;
   font-family: 'Lekton';
+  color: #000000;
   padding:0px;
   margin: 0px;
   border: 0px;  
@@ -284,20 +299,14 @@ pre {
 	font-family: 'Rokkitt';
   color: #000000;
 	font-style:normal;
-	font-size: 14px;
+	font-size: 16px;
 	margin-top:5px;
 	padding-top:5px;
 	padding-bottom:10px;
   text-align:center;
 }
 
-
 a:link, a:visited {
-  /*color: #004a94;
-  color: #0778e4;*/
-  /*color: #b30000;
-  color: #9a3c31;
-  color: #B30000; */
   color: #3a5d9f;
   text-decoration: none;
 }
@@ -311,6 +320,8 @@ img {
   display:block;
   margin-left: auto;
   margin-right: auto;
+  margin-top:2.5em;
+  margin-bottom:2.5em;
   width: 100%;
 }
   img.shadow {
@@ -321,16 +332,14 @@ img {
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   } 
   img.small {
     width: 65%;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   }
   img.default {
     width: inherit;
@@ -411,12 +420,13 @@ aside {
 .button {
   position: relative;
   display: inline-block;
-  font-family: Arial;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
   display: inline;
 /*  background: #800000; */
   background: #3a5d9f;
-  padding-top: 8px;
-  padding-bottom:8px;
+  padding-top: 5px;
+  padding-bottom:5px;
   padding-left:20px;
   padding-right:20px;
   text-align:center;
@@ -478,6 +488,24 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
+	<h2><a href="/html5-training">HTML5 Canvas Programming</a></h2>
+	<div class='content-meta'>
+		October 25, 2013
+	</div>
+  -->   
+  <h3>  
+  <a href="/html5-training">
+    10.25.13
+    HTML5 Canvas Programming
+  </a>
+</h3>
+  <em>[html5, courses]</em>
+	The training covers the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the flash killer. When you see a job...
+
+
+	   
+	
+  <!--
 	<h2><a href="/java-introduction">Introduction</a></h2>
 	<div class='content-meta'>
 		October 24, 2013
@@ -508,7 +536,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   </a>
 </h3>
   <em>[java]</em>
-	Java source files are unicode text files. They have a .java extension on their file names. Y
+	Java source files are unicode text files. They have a .java extension on their file names.
 
 
 
@@ -581,7 +609,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   </a>
 </h3>
   <em>[phonegap]</em>
-	Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. But these things are easily...
+	This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant. I'm assuming further that these tools are...
 
 
 	   
@@ -1229,7 +1257,15 @@ JAVASCRIPT
   </a>
 </h3>
   <em>[html5]</em>
-	Doc History 18.Oct.2012 &mdash; created 22.Oct.2012 &mdash; rewrite sections, added basic straight line and circular movements 28.Oct.2012 &mdash; added some sections on acceleration. embedded live demo within tutorial Contents 0. Prep 1. Basic plumbing + Drawing primitives + Timed animation 2. Basic movements + Moving in a straight line +...
+	 
+
+This content has moved. You can view it using the link below
+
+
+    HTML5 Canvas Basics
+    
+
+
 
 
 	   
@@ -1409,7 +1445,7 @@ JAVASCRIPT
   </a>
 </h3>
   <em>[android-programming]</em>
-	LEARNING OBJECTIVES Validate the Activity life cycle. See for ourselves when the Activity call-backs are fired Use the android.util.Log for logging messages View the logged messages using adb logcat STEPS Choose a suitable working directory then create a project. $ android create project --path lifecycle target --8 --package com.thelogbox --activity...
+	Debugging is a crucial skill in development. It has been made more crucial because of the rise of mobile platforms. Debugging on an emulated or simulated environment presents additional challenges &mdash; your runtime environment is different than the development environment. This chapter deals with more than just debugging. The example...
 
 
 	   
@@ -1608,7 +1644,7 @@ JAVASCRIPT
   </a>
 </h3>
   <em>[android-programming]</em>
-	One of the two ways to handle events in Android programming is declaratively---which means we will declare the event using the appropriate xml file in the res folder. If you create a default android project (like how we have been creating android projects , there will be a main.xml inside...
+	Declarative event handling is one of the two ways you can react to user events. The other way of handling events is programmatically &mdash; which is discussed in a chapter of its own. Handling events declaratively means you will make the event declaration inside the XML file where the UI...
 
 
 	   
@@ -2061,7 +2097,7 @@ This content has been rewritten. I encourage you to read the more updated materi
 	   
 	
   <!--
-	<h2><a href="/send-receive-sms-messages-usb-modem-linux">Send | Receive SMS on USB modem &mdash; Linux</a></h2>
+	<h2><a href="/send-receive-sms-messages-usb-modem-linux">Send/Receive SMS on USB modem [Linux]</a></h2>
 	<div class='content-meta'>
 		April 09, 2012
 	</div>
@@ -2069,7 +2105,7 @@ This content has been rewritten. I encourage you to read the more updated materi
   <h3>  
   <a href="/send-receive-sms-messages-usb-modem-linux">
     04.09.12
-    Send | Receive SMS on USB modem &mdash; Linux
+    Send/Receive SMS on USB modem [Linux]
   </a>
 </h3>
   <em>[blog]</em>

@@ -12,19 +12,20 @@ categories:
 
 ---
 
+Debugging is a crucial skill in development. It has been made more crucial because of the rise of mobile platforms. Debugging on an emulated or simulated environment presents additional challenges &mdash; your runtime environment is different than the development environment. 
 
-
-# LEARNING OBJECTIVES
+This chapter deals with more than just debugging. The example code demonstrates not only debugging techniques but also the the basic life cycle of an Activity class.  Before we are done, we intend to take away the following.
 
 1. Validate the *Activity* life cycle. See for ourselves when the Activity *call-backs* are fired
 2. Use the android.util.Log for logging messages
 3. View the logged messages using *adb logcat*  
 
+***
 
+To follow this exercise, it will be best to create a new project.
 
-# STEPS 
-
-Choose a suitable working directory then create a project.  <span class='codeblock'>$ android create project --path lifecycle target --8 --package com.thelogbox --activity LifeCycle </span>
+<pre class='codeblock'>$ android create project --path lifecycle target --8 --package com.thelogbox --activity LifeCycle 
+</pre>
 
 A Froyo target (API level 8) is what I used. Use whatever API level you need or works for you. I used Froyo because this is what is installed on my physical testing device. If you need to find out which API levels are installed on your machine, type <code class="codeblock">android list targets</code>
 
@@ -67,8 +68,6 @@ Next, add some UI elements and some event methods. Edit the */res/layout/main.xm
 The TextView will be used to provide some sort of proxy to STDOUT of our little app. While we will use logcat to view the call-backs, we will also print it out on the screen of the device. The TextView is wrapped inside a *ScrollView* because we will append  new messages on top of older messages, it will spill over the height of the viewport. 
 
 A Button is also included in the UI. After the application hits the *onResume()* callback, our app now has focus, it is ready to accept input and respond to the user, the Button is a simple mechanism to demonstrate the *actual life* of the application &mdash; when it is interacting with the user. 
-
-***
 
 You will need to override some call back functions in the main Activity class. Go the file *src/com/thelogbox/LifeCycle.java* and follow the sample code
 

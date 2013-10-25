@@ -12,16 +12,19 @@ categories:
 
 ---
 
+Declarative event handling is one of the two ways you can react to user events. The other way of handling events is *programmatically* &mdash; which is discussed in a chapter of its own.
 
-One of the two ways to handle events in Android programming is declaratively---which means we will declare the event using the appropriate *xml* file in the **res** folder. If you create a default android project (like how we have been [creating android projects ](/android-getting-started/), there will be a *main.xml* inside the **res folder**. When you add views or widgets using that xml, you can declare the name of the function that will be called when an event is triggered, such as *onClick*. 
+Handling events declaratively means you will make the event declaration inside the XML file where the UI is defined. Typically, this will an XML file inside */res/layout* folder. You will use the *onClick* attribute of a widget such as a button and assign it a string value. This string value is usually a name of method which you also need to define on Activity class that is associated with XML file.
 
-# Steps
+To follow the code examples in this chapter, we will need to create a new android project. 
 
-1. Create an android project named hellotoast (*--path hellotoast*)
+<pre class="codeblock">
 
-	$ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8
+$ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8
 
-2. Add a *Button* view to the *main.xml* and set the method to call if the Button widget is clicked.
+</pre>
+
+Our new Android project named *hellotoast* would have created an XML file, it is located at */res/layout/main.xml*. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.
 
 {% highlight xml %}
 
@@ -48,9 +51,9 @@ One of the two ways to handle events in Android programming is declaratively---w
 
 {% endhighlight %}
 
-3. The **android:onClick="showMe** declaration of the Button widget means that when main.xml is expanded, it will create the necessary hooks for the proper handling of event. You will need to define a method called "showMe()" inside the *TestToast* activity of the project. The *TestToast* activity references the *.main.xml* as the *View*. 
+You will need to implement a method called "showMe()" inside the *TestToast* activity of the project. The *TestToast* activity references the *.main.xml* as the *View*. 
 
-4. Add the *showMe()* method inside /src/com/thelogbox/TestToast.java.
+Next, add the *showMe()* method to the Activity class. 
 
 {% highlight java %}
 
@@ -82,16 +85,21 @@ public class TestToast extends Activity {
 
 }
 {% endhighlight %}
+<div id='lst'>/src/com/thelogbox/TestToast.java.</div>
 
-Compile and Run using <code class="codeblock">and debug install</code>
+To compile and run this example, use the command
 
-The *showMe() method* - this is a programmer defined method. It could be any other name, as long as it is a valid Java identifier and a valid method. 
+<pre class="codeblock">
+ant debug install
+</pre>
 
-When you declare an event inside the res/xml  file, you need to ensure that a method with the same signature is found on the class that references the xml file as its ContentView---in this case, the TestToast class references main.xml as its content view, that is why the *showMe()* method is defined inside the TestToast class.
+The *showMe() method* is a programmer defined method. It is your responsibility to name it and implement it accordingly. 
 
-***
+The entry in the XML which is <code class="codeblock">android:onClick="showMe()"</code> is what makes the event handling possible. Upon compilation, the XML file will be expanded and translated to the necessary Java components that makes both UI display and event handling possible.
 
+<aside>
 *Toast* is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears. 
+</aside>
 
 **Next** &raquo; [Programmatic Event Handling](/android-event-handling-programmatic)
 

@@ -20,6 +20,8 @@
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
 <meta name="description" content="" />
 <title>Line Graphing in HTML5 Canvas | theLogBox </title>
 
@@ -29,16 +31,28 @@
   background: #fbfbfb;
 }
 
-p, ol, li , .content-meta, body, p, br {
-	font-family: 'Helvetica','Tahoma';
+p, li, .content-meta, body, p, br {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.6em;
   /* color: #414141; */
-  color: #3c3c3c;
-
+  color: #323232;
 }
 
+ol, ul { padding-left:20px; line-height:1.8em;}
+li {margin-bottom: 10px;}
+
+/* 
+ol li {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+  color: #323232;
+  margin-left: 10px;
+}
+*/
+
 .tutorial-writeup {
+  font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
   font-size: 20px;
@@ -76,7 +90,7 @@ p, ol, li , .content-meta, body, p, br {
 
 .withtoc {
   float:left;
-  width:68%;
+  width:72%;
 }
 
 .notoc {
@@ -84,8 +98,8 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 #articletitle {
-	font-family: 'Rokkitt', 'Helvetica', sans-serif;
-	font-size: 45px;
+	font-family: 'Libre Baskerville','Rokkitt', 'Helvetica', sans-serif;
+	font-size: 40px;
 	font-weight: normal;
   
   text-align: left;
@@ -105,13 +119,14 @@ p, ol, li , .content-meta, body, p, br {
 
 .toc {
   text-align:left;
-  width:28%;
+  width:24%;
   overflow: visible;
   padding: 10px;
   float: right;
 }
 .toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.8em;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
 
 #blogtitle {margin-bottom:2em;}
 
@@ -127,7 +142,7 @@ p, ol, li , .content-meta, body, p, br {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Tauri', 'helvetica', sans-serif;
+	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
 	color: #555555;
   font-weight:normal;
@@ -154,13 +169,13 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align: center;
   padding-top:40px;
   padding-bottom:40px;
-  line-height:1.5em;
+  line-height:1.3em;
   width: 80%;
   margin: 0 auto;  
 }
 
 .feature-article {
-  font-family: 'Helvetica','Tahoma';
+  font-family: 'Libre Baskerville','Helvetica','Tahoma';
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -172,7 +187,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   /* color: #9a3c31; */
   color: #ADADAD;
   display:block;
-  font-family: 'Helvetica', 'Arial', 'Tahoma';
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
   /* background: #999999; 
   background: #800000; */
@@ -187,8 +202,7 @@ h3 {font-size: 20px; margin-bottom:0;}
   text-align:center;
   margin: 20px;
 }
-#feature-button a:link, #feature-button a:visited {color:#ffffff;}
-#feature-button a:hover {border-bottom: 0; text-decoration:none;}
+
 
 #disqus_thread {
   clear: both;
@@ -198,7 +212,7 @@ h3 {font-size: 20px; margin-bottom:0;}
 
 body {
     
-  font-family: 'Arial';
+  font-family: 'Libre Baskerville','Arial';
     
   margin:0;
   padding:0;
@@ -222,6 +236,8 @@ hr {
 	color: #CACACA;
 	background: #CACACA;
 	height: 2px;
+  margin-bottom:2.5em;
+  margin-top:2.5em;
 }
 
 hr .section {
@@ -231,7 +247,7 @@ hr .section {
 }
 
 strong {
-  font-family: 'Tauri';
+  font-family: 'Libre Baskerville','Tauri';
   font-weight: normal;
   color: #000000;
 }
@@ -258,16 +274,15 @@ pre {
   */
   border: 1px solid #DEDEDE;
 
-	margin-bottom:0px;
+	margin-bottom:2.5em;
+  margin-top:2.5em;
   white-space: pre-wrap;
 }
 
 .codeblock {
-/*  font-family: 'Muli';
-  font-size: 15px;
-  color: #0000b3; */
   font-size: 16px;
   font-family: 'Lekton';
+  color: #000000;
   padding:0px;
   margin: 0px;
   border: 0px;  
@@ -284,20 +299,14 @@ pre {
 	font-family: 'Rokkitt';
   color: #000000;
 	font-style:normal;
-	font-size: 14px;
+	font-size: 16px;
 	margin-top:5px;
 	padding-top:5px;
 	padding-bottom:10px;
   text-align:center;
 }
 
-
 a:link, a:visited {
-  /*color: #004a94;
-  color: #0778e4;*/
-  /*color: #b30000;
-  color: #9a3c31;
-  color: #B30000; */
   color: #3a5d9f;
   text-decoration: none;
 }
@@ -311,6 +320,8 @@ img {
   display:block;
   margin-left: auto;
   margin-right: auto;
+  margin-top:2.5em;
+  margin-bottom:2.5em;
   width: 100%;
 }
   img.shadow {
@@ -321,16 +332,14 @@ img {
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   } 
   img.small {
     width: 65%;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
     box-shadow: -5px 0 35px 10px #888;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
   }
   img.default {
     width: inherit;
@@ -411,12 +420,13 @@ aside {
 .button {
   position: relative;
   display: inline-block;
-  font-family: Arial;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
   display: inline;
 /*  background: #800000; */
   background: #3a5d9f;
-  padding-top: 8px;
-  padding-bottom:8px;
+  padding-top: 5px;
+  padding-bottom:5px;
   padding-left:20px;
   padding-right:20px;
   text-align:center;
@@ -500,26 +510,26 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h2>1. Create the HTML part (filename = line-draw.html)</h2>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-    <span class="nt">&lt;head&gt;</span>
+<div class="highlight"><pre><code class="javascript"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
         
         
-        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;</span><span class="err">/title&gt;</span>
         
-    <span class="nt">&lt;/head&gt;</span>
-    <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;noscript&gt;</span>This demo will not work if JavaScript is disabled in your browser. 
-        Please enable JavaScript in your browser then load this page again. 
-        Thanks
-    <span class="nt">&lt;/noscript&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;MathE.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;output&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;default-canvas&quot;</span><span class="nt">&gt;</span>
-    Your browser is not capable of displaying HTML5 canvas components       
-    <span class="nt">&lt;/canvas&gt;</span>
-    <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+    <span class="o">&lt;</span><span class="err">/head&gt;</span>
+    <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">noscript</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">demo</span> <span class="nx">will</span> <span class="nx">not</span> <span class="nx">work</span> <span class="k">if</span> <span class="nx">JavaScript</span> <span class="nx">is</span> <span class="nx">disabled</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span><span class="p">.</span> 
+        <span class="nx">Please</span> <span class="nx">enable</span> <span class="nx">JavaScript</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span> <span class="nx">then</span> <span class="nx">load</span> <span class="k">this</span> <span class="nx">page</span> <span class="nx">again</span><span class="p">.</span> 
+        <span class="nx">Thanks</span>
+    <span class="o">&lt;</span><span class="err">/noscript&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;MathE.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;default-canvas&quot;</span><span class="o">&gt;</span>
+    <span class="nx">Your</span> <span class="nx">browser</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">capable</span> <span class="nx">of</span> <span class="nx">displaying</span> <span class="nx">HTML5</span> <span class="nx">canvas</span> <span class="nx">components</span>       
+    <span class="o">&lt;</span><span class="err">/canvas&gt;</span>
+    <span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
 </code></pre></div>
 
 

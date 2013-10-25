@@ -11,11 +11,17 @@ categories:
 - phonegap
 ---
 
-Setup your JDK and Apache ANT before setting up the Android SDK. Once Java and Apache ANT are out of the way, the process simply involves downloading, installing and configuring the SDK. The configuration is where it sometimes gets messy and confusing especially for beginners. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found [here](http://developer.android.com/sdk/index.html) and [here](http://developer.android.com/sdk/index.html). 
+This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.
+
+I'm assuming further that these tools are properly resolvable from any terminal window. That means the executable files are already part of the system path.
+
+If you have JDK and Apache ANT already, you can proceed with the android sdk setup.
+
+The android sdk setup requires that you download, install and configure from setup files. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found [here](http://developer.android.com/sdk/index.html) and [here](http://developer.android.com/sdk/index.html). 
 
 If that is still not clear enough, you can look at the [setup instructions I wrote for my students here](https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing)
 
-# ANDROID SDK SETUP
+***
 
 **DOWNLOAD THE INSTALLER** from [Android SDK from android.developer.com]( http://developer.android.com/sdk/index.html ).
 
@@ -23,8 +29,7 @@ You might be tempted to get the ADT bundle because the link on that one is promi
 
 **GET THE ZIPPED FILE**. Unzip the file to a user directory so that you will not need elevated privileges to use the executable files. 
 
-
-The user directory in Windows is usually inside <code class="codeblock">C:\User\yourname\</code>. Try to install on a folder without a white space. White spaces in Windows can become very troublesome when working on the command line. In OSX it will be inside <code class="codeblock">/Users/yourname/</code>.
+The user directory in Windows is usually inside C:\User\yourname\. Try to install on a folder without a white space. White spaces in Windows can become very troublesome when working on the command line. In OSX it will be inside <code class="codeblock">/Users/yourname/</code>.
 
 Try to remember the full path of the directory where you unzipped the Android SDK, this will be the **ANDROID_HOME**. 
 
@@ -80,35 +85,34 @@ export PATH=$PATH:$ANDROID_HOME/tools:.
 
 <div id='lst'>/.bash_profile</div>
 
+***
 
 # PHONEGAP TOOL CHAIN
 
-**Node Package Manager**. You need the node packager manager to proceed. You can download it at the [NodeJS site](http://nodejs.org). On OSX, another way of getting **npm** is either via [HomeBrew](http://brew.sh) or [MacPorts](http://macports.org), I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.
+After the Android SDK requirement has been satisfied, we can proceed to installing the actual tools for PhoneGap development.
+
+You will need the node packager manager to proceed. The phonegap and cordova command line tools depend on the presence of a proper node package manager (NPM). You can download it at the [NodeJS site](http://nodejs.org). 
+
+On OSX, another way of getting **npm** is either via [HomeBrew](http://brew.sh) or [MacPorts](http://macports.org), I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.
 
 When you are done with the npm installation, you can get the PhoneGap installers. Get a terminal window &mdash; cmd.exe for Windows and Terminal.app for OSX
 
 <pre class="codeblock">
 
 npm install -g phonegap
-
 npm install -g cordova
 
 </pre>
 
-# QUICK TEST
+A quick test is best so we can find out if we have a proper PhoneGap installation. 
 
 <pre class="codeblock">
 
 $ mkdir ~/workarea
-
 $ cd ~/workarea
-
 $ phonegap create first
-
 $ cd first
-
 $ phonegap build android
-
 $ cd platforms
 
 </pre>
