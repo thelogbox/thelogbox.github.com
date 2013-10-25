@@ -28,7 +28,7 @@ The exercise has lots of parts. The cartesian plane needs to be drawn, a way to 
 
 ## 1. Create the HTML part (filename = line-draw.html)
 
-{% highlight html %}
+{% highlight javascript %}
 
 <!DOCTYPE html>
 <html>
