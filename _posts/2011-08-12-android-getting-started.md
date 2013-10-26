@@ -42,11 +42,15 @@ The folder structure of an android project is shown below
 
 # THE CREATE PROJECT COMMAND
 
-**--target** expects an integer value. This value stands for a unique API level for a specific android version. In our example above, *level 8* was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb will have a different one as well. If you want to see all the possible targets, you can type <code class="codeblock">android list targets</code>
+**--target** expects an integer value. This value stands for a unique API level for a specific android version. In our example above, level 8 was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb, ICS and Jekllybean will have a different ones as well. 
+
+<aside>
+If you want to see all the possible targets, you can type <code class="codeblock">android list targets</code>
+</aside>
 
 **--path** specifies the name of top level folder for your project. Think of it as a project folder. It will be the root directory of your project
 
-**--activity** will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <code class="codeblock">--activity First*</code> means that our project will have class named First and is a child class of the base class Activity
+**--activity** will cause our project to create a class that extends from the the Activity class. An Activity is commonly used if we need a user-facing class. Think of it as UI 2 mechanism in android. In our example, <code class="codeblock">--activity First</code> means that our project will have class named First and is a child class of the base class Activity
 
 **--package** an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)
 
