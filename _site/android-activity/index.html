@@ -8,15 +8,16 @@
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 -->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/thelogbox/feed/" />
 
 <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
-<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
@@ -489,19 +490,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files. Mainly you build a UI using an <em>Activity</em> class and an XML file. When you create a project using the SDK tools &mdash; <code class="codeblock">android create</code> &mdash; it includes a default Activity class and a default main.xml file which is used by the Activity class.</p>
+		    <p>A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don't need to worry these things so much because both the XML file and the Java source file would have been created automatically during the project creation process.</p>
 
-<p>There are two ways to write UI codes in Android, declarative and programmatically. The programmatic method of defining the UI involves instantiating the views (widgets) inside your code and attaching them to containers e.g. another View object.</p>
+<p>You will be increasingly aware of how much Android uses XML files. It uses XML a lot. Defining a user interface using XML files is one of two ways you can write UI codes in Android. The other way is do it programmatically. Programmatic UI definition is very similar to AWT (Abstract Window Toolkit) programming in Core Java. You will recognize the reference if you did that sort of thing in core Java programming, if not, that's okay. I didn't assume that you have background in AWT or Swing programming anyway.</p>
 
-<p>The declarative way of UI building involves defining the views inside the an XML document. The XML doc is parsed by the compiler and the UI is magically built for you. For beginning Android programmers, this is the easier way. This is the route we will take in this chapter.</p>
+<p>In this chapter, we will use the XML to build user interfaces. We will build our UI declaratively.</p>
 
 <hr />
 
 <p>To get started, create a new project. If you haven't gone through the <a href="/android-getting-started">Getting Started</a> section, now would be a good time to leave this section, read through <strong>Getting Started</strong> then come back.</p>
 
-<p><code class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox </code></p>
+<pre class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox 
+</pre>
 
-<p>Go to your project folder, go to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated.</p>
+
+<p>Go to the project folder. Go to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated.</p>
 
 <div class="highlight"><pre><code class="java">  
 <span class="c1">// source file: src/com/thelogbox/HelloWorld.java</span>
@@ -515,15 +518,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-    <span class="cm">/** Called when the activity is first created. */</span>
+  <span class="cm">/** Called when the activity is first created. */</span>
     
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
-    <span class="o">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+      <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
+
+
+
+
+<div id='lst'>/src/com/thelogbox/HelloWorld.java</div>
 
 
 <p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the <code class="codeblock">onCreate()</code> method. That last statement is a directive on where and how to the get the instructions for building the user interface.</p>
@@ -547,7 +555,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<p>The main node of this XMl file is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.</p>
+
+
+<div id='lst'>/res/layout/main.xml</div>
+
+
+<p>The main node of the XML file is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.</p>
 
 <p>Think of the LinearLayout as the equivalent of <em>java.awt.FlowLayout</em> in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom.</p>
 

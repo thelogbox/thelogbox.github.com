@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-26T00:39:15+08:00</updated>
+ <updated>2013-10-26T11:15:13+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -10396,19 +10396,21 @@ ant debug install
    <link href="http://thelogbox.com/android-activity"/>
    <updated>2012-07-15T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-activity</id>
-   <content type="html">&lt;p&gt;A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files. Mainly you build a UI using an &lt;em&gt;Activity&lt;/em&gt; class and an XML file. When you create a project using the SDK tools &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;android create&lt;/code&gt; &amp;mdash; it includes a default Activity class and a default main.xml file which is used by the Activity class.&lt;/p&gt;
+   <content type="html">&lt;p&gt;A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don't need to worry these things so much because both the XML file and the Java source file would have been created automatically during the project creation process.&lt;/p&gt;
 
-&lt;p&gt;There are two ways to write UI codes in Android, declarative and programmatically. The programmatic method of defining the UI involves instantiating the views (widgets) inside your code and attaching them to containers e.g. another View object.&lt;/p&gt;
+&lt;p&gt;You will be increasingly aware of how much Android uses XML files. It uses XML a lot. Defining a user interface using XML files is one of two ways you can write UI codes in Android. The other way is do it programmatically. Programmatic UI definition is very similar to AWT (Abstract Window Toolkit) programming in Core Java. You will recognize the reference if you did that sort of thing in core Java programming, if not, that's okay. I didn't assume that you have background in AWT or Swing programming anyway.&lt;/p&gt;
 
-&lt;p&gt;The declarative way of UI building involves defining the views inside the an XML document. The XML doc is parsed by the compiler and the UI is magically built for you. For beginning Android programmers, this is the easier way. This is the route we will take in this chapter.&lt;/p&gt;
+&lt;p&gt;In this chapter, we will use the XML to build user interfaces. We will build our UI declaratively.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;To get started, create a new project. If you haven't gone through the &lt;a href=&quot;/android-getting-started&quot;&gt;Getting Started&lt;/a&gt; section, now would be a good time to leave this section, read through &lt;strong&gt;Getting Started&lt;/strong&gt; then come back.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;$ android create project --target 8 path hello --activity Hello --package com.thelogbox &lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;codeblock&quot;&gt;$ android create project --target 8 path hello --activity Hello --package com.thelogbox 
+&lt;/pre&gt;
 
-&lt;p&gt;Go to your project folder, go to the &lt;em&gt;src&lt;/em&gt; directory and drill down to the java source file, you will see the default source code that the Android &lt;em&gt;create project&lt;/em&gt; command generated.&lt;/p&gt;
+
+&lt;p&gt;Go to the project folder. Go to the &lt;em&gt;src&lt;/em&gt; directory and drill down to the java source file, you will see the default source code that the Android &lt;em&gt;create project&lt;/em&gt; command generated.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;  
 &lt;span class=&quot;c1&quot;&gt;// source file: src/com/thelogbox/HelloWorld.java&lt;/span&gt;
@@ -10422,15 +10424,20 @@ ant debug install
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloWorld&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;cm&quot;&gt;/** Called when the activity is first created. */&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/** Called when the activity is first created. */&lt;/span&gt;
     
-    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;/src/com/thelogbox/HelloWorld.java&lt;/div&gt;
 
 
 &lt;p&gt;It is a basic Java class that extended the &lt;em&gt;android.app.Activity&lt;/em&gt; class. Take a look at the last statement inside the &lt;code class=&quot;codeblock&quot;&gt;onCreate()&lt;/code&gt; method. That last statement is a directive on where and how to the get the instructions for building the user interface.&lt;/p&gt;
@@ -10454,7 +10461,12 @@ ant debug install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The main node of this XMl file is &lt;em&gt;LinearLayout&lt;/em&gt;, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.&lt;/p&gt;
+
+
+&lt;div id='lst'&gt;/res/layout/main.xml&lt;/div&gt;
+
+
+&lt;p&gt;The main node of the XML file is &lt;em&gt;LinearLayout&lt;/em&gt;, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.&lt;/p&gt;
 
 &lt;p&gt;Think of the LinearLayout as the equivalent of &lt;em&gt;java.awt.FlowLayout&lt;/em&gt; in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom.&lt;/p&gt;
 

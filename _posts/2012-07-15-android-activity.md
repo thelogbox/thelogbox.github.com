@@ -13,21 +13,20 @@ categories:
 ---
 
 
-A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files. Mainly you build a UI using an *Activity* class and an XML file. When you create a project using the SDK tools &mdash; <code class="codeblock">android create</code> &mdash; it includes a default Activity class and a default main.xml file which is used by the Activity class.  
+A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don't need to worry these things so much because both the XML file and the Java source file would have been created automatically during the project creation process.
 
-There are two ways to write UI codes in Android, declarative and programmatically. The programmatic method of defining the UI involves instantiating the views (widgets) inside your code and attaching them to containers e.g. another View object. 
+You will be increasingly aware of how much Android uses XML files. It uses XML a lot. Defining a user interface using XML files is one of two ways you can write UI codes in Android. The other way is do it programmatically. Programmatic UI definition is very similar to AWT (Abstract Window Toolkit) programming in Core Java. You will recognize the reference if you did that sort of thing in core Java programming, if not, that's okay. I didn't assume that you have background in AWT or Swing programming anyway. 
 
-The declarative way of UI building involves defining the views inside the an XML document. The XML doc is parsed by the compiler and the UI is magically built for you. For beginning Android programmers, this is the easier way. This is the route we will take in this chapter.
+In this chapter, we will use the XML to build user interfaces. We will build our UI declaratively.
 
 ***
 
 To get started, create a new project. If you haven't gone through the [Getting Started](/android-getting-started) section, now would be a good time to leave this section, read through **Getting Started** then come back.   
 
+<pre class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox 
+</pre>
 
-<code class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox </code>
-
-
-Go to your project folder, go to the *src* directory and drill down to the java source file, you will see the default source code that the Android *create project* command generated.
+Go to the project folder. Go to the *src* directory and drill down to the java source file, you will see the default source code that the Android *create project* command generated.
 
 {% highlight java %}
   
@@ -42,16 +41,17 @@ import android.content.Context;
 import android.view.View;
 
 public class HelloWorld extends Activity {
-    /** Called when the activity is first created. */
+  /** Called when the activity is first created. */
     
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+  }
 }
 
 {% endhighlight %}
+<div id='lst'>/src/com/thelogbox/HelloWorld.java</div>
 
 It is a basic Java class that extended the *android.app.Activity* class. Take a look at the last statement inside the <code class="codeblock">onCreate()</code> method. That last statement is a directive on where and how to the get the instructions for building the user interface. 
 
@@ -75,9 +75,9 @@ The <code class="codeblock">setContentView()</code> is an overloaded method of A
 </LinearLayout>
 
 {% endhighlight %}
+<div id='lst'>/res/layout/main.xml</div>
 
-
-The main node of this XMl file is *LinearLayout*, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout. 
+The main node of the XML file is *LinearLayout*, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout. 
 
 Think of the LinearLayout as the equivalent of *java.awt.FlowLayout* in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom. 
 
@@ -86,7 +86,6 @@ Inside the main LinearLayout node is the *TextView* tag. This is the equivalent 
 The order of how the views are defined in the XML affects the order of how the views are displayed. This is the simplest layout, that is why I chose this as a starting point.
 
 We will add another *View component* to our screen, an Editable Text. Go back to the editor and insert another view inside the LinearLayout main node. 
-
 
 {% highlight xml %}
 <!-- main.xml -->>
