@@ -80,7 +80,7 @@ Here is how to prepare the MySQL back-end
 $ mysql -u root -p
 $ mysql> create database smsgw;
 $ mysql> use smsgw;
-$ mysql>.\ /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
+$ mysql>\. /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 </pre>
 
