@@ -5,8 +5,13 @@ title: Using the Camera
 
 description: Detailed steps on how to code a camera application in Android. This one does not use android Intents, this really is coding a camera app in Android from scratch
 
+tags:
+- Media
+- Camera
+
+
 categories:
-- android-programming
+- Android
 
 ---
 

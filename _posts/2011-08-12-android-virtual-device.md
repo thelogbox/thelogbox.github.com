@@ -1,14 +1,17 @@
 ---
 layout: androidtutorial
 
-title: Android Virtual Device (AVD)
+title: Virtual Device (AVD)
 
-description: 
+description: Simple steps to setup an Android emulator for development
 
 excerpt: 
 
+tags:
+- avd
+
 categories:
-- android-programming
+- Android
 
 ---
 

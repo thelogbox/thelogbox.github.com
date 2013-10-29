@@ -3,12 +3,16 @@ layout: post
 
 title: How to Connect OSX to a CUPS Print Server
 
-description: 
+description: How to hookup the Mac to a Linux Printer Server
 
 excerpt: 
 
+tags:
+- mac
+- Printer
+
 categories:
-- blog
+- OSX
 
 
 ---

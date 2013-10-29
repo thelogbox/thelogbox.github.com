@@ -3,12 +3,15 @@ layout: post
 
 title: Rip YouTube Video via cmd (Linux and OSX)
 
-description: 
+description: Download YouTube videos like a geek
 
 excerpt: 
+- YouTube
+- Linux
+- Ripping
 
 categories:
-- blog
+- OSX
 
 ---
 

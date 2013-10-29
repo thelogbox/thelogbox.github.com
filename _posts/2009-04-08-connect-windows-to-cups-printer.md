@@ -3,12 +3,16 @@ layout: post
 
 title: How to Connect Windows to a CUPS Print Server
 
-description: 
+description: How to hook up Windows to a Linux Print Server
 
 excerpt: 
 
+tags:
+- Printer
+- Server
+
 categories:
-- blog
+- Linux
 
 ---
 

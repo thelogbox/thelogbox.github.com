@@ -7,8 +7,11 @@ description:
 
 except:
 
-categories:
+tags:
 - blog
+
+categories:
+- Blog
 
 ---
 

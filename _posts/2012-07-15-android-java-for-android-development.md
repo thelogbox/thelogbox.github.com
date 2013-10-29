@@ -7,8 +7,12 @@ description:
 
 excerpt: 
 
+tags:
+- Readiness
+- Java
+
 categories:
-- android-programming
+- Android
 
 
 ---

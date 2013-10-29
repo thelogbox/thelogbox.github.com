@@ -1,7 +1,16 @@
 ---
 layout: html5
+
+
 title: Handling Clicks 
-description: 
+
+description: Capturing events inside the HTML5 Canvas
+
+tags:
+- Event
+- Client
+- JavaScript
+
 categories: 
 - html5
 

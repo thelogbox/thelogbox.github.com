@@ -3,12 +3,18 @@ layout: phonegap
 
 title: Database Programming
 
-description: 
+description: Steps on how to use the SQLite Database of HTLML5 within PhoneGap applications
 
 excerpt: 
 
+tags:
+- Database
+- SQLite
+- HTML5
+
 categories:
-- phonegap
+- PhoneGap
+
 ---
 
 There are two ways to persist data on PhoneGap. One is to use *local storage* and the other, *WebSQL*. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  

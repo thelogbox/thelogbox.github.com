@@ -1,14 +1,17 @@
 ---
 layout: post
 
-title: Workbook, Java Programming Concepts
+title: Workbook on Programming Concepts
 
-description: 
+description: Exercise problems for the beginning Java programmer
 
 excerpt: 
 
+tags:
+- Exercises
+
 categories:
-- java
+- Java
 
 ---
 

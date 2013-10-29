@@ -3,12 +3,17 @@ layout: post
 
 title: TypeScript
 
-description: 
+description:  Short programming notes on the Microsoft TypeScript language
 
 excerpt: 
 
+tags:
+- Language
+- Microsoft
+- Emitter
+
 categories:
-- blog
+- JavaScript
 
 ---
 

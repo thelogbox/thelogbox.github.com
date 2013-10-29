@@ -7,8 +7,11 @@ description:
 
 excerpt: 
 
+tags:
+- Productivity
+
 categories:
-- blog
+- Hack
 
 ---
 

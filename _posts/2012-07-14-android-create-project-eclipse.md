@@ -1,14 +1,19 @@
 ---
 layout: androidtutorial
 
-title: Creating a Project in Eclipse
+title: Create a Project in Eclipse
 
-description:
+description: How to use Eclipse for Android Development
 
 except:
 
+tags:
+- Project
+- Create
+- Eclipse
+
 categories:
-- android-programming
+- Android
 
 ---
 

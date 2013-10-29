@@ -3,12 +3,15 @@ layout: post
 
 title: JavaScript Toolchain
 
-description: 
+description: A list of useful tools for a web programmer
 
-excerpt: 
+excerpt:
+
+tags:
+- Tools 
 
 categories:
-- web-development
+- WebDev
 
 ---
 

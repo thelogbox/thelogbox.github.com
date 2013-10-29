@@ -3,10 +3,16 @@ layout: androidtutorial
 
 title: Signing an App
 
-description: Details steps on how to generate a key, digitally sign and align your android project apk
+description: Detailed steps on how to generate a key, digitally sign and align your android project apk
+
+tags:
+- Release
+- Signing
+- Google
+- Play
 
 categories:
-- android-programming
+- Android
 
 ---
 

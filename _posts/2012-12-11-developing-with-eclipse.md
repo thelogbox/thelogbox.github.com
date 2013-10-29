@@ -2,10 +2,13 @@
 layout: androidtutorial
 title: Setting Up an Eclipse Development Environment
 
-description:
+description: How to use Eclipse for Android development
+
+tags:
+- Eclipse
 
 categories:
-- android-programming
+- Android
 
 ---
 

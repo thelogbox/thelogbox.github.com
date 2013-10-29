@@ -3,12 +3,18 @@ layout: androidtutorial
 
 title: Using the Mic for Recording
 
-description: 
+description: Really simple steps on how to program a voice capture application in Android
 
 excerpt: 
 
+tags:
+- MIC
+- Recording
+- Media
+- Audio
+
 categories:
-- android-programming
+- Andoroid
 
 ---
 

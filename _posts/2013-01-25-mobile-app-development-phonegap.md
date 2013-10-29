@@ -1,14 +1,18 @@
 ---
 layout: phonegap
 
-title: PhoneGap Introduction
+title: Introduction
 
-description: 
+description: A short introduction on how to build mobile applications using PhoneGap
 
 except:
 
+tags:
+- Preface
+- Introduction
+
 categories:
-- phonegap, mobile
+- PhoneGap
 
 ---
 

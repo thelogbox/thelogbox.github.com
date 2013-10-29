@@ -1,14 +1,17 @@
 ---
 layout: notice
 
-title: Am I Ready for Android Programming
+title: Programming Readiness
 
-description:
+description: Are you ready for Android Programming
 
 except:
 
+tags:
+- Android
+
 categories:
-- android-programming
+- Android
 
 ---
 

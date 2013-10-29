@@ -3,12 +3,16 @@ layout: post
 
 title:  Send/Receive SMS on USB modem [Linux]
 
-description: 
+description: Simple steps to setup your own SMS gateway in Linux
 
 excerpt: 
 
+tags:
+- sms
+- modem
+
 categories:
-- blog
+- Linux
 
 ---
 

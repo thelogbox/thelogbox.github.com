@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Using Android Studio
 
-description: 
+description: Use the Android Studio for mobile programming
 
 excerpt: Updated tutorial for Android Programming. The tutorial uses the Android Studio for development. This is a shortened version of a longer tutorial. The full tutorial is available to class participants.
 
+tags:
+- IDE
+
+
 categories:
-- android-programming
+- Android
 
 ---
 

@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Declarative Event Handling
 
-description: 
+description: How to react to user events in Android
 
 excerpt: 
 
+tags:
+- Event
+- Listeners
+
 categories:
-- android-programming
+- Android
 
 ---
 

@@ -3,12 +3,16 @@ layout: post
 
 title: Automatic Backup of MySQL
 
-description:
+description: Simple steps to automatically backup MySQL
 
 except:
 
+tags:
+- database
+- backup
+
 categories:
-- blog
+- MySQL
 
 ---
 

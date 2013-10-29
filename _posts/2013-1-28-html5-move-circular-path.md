@@ -1,9 +1,16 @@
 ---
 layout: html5
+
 title: Animation, Circular Movement
-description: 
+
+description:
+ 
+tags:
+- Animation
+ 
+ 
 categories:
-- html5, canvas
+- HTML5
 
 ---
 

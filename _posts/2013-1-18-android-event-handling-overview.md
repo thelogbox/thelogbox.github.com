@@ -5,8 +5,12 @@ title: Event Handling
 
 description: There are two ways to program with event on Android. First is via the XML, the declative way. The declarative way has a limitation, a very serious limitation, you can only do the click event and nothing more. The other way, is the programmatic way --- this can handle anything. You need to be very comfortable working with interfaces and callbacks to use this.
 
+tags:
+- Event
+- Listeners
+
 categories:
-- android-programming
+- Android
 
 ---
 

@@ -3,12 +3,16 @@ layout: post
 
 title: Web Development Tools
 
-description: 
+description: A list of tools for the web programmer
 
 excerpt: 
 
+tags:
+- Tools
+- Development
+
 categories:
-- blog
+- Web
 
 ---
 

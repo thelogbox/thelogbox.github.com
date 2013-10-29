@@ -1,10 +1,16 @@
 ---
 layout: html5
-title: Markup basics
-description: 
+
+title: Markup Basics
+
+description: Introduction to HTML5 elements and basic HTML construct
+
+tags:
+- Markup
+- Elements
 
 categories:
-- html5
+- HTML5
 
 ---
 

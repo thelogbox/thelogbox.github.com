@@ -1,14 +1,17 @@
 ---
 layout: androidtutorial
 
-title: Compiling
+title: Compiling a Project
 
-description:
+description: Simple steps on how to compile an Android project
 
 except:
 
+tags:
+- compile
+
 categories:
-- android-programming
+- Android
 
 ---
 

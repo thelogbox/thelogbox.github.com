@@ -5,8 +5,13 @@ title: Netbeans development environment
 
 description: Detailed steps on how to setup a development environment for Android programming using the NetBeans IDE. Setup the Android SDK, the AVD manager. Then setup NBAndroid, the netbeans android plugin Finally, how to use a physical device to test while using NetBeans
 
+tags:
+- Development
+- Environment
+- IDE
+
 categories:
-- android-programming
+- Android
 
 ---
 

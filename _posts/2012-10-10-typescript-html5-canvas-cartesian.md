@@ -3,12 +3,16 @@ layout: html5
 
 title: Line Graphing in HTML5 Canvas
 
-description: 
+description: Test driving Microsoft Typescript with HTML5 Canvas
 
 excerpt: 
 
+tags:
+- TypeScript
+- HTML5
+
 categories:
-- html5
+- JavaScript
 
 ---
 

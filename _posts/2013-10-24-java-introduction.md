@@ -3,12 +3,16 @@ layout: java
 
 title: Introduction
 
-description: 
+description: A small introduction to Core Java Programming
 
 excerpt: 
 
+tags:
+- Introduction
+- Preface
+
 categories:
-- java
+- Java
 
 ---
 

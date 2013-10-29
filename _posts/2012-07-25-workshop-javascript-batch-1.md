@@ -3,12 +3,17 @@ layout: post
 
 title: RD JavaScript Workshop. Aug 2012
 
-description: 
+description: Journal of RD batch 1. JavaScript fundamentals
 
 excerpt: 
 
+tags:
+- Workshop
+- JavaScript
+
+
 categories:
-- javascript
+- Training
 
 ---
 

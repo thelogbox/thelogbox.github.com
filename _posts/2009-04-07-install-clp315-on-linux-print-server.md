@@ -3,12 +3,16 @@ layout: post
 
 title: Install CLP 315 on Debian Linux Print Server
 
-description:
+description: Get a Samsung color printer to work with a Linux Print server
 
 except:
 
+tags:
+- Printer
+- Server
+
 categories:
-- blog
+- Linux
 
 ---
 

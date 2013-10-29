@@ -3,12 +3,17 @@ layout: post
 
 title: C# Programming Notes
 
-description:
+description: C# Language Fundamentals. Data types, Reference types, Loops and Branch
 
 except:
 
+tags:
+- Introduction
+- Language
+- Fundamentals
+
 categories:
-- blog
+- CSharp
 
 ---
 

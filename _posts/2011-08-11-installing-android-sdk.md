@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Setting Up the Development Environment
 
-description: 
+description: Simple steps to prepare a workstation for Android Development
 
-excerpt: 
+excerpt:
+
+tags:
+- Programming
+- Environment 
 
 categories:
-- android-programming
+- Android
 
 
 ---

@@ -1,14 +1,18 @@
 ---
 layout: androidtutorial
 
-title: Android Screen Shooting
+title: Screen Shooting
 
-description: 
+description: Screen shoot like a geek
 
 excerpt: 
 
+tags:
+- utility
+- ddms
+
 categories:
-- android-programming
+- Android
 
 ---
 

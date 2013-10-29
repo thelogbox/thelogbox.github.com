@@ -3,12 +3,16 @@ layout: post
 
 title: How to Install MySQL on OSX
 
-description: 
+description: Simple steps to get MySQL working on a Mac
 
 excerpt: 
 
+tags:
+- MySQL
+- Database
+
 categories:
-- blog
+- OSX
 
 ---
 

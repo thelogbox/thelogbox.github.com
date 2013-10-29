@@ -5,8 +5,12 @@ title: Android Project Workflow
 
 description: Here are the steps that a developer generally goes through from creating an android app, until signing it and releasing it to the public
 
+tags:
+- Workflow
+- Project
+
 categories:
-- android-programming
+- Android
 
 ---
 

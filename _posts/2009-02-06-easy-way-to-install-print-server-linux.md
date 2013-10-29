@@ -3,12 +3,16 @@ layout: post
 
 title: How to Install a Linux Print Server
 
-description:
+description: Really basic steps on setting up a CUPS printer
 
 except:
 
+Tags:
+- Printer
+- Server
+
 categories:
-- blog
+- Linux
 
 ---
 

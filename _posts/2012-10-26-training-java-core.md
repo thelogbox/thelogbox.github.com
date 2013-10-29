@@ -3,12 +3,15 @@ layout: courses
 
 title: Core Java Programming Training
 
-description: 
+description: What is covered in Core Java Training
 
 excerpt: Whether you would like to be a web applications developer, an mobile developer using Android, the first step is to get into grips with Core Java Programming. This training helps you build that skill. 
 
+tags:
+- Java
+
 categories:
-- course
+- Training
 
 ---
 

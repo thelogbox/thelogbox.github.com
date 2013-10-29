@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Introduction 
 
-description: 
+description: A short introduction to Android Programming
 
 excerpt: 
 
+tags:
+- Introduction
+- Preface
+
 categories:
-- android-programming
+- Android
 
 ---
 

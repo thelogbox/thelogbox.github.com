@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Study Tips
 
-description: 
+description: Really simple study and practice tips for the beginning Android programmer
 
 excerpt: 
 
+tags:
+- Study
+- Practice
+
 categories:
-- android-programming
+- Android
 
 ---
 

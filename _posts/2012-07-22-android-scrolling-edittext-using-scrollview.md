@@ -1,14 +1,18 @@
 ---
 layout: androidtutorial
 
-title: Scrolling Text
+title: Scrollable Text
 
-description:
+description: Really simple steps on how to do scrollable texts in Android
 
 except:
 
+tags:
+- UI
+- View
+
 categories:
-- android-programming
+- Android
 
 ---
 

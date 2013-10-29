@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Android Activity Life Cycle
 
-description:
+description: See what happens with an Android Activity class from the time of invocation until it is destroyed
 
 except:
 
+tags:
+- Activity
+- LifeCycle
+
 categories:
-- android-programming
+- Android
 
 ---
 

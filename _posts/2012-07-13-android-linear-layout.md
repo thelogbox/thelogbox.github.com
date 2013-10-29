@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Linear Layout
 
-description: 
+description: Learn to use the horizontal and vertical orientation of the LinearLayout in Android. LinearLayout is the most basic UI layout in Android
 
 excerpt: 
 
+tags:
+- Layout
+- UI
+
 categories:
-- android-programming
+- Android
 
 ---
 

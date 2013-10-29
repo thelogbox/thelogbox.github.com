@@ -3,12 +3,17 @@ layout: phonegap
 
 title: Getting Started
 
-description: 
+description: Create, compile, build and deploy your first PhoneGap project
 
 excerpt: 
 
+tags:
+- Introduction
+- Compiling
+- Setup
+
 categories:
-- phonegap
+- PhoneGap
 
 ---
 

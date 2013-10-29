@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Using Layout Weights
 
-description:
+description: Advanced linear layout in Android
 
 except:
 
+tags:
+- UI
+- Layout
+
 categories:
-- android-programming
+- Android
 
 ---
 

@@ -3,12 +3,16 @@ layout: html5
 
 title: Database Programming with WebSQL
 
-description: 
+description: Learn how to use WebSQL in HTML5
 
 excerpt: 
 
+tags:
+- Storage
+- Database
+
 categories:
-- html5
+- HTML5
 
 ---
 

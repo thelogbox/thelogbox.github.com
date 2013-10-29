@@ -3,12 +3,15 @@ layout: androidtutorial
 
 title: Background Info
 
-description:
+description: A short history of the Android mobile platform
 
 except:
 
+tags:
+- history
+
 categories:
-- android-programming
+- Android
 
 ---
 

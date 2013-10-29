@@ -7,8 +7,14 @@ description:
 
 excerpt: 
 
+tags:
+- Java
+- Core
+- HelloWorld
+
 categories:
-- java
+- Java
+
 ---
 
 Java source files are unicode text files. They have a *.java* extension on their file names.  

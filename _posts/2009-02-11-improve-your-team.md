@@ -3,12 +3,15 @@ layout: notice
 
 title: Improve Your Team
 
-description:
+description: How theLogBox can help improve your team
 
 except:
 
-categories:
+tags:
 - notice
+
+categories:
+- Notice
 
 ---
 

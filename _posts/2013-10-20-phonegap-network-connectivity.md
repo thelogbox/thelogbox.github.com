@@ -3,12 +3,17 @@ layout: phonegap
 
 title: Network Connectivity
 
-description: 
+description: How to detect if the device has internet connection
 
 excerpt: 
 
+tags:
+- Network
+- Connectivity
+- Plugin
+
 categories:
-- phonegap
+- PhoneGap
 
 ---
 

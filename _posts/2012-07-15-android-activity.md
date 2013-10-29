@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Activity and the UI
 
-description: 
+description: User interface programming in Android
 
 excerpt: 
 
+tags:
+- Activity
+- UI
+
 categories:
-- android-programming
+- Android
 
 ---
 

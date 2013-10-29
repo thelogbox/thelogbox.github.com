@@ -7,8 +7,13 @@ description:
 
 excerpt: 
 
+tags:
+- iOS
+- Setup
+
 categories:
-- phonegap
+- PhoneGap
+
 ---
 
 You need a Mac. The Apple&reg; tools needed to build iOS applications runs only on Apple&reg; hardware, lest you violate their TOS. Specifically, to build iOS apps using PhoneGap 3.0, you need an Intel based Mac and at least OSX 10.7 (Lion).
