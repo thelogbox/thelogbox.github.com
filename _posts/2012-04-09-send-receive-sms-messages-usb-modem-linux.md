@@ -16,8 +16,6 @@ categories:
 
 ---
 
-
-
 This small guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
 
 There were a couple of other solution approaches but I went for *gnokii-sms*. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.  
@@ -84,7 +82,7 @@ Here is how to prepare the MySQL back-end
 $ mysql -u root -p
 $ mysql> create database smsgw;
 $ mysql> use smsgw;
-$ mysql>\. /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
+$ mysql>\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 </pre>
 
