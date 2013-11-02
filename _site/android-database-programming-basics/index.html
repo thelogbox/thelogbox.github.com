@@ -1,0 +1,831 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/thelogbox/feed/" />
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<meta name="keywords" content="Database ,Introduction">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Understand the basics of how to use SQLite in your mobile apps" />
+<title>Android , Database Programming | theLogBox </title>
+
+<!-- 1. Moot style -->
+<link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
+<!-- 2. jQuery library (v1.7+ required) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- 3. Moot application -->
+<script src="//cdn.moot.it/1/moot.min.js"></script>
+<!-- 4. Fine tuning -->
+<!-- 4.1 Use a mobile optimized version of Moot: http://goo.gl/EOpFl -->
+<meta name="viewport" content="width=device-width">
+<!-- 4.2 Force latest IE rendering engine: http://goo.gl/tf4JH -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<style>
+
+* {
+  background: #fbfbfb;
+}
+
+p, li, .content-meta, body, p, br {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+	line-height: 1.6em;
+  /* color: #414141; */
+  color: #323232;
+}
+
+ol, ul { padding-left:20px; line-height:1.8em;}
+li {margin-bottom: 10px;}
+
+/* 
+ol li {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+  color: #323232;
+  margin-left: 10px;
+}
+*/
+
+.tutorial-writeup {
+  font-family:  'Titillium Web';
+  text-align: left;
+  width: 90%;
+  font-size: 20px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  background: #F0F0F0;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+/*
+.courses-head {background-image:url('../img/room.jpg');}
+*/
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:90%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:72%;
+}
+
+.notoc {
+  width:90%;
+}
+
+#articletitle {
+	font-family: 'Libre Baskerville','Rokkitt', 'Helvetica', sans-serif;
+	font-size: 40px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 1em;
+  color: #555555;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  text-align:left;
+  width:24%;
+  overflow: visible;
+  padding: 10px;
+  float: right;
+}
+.toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #555555;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Libre Baskerville','Helvetica','Tahoma';
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {
+    
+  font-family: 'Libre Baskerville','Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+article {
+  padding-bottom: 20px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+footer {
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:30px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:10px solid #DEDEDE;  
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 2px;
+  margin-bottom:2.5em;
+  margin-top:2.5em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
+}
+
+strong {
+  font-family: 'Libre Baskerville','Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+/*
+em {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: #191919;
+}
+*/
+
+code {
+	font-family: 'Inconsolata','Lekton';
+}
+
+pre {
+	font-family: 'Inconsolata','Lekton';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:2.5em;
+  margin-top:2.5em;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  font-size: 16px;
+  font-family: 'Lekton';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 16px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+a:link, a:visited {
+  color: #3a5d9f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3a5d9f;
+  border-bottom: 1px solid #6083c5;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2.5em;
+  margin-bottom:2.5em;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+  }
+
+aside {
+  
+  padding: 10px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
+  display: inline;
+/*  background: #800000; */
+  background: #3a5d9f;
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: white;
+}
+
+.button:link, .button:visited {color: #f1f1f1;}
+.button:hover {background:#555555;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+
+</style>  
+  </head>
+  <body>
+    
+    <div class="running-head">   
+      <div class='tutorial-writeup'>        
+      get updates for  <a href='http://eepurl.com/HcFof' target='_blank'> android programming tutorial </a> 
+      </div>
+      
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Database Programming</div>
+      <div class='vspacer'></div>
+    </header>
+    
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>While there exist a class of applications that do not use databases, they are few. It's almost an automatic expectation that a programmer knows how to deal with databases.</p>
+
+<p>We will use the built-in database of Android, <strong>SQLite</strong>. To use this database, we simply need to declare it in our <em>import</em> statements. This db is baked right into Android. There are no third party installs necessary.</p>
+
+<p>If your background in Java database programming is JDBC or Hibernate or something else, there is a slight adjustment you need to make. You won't be able to use JDBC in Android. There is no JDBC in here. Don't worry too much. The SQLite API is not terribly difficult. It won't take you an afternoon to learn the basics.</p>
+
+<h1>OUR GOALS</h1>
+
+<p>To Display a simple form to the user. Let him type anything he wants on a free-form editable UI widget <em>(an EditText)</em>.</p>
+
+<p>To Get the runtime value of the <em>EditText</em> and insert it as a record in the database. Afterwhich, read the whole table and display the contents in scrollable, non-editable widget <em>(TextView)</em></p>
+
+<h1>CONCEPTS</h1>
+
+<p>The class <em>SQLiteOpenHelper</em> is the middle-man that stands between your application logic and the database. You will use this to <em>create and upgrade a database</em>. You will also use it to get a handle on a readable database and writable database &mdash; think of it as a replacement of the Connection object in JDBC.</p>
+
+<p>Another class used in this example is the <em>SQLiteDatabase</em>. Think of it as the equivalent of the Statement object in JDBC. When you need to perform raw SQL statements, this is the class to use.</p>
+
+<p>Once we have created the database using <em>SQLiteOpenHelper</em> and captured some info from the UI, we need to deal with data retrieval. We need to find a way to get a handle on a readable database, pass a query to it, get the result of the query and save it somewhere else. The <em>Cursor</em> object is what we will use to store the results of the query. In JDBC you might remember this as the <em>ResultSet</em> object.</p>
+
+<p>Once we have a <em>Cursor</em>, we can simply iterate through it to process the contents of the database.</p>
+
+<h1>HOW TO DO IT</h1>
+
+<p>Create a new android project for this exercise. Add the appropriate View elements like TextView, EditText and Button.</p>
+
+<p><code class="codeblock">$ android create project --target 15 --activity DbSample --path dbsample  --package com.thelogbox</code></p>
+
+<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="nt">&gt;</span>
+
+    <span class="nt">&lt;EditText</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+        <span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+    <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;ScrollView</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
+    <span class="nt">&gt;</span>
+
+        <span class="nt">&lt;TextView</span>  
+            <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+            <span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
+            <span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ScrollView&gt;</span>
+    <span class="nt">&lt;Button</span>
+        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+        <span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
+        <span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
+        <span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+        <span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div>
+
+
+
+
+<div id='lst'>main.xml generated by the project</div>
+
+
+<p>The <em>TextView</em> component is embedded in a <em>ScrollView</em> component so we can scroll through the contents of the TextView. The ScrollView acts like a viewport. We also used the <em>weight</em> property of the layout so our viewport is given the biggest portion of the screen. See the note on <a href="/android-layout-weights">how to use weights to maximize screen space</a></p>
+
+<p>The <em>Button's</em> onClick property is a method called <code class="codeblock">recAdd</code> which we need to implement inside on the Activity class.</p>
+
+<h2>SQLiteOpenHelper class</h2>
+
+<p>Create a class that extends the <code class="codeblock">SQLiteOpenHelper</code></p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">// SQLiteOpenHelper .java</span>
+
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">android</span><span class="o">.</span><span class="na">provider</span><span class="o">.</span><span class="na">BaseColumns</span><span class="o">.</span><span class="na">_ID</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteDatabase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteOpenHelper</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbHelper</span> <span class="kd">extends</span> <span class="n">SQLiteOpenHelper</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">sqlcreate</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE todo( &quot;</span> <span class="o">+</span> <span class="n">_ID</span>  <span class="o">+</span> <span class="s">&quot; INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);&quot;</span><span class="o">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">DbHelper</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="s">&quot;tododb.db&quot;</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">SQLiteDatabase</span> <span class="n">db</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">db</span><span class="o">.</span><span class="na">execSQL</span><span class="o">(</span><span class="n">sqlcreate</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onUpgrade</span><span class="o">(</span><span class="n">SQLiteDatabase</span> <span class="n">db</span><span class="o">,</span> <span class="kt">int</span> <span class="n">oldversion</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newversion</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">db</span><span class="o">.</span><span class="na">execSQL</span><span class="o">(</span><span class="s">&quot;DROP TABLE IF EXISTS tododb.db&quot;</span><span class="o">);</span>
+        <span class="n">onCreate</span><span class="o">(</span><span class="n">db</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>You need to do <strong>3 things</strong> at a minimum when defining a SQLiteOpenHelper.</p>
+
+<p><strong>First</strong>. Define a public constructor that accepts a Context object.  This context is the context of the <em>Activity</em> class where you will instantiate the Helper class. Call the super constructor so that you don't break the chain. The first parameter to super constructor is the <em>context object</em> &mdash; you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed <em>null</em> to it.</p>
+
+<p>The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the <em>onUpgrade()</em> method kicks in---it will perform some sort of an ALTER database command in your behalf.</p>
+
+<p><strong>Second</strong>, override the onCreate() method. This is where you can execute DDL (SQL Data Definition) commands against the database.</p>
+
+<p><strong>Third</strong>, Override the onUpgrade() method, even if you won't need it yet. You won't be able to compile unless you override this method</p>
+
+<h2>THE ACTIVITY CLASS</h2>
+
+<p>We will use an instance of  <code class="codeblock">SQLiteOpenHelper</code> for reading and writing to the database</p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">// Activity .java}</span>
+
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">com.thelogbox.DbHelper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ContentValues</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteDatabase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.Cursor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.EditText</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbSample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+
+
+    <span class="n">DbHelper</span> <span class="n">dh</span><span class="o">;</span>
+    <span class="n">SQLiteDatabase</span> <span class="n">dbwrite</span><span class="o">;</span>
+    <span class="n">SQLiteDatabase</span> <span class="n">dbread</span><span class="o">;</span>
+    
+    <span class="n">EditText</span> <span class="n">input</span><span class="o">;</span>
+    <span class="n">TextView</span> <span class="n">output</span><span class="o">;</span>
+    
+
+   <span class="cm">/** Called when the activity is first created. */</span>
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+            
+        <span class="n">dh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DbHelper</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
+        <span class="n">dbwrite</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="na">getWritableDatabase</span><span class="o">();</span>
+        <span class="n">dbread</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="na">getReadableDatabase</span><span class="o">();</span>
+        
+        <span class="c1">// you cannot put the findViewById here, it causes errors</span>
+        
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+      <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">recAdd</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">input</span> <span class="o">=</span> <span class="o">(</span><span class="n">EditText</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">todoedit</span><span class="o">);</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tododisplay</span><span class="o">);</span>
+        
+        <span class="n">String</span> <span class="n">itemtoadd</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>     
+        
+        <span class="n">ContentValues</span> <span class="n">cv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContentValues</span><span class="o">();</span>
+        <span class="n">cv</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">itemtoadd</span><span class="o">);</span>
+        <span class="n">dbwrite</span><span class="o">.</span><span class="na">insertOrThrow</span><span class="o">(</span><span class="s">&quot;todo&quot;</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="n">cv</span><span class="o">);</span>
+        
+        <span class="n">String</span> <span class="n">temptext</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">output</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+        
+        <span class="c1">//Write the dbExtraction routine here</span>
+        
+        <span class="c1">//temptext = temptext + &quot;\n&quot;;</span>
+        <span class="n">output</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">getTodos</span><span class="o">());</span>
+        
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="n">String</span> <span class="nf">getTodos</span><span class="o">()</span> <span class="o">{</span>
+        
+        <span class="n">String</span> <span class="n">cols</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;item&quot;</span><span class="o">};</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+        <span class="n">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">dbread</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">&quot;todo&quot;</span><span class="o">,</span><span class="n">cols</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="s">&quot;item&quot;</span><span class="o">);</span>
+        <span class="n">startManagingCursor</span><span class="o">(</span><span class="n">cursor</span><span class="o">);</span>
+        
+        <span class="k">while</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p><em>DBSample</em> is a regular <em>Activity</em> class. It's bad coding practice to embed the database logic in the UI, but were just starting out to learn about databases in Android, we will let it pass for now. If we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).</p>
+
+<p>We instantiated the DbHelper class so that we can create the database during our first run of this app. We also used the DbHelper to create 2 SQLiteDatabase objects, one for reading (dbread) and another for writing (dbwrite).</p>
+
+<p>The <code class="codeblock">recAdd</code> method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively.</p>
+
+<p>Once we extracted whatever the user typed inside the EditText via <code class="codeblock">getText()</code> method, we stored it inside <em>itemtoadd</em> String variable.</p>
+
+<p>The <code class="codeblock">ContentValues</code> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <em>insert</em> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the <code class="codeblock">insertOrThrow</code> method if you don't want to, you can insert a record to the database using raw SQL. If you pass an <em>INSERT INTO todo …</em> inside an <code class="codeblock">execSQL</code> method, that will do the job just as well.</p>
+
+<p>Compile and Test the project &mdash; <code class="codeblock">ant debug install</code>. The <em>codeonCreate()</em> method of DbHelper should kick in the first time your app issues a db related command.</p>
+
+        </div>
+							
+		  </div>
+      
+      <a class="moot"
+        title=Database Programming
+        href="https://moot.it/i/thelogbox/android:Database Programming">
+        Comments 
+      </a>  
+      
+		</article>
+    
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/android-programming-tutorial">Introduction</a></li>
+      <li><a href="/android-how-much-java-do-you-need">How Much Java Do You Need</a></li>
+      <li><a href="/android-background-information">Background Information</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>
+      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-getting-started">Getting Started</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Using the Camera</a></li>
+      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
+  
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
+    </ul>
+    
+    <hr/>
+    
+    <ul>
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+    </ul>
+    
+    </div>    
+    
+    
+    </div>  <!--  div wrap -->
+
+		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

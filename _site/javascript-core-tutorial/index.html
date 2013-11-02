@@ -1,0 +1,1924 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/thelogbox/feed/" />
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<meta name="keywords" content="Tutorial ,Language ,Basics">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="A quick tour of the JavaScript language" />
+<title>JavaScript , JavaScript Tutorial | theLogBox </title>
+
+<!-- 1. Moot style -->
+<link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
+<!-- 2. jQuery library (v1.7+ required) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- 3. Moot application -->
+<script src="//cdn.moot.it/1/moot.min.js"></script>
+<!-- 4. Fine tuning -->
+<!-- 4.1 Use a mobile optimized version of Moot: http://goo.gl/EOpFl -->
+<meta name="viewport" content="width=device-width">
+<!-- 4.2 Force latest IE rendering engine: http://goo.gl/tf4JH -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<style>
+
+* {
+  background: #fbfbfb;
+}
+
+p, li, .content-meta, body, p, br {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+	line-height: 1.6em;
+  /* color: #414141; */
+  color: #323232;
+}
+
+ol, ul { padding-left:20px; line-height:1.8em;}
+li {margin-bottom: 10px;}
+
+/* 
+ol li {
+	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+	font-size: 16px;
+  color: #323232;
+  margin-left: 10px;
+}
+*/
+
+.tutorial-writeup {
+  font-family:  'Titillium Web';
+  text-align: left;
+  width: 90%;
+  font-size: 20px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  background: #F0F0F0;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+/*
+.courses-head {background-image:url('../img/room.jpg');}
+*/
+
+.vspacer {height:20px;}
+
+#wrap {
+	width:90%;
+	margin: 0 auto;
+	padding-top: 1em;
+}
+
+/* FOR THE article block */
+
+.withtoc {
+  float:left;
+  width:72%;
+}
+
+.notoc {
+  width:90%;
+}
+
+#articletitle {
+	font-family: 'Libre Baskerville','Rokkitt', 'Helvetica', sans-serif;
+	font-size: 40px;
+	font-weight: normal;
+  
+  text-align: left;
+  line-height: 1em;
+  color: #555555;
+  /*color: #373737;*/
+  /* color:#2d2d2d; */
+}
+
+.content-meta {
+  font-family: 'Rokkitt';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+.toc {
+  text-align:left;
+  width:24%;
+  overflow: visible;
+  padding: 10px;
+  float: right;
+}
+.toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
+  letter-spacing: -1px;
+	color: #555555;
+  font-weight:normal;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {
+  font-size: 22px; margin-bottom:0;
+
+} 
+h3 {font-size: 20px; margin-bottom:0;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-family: 'Rokkitt';
+  font-size: 70px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-family: 'Libre Baskerville','Helvetica','Tahoma';
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {
+    
+  font-family: 'Libre Baskerville','Arial';
+    
+  margin:0;
+  padding:0;
+  border:0;
+  
+}
+
+article {
+  padding-bottom: 20px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+footer {
+	font-style:normal;
+	margin-top:20px;
+  padding-top:25px;
+  padding-left:30px;
+  clear:both;
+  text-align: left;
+  min-height:40px;
+  border-top:10px solid #DEDEDE;  
+}
+
+hr {
+	border:0;
+	color: #CACACA;
+	background: #CACACA;
+	height: 2px;
+  margin-bottom:2.5em;
+  margin-top:2.5em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 3px solid #DEDEDE;
+}
+
+strong {
+  font-family: 'Libre Baskerville','Tauri';
+  font-weight: normal;
+  color: #000000;
+}
+
+/*
+em {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: #191919;
+}
+*/
+
+code {
+	font-family: 'Inconsolata','Lekton';
+}
+
+pre {
+	font-family: 'Inconsolata','Lekton';
+	font-size: 90%;
+	padding: 1em;
+
+  line-height: 1.2em;
+  background: #FBFCF9; 
+  /*
+  border: 3px solid #F0F2E7;
+  */
+  border: 1px solid #DEDEDE;
+
+	margin-bottom:2.5em;
+  margin-top:2.5em;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  font-size: 16px;
+  font-family: 'Lekton';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1em;
+    background: #e8ebef;
+    color: #000000;
+    line-height:130%;
+}
+
+#lst {
+	font-family: 'Rokkitt';
+  color: #000000;
+	font-style:normal;
+	font-size: 16px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+a:link, a:visited {
+  color: #3a5d9f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3a5d9f;
+  border-bottom: 1px solid #6083c5;
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2.5em;
+  margin-bottom:2.5em;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+  }
+
+aside {
+  
+  padding: 10px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
+  display: inline;
+/*  background: #800000; */
+  background: #3a5d9f;
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: white;
+}
+
+.button:link, .button:visited {color: #f1f1f1;}
+.button:hover {background:#555555;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>    
+      
+    <div class="running-head">   
+      <div class='tutorial-writeup'>        
+        ARCHIVES
+      </div>  
+    </div>   
+    <div id="wrap">     
+    <article itemscope itemtype="http://schema.org/Article" class="notoc">
+     <header>
+      <div class='vspacer'></div>          
+      <div id="articletitle">JavaScript Tutorial</div>
+      
+      <div class='content-meta'>
+       by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
+       Ted Hagos</a>, August 07 , 2012 
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <div id="update-history">
+<strong>Doc History</strong><br/>
+7.August.2012 &mdash; created<br/>
+30.14.October.2012 &mdash; Added sections on Inheritance, DOM and event programming <br/>
+</div>
+
+
+
+
+<div id="minitoc">
+<h3>Contents</h3>
+
+0. Audience
+1. Development environment setup
+2. Code structure
+3. Data Types and variable declarations
+4. Functions
+5. Keywords
+6. Arithmetic
+7. Boolean
+8. Control of program flow
+9. Complex data types
+10. Anonymous functions
+11. Objects (again)
+12. Objects with Functions
+13. Inheritance
+14. Modularization
+15. JavaScript in the browser
+    - 15.1 Event programming
+16. JQuery
+17. TypeScript
+18. CoffeeScript
+19. Other stuff that compile to JavaScript
+20. JavaScript on the Server
+21. Asynchronous JavaScript
+22. JavaScript, Android, IOS (mobile platforms)
+
+<h3>Related tutorials/blog entries</h3>
+- [HTML5 Canvas Programming](/html5-canvas-programming/)
+- [TypeScript and HTML5 Canvas](/typescript-html5-canvas-cartersian/)
+</div>
+
+
+<p>JS (JavaScript) is a loose, dynamically typed and interpreted  scripting language. It began life as LiveScript (1995); when it was a project at Netscape Communications. At some point in time, it was renamed JavaScript (roughly around the time when plugin support for the Java language was added to Netscape Navigator).</p>
+
+<p>Java and JavaScript are not related to each other, not even remotely, they simply share a commonality in their names.</p>
+
+<p>JavaScript's popularity maybe attributed to it's ubiquity amongst web pages (client side JavaScript), but it is actually being used in lots of places other than web pages. JS can be ran on the server (Node.JS), it can be used to do MVC type development of web apps (Backbone.JS) and it can also be used to stitch together a bunch of Java apps together (Rhino); these are just some of the other uses of JavaScript.</p>
+
+<p>JavaScript as we know it today, is the scripting language consistent with ECMAScript. ECMAScript is a standardized scripting language according to ECMA specification 262 and ISO/IEC 16262. ECMAScript exist in the form of JavaScript, ActionScript and JScript. If you are looking for language specification of JavaScript, you can look at the ECMAScript 262 specification---it is included in the Bibliography.</p>
+
+<h1>About this tutorial</h1>
+
+<p>The tutorial has evolved overtime. When this was started, it aimed only to introduce the bare-boned JavaScript core language&mdash;without the attendant technologies e.g. DOM, JQuery, AJAX, node  etc. As it turns out, JavaScript is right in the middle of a lot of important and emerging technologies right now, hence, it is difficult not to mention the eco system of JavaScript technologies.</p>
+
+<h1>Who is the intended audience</h1>
+
+<p>I wrote this for an internal (company) programming workshop. It is <strong>Part 2</strong> of a 3-part programme for HTML5 programming. The participants had little (or no) prior programming background. Prior to JavaScript, the participants took up programming concepts using the Java language.</p>
+
+<p>This tutorial does not cover the fundamental concepts of programming. Neither does it cover the more advanced techniques of JavaScript. It aims to cover Core JavaScript (ECMAScript 5) language fundamentals.</p>
+
+<h1>1. Environment setup</h1>
+
+<p>Chances are you already got most of the things you need. The JavaScript engine is found on modern browsers, so already got the runtime covered. The only thing you need to start is a decent programmer's editor. You can get by using the Notepad in Windows or TextWrangler (perhaps TextEdit) in OSX, I urge you however to invest a little bit on a programmer's editor--there are plenty to choose from, commercial software or opensource.</p>
+
+<p>I would urge you to download NodeJS environment because it comes in handy when you are trying to learn the core JavaScript language. The ability to whip up a quick JS source and run it on top of a JavaScript interpreter is surely quicker than setting an HTML container to run the JS code. You can download Node.JS from <a href="http://nodejs.org">NodeJS.org</a></p>
+
+<p>On Linux and OSX, the <em>node</em> command did not need any setting up (I used brew install node on OSX and the apt-get on Debian Linux). If you install on another platform, you may need to configure <em>node</em> to be included in the SYSTEM PATH. To test if you can run the node, just invoke <strong>node</strong> from the command line. You should be greeted with a <strong>></strong> prompt; then you know node is working.</p>
+
+<h1>2. Code structure</h1>
+
+<ol>
+<li><strong>Variable</strong> - a temporary storage for something. It can hold any type of data</li>
+<li><strong>Literals</strong> - e.g. 10 is Number literal, "Hello" is a string literal</li>
+<li><strong>Expression</strong> - involves operand(s) and operators. e.g. <em>a + b or 1 + a or 15 % 12</em></li>
+<li><strong>Statement</strong> - similar to expressions. They are (optionally) terminated by semicolon. They can be written either inside a function or outside a function</li>
+<li><strong>Function (method)</strong> - a programming block that (usually) have a name. A programming block is a bunch of statements grouped together and enclosed inside a pair of curly braces</li>
+<li><strong>Source file</strong> - contains JS functions and statements. Usually has a <em>.js</em> extension</li>
+</ol>
+
+
+<h1>3. Data Types and Variable declarations</h1>
+
+<p>You need to know what kinds of stuff you can create, define and manipulate in JS.</p>
+
+<ol>
+<li>Number</li>
+<li>Boolean</li>
+<li>String</li>
+<li>Array</li>
+<li>Object</li>
+<li>Function</li>
+<li>undefined</li>
+<li>null</li>
+<li>Object</li>
+</ol>
+
+
+<p>The first three are simple data types in JS, the rest are not so simple (don't worry, we will try to define the <em>not so simple</em> types a bit down the road)</p>
+
+<p><strong>Number</strong> - 10, 2, 100 (integers), 2.3, 1.2 (floats) are numbers. JS does not discriminate whether it is of integral or float type. There's more; 0xFF, 0xCAFEBABE (hex or octal) are also considered numbers, and so are base 8 numbers (i.e. 0377)</p>
+
+<p>When you try to store a value that is more than what a Number can hold, it can result to either <em>Infinity</em> or <em>-Infinity</em>. You can also get some weird results is <em>NaN</em> (not a number). The NaN can result if you try to do some illegal operations, i.e. divide something by zero.</p>
+
+<p><strong>Boolean</strong> - either <em>true</em> or <em>false</em></p>
+
+<p><strong>String</strong> - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. "Hello World" is as good as 'Hello World'. You may insert escape characters in Strings like "Hello\n World".</p>
+
+<p>We will deal with the other data types a little bit later, these three are actually enough to keep us busy for now.</p>
+
+<p>You will usually bother with data types when you are either declaring variables or returning something from functions. If you need to see for your eyes how the JS runtime really treats this variable, this small code snippet should help</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="cm">/*</span>
+
+<span class="cm">A small test on how JS treats types</span>
+
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">vnull</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">vundefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">y</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">z</span><span class="p">()</span> <span class="p">{</span>
+    
+<span class="p">}</span>
+
+<span class="c1">// Let&#39;s see the typeof results</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;s &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">s</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;int &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">int</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;float &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">float</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;boolean &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">boolean</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;vnull &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">vnull</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;vundefined &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">vundefined</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;obj &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">obj</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;arr &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function x &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">x</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function y &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">y</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function z &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">z</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;wildcard &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">));</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">RETURNS:</span>
+
+<span class="cm">s string</span>
+<span class="cm">int number</span>
+<span class="cm">float number</span>
+<span class="cm">boolean boolean</span>
+<span class="cm">vnull object</span>
+<span class="cm">vundefined undefined</span>
+<span class="cm">obj object</span>
+<span class="cm">arr object</span>
+<span class="cm">function x number</span>
+<span class="cm">function y undefined</span>
+<span class="cm">function z undefined</span>
+<span class="cm">wildcard undefined</span>
+
+<span class="cm">*/</span>
+</code></pre></div>
+
+
+<p>Variables can be declared using the word <strong>var</strong> (or without). I would rather that you always declare your variables using <em>var</em> because it has some effects on the <em>global context</em>--which we will discuss in a bit.</p>
+
+<h1>4. Functions</h1>
+
+<p>A JS function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="cm">/*</span>
+<span class="cm">File name: hello.js</span>
+<span class="cm">The hello world program in JavaScript</span>
+<span class="cm">*/</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;Hello World\n&quot;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>If you installed node.js (and I hope you did) you can run try this out on the command line using <strong>$ node hello.js</strong></p>
+
+<p>The hello.js program is actually more verbose than it has to be,  it could have been written as <code class="codeblock">console.log("Hello World");</code></p>
+
+<p>I wrote it that way to demonstrate a few more JS characteristics. /<em>    </em>/ are comments. Comments are non-executable codes, the interpreter will ignore them, but they are useful in putting reminders or markers in your code. It can help others read your code as well.</p>
+
+<p>Functions are defined in JavaScript by using the word <strong>function</strong> then give it a name (hopefully a descriptive one), put open and close parentheses immediately after the function name, then put the pair of curly braces.</p>
+
+<p>The <em>console.log()</em> command is the STDIO library of Node.JS (although some browsers include this as part of their JavaScript runtime). This command routes the output to stderr and stdout (the command line screen)</p>
+
+<pre class="codeblock">
+
+CANONICAL FORM OF THE FUNCTION
+
+function <name> (<parameters) {
+  // statements
+  [return <value>]
+}  
+  
+</pre>
+
+
+<p>Functions can contain a <em>return</em> statement, take note of the following though;</p>
+
+<ol>
+<li>Calling a function without a return statement - returns undefined</li>
+<li>Calling a function with return statement, but does actually return anything - returns undefined</li>
+<li>Calling a function with a return statement and a proper return value - returns the value</li>
+</ol>
+
+
+<p><span class="stress">CAUTION:</span> careful how you write your curly braces, JavaScript's defaults might produce unexpected results, see the following code</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> 
+<span class="p">{</span>
+
+    <span class="k">return</span>
+    <span class="p">{</span>                                    <span class="c1">// this line is unreachable</span>
+        <span class="nx">objprop</span><span class="o">:</span> <span class="s2">&quot;Some obj property&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>The statement will be unreachable because JavaScript would have inserted a semi-colon right after the <strong>return</strong> statement. The object literal is unreachable as a return value.</p>
+
+<p>Functions are different from JS statements. Statements are executed at once as soon as it is encountered by interpreter. Functions on the other hand are <em>compiled</em> first, they are not executed when first encountered, intead, it will be parsed and stored for later use.</p>
+
+<p>Theres a lot more to JavaScript functions but we will stop here for now. The other characteristics of functions are better explained when we are the context of Object Oriented JavaScript and some more advanced concepts.</p>
+
+<h1>5. Keywords</h1>
+
+<p>When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words--the JavaScript reserved words. Here they are;</p>
+
+<ul>
+<li>break case catch continue debugger default</li>
+<li>delete do else finally for function if in</li>
+<li>instanceof new return switch this throw try</li>
+<li>typeof var void while with implements</li>
+<li>interface let package private protected</li>
+<li>public static yield class enum export</li>
+<li>extends import super</li>
+</ul>
+
+
+<p>Read the ECMA specification for keywords, I just listed them here for convenience.</p>
+
+<h1>6. Arithmetic Operators</h1>
+
+<p>These operators behave exactly as they behave in your calculator. + for adding, - subtracting, * multiplying and / for performing division. The only other operator in the arithmetic arsenal is the modulo (%) operator. It also performs divsion, but instead of giving you the quotient, it gives you the remainder. e.g. <em>156 % 12</em> gives you 3</p>
+
+<h1>7. Boolean operators</h1>
+
+<p>These operators allows you to compare things logically and do some equivalence tests. Boolean expresssions yields either true or false.</p>
+
+<p>The <em>&amp;&amp;</em> (logical AND), <em>||</em> (logical OR) and the <em>unary NOT !</em> operator allows you to perform logical comparissons.</p>
+
+<p>The <strong>&amp;&amp;</strong> operator yields true only if both operands are result to true. If you are coming from another language where this symbol has a short-circuit behavior, be careful. This operator evaluates both operands before yielding the truth value.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="cm">/*</span>
+<span class="cm">   Simple test for &amp;&amp; operator</span>
+<span class="cm">*/</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">());</span>
+
+<span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside a&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside b&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">RESULT</span><span class="o">:</span>
+
+<span class="nx">inside</span> <span class="nx">a</span>
+<span class="nx">inside</span> <span class="nx">b</span>
+<span class="kc">false</span>
+</code></pre></div>
+
+
+<p>the <strong>||</strong> operator on the other hand requires that only one of the operands is true for the expression to return true.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="cm">/*</span>
+<span class="cm">   Simple test for || operator</span>
+<span class="cm">*/</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">()</span> <span class="o">||</span> <span class="nx">b</span><span class="p">());</span>
+
+<span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside a&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside b&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// RESULT:</span>
+
+<span class="c1">// inside a</span>
+<span class="c1">// true</span>
+</code></pre></div>
+
+
+<p>The || operator did not even evaluate function b() before returning the truth value.</p>
+
+<p>The other boolean operators <strong>== != > &lt; &lt;= >=</strong> and <strong>!</strong> are straight forward, you can read them in the ECMAScript specification if you prefer.</p>
+
+<h1>8. Control of program flow</h1>
+
+<p>You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).</p>
+
+<p><span class="stress">if-else statement</span> is way to branch. When the expression inside the <strong>if()</strong> construct yields true, the statement inside the if block is executed.</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;nah!&quot;</span><span class="o">);</span>
+<span class="o">}</span> 
+
+<span class="c1">// RETURNS nah!</span>
+</code></pre></div>
+
+
+<p>Be careful when writing your comparisson operator. Here's a slightly modified version of the code above</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nah!&quot;</span><span class="p">);</span>
+<span class="p">}</span> 
+
+<span class="c1">// RETURNS true</span>
+</code></pre></div>
+
+
+<p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value.</p>
+
+<p><span class="stress">Switch statement</span> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">case</span> <span class="s2">&quot;he&quot;</span><span class="o">:</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;he&quot;</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="kc">true</span><span class="o">:</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">&quot;Hello&quot;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="o">:</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ret</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">RETURNS &quot;Hello&quot;</span>
+
+<span class="cm">*/</span>
+</code></pre></div>
+
+
+<p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found.</p>
+
+<p><span class="stress">While statement</span> is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">timetoexit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;counter = &quot;</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>You can use the <strong>break</strong> keyword to break out of loops, like this</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.</p>
+
+<p>Another keyword related to loop structures is the <strong>continue</strong> keyword. It causes program flow to jump also</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(++</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">continue</span><span class="o">;</span> 
+    <span class="o">}</span>
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed.</p>
+
+<p><span class="stress">For statement</span> is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.</p>
+
+<pre class="codeblock">
+
+  CANONICAL FORM
+
+  for ([where to begin] ; [where to stop] ; [step]) {
+
+  }
+  
+  
+</pre>
+
+
+<p>A key concept in using the for loop is the counter (the step). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the step value is incremented. The incremented step value is then compared to the ending value, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>The code sample above defines the starting point at 1 (i = 1), it will stop the loop execution when <em>i &lt; 10</em>.  Each time the <em>for</em> loop is evaluated, the i variable will be incremented by 1 (i++).</p>
+
+<p>Here is a another sample of the for loop.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span><span class="mi">1</span> <span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nx">util</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">i</span> <span class="o">*</span> <span class="nx">j</span> <span class="o">+</span> <span class="s2">&quot;\t&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nx">util</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/*</span>
+
+<span class="cm">RESULT</span>
+
+<span class="cm">1   2   3   4   5   6   7   8   9   </span>
+<span class="cm">2   4   6   8   10  12  14  16  18  </span>
+<span class="cm">3   6   9   12  15  18  21  24  27  </span>
+<span class="cm">4   8   12  16  20  24  28  32  36  </span>
+<span class="cm">5   10  15  20  25  30  35  40  45  </span>
+<span class="cm">6   12  18  24  30  36  42  48  54  </span>
+<span class="cm">7   14  21  28  35  42  49  56  63  </span>
+<span class="cm">8   16  24  32  40  48  56  64  72  </span>
+<span class="cm">9   18  27  36  45  54  63  72  81</span>
+
+<span class="cm">*/</span>
+</code></pre></div>
+
+
+<p>This code requires the node.js library <em>util</em>. We can't use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it.</p>
+
+<h1>9. Complex data types</h1>
+
+<p>JS has some containers (stuff that can contain other stuff, that can contain other stuff … ). We will take a look at two of them right now &mdash; Arrays and Objects. These are not simple types like Numbers or Strings or Boolean. Instead of representing single values, Objects and Arrays can represent a collection of values.</p>
+
+<hr />
+
+<p><em>OBJECTS</em>. Lots of things are considered objects in JavaScript, even arrays and functions are objects, but let's not get distracted by that right now. Think of an object like a dictionary or the telephone yellow pages. It is just a collection of stuff. This stuff though has a format, it comes in pairs. The first part of the pair is a key, the other part of the pair is a value. Using the yellow pages analogy, the key is probably a person's name or name of a business. The value is the address or the phone number. The key has to be unique, you cannot have more than one key with exactly the same name.</p>
+
+<p>The value part of each pair could be anything. It could be simple data (Numbers, Booleans, Strings) or it could be complex data (Arrays, Objects or functions).</p>
+
+<p>There are a couple of ways to create objects in JS.</p>
+
+<ol>
+<li>Using object literals</li>
+<li>Using the new keyword against the Object type</li>
+<li>Constructor functions</li>
+</ol>
+
+
+<p>Try your best to ignore number 3 above (at least for now) -- we will circle around that later when we get to JavaScript OOP.</p>
+
+<p><span class="stress">Using Object literals</span></p>
+
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="o">{}</span> <span class="c1">// this one constructs an empty object</span>
+<span class="n">var</span> <span class="n">pt</span>    <span class="o">=</span> <span class="o">{</span><span class="nl">x:</span><span class="mi">0</span><span class="o">,</span> <span class="nl">y:</span><span class="mi">0</span><span class="o">}</span> <span class="c1">// an object with simple data types as members</span>
+<span class="n">var</span> <span class="n">person</span> <span class="o">=</span> <span class="o">{</span>
+
+    <span class="nl">name:</span> <span class="s">&quot;John Doe&quot;</span><span class="o">,</span>
+    <span class="nl">email:</span> <span class="s">&quot;johndoe@somewhere.com&quot;</span><span class="o">,</span>
+
+<span class="o">}</span> <span class="c1">// an object that has two members, both of which are Strings</span>
+</code></pre></div>
+
+
+<p>When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values</p>
+
+<p>~~~</p>
+
+<p>person.date_hired = "some date value";
+person.address = "some address";</p>
+
+<p>~~~</p>
+
+<p>Similarly, you can access values of the object properties using the dot notation as well, although this is not the only way.</p>
+
+<p>~~~</p>
+
+<p>console.log(person.name);
+console.log(person.address);</p>
+
+<p>~~~</p>
+
+<p>JavaScript's use of dot notation to access object properties and method will feel very familiar with devs because a lot of programming languages utilizes this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this</p>
+
+<p>~~~</p>
+
+<p>person["name"];
+person["address"];</p>
+
+<p>~~~</p>
+
+<p>JS objects are actually associative arrays---I need to clarify one point, when I write <strong>Array</strong> (capitalized) I am referring to the JavaScript complex type. When I write <strong>array</strong> (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of <strong>named</strong> values, this is the reason you can use the square braces approach to reference a member of a specific object.</p>
+
+<hr />
+
+<p><em>ARRAYS</em>. An Array is also a collection of values. Unlike an object, an Array is a collection of <em>ordered values</em>, not <em>named values</em>. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;</p>
+
+<p>~~~</p>
+
+<p>var a = []; //an empty array
+var b = [1,2,3,4,5,6,7]; //an array with 7 elements
+var c = ["Hello", "World", 1, 2.0, 0xFF]; //an array with members of diff types
+var d = [[1,1], [2,2],[3,3]]; // an array with members, which are also arrays.</p>
+
+<p>~~~</p>
+
+<p>The other way to create an Array is to use the <strong>Array()</strong> constructor</p>
+
+<p>~~~</p>
+
+<p>var a = new Array(); //equivalent to var a = []
+var b = new Array(1,2,3,4,5,6,7);
+var c = new Array("Hello", "World", 1, 2.0, 0xFF);
+var d = new Array(new Array(1,1), new Array(2,2), new Array(3,3));</p>
+
+<p>var e = new Array(5); //with 5 new elements</p>
+
+<p>~~~</p>
+
+<p>If you call the Array constructor with a single integer as parameter, it means you are specifying the length of the Array--you are not declaring an array with a single element, and the number you passed is the value of the first element.</p>
+
+<p>Array members can be retrieved by accessing the individual elements. Arrays are zero-based, hence the first element is index 0.</p>
+
+<p>~~~</p>
+
+<p>b[0] =  8; //assigns the value 8 to the first element of the Array
+console.log(b[2]); //prints the value of the third element (remember, zero based)</p>
+
+<p>~~~</p>
+
+<p>The characteristic of arrays having index positions makes them ideal for iterating using a for-loop. You cannot access members of an array using the dot notation--like you did when you accessed members of an object.</p>
+
+<h1>10. Anonymous Functions</h1>
+
+<p>We have already taken a look at functions earlier. At first glance, functions in Javascript does not seem too special. Like in any other language, we used it to contain a bunch of statements and gave it a name. This name, when we call them at a later time, will execute the set of commands inside its block. We use the function simply as an encapsulation unit for a sequence of statements.</p>
+
+<p>Functions in JavaScript has some twists that may seem weird at first (depending on where you are coming from). The dynamic characteristic of the language presents a lot of possibilites&mdash;and some suprises too. Take a look at the following code</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">function</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">foo</span><span class="o">());</span>  <span class="c1">//nothing surprising here, it will return 10</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>  <span class="c1">//This is allowed in JS, because it is not strongly typed</span>
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">foo</span><span class="o">);</span>        <span class="c1">//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function</span>
+                        <span class="c1">//befor</span>
+
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">foo</span><span class="o">());</span>      <span class="c1">//this one will throw an error, because foo is no longer a function</span>
+</code></pre></div>
+
+
+<p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
+
+<p>~~~</p>
+
+<p>var foo = function() {</p>
+
+<pre><code>return 10;
+</code></pre>
+
+<p>}</p>
+
+<p>console.log(foo()); //returns 10</p>
+
+<p>~~~</p>
+
+<p>This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named "foo" then invoked <strong>foo()</strong>. What we have just done was create an anonymous function and assigned it to variable <em>foo</em>. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don't have any further use for another way to create a function, what we have is quite enough for now.</p>
+
+<h1>11. Objects, again</h1>
+
+<p>A few things we need to remember (or know for the first time) about objects. <em>Objects in JS are reference types</em>, they are not value types, you can declare as many reference variables pointing to the exact same object</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">//filename: multiref.js</span>
+
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;firstobject&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span> <span class="c1">// both obj1 and obj2 reference var is pointing to the same object</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//exact same property as obj1</span>
+
+<span class="nx">obj2</span><span class="p">.</span><span class="nx">anothername</span> <span class="o">=</span> <span class="s2">&quot;still first object&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">anothername</span><span class="p">);</span> <span class="c1">//obj1 should have &quot;anothername&quot; as well, because </span>
+                               <span class="c1">//object 2 is pointing to the same object </span>
+                               <span class="c1">//being referenced by obj1</span>
+</code></pre></div>
+
+
+<p><em>2. Some object's structure can be modified (mutable)</em>.  An array is actually an object, it is a good example of an object that is mutable. Mutability means that as you modify the content or structure of the object, it does not spawn or create newer objects. It modifies the original object that was created.</p>
+
+<p><em>3. And then, some objects cannot be modified (immutable)</em>.  The String objects that you create are such examples of immutable objects in JS. To add this list, Numbers and Booleans (when wrapped) are also immutable. What this means is that if you apply transformations to immutable objects, they will not modify the original object that was created. The transformation will cause the object to create a new object.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;A String&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">stemp</span> <span class="o">=</span> <span class="nx">s</span><span class="p">;</span>    <span class="c1">//s and stemp points to &quot;A String&quot;</span>
+
+<span class="nx">assert</span><span class="p">(</span><span class="nx">stemp</span> <span class="o">==</span> <span class="nx">s</span><span class="p">,</span> <span class="s2">&quot;checking is s is equal to stemp&quot;</span><span class="p">);</span> <span class="c1">// result is ok</span>
+
+<span class="nx">s</span> <span class="o">=</span> <span class="nx">s</span> <span class="o">+</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+
+<span class="nx">assert</span><span class="p">(</span><span class="nx">stemp</span> <span class="o">==</span> <span class="nx">s</span><span class="p">,</span> <span class="s2">&quot;checking is s is equal to stemp&quot;</span><span class="p">);</span> <span class="c1">// result not ok</span>
+</code></pre></div>
+
+
+<p>If Strings are mutable, then the second assert would not have failed. The references "s" and "stemp" are simply no longer pointing to the same object. Any transformation that you apply on an immutable object will cause the creation of a new object, the original content plus any transformation you applied will now be contained inside the new object. By the way, <strong>assert</strong> works pretty much like a test for truth or falsity, but it behaves violently. When the expression inside the assert (the asserted value) does not evaluate to true, your code will fail with a pretty ugly run-time error. Defensive programmers use this to test their codes mercilessly, better that the code fails during development time, rather than the code failing in front of hte users.</p>
+
+<p><em>4. Pass by Reference</em></p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Base</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">prop1</span> <span class="o">=</span> <span class="s2">&quot;Property 1&quot;</span>
+
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Base</span><span class="p">();</span>        <span class="c1">// Property 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">prop1</span><span class="p">);</span>
+
+<span class="nx">paramPass</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">prop1</span><span class="p">);</span>   <span class="c1">// Altered prop1</span>
+
+
+<span class="kd">function</span> <span class="nx">paramPass</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">arg</span><span class="p">.</span><span class="nx">prop1</span> <span class="o">=</span> <span class="s2">&quot;Altered prop1&quot;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;While inside ParamPass : Base.prop1 = &quot;</span> <span class="o">+</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">prop1</span> <span class="p">);</span>
+    <span class="c1">// this outputs Altered prop1</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>When you pass object references to functions as parameters, whatever changes you make to the object (that was passed) will endure even after the function goes out of execution scope.</p>
+
+<h1>12. Objects with Functions</h1>
+
+<p>Objects are easy to create, construct and modify in JS. Adding a property to an object takes nothing more than declarating the name of the property (attached to the object using the dot notation), then simply assigning a value to to it. Just don't forget that objects in JS are like hash tables, each member of the object is a pair of data, the first one is the key and the second one is the value.</p>
+
+<p>You can put any type of member inside an object. A member could be any data type in JS, simple data or complex data&mdash;which means you can put another object inside another object. This is the part we need to make a leap on our JS knowledge. <strong>Functions</strong> in JS are objects as well, that's right. Which means, we can put functions inside objects, and when functions are inside objects, they become methods of the objects.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// file: obj3.js</span>
+
+<span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
+    
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Ted&quot;</span><span class="p">,</span> 
+    <span class="nx">work</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named "work". When we invoked the <em>work()</em> property as function&mdash;as we should, because it is a function, it then executed whatever was defined inside the function block.</p>
+
+<p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
+    
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Ted&quot;</span><span class="p">,</span> 
+    <span class="nx">work</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">rommel</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Rommel&quot;</span><span class="p">;</span>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>While this is perfectly legal to do, the idiom used in creating the <em>rommel</em> object is bit bitter to the taste, surely, there has to be a way to achieve some sort <em>Object factory</em> idiom in JS. The code is too malleable (it could be a good thing though). It seems that following this idiom, one can pretty much add properties as you go along. I am sure there is a class of problems where this kind of flexibility and malleability is desired, probably necessary even. Coming from a language that supported classical OOP (like Java), it can send some chill on the spine knowing that I could easily change properties of my object anywhere in the code. Fortunately, JS is very orthogonal language&mdash;there are lots of ways of achieving same results, so let's look for something more palatable for classical OO programmers.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Employee object: Template</span>
+
+<span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dept</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="nx">dept</span><span class="p">;</span>   
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">// Company object: Template</span>
+
+<span class="kd">function</span> <span class="nx">Company</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">employees</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">recruit</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">employee</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">listEmployees</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">arrlength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrlength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">ted</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Ted H&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Kit A&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pepper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Pepper F&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
+
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">ted</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>The preceding code feels a bit firmer than the one before it. This code used the function as some sort of constructor (actually, it is called exactly that, a function constructor). JavaScript does not have class mechanisms like Java or C++. Code reuse is not achieved by class extensions, but rather by Object extensions. By the way, this last code we just did sure looks a lot like the class mechanism, if you could just get over the fact that it said <strong>function</strong> rather than <em>class</em>.</p>
+
+<p>There a couple of things we need to talk about in this code, specifically they keyword <strong>this</strong>, but before we go there, let's look at another code, it is exactly the <em>Employee</em> and <em>Company</em> constructor code also, but with a bit of modification.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Company.js</span>
+
+<span class="c1">// Employee object: Template</span>
+
+<span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dept</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="nx">dept</span><span class="p">;</span>   
+<span class="p">}</span>
+
+<span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Company object: Template</span>
+
+<span class="kd">function</span> <span class="nx">Company</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">employees</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="nx">Company</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">recruit</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">employee</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">Company</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">listEmployees</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">arrlength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrlength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ted</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Ted H&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Kit A&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pepper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Pepper F&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
+
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">ted</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span>
+</code></pre></div>
+
+
+<h1>13. Inheritance</h1>
+
+<p>You can use JavaScript pretty much in a procedural way--what I mean by that is, without using coarse grained abstractions for interesting objects of your problem domain--but as soon as you find yourself coding way past 300 lines of code (give or take a 100 lines), you might find yourself in a (pretty) mess. The code becomes incresingly complex and increasingly difficult to change or introduce new features. Soon you need to find a way to compartmentalize the mess, you will still deal with the mess, but with OO abstractions, the messes are in bigger boxes. Inheritance is one of the bigger concepts in OO programming, here's one way to do them in JS.</p>
+
+<p>[TO DO: Finish the section above with a really simplified explanation of OO abstractions and how to use them in JavaScript]</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">Person</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">work</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;Person working&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;should not be implemented here&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">var</span> <span class="n">Manager</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;am managing&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Manager</span><span class="o">.</span><span class="na">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">;</span>
+
+<span class="n">var</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Manager</span><span class="o">();</span>
+<span class="n">m</span><span class="o">.</span><span class="na">work</span><span class="o">();</span>      <span class="c1">// Person working</span>
+<span class="n">m</span><span class="o">.</span><span class="na">managing</span><span class="o">();</span>  <span class="c1">// am managing</span>
+
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;Keys : &quot;</span> <span class="o">+</span> <span class="n">Object</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="n">m</span><span class="o">));</span>
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;isPrototypeOf manager : &quot;</span> <span class="o">+</span> <span class="n">Person</span><span class="o">.</span><span class="na">prototype</span><span class="o">.</span><span class="na">isPrototypeOf</span><span class="o">(</span><span class="n">m</span><span class="o">));</span> 
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;getPrototypeOf m : &quot;</span> <span class="o">+</span> <span class="n">Object</span><span class="o">.</span><span class="na">getPrototypeOf</span><span class="o">(</span><span class="n">m</span><span class="o">));</span>
+
+
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;m instanceof Manager  :&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">m</span> <span class="k">instanceof</span> <span class="n">Manager</span><span class="o">));</span> <span class="c1">//true</span>
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;m instanceof Person   :&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">m</span> <span class="k">instanceof</span> <span class="n">Person</span><span class="o">));</span> <span class="c1">//true</span>
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;m instance of Object  :&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">m</span> <span class="k">instanceof</span> <span class="n">Object</span><span class="o">));</span> <span class="c1">//true</span>
+<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;m instanceof Function :&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">m</span> <span class="k">instanceof</span> <span class="n">Function</span><span class="o">));</span> <span class="c1">//false</span>
+</code></pre></div>
+
+
+<p>JavaScript is an OO language but it is not class-based. There are no templates (classes) you can use to create objects. Objects, in JavaScript are created using other objects; more specifically, they are created using the function object. There is a way to create an object in JS using a literal, but we are not interested in those, we are interested in objects created using constructor functions.</p>
+
+<p>When you create a constructor function (like Manager and Person, in the examples above), they will have a property called <em>prototype</em>. A prototype is an object whose properties are shared by all the objects that have that prototype . In the example above, Manager inherits from Person via the code <strong>Manager.prototype = new Person</strong>. Whatever Person have, Manager will also have.</p>
+
+<p>To override an inherited method, simply redefine (reimplement) the method in inheriting class (the child class), that makes the method polymorphic. When you invoke a method against an object, the method will be searched (first) on the child class, if the method is not found, the search will go up the prototype chain until the method definition is found.</p>
+
+<h1>14. Modularization</h1>
+
+<p>[TODO: finish this section]</p>
+
+<h1>15. JavaScript in the browser</h1>
+
+<p>So far, by far, the JavaScript we have been doing lives on the CLI (Command Line Interface), it actually lives on the Node.JS runtime, to be specific. JavaScript also lives in the browser.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Hello JavaScript&quot;</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>JavaScript lives inside the <em>script</em> tag of an HTML page, in this example, the JavaScript code is inline, meaning it is written on the same source file where the HTML codes are also written in.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;hellojavascript.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>In this example, the script element has an src attribute which is given a value "hellojavascript.js"---this is a JavaScript source file. You can write whatever legal JavaScript statements in that source file.</p>
+
+<p>The code document.write() , when executed, will erase the whole content of the HTML page (specifically the whole of the body element) and then replace it with whatever you supplied as parameter to the write() method—that's probably not what you would like to do, so be careful using that command, you normally see that code on introductory codes of JavaScript on the browser so that you can quickly get a tactile feel of JS coding. In order to produce dynamic HTML with JavaScript you will need to know a little bit about the DOM (Document Object Model).</p>
+
+<p>An HTML page is composed tags (elements) which in turn can contain other elements. If element1 contains element2 and element3, the relationship between these elements is that; element2 and element3 are child nodes of element1, another way of saying it is that, element1 is the parent node of element2 and element3. If you try to picture the relationship of HTML elements to one another, it might resemble something like a tree structure. The trunk, the main node is the <html> element, and then it will have branches (the <head> and <body>) elements. The head and body elements can in turn contain other elements like script, style, input, textarea, options, canvas etc.</p>
+
+<p>The document object model allows you programmatic access to these elements and their attributes. Navigating the DOM is an essential skill of a JavaScript programmer. Below is a rough pictorial representation of DOM (Level 0)</p>
+
+<p><img class="default" src="/res/article-pix/notes-javascript/dom-level-0.png" width="550"></p>
+
+<p>Each node in the DOM is an object, so you can use the dot notation to reference each element. The root element of the DOM is the window object, this is the most global space in client-side JavaScript. It has many child nodes, you have already seen one of them in action a while back, the document object. When we wrote document.write(), we actually meant window.document.write(), but we don't have the write the window object explicitly.</p>
+
+<p>I already mentioned that each node in the DOM is an object, which means if you want to do something to one of elements, you need to know their methods so you can do something meaningful to them.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>     
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+    
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+        <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hello JavaScript&quot;</span><span class="p">;</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>The document object has a method---which you will use quite a lot---the getElementById(). It is used to locate an HTML element that has a specific ID. When the element is found, a programmatic reference to that object is returned. After that, you can call the methods of the HTML element. In the example above, a div named "watch" was defined in the HTML. You can use document.getElementById("watch") to obtain an object reference to that div just like what we did on the sample code. The innerHTML is a property of any div element, this is a read-write property so you can pretty much use it like this</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Writing to the div&quot;</span><span class="p">;</span>  <span class="c1">// writes to the div</span>
+
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span> <span class="c1">// reading the runtime content of the div</span>
+</code></pre></div>
+
+
+<p>Let's re-arrange the codes in our sample</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>     
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+
+        <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+        <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hello JavaScript&quot;</span><span class="p">;</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+    
+        <span class="nt">&lt;/div&gt;</span>
+
+
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>In this version, the script comes before the div definition, if you run this code, you will see nothing---because there will be an error. The variable out will contain null. The reason for this is because we tried to obtain an object reference to a div element which does not exist yet. The div "watch" must be defined and loaded in the DOM before we can obtain a programming reference to it. It is time to step back a little bit and try to get some more understanding of how the browser, DOM, and JavaScript works.</p>
+
+<p><img class="shadow" src="/img/dom-javascript-rendering.png"/></p>
+
+<p>When a web page is received by browser, it will go to work by scanning through all the HTML elements in the page. It will be interrupted shortly when it encounters elements that have an src attribute, because that attribute means that whatever information follows the src, it is not part of the current document being rendered &mdash; the browser will make another roundtrip requesting the resource from the server, then coming back again. This is the reason why sometimes, the browser seems to load for a very long time, because it is trying to complete all the elements in the web page. If the element has an src attribute, it will be fetched before the browser can complete rendering the complete DOM.</p>
+
+<p>The other occassion when the browser will stop rendering the DOM is when it encounters the <em>script</em> element. JavaScript has the ability to alter the DOM, that is why the browser needs to suspend operation when a JavaScript code is running. When the script is done, the DOM rendering can resume.</p>
+
+<p>You need to keep this interplay between the DOM, JavaScript and the browser in mind so that you always know the state of the browser and the DOM before you accessing any element of the DOM.</p>
+
+<p>This does not mean though that you have to position your scripts on very select places of the HTML page just to ensure that your code is synchronized with the HTML elements. Not only is that an ardous task, it is also bad form. What we need right now is to use a little bit of callbacks.</p>
+
+<p>Callbacks are simply functions in JavaScripts, you probably know them better as events. Each element of the DOM have built-in events that you can already use. Let's start with the <strong>window</strong> object, we'll rewrite the previous code sample using some events of the window object.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span> 
+    <span class="nt">&lt;script&gt;</span>
+
+      <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+        <span class="nx">x</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Writing to the DIV watch&quot;</span><span class="p">;</span>
+      <span class="p">}</span>
+
+    <span class="nt">&lt;/script&gt;</span>   
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+      
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>This is a lot different now, the script element is on the head portion of the HTML page, obviously none of the HTML elements have been rendered at this point, but code works just fine. This is because we have overriden the onload event of the window* object. By assigning a callback function to the onload member of window, we are in fact telling it which function to execute when all the elements of DOM have already been loaded, because at that point, the DOM is pretty stable, all of the elements would have been rendered.</p>
+
+<h2>15.1 Event Programming</h2>
+
+<p>The basic idea is when a user does something, e.g. click, right-click, types something, hovers the mouse over an area, your code will do something meaningful, useful or cool (or all of the above). These useful codes reside on your JavaScript functions. Hence, the trick is to bind a function (a function that you define) to an established event of an HTML element.</p>
+
+<p>Events can be bound to JavaScript functions in a couple of ways.</p>
+
+<h3>15.1.1 By binding the event using the attribute of an HTML element</h3>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+
+        <span class="kd">function</span> <span class="nx">btnClick</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;writetome&quot;</span><span class="p">);</span>
+            <span class="nx">x</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hi World&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Click me to see&quot;</span> <span class="na">onclick=</span><span class="s">&quot;btnClick()&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;writetome&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>The onClick attribute of the input element is assigned a name of the JavaScript function. When the user clicks the button, btnClick() will be called. This is fine if you are experimenting on JavaScript, but this style of coding is obstrusive, it sullies the HTML code.</p>
+
+<h3>15.1.2 using callbacks programmatically</h3>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;btn&quot;</span><span class="p">);</span>
+        <span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;writetome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hi World&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Click me to see&quot;</span> <span class="na">id=</span><span class="s">&quot;btn&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;writetome&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>The second version of our code is a bit cleaner. There are no programming instructions on the input element, just styling and bare instructions. The onclick event was bound to the button entirely inside the <em>script</em> element. All of our logic are wrapped inside the window.onload callback because we need the DOM to have completely rendered before we get a reference to both the div and the button input element.</p>
+
+<p>Most input elements of the DOM have the onclick event, you can even use it on document object itself, if you want to.</p>
+
+<p>I really did not intend to list down all of the input elements and their events in this page because you can easily access that information elsewhere (a book perhaps, although I think will try to google it first, before reading a JavaScript book), however, to get started quickly without being constantly being stopped by syntax issues, here are some of the most common events that you might need.</p>
+
+<ol>
+<li><em>onclick</em> - works on lots of HTML elements, there is no ondoubleclick or onrightclick, that is handled using some other trickeries of the event object. I will get to that, but not now</li>
+<li><em>onmousedown, onmousemove, onmouseover, onmouseup</em> - the events are pretty self explanatory, you can probably guess already when these events are triggered, no need to spell it out. This event works on lots of elements too, like the onClick</li>
+<li><em>onchange</em> -- usually found on input, select and textarea elements. This event is triggered when the value of the element has changed and it has lost the focus</li>
+<li><em>onkeyup, onkeydown, onkeypress</em> -- if you want to handle keyboard events</li>
+</ol>
+
+
+<h3>Sample code, onkeyup</h3>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+
+        <span class="kd">var</span> <span class="nx">txtobj</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;txtarea1&quot;</span><span class="p">];</span>
+
+        <span class="nx">txtobj</span><span class="p">.</span><span class="nx">onkeyup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;writetome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">txtobj</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;objform&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;txtarea1&quot;</span> <span class="na">rows=</span><span class="s">&quot;10&quot;</span> <span class="na">cols=</span><span class="s">&quot;100&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;/textarea&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;writetome&quot;</span><span class="nt">&gt;</span>
+    This text will change
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>Everytime the text inside the textarea element changes, we get the value of textarea (txtobj.value) then we assign that to the innerHTML property of the div</p>
+
+<h3>Handling the right click</h3>
+
+<div class="highlight"><pre><code class="java"><span class="o">&lt;!</span><span class="n">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+        <span class="err">#</span><span class="n">thearea</span> <span class="o">{</span>
+            <span class="nl">border:</span><span class="mi">4</span><span class="n">px</span> <span class="n">solid</span> <span class="n">gray</span><span class="o">;</span>
+            <span class="nl">width:</span> <span class="mi">500</span><span class="n">px</span><span class="o">;</span>
+            <span class="nl">height:</span> <span class="mi">200</span><span class="n">px</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="err">#</span><span class="n">watch</span> <span class="o">{</span>
+            <span class="nl">border:</span><span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">green</span><span class="o">;</span>
+            <span class="n">padding</span><span class="o">-</span><span class="nl">top:</span> <span class="mi">50</span><span class="n">px</span><span class="o">;</span>
+            <span class="nl">width:</span><span class="mi">500</span><span class="n">px</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="na">onload</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){</span>
+
+        <span class="n">var</span> <span class="n">objarea</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementById</span><span class="o">(</span><span class="s">&quot;thearea&quot;</span><span class="o">);</span>
+
+        <span class="n">objarea</span><span class="o">.</span><span class="na">oncontextmenu</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">objarea</span><span class="o">.</span><span class="na">onmousedown</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){</span>
+
+            <span class="n">var</span> <span class="n">watch</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementById</span><span class="o">(</span><span class="s">&quot;watch&quot;</span><span class="o">);</span>
+            <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">clientX</span><span class="o">;</span>
+            <span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">clientY</span><span class="o">;</span>
+            <span class="n">var</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;X : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; | Y: &quot;</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
+
+            <span class="k">switch</span><span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">which</span><span class="o">){</span>
+                <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="c1">// left click</span>
+                    <span class="n">watch</span><span class="o">.</span><span class="na">innerHTML</span> <span class="o">=</span> <span class="s">&quot;Left &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span> 
+                <span class="k">case</span> <span class="mi">2</span><span class="o">:</span> <span class="c1">// middle click</span>
+                    <span class="n">watch</span><span class="o">.</span><span class="na">innerHTML</span> <span class="o">=</span> <span class="s">&quot;Midle &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="k">case</span> <span class="mi">3</span><span class="o">:</span> <span class="c1">// right click</span>
+                    <span class="n">watch</span><span class="o">.</span><span class="na">innerHTML</span> <span class="o">=</span> <span class="s">&quot;Right &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;thearea&quot;</span><span class="o">&gt;</span><span class="n">Right</span> <span class="n">click</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">box</span><span class="o">.</span> <span class="n">Then</span> <span class="n">right</span> <span class="n">click</span> <span class="n">outside</span> 
+<span class="n">the</span> <span class="n">box</span><span class="o">.</span> <span class="n">The</span> <span class="n">context</span> <span class="n">menu</span> <span class="n">will</span> <span class="n">not</span> <span class="n">be</span> <span class="n">triggered</span> <span class="n">inside</span> <span class="k">this</span> <span class="n">div</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;watch&quot;</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>We need to override the <strong>oncontextmenu</strong> function so that the default context menu will not kick in. The key to detecting which mouse button was used to click is the <strong>which</strong> property of the event object---note though that there have been inconsistencies on the values of which, sometime in the past, I remember 0 = left click, 1 = middle and 2 = right; Do your proper testing, you have been warned.</p>
+
+<h3>Tracking the mouse position</h3>
+
+<p>The X and Y position of the mouse is always reported by the event object, in the following code sample, the mouse position is captured during the <strong>onmousemove</strong> of a div element.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nf">#thearea</span> <span class="p">{</span>
+            <span class="k">border</span><span class="o">:</span><span class="m">4px</span> <span class="k">solid</span> <span class="nb">gray</span><span class="p">;</span>
+            <span class="k">width</span><span class="o">:</span> <span class="m">500px</span><span class="p">;</span>
+            <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">#watch</span> <span class="p">{</span>
+            <span class="k">border</span><span class="o">:</span><span class="m">5px</span> <span class="k">solid</span> <span class="nb">green</span><span class="p">;</span>
+            <span class="k">padding-top</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>
+            <span class="k">width</span><span class="o">:</span><span class="m">500px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+
+        <span class="kd">var</span> <span class="nx">objarea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;thearea&quot;</span><span class="p">);</span>
+
+        <span class="nx">objarea</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+
+            <span class="kd">var</span> <span class="nx">xpos</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">ypos</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;X : &quot;</span> <span class="o">+</span> <span class="nx">xpos</span> <span class="o">+</span> <span class="s2">&quot; | Y : &quot;</span> <span class="o">+</span> <span class="nx">ypos</span><span class="p">;</span>
+
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">;</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;thearea&quot;</span><span class="nt">&gt;</span>Just hover your mouse inside box<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>The event object has two members, clientX and clientY which corresponds to exact position of mousepointer at the time of capture. You need to be careful when using event.clientX and event.clientY*, these may not be the same from one browser to another--which is why its worthwhile using JavaScript libraries that takes away our worries of cross-browser coding, like JQuery; which is coming up next.</p>
+
+<h1>16. JQuery</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>17. TypeScript</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>18. CoffeeScript</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>19. Other stuff that compile to JavaScript</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>20. JavaScript on the server</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>21. Asynchronous JavaScript (AJAX)</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<h1>22. JavaScript, Android, IOS and other mobile platforms</h1>
+
+<p>[TO DO: finish this section]</p>
+
+<!-- 
+
+# 13. Inheritance and polymorphism [done]
+# 14. Modularization
+# 15. In the browser
+# 16. DOM
+# 17. JQuery
+# 18. TypeScript
+# 19. CoffeeScript
+# 20. Other stuff that compile to JavaScript
+# 21. JavaScript and Mobile applications
+
+Assert keyword
+Abstractions
+ECMA 6 
+
+-->
+
+
+<h1>Bibliography</h1>
+
+<ol>
+<li><a href="http://www.amazon.com/gp/product/0596805527/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0596805527&linkCode=as2&tag=javafornoob-20">JavaScript: The Definitive Guide: Activate Your Web Pages (Definitive Guides)</a><img src="http://www.assoc-amazon.com/e/ir?t=javafornoob-20&l=as2&o=1&a=0596805527" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+<li><a href="http://www.w3schools.com/js/js_intro.asp">W3C Schools</a></li>
+<li><a href="http://nodejs.org/api/index.html">NodeJS.org</a></li>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google JavaScript Style Guide</a></li>
+<li><a href="http://www.oreillynet.com/pub/a/javascript/2001/04/06/js_history.html">O'Reilly Web Dev Center</a></li>
+<li><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA publications</a></li>
+<li><a href="http://en.wikipedia.org/wiki/ECMAScript">JavaScript history: Wikipedia</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words">Mozilla Developer Reference</a></li>
+<li>Pro JavaScript Techniques, John Resig, Apress 2006</li>
+</ol>
+
+
+        </div>
+							
+		  </div>
+		</article>
+    
+    
+    <a href="/" class='button'>HOME PAGE</a>  
+    <a href="/archives" class='button'>BLOG ARCHIVES</a>
+    
+  </div> <!-- WRAP -->   
+		
+    <footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+          Ted Hagos</a> 
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

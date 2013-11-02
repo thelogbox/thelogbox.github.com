@@ -1,7 +1,7 @@
 ---
 layout: linux
 
-title: Install SSH on Debian/Ubuntu
+title: Install SSH
 
 description: Get an SSH server running
 
@@ -16,10 +16,7 @@ categories:
 
 ---
 
-
-Hopefully you would be doing this immediately right after your installation of your server. If not, you may have to plugin a keyboard and a monitor to your server right now -- at least until after we've installed and configured SSH.
-
-To install SSH, get it from the repositories &mdash; <code class="codeblock">sudo apt-get install ssh</code>
+To install SSH on Debian or its derivatives, get it from the repositories &mdash; <code class="codeblock">sudo apt-get install ssh</code>
 
 If you prefer to do it in GUI mode and you are running a desktop program in Linux like Gnome, Unity, LXDE etc, you could do it using **synaptic**, search ssh and you should be on your way -- but then again, you are running a server, why would you have a GUI running in it? 
 
