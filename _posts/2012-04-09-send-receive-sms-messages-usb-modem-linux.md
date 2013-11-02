@@ -1,7 +1,7 @@
 ---
 layout: linux
 
-title:  Send/Receive SMS on USB modem
+title:  Send-Receive SMS
 
 description: Simple steps to setup your own SMS gateway in Linux
 
