@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Development Setup for Windows
+title: Windows setup
 
 description: Setup your Android Development Environment in Windows 
 

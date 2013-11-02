@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-02T17:53:32+08:00</updated>
+ <updated>2013-11-02T18:32:24+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -761,23 +761,25 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
  </entry>
  
  <entry>
-   <title>How Much Java Do You Need</title>
+   <title>Theoretical Minimum</title>
    <link href="http://thelogbox.com/android-how-much-java-do-you-need"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-how-much-java-do-you-need</id>
-   <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;INHERITANCE&lt;/strong&gt;. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that you create an Activity class &amp;mdash; that means you will create a class that inherits from android.app.Activity. You must be very familiar with the rules and characteristics of Java Inheritance. Java uses both &lt;em&gt;interface&lt;/em&gt; and &lt;em&gt;class&lt;/em&gt; inheritance, you need both.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;POLYMORPHISM&lt;/strong&gt;. Inheriting from android.app.Activity is one of the most fundamental skill you must have. Second to that is your ability to understand why you need to &lt;em&gt;override&lt;/em&gt; some of its methods. Your knowledge of Polymorphism and how it is used in the Java language is part of a theoretical minimum for Android Programming.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CALLBACK&lt;/strong&gt;. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks &amp;mdash; using only the XML files to hook the events &amp;mdash; but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the &lt;em&gt;click&lt;/em&gt; event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the &lt;strong&gt;Listeners&lt;/strong&gt; in Android.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;XML&lt;/strong&gt;. This is easy and should not be much of a trouble. Even beginning programmers can handle this without breaking a sweat. Android uses XML extensively &amp;mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JAVA FUNDAMENTALS&lt;/strong&gt;. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DATABASE PROGRAMMING&lt;/strong&gt;. Basic SQL so you can CREATE, READ, UPDATE AND DELETE records. The Android way of database programming will feel a bit different than the usual JDBC, but that learning curve is not much trouble. It can be handled with minimum sweat. Android uses SQLite3, so if you will practice for Android, get acquainted with SQLite.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NETWORK PROGRAMMING&lt;/strong&gt;. Learn the basics of HttpClient. Going a bit deeper on socket programming can't hurt either. A mobile application is not always an offline application. Times are changing. Applications are getting more connected and consumes cloud-based services. Your familiarity with TCP and associated technologies will go a long way.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;REST&lt;/strong&gt;. Web Services are shifting more and more to RESTful style. Get some familiarity with the associated technologies and idioms of this architecture. This may not be core Java, and in fact borders a lot on JavaScript. JSON (JavaScript Object Notation) is used heavily on RESTful apps.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DATA STRUCTURES&lt;/strong&gt;. Know the basics of an &lt;em&gt;array&lt;/em&gt; and the &lt;em&gt;Array&lt;/em&gt; class. That's the start. Go deeper with the other collection classes of Java. Know how to handle hash maps, vectors etc.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;THREADS&lt;/strong&gt;. Modern devices are running on 4 cores. Android can take advantage of multiple cores. You need to know how to execute your code in the background, asynchronously.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LOGGING&lt;/strong&gt;. Old school debugging using printf and System.out will still be useful. But get some familiarity using Log classes. Be mindful that Android development is starkly different from Desktop or Web programming. Your codes will run on a device, not in your PC. The primary interface with the runtime and debug environment is Android's adb and ddms &amp;mdash; short for android debugger and dalvik device monitor service, which has been replaced by the &lt;strong&gt;monitor&lt;/strong&gt; tool now.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TOOL CHAIN&lt;/strong&gt;. You need to be familiar with the mainstream tools that Java programmer's use. If you will not use the IDEs such as Eclipse, Netbeans or Android Studio, you need to be well acquainted with Apache ANT. Android uses ANT for builds.&lt;/li&gt;
+   <content type="html">&lt;p&gt;A list of things you need get a handle on before diving into Android programming.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Inheritance&lt;/em&gt;. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that you create an Activity class &amp;mdash; that means you will create a class that inherits from android.app.Activity. You must be very familiar with the rules and characteristics of Java Inheritance. Java uses both &lt;em&gt;interface&lt;/em&gt; and &lt;em&gt;class&lt;/em&gt; inheritance. You need to understand both&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Polymorphism&lt;/em&gt;. Inheriting from android.app.Activity is one of the most fundamental skill you must have. Second to that is your ability to understand why you need to &lt;em&gt;override&lt;/em&gt; some of its methods. Your knowledge of Polymorphism and how it is used in the Java language is part of a theoretical minimum for Android Programming.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Callbacks&lt;/em&gt;. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks &amp;mdash; using only the XML files to hook the events &amp;mdash; but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the &lt;em&gt;click&lt;/em&gt; event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the &lt;strong&gt;Listeners&lt;/strong&gt; in Android.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;XML&lt;/em&gt;. This is easy and should not be much of a trouble. Even beginning programmers can handle this without breaking a sweat. Android uses XML extensively &amp;mdash; more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Java fundamentals&lt;/em&gt;. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Database programming&lt;/em&gt;. Basic SQL so you can CREATE, READ, UPDATE AND DELETE records. The Android way of database programming will feel a bit different than the usual JDBC, but that learning curve is not much trouble. It can be handled with minimum sweat. Android uses SQLite3, so if you will practice for Android, get acquainted with SQLite.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Network programming&lt;/em&gt;. Learn the basics of HttpClient. Going a bit deeper on socket programming can't hurt either. A mobile application is not always an offline application. Times are changing. Applications are getting more connected and consumes cloud-based services. Your familiarity with TCP and associated technologies will go a long way.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;REST&lt;/em&gt;. Web Services are shifting more and more to RESTful style. Get some familiarity with the associated technologies and idioms of this architecture. This may not be core Java, and in fact borders a lot on JavaScript. JSON (JavaScript Object Notation) is used heavily on RESTful apps.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Data structures&lt;/em&gt;. Know the basics of an &lt;em&gt;array&lt;/em&gt; and the &lt;em&gt;Array&lt;/em&gt; class. That's the start. Go deeper with the other collection classes of Java. Know how to handle hash maps, vectors etc.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Threads&lt;/em&gt;. Modern devices are running on 4 cores. Android can take advantage of multiple cores. You need to know how to execute your code in the background, asynchronously.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Logging&lt;/em&gt;. Old school debugging using printf and System.out will still be useful. But get some familiarity using Log classes. Be mindful that Android development is starkly different from Desktop or Web programming. Your codes will run on a device, not in your PC. The primary interface with the runtime and debug environment is Android's adb and ddms &amp;mdash; short for android debugger and dalvik device monitor service, which has been replaced by the &lt;strong&gt;monitor&lt;/strong&gt; tool now.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Tool chain&lt;/em&gt;. You need to be familiar with the mainstream tools that Java programmer's use. If you will not use the IDEs such as Eclipse, Netbeans or Android Studio, you need to be well acquainted with Apache ANT. Android uses ANT for builds.&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>
@@ -5722,7 +5724,7 @@ $ irb
  </entry>
  
  <entry>
-   <title>Development Setup for Windows</title>
+   <title>Windows setup</title>
    <link href="http://thelogbox.com/android-install-sdk-windows"/>
    <updated>2012-08-18T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-install-sdk-windows</id>
