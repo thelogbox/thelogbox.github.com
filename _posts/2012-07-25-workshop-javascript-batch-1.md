@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: RD JavaScript Workshop. Aug 2012
+title: RD JS Workshop.072012
 
 description: Journal of RD batch 1. JavaScript fundamentals
 
@@ -17,31 +17,25 @@ categories:
 
 ---
 
+You will need the nodejs runtime for this workshop. You will also need the node package manager (npm) which usually comes with the installation of nodejs.
 
-This is part 2 of 3 of HTML 5 programming workshop. 
-
-
-Installed NodeJS from [nodejs site](http://nodejs.org). We will use the NodeJS environment to run our JavaScripts (JS). We could use the JS runtime environment inside the browsers, but I would rather avoid that right now, so that we can focus on the core JS language, and not bother about DOM (Document Object Model) in the meantime. The NodeJS site provides installation versions for various platforms (Linux, OSX and Windows), just choose your platform. 
-
-The Node installer is considerate enough to update your PATH for you, so you shouln't have much problems setting it up. Immediately right after, we will install the http-server module via **npm** (node package manager). We won't use the http-server just yet, but install it nevertheless.  
-
-**STEPS**
+## SETUP
 
 1. Download the installer from [nodejs site](http://nodejs.org)
 2. Run the installer
 3. Get to the command line *cmd.exe* in Windows, *Terminal.app* in OSX, *xterm, aterm or gnome-terminal* in Linux
 4. Get the http-server module via npm **npm -g install http-server**. If you are in Linux or OSX, you will need to type **sudo npm -g install http-server**
 
-*NOTE for Windows 7 users* - You may need to run the *cmd.exe* using an elevated privilege (as Administator)
+If you are using Windows, you may need to run the *cmd.exe* using an elevated privilege (as Administator)
 
+***
 
-# DAY 1
+## Day One
 
 - JavaScript is not a new language, it started during the 90's
 - It's first name is LiveScript, only renamed later to JavaScript
 - ECMA stands European Computer Manufacturers Association. It's a big organization, it stepped in during the browser wars to come up with an effort to standardize a scripting language. They came up with a specification, this spec is called the ECMAScript. Any scripting language that runs on the browser should strive to comply with this standard. To date, JavaScript and ActionScript (and some others more) are complying with ECMAScript 5
 - JavaScript is not related to Java. They are two very different languages
-
 
 JS has dynamic typing. One of its meaning is that you don't need to declare the types of your variable, ever. It is also loosely typed or weakly typed. You can use the keyword **var** to declare variables, but sometimes you can also choose not to use it (which is a bad idea).
 
@@ -60,8 +54,9 @@ console.log(typeof(anumber));
 
 </pre>
 
+***
 
-# DAY 2
+## Day Two
 
 **JS objects are like hash tables,** or dictionary objects. They contain just a bunch of key-value pair type of data. The *value* part of the object's members can be anything, Booleans, Numbers, Strings, Objects, Arrays or even Functions (because functions are also objects in JS)
 
@@ -125,9 +120,9 @@ console.log(goo());  // fails now, because goo is no longer a function
 
 This is what I mean by malleable and flexible, function names do not have special privileges, they can be created, assigned and reassigned pretty much like regular variables. While this looks like weakness right now, it is not. It is a feauture of the language---by the way, that horrible code sample where we reassigned goo() to be a number variable, can be (should be) prevented by good programming practice (conventions etc) and is probably highly unlikely to happen. 
 
+***
 
-
-# DAY 3
+## Day Three
 
 Back to "malleability" being a feature rather than a weakness. The flexibility of JS functions makes them more than just a semantic feature of language, more than just an encapsulation unit for logic. It makes them "first class" members of the language. There is a definition on [WikiPedia about First Class Functions](http://en.wikipedia.org/wiki/First-class_function).  
 
@@ -185,10 +180,11 @@ console.log(rommel.constructor); // results to Employee
 
 {% endhighlight %}
 
+<aside>
 **NOTE** the constructor property is present on all objects. It tells us which function was used to construct the current object. **function Employee** is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.
+</aside>
 
-
-**The seat work** - construct a car objects, such that we can make the calls
+**SEAT WORK** - construct a car objects, such that we can make the calls
 
 {% highlight javascript %}
 
@@ -257,7 +253,9 @@ toyota.engine.shift();
 
 Solution no. 1 is probably the more readable version because of its verbosity, but solution no. 2 is more compact and more concise. Use object literals sparingly, choose which style is applicable in your coding situation.
 
-# DAY 4
+***
+
+## Day Four
 
 
 Your code will always run in a *context*. In JavaScript, these are the **global** context and the context of a function.  How you declare and where you declare your variables will determine their visibility or accessibility.
@@ -282,7 +280,7 @@ function goo() {
 
 {% endhighlight %}
 
-**ARRAYS*
+**ARRAYS**
 
 Arrays in JS are also objects, but don't let that distract you. Think of arrays as a sequential data structure rather than the typical objects that we have been discussing in the last couple of days. Unlike regular objects where you access the elements using a *key* (because objects are associative arrays), in an Array, you access the elements using the index number of the element. 
 
@@ -336,11 +334,11 @@ x.doSomething();
 
 Don't get too confused about the code, the fact that an Array is an object, means you can really do these things---but should you? To get started on arrays, go for the simple usage first (bracket notations). If your abstraction of the problem at hand requires that you use this kind of programming idiom (arrays with your own custom methods), you may consider its usage then. It all depends on the problem you are trying to solve and the development goals you are after.
 
+***
 
+## Day Five
 
-# DAY 5
-
-
+Discussion of the code below
 
 {% highlight javascript %}
 
@@ -387,14 +385,13 @@ console.log(w.document.forms["form1"].elements["input1"].innerhtml);
 
 An exercise on abstraction (and writing objects)
 
+***
 
-# DAYS 6,7 & 8
+## Days Six, Seven and Eight
 
-These were exercise days.
+Coding exercises
 
-**CODING**
-
-The GCF exercise using client-side JavaScript and HTML
+The *GCF* exercise using client-side JavaScript and HTML
 
 {% highlight html %}
 <!-- Fourth.html -->
@@ -561,9 +558,7 @@ You can experiment with the other *onkey* events like **onkeypress** and **onkey
 
 ***
 
-**3 of 3 of HTML 5 training**
-
-# DAY 9
+## Day Nine
 
 Using the canvas element 
 
@@ -691,8 +686,9 @@ The canvas API is rich and offers a wide variety of drawing basic elements like 
 1. When you set the fillStyle, every subsequent fillRect calls will follow the fillStyle. The other fillRects which were already drawn prior to the call will not be affected.
 2. you can use the call [canvasname].width and [canvasname].height to determine the size of the canvas
 
+***
 
-# DAY 10
+## Day Ten
 
 
 To get the current location of the mouse, you can use the **event.clientX** and **event.clientY** information. Here's an example code on how to use it with the canvas
@@ -868,8 +864,9 @@ Apart from knowing where the mouse position is, you should add another tool to y
 
 By attaching the onkeydown event to the canvas, we can now begin to trap some keyboard events. I used **onkeydown** and not onkeypress because onkeydown is capable of capturing the navigational arrow keys, and onkeypress is not. The keycodes for left, up, right and down arrow are 37,38,39 and 40 respectively. 
 
+***
 
-# DAY 11
+## Day Eleven
 
 **Color Wheel sample** - We can get very specific pixel information from the 2d context. The *getImageData()** function returns some interesting information about specific pixels. 
 
@@ -971,8 +968,9 @@ window.onload = function() {
 
 The sample code could have defined the image in the HTML using the img tag, but then, the image would have been visible in the HTML before we could draw it inside the canvas. Our code instead defined and initialized the image using JavaScript code so that it is only visible in the canvas and on the HTML page. 
 
+***
 
-# DAY 12
+## Day Twelve
 
 More on animation. 
 
@@ -1173,8 +1171,9 @@ Anim2.html involves 3 shapes and sports a different behavior during collision, t
 
 The code keeps track of the direction of each shape using a *direction* variable inside each Shape constructor. Abstracting each shape to be inside an object does make our code a bit more effective in taming the the complexities brought about by adding new shapes into the canvas.  
 
+***
 
-# DAY 13
+## Day Thirteen
 
 Topic for today and the days to come, is SVG (Scalable Vector Graphics) in HTML5. SVG is a standard W3C specification. The ability to insert SVG inside a page without using an object (or embed) tag was added to HTML5. SVG is also a drawing API, like the canvas, but it has some differences.
 
@@ -1326,9 +1325,9 @@ The second example shows how attach an **onclick** event to the SVG drawing. As 
 
 The third example demonstrates the use of *getAttribute* and *setAttribute* methods. This example animates the location of the rectangle by altering the **X** attribute of the rectangle drawing. 
 
+***
 
-
-# DAY 14
+## Day Fourteen
 
 How to create SVG elements programmatically.
 
@@ -1409,9 +1408,9 @@ How to create SVG elements programmatically.
 
 {% endhighlight %}
 
+***
 
-
-# RAPHAELJS
+# RaphaelJS
 
 [RaphaelJS is a small JavaScript library that simplifies working with SVG using JavaScript](http://raphaeljs.com). 
 

@@ -26,7 +26,7 @@
 <meta name="keywords" content="Workshop ,JavaScript">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Journal of RD batch 1. JavaScript fundamentals" />
-<title>Training , RD JavaScript Workshop. Aug 2012 | theLogBox </title>
+<title>Training , RD JS Workshop.072012 | theLogBox </title>
 
 <!-- 1. Moot style -->
 <link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
@@ -512,7 +512,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <article itemscope itemtype="http://schema.org/Article" class="notoc">
      <header>
       <div class='vspacer'></div>          
-      <div id="articletitle">RD JavaScript Workshop. Aug 2012</div>
+      <div id="articletitle">RD JS Workshop.072012</div>
       
       <div class='content-meta'>
        by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
@@ -524,13 +524,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This is part 2 of 3 of HTML 5 programming workshop.</p>
+		    <p>You will need the nodejs runtime for this workshop. You will also need the node package manager (npm) which usually comes with the installation of nodejs.</p>
 
-<p>Installed NodeJS from <a href="http://nodejs.org">nodejs site</a>. We will use the NodeJS environment to run our JavaScripts (JS). We could use the JS runtime environment inside the browsers, but I would rather avoid that right now, so that we can focus on the core JS language, and not bother about DOM (Document Object Model) in the meantime. The NodeJS site provides installation versions for various platforms (Linux, OSX and Windows), just choose your platform.</p>
-
-<p>The Node installer is considerate enough to update your PATH for you, so you shouln't have much problems setting it up. Immediately right after, we will install the http-server module via <strong>npm</strong> (node package manager). We won't use the http-server just yet, but install it nevertheless.</p>
-
-<p><strong>STEPS</strong></p>
+<h2>SETUP</h2>
 
 <ol>
 <li>Download the installer from <a href="http://nodejs.org">nodejs site</a></li>
@@ -540,9 +536,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </ol>
 
 
-<p><em>NOTE for Windows 7 users</em> - You may need to run the <em>cmd.exe</em> using an elevated privilege (as Administator)</p>
+<p>If you are using Windows, you may need to run the <em>cmd.exe</em> using an elevated privilege (as Administator)</p>
 
-<h1>DAY 1</h1>
+<hr />
+
+<h2>Day One</h2>
 
 <ul>
 <li>JavaScript is not a new language, it started during the 90's</li>
@@ -570,7 +568,9 @@ console.log(typeof(anumber));
 </pre>
 
 
-<h1>DAY 2</h1>
+<hr />
+
+<h2>Day Two</h2>
 
 <p><strong>JS objects are like hash tables,</strong> or dictionary objects. They contain just a bunch of key-value pair type of data. The <em>value</em> part of the object's members can be anything, Booleans, Numbers, Strings, Objects, Arrays or even Functions (because functions are also objects in JS)</p>
 
@@ -628,7 +628,9 @@ console.log(typeof(anumber));
 
 <p>This is what I mean by malleable and flexible, function names do not have special privileges, they can be created, assigned and reassigned pretty much like regular variables. While this looks like weakness right now, it is not. It is a feauture of the language---by the way, that horrible code sample where we reassigned goo() to be a number variable, can be (should be) prevented by good programming practice (conventions etc) and is probably highly unlikely to happen.</p>
 
-<h1>DAY 3</h1>
+<hr />
+
+<h2>Day Three</h2>
 
 <p>Back to "malleability" being a feature rather than a weakness. The flexibility of JS functions makes them more than just a semantic feature of language, more than just an encapsulation unit for logic. It makes them "first class" members of the language. There is a definition on <a href="http://en.wikipedia.org/wiki/First-class_function">WikiPedia about First Class Functions</a>.</p>
 
@@ -682,9 +684,11 @@ console.log(typeof(anumber));
 </code></pre></div>
 
 
-<p><strong>NOTE</strong> the constructor property is present on all objects. It tells us which function was used to construct the current object. <strong>function Employee</strong> is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.</p>
+<p><aside>
+<strong>NOTE</strong> the constructor property is present on all objects. It tells us which function was used to construct the current object. <strong>function Employee</strong> is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.
+</aside></p>
 
-<p><strong>The seat work</strong> - construct a car objects, such that we can make the calls</p>
+<p><strong>SEAT WORK</strong> - construct a car objects, such that we can make the calls</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">toyota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">();</span>
 
@@ -749,7 +753,9 @@ console.log(typeof(anumber));
 
 <p>Solution no. 1 is probably the more readable version because of its verbosity, but solution no. 2 is more compact and more concise. Use object literals sparingly, choose which style is applicable in your coding situation.</p>
 
-<h1>DAY 4</h1>
+<hr />
+
+<h2>Day Four</h2>
 
 <p>Your code will always run in a <em>context</em>. In JavaScript, these are the <strong>global</strong> context and the context of a function.  How you declare and where you declare your variables will determine their visibility or accessibility.</p>
 
@@ -771,7 +777,7 @@ console.log(typeof(anumber));
 </code></pre></div>
 
 
-<p><em>*ARRAYS</em></p>
+<p><strong>ARRAYS</strong></p>
 
 <p>Arrays in JS are also objects, but don't let that distract you. Think of arrays as a sequential data structure rather than the typical objects that we have been discussing in the last couple of days. Unlike regular objects where you access the elements using a <em>key</em> (because objects are associative arrays), in an Array, you access the elements using the index number of the element.</p>
 
@@ -819,7 +825,11 @@ console.log(typeof(anumber));
 
 <p>Don't get too confused about the code, the fact that an Array is an object, means you can really do these things---but should you? To get started on arrays, go for the simple usage first (bracket notations). If your abstraction of the problem at hand requires that you use this kind of programming idiom (arrays with your own custom methods), you may consider its usage then. It all depends on the problem you are trying to solve and the development goals you are after.</p>
 
-<h1>DAY 5</h1>
+<hr />
+
+<h2>Day Five</h2>
+
+<p>Discussion of the code below</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nb">window</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nb">document</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">docobject</span><span class="p">();</span>
@@ -864,13 +874,13 @@ console.log(typeof(anumber));
 
 <p>An exercise on abstraction (and writing objects)</p>
 
-<h1>DAYS 6,7 &amp; 8</h1>
+<hr />
 
-<p>These were exercise days.</p>
+<h2>Days Six, Seven and Eight</h2>
 
-<p><strong>CODING</strong></p>
+<p>Coding exercises</p>
 
-<p>The GCF exercise using client-side JavaScript and HTML</p>
+<p>The <em>GCF</em> exercise using client-side JavaScript and HTML</p>
 
 <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Fourth.html --&gt;</span>
 <span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -1028,9 +1038,7 @@ console.log(typeof(anumber));
 
 <hr />
 
-<p><strong>3 of 3 of HTML 5 training</strong></p>
-
-<h1>DAY 9</h1>
+<h2>Day Nine</h2>
 
 <p>Using the canvas element</p>
 
@@ -1153,7 +1161,9 @@ console.log(typeof(anumber));
 </ol>
 
 
-<h1>DAY 10</h1>
+<hr />
+
+<h2>Day Ten</h2>
 
 <p>To get the current location of the mouse, you can use the <strong>event.clientX</strong> and <strong>event.clientY</strong> information. Here's an example code on how to use it with the canvas</p>
 
@@ -1323,7 +1333,9 @@ console.log(typeof(anumber));
 
 <p>By attaching the onkeydown event to the canvas, we can now begin to trap some keyboard events. I used <strong>onkeydown</strong> and not onkeypress because onkeydown is capable of capturing the navigational arrow keys, and onkeypress is not. The keycodes for left, up, right and down arrow are 37,38,39 and 40 respectively.</p>
 
-<h1>DAY 11</h1>
+<hr />
+
+<h2>Day Eleven</h2>
 
 <p><strong>Color Wheel sample</strong> - We can get very specific pixel information from the 2d context. The *getImageData()** function returns some interesting information about specific pixels.</p>
 
@@ -1419,7 +1431,9 @@ console.log(typeof(anumber));
 
 <p>The sample code could have defined the image in the HTML using the img tag, but then, the image would have been visible in the HTML before we could draw it inside the canvas. Our code instead defined and initialized the image using JavaScript code so that it is only visible in the canvas and on the HTML page.</p>
 
-<h1>DAY 12</h1>
+<hr />
+
+<h2>Day Twelve</h2>
 
 <p>More on animation.</p>
 
@@ -1616,7 +1630,9 @@ console.log(typeof(anumber));
 
 <p>The code keeps track of the direction of each shape using a <em>direction</em> variable inside each Shape constructor. Abstracting each shape to be inside an object does make our code a bit more effective in taming the the complexities brought about by adding new shapes into the canvas.</p>
 
-<h1>DAY 13</h1>
+<hr />
+
+<h2>Day Thirteen</h2>
 
 <p>Topic for today and the days to come, is SVG (Scalable Vector Graphics) in HTML5. SVG is a standard W3C specification. The ability to insert SVG inside a page without using an object (or embed) tag was added to HTML5. SVG is also a drawing API, like the canvas, but it has some differences.</p>
 
@@ -1759,7 +1775,9 @@ console.log(typeof(anumber));
 
 <p>The third example demonstrates the use of <em>getAttribute</em> and <em>setAttribute</em> methods. This example animates the location of the rectangle by altering the <strong>X</strong> attribute of the rectangle drawing.</p>
 
-<h1>DAY 14</h1>
+<hr />
+
+<h2>Day Fourteen</h2>
 
 <p>How to create SVG elements programmatically.</p>
 
@@ -1841,7 +1859,9 @@ console.log(typeof(anumber));
 </code></pre></div>
 
 
-<h1>RAPHAELJS</h1>
+<hr />
+
+<h1>RaphaelJS</h1>
 
 <p><a href="http://raphaeljs.com">RaphaelJS is a small JavaScript library that simplifies working with SVG using JavaScript</a>.</p>
 

@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-02T18:32:24+08:00</updated>
+ <updated>2013-11-02T18:51:39+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -8088,17 +8088,13 @@ ECMA 6
  </entry>
  
  <entry>
-   <title>RD JavaScript Workshop. Aug 2012</title>
+   <title>RD JS Workshop.072012</title>
    <link href="http://thelogbox.com/workshop-javascript-batch-1"/>
    <updated>2012-07-25T00:00:00+08:00</updated>
    <id>http://thelogbox.com/workshop-javascript-batch-1</id>
-   <content type="html">&lt;p&gt;This is part 2 of 3 of HTML 5 programming workshop.&lt;/p&gt;
+   <content type="html">&lt;p&gt;You will need the nodejs runtime for this workshop. You will also need the node package manager (npm) which usually comes with the installation of nodejs.&lt;/p&gt;
 
-&lt;p&gt;Installed NodeJS from &lt;a href=&quot;http://nodejs.org&quot;&gt;nodejs site&lt;/a&gt;. We will use the NodeJS environment to run our JavaScripts (JS). We could use the JS runtime environment inside the browsers, but I would rather avoid that right now, so that we can focus on the core JS language, and not bother about DOM (Document Object Model) in the meantime. The NodeJS site provides installation versions for various platforms (Linux, OSX and Windows), just choose your platform.&lt;/p&gt;
-
-&lt;p&gt;The Node installer is considerate enough to update your PATH for you, so you shouln't have much problems setting it up. Immediately right after, we will install the http-server module via &lt;strong&gt;npm&lt;/strong&gt; (node package manager). We won't use the http-server just yet, but install it nevertheless.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEPS&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;SETUP&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Download the installer from &lt;a href=&quot;http://nodejs.org&quot;&gt;nodejs site&lt;/a&gt;&lt;/li&gt;
@@ -8108,9 +8104,11 @@ ECMA 6
 &lt;/ol&gt;
 
 
-&lt;p&gt;&lt;em&gt;NOTE for Windows 7 users&lt;/em&gt; - You may need to run the &lt;em&gt;cmd.exe&lt;/em&gt; using an elevated privilege (as Administator)&lt;/p&gt;
+&lt;p&gt;If you are using Windows, you may need to run the &lt;em&gt;cmd.exe&lt;/em&gt; using an elevated privilege (as Administator)&lt;/p&gt;
 
-&lt;h1&gt;DAY 1&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day One&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;JavaScript is not a new language, it started during the 90's&lt;/li&gt;
@@ -8138,7 +8136,9 @@ console.log(typeof(anumber));
 &lt;/pre&gt;
 
 
-&lt;h1&gt;DAY 2&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Two&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;JS objects are like hash tables,&lt;/strong&gt; or dictionary objects. They contain just a bunch of key-value pair type of data. The &lt;em&gt;value&lt;/em&gt; part of the object's members can be anything, Booleans, Numbers, Strings, Objects, Arrays or even Functions (because functions are also objects in JS)&lt;/p&gt;
 
@@ -8196,7 +8196,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;This is what I mean by malleable and flexible, function names do not have special privileges, they can be created, assigned and reassigned pretty much like regular variables. While this looks like weakness right now, it is not. It is a feauture of the language---by the way, that horrible code sample where we reassigned goo() to be a number variable, can be (should be) prevented by good programming practice (conventions etc) and is probably highly unlikely to happen.&lt;/p&gt;
 
-&lt;h1&gt;DAY 3&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Three&lt;/h2&gt;
 
 &lt;p&gt;Back to &quot;malleability&quot; being a feature rather than a weakness. The flexibility of JS functions makes them more than just a semantic feature of language, more than just an encapsulation unit for logic. It makes them &quot;first class&quot; members of the language. There is a definition on &lt;a href=&quot;http://en.wikipedia.org/wiki/First-class_function&quot;&gt;WikiPedia about First Class Functions&lt;/a&gt;.&lt;/p&gt;
 
@@ -8250,9 +8252,11 @@ console.log(typeof(anumber));
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; the constructor property is present on all objects. It tells us which function was used to construct the current object. &lt;strong&gt;function Employee&lt;/strong&gt; is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.&lt;/p&gt;
+&lt;p&gt;&lt;aside&gt;
+&lt;strong&gt;NOTE&lt;/strong&gt; the constructor property is present on all objects. It tells us which function was used to construct the current object. &lt;strong&gt;function Employee&lt;/strong&gt; is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.
+&lt;/aside&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;The seat work&lt;/strong&gt; - construct a car objects, such that we can make the calls&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SEAT WORK&lt;/strong&gt; - construct a car objects, such that we can make the calls&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toyota&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
@@ -8317,7 +8321,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;Solution no. 1 is probably the more readable version because of its verbosity, but solution no. 2 is more compact and more concise. Use object literals sparingly, choose which style is applicable in your coding situation.&lt;/p&gt;
 
-&lt;h1&gt;DAY 4&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Four&lt;/h2&gt;
 
 &lt;p&gt;Your code will always run in a &lt;em&gt;context&lt;/em&gt;. In JavaScript, these are the &lt;strong&gt;global&lt;/strong&gt; context and the context of a function.  How you declare and where you declare your variables will determine their visibility or accessibility.&lt;/p&gt;
 
@@ -8339,7 +8345,7 @@ console.log(typeof(anumber));
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;em&gt;*ARRAYS&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ARRAYS&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Arrays in JS are also objects, but don't let that distract you. Think of arrays as a sequential data structure rather than the typical objects that we have been discussing in the last couple of days. Unlike regular objects where you access the elements using a &lt;em&gt;key&lt;/em&gt; (because objects are associative arrays), in an Array, you access the elements using the index number of the element.&lt;/p&gt;
 
@@ -8387,7 +8393,11 @@ console.log(typeof(anumber));
 
 &lt;p&gt;Don't get too confused about the code, the fact that an Array is an object, means you can really do these things---but should you? To get started on arrays, go for the simple usage first (bracket notations). If your abstraction of the problem at hand requires that you use this kind of programming idiom (arrays with your own custom methods), you may consider its usage then. It all depends on the problem you are trying to solve and the development goals you are after.&lt;/p&gt;
 
-&lt;h1&gt;DAY 5&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Five&lt;/h2&gt;
+
+&lt;p&gt;Discussion of the code below&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;docobject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -8432,13 +8442,13 @@ console.log(typeof(anumber));
 
 &lt;p&gt;An exercise on abstraction (and writing objects)&lt;/p&gt;
 
-&lt;h1&gt;DAYS 6,7 &amp;amp; 8&lt;/h1&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;These were exercise days.&lt;/p&gt;
+&lt;h2&gt;Days Six, Seven and Eight&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;CODING&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Coding exercises&lt;/p&gt;
 
-&lt;p&gt;The GCF exercise using client-side JavaScript and HTML&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;GCF&lt;/em&gt; exercise using client-side JavaScript and HTML&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Fourth.html --&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
@@ -8596,9 +8606,7 @@ console.log(typeof(anumber));
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;3 of 3 of HTML 5 training&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1&gt;DAY 9&lt;/h1&gt;
+&lt;h2&gt;Day Nine&lt;/h2&gt;
 
 &lt;p&gt;Using the canvas element&lt;/p&gt;
 
@@ -8721,7 +8729,9 @@ console.log(typeof(anumber));
 &lt;/ol&gt;
 
 
-&lt;h1&gt;DAY 10&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Ten&lt;/h2&gt;
 
 &lt;p&gt;To get the current location of the mouse, you can use the &lt;strong&gt;event.clientX&lt;/strong&gt; and &lt;strong&gt;event.clientY&lt;/strong&gt; information. Here's an example code on how to use it with the canvas&lt;/p&gt;
 
@@ -8891,7 +8901,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;By attaching the onkeydown event to the canvas, we can now begin to trap some keyboard events. I used &lt;strong&gt;onkeydown&lt;/strong&gt; and not onkeypress because onkeydown is capable of capturing the navigational arrow keys, and onkeypress is not. The keycodes for left, up, right and down arrow are 37,38,39 and 40 respectively.&lt;/p&gt;
 
-&lt;h1&gt;DAY 11&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Eleven&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Color Wheel sample&lt;/strong&gt; - We can get very specific pixel information from the 2d context. The *getImageData()** function returns some interesting information about specific pixels.&lt;/p&gt;
 
@@ -8987,7 +8999,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;The sample code could have defined the image in the HTML using the img tag, but then, the image would have been visible in the HTML before we could draw it inside the canvas. Our code instead defined and initialized the image using JavaScript code so that it is only visible in the canvas and on the HTML page.&lt;/p&gt;
 
-&lt;h1&gt;DAY 12&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Twelve&lt;/h2&gt;
 
 &lt;p&gt;More on animation.&lt;/p&gt;
 
@@ -9184,7 +9198,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;The code keeps track of the direction of each shape using a &lt;em&gt;direction&lt;/em&gt; variable inside each Shape constructor. Abstracting each shape to be inside an object does make our code a bit more effective in taming the the complexities brought about by adding new shapes into the canvas.&lt;/p&gt;
 
-&lt;h1&gt;DAY 13&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Thirteen&lt;/h2&gt;
 
 &lt;p&gt;Topic for today and the days to come, is SVG (Scalable Vector Graphics) in HTML5. SVG is a standard W3C specification. The ability to insert SVG inside a page without using an object (or embed) tag was added to HTML5. SVG is also a drawing API, like the canvas, but it has some differences.&lt;/p&gt;
 
@@ -9327,7 +9343,9 @@ console.log(typeof(anumber));
 
 &lt;p&gt;The third example demonstrates the use of &lt;em&gt;getAttribute&lt;/em&gt; and &lt;em&gt;setAttribute&lt;/em&gt; methods. This example animates the location of the rectangle by altering the &lt;strong&gt;X&lt;/strong&gt; attribute of the rectangle drawing.&lt;/p&gt;
 
-&lt;h1&gt;DAY 14&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Day Fourteen&lt;/h2&gt;
 
 &lt;p&gt;How to create SVG elements programmatically.&lt;/p&gt;
 
@@ -9409,7 +9427,9 @@ console.log(typeof(anumber));
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;RAPHAELJS&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h1&gt;RaphaelJS&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://raphaeljs.com&quot;&gt;RaphaelJS is a small JavaScript library that simplifies working with SVG using JavaScript&lt;/a&gt;.&lt;/p&gt;
 
