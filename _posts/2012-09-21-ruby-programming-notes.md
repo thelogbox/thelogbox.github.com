@@ -7,8 +7,11 @@ description:
 
 excerpt: 
 
+tags:
+- RVM
+
 categories:
-- blog
+- Ruby
 
 ---
 

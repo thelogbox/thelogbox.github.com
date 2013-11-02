@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Mirah and Pindah
 
-description:
+description: Polyglot programmimg for the JVM. Now, you can use Ruby-like syntax to build Android applications
 
 except:
 
+tags:
+- Ruby
+- Mobile
+
 categories:
-- andorid-programming
+- Android
 
 ---
 

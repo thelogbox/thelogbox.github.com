@@ -1,14 +1,19 @@
 ---
 layout: post
 
-title: Program Flow
+title: Control Flow
 
-description: 
+description: Branching and Looping in Java
 
 excerpt: 
 
+tags:
+- flow
+- structure
+- procedural
+
 categories:
-- java
+- Java
 
 
 ---

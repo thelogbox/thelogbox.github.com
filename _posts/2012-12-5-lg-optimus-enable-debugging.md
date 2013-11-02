@@ -2,10 +2,16 @@
 layout: post
 title: LG optimus, prepare for development
 
+description: Prepare LG Optimus for Android Development
+
 categories: 
-- android-programming
+- Android
+
+tags:
+-  Device
 
 description: Enable the USB debugging settings of the LG Optimus. You need to do this before you can use the device for testing.
+
 ---
 
 1. Go to settings

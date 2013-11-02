@@ -1,9 +1,15 @@
 ---
 layout: html5
+
 title: Objects with Different Speeds
-description: 
+
+description: How to make objects move in different speeds. Canvas Programming
+
+tags:
+- Animation
+
 categories:
-- html5
+- HTML5
 
 ---
 

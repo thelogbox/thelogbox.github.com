@@ -1,12 +1,16 @@
 ---
-layout: post
+layout: linux
 
 title: File Sharing between OSX and Linux
 
-description:
+description: How to transfer files between Linux and Mac
+
+tags:
+- File
+- Sharing
 
 categories:
-- blog
+- Linux
 
 ---
 

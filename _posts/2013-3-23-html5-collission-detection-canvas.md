@@ -1,9 +1,15 @@
 ---
 layout: html5
+
 title: Handling Collissions
-description: 
+
+description: When things inside the HTML5 Canvas bumps into each other
+
+tags:
+- Animation
+
 categories:
-- html5
+- HTML5
 
 ---
 

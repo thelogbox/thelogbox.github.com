@@ -3,10 +3,14 @@ layout: html5
 
 title: Canvas Basics 
 
-description:
+description: Understanding the 2D context of HTML5 Canvas
+
+tags:
+- Canvas
+- 2D
 
 categories: 
-- html5
+- HTML5
 
 ---
 

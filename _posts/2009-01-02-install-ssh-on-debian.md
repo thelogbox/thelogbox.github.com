@@ -1,14 +1,18 @@
 ---
-layout: post
+layout: linux
 
-title: Install SSH on Debian, Ubuntu
+title: Install SSH on Debian/Ubuntu
 
-description: 
+description: Get an SSH server running
 
 excerpt: 
 
+tags:
+- Ubuntu
+- SSH
+
 categories:
-- blog
+- Linux
 
 ---
 

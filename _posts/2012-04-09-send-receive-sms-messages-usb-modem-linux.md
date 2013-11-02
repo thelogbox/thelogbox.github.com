@@ -1,18 +1,20 @@
 ---
-layout: post
+layout: linux
 
-title:  Send/Receive SMS on USB modem [Linux]
+title:  Send/Receive SMS on USB modem
 
-description: 
+description: Simple steps to setup your own SMS gateway in Linux
 
 excerpt: 
 
+tags:
+- sms
+- modem
+
 categories:
-- blog
+- Linux
 
 ---
-
-
 
 This small guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
 
@@ -80,7 +82,7 @@ Here is how to prepare the MySQL back-end
 $ mysql -u root -p
 $ mysql> create database smsgw;
 $ mysql> use smsgw;
-$ mysql>.\ /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
+$ mysql>\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 </pre>
 
@@ -103,4 +105,9 @@ $ mysql> select * from inbox;
 Try sending some SMS messages from the command line to your phone using <code class="codeblock">echo "Test message" | gnokii --sendsmd +SMSNO</code>
 
 Where *SMSNO* is structured as (countrycode) cell phone number
+
+
+
+      
+
 

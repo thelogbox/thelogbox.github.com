@@ -1,14 +1,18 @@
 ---
 layout: courses
 
-title: Android Programming Training
+title: Android Programming
 
-description: 
+description: What will the Android Programming course cover
 
 excerpt: 
 
+tags:
+- Android
+- Course
+
 categories:
-- course
+- Training
 
 ---
 

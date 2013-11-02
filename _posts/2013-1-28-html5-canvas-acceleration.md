@@ -3,10 +3,13 @@ layout: html5
 
 title: Acceleration 
 
-description: 
+description: Add simple physics to your HTML5 animations
+
+tags:
+- Animation
 
 categories:
-- html5
+- HTML5
 
 ---
 

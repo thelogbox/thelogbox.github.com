@@ -3,12 +3,17 @@ layout: post
 
 title: Docco For Java
 
-description: 
+description: Really simple but inelegant hack to use Docco for Java source files. Produce literate programming style documentation for your Java programs
 
 excerpt: 
 
+tags:
+- Tools
+- Literate
+- Programming
+
 categories:
-- blog
+- JavaScript
 
 ---
 

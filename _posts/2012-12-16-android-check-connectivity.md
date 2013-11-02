@@ -4,8 +4,12 @@ title: Check for Network Connectivity
 
 description: Detailed steps on how to check what kind of network connectivity an android device has. This code is useful to execute before you push out a significant amount of data using the network.
 
+tags:
+- Connectivity
+- Network
+
 categories: 
-- android-programming
+- Android
 ---
 
 Finding out the state of connectivity of an Android device is a fundamental technique. You need to know which type of connectivity the device has before you perform any activity that requires data transfer. You may encounter situations where you want to send data e.g. picture files,  maps or any other sizeable data through the wire, only when WIFI connectivity is up.

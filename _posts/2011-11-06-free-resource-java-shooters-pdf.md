@@ -1,14 +1,18 @@
 ---
 layout: post
 
-title: Free Java EBook 
+title: Free eBook 
 
 description:
 
 except:
 
+tags:
+- free
+- book
+
 categories:
-- java
+- Java 
 
 ---
 

@@ -3,12 +3,16 @@ layout: post
 
 title: Problems with iSSH + Vim on the iPad
 
-description: 
+description: Why I don't like using iSSH on iOS
 
 excerpt: 
 
+tags:
+- ssh
+- terminal
+
 categories:
-- blog
+- iOS
 
 ---
 

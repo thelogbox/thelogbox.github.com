@@ -1,9 +1,17 @@
 ---
 layout: html5
+
 title: Managing Complexity
-description: 
+
+description: How to animate multiple objects inside the HTML5 Canvas
+
+tags:
+- Animation
+- OOP
+- Array
+
 categories:
-- html5
+- HTML5
 
 ---
 

@@ -6,8 +6,11 @@ title: Location API
 
 description: Detailed steps on how to use the GPS and other Location API in Android. The article also has information on how to conver longitude and latitude to human readable addresses using GEO Coding
 
+tags:
+- GEOLocation
+
 categories:
-- android-programming
+- Android
 
 ---
 

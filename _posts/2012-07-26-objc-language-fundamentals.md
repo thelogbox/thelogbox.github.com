@@ -3,12 +3,15 @@ layout: post
 
 title: Objective C Language Fundamentals
 
-description: 
+description: If you want to build iOS apps, you must know Objective C first.
 
 excerpt: 
 
+tags:
+- Fundamentals
+
 categories:
-- objective-c
+- OBJC
 
 ---
 

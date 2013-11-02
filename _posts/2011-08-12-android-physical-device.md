@@ -3,12 +3,15 @@ layout: androidtutorial
 
 title: Physical Device
 
-description: 
+description: How to use a real Android device for mobile development
 
 excerpt: 
 
+tags:
+- Device
+
 categories:
-- android-programming
+- Android
 
 ---
 

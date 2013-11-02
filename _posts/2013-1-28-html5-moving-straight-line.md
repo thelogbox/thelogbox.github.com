@@ -1,9 +1,15 @@
 ---
 layout: html5
-title: Animation, Linear Movement
-description: 
+
+title: Linear Movement
+
+description: Make things move in HTML5 Canvas
+
+tags:
+- Animation
+
 categories:
-- html5
+- HTML5
 
 ---
 

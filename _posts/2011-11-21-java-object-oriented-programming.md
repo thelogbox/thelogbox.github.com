@@ -3,12 +3,15 @@ layout: post
 
 title: Java Object Oriented Programming
 
-description: 
+description: Introduction to Java OOP
 
 excerpt: 
 
+tags:
+- OOP
+
 categories:
-- java
+- Java
 
 ---
 

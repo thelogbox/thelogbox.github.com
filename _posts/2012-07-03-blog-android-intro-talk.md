@@ -7,8 +7,12 @@ description:
 
 except:
 
+tags:
+- APC
+- Presentation
+
 categories:
-- blog
+- Android
 
 ---
 

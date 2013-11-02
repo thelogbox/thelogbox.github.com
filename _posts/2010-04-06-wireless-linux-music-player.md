@@ -1,14 +1,18 @@
 ---
-layout: post
+layout: linux
 
 title: Wireless Linux Music Player
 
-description: 
+description: Music Player Daemon in Linux. Don't throw away that old notebook
 
 excerpt: 
 
+tags:
+- hack
+- mpd
+
 categories:
-- blog
+- Linux
 
 ---
 

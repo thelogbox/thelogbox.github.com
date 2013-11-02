@@ -7,8 +7,11 @@ description:
 
 except:
 
+tags:
+- Basics
+
 categories:
-- html5
+- HTML5
 
 ---
 

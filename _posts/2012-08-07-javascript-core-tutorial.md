@@ -3,12 +3,17 @@ layout: post
 
 title: JavaScript Tutorial
 
-description: 
+description: A quick tour of the JavaScript language
 
 excerpt: 
 
+tags:
+- Tutorial
+- Language
+- Basics
+
 categories:
-- javascript
+- JavaScript
 
 ---
 

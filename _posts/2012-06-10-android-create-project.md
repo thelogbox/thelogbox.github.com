@@ -7,8 +7,12 @@ description:
 
 excerpt: To create an android project, you will need a bunch of XML files, a couple of resources files, some make files and of course, the Java source code for your app. It may sound like a lot to do for a simple and useless Hello World app--it is--but most of the boiler-plate code for setting up a project can be taken cared of by a good IDE (Eclipse, NetBeans, IntelliJ or what have you, in our case, we will use the good old CLI). 
 
+tags:
+- Project
+- Creation
+
 categories:
-- android-programming
+- Android
 
 ---
 

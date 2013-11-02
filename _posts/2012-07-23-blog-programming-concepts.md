@@ -3,12 +3,17 @@ layout: post
 
 title: RD Skill Building. Programming Concepts
 
-description:
+description: Journal of RD batch 1. Programming concepts using Core Java
 
 except:
 
+tags:
+- Concepts
+- Programming
+- Introduction
+
 categories:
-- blog
+- Training
 
 ---
 

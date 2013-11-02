@@ -1,14 +1,17 @@
 ---
-layout: post
+layout: linux
 
 title: Connect to Ubuntu Remote Desktop (Windows)
 
-description: 
+description: How to remote control a Linux machine using Windows RDP
 
 excerpt: 
 
+tags:
+- RDP
+
 categories:
-- blog
+- Linux
 
 ---
 

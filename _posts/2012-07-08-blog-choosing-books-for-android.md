@@ -3,10 +3,14 @@ layout: androidtutorial
 
 title: Bibliography
 
-description:
+description: A small list of book references to get you started in Android programming
+
+tags:
+- Books
+- Resources
 
 categories:
-- android-programming, books
+- Android
 
 ---
 

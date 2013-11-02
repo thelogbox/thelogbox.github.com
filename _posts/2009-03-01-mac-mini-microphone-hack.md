@@ -3,12 +3,16 @@ layout: post
 
 title: Alternative Microphone for MAC MINI
 
-description: 
+description: If you don't want to pay for iMic, use the condenser mic from an old voice recorder
 
 excerpt: 
 
+tags:
+- hack
+- mac
+
 categories:
-- blog
+- OSX
 
 ---
 

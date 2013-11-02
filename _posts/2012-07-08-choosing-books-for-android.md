@@ -1,14 +1,19 @@
 ---
 layout: notice
 
-title: Choosing Books for Android
+title: Books
 
 description: 
 
 excerpt: 
 
+tags:
+- Bibliography
+- References
+
 categories:
-- android-programming
+- Android
+
 ---
 
 <div id='feature-button'>

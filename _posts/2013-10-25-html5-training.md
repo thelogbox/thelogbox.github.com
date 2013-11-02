@@ -1,9 +1,15 @@
 ---
 layout: courses
+
 title: HTML5 Canvas Programming 
-description: 
+
+description:
+
+tags:
+- HTML5
+ 
 categories:
-- html5, courses
+- Training
 
 ---
 

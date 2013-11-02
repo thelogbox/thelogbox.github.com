@@ -3,12 +3,17 @@ layout: androidtutorial
 
 title: Testing on AVD and Actual Device
 
-description: 
+description: Using a physical device or virtual device for Android development
 
 excerpt: 
 
+tags:
+- Testing
+- Virtual
+- Device
+
 categories:
-- android-programming
+- Android
 
 
 ---

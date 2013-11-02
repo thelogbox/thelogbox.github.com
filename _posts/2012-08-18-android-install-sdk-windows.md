@@ -1,14 +1,18 @@
 ---
 layout: androidtutorial
 
-title: Dev Setup on Windows
+title: Development Setup for Windows
 
-description:
+description: Setup your Android Development Environment in Windows 
 
 except:
 
+tags:
+- Windows
+- SDK
+
 categories:
-- android-programming
+- Android
 
 ---
 

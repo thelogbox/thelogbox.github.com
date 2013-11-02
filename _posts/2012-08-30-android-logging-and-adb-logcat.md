@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: Logging and adb logcat
 
-description:
+description: Really simple steps on how to debug your Android app
 
 except:
 
+tags:
+- Logging
+- Debugging
+
 categories:
-- android-programming
+- Android
 
 ---
 

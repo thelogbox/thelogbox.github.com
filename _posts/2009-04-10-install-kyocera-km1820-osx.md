@@ -3,12 +3,16 @@ layout: post
 
 title: How to Install KYOCERA KM 1820 on OSX
 
-description:
+description: 
 
 except:
 
+tags:
+- mac
+- Printer
+
 categories:
-- blog
+- OSX
 
 ---
 

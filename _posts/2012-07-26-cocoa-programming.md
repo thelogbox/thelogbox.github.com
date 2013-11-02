@@ -3,12 +3,16 @@ layout: post
 
 title: Programming for the Mac
 
-description:
+description: If you want to build iOS apps, you must know Objective C first
 
 except:
 
+tags:
+- Cocoa
+- Fundamentals
+
 categories:
-- objective-c
+- OBJC
 
 ---
 

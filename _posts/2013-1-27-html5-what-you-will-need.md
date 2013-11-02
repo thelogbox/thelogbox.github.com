@@ -2,10 +2,14 @@
 layout: html5
 title: Tools and Requisite Knowledge
 
-description: 
+description: Things you need for HTML5 programming
+
+tags:
+- Tools
+- Requisite
 
 categories:
-- html5
+- HTML5
 
 ---
 

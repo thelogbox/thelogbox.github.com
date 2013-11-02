@@ -3,12 +3,16 @@ layout: androidtutorial
 
 title: How Much Java Do You Need
 
-description: 
+description: Before you dive into Android Programming, know how much Java you really do need.
 
 excerpt: 
 
+tags:
+- Java
+- Requisite
+
 categories:
-- android-programming
+- Android
 
 
 ---

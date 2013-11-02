@@ -3,12 +3,18 @@ layout: androidtutorial
 
 title: Getting Started
 
-description: 
+description: Create, build and deploy your first Android application
 
 excerpt: 
 
+tags:
+- HelloWorld
+- Activity
+- Compilation
+- Build
+
 categories:
-- android-programming
+- Android
 ---
 
 One of the best, if not the best way to learn something is to start doing it. Get your feet wet. Your hands dirty, so to speak.
