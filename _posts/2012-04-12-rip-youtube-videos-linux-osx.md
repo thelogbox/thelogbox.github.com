@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: linux
 
-title: Rip YouTube Video via cmd (Linux and OSX)
+title: Rip YouTube Vids
 
 description: Download YouTube videos like a geek
 
@@ -15,15 +15,9 @@ categories:
 
 ---
 
+This works for Linux and OSX; *youtube-dl* is a command line tool for saving YouTube videos. 
 
-1. To save youtube videos locally in the hard drive
-2. To rip the audio portion of the youtube videos
-3. To do No. 1 and No. 2 without using browser plugins
-4. To dno No. 1 and No. 2 using command line utilities
-
-
-# WHAT YOU NEED
-
+These are what you need:
 
 1. [youtube-dl](http://rg3.github.com/youtube-dl/) - This pull the youtube content, ala curl or wget
 2. [ffmpeg](http://ffmpeg.org) and [lame](http://lame.sourceforge.net) - These two you will need to transform the downloaded content because youtube-dl will pull a .webm file, if you have capability to play a .webm file, you may not need to transform them. In Lubuntu, the .webm is supported
@@ -36,12 +30,9 @@ This method used the Debian apt-get installer, it will be different for other Li
 **FOR OSX**, You can choose to use either HomeBrew or MacPorts. I used BREW
 
 <pre class='codeblock'>
-  
 $ sudo brew install youtube-dl
 $ sudo brew install ffmpeg
 $ sudo brew install lame
-
-
 </pre>
 
 # HOW TO RIP

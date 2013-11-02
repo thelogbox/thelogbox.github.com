@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: linux
 
 title: How to Connect Windows to a CUPS Print Server
 

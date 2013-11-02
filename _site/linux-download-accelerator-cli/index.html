@@ -23,10 +23,10 @@
 
 <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 
-<meta name="keywords" content="Eclipse">
+<meta name="keywords" content="cli ,utility ,Debian">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="How to use Eclipse for Android development" />
-<title>Android , Setting Up an Eclipse Development Environment | theLogBox </title>
+<meta name="description" content="Simple command line tool to accelerate downloading. Imagine wget on steroids" />
+<title>Linux , Download Accelerator | theLogBox </title>
 
 		<style>
 
@@ -483,15 +483,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 
-</style>  
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
   </head>
   <body>
     
     <div class="running-head">   
-      <div class='tutorial-writeup'>        
-      get updates for  <a href='http://eepurl.com/HcFof' target='_blank'> android programming tutorial </a> 
+      <div class='tutorial-writeup'>             
+        LINUX NOTES
       </div>
-      
     </div>
     
     <div id="wrap">
@@ -499,120 +503,57 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
       <div class='vspacer'></div>
-      <div id="articletitle">Setting Up an Eclipse Development Environment</div>
+      <div id="articletitle">Download Accelerator</div>
       <div class='vspacer'></div>
     </header>
-    
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Make sure you have already installed the ANDROID SDK and that you have properly configured the PATHs to tools and platform-tools. Make sure also that you have properly installed and configured Apache ANT.</p>
+		    <p>Axel is a CLI download accelerator. It's available on Linux repos. I am using Debian that's why the package manager is aptitude. Just use your own package manager and look for axel.</p>
 
-<p>Download Eclipse from <a href="http://eclipse.org">eclipse.org</a>, This is usually zipped or tgz'ed file. You will need to extract eclipse to a folder of your choice and setup the correct links/PATH</p>
+<pre class="codeblock">
 
-<h1>INSTALL ADT (ANDROID DEV TOOL)</h1>
+$ sudo apt-get install axel 
+$ axel -n 10 http://wordpress.org/latest.zip
 
-<ol>
-<li>Launch Eclipse</li>
-<li>Go to <strong>Help</strong> &rarr; <strong>Install new software</strong></li>
-<li>Click the <strong>Add</strong> button</li>
-<li>On the <em>Location</em> text field, type https://dl-ssl.google.com/android/eclipse/, you can type whatever you want on the <em>Name</em> textfield, but I suggest that you name it "Android DT" or something descriptive</li>
-<li>Click <strong>Ok</strong> then follow the prompts, it is straightforward from there.</li>
-<li>Eclipse will restart after the plugin has been completely downloaded</li>
-</ol>
+</pre>
 
 
-<h1>CREATE A PROJECT</h1>
-
-<p>Go to <strong>File</strong> &rarr; <strong>New Project</strong> &rarr; <em>Android</em> &rarr; <em>Android application project</em>. It will be a series of dialog screens, but what you need to remember are the following;</p>
-
-<ol>
-<li><em>Application Name</em> - Choose a name for this. This is an Eclipse construct, it needs it to manage projects</li>
-<li><em>Project name</em> - Put whatever you like</li>
-<li><em>Package name</em> - this is usually a reverse DNS notation of your domain name. The domain does not have to exist, so you can put whatever you like e.g. com.thelogbox.HelloWorld</li>
-<li><em>Minimum required SDK</em> - The lowest version of Android that your application is guaranteeing to run on; be careful here, the older release of Android is not guaranteed to be compatible with the newer versions of Android. Unless you absolutely know what you are doing, put exactly the same values on all the SDK fields in this dialog screen</li>
-<li>On the next screen, you will have an option to <em>create an Activity</em>, leave it on if you want to have a default Activity class when the project is created</li>
-<li>Follow the prompts to fill out some more project details</li>
-</ol>
-
-
-<h1>TESTING</h1>
-
-<p>If you don't have a physical Android device, you can use the AVD (Android Virtual Device) but I strongly suggest that you get a physical device because the AVD is painfully slow. You need to get the AVD setup first before you can run anything, there are detailed instructions and information about the AVD on <a href="http://developer.android.com/tools/devices/managing-avds.html">android developer site</a>. You will need either the AVD or a physical device because Android applications are meant to run on an environment that is very different from your PC, that is why you need at least an emulator.</p>
-
-<p>If you have a physical Android device, there are somethings you need to note before you can use it.</p>
-
-<ol>
-<li>You need to enable the <strong>USB Debugging</strong> option on the physical device itself. This procedure will differ from one device brand to another, so you really need to know how to work this for your specific device brand</li>
-<li>If you are using OSX, then you can stop here, you all setup. All you've got to do is to plug your device into the USB of the PC, and off you go. If you are using Windows or Linux, read on to step no. 3</li>
-<li>You need to properly configure the USB settings on your machine before you can plug in your Android device and use it for development. There are detailed instructions on the <a href="http://developer.android.com/tools/device.html">android developer site</a>, read through it and follow it</li>
-<li>Once the setup is done, as soon as you click <strong>Run</strong> on the eclipse menu (CTRLF11), the new android project will be deployed to the physical machine &mdash; as if you ran <strong>ant debug install</strong> from the command line</li>
-</ol>
-
-
-<h1>REFERENCES</h1>
-
-<ol>
-<li><a href="http://developer.android.com/tools/devices/managing-avds.html">developer.android.com/AVD</a> - Managing AVDs. Google, 2012</li>
-<li><a href="http://developer.android.com/tools/device.html">developer.android.com/tools/device</a> - Setting up USB devices for Android testing. Google, 2012</li>
-</ol>
-
+<p>-n 10 means you want to use 10 simulateneous threads of download.</p>
 
         </div>
 							
 		  </div>
-      
+            
       <div id='discussions'>
-        
-        If you find errors, please do notify me. If you have questions about the tutorial, please use <a href='https://moot.it/thelogbox//android-programming' target='_blank'>the android programming forum</a>
-        
-      </div>
+      
+      If you find errors, please do notify me. If you have questions about the tutorial, please use <a href="https://moot.it/thelogbox/linux" target="_blank">the forum</a>.  
+    </div>
       
 		</article>
     
     <div class="toc">
       
       <ul>
-      <li><a href="/android-programming-tutorial">Introduction</a></li>
-      <li><a href="/android-how-much-java-do-you-need">How Much Java Do You Need</a></li>
-      <li><a href="/android-background-information">Background Information</a></li>
-      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
-      <li><a href="/android-virtual-device">Virtual Device</a></li>
-      <li><a href="/android-physical-device">Physical Device</a></li>      
-      <li><a href="/android-getting-started">Getting Started</a></li>
-      <li><a href="/android-activity">Activity and the UI</a></li>
-      <li><a href="/android-linear-layout">Linear Layout</a></li>
-      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
-      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
-      <li><a href="/logcat">Debugging with LogCat</a></li>
-      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
-      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
-      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
-      <li><a href="/android-database-programming-basics">Database Programming</a></li>
-      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
-      <li><a href="/android-location-api">GEO Location</a></li>
-      <li><a href="/simple-camera-code">Using the Camera</a></li>
-      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
-      <li><a href="/signing-an-android-app">Signing your App</a></li>
-  
-      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
-      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
+      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
+      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
+      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
+      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
+      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
+      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
+      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
+      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
+      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
+      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
+      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
+      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
     </ul>
-    
-    <hr/>
-    
-    <ul>
-      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
-      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
-      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
-      <li><a href="/android-studio">Android Studio</a></li>
-      <li><a href="/android-project-workflow">Project Workflow</a></li>
-    </ul>
-    
     </div>    
     
     
+
     </div>  <!--  div wrap -->
 
 		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>

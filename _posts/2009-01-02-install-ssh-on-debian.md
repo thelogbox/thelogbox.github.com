@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: linux
 
 title: Install SSH on Debian/Ubuntu
 
-description: Get an SSH server running on your Linux machine
+description: Get an SSH server running
 
 excerpt: 
 

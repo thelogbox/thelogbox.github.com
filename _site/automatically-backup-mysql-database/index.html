@@ -22,7 +22,6 @@
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
 <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
 
 <meta name="keywords" content="database ,backup">
 <meta name="author" content="Ted Hagos">
@@ -224,6 +223,17 @@ body {
   
 }
 
+article {
+  padding-bottom: 20px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
 footer {
 	font-style:normal;
 	margin-top:20px;
@@ -256,12 +266,13 @@ strong {
   color: #000000;
 }
 
+/*
 em {
   font-family: 'Lora', serif;
   font-size: 18px;
   color: #191919;
-  /* color: #003D82; */
 }
+*/
 
 code {
 	font-family: 'Inconsolata','Lekton';
@@ -479,22 +490,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
   
   </head>
-  <body>    
-      
+  <body>
+    
     <div class="running-head">   
-      <div class='tutorial-writeup'>        
-        ARCHIVES
-      </div>  
-    </div>   
-    <div id="wrap">     
-    <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>          
-      <div id="articletitle">Automatic Backup of MySQL</div>
-      
-      <div class='content-meta'>
-       by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
-       Ted Hagos</a>, October 01 , 2010 
+      <div class='tutorial-writeup'>             
+        LINUX NOTES
       </div>
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Automatic Backup of MySQL</div>
+      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -552,15 +562,37 @@ mysql > .\file.backup
         </div>
 							
 		  </div>
+            
+      <div id='discussions'>
+      
+      If you find errors, please do notify me. If you have questions about the tutorial, please use <a href="https://moot.it/thelogbox/linux" target="_blank">the forum</a>.  
+    </div>
+      
 		</article>
     
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
+      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
+      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
+      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
+      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
+      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
+      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
+      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
+      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
+      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
+      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
+      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+    </ul>
+    </div>    
     
-    <a href="/" class='button'>HOME PAGE</a>  
-    <a href="/archives" class='button'>BLOG ARCHIVES</a>
     
-  </div> <!-- WRAP -->   
-		
-    <footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+
+    </div>  <!--  div wrap -->
+
+		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
           Ted Hagos</a> 
 
 </footer>

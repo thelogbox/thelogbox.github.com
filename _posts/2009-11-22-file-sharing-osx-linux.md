@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: linux
 
 title: File Sharing between OSX and Linux
 

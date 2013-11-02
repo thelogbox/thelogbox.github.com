@@ -1,7 +1,7 @@
 ---
 
 layout: androidtutorial
-title: Android Project Workflow
+title: Project Workflow
 
 description: Here are the steps that a developer generally goes through from creating an android app, until signing it and releasing it to the public
 
@@ -75,7 +75,7 @@ Send the app to friends, relatives, colleagues etc, look for feedback. Go back t
 # SIGN THE APP
 
 
-ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to [digitally sign your app]({{ post_url 2012-11-23-signing-an-android-app }}) before you release it to the public 
+ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to [digitally sign your app](/signing-an-android-app) before you release it to the public 
 
 # GET TO GOOGLE PLAY
 

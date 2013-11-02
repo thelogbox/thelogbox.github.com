@@ -4,13 +4,32 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-10-29T22:52:48+08:00</updated>
+ <updated>2013-11-02T12:23:47+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Download Accelerator</title>
+   <link href="http://thelogbox.com/linux-download-accelerator-cli"/>
+   <updated>2013-10-31T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/linux-download-accelerator-cli</id>
+   <content type="html">&lt;p&gt;Axel is a CLI download accelerator. It's available on Linux repos. I am using Debian that's why the package manager is aptitude. Just use your own package manager and look for axel.&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+$ sudo apt-get install axel 
+$ axel -n 10 http://wordpress.org/latest.zip
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;-n 10 means you want to use 10 simulateneous threads of download.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>HTML5 Canvas Programming</title>
@@ -2764,7 +2783,7 @@ alias_name*&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Android Project Workflow</title>
+   <title>Project Workflow</title>
    <link href="http://thelogbox.com/android-project-workflow"/>
    <updated>2012-11-23T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-project-workflow</id>
@@ -2827,7 +2846,7 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
 
 &lt;h1&gt;SIGN THE APP&lt;/h1&gt;
 
-&lt;p&gt;ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to &lt;a href=&quot;&quot;&gt;digitally sign your app&lt;/a&gt; before you release it to the public&lt;/p&gt;
+&lt;p&gt;ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to &lt;a href=&quot;/signing-an-android-app&quot;&gt;digitally sign your app&lt;/a&gt; before you release it to the public&lt;/p&gt;
 
 &lt;h1&gt;GET TO GOOGLE PLAY&lt;/h1&gt;
 
@@ -3749,7 +3768,7 @@ $ gem install thin
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Switch your ruby version&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Install Sinatra &lt;code class=&quot;codeblock&quot;&gt;sudo gem install sinatra&lt;/code&gt;. While you are it, install the &lt;em&gt;thin&lt;/em&gt; package as well &lt;code class=&quot;codeblock&quot;&gt;sudo gem install thin&lt;/code&gt;**. Sinatra apps will run without thin&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install Sinatra &lt;code class=&quot;codeblock&quot;&gt;sudo gem install sinatra&lt;/code&gt;. While you are it, install the &lt;em&gt;thin&lt;/em&gt; package as well &lt;code class=&quot;codeblock&quot;&gt;sudo gem install thin&lt;/code&gt;. Sinatra apps will run without thin&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Make sure it's running, do the HelloWorld app&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -11808,19 +11827,13 @@ class MyClass{}&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Rip YouTube Video via cmd (Linux and OSX)</title>
+   <title>Rip YouTube Vids</title>
    <link href="http://thelogbox.com/rip-youtube-videos-linux-osx"/>
    <updated>2012-04-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/rip-youtube-videos-linux-osx</id>
-   <content type="html">&lt;ol&gt;
-&lt;li&gt;To save youtube videos locally in the hard drive&lt;/li&gt;
-&lt;li&gt;To rip the audio portion of the youtube videos&lt;/li&gt;
-&lt;li&gt;To do No. 1 and No. 2 without using browser plugins&lt;/li&gt;
-&lt;li&gt;To dno No. 1 and No. 2 using command line utilities&lt;/li&gt;
-&lt;/ol&gt;
+   <content type="html">&lt;p&gt;This works for Linux and OSX; &lt;em&gt;youtube-dl&lt;/em&gt; is a command line tool for saving YouTube videos.&lt;/p&gt;
 
-
-&lt;h1&gt;WHAT YOU NEED&lt;/h1&gt;
+&lt;p&gt;These are what you need:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://rg3.github.com/youtube-dl/&quot;&gt;youtube-dl&lt;/a&gt; - This pull the youtube content, ala curl or wget&lt;/li&gt;
@@ -11835,12 +11848,9 @@ class MyClass{}&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;FOR OSX&lt;/strong&gt;, You can choose to use either HomeBrew or MacPorts. I used BREW&lt;/p&gt;
 
 &lt;pre class='codeblock'&gt;
-  
 $ sudo brew install youtube-dl
 $ sudo brew install ffmpeg
 $ sudo brew install lame
-
-
 &lt;/pre&gt;
 
 
@@ -11933,7 +11943,7 @@ $ sudo brew install lame
  </entry>
  
  <entry>
-   <title>Send/Receive SMS on USB modem [Linux]</title>
+   <title>Send/Receive SMS on USB modem</title>
    <link href="http://thelogbox.com/send-receive-sms-messages-usb-modem-linux"/>
    <updated>2012-04-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/send-receive-sms-messages-usb-modem-linux</id>
@@ -12007,7 +12017,7 @@ $ cp /etc/xdg/gnokii/config config
 $ mysql -u root -p
 $ mysql&gt; create database smsgw;
 $ mysql&gt; use smsgw;
-$ mysql&gt;\. /usr/share/doc/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
+$ mysql&gt;\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 &lt;/pre&gt;
 
@@ -12032,30 +12042,11 @@ $ mysql&gt; select * from inbox;
 &lt;p&gt;Try sending some SMS messages from the command line to your phone using &lt;code class=&quot;codeblock&quot;&gt;echo &quot;Test message&quot; | gnokii --sendsmd +SMSNO&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Where &lt;em&gt;SMSNO&lt;/em&gt; is structured as (countrycode) cell phone number&lt;/p&gt;
-
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-&lt;/script&gt;
-
-
-&lt;p&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
-&lt;a href=&quot;http://disqus.com&quot; class=&quot;dsq-brlink&quot;&gt;comments powered by &lt;span class=&quot;logo-disqus&quot;&gt;Disqus&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
-   <title>What Appication is Using Port 80</title>
+   <title>What Application is ssing Port 80</title>
    <link href="http://thelogbox.com/what-port-am-i-using"/>
    <updated>2012-04-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/what-port-am-i-using</id>
@@ -13581,29 +13572,15 @@ $ sudo mount servername:/mnt/badass ~/mymount
  </entry>
  
  <entry>
-   <title>Install CLP 315 on Debian Linux Print Server</title>
+   <title>Install CLP 315 on Debian</title>
    <link href="http://thelogbox.com/install-clp315-on-linux-print-server"/>
    <updated>2009-04-07T00:00:00+08:00</updated>
    <id>http://thelogbox.com/install-clp315-on-linux-print-server</id>
-   <content type="html">&lt;h2&gt;Objective&lt;/h2&gt;
+   <content type="html">&lt;p&gt;These steps will install the Samsung CLP 315 on a headless Linux Server.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Install the Samsung CLP 315 color laser printer&lt;/li&gt;
-&lt;li&gt;To do No.1 on Debian Squeeze&lt;/li&gt;
-&lt;li&gt;To do No. 2 on a headless server (no monitor, no keyboard -- it's a server)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;You will need a properly configured CUPS server before proceeding. If you haven't configured a printer server yet, &lt;a href=&quot;/easy-way-to-install-print-server-linux&quot;&gt;read this one first&lt;/a&gt; then come back. You will also need an internet connection for this one. There are some files to download.&lt;/p&gt;
 
-
-&lt;h2&gt;What you need&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A Linux Server configured for printing (CUPS server). If you don't have this yet, read the instruction on &lt;a href=&quot;/easy-way-to-install-print-server-linux/&quot;&gt;How to install a Linux print server&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;The Samsung CLP 315, powered and plugged-in to one of the USB ports of your Linux Print server&lt;/li&gt;
-&lt;li&gt;An Internet connection, to download the driver from Samsung&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h2&gt;Installing the CLP 315 driver&lt;/h2&gt;
+&lt;h1&gt;STEPS&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Get the UnifiedLinuxDriver.tar either from the CD that came with the printer or from the &lt;a href=&quot;http://www.samsung.com&quot;&gt;Samsung site&lt;/a&gt;. You need to navigate the site a little bit. Go to &lt;em&gt;Support and Downloads&lt;/em&gt; page, then find the printer, there is a wizard&lt;/li&gt;
@@ -13615,14 +13592,16 @@ $ sudo mount servername:/mnt/badass ~/mymount
 &lt;/ol&gt;
 
 
-&lt;h2&gt;Second part of installation&lt;/h2&gt;
+&lt;h1&gt;CONFIGURATION&lt;/h1&gt;
 
-&lt;p&gt;Copy the rastertosamsungsplc ppd file &lt;em&gt;/usr/lib/cups/filter&lt;/em&gt; folder&lt;/p&gt;
+&lt;p&gt;Copy the rastertosamsungsplc ppd file to the &lt;em&gt;/usr/lib/cups/filter&lt;/em&gt; folder&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cd /path/to/where/rastertosamsungsplc-is/
-$ cp rastertosamsungsplc /usr/lib/cups/filter/rastertosamsungsplc
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ cd /path/to/where/rastertosamsungsplc-is/
+$ cp rastertosamsungsplc /usr/lib/cups/filterrastertosamsungsplc
 $ sudo /etc/init.d/cupsd restart
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;
+
 
 &lt;p&gt;At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type &lt;em&gt;http://NameOfPrintServer:631&lt;/em&gt;. Click &lt;em&gt;Administration --&gt; Add Printer&lt;/em&gt;&lt;/p&gt;
 </content>
@@ -13707,7 +13686,7 @@ $ sudo /etc/init.d/cupsd restart
  </entry>
  
  <entry>
-   <title>How to Install a Linux Print Server</title>
+   <title>Installing a Print Server</title>
    <link href="http://thelogbox.com/easy-way-to-install-print-server-linux"/>
    <updated>2009-02-06T00:00:00+08:00</updated>
    <id>http://thelogbox.com/easy-way-to-install-print-server-linux</id>

@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: linux
 
-title: How to Install a Linux Print Server
+title: Installing a Print Server
 
 description: Really basic steps on setting up a CUPS printer
 

@@ -22,12 +22,11 @@
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
 <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
 
 <meta name="keywords" content="Workflow ,Project">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Here are the steps that a developer generally goes through from creating an android app, until signing it and releasing it to the public" />
-<title>Android , Android Project Workflow | theLogBox </title>
+<title>Android , Project Workflow | theLogBox </title>
 
 		<style>
 
@@ -224,6 +223,17 @@ body {
   
 }
 
+article {
+  padding-bottom: 20px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
 footer {
 	font-style:normal;
 	margin-top:20px;
@@ -256,12 +266,13 @@ strong {
   color: #000000;
 }
 
+/*
 em {
   font-family: 'Lora', serif;
   font-size: 18px;
   color: #191919;
-  /* color: #003D82; */
 }
+*/
 
 code {
 	font-family: 'Inconsolata','Lekton';
@@ -488,7 +499,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
       <div class='vspacer'></div>
-      <div id="articletitle">Android Project Workflow</div>
+      <div id="articletitle">Project Workflow</div>
       <div class='vspacer'></div>
     </header>
     
@@ -553,7 +564,7 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
 
 <h1>SIGN THE APP</h1>
 
-<p>ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to <a href="">digitally sign your app</a> before you release it to the public</p>
+<p>ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to <a href="/signing-an-android-app">digitally sign your app</a> before you release it to the public</p>
 
 <h1>GET TO GOOGLE PLAY</h1>
 
@@ -562,23 +573,13 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
         </div>
 							
 		  </div>
-       <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
       
-<!-- END Disqus-->
+      <div id='discussions'>
+        
+        If you find errors, please do notify me. If you have questions about the tutorial, please use <a href='https://moot.it/thelogbox//android-programming' target='_blank'>the android programming forum</a>
+        
+      </div>
+      
 		</article>
     
     <div class="toc">

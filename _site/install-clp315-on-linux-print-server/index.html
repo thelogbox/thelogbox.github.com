@@ -22,12 +22,11 @@
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
 
 <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
 
 <meta name="keywords" content="Printer ,Server">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Get a Samsung color printer to work with a Linux Print server" />
-<title>Linux , Install CLP 315 on Debian Linux Print Server | theLogBox </title>
+<title>Linux , Install CLP 315 on Debian | theLogBox </title>
 
 		<style>
 
@@ -224,6 +223,17 @@ body {
   
 }
 
+article {
+  padding-bottom: 20px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
 footer {
 	font-style:normal;
 	margin-top:20px;
@@ -256,12 +266,13 @@ strong {
   color: #000000;
 }
 
+/*
 em {
   font-family: 'Lora', serif;
   font-size: 18px;
   color: #191919;
-  /* color: #003D82; */
 }
+*/
 
 code {
 	font-family: 'Inconsolata','Lekton';
@@ -479,47 +490,32 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
   
   </head>
-  <body>    
-      
+  <body>
+    
     <div class="running-head">   
-      <div class='tutorial-writeup'>        
-        ARCHIVES
-      </div>  
-    </div>   
-    <div id="wrap">     
-    <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>          
-      <div id="articletitle">Install CLP 315 on Debian Linux Print Server</div>
-      
-      <div class='content-meta'>
-       by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
-       Ted Hagos</a>, April 07 , 2009 
+      <div class='tutorial-writeup'>             
+        LINUX NOTES
       </div>
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Install CLP 315 on Debian</div>
+      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h2>Objective</h2>
+		    <p>These steps will install the Samsung CLP 315 on a headless Linux Server.</p>
 
-<ol>
-<li>Install the Samsung CLP 315 color laser printer</li>
-<li>To do No.1 on Debian Squeeze</li>
-<li>To do No. 2 on a headless server (no monitor, no keyboard -- it's a server)</li>
-</ol>
+<p>You will need a properly configured CUPS server before proceeding. If you haven't configured a printer server yet, <a href="/easy-way-to-install-print-server-linux">read this one first</a> then come back. You will also need an internet connection for this one. There are some files to download.</p>
 
-
-<h2>What you need</h2>
-
-<ol>
-<li>A Linux Server configured for printing (CUPS server). If you don't have this yet, read the instruction on <a href="/easy-way-to-install-print-server-linux/">How to install a Linux print server</a></li>
-<li>The Samsung CLP 315, powered and plugged-in to one of the USB ports of your Linux Print server</li>
-<li>An Internet connection, to download the driver from Samsung</li>
-</ol>
-
-
-<h2>Installing the CLP 315 driver</h2>
+<h1>STEPS</h1>
 
 <ol>
 <li>Get the UnifiedLinuxDriver.tar either from the CD that came with the printer or from the <a href="http://www.samsung.com">Samsung site</a>. You need to navigate the site a little bit. Go to <em>Support and Downloads</em> page, then find the printer, there is a wizard</li>
@@ -531,29 +527,53 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </ol>
 
 
-<h2>Second part of installation</h2>
+<h1>CONFIGURATION</h1>
 
-<p>Copy the rastertosamsungsplc ppd file <em>/usr/lib/cups/filter</em> folder</p>
+<p>Copy the rastertosamsungsplc ppd file to the <em>/usr/lib/cups/filter</em> folder</p>
 
-<pre><code>$ cd /path/to/where/rastertosamsungsplc-is/
-$ cp rastertosamsungsplc /usr/lib/cups/filter/rastertosamsungsplc
+<pre class="codeblock">
+$ cd /path/to/where/rastertosamsungsplc-is/
+$ cp rastertosamsungsplc /usr/lib/cups/filterrastertosamsungsplc
 $ sudo /etc/init.d/cupsd restart
-</code></pre>
+</pre>
+
 
 <p>At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type <em>http://NameOfPrintServer:631</em>. Click <em>Administration --> Add Printer</em></p>
 
         </div>
 							
 		  </div>
+            
+      <div id='discussions'>
+      
+      If you find errors, please do notify me. If you have questions about the tutorial, please use <a href="https://moot.it/thelogbox/linux" target="_blank">the forum</a>.  
+    </div>
+      
 		</article>
     
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
+      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
+      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
+      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
+      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
+      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
+      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
+      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
+      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
+      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
+      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
+      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+    </ul>
+    </div>    
     
-    <a href="/" class='button'>HOME PAGE</a>  
-    <a href="/archives" class='button'>BLOG ARCHIVES</a>
     
-  </div> <!-- WRAP -->   
-		
-    <footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
+
+    </div>  <!--  div wrap -->
+
+		<footer>Copyright&nbsp; &copy; 2004-2013 <a href='https://plus.google.com/107317535953221277825?rel=author'>
           Ted Hagos</a> 
 
 </footer>

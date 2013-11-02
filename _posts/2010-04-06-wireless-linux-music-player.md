@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: linux
 
 title: Wireless Linux Music Player
 
