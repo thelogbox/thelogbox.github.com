@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div class="running-head">   
+      <div class='tutorial-writeup'>             
+        WORDPRESS PROGRAMMING
+      </div>
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">{{ page.title }}</div>
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+      <a class="moot"
+        title={{ page.title }}
+        href="https://moot.it/i/thelogbox/java:{{ page.title }}">
+        Comments 
+      </a>  
+		</article>
+    
+    <div class="toc">
+      
+      <ul>
+      <li><a href="#">Introduction</a></li>
+      <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
+      <li><a href="/wordpress-tools">Tools</a></li>
+      <li><a href="/wordpress-setup">Setup</a></li>
+      <li><a href="/wordpress-html">HTML</a></li>
+      <li><a href="#">Common html tags</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="/wordpress-php">PHP</a></li>
+      <li><a href="#">More PHP</a></li>
+      <li><a href="#">Braceless syntax</a></li>
+      <li><a href="#">Wordpress makeup</a></li>
+      <li><a href="/wordpress-installation">Installation and Configuration</a></li>  
+      <li><a href="#">Using Wordpress</a></li>  
+      <li><a href="#">Custom theme</a></li>  
+      <li><a href="#">Templates</a></li>  
+      <li><a href="#">Extending Wordpress</a></li>  
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+
+		<footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>

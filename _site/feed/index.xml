@@ -4,13 +4,423 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-02T18:57:46+08:00</updated>
+ <updated>2013-11-04T00:59:57+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Introduction to PHP</title>
+   <link href="http://thelogbox.com/wordpress-php"/>
+   <updated>2013-11-04T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-php</id>
+   <content type="html">&lt;p&gt;[Getting started, like hello world in PHP]&lt;/p&gt;
+
+&lt;p&gt;Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.&lt;/p&gt;
+
+&lt;p&gt;Programming is a lot like that. It might be oversimplication but oversimplification is what we need in order to begin understanding a complex subject. Before you can begin writing codes, you need to decide on a lot of things e.g. which language are we going to use, should we learn desktop, web or mobile programming etc. In our case, a lot of these decisions have already been made. We are building skills so that we can write a Wordpress app. That narrows things down for us.&lt;/p&gt;
+
+&lt;p&gt;A Wordpress app requires knowledge HTML, JavaScript, CSS and PHP. I did not include MySQL anymore because the Wordpress platform insulates you from dealing with the database. You will only need to deal with the database if you are working on a really unusual problem.&lt;/p&gt;
+
+&lt;p&gt;We will start building our programming competencies in PHP, this is what this chapter is all about.&lt;/p&gt;
+
+&lt;h2&gt;STATEMENTS&lt;/h2&gt;
+
+&lt;p&gt;Remember the recipe analogy? First we need to know what kinds of things we can work with. In programming that means data. What kinds of data you can work with. You can work with numbers, both whole and real. You can use strings (words). You can work with boolean values (true or false). There are other things you can also work with but they are bit advanced, these are objects and arrays. We will circle back to these two when you have a bit more programming muscles.&lt;/p&gt;
+
+&lt;p&gt;A statement in PHP is a declaration of an operation, something that you would like to do. For example, if you want define a variable and store a number in it, you need to tell PHP exactly that.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$anumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The variable name is &lt;em&gt;anumber&lt;/em&gt; but I did put a dollar sign before it. That is required.&lt;/p&gt;
+
+&lt;p&gt;When you define a variable in PHP, you need to prepend it with the dollar sign so that PHP knows you are declaring a variable. The equal sign is used for assignment. In this statement, we defined a variable named &lt;em&gt;anumber&lt;/em&gt; and assigned an an integer to it.&lt;/p&gt;
+
+&lt;p&gt;You will notice that there is a semicolon right after the number 10. That is a big deal. The semicolon tells PHP that you are already done with the statement. Just like when you want to end a sentence, you would punctuate it with a period to signal that it is already a complete thought, you need to punctuate your PHP statements with a semicolon.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;$anumber&lt;/em&gt; is called a variable because we can change it’s value later on. You can add, subtract, divide and multiply it with some other value then store the new results on $anumber thereby changing its original value, like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;CO MINGLED WITH HTML&lt;/h2&gt;
+
+&lt;p&gt;You need to write your PHP statements inside this tag &lt;em&gt;&amp;lt;?php  ?&amp;gt;&lt;/em&gt;. PHP is a server side scripting language, the php tag tells the server that what's inside is not HTML. It contains PHP instructions that needs to be &lt;em&gt;parsed and evaluated&lt;/em&gt;. When these instructions are evaluated, sometimes they produce HTML and other times they don't. Through your practice, you will learn which statements produce HTML and which parts do something else. You don't always need to output something, sometimes you just need to do some stuff that don't necessary need to be seen by the user.&lt;/p&gt;
+
+&lt;p&gt;PHP statements are often found co-mingled with HTML, like this;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;html lang=en&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;h1&amp;gt;My Spanking Web App&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;span&amp;gt;Today is &amp;lt;/span&amp;gt; &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DATE_RFC822&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See that. Most of the codes are in HTML except for that tiny &lt;em&gt;&amp;lt;?php echo date(DATE_RFC822); ?&amp;gt;&lt;/em&gt; which basically just outputs the current date. When the server sees that instruction, it will get the  system date then &lt;em&gt;echo&lt;/em&gt; the return value as HTML. By this time you must have figured out that whatever you &lt;em&gt;echo&lt;/em&gt; it will be part of the HTML output.&lt;/p&gt;
+
+&lt;p&gt;Many developers frown upon the practice of peppering your HTML codes with PHP expressions and statements, I don't necessarily agree with this approach as well, but were just starting out to learn PHP, so don't sweat about it just yet. Get some grips with the language first then worry about separation of concerns, MVC and other artsy fartsy architectural buzzwords.&lt;/p&gt;
+
+&lt;p&gt;Before you can write elegant prose, you need to know vocabulary first, then grammar and rhetoric structures. Prose will come later, not before.&lt;/p&gt;
+
+&lt;h2&gt;THREE THINGS YOU CAN DO WITH STATEMENTS&lt;/h2&gt;
+
+&lt;p&gt;First. You can write one statement after another, like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$in = 5;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$cm = 10;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$factor = 2.54;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;echo $in . &amp;quot; inches = &amp;quot; . $in / $factor;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;echo $cm . &amp;quot; cm = &amp;quot; . $cm * $factor;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That is called &lt;em&gt;sequencing&lt;/em&gt;. Your code starts executing the first statement until it runs out of things to do.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Second. You can execute some statements when some condition is true, if it is not true, do something else; like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$a = 10;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$b = 20;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;if($a &amp;gt; $b) {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  echo &amp;quot;a is &amp;gt; b&amp;quot;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;else {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  echo &amp;quot;a &amp;lt; b&amp;quot;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;if&lt;/em&gt; is a special word in PHP, programers call it a reserved word. Like &lt;em&gt;echo&lt;/em&gt; it has a specific action when used. The &lt;em&gt;if&lt;/em&gt; keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the &lt;em&gt;if block&lt;/em&gt; is ran.&lt;/p&gt;
+
+&lt;p&gt;The pair of curly braces is called a &lt;em&gt;block&lt;/em&gt;. When statements are inside a block, they are executed as a group, start with the first one and all go all the way til the last. When you reach the last curly brace, execution resumes &amp;mdash; unless you encounter another branching command or any command that alters the sequential flow of instruction. You will usually find blocks in control structures that either branch or loop.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;else block&lt;/em&gt; gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$a = 10;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$b = 20;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;if($a &amp;gt; $b) {&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  echo &amp;quot;a is &amp;gt; b&amp;quot;;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We come to the last thing you can do with statements. If branching allows you sidestep some statements depending on some conditions, looping will let you perform some statements repeatedly until some conditions hold true.&lt;/p&gt;
+
+&lt;p&gt;There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Installation and Configuration</title>
+   <link href="http://thelogbox.com/wordpress-installation"/>
+   <updated>2013-11-04T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-installation</id>
+   <content type="html">&lt;p&gt;Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance.&lt;/p&gt;
+
+&lt;p&gt;The process involves downloading the installer from the WordPress website, expanding a zip file, editing a configuration file and creating a database. It may seem a bit complex for a beginning programmer but it can be managed by simply following the steps detailed below.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Download the installer from the &lt;a href=&quot;http://wordpress.org/download/&quot;&gt;WordPress site&lt;/a&gt;. This is usually a zipped file.&lt;/p&gt;
+
+&lt;p&gt;Unzip the file and put it inside the folder &lt;em&gt;C:\Users\yourname\wamp\www&lt;/em&gt;. This is the directory of our WAMP installation. Technically you can place the unzipped file anywhere and still manage to have the Apache web server find it. That however requires intermediate knowledge of the Apache configuration files &amp;mdash; which I did not assume you have at this point. Hence, it will be best to simply put our expanded &lt;em&gt;wordpress&lt;/em&gt; folder inside the default &lt;em&gt;Document Root&lt;/em&gt; of Apache which is &lt;em&gt;C:\Users\yourname\wamp\www&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2&gt;DATABASE CREATION&lt;/h2&gt;
+
+&lt;p&gt;Check if the WAMP server is still running. You need WAMP to be in the running state to perform the following procedure.&lt;/p&gt;
+
+&lt;p&gt;Launch a browser session and go to &lt;em&gt;http://localhost&lt;/em&gt; (assuming that you did not change the port of Apache in your WAMP installation). The opening screen of WAMP contains a &lt;em&gt;tool&lt;/em&gt; section, try to find it and click &lt;em&gt;phpmyadmin&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go to the &lt;em&gt;SQL&lt;/em&gt; tab and enter the following&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+CREATE database wppractice;
+
+GRANT ALL PRIVILEGES ON wppractice.* TO yourname@’localhost’ IDENTIFIED BY 'yourpassword';
+
+FLUSH privileges;
+&lt;/pre&gt;
+
+
+&lt;p&gt;Replace &lt;em&gt;yourname&lt;/em&gt; and &lt;em&gt;yourpassword&lt;/em&gt; with any value you like &amp;amp;mdash. Just a make a point to remember them because you will need them later.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/phpmyadmin-sql.png&quot; alt=&quot;PHPMyAdmin SQL Page&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;phpmyadmin SQL page&lt;/div&gt;
+
+
+&lt;p&gt;Click the &lt;em&gt;GO&lt;/em&gt; button on the page. That will execute the three lines of SQL commands you typed up on the SQL editor. This is probably your first and last personal encounter with the MySQL database in WordPress unless you are doing something crazy, advanced or both with WordPress.&lt;/p&gt;
+
+&lt;h2&gt;CONFIGURE WP-CONFIG.INI&lt;/h2&gt;
+
+&lt;p&gt;Go to Wordpress folder you created, it should be in C:\Users\yourname\WAMP\wordpress-project &amp;mdash; if you did not stray from the instructions.&lt;/p&gt;
+
+&lt;p&gt;The core files contains a file named &lt;em&gt;wp-config-sample.php. Make a copy of that file and name it &lt;/em&gt;wp-config.php*. Open it up for editing &amp;mdash; don't double click it, your system might be configured to launch a browser instead of opening an editor. Right-click on it and choose an editing program e.g. notepad. You need to make some changes to its contents.&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'wppractice');
+
+/** MySQL database username */
+define('DB_USER', 'yourusername');
+
+/** MySQL database password */
+define('DB_PASSWORD', 'yourpassword');
+
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+
+&lt;/pre&gt;
+
+
+&lt;p&gt;This part will tell WordPress what database to use, which user has access to the database and what is the password of that user. This is why you needed to remember the username and password during the database creation time on the SQL editor of phpmyadmin. Replace &lt;em&gt;yourusername&lt;/em&gt; with the username you used when you created the database using phpmyadmin (the SQL part). Do the same with &lt;em&gt;yourpassword&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Save the file and launch a browser session. Go to &lt;em&gt;http://localhost/wordpress-project/wordpress&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You will be taken to the WordPress Site initialization page. That is straightforward to fill up. Think of a site name and give it an administrator password.&lt;/p&gt;
+
+&lt;p&gt;&lt;aside&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The WordPress administrator password being requested on the WordPress site installation is different from your database password. Each wordpress installation must have at least one Admin user, so don’t lose your Admin password.&lt;/p&gt;
+
+&lt;p&gt;&lt;/aside&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Tools for Development</title>
+   <link href="http://thelogbox.com/wordpress-tools"/>
+   <updated>2013-11-03T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-tools</id>
+   <content type="html">&lt;p&gt;Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text editor for that matter and a good internet connection.&lt;/p&gt;
+
+&lt;p&gt;Some tools are better than others but tooling is a highly debatable question, at the end of the day go with what you are most comfortable with. Sometimes, you may have not have a say on the tools because they have already been picked for you — by a tech lead, a client or your company standards.Having said that, here are some suggestions.&lt;/p&gt;
+
+&lt;p&gt;Get Google Chrome and FireFox. IE10 and Safari works too. I cannot specify the versions because a month from now, that will be outdated information. I will encourage you instead to test your browser by going to &lt;a href=&quot;http://html5test.com&quot;&gt;html5test.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Get a decent programmer’s editor. One that supports code folding, syntax coloring and customizable keys. You can get started with NotePad but that was not designed to be a programmer’s editor. There are many reasons but the biggest for me is that it won’t help me manage tab spaces and pairing of curly braces — if you try to code with it long enough I am sure you will have your own reason. NotePad++ is not a bad choice to start with, Sublime Text2 is also a good one. Vim or any of it’s variant (GVim, MacVim etc) are excellent choices. That list should you get started for now until you have developed your own personal preferences for programmer’s editor.&lt;/p&gt;
+
+&lt;p&gt;Try considering some online code editors like &lt;a href=&quot;http://jsfiddle.net&quot;&gt;JSFiddle.net&lt;/a&gt; and &lt;a href=&quot;http://jsbin.com&quot;&gt;JSBin.com&lt;/a&gt;. If you have a reliable internet connection they are excellent coding tools for learning purposes.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Theoretical Minimum</title>
+   <link href="http://thelogbox.com/wordpress-theoretical-minimum"/>
+   <updated>2013-11-03T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-theoretical-minimum</id>
+   <content type="html">&lt;p&gt;WordPress is built using a collection of technologies and languages. To build an application using this platform, you need a modicum of skill on &lt;em&gt;HTML, PHP, CSS, JavaScript&lt;/em&gt; and &lt;em&gt;SQL&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;HTML&lt;/em&gt;. Most of the things a CMS needs to do are already taken cared of by the WordPress core files. Things like creating new content, saving them on a data store and retrieving them for display are the kind of things WordPress does. You don't need to do much. The heavy lifting has been done by WordPress. But you do need to take control of how the information is presented to the user. You need HTML for that&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;PHP&lt;/em&gt;. While the heavy lifting has already been done for you by WordPress, you still need to write a bit of PHP. Don't worry, you won't have to write a lot. But you need to know how to read and write basic PHP codes.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;CSS&lt;/em&gt; is responsible for styling. The visual aspects of your application is dictated solely by this styling language. Arguably, you can build web pages without CSS, but I am risking a guess that you need your application to be visually appealing. Hence you need to have skill on styling&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;JavaScript&lt;/em&gt;. HTML, CSS and JavaScript are commonly found on web applications. They are the technologies on the client side &amp;mdash; browser side. WordPress uses JS for mainly for plugins. But you may find that you have use for JavaScrip beyond simply plugins. The use of JS alongside CSS and HTML are increasingly becoming prevalent in the age of responsive designs&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SQL&lt;/em&gt;. You may not use this at all, save for the few occasions like setup. I listed it here just for the sake of completeness and being thorough on the list of competencies. But honestly, I don't think you will need to interact with MySQL database unless you will do something outside creating and reading posts/pages. SQL skills will become important when you start using WordPress to build something other than a CMS&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Setup</title>
+   <link href="http://thelogbox.com/wordpress-setup"/>
+   <updated>2013-11-03T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-setup</id>
+   <content type="html">&lt;p&gt;WordPress needs a web server capable of running PHP and a MySQL database. The more popular choice for the web server is Apache, although many others will suffice just as well. For our purpose we will use Apache.&lt;/p&gt;
+
+&lt;p&gt;MySQL, PHP and Apache are open source software (OSS). They are widely available on popular platforms such as OSX, Linux and Windows. These instructions are for Windows because I think that most of the people who will read this are on that platform.&lt;/p&gt;
+
+&lt;p&gt;There are plenty of ways to install these bunch and make them work together but as this guide is targeted towards people with minimum programming experience, I chose to use &lt;em&gt;WAMP&lt;/em&gt;. Its an acronym for Windows, Apache, MySQL and PHP. It takes care of a lot of things but the most value is that it takes away our need for configuration.&lt;/p&gt;
+
+&lt;p&gt;Installing these software individually affords you the most control over the setup but it comes at a prie &amp;mdash; you have to really know what you are doing to make them work together. The configuration part can be tricky at times and it can easily trip up a beginning developer. So, take the guess work out of your workflow for now and just install WAMP.&lt;/p&gt;
+
+&lt;p&gt;WAMP installation involves just a few basic steps. Download it from the Apache site, install, configure and finally test it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Download the installer the from the &lt;a href=&quot;http://www.wampserver.com/en/&quot;&gt;WAMP site&lt;/a&gt;. Choose the appropriate installer for your platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/choose-installer-wamp.png&quot; alt=&quot;WAMP installer&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;WAMP Installer&lt;/div&gt;
+
+
+&lt;p&gt;I wish I could be more precise in the details here but the issue is I don't know what kind of Windows installation you have. It is simply your responsibility to know that detail. You can find out easily though, simply access System Properties from the Windows control panel, then you can ascertain which kind of Windows you have installed.Choose the 64-bit version if you are using 64-bit Windows.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Double click the the installer. By default, WAMP installer will put your files in &lt;em&gt;C:\wamp&lt;/em&gt; – for Windows XP users, this is not generally a problem, but for Windows 7 or 8 users, it could be a problem because folders outside the Users folder generally needs an elevated privilege before you can access it. If you don’t mind running things as Administrator, then go ahead, install in C:\wamp, otherwise, change the installation folder to *C:\Users\yourname\wamp*. After the installer has finished, WAMP should be sitting in your System Tray.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/wamp-system-tray.png&quot; alt=&quot;System Tray&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;WAMP in the System tray&lt;/div&gt;
+
+
+&lt;p&gt;The WAMP icon will change color in the course of usage. Initially, it will be red. That means the services (Apache and MySQL) are not running. It turns into green when both Apache and MySQL have already been started and are running without problems. Green is color you are looking for.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hover your mouse on the system tray, right on top of WAMP icon. Click it to reveal the menu options. You will find options to start, stop and restart services.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/wamp-start.png&quot; alt=&quot;Starting WAMP&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Starting WAMP&lt;/div&gt;
+
+
+&lt;p&gt;You will not see anything happen (yet) when you start WAMP. They are services after all and not desktop applications. Starting the services only means that the Apache Web Server is now ready to respond to HTTP request (usually browser request) and MySQL database is now ready to respond to SQL commands.&lt;/p&gt;
+
+&lt;p&gt;Launch a browser session (Chrome or Firefox if you have them, if you don’t , get them. IE has some quirks with the WAMP admin panel)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/wamp-opening-screen.png&quot; alt=&quot;WAMP Opening Screen&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;WAMP opening screen&lt;/div&gt;
+
+
+&lt;p&gt;When you see the opening screen, that means your WAMP server is working properly.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introduction to HTML</title>
+   <link href="http://thelogbox.com/wordpress-html"/>
+   <updated>2013-11-03T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/wordpress-html</id>
+   <content type="html">&lt;p&gt;I'm hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it &amp;mdash; at least what it looks like and what it is used for. That will spare us the dry details of description.&lt;/p&gt;
+
+&lt;p&gt;While we can dodge the academic description of the markup language, a passing appreciation of the language will not do. Not if you are a developer. You will need to know more. Just a bit more.&lt;/p&gt;
+
+&lt;p&gt;HTML is not a programming language. It is a markup language. That is our first fact about HTML.&lt;/p&gt;
+
+&lt;p&gt;Marking up has its roots in the publishing industry, the paper publishing industry that is. Before the age of electronic publishing, a document needs to go through several processes before it lands on your lap either as book or magazine, or what have you. One of these processes is that an editor or somebody in charge of editing will go through a manuscript and scribble some instructions on the paper itself. These instructions could be “underline that word”, “emphasize this”, “make this phrase stand out”. Of course when the document is published the reader will not see those instructions. What they saw was just the resulting published document. Those instruction were meant for somebody to carry out, I suppose the typesetter would have carried them out before the final plates were rolled over and mass-produced.&lt;/p&gt;
+
+&lt;p&gt;Marking up means adding instructions to a document, more specifically adding presentation instructions to a document so that some of its parts are underlined, emphasized or highlighted.&lt;/p&gt;
+
+&lt;p&gt;HTML is a modern way of marking up documents. It was first thought of by Tim Berners Lee during his stay at CERN. The history of HTML, while an interesting read is simply not part of the scope of this document so I will refer you to the trusty Wikipedia page for &lt;a href=&quot;http://en.wikipedia.org/wiki/HTML&quot;&gt;HTML history&lt;/a&gt; for an extended reading session about the origins and evolution of HTML. For our purpose, I would like to address the technical aspects of it and how it will help us build Wordpress apps.&lt;/p&gt;
+
+&lt;h2&gt;GETTING STARTED&lt;/h2&gt;
+
+&lt;p&gt;I need you to remember the folder where you installed WAMP. If you followed the instruction during the setup chapter, that folder would be in &lt;em&gt;C:\Users\yourname\wamp&lt;/em&gt;. Go to that folder. You will find another folder called &lt;em&gt;www&lt;/em&gt; inside it. Go to the www folder.&lt;/p&gt;
+
+&lt;p&gt;Create a folder inside &lt;em&gt;www&lt;/em&gt;, name it &lt;em&gt;practice&lt;/em&gt;. This is where we will store all our practice files.&lt;/p&gt;
+
+&lt;p&gt;Create a file and name it &lt;em&gt;first.html&lt;/em&gt;. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window's context menu, then choose a program editor to open the html file. Edit it and write the following&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;first.html&lt;/div&gt;
+
+
+&lt;p&gt;Don't worry about the contents for now. They will be discussed soon enough. We are simply making sure that our tools are working properly.&lt;/p&gt;
+
+&lt;p&gt;Double click first.html. Your browser would have launched. You have just created your first HTML document.&lt;/p&gt;
+
+&lt;h2&gt;STRUCTURE AND COMPOSITION&lt;/h2&gt;
+
+&lt;p&gt;Words inside angle brackets &amp;mdash; &lt;em&gt;&amp;lt; like this &amp;gt;&lt;/em&gt;  &amp;mdash; are instructions. They are part of the HTML language. They have special meaning to the browser. When the browser reads a pair of angle brackets, it will carry out an instruction. So things inside these brackets are what might you might call special words. Although developers refer to them as &lt;em&gt;tags&lt;/em&gt; or &lt;em&gt;elements&lt;/em&gt;. You better get used to calling them that as well.&lt;/p&gt;
+
+&lt;p&gt;You might have noticed that the instructions come in pairs. They don't always do &amp;mdash; like in the case of the &amp;lt; !doctype &amp;gt;. But most of the time instructions come in pairs.&lt;/p&gt;
+
+&lt;p&gt;Don’t worry about the doctype yet, we won’t get into that right now because its gory details will lead us into the rabbit hole of XML and SGML — don’t worry about those two either. They are not important to you for now. The doctype is basically a declaration of what kind of document the file is. In this case, it says HTML.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The fundamental structure of an html document is as follows&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;basic structure&lt;/div&gt;
+
+
+&lt;p&gt;Whatever it is that you will write inside an HTML doc has to be inside the paired html tags. It doesn’t make sense to put anything outside of them except DOCTYPE.&lt;/p&gt;
+
+&lt;p&gt;Elements can be nested within other elements. Whatever it is that you will put in between the html root tags will be tags as well.&lt;/p&gt;
+
+&lt;p&gt;There some more structural issues that we need to get out of the way before we can take a look at the presentation semantics of HTML. A more complete structure for an HTML doc looks like the following&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctypehtml&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;First&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt; 
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;HTML doc structure&lt;/div&gt;
+
+
+&lt;p&gt;An HTML doc will have two major parts. The HEAD and the BODY.
+The BODY part contains most of the things you see on a web page. It has the meat and potatoes of the web content. This is where your headings, footers, videos, paragraph content and others.&lt;/p&gt;
+
+&lt;p&gt;The HEAD part is not entirely visible to the visible. With the exception of title tag, nothing inside the head part can be seen on a web page. The HEAD contains structure and meta information about the page while the BODY has the content.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/html-head-body.png&quot; alt=&quot;HTML head and body&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;head and body part&lt;/div&gt;
+
+
+&lt;p&gt;If you edited our &lt;em&gt;first.html&lt;/em&gt; practice file and followed along, you can try viewing the result of the edited document so you can see the results in your browser.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Download Accelerator</title>
