@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div class="running-head">   
+      <div class='tutorial-writeup'>
+      JAVASCRIPT NOTES 
+      </div>
+      
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">{{ page.title }}</div>
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+      
+      <a class="moot"
+        title={{ page.title }}
+        href="https://moot.it/i/thelogbox/javascript:{{ page.title }}">
+        Comments 
+      </a>  
+      
+      
+		</article>
+    
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/javascript-core-tutorial">Introduction</a></li>
+      <li><a href="/javascript-core-environment-setup">Tools</a></li>
+      <li><a href="#">Getting Started</a></li>
+      <li><a href="/javascript-code-structure">Code Structure</a></li>
+      <li><a href="/javascript-data-types">Typing</a></li>
+      <li><a href="/javascript-functions">Functions</a></li>
+      <li><a href="/javascript-keywords">Keywords</a></li>
+      <li><a href="#">Operators</a></li>
+      <li><a href="/javascript-program-flow">Program Flow</a></li>
+      <li><a href="/javascript-complex-types">Complex Types</a></li>
+      <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
+      <li><a href="/javascript-objects">Objects</a></li>
+      <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
+      <li><a href="/javascript-inheritance">Inheritance</a></li>
+      <li><a href="#">Client-Side JavaScript</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Bibliography</a></li>
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>
