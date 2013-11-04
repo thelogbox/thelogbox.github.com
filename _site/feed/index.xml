@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-04T00:59:57+08:00</updated>
+ <updated>2013-11-04T11:37:09+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -12318,25 +12318,17 @@ $ sudo brew install lame
  </entry>
  
  <entry>
-   <title>Problems with iSSH + Vim on the iPad</title>
+   <title>iSSH and Vim</title>
    <link href="http://thelogbox.com/problem-issh-vim-ipad"/>
    <updated>2012-04-11T00:00:00+08:00</updated>
    <id>http://thelogbox.com/problem-issh-vim-ipad</id>
-   <content type="html">&lt;h2&gt;Motivations&lt;/h2&gt;
+   <content type="html">&lt;p&gt;I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;To login remotely to a Linux machine via SSH using the iPad&lt;/li&gt;
-&lt;li&gt;To use tmux (screen multiplexer) and vim to edit source files&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;I had issues with iSSH, these are found below:&lt;/p&gt;
 
+&lt;p&gt;Could not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the &lt;em&gt;TERM&lt;/em&gt; variable equal to &lt;em&gt;term-256color&lt;/em&gt;, which I did, but still could not get it to work. The &lt;strong&gt;Prompt&lt;/strong&gt; app though worked out of the box, I did not have to fiddle with anything&lt;/p&gt;
 
-&lt;h2&gt;Problems encountered when using iSSH&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Couldn not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the &lt;em&gt;TERM&lt;/em&gt; variable equal to &lt;em&gt;term-256color&lt;/em&gt;, which I did, but still could not get it to work. The &lt;strong&gt;Prompt&lt;/strong&gt; app though worked out of the box, I did not have to fiddle with anything&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;p&gt;The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/issh-1.jpg&quot;&gt;&lt;/p&gt;
 
@@ -12344,14 +12336,11 @@ $ sudo brew install lame
 
 &lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/issh-2.jpg&quot;&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;p&gt;The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.&lt;/p&gt;
 
 &lt;p&gt;This is a deal killer, Vim uses this alot when switching   between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box&lt;/p&gt;
 
-&lt;h2&gt;Why I chose Prompt over iSSH, despite iSSH being cheaper.&lt;/h2&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don't use the iPad to VNC or to connect via Remote Desktop Connection anyway, just SSH&lt;/p&gt;
 

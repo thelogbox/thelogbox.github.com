@@ -10,11 +10,13 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 -->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/thelogbox/feed/" />
 
-<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
 <meta charset="utf-8">
 
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
@@ -26,7 +28,7 @@
 <meta name="keywords" content="ssh ,terminal">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Why I don't like using iSSH on iOS" />
-<title>iOS , Problems with iSSH + Vim on the iPad | theLogBox </title>
+<title>iOS , iSSH and Vim | theLogBox </title>
 
 <!-- 1. Moot style -->
 <link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
@@ -119,7 +121,7 @@ ol li {
   text-align: left;
   line-height: 1em;
   color: #555555;
-  /*color: #373737;*/
+  /*color: #555555;*/
   /* color:#2d2d2d; */
 }
 
@@ -158,7 +160,7 @@ ol li {
 h1, h2, h3, h4, h5 {
 	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
-	color: #555555;
+	color: #191919;
   font-weight:normal;
 }
 
@@ -286,11 +288,11 @@ em {
 */
 
 code {
-	font-family: 'Inconsolata','Lekton';
+	font-family: 'Lekton';
 }
 
 pre {
-	font-family: 'Inconsolata','Lekton';
+	font-family: 'Lekton';
 	font-size: 14px;
 	padding: 1em;
 
@@ -512,7 +514,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <article itemscope itemtype="http://schema.org/Article" class="notoc">
      <header>
       <div class='vspacer'></div>          
-      <div id="articletitle">Problems with iSSH + Vim on the iPad</div>
+      <div id="articletitle">iSSH and Vim</div>
       
       <div class='content-meta'>
        by: <a href='https://plus.google.com/107317535953221277825?rel=author'>
@@ -524,21 +526,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h2>Motivations</h2>
+		    <p>I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.</p>
 
-<ol>
-<li>To login remotely to a Linux machine via SSH using the iPad</li>
-<li>To use tmux (screen multiplexer) and vim to edit source files</li>
-</ol>
+<p>I had issues with iSSH, these are found below:</p>
 
+<p>Could not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the <em>TERM</em> variable equal to <em>term-256color</em>, which I did, but still could not get it to work. The <strong>Prompt</strong> app though worked out of the box, I did not have to fiddle with anything</p>
 
-<h2>Problems encountered when using iSSH</h2>
-
-<ol>
-<li><p>Couldn not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the <em>TERM</em> variable equal to <em>term-256color</em>, which I did, but still could not get it to work. The <strong>Prompt</strong> app though worked out of the box, I did not have to fiddle with anything</p></li>
-<li><p>The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p></li>
-</ol>
-
+<p>The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p>
 
 <p><img class="shadow" src="/img/issh-1.jpg"></p>
 
@@ -546,14 +540,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p><img class="shadow" src="/img/issh-2.jpg"></p>
 
-<ol>
-<li>The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.</li>
-</ol>
-
+<p>The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.</p>
 
 <p>This is a deal killer, Vim uses this alot when switching   between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box</p>
 
-<h2>Why I chose Prompt over iSSH, despite iSSH being cheaper.</h2>
+<hr />
 
 <p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don't use the iPad to VNC or to connect via Remote Desktop Connection anyway, just SSH</p>
 
