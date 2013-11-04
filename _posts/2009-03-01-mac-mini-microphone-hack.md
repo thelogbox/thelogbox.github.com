@@ -17,10 +17,10 @@ categories:
 ---
 
 
-The usual microphones used in PC's and headset-mic combos won't work with the mac mini--the mac mini mic input requires line level input, meaning the mic needs to be powered. The usual mic input for PCs are mic level input (about 1 millivolt, the mic doesn't need to be powered). Bottom line is, if you have an existing mic which has worked with your PC, chances are it won't work on the mac mini.
+The usual microphones used in PC's and headset-mic combos won't work with the mac mini &mdash; the mac mini mic input requires line level input, meaning the mic needs to be powered. The usual mic input for PCs are mic level input (about 1 millivolt, the mic doesn't need to be powered). Bottom line is, if you have an existing mic which has worked with your PC, chances are it won't work on the mac mini.
 
 
-There are lots of solutions for this problem, just google the term "mac mini mic" and I'm sure you won't run out of options--there are USB mics, and for sure you will run into the iMic from Griffin; but this guide is not about the iMic, I wasn't inclined to buy a condenser mic or the iMic simply because I use the mic on the mini just on ocassions.
+There are lots of solutions for this problem, just google the term "mac mini mic" and I'm sure you won't run out of options &mdash; there are USB mics, and for sure you will run into the iMic from Griffin. But this guide is not about the iMic, I wasn't inclined to buy a condenser mic or the iMic simply because I use the mic on the mini just on ocassions.
 
 # HACK
 
