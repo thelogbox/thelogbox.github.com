@@ -27,18 +27,6 @@ Here's a rundown of what we need to do to accomplish the task.
 ## CODE SAMPLE
 
 {% highlight java %}
-/*
-
-BSD License: Copyright (c) 2012 Ted Hagos
-All rights reserved.
-
-License text: http://thelogbox.com/source-docs/software-license.txt
-
-Created on November 20, 2012 by Ted Hagos
-
-*/
-
-
 package com.thelogbox;
 
 import android.app.Activity;
