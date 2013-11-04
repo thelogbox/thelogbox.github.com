@@ -17,7 +17,50 @@ categories:
 
 ---
 
-[Getting started, like hello world in PHP]
+
+To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the **DOCUMENT ROOT** of Apache. 
+
+In HTML introduction chapter, we have already created a folder on the document root
+
+<pre class="codeblock">
+C:\Users\yourname\wamp\www\practice
+</pre>
+
+We will still use this folder to contain all of our practice files. Create a file and name it *hello.php*
+
+{% highlight html %}
+
+<!doctype html>
+<html>
+Hello
+</html>
+
+{% endhighlight %}
+
+It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script. 
+
+Let's add some php statements in our file. Edit *hello.php* so it looks like the code example below
+
+{% highlight php %}
+<!doctype html>
+<html>
+  <h1>Hello World</h1>
+
+  <?php echo "This is outputed by PHP"; ?>
+   Today's date is
+  <?php echo date(DATE_RFC822); ?>
+</html>
+{% endhighlight %}
+
+
+To test this code, you need to launch a browser session and go to *http://localhost/practice/*. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). 
+
+For the PHP script to execute, an HTTP request has to be made. When web server reads PHP instructions, it will hand over the execution to a program that understands PHP instructions. It will execute the instructions, then it will produce the resulting html files.
+
+***
+
+
+## BASIC CONCEPTS
 
 
 Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.
@@ -147,5 +190,34 @@ The code is still valid, although incomplete. So when do you use the else? That 
 
 We come to the last thing you can do with statements. If branching allows you sidestep some statements depending on some conditions, looping will let you perform some statements repeatedly until some conditions hold true.
 
-There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics. 
+There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the *while* and the *for* statements to implement iterative constructions. For our purpose, we will only consider using the *whilte* statement because this is what you will encounter most when programming WordPress.
+
+{% highlight php %}
+
+<?php 
+
+$counter = 0;
+
+while($counter < 10) {
+  echo $counter;
+  $counter = $counter + 1;
+}
+
+?>
+
+{% endhighlight %}
+<div id='lst'>while loop</div>
+
+The *while* loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to *true*, all the statements inside the block &mdash; the paired curly braces &mdash; will execute. You have to take care that the condition of the while loop will evaluate to *false* at some point in time lest your program will not terminate. In our example code above, the program will terminate when the *$counter* variable becomes *10*. 
+
+
+
+
+
+
+
+
+
+
+
 

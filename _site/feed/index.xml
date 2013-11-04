@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-04T13:21:05+08:00</updated>
+ <updated>2013-11-04T16:07:37+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -17,7 +17,46 @@
    <link href="http://thelogbox.com/wordpress-php"/>
    <updated>2013-11-04T00:00:00+08:00</updated>
    <id>http://thelogbox.com/wordpress-php</id>
-   <content type="html">&lt;p&gt;[Getting started, like hello world in PHP]&lt;/p&gt;
+   <content type="html">&lt;p&gt;To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the &lt;strong&gt;DOCUMENT ROOT&lt;/strong&gt; of Apache.&lt;/p&gt;
+
+&lt;p&gt;In HTML introduction chapter, we have already created a folder on the document root&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+C:\Users\yourname\wamp\www\practice
+&lt;/pre&gt;
+
+
+&lt;p&gt;We will still use this folder to contain all of our practice files. Create a file and name it &lt;em&gt;hello.php&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+Hello
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &amp;mdash; a valid html document is also a valid php script.&lt;/p&gt;
+
+&lt;p&gt;Let's add some php statements in our file. Edit &lt;em&gt;hello.php&lt;/em&gt; so it looks like the code example below&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;This is outputed by PHP&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;   Today&amp;#39;s date is&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DATE_RFC822&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To test this code, you need to launch a browser session and go to &lt;em&gt;http://localhost/practice/&lt;/em&gt;. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript).&lt;/p&gt;
+
+&lt;p&gt;For the PHP script to execute, an HTTP request has to be made. When web server reads PHP instructions, it will hand over the execution to a program that understands PHP instructions. It will execute the instructions, then it will produce the resulting html files.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;BASIC CONCEPTS&lt;/h2&gt;
 
 &lt;p&gt;Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.&lt;/p&gt;
 
@@ -135,7 +174,27 @@
 
 &lt;p&gt;We come to the last thing you can do with statements. If branching allows you sidestep some statements depending on some conditions, looping will let you perform some statements repeatedly until some conditions hold true.&lt;/p&gt;
 
-&lt;p&gt;There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.&lt;/p&gt;
+&lt;p&gt;There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the &lt;em&gt;while&lt;/em&gt; and the &lt;em&gt;for&lt;/em&gt; statements to implement iterative constructions. For our purpose, we will only consider using the &lt;em&gt;whilte&lt;/em&gt; statement because this is what you will encounter most when programming WordPress.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; 
+
+&lt;span class=&quot;nv&quot;&gt;$counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;while loop&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;em&gt;while&lt;/em&gt; loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to &lt;em&gt;true&lt;/em&gt;, all the statements inside the block &amp;mdash; the paired curly braces &amp;mdash; will execute. You have to take care that the condition of the while loop will evaluate to &lt;em&gt;false&lt;/em&gt; at some point in time lest your program will not terminate. In our example code above, the program will terminate when the &lt;em&gt;$counter&lt;/em&gt; variable becomes &lt;em&gt;10&lt;/em&gt;.&lt;/p&gt;
 </content>
  </entry>
  

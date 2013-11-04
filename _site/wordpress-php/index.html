@@ -58,15 +58,6 @@ p, li, .content-meta, body, p, br {
 ol, ul { padding-left:20px; line-height:1.8em;}
 li {margin-bottom: 10px;}
 
-/* 
-ol li {
-	font-family: 'Libre Baskerville','Helvetica','Tahoma';
-	font-size: 16px;
-  color: #323232;
-  margin-left: 10px;
-}
-*/
-
 .tutorial-writeup {
   font-family:  'Titillium Web';
   text-align: left;
@@ -89,10 +80,6 @@ ol li {
   background: #F0F0F0;
 }
 .running-head a:link, .running-head a:visited {background: inherit;}
-
-/*
-.courses-head {background-image:url('../img/room.jpg');}
-*/
 
 .vspacer {height:20px;}
 
@@ -293,10 +280,10 @@ code {
 
 pre {
 	font-family: 'Lekton';
-	font-size: 14px;
+	font-size: 16px;
 	padding: 1em;
 
-  line-height: 1.2em;
+  line-height: 1.6em;
   background: #FBFCF9; 
   /*
   border: 3px solid #F0F2E7;
@@ -328,9 +315,9 @@ pre {
 	font-family: 'Rokkitt';
   color: #000000;
 	font-style:normal;
-	font-size: 16px;
-	margin-top:5px;
-	padding-top:5px;
+	font-size: 19px;
+	margin-top:0px;
+	padding-top:0px;
 	padding-bottom:10px;
   text-align:center;
 }
@@ -525,7 +512,46 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>[Getting started, like hello world in PHP]</p>
+		    <p>To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the <strong>DOCUMENT ROOT</strong> of Apache.</p>
+
+<p>In HTML introduction chapter, we have already created a folder on the document root</p>
+
+<pre class="codeblock">
+C:\Users\yourname\wamp\www\practice
+</pre>
+
+
+<p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+Hello
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script.</p>
+
+<p>Let's add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
+
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">   Today&#39;s date is</span>
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript).</p>
+
+<p>For the PHP script to execute, an HTTP request has to be made. When web server reads PHP instructions, it will hand over the execution to a program that understands PHP instructions. It will execute the instructions, then it will produce the resulting html files.</p>
+
+<hr />
+
+<h2>BASIC CONCEPTS</h2>
 
 <p>Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.</p>
 
@@ -643,7 +669,27 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>We come to the last thing you can do with statements. If branching allows you sidestep some statements depending on some conditions, looping will let you perform some statements repeatedly until some conditions hold true.</p>
 
-<p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.</p>
+<p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the <em>while</em> and the <em>for</em> statements to implement iterative constructions. For our purpose, we will only consider using the <em>whilte</em> statement because this is what you will encounter most when programming WordPress.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> 
+
+<span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span><span class="p">(</span><span class="nv">$counter</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$counter</span><span class="p">;</span>
+  <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+
+
+<div id='lst'>while loop</div>
+
+
+<p>The <em>while</em> loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to <em>true</em>, all the statements inside the block &mdash; the paired curly braces &mdash; will execute. You have to take care that the condition of the while loop will evaluate to <em>false</em> at some point in time lest your program will not terminate. In our example code above, the program will terminate when the <em>$counter</em> variable becomes <em>10</em>.</p>
 
         </div>
 							
@@ -658,7 +704,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <div class="toc">
       
       <ul>
-      <li><a href="#">Introduction</a></li>
       <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
       <li><a href="/wordpress-tools">Tools</a></li>
       <li><a href="/wordpress-setup">Setup</a></li>
@@ -666,8 +711,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <li><a href="#">Common html tags</a></li>
       <li><a href="#">CSS</a></li>
       <li><a href="/wordpress-php">PHP</a></li>
-      <li><a href="#">More PHP</a></li>
-      <li><a href="#">Braceless syntax</a></li>
       <li><a href="#">Wordpress makeup</a></li>
       <li><a href="/wordpress-installation">Installation and Configuration</a></li>  
       <li><a href="#">Using Wordpress</a></li>  
