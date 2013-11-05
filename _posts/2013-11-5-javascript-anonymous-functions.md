@@ -51,4 +51,8 @@ console.log(foo()); //returns 10
 
 </pre>
 
+It may seem that you don't have a need for anymous functions at the moment. Admittedly, the code example above does a poor job hinting at it's utility value. Anonymous functions will become increasingly important when you start using them for call backs e.g. during event driven programming on the browser, using third party libraries like JQuery or server side programming with NodeJS
+
+***
+
 This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named "foo" then invoked **foo()**. What we have just done was create an anonymous function and assigned it to variable *foo*. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don't have any further use for another way to create a function, what we have is quite enough for now.

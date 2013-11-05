@@ -4,7 +4,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-05T00:50:42+08:00</updated>
+ <updated>2013-11-05T11:48:11+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -18,6 +18,8 @@
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-program-flow</id>
    <content type="html">&lt;p&gt;You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).&lt;/p&gt;
+
+&lt;h2&gt;BRANCHING&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;if-else&lt;/em&gt; statement is way to branch. When the expression inside the &lt;em&gt;if()&lt;/em&gt; construct yields true, the statement inside the if block is executed.&lt;/p&gt;
 
@@ -86,7 +88,9 @@
 
 &lt;p&gt;The values listed in &lt;em&gt;case&lt;/em&gt; statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the &lt;em&gt;break&lt;/em&gt; keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the &lt;em&gt;switch construct&lt;/em&gt; even if a match has already been found.&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;stress&quot;&gt;While statement&lt;/span&gt; is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the &lt;strong&gt;while()&lt;/strong&gt; construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.&lt;/p&gt;
+&lt;h2&gt;ITERATION&lt;/h2&gt;
+
+&lt;p&gt;The &lt;em&gt;while&lt;/em&gt; statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the &lt;strong&gt;while()&lt;/strong&gt; construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timetoexit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -131,7 +135,7 @@
 
 &lt;p&gt;Unlike &lt;em&gt;break&lt;/em&gt; though, &lt;strong&gt;continue&lt;/strong&gt; causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed.&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;stress&quot;&gt;For statement&lt;/span&gt; is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;for&lt;/em&gt; statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -422,20 +426,11 @@
    <link href="http://thelogbox.com/javascript-keywords"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-keywords</id>
-   <content type="html">&lt;p&gt;When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words--the JavaScript reserved words. Here they are;&lt;/p&gt;
+   <content type="html">&lt;p&gt;When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words. The JavaScript reserved words. Here they are;&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;break case catch continue debugger default&lt;/li&gt;
-&lt;li&gt;delete do else finally for function if in&lt;/li&gt;
-&lt;li&gt;instanceof new return switch this throw try&lt;/li&gt;
-&lt;li&gt;typeof var void while with implements&lt;/li&gt;
-&lt;li&gt;interface let package private protected&lt;/li&gt;
-&lt;li&gt;public static yield class enum export&lt;/li&gt;
-&lt;li&gt;extends import super&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/img/javascript/javascript-keywords.png&quot; alt=&quot;JavaScript Keywords&quot; /&gt;&lt;/p&gt;
 
-
-&lt;p&gt;Read the ECMA specification for keywords, I just listed them here for convenience.&lt;/p&gt;
+&lt;p&gt;These &lt;a href=&quot;http://quizlet.com/_hqgq6&quot;&gt;Flash Cards&lt;/a&gt; are on Quizlet.com. You can use it as a study resource&lt;/p&gt;
 </content>
  </entry>
  
@@ -568,39 +563,38 @@
    <link href="http://thelogbox.com/javascript-data-types"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-data-types</id>
-   <content type="html">&lt;p&gt;You need to know what kinds of stuff you can create, define and manipulate in JS.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Programmers create things (data). We manipulate them by adding, substract- ing, dividing or multiplying. Sometimes we mash them up together (concatenation). Then we create more things. Sometimes, we store these things for later use, and other times we don’t, we simply discard them. Sometimes we dig up things that we have stored in the past (retrieval) and other times we show the things we’ve tucked away to other people (reports).&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Number&lt;/li&gt;
-&lt;li&gt;Boolean&lt;/li&gt;
-&lt;li&gt;String&lt;/li&gt;
-&lt;li&gt;Array&lt;/li&gt;
-&lt;li&gt;Object&lt;/li&gt;
-&lt;li&gt;Function&lt;/li&gt;
-&lt;li&gt;undefined&lt;/li&gt;
-&lt;li&gt;null&lt;/li&gt;
-&lt;li&gt;Object&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;This is an oversimplification of what programmers do, but it is very common. In order to create things, we need to know what kinds of things you can create. Are we going to count these things (whole numbers) or are we suppose to measure them (real numbers). If we need to compare one thing to another thing, how will I remember the result of that comparisson, can I store the result in another kind of thing that is aware of truth and falsity?&lt;/p&gt;
 
+&lt;p&gt;If we were using a language that is pretty close to the metal, like assembly or C, you may need to know quite a bit about how things are stored and organized in a very low-level fashion before you can get very far.&lt;/p&gt;
 
-&lt;p&gt;The first three are simple data types in JS, the rest are not so simple (don't worry, we will try to define the &lt;em&gt;not so simple&lt;/em&gt; types a bit down the road)&lt;/p&gt;
+&lt;p&gt;Thankfully, we are using JavaScript and it will not require us to work close to the metal. You will work with Types rather than bits (zeroes and ones). JS has defined some useful abstractions for us already. These abstractions allow us to work with ease because we can represent business concepts with ready-made Types.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Number&lt;/strong&gt; - 10, 2, 100 (integers), 2.3, 1.2 (floats) are numbers. JS does not discriminate whether it is of integral or float type. There's more; 0xFF, 0xCAFEBABE (hex or octal) are also considered numbers, and so are base 8 numbers (i.e. 0377)&lt;/p&gt;
+&lt;p&gt;For example, if you need to work with real numbers, Java has defined the float and double data types. If you need to work with words and letters, JavaScript can work String&lt;/p&gt;
 
-&lt;p&gt;When you try to store a value that is more than what a Number can hold, it can result to either &lt;em&gt;Infinity&lt;/em&gt; or &lt;em&gt;-Infinity&lt;/em&gt;. You can also get some weird results is &lt;em&gt;NaN&lt;/em&gt; (not a number). The NaN can result if you try to do some illegal operations, i.e. divide something by zero.&lt;/p&gt;
+&lt;p&gt;These abstractions are high enough that we don’t get bogged down by the de- tails of how they are stored and structured on the disk, we can worry about other things like the logic of our application.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Boolean&lt;/strong&gt; - either &lt;em&gt;true&lt;/em&gt; or &lt;em&gt;false&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;DATA TYPES&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;String&lt;/strong&gt; - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. &quot;Hello World&quot; is as good as 'Hello World'. You may insert escape characters in Strings like &quot;Hello\n World&quot;.&lt;/p&gt;
+&lt;p&gt;You need to know what kinds of stuff you can create, define and manipulate in JS.&lt;/p&gt;
+
+&lt;p&gt;JavaScript have simple data types. These are &lt;em&gt;Number, Boolean&lt;/em&gt; and &lt;em&gt;String&lt;/em&gt;. It also have other data types which are not so simple anymore. Their complexity is primarily because they are no longer scalar values. These are &lt;em&gt;Array, Object&lt;/em&gt; and &lt;em&gt;Function&lt;/em&gt;. There are two more types right after the complex types. The last two are &lt;em&gt;null&lt;/em&gt; and &lt;em&gt;undefined&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Number&lt;/em&gt; - 10, 2, 100 (integers), 2.3, 1.2 (floats) are numbers. JS does not discriminate whether it is of integral or float type. There's more; 0xFF, 0xCAFEBABE (hex or octal) are also considered numbers, and so are base 8 numbers (i.e. 0377)&lt;/p&gt;
+
+&lt;p&gt;When you try to store a value that is more than what a Number can hold, it can result to either &lt;em&gt;Infinity&lt;/em&gt; or &lt;em&gt;-Infinity&lt;/em&gt;. You can also get some weird results like &lt;em&gt;NaN&lt;/em&gt; (not a number). The NaN can result if you try to do some illegal operations, i.e. divide something by zero.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Boolean&lt;/em&gt; - either &lt;em&gt;true&lt;/em&gt; or &lt;em&gt;false&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;String&lt;/em&gt; - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. &quot;Hello World&quot; is as good as 'Hello World'. You may insert escape characters in Strings like &quot;Hello\n World&quot;.&lt;/p&gt;
 
 &lt;p&gt;We will deal with the other data types a little bit later, these three are actually enough to keep us busy for now.&lt;/p&gt;
 
 &lt;p&gt;You will usually bother with data types when you are either declaring variables or returning something from functions. If you need to see for your eyes how the JS runtime really treats this variable, this small code snippet should help&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
-
 &lt;span class=&quot;cm&quot;&gt;A small test on how JS treats types&lt;/span&gt;
-
 &lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -640,7 +634,6 @@
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;wildcard &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wildcard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
 
 &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
-
 &lt;span class=&quot;cm&quot;&gt;RETURNS:&lt;/span&gt;
 
 &lt;span class=&quot;cm&quot;&gt;s string&lt;/span&gt;
@@ -655,9 +648,13 @@
 &lt;span class=&quot;cm&quot;&gt;function y undefined&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;function z undefined&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;wildcard undefined&lt;/span&gt;
-
 &lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+&lt;div id='lst'&gt;VAR types&lt;/div&gt;
 
 
 &lt;p&gt;Variables can be declared using the word &lt;strong&gt;var&lt;/strong&gt; (or without). I would rather that you always declare your variables using &lt;em&gt;var&lt;/em&gt; because it has some effects on the &lt;em&gt;global context&lt;/em&gt;. Don't worry about that context for now, they will be discussed shortly.&lt;/p&gt;
@@ -686,9 +683,11 @@
 &lt;/ol&gt;
 
 
-&lt;p&gt;Try your best to ignore number 3 above (at least for now) -- we will circle around that later when we get to JavaScript OOP.&lt;/p&gt;
+&lt;p&gt;Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;USING OBJECT LITERALS&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;OBJECT LITERALS&lt;/h2&gt;
+
+&lt;p&gt;Object literals have very simple construction. The code sample below illustrates how to use &lt;em&gt;object literals&lt;/em&gt; in your code. Object literals are also known as JSON &amp;mdash; short for JavaScript Object Notation&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this one constructs an empty object&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pt&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// an object with simple data types as members&lt;/span&gt;
@@ -704,38 +703,32 @@
 &lt;p&gt;When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
-
 person.date_hired = &quot;some date value&quot;;
 person.address = &quot;some address&quot;;
-
 &lt;/pre&gt;
 
 
 &lt;p&gt;Similarly, you can access values of the object properties using the dot notation as well, although this is not the only way.&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;&lt;/code&gt;
-
 console.log(person.name);
 console.log(person.address);
-
 &lt;/pre&gt;
 
 
-&lt;p&gt;JavaScript's use of dot notation to access object properties and method will feel very familiar with devs because a lot of programming languages utilizes this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this&lt;/p&gt;
+&lt;p&gt;JavaScript's use of dot notation to access object properties and method will feel very familiar with programmers because a lot of other languages use this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
-
 person[&quot;name&quot;];
 person[&quot;address&quot;];
-
 &lt;/pre&gt;
 
 
 &lt;p&gt;JS objects are actually associative arrays---I need to clarify one point, when I write &lt;strong&gt;Array&lt;/strong&gt; (capitalized) I am referring to the JavaScript complex type. When I write &lt;strong&gt;array&lt;/strong&gt; (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of &lt;strong&gt;named&lt;/strong&gt; values, this is the reason you can use the square braces approach to reference a member of a specific object.&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h2&gt;ARRAYS&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;ARRAYS&lt;/em&gt;. An Array is also a collection of values. Unlike an object, an Array is a collection of &lt;em&gt;ordered values&lt;/em&gt;, not &lt;em&gt;named values&lt;/em&gt;. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;&lt;/p&gt;
+&lt;p&gt;An Array is also a collection of values. Unlike an object, an Array is a collection of &lt;em&gt;ordered values&lt;/em&gt;, not &lt;em&gt;named values&lt;/em&gt;. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
 
@@ -782,15 +775,26 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
    <link href="http://thelogbox.com/javascript-code-structure"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-code-structure</id>
-   <content type="html">&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Variable&lt;/strong&gt; - a temporary storage for something. It can hold any type of data&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Literals&lt;/strong&gt; - e.g. 10 is Number literal, &quot;Hello&quot; is a string literal&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Expression&lt;/strong&gt; - involves operand(s) and operators. e.g. &lt;em&gt;a + b or 1 + a or 15 % 12&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Statement&lt;/strong&gt; - similar to expressions. They are (optionally) terminated by semicolon. They can be written either inside a function or outside a function&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Function (method)&lt;/strong&gt; - a programming block that (usually) have a name. A programming block is a bunch of statements grouped together and enclosed inside a pair of curly braces&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Source file&lt;/strong&gt; - contains JS functions and statements. Usually has a &lt;em&gt;.js&lt;/em&gt; extension&lt;/li&gt;
-&lt;/ol&gt;
+   <content type="html">&lt;p&gt;JavaScript codes may either be embedded in HTML documents or referenced from it. When they are referenced from an HTML file, they are known as external JS files.&lt;/p&gt;
 
+&lt;p&gt;External JS files lives in a source file, they usually have an extension of &lt;em&gt;.js&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are a couple of things that make up a JS source file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/javascript/code-structure.png&quot; alt=&quot;Code Structure&quot; /&gt;&lt;/p&gt;
+
+&lt;div id='lst'&gt;Code Structure&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Variables&lt;/em&gt;. These are temporary storage for area something. It can hold any type of data. Variables are very necessary for an imperative programming language like JavaScript. The compute engine depends upon the manipulation or changing of variable to achieve certain results.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Literals&lt;/em&gt; - e.g. 10 is Number literal, &quot;Hello&quot; is a string literal. They are used to assign values to variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Expression&lt;/em&gt; - involves operand(s) and operators. e.g. &lt;code class=&quot;codeblock&quot;&gt;a + b or 1 + a &lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt;15 % 12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Statement&lt;/em&gt; - similar to expressions. They are (optionally) terminated by semicolon. They can be written either inside a function or outside a function&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Function or Method&lt;/em&gt; - a programming block that (usually) have a name. A programming block is a bunch of statements grouped together and enclosed inside a pair of curly braces. Functions are primarily used to put a label on a group of statements. By simply invoking the name of the function, the group of statments will be executed. It's a name for a routine of statements. In JavaScript, functions play a larger role than being a sub routine. Functions are an important part of JavaScript's OOP capabilities&lt;/p&gt;
 </content>
  </entry>
  
@@ -811,7 +815,7 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
 
 &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;//This is allowed in JS, because it is not strongly typed&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;//This will now output &amp;quot;Hello World&amp;quot;. It has already forgotten that it was a function&lt;/span&gt;
-                        &lt;span class=&quot;c1&quot;&gt;//befor&lt;/span&gt;
+                        &lt;span class=&quot;c1&quot;&gt;//before&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;//this one will throw an error, because foo is no longer a function&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -819,18 +823,20 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
 
 &lt;p&gt;JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this&lt;/p&gt;
 
-&lt;p&gt;~~~&lt;/p&gt;
+&lt;pre class=&quot;codeblock&quot;&gt;
 
-&lt;p&gt;var foo = function() {&lt;/p&gt;
+var foo = function() {
+    return 10;
+}
 
-&lt;pre&gt;&lt;code&gt;return 10;
-&lt;/code&gt;&lt;/pre&gt;
+console.log(foo()); //returns 10
 
-&lt;p&gt;}&lt;/p&gt;
+&lt;/pre&gt;
 
-&lt;p&gt;console.log(foo()); //returns 10&lt;/p&gt;
 
-&lt;p&gt;~~~&lt;/p&gt;
+&lt;p&gt;It may seem that you don't have a need for anymous functions at the moment. Admittedly, the code example above does a poor job hinting at it's utility value. Anonymous functions will become increasingly important when you start using them for call backs e.g. during event driven programming on the browser, using third party libraries like JQuery or server side programming with NodeJS&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named &quot;foo&quot; then invoked &lt;strong&gt;foo()&lt;/strong&gt;. What we have just done was create an anonymous function and assigned it to variable &lt;em&gt;foo&lt;/em&gt;. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don't have any further use for another way to create a function, what we have is quite enough for now.&lt;/p&gt;
 </content>

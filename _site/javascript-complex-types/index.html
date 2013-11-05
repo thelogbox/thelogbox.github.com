@@ -256,7 +256,6 @@ hr .section {
 }
 
 strong {
-  font-family: 'Libre Baskerville','Tauri';
   font-weight: normal;
   color: #000000;
 }
@@ -524,9 +523,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </ol>
 
 
-<p>Try your best to ignore number 3 above (at least for now) -- we will circle around that later when we get to JavaScript OOP.</p>
+<p>Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.</p>
 
-<p><strong>USING OBJECT LITERALS</strong></p>
+<h2>OBJECT LITERALS</h2>
+
+<p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// this one constructs an empty object</span>
 <span class="kd">var</span> <span class="nx">pt</span>  <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
@@ -542,38 +543,32 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <p>When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values</p>
 
 <pre class="codeblock">
-
 person.date_hired = "some date value";
 person.address = "some address";
-
 </pre>
 
 
 <p>Similarly, you can access values of the object properties using the dot notation as well, although this is not the only way.</p>
 
 <pre class="codeblock"></code>
-
 console.log(person.name);
 console.log(person.address);
-
 </pre>
 
 
-<p>JavaScript's use of dot notation to access object properties and method will feel very familiar with devs because a lot of programming languages utilizes this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this</p>
+<p>JavaScript's use of dot notation to access object properties and method will feel very familiar with programmers because a lot of other languages use this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this</p>
 
 <pre class="codeblock">
-
 person["name"];
 person["address"];
-
 </pre>
 
 
 <p>JS objects are actually associative arrays---I need to clarify one point, when I write <strong>Array</strong> (capitalized) I am referring to the JavaScript complex type. When I write <strong>array</strong> (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of <strong>named</strong> values, this is the reason you can use the square braces approach to reference a member of a specific object.</p>
 
-<hr />
+<h2>ARRAYS</h2>
 
-<p><em>ARRAYS</em>. An Array is also a collection of values. Unlike an object, an Array is a collection of <em>ordered values</em>, not <em>named values</em>. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;</p>
+<p>An Array is also a collection of values. Unlike an object, an Array is a collection of <em>ordered values</em>, not <em>named values</em>. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;</p>
 
 <pre class="codeblock">
 
@@ -631,21 +626,17 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>
-      <li><a href="#">Getting Started</a></li>
       <li><a href="/javascript-code-structure">Code Structure</a></li>
       <li><a href="/javascript-data-types">Typing</a></li>
       <li><a href="/javascript-functions">Functions</a></li>
       <li><a href="/javascript-keywords">Keywords</a></li>
-      <li><a href="#">Operators</a></li>
       <li><a href="/javascript-program-flow">Program Flow</a></li>
       <li><a href="/javascript-complex-types">Complex Types</a></li>
       <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
       <li><a href="/javascript-objects">Objects</a></li>
       <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
       <li><a href="/javascript-inheritance">Inheritance</a></li>
-      <li><a href="#">Client-Side JavaScript</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Bibliography</a></li>
+
     </ul>
     </div>    
     

@@ -24,6 +24,7 @@ categories:
 
 You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration). 
 
+## BRANCHING
 
 *if-else* statement is way to branch. When the expression inside the *if()* construct yields true, the statement inside the if block is executed. 
 
@@ -101,8 +102,9 @@ RETURNS "Hello"
 
 The values listed in *case* statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the *break* keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the *switch construct* even if a match has already been found. 
 
+## ITERATION
 
-<span class="stress">While statement</span> is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the **while()** construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates. 
+The *while* statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the **while()** construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates. 
 
 {% highlight javascript %}
 
@@ -155,7 +157,7 @@ while (!timetoexit) {
 Unlike *break* though, **continue** causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed. 
 
 
-<span class="stress">For statement</span> is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again. 
+The *for* statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again. 
 
 
 {% highlight javascript %}
@@ -225,3 +227,4 @@ RESULT
 
 
 This code requires the node.js library *util*. We can't use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while *util.print()* library does not. Node.JS has many libraries for convenient use, you just need to do the *require(libname)* statement if you want to use it. 
+

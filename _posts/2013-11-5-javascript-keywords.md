@@ -22,36 +22,7 @@ categories:
 
 When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words. The JavaScript reserved words. Here they are;
 
+![JavaScript Keywords](/img/javascript/javascript-keywords.png)
 
-- break
-- case
-- catch
-- continue
-- debugger
-- default
-- delete
-- do
-- else
-- finally
-- for
-- function
-- if
-- in
-- instanceof
-- new
-- return
-- switch
-- this
-- throw
-- try
-- typeof
-- var
-- void
-- while
-- with
+These [Flash Cards](http://quizlet.com/_hqgq6) are on Quizlet.com. You can use it as a study resource
 
-
-See the [Flash Cards](http://quizlet.com/_hqgq6)
-
-
-Read the ECMA specification for keywords, I just listed them here for convenience. 

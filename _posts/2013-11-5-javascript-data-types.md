@@ -20,27 +20,31 @@ categories:
 ---
 
 
+Programmers create things (data). We manipulate them by adding, substract- ing, dividing or multiplying. Sometimes we mash them up together (concatenation). Then we create more things. Sometimes, we store these things for later use, and other times we don’t, we simply discard them. Sometimes we dig up things that we have stored in the past (retrieval) and other times we show the things we’ve tucked away to other people (reports).
+
+This is an oversimplification of what programmers do, but it is very common. In order to create things, we need to know what kinds of things you can create. Are we going to count these things (whole numbers) or are we suppose to measure them (real numbers). If we need to compare one thing to another thing, how will I remember the result of that comparisson, can I store the result in another kind of thing that is aware of truth and falsity?
+
+If we were using a language that is pretty close to the metal, like assembly or C, you may need to know quite a bit about how things are stored and organized in a very low-level fashion before you can get very far.
+
+Thankfully, we are using JavaScript and it will not require us to work close to the metal. You will work with Types rather than bits (zeroes and ones). JS has defined some useful abstractions for us already. These abstractions allow us to work with ease because we can represent business concepts with ready-made Types.
+
+For example, if you need to work with real numbers, Java has defined the float and double data types. If you need to work with words and letters, JavaScript can work String
+
+These abstractions are high enough that we don’t get bogged down by the de- tails of how they are stored and structured on the disk, we can worry about other things like the logic of our application.
+
+## DATA TYPES
+
 You need to know what kinds of stuff you can create, define and manipulate in JS. 
 
-1. Number
-2. Boolean
-3. String
-4. Array
-5. Object
-6. Function
-7. undefined
-8. null
-9. Object
+JavaScript have simple data types. These are *Number, Boolean* and *String*. It also have other data types which are not so simple anymore. Their complexity is primarily because they are no longer scalar values. These are *Array, Object* and *Function*. There are two more types right after the complex types. The last two are *null* and *undefined*
 
-The first three are simple data types in JS, the rest are not so simple (don't worry, we will try to define the *not so simple* types a bit down the road)
+*Number* - 10, 2, 100 (integers), 2.3, 1.2 (floats) are numbers. JS does not discriminate whether it is of integral or float type. There's more; 0xFF, 0xCAFEBABE (hex or octal) are also considered numbers, and so are base 8 numbers (i.e. 0377)
 
-**Number** - 10, 2, 100 (integers), 2.3, 1.2 (floats) are numbers. JS does not discriminate whether it is of integral or float type. There's more; 0xFF, 0xCAFEBABE (hex or octal) are also considered numbers, and so are base 8 numbers (i.e. 0377)
+When you try to store a value that is more than what a Number can hold, it can result to either *Infinity* or *-Infinity*. You can also get some weird results like *NaN* (not a number). The NaN can result if you try to do some illegal operations, i.e. divide something by zero. 
 
-When you try to store a value that is more than what a Number can hold, it can result to either *Infinity* or *-Infinity*. You can also get some weird results is *NaN* (not a number). The NaN can result if you try to do some illegal operations, i.e. divide something by zero. 
+*Boolean* - either *true* or *false* 
 
-**Boolean** - either *true* or *false* 
-
-**String** - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. "Hello World" is as good as 'Hello World'. You may insert escape characters in Strings like "Hello\n World".
+*String* - A sequence of UNICODE characters, although, there is no concept of character arrays in JS. You can define Strings using either the single quote or double quote technique. i.e. "Hello World" is as good as 'Hello World'. You may insert escape characters in Strings like "Hello\n World".
 
 We will deal with the other data types a little bit later, these three are actually enough to keep us busy for now. 
 
@@ -48,11 +52,8 @@ You will usually bother with data types when you are either declaring variables 
 
 
 {% highlight javascript %}
-
 /*
-
 A small test on how JS treats types
-
 */
 
 var s = "hello";
@@ -92,7 +93,6 @@ console.log("function z " + typeof(z()));
 console.log("wildcard " + typeof(wildcard));
 
 /*
-
 RETURNS:
 
 s string
@@ -107,11 +107,10 @@ function x number
 function y undefined
 function z undefined
 wildcard undefined
-
 */
 
 {% endhighlight %}
-
+<div id='lst'>VAR types</div>
 
 Variables can be declared using the word **var** (or without). I would rather that you always declare your variables using *var* because it has some effects on the *global context*. Don't worry about that context for now, they will be discussed shortly.
 

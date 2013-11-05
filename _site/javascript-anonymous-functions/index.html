@@ -256,7 +256,6 @@ hr .section {
 }
 
 strong {
-  font-family: 'Libre Baskerville','Tauri';
   font-weight: normal;
   color: #000000;
 }
@@ -519,7 +518,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>    <span class="c1">//This is allowed in JS, because it is not strongly typed</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>      <span class="c1">//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function</span>
-                        <span class="c1">//befor</span>
+                        <span class="c1">//before</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span>        <span class="c1">//this one will throw an error, because foo is no longer a function</span>
 </code></pre></div>
@@ -527,18 +526,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
 
-<p>~~~</p>
+<pre class="codeblock">
 
-<p>var foo = function() {</p>
+var foo = function() {
+    return 10;
+}
 
-<pre><code>return 10;
-</code></pre>
+console.log(foo()); //returns 10
 
-<p>}</p>
+</pre>
 
-<p>console.log(foo()); //returns 10</p>
 
-<p>~~~</p>
+<p>It may seem that you don't have a need for anymous functions at the moment. Admittedly, the code example above does a poor job hinting at it's utility value. Anonymous functions will become increasingly important when you start using them for call backs e.g. during event driven programming on the browser, using third party libraries like JQuery or server side programming with NodeJS</p>
+
+<hr />
 
 <p>This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named "foo" then invoked <strong>foo()</strong>. What we have just done was create an anonymous function and assigned it to variable <em>foo</em>. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don't have any further use for another way to create a function, what we have is quite enough for now.</p>
 
@@ -560,21 +561,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>
-      <li><a href="#">Getting Started</a></li>
       <li><a href="/javascript-code-structure">Code Structure</a></li>
       <li><a href="/javascript-data-types">Typing</a></li>
       <li><a href="/javascript-functions">Functions</a></li>
       <li><a href="/javascript-keywords">Keywords</a></li>
-      <li><a href="#">Operators</a></li>
       <li><a href="/javascript-program-flow">Program Flow</a></li>
       <li><a href="/javascript-complex-types">Complex Types</a></li>
       <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
       <li><a href="/javascript-objects">Objects</a></li>
       <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
       <li><a href="/javascript-inheritance">Inheritance</a></li>
-      <li><a href="#">Client-Side JavaScript</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Bibliography</a></li>
+
     </ul>
     </div>    
     

@@ -37,10 +37,11 @@ There are a couple of ways to create objects in JS.
 2. Using the new keyword against the Object type
 3. Constructor functions
 
-Try your best to ignore number 3 above (at least for now) -- we will circle around that later when we get to JavaScript OOP.
+Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.
 
+## OBJECT LITERALS
 
-**USING OBJECT LITERALS**
+Object literals have very simple construction. The code sample below illustrates how to use *object literals* in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation
 
 {% highlight javascript %}
 
@@ -57,37 +58,30 @@ var person = {
 
 When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values
 
-
 <pre class="codeblock">
-
 person.date_hired = "some date value";
 person.address = "some address";
-
 </pre>
 
 Similarly, you can access values of the object properties using the dot notation as well, although this is not the only way.
 
 <pre class="codeblock"></code>
-
 console.log(person.name);
 console.log(person.address);
-
 </pre>
 
-JavaScript's use of dot notation to access object properties and method will feel very familiar with devs because a lot of programming languages utilizes this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this
+JavaScript's use of dot notation to access object properties and method will feel very familiar with programmers because a lot of other languages use this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this
 
 <pre class="codeblock">
-
 person["name"];
 person["address"];
-
 </pre>
 
 JS objects are actually associative arrays---I need to clarify one point, when I write **Array** (capitalized) I am referring to the JavaScript complex type. When I write **array** (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of **named** values, this is the reason you can use the square braces approach to reference a member of a specific object. 
 
-***
+## ARRAYS
 
-*ARRAYS*. An Array is also a collection of values. Unlike an object, an Array is a collection of *ordered values*, not *named values*. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;
+An Array is also a collection of values. Unlike an object, an Array is a collection of *ordered values*, not *named values*. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;
 
 <pre class="codeblock">
 
