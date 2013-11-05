@@ -33,7 +33,7 @@ console.log(foo()); 	//nothing surprising here, it will return 10
 
 foo = "Hello World"; 	//This is allowed in JS, because it is not strongly typed
 console.log(foo); 		//This will now output "Hello World". It has already forgotten that it was a function
-						//befor
+						//before
 
 console.log(foo());		//this one will throw an error, because foo is no longer a function
 
@@ -41,7 +41,7 @@ console.log(foo());		//this one will throw an error, because foo is no longer a 
 
 JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this
 
-~~~
+<pre class="codeblock">
 
 var foo = function() {
 	return 10;
@@ -49,6 +49,6 @@ var foo = function() {
 
 console.log(foo()); //returns 10
 
-~~~
+</pre>
 
 This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named "foo" then invoked **foo()**. What we have just done was create an anonymous function and assigned it to variable *foo*. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don't have any further use for another way to create a function, what we have is quite enough for now.

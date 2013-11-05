@@ -20,6 +20,8 @@ categories:
 ---
 
 
+![Code Structure](/img/javascript/code-structure.png)
+<div id='lst'>Code Structure</div>
 
 
 1. **Variable** - a temporary storage for something. It can hold any type of data 
