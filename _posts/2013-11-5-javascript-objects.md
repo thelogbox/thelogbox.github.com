@@ -65,11 +65,8 @@ If Strings are mutable, then the second assert would not have failed. The refere
 
 {% highlight javascript %}
 
-
 function Base() {
-
 	this.prop1 = "Property 1"
-
 }
 
 var a = new Base();		// Property 1
