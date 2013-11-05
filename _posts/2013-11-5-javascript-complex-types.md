@@ -41,7 +41,7 @@ Try your best to ignore number 3 above (at least for now). We will circle around
 
 ## OBJECT LITERALS
 
-Object literals have very simple construction. The code sample below illustrates how to use *object literals* in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation
+Object literals have very simple construction. The code sample below illustrates how to use *object literals* in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation.
 
 {% highlight javascript %}
 
