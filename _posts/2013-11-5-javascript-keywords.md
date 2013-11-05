@@ -20,16 +20,38 @@ categories:
 ---
 
 
-When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words--the JavaScript reserved words. Here they are;
+When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words. The JavaScript reserved words. Here they are;
 
 
-- break case catch continue debugger default
-- delete do else finally for function if in
-- instanceof new return switch this throw try
-- typeof var void while with implements
-- interface let package private protected
-- public static yield class enum export 
-- extends import super
+- break
+- case
+- catch
+- continue
+- debugger
+- default
+- delete
+- do
+- else
+- finally
+- for
+- function
+- if
+- in
+- instanceof
+- new
+- return
+- switch
+- this
+- throw
+- try
+- typeof
+- var
+- void
+- while
+- with
+
+
+See the [Flash Cards](http://quizlet.com/_hqgq6)
 
 
 Read the ECMA specification for keywords, I just listed them here for convenience. 
