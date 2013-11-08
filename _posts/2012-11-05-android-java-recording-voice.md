@@ -14,7 +14,7 @@ tags:
 - Audio
 
 categories:
-- Andoroid
+- Android
 
 ---
 
