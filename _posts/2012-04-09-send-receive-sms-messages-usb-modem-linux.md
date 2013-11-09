@@ -31,7 +31,7 @@ You will need the items below to follow this guide.
 1. DEBIAN linux
 2. USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.
 
-# STEPS
+# Steps
 
 Get gnokii-smsd and mysql-server from the Debian repositories.
 
@@ -51,7 +51,7 @@ When you know the device name of the modem, edit the configurationt file of *gno
 Set <code class="codeblock">port = /dev/tty0</code> (substitute your actual device name to tth0). Set <code class="codeblock">model = AT</code>, the default is *6510* which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.
 
 
-## EXTRA NOTES
+## Extra notes
 
 On some Debian variant like *CrunchBang*, the config file was not found at *~/.config* folder, it does not exist at all. There was a config file though at */etc/xdg/gnokii/config*. If this is your case, you can simply create the configuration file and directory manually
 
@@ -67,11 +67,11 @@ $ cp /etc/xdg/gnokii/config config
 
 Then make the edits on PORT and model just the same.  
 
-## TESTING
+## Testing
 
 To test if everything is in order, you can run <code class="codeblock">sudo gnokii --identify</code>. This should give you some diagnostics and some quick peek if something is wrong with the configuration file
 
-## PREPARE THE DATABASE BACKEND
+## Prepare the database backend
 
 I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install *gnokii-smsd-pgsql* instead of *gnokii-smsd-mysql*.  
 
@@ -88,7 +88,7 @@ $ mysql>\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find. 
 
-## TEST THE SMS GATEWAY
+## Test the SMS gateway
 
 Run gnokii-sms as a daemon process &mdash; <code class="codeblock">sudo smsd -u root -p <MySQL Password> -d smsgw -c localhost -m mysql</code>
 

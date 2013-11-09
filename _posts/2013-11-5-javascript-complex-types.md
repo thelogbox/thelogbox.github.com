@@ -39,7 +39,7 @@ There are a couple of ways to create objects in JS.
 
 Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.
 
-## OBJECT LITERALS
+# Object Literals
 
 Object literals have very simple construction. The code sample below illustrates how to use *object literals* in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation.
 
@@ -79,7 +79,7 @@ person["address"];
 
 JS objects are actually associative arrays---I need to clarify one point, when I write **Array** (capitalized) I am referring to the JavaScript complex type. When I write **array** (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of **named** values, this is the reason you can use the square braces approach to reference a member of a specific object. 
 
-## ARRAYS
+# Arrays
 
 An Array is also a collection of values. Unlike an object, an Array is a collection of *ordered values*, not *named values*. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;
 

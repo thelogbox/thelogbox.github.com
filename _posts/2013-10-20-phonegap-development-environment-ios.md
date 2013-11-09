@@ -29,34 +29,26 @@ Download the Command Line Tools. That will take a while. The size of the Command
 
 Now the XCode part is over, move on to the PhoneGap tool chain. 
 
-# PHONEGAP TOOL CHAIN
+# Tool Chain
 
 **Node Package Manager**. You need the node packager manager to proceed. You can download it at the [NodeJS site](http://nodejs.org). Another way of getting **npm** is either via [HomeBrew](http://brew.sh) or [MacPorts](http://macports.org), I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.
 
 When you are done with the npm installation, you can get the PhoneGap installers.
 
 <pre class="codeblock">
-
 $ npm install -g phonegap
-
 $ npm install -g cordova
-
 </pre>
 
-# QUICK TEST
+# Quick Test
 
 <pre class="codeblock">
 
 $ mkdir ~/workarea
-
 $ cd ~/workarea
-
 $ phonegap create first
-
 $ cd first
-
 $ phonegap build ios
-
 $ open platforms/ios/first
 
 [phonegap] detecting iOS SDK environment...

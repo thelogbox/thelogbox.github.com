@@ -28,7 +28,7 @@ Download the installer from the [WordPress site](http://wordpress.org/download/)
 Unzip the file and put it inside the folder *C:\Users\yourname\wamp\www*. This is the directory of our WAMP installation. Technically you can place the unzipped file anywhere and still manage to have the Apache web server find it. That however requires intermediate knowledge of the Apache configuration files &mdash; which I did not assume you have at this point. Hence, it will be best to simply put our expanded *wordpress* folder inside the default *Document Root* of Apache which is *C:\Users\yourname\wamp\www*.
 
 
-## DATABASE CREATION
+## Creating the Database
 
 Check if the WAMP server is still running. You need WAMP to be in the running state to perform the following procedure.
 

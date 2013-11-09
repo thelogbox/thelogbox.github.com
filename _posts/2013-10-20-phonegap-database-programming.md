@@ -21,7 +21,7 @@ There are two ways to persist data on PhoneGap. One is to use *local storage* an
 
 The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that's why SQL programming is almost a baseline capability for developers.
 
-# WEBSQL
+# Websql
 
 WebSQL essentially is about issuing SQL commands against a SQLite3 databaseprogramming. If you haven't used SQLite before, it is a lightweight desktop database. It's a desktop database because it does not require a dedicated server side process unlike MySQL, Oracle or MS SQL Server &mdash; those things are called client-server databases.
   
@@ -39,8 +39,7 @@ Most database programs involves boiler plate codes &mdash; plumbing codes, so to
 
 In the next sections, we will cover the syntax for these boiler plate codes and demonstrate their usage. Towards the end of the chapter, we will use the WebSQL API for a simple TODO list app.
 
-# CREATE AND OPEN A DATABASE
-
+# Create and Open a Database
 
 We will start with some basic codes that demonstrates how to create a database. We will also take a look at some ways on how we can test and debug our database codes without running the device emulator.
 
@@ -127,7 +126,7 @@ Under *WebSQL* you can see that there is a newly created *tasks* database. This 
 
 You can try to refresh the page or run the JavaScript code over and over, but it won't create another *tasks* database &mdash; if that was you were expecting. The `openDatabase` command only creates a database file (*tasks.db*, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The `openDatabase()` function is used both to create a not yet existing database file and to open an existing one.
 
-# CREATING TABLES
+# Creating Tables
 
 After creating a database, you need to create some tables inside it. The tables are the actual data structures that holds structured information. In this section, we will simply create a single table named TODO. This table will hold our todo items. 
 
@@ -176,13 +175,7 @@ The second parameter is a callback which will only be invoked if an error will b
 
 The third parameter is called back after all the SQL commands have been executed and no errors have been encountered.
 
-# EXECUTING SQL COMMANDS
 
-- create, read, update, delete
- 
-# DEBUGGING AND TROUBLESHOOTING
-
-# FULL EXAMPLE
 
 
 

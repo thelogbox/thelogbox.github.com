@@ -18,7 +18,7 @@ categories:
 
 This section is probably the least interesting of all. I would guess that only programming instructors will leaf through these pages so we will keep it short. The section however, contains a bit more than history. It also discusses some foundational tech structure of Android, in that regard, I still suggest to read through it so that you can appreciate some architectural information about the platform.
 
-#  SHORT HISTORY
+#  Short History
 
 Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.
 
@@ -39,7 +39,7 @@ Android's snowball noticeably gained momentum sometime in 2008 - 2009---this is 
 
 An article about Andy Rubin and Android, titled [Android Invasion](http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html) appeared on a NewsWeek article sometime in 2010. 
 
-# TECHNOLOGY STACK
+# Technology Stack
 
 The Android is made up of a slew of tech but the most visible ones are *Linux* and *Java*. It is a complete operating system and it provides a container that can support rich applications. 
 

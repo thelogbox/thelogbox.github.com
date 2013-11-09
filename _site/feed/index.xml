@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-09T11:09:36+08:00</updated>
+ <updated>2013-11-09T18:22:41+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -35,7 +35,9 @@
    <id>http://thelogbox.com/javascript-program-flow</id>
    <content type="html">&lt;p&gt;You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).&lt;/p&gt;
 
-&lt;h2&gt;BRANCHING&lt;/h2&gt;
+&lt;p&gt;A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements&lt;/p&gt;
+
+&lt;h1&gt;Branching&lt;/h1&gt;
 
 &lt;p&gt;&lt;em&gt;if-else&lt;/em&gt; statement is way to branch. When the expression inside the &lt;em&gt;if()&lt;/em&gt; construct yields true, the statement inside the if block is executed.&lt;/p&gt;
 
@@ -104,7 +106,7 @@
 
 &lt;p&gt;The values listed in &lt;em&gt;case&lt;/em&gt; statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the &lt;em&gt;break&lt;/em&gt; keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the &lt;em&gt;switch construct&lt;/em&gt; even if a match has already been found.&lt;/p&gt;
 
-&lt;h2&gt;ITERATION&lt;/h2&gt;
+&lt;h1&gt;Iteration&lt;/h1&gt;
 
 &lt;p&gt;The &lt;em&gt;while&lt;/em&gt; statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the &lt;strong&gt;while()&lt;/strong&gt; construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.&lt;/p&gt;
 
@@ -502,7 +504,7 @@
    <link href="http://thelogbox.com/javascript-functions"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-functions</id>
-   <content type="html">&lt;p&gt;A JS function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace.&lt;/p&gt;
+   <content type="html">&lt;p&gt;A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;File name: hello.js&lt;/span&gt;
@@ -590,7 +592,7 @@
 
 &lt;p&gt;These abstractions are high enough that we don’t get bogged down by the de- tails of how they are stored and structured on the disk, we can worry about other things like the logic of our application.&lt;/p&gt;
 
-&lt;h2&gt;DATA TYPES&lt;/h2&gt;
+&lt;h1&gt;Data Types&lt;/h1&gt;
 
 &lt;p&gt;You need to know what kinds of stuff you can create, define and manipulate in JS.&lt;/p&gt;
 
@@ -700,7 +702,7 @@
 
 &lt;p&gt;Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.&lt;/p&gt;
 
-&lt;h2&gt;OBJECT LITERALS&lt;/h2&gt;
+&lt;h1&gt;Object Literals&lt;/h1&gt;
 
 &lt;p&gt;Object literals have very simple construction. The code sample below illustrates how to use &lt;em&gt;object literals&lt;/em&gt; in your code. Object literals are also known as JSON &amp;mdash; short for JavaScript Object Notation.&lt;/p&gt;
 
@@ -741,7 +743,7 @@ person[&quot;address&quot;];
 
 &lt;p&gt;JS objects are actually associative arrays---I need to clarify one point, when I write &lt;strong&gt;Array&lt;/strong&gt; (capitalized) I am referring to the JavaScript complex type. When I write &lt;strong&gt;array&lt;/strong&gt; (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of &lt;strong&gt;named&lt;/strong&gt; values, this is the reason you can use the square braces approach to reference a member of a specific object.&lt;/p&gt;
 
-&lt;h2&gt;ARRAYS&lt;/h2&gt;
+&lt;h1&gt;Arrays&lt;/h1&gt;
 
 &lt;p&gt;An Array is also a collection of values. Unlike an object, an Array is a collection of &lt;em&gt;ordered values&lt;/em&gt;, not &lt;em&gt;named values&lt;/em&gt;. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;&lt;/p&gt;
 
@@ -901,7 +903,7 @@ Hello
 
 &lt;hr /&gt;
 
-&lt;h2&gt;BASIC CONCEPTS&lt;/h2&gt;
+&lt;h2&gt;Basic Concepts&lt;/h2&gt;
 
 &lt;p&gt;Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.&lt;/p&gt;
 
@@ -911,7 +913,7 @@ Hello
 
 &lt;p&gt;We will start building our programming competencies in PHP, this is what this chapter is all about.&lt;/p&gt;
 
-&lt;h2&gt;STATEMENTS&lt;/h2&gt;
+&lt;h2&gt;Statements&lt;/h2&gt;
 
 &lt;p&gt;Remember the recipe analogy? First we need to know what kinds of things we can work with. In programming that means data. What kinds of data you can work with. You can work with numbers, both whole and real. You can use strings (words). You can work with boolean values (true or false). There are other things you can also work with but they are bit advanced, these are objects and arrays. We will circle back to these two when you have a bit more programming muscles.&lt;/p&gt;
 
@@ -945,7 +947,7 @@ Hello
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;CO MINGLED WITH HTML&lt;/h2&gt;
+&lt;h2&gt;Co-mingling with html&lt;/h2&gt;
 
 &lt;p&gt;You need to write your PHP statements inside this tag &lt;em&gt;&amp;lt;?php  ?&amp;gt;&lt;/em&gt;. PHP is a server side scripting language, the php tag tells the server that what's inside is not HTML. It contains PHP instructions that needs to be &lt;em&gt;parsed and evaluated&lt;/em&gt;. When these instructions are evaluated, sometimes they produce HTML and other times they don't. Through your practice, you will learn which statements produce HTML and which parts do something else. You don't always need to output something, sometimes you just need to do some stuff that don't necessary need to be seen by the user.&lt;/p&gt;
 
@@ -1058,7 +1060,7 @@ Hello
 
 &lt;p&gt;Unzip the file and put it inside the folder &lt;em&gt;C:\Users\yourname\wamp\www&lt;/em&gt;. This is the directory of our WAMP installation. Technically you can place the unzipped file anywhere and still manage to have the Apache web server find it. That however requires intermediate knowledge of the Apache configuration files &amp;mdash; which I did not assume you have at this point. Hence, it will be best to simply put our expanded &lt;em&gt;wordpress&lt;/em&gt; folder inside the default &lt;em&gt;Document Root&lt;/em&gt; of Apache which is &lt;em&gt;C:\Users\yourname\wamp\www&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h2&gt;DATABASE CREATION&lt;/h2&gt;
+&lt;h2&gt;Creating the Database&lt;/h2&gt;
 
 &lt;p&gt;Check if the WAMP server is still running. You need WAMP to be in the running state to perform the following procedure.&lt;/p&gt;
 
@@ -1256,7 +1258,7 @@ define('DB_COLLATE', '');
 
 &lt;p&gt;HTML is a modern way of marking up documents. It was first thought of by Tim Berners Lee during his stay at CERN. The history of HTML, while an interesting read is simply not part of the scope of this document so I will refer you to the trusty Wikipedia page for &lt;a href=&quot;http://en.wikipedia.org/wiki/HTML&quot;&gt;HTML history&lt;/a&gt; for an extended reading session about the origins and evolution of HTML. For our purpose, I would like to address the technical aspects of it and how it will help us build Wordpress apps.&lt;/p&gt;
 
-&lt;h2&gt;GETTING STARTED&lt;/h2&gt;
+&lt;h2&gt;Getting Started&lt;/h2&gt;
 
 &lt;p&gt;I need you to remember the folder where you installed WAMP. If you followed the instruction during the setup chapter, that folder would be in &lt;em&gt;C:\Users\yourname\wamp&lt;/em&gt;. Go to that folder. You will find another folder called &lt;em&gt;www&lt;/em&gt; inside it. Go to the www folder.&lt;/p&gt;
 
@@ -1282,7 +1284,7 @@ define('DB_COLLATE', '');
 
 &lt;p&gt;Double click first.html. Your browser would have launched. You have just created your first HTML document.&lt;/p&gt;
 
-&lt;h2&gt;STRUCTURE AND COMPOSITION&lt;/h2&gt;
+&lt;h2&gt;Structure and Composition&lt;/h2&gt;
 
 &lt;p&gt;Words inside angle brackets &amp;mdash; &lt;em&gt;&amp;lt; like this &amp;gt;&lt;/em&gt;  &amp;mdash; are instructions. They are part of the HTML language. They have special meaning to the browser. When the browser reads a pair of angle brackets, it will carry out an instruction. So things inside these brackets are what might you might call special words. Although developers refer to them as &lt;em&gt;tags&lt;/em&gt; or &lt;em&gt;elements&lt;/em&gt;. You better get used to calling them that as well.&lt;/p&gt;
 
@@ -1742,35 +1744,27 @@ $ phonegap run android
 
 &lt;p&gt;Now the XCode part is over, move on to the PhoneGap tool chain.&lt;/p&gt;
 
-&lt;h1&gt;PHONEGAP TOOL CHAIN&lt;/h1&gt;
+&lt;h1&gt;Tool Chain&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;Node Package Manager&lt;/strong&gt;. You need the node packager manager to proceed. You can download it at the &lt;a href=&quot;http://nodejs.org&quot;&gt;NodeJS site&lt;/a&gt;. Another way of getting &lt;strong&gt;npm&lt;/strong&gt; is either via &lt;a href=&quot;http://brew.sh&quot;&gt;HomeBrew&lt;/a&gt; or &lt;a href=&quot;http://macports.org&quot;&gt;MacPorts&lt;/a&gt;, I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.&lt;/p&gt;
 
 &lt;p&gt;When you are done with the npm installation, you can get the PhoneGap installers.&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
-
 $ npm install -g phonegap
-
 $ npm install -g cordova
-
 &lt;/pre&gt;
 
 
-&lt;h1&gt;QUICK TEST&lt;/h1&gt;
+&lt;h1&gt;Quick Test&lt;/h1&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
 
 $ mkdir ~/workarea
-
 $ cd ~/workarea
-
 $ phonegap create first
-
 $ cd first
-
 $ phonegap build ios
-
 $ open platforms/ios/first
 
 [phonegap] detecting iOS SDK environment...
@@ -1832,7 +1826,7 @@ $ open platforms/ios/HelloWorld.xcodeproj
 
 &lt;p&gt;&lt;strong&gt;MODIFY THE SYSTEM PATH&lt;/strong&gt;. Include the &lt;em&gt;android tools&lt;/em&gt; and &lt;em&gt;platform tools&lt;/em&gt; in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2&gt;WINDOWS&lt;/h2&gt;
+&lt;h2&gt;Setup for Windows&lt;/h2&gt;
 
 &lt;p&gt;There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).&lt;/p&gt;
 
@@ -1859,7 +1853,7 @@ SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\
 
 &lt;p&gt;Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.&lt;/p&gt;
 
-&lt;h2&gt;OSX&lt;/h2&gt;
+&lt;h2&gt;Setup for OSX&lt;/h2&gt;
 
 &lt;p&gt;Edit &lt;strong&gt;~/.bash_profile&lt;/strong&gt; and export the Android SDK directories&lt;/p&gt;
 
@@ -1881,7 +1875,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:.
 
 &lt;hr /&gt;
 
-&lt;h1&gt;PHONEGAP TOOL CHAIN&lt;/h1&gt;
+&lt;h1&gt;The PhoneGap ToolChain&lt;/h1&gt;
 
 &lt;p&gt;After the Android SDK requirement has been satisfied, we can proceed to installing the actual tools for PhoneGap development.&lt;/p&gt;
 
@@ -1926,7 +1920,7 @@ $ cd platforms
 
 &lt;p&gt;The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that's why SQL programming is almost a baseline capability for developers.&lt;/p&gt;
 
-&lt;h1&gt;WEBSQL&lt;/h1&gt;
+&lt;h1&gt;Websql&lt;/h1&gt;
 
 &lt;p&gt;WebSQL essentially is about issuing SQL commands against a SQLite3 databaseprogramming. If you haven't used SQLite before, it is a lightweight desktop database. It's a desktop database because it does not require a dedicated server side process unlike MySQL, Oracle or MS SQL Server &amp;mdash; those things are called client-server databases.&lt;/p&gt;
 
@@ -1944,7 +1938,7 @@ $ cd platforms
 
 &lt;p&gt;In the next sections, we will cover the syntax for these boiler plate codes and demonstrate their usage. Towards the end of the chapter, we will use the WebSQL API for a simple TODO list app.&lt;/p&gt;
 
-&lt;h1&gt;CREATE AND OPEN A DATABASE&lt;/h1&gt;
+&lt;h1&gt;Create and Open a Database&lt;/h1&gt;
 
 &lt;p&gt;We will start with some basic codes that demonstrates how to create a database. We will also take a look at some ways on how we can test and debug our database codes without running the device emulator.&lt;/p&gt;
 
@@ -2032,7 +2026,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 
 &lt;p&gt;You can try to refresh the page or run the JavaScript code over and over, but it won't create another &lt;em&gt;tasks&lt;/em&gt; database &amp;mdash; if that was you were expecting. The &lt;code&gt;openDatabase&lt;/code&gt; command only creates a database file (&lt;em&gt;tasks.db&lt;/em&gt;, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The &lt;code&gt;openDatabase()&lt;/code&gt; function is used both to create a not yet existing database file and to open an existing one.&lt;/p&gt;
 
-&lt;h1&gt;CREATING TABLES&lt;/h1&gt;
+&lt;h1&gt;Creating Tables&lt;/h1&gt;
 
 &lt;p&gt;After creating a database, you need to create some tables inside it. The tables are the actual data structures that holds structured information. In this section, we will simply create a single table named TODO. This table will hold our todo items.&lt;/p&gt;
 
@@ -2077,17 +2071,6 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 &lt;p&gt;The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an &lt;em&gt;error&lt;/em&gt; object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.&lt;/p&gt;
 
 &lt;p&gt;The third parameter is called back after all the SQL commands have been executed and no errors have been encountered.&lt;/p&gt;
-
-&lt;h1&gt;EXECUTING SQL COMMANDS&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;create, read, update, delete&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h1&gt;DEBUGGING AND TROUBLESHOOTING&lt;/h1&gt;
-
-&lt;h1&gt;FULL EXAMPLE&lt;/h1&gt;
 </content>
  </entry>
  
@@ -10840,7 +10823,7 @@ ant debug install
    <id>http://thelogbox.com/android-testing-a-project</id>
    <content type="html">&lt;p&gt;By testing the android project, I mean running it. There is another concept testing which is &lt;strong&gt;unit testing with JUnit&lt;/strong&gt;, that is not what I mean and that is not what we are going to do right now---we will tackle that much later. The test we will do actually involves deploying the project either in an AVD (Android Virtual Device) or a physical android device, so we can see it run. You need one or the other in order to run our android app.&lt;/p&gt;
 
-&lt;h1&gt;ANDROID VIRTUAL DEVICE (AVD)&lt;/h1&gt;
+&lt;h1&gt;Android Virtual Device (avd)&lt;/h1&gt;
 
 &lt;p&gt;The emulator needs to be configured. It is not configured for you when you installed the SDK. The reason for this is because there are various android API levels (Froyo is 2.2, Gingerbread is 2.3.3 etc). You will need to specify which API level an emulator is supposed to, well---emulate. You can create as many AVDs as you need, probably one for Froyo, one for Gingerbread, another one for Honeycomb so on and so forth.&lt;/p&gt;
 
@@ -11043,35 +11026,20 @@ This content has moved. If you click the button link below, it will take you to 
    <link href="http://thelogbox.com/blog-studying-and-practicing-android"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-studying-and-practicing-android</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;PICK UP A BOOK&lt;/strong&gt;. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the &lt;a href=&quot;http://localhost:4000/blog-choosing-books-for-android&quot;&gt;BIBLIOGRAPHY&lt;/a&gt; section of this mini site. There are some ideas there that can get you started in choosing reference materials&lt;/p&gt;
+   <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Pick up a book&lt;/em&gt;. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the &lt;a href=&quot;http://localhost:4000/blog-choosing-books-for-android&quot;&gt;BIBLIOGRAPHY&lt;/a&gt; section of this mini site. There are some ideas there that can get you started in choosing reference materials&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Take notes&lt;/em&gt; for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor &lt;strong&gt;retention&lt;/strong&gt; over speed of coverage. Don't skim the headlines&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Flash Cards&lt;/em&gt;.  This is old fashioned, but they work.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Get your feet wet&lt;/em&gt;. Set up your development environment. Start simple, try to understand the &lt;em&gt;Hello World&lt;/em&gt; example (I think every beginner book has this example). Understand the &lt;em&gt;Hello World&lt;/em&gt; sample, &lt;em&gt;really understand it.&lt;/em&gt; Discover for yourself how can &lt;strong&gt;main.xml&lt;/strong&gt; (the default layout when you create an android project) get exploded into &lt;strong&gt;R.java&lt;/strong&gt;. Why do you need to set the &lt;em&gt;contentView()&lt;/em&gt; to R.layout.main? What does a &lt;em&gt;View&lt;/em&gt; and &lt;em&gt;ViewGroup&lt;/em&gt; mean? Don't follow the examples blindly, ask the tough questions and look for the answers.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Join a group&lt;/em&gt;. At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt; to get you started.If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Attend some classes&lt;/em&gt;. Join some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Block some time&lt;/em&gt; regularly so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular. It might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away. Organize your study and reading materials ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering. Make a journal out of them. This is where your notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Get a second book&lt;/em&gt;. Maybe even a third book on android. Start being a textbook expert. Your field expertise will follow when you become a serial developer of mobile apps&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Read other books&lt;/em&gt; not necessarily about android, &lt;a href=&quot;http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=020161622X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; is good place to start. You will soon run into questions like &lt;em&gt;What editor should I use?&lt;/em&gt; and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up &lt;a href=&quot;http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=097451408X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=097451408X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;, there are lots of gems on this book&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Work on your own pet project&lt;/em&gt;. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like &lt;strong&gt;countdown-to-something, anything&lt;/strong&gt;, &lt;strong&gt;another note-taker&lt;/strong&gt;, &lt;strong&gt;yet another todo list&lt;/strong&gt;. These applications have been so beaten down already. You may not be able to make money selling your todo apps, but the purpose is not to sell, just to build so you can get started on practice&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ten Thousand hours&lt;/em&gt;. Borrowing a reference from Malcolm Gladwell,  it takes 10k hours to gain expertise. I don't know if you have that kind of patience, for android programming at least. But try to clock some time immersing yourself in Android Programming. The more you do a thing, the better you get at it. There is no magic formula. You just have to do it lots of times. If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the &lt;em&gt;programmer-for-hire&lt;/em&gt; route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;START TAKING NOTES&lt;/strong&gt; for your android learning. Get notebook, I don't mean a computer. Get a real notebook, with paper on them. I like this approach because there is something about the tactile feel of note taking that helps me retain the knowledge. You will need this notebook when jotting down unfamiliar terms, or maybe even writing your first android application by hand. Note taking forces your brain to work harder, and hopefully remember the steps (and concepts, more importantly). Intellisense and autocomplete are swell, but I would rather that you do it the hard way first, while you are still learning this new technology. Favor &lt;strong&gt;retention&lt;/strong&gt; over speed of coverage. Don't skim the headlines&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;FLASH CARDS&lt;/strong&gt;.  This is old fashioned, but they work.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;GET YOUR FEET WET, QUICKLY&lt;/strong&gt;. Set up your development environment. Start simple, try to understand the &lt;em&gt;Hello World&lt;/em&gt; example (I think every beginner book has this example).&lt;/p&gt;
-
-&lt;p&gt;Understand the &lt;em&gt;Hello World&lt;/em&gt; sample, &lt;em&gt;really understand it.&lt;/em&gt; Discover for yourself how can &lt;strong&gt;main.xml&lt;/strong&gt; (the default layout when you create an android project) get exploded into &lt;strong&gt;R.java&lt;/strong&gt;. Why do you need to set the &lt;em&gt;contentView()&lt;/em&gt; to R.layout.main? What does a &lt;em&gt;View&lt;/em&gt; and &lt;em&gt;ViewGroup&lt;/em&gt; mean? Don't follow the examples blindly, ask the tough questions and look for the answers.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;JOIN A GROUP&lt;/strong&gt;. At this point, some frustration and feeling of helplessness might set in. It is a good idea to build a support structure. Join some local user groups or on-line groups. By this time, you are not coming in cold, you have gone through some parts of the book, you tried out a couple of coding exercises---you can add some value to the discussions, not just noise and cry for help, don't be shy, go on ahead. Go to &lt;a href=&quot;http://www.stackoverflow.com&quot;&gt;StackOverflow&lt;/a&gt; to get you started.&lt;/p&gt;
-
-&lt;p&gt;If you are already working in software consulting environment, try asking your officemates if anyone knows android, pick their brains out. When they start resisting, try to bribe them with doughnuts---kidding of course, but not about the doughnuts, that bribe really does work&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ATTEND SOME CLASSES&lt;/strong&gt;. Join some local workshops or training classes if your budget will allow it. This is probably the fastest way to kickstart your learning because the instructor would have taken pains to arrange the learning materials in a coherent and intelligible way&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;BLOCK TIME&lt;/strong&gt; regularly so you can investigate the concepts that are not so clear to you. This block of time does not have to be long, but it needs to be rigidly regular. It might not hurt to read about the Pomodoro technique and some books on how to improve your focus, you will need it. When you study, try to avoid the temptation of coding straight away.&lt;/p&gt;
-
-&lt;p&gt;Organize your study and reading materials ahead of time. Do some reading first, take notes of the vocabulary and concepts that you are encountering. Make a journal out of them. This is where your notebook comes in handy. If you really insist on going green and not use paper, electronic note taking is good too, but the point is, take note of the new things you are encountering everyday&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;GET A SECOND BOOK&lt;/strong&gt;. Maybe even a third book on android. Start being a textbook expert. Your field expertise will follow when you become a serial developer of mobile apps&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;READ OTHER BOOKS&lt;/strong&gt; not necessarily about android, &lt;a href=&quot;http://www.amazon.com/gp/product/020161622X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=020161622X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=020161622X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; is good place to start. You will soon run into questions like &lt;em&gt;What editor should I use?&lt;/em&gt; and other similar non-sensical questions, the book should offer some insights why this question is not important, then you can stop wasting time and start growing in the direction of skill. While you are at it, pick up &lt;a href=&quot;http://www.amazon.com/gp/product/097451408X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=097451408X&amp;linkCode=as2&amp;tag=thelogboxcom-20&quot;&gt;Practices of an Agile Developer: Working in the Real World (Pragmatic Bookshelf)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;l=as2&amp;o=1&amp;a=097451408X&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;, there are lots of gems on this book&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;WORK ON YOUR OWN PET PROJECT&lt;/strong&gt;. This will force you employ some other skills beside coding. It is hard to think of what application to work on, especially when you are the developer. Just try to remember what were the things you really wanted as an app before, you can start with those. If you really come up dry, try to do even the beaten-to-death applications like &lt;strong&gt;countdown-to-something, anything&lt;/strong&gt;, &lt;strong&gt;another note-taker&lt;/strong&gt;, &lt;strong&gt;yet another todo list&lt;/strong&gt;. These applications have been so beaten down already. You may not be able to make money selling your todo apps, but the purpose is not to sell, just to build so you can get started on practice&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;10,000 HOURS&lt;/strong&gt;. Borrowing a reference from Malcolm Gladwell,  it takes 10k hours to gain expertise. I don't know if you have that kind of patience, for android programming at least. But try to clock some time immersing yourself in Android Programming. The more you do a thing, the better you get at it. There is no magic formula. You just have to do it lots of times&lt;/p&gt;
-
-&lt;p&gt;If you work for a software development company, try to ask your manager if you can participate on an android project. You can also try the &lt;em&gt;programmer-for-hire&lt;/em&gt; route, I'm sure there are plenty android related work in craiglist, odesk or vworker. If that still does not suit you, you can try working on your own android projects and publish them on GooglePlay&lt;/p&gt;
 </content>
  </entry>
  
@@ -11811,7 +11779,7 @@ class MyClass{}&lt;/p&gt;
    <id>http://thelogbox.com/android-background-information</id>
    <content type="html">&lt;p&gt;This section is probably the least interesting of all. I would guess that only programming instructors will leaf through these pages so we will keep it short. The section however, contains a bit more than history. It also discusses some foundational tech structure of Android, in that regard, I still suggest to read through it so that you can appreciate some architectural information about the platform.&lt;/p&gt;
 
-&lt;h1&gt;SHORT HISTORY&lt;/h1&gt;
+&lt;h1&gt;Short History&lt;/h1&gt;
 
 &lt;p&gt;Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.&lt;/p&gt;
 
@@ -11835,7 +11803,7 @@ class MyClass{}&lt;/p&gt;
 
 &lt;p&gt;An article about Andy Rubin and Android, titled &lt;a href=&quot;http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html&quot;&gt;Android Invasion&lt;/a&gt; appeared on a NewsWeek article sometime in 2010.&lt;/p&gt;
 
-&lt;h1&gt;TECHNOLOGY STACK&lt;/h1&gt;
+&lt;h1&gt;Technology Stack&lt;/h1&gt;
 
 &lt;p&gt;The Android is made up of a slew of tech but the most visible ones are &lt;em&gt;Linux&lt;/em&gt; and &lt;em&gt;Java&lt;/em&gt;. It is a complete operating system and it provides a container that can support rich applications.&lt;/p&gt;
 
@@ -11982,7 +11950,7 @@ $ sudo brew install lame
 &lt;/ol&gt;
 
 
-&lt;h1&gt;STEPS&lt;/h1&gt;
+&lt;h1&gt;Steps&lt;/h1&gt;
 
 &lt;p&gt;Get gnokii-smsd and mysql-server from the Debian repositories.&lt;/p&gt;
 
@@ -12002,7 +11970,7 @@ $ sudo apt-get install gnokii-smsd-mysql
 
 &lt;p&gt;Set &lt;code class=&quot;codeblock&quot;&gt;port = /dev/tty0&lt;/code&gt; (substitute your actual device name to tth0). Set &lt;code class=&quot;codeblock&quot;&gt;model = AT&lt;/code&gt;, the default is &lt;em&gt;6510&lt;/em&gt; which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.&lt;/p&gt;
 
-&lt;h2&gt;EXTRA NOTES&lt;/h2&gt;
+&lt;h2&gt;Extra notes&lt;/h2&gt;
 
 &lt;p&gt;On some Debian variant like &lt;em&gt;CrunchBang&lt;/em&gt;, the config file was not found at &lt;em&gt;~/.config&lt;/em&gt; folder, it does not exist at all. There was a config file though at &lt;em&gt;/etc/xdg/gnokii/config&lt;/em&gt;. If this is your case, you can simply create the configuration file and directory manually&lt;/p&gt;
 
@@ -12019,11 +11987,11 @@ $ cp /etc/xdg/gnokii/config config
 
 &lt;p&gt;Then make the edits on PORT and model just the same.&lt;/p&gt;
 
-&lt;h2&gt;TESTING&lt;/h2&gt;
+&lt;h2&gt;Testing&lt;/h2&gt;
 
 &lt;p&gt;To test if everything is in order, you can run &lt;code class=&quot;codeblock&quot;&gt;sudo gnokii --identify&lt;/code&gt;. This should give you some diagnostics and some quick peek if something is wrong with the configuration file&lt;/p&gt;
 
-&lt;h2&gt;PREPARE THE DATABASE BACKEND&lt;/h2&gt;
+&lt;h2&gt;Prepare the database backend&lt;/h2&gt;
 
 &lt;p&gt;I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install &lt;em&gt;gnokii-smsd-pgsql&lt;/em&gt; instead of &lt;em&gt;gnokii-smsd-mysql&lt;/em&gt;.&lt;/p&gt;
 
@@ -12041,7 +12009,7 @@ $ mysql&gt;\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 
 &lt;p&gt;Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find.&lt;/p&gt;
 
-&lt;h2&gt;TEST THE SMS GATEWAY&lt;/h2&gt;
+&lt;h2&gt;Test the SMS gateway&lt;/h2&gt;
 
 &lt;p&gt;Run gnokii-sms as a daemon process &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;sudo smsd -u root -p &lt;MySQL Password&gt; -d smsgw -c localhost -m mysql&lt;/code&gt;&lt;/p&gt;
 
@@ -12994,7 +12962,7 @@ while(condition) {
  </entry>
  
  <entry>
-   <title>Virtual Device (AVD)</title>
+   <title>Virtual Device (avd)</title>
    <link href="http://thelogbox.com/android-virtual-device"/>
    <updated>2011-08-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-virtual-device</id>
@@ -13002,7 +12970,7 @@ while(condition) {
 
 &lt;p&gt;The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won't be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don't really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is &lt;strong&gt;speed&lt;/strong&gt;. The AVD is notoriously slow, it will slow down your development.&lt;/p&gt;
 
-&lt;h1&gt;CONFIGURATION&lt;/h1&gt;
+&lt;h1&gt;Configuration&lt;/h1&gt;
 
 &lt;p&gt;The AVD can be configured from the Android SDK manager, so you will need to launch the SDK Manager first.&lt;/p&gt;
 
@@ -13071,7 +13039,7 @@ while(condition) {
 
 &lt;p&gt;The Hello World in Android is way more involved than simply creating a basic class, defining a static main() and invoking the out.println(). It is way more involved than that. You will need to create an &lt;em&gt;Activity&lt;/em&gt; object, override its &lt;em&gt;onCreate()&lt;/em&gt; method, invoke the &lt;em&gt;ant&lt;/em&gt; build tool, define an AVD (Android Virtual Device) and install the &lt;em&gt;.apk&lt;/em&gt; (Android Package) either into the AVD or a physical Android Device. That's how messy the &lt;strong&gt;Hello World&lt;/strong&gt; program is in Android. Be mindful that you are not writing desktop programs, you are writing mobile applications. You maybe familiar with the language &amp;mdash; Java &amp;mdash; but the tools and programming workflow are different.&lt;/p&gt;
 
-&lt;h1&gt;HELLO WORLD&lt;/h1&gt;
+&lt;h1&gt;The Hello World project&lt;/h1&gt;
 
 &lt;p&gt;We need to create a project. An Android project is a collection of files which are structured and nested in a very specific way so that the build tools can work with them properly. This is the reason why it is not advisable to build the structure by hand, manually. Use the SDK tools.&lt;/p&gt;
 
@@ -13095,7 +13063,7 @@ android create project --target 8 path first --activity First --package com.thel
 &lt;div id='lst'&gt;Folder Structure of an Android project&lt;/div&gt;
 
 
-&lt;h1&gt;THE CREATE PROJECT COMMAND&lt;/h1&gt;
+&lt;h1&gt;How to create a project&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;--target&lt;/strong&gt; expects an integer value. This value stands for a unique API level for a specific android version. In our example above, level 8 was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb, ICS and Jekllybean will have a different ones as well.&lt;/p&gt;
 
@@ -13109,7 +13077,7 @@ If you want to see all the possible targets, you can type &lt;code class=&quot;c
 
 &lt;p&gt;&lt;strong&gt;--package&lt;/strong&gt; an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)&lt;/p&gt;
 
-&lt;h1&gt;TEST AND RUN&lt;/h1&gt;
+&lt;h1&gt;How to test and run&lt;/h1&gt;
 
 &lt;p&gt;On the command terminal, make sure you are at root directory of the project, run the command &lt;code class=&quot;codeblock&quot;&gt;ant debug install&lt;/code&gt;. That should compile, build then install the empty project we just created.&lt;/p&gt;
 

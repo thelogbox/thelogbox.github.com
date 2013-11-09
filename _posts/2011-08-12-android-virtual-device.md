@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Virtual Device (AVD)
+title: Virtual Device (avd)
 
 description: Simple steps to setup an Android emulator for development
 
@@ -19,7 +19,7 @@ You will need a runtime environment to complete your development setup. The SDK 
 
 The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won't be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don't really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is **speed**. The AVD is notoriously slow, it will slow down your development.
 
-# CONFIGURATION
+# Configuration
 
 The AVD can be configured from the Android SDK manager, so you will need to launch the SDK Manager first.
 

@@ -18,6 +18,10 @@
 
 <meta charset="utf-8">
 
+<link 
+
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
+
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
@@ -42,18 +46,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <style>
 
-#sharebuttons { float: right; line-height: inherit; margin-right: 2em; padding-top: 5px; background: #F0F0F0;}
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px; background: #F8F8F7;}
 
 * {
-  background: #fbfbfb;
+  /* background: #fbfbfb; */
+  background : #FFFFF0;
 }
 
 p, li, .content-meta, body, p, br {
-	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+
+	font-family: 'Libre Baskerville','Georgia', serif; 
 	font-size: 16px;
 	line-height: 1.7em;
   /* color: #414141; */
-  color: #323232;
+  color: #1e1e1e;
 }
 
 ol, ul { padding-left:20px; line-height:1.8em;}
@@ -63,7 +69,7 @@ li {margin-bottom: 10px;}
   font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 auto;
   color: #555555;
   background: inherit;
@@ -78,7 +84,9 @@ li {margin-bottom: 10px;}
   text-align: center;
   color: #555555;
   position:relative;
-  background: #F0F0F0;
+  /* background: #F0F0F0;
+  background: #F0F0FF; */
+  background: #F8F8F7;
 }
 .running-head a:link, .running-head a:visited {background: inherit;}
 
@@ -102,14 +110,16 @@ li {margin-bottom: 10px;}
 }
 
 #articletitle {
-	font-family: 'Rokkitt','Libre Baskerville', 'Helvetica', 'Arial', sans-serif;
-	font-size: 42px;
+	font-family: 'Libre Baskerville','Georgia', serif; 
+	font-size: 35px;
 	font-weight: normal;
   text-align: left;
-  line-height: 1em;
-  color: #0f0f0f;
+  line-height: 1.4em;
+  color: #292929;
+  letter-spacing: -1.5px;
   margin-top: 0px;
   padding-top: 0px;
+  text-align:center;
 }
 
 .content-meta {
@@ -145,15 +155,19 @@ li {margin-bottom: 10px;}
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
 	color: #0F0F0F;
-  font-weight:normal;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-h1 {font-size: 20px; letter-spacing: -1px;}
-h2 {font-size: 18px; } 
-h3 {font-size: 16px; }
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {font-size: 22px; } 
+h3 {font-size: 18px; }
 
 #feature {
   min-height: 400px;
@@ -175,7 +189,7 @@ h3 {font-size: 16px; }
 }
 
 .feature-article {
-  font-family: 'Libre Baskerville','Helvetica','Tahoma';
+  font-family: 'Libre Baskerville','Georgia', serif; 
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -210,14 +224,10 @@ h3 {font-size: 16px; }
   margin-top: 50px;
 }
 
-body {
-    
-  font-family: 'Libre Baskerville','Arial';
-    
+body {   
   margin:0;
   padding:0;
   border:0;
-  
 }
 
 article {
@@ -269,11 +279,11 @@ code {
 
 pre {
 	font-family: 'Lekton';
-	font-size: 15px;
+	font-size: 14px;
 	padding: 1em;
 
-  line-height: 1.3em;
-  background: #FBFCF9; 
+  line-height: 1.2em;
+/*  background: #FBFCF9; */
   /*
   border: 3px solid #F0F2E7;
   */
@@ -285,7 +295,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -294,18 +304,19 @@ pre {
 }
 
   pre.codeblock {
-    padding: 1em;
-    background: #e8ebef;
+    padding: .7em;
+    /*background: #e8ebef;*/
+    background: #F0F0FF; 
     color: #000000;
-    line-height:130%;
+    line-height:120%;
 }
 
 #lst {
-	font-family: 'Rokkitt';
-  color: #000000;
+  color: #B30000;
 	font-style:normal;
-	font-size: 19px;
+	font-size: 15px;
 	margin-top:0px;
+  margin-bottom: 15px;
 	padding-top:0px;
 	padding-bottom:10px;
   text-align:center;
@@ -318,12 +329,13 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:12px;
+  font-family: 'Titillium Web'; font-size:14px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  text-align:center;
 }
 
 footer a:link, footer a:visited {
@@ -363,8 +375,9 @@ img {
   }
 
 aside {
-  
   padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   border: 2px solid #CACACA;
   
 }
@@ -510,12 +523,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		November 06, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-document-history">
     11.06.13
     document history
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	
 2012-07-07. Document was started. Used as learning material for RD Batch 1.
@@ -535,14 +548,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-program-flow">
     11.05.13
     Program Flow
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
-	You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration). BRANCHING if-else statement is way to branch. When...
+	You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration). A program starts with the very first statement...
 
 
 	   
@@ -553,12 +566,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-objects-functions">
     11.05.13
     Objects and Functions
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	Objects are easy to create, construct and modify in JS. Adding a property to an object takes nothing more than declarating the name of the property (attached to the object using the dot notation), then simply assigning a value to to it. Just don't forget that objects in JS are...
 
@@ -571,12 +584,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-objects">
     11.05.13
     Objects
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	A few things we need to remember (or know for the first time) about objects. Objects in JS are reference types, they are not value types, you can declare as many reference variables pointing to the exact same object //filename: multiref.js var obj1 = { name: &quot;firstobject&quot; } var obj2...
 
@@ -589,12 +602,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-keywords">
     11.05.13
     Reserved Words
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words. The JavaScript reserved words. Here they are;
 
@@ -613,12 +626,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-inheritance">
     11.05.13
     Inheritance
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	You can use JavaScript pretty much in a procedural way. What I mean by that is, without using coarse grained abstractions for interesting objects of your problem domain. But as soon as you find yourself coding way past 300 lines of code (give or take a 100 lines), you might...
 
@@ -631,14 +644,14 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-functions">
     11.05.13
     Functions
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
-	A JS function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. /* File name: hello.js The hello world program in JavaScript */ foo(); function foo() { var s = &quot;Hello World\n&quot;; console.log(s); } If you installed node.js...
+	A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. /* File name: hello.js The hello world program in JavaScript */ foo(); function foo() { var s = &quot;Hello World\n&quot;; console.log(s); } If you installed node.js...
 
 
 	   
@@ -649,12 +662,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-data-types">
     11.05.13
     Typing
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	Programmers create things (data). We manipulate them by adding, substract- ing, dividing or multiplying. Sometimes we mash them up together (concatenation). Then we create more things. Sometimes, we store these things for later use, and other times we don’t, we simply discard them. Sometimes we dig up things that we...
 
@@ -667,12 +680,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-complex-types">
     11.05.13
     Complex Types
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	JavaScript has some containers (stuff that can contain other stuff, that can contain other stuff … ). We will take a look at two of them right now &mdash; Arrays and Objects. These are not simple types like Numbers or Strings or Boolean. Instead of representing single values, Objects and...
 
@@ -685,12 +698,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-code-structure">
     11.05.13
     Code Structure
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	JavaScript codes may either be embedded in HTML documents or referenced from it. When they are referenced from an HTML file, they are known as external JS files. External JS files lives in a source file, they usually have an extension of .js There are a couple of things that...
 
@@ -703,12 +716,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 05, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-anonymous-functions">
     11.05.13
     Anonymous Functions
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	We have already taken a look at functions earlier. At first glance, functions in Javascript does not seem too special. Like in any other language, we used it to contain a bunch of statements and gave it a name. This name, when we call them at a later time, will...
 
@@ -721,12 +734,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 04, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-php">
     11.04.13
     Introduction to PHP
   </a>
-</h3>
+</h2>
   <em>[WordPress]</em>
 	To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the DOCUMENT ROOT of Apache. In HTML introduction chapter, we have already created a folder on the document root C:\Users\yourname\wamp\www\practice We will still use this folder...
 
@@ -739,12 +752,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 04, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-installation">
     11.04.13
     Installation and Configuration
   </a>
-</h3>
+</h2>
   <em>[WordPress]</em>
 	Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance. The process involves downloading the installer from the WordPress website, expanding a zip file, editing a configuration file and creating a database. It may seem...
 
@@ -757,12 +770,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 04, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-core-environment-setup">
     11.04.13
     Environment Setup
   </a>
-</h3>
+</h2>
   <em>[Javascript]</em>
 	If you are reading this post, you already have the minimum tools you need to start coding in JavaScript. You just need a modern browser, a text editor and a good internet connection. Meeting the minimum requirement does not mean it's ideal for development. I really don't like prescribing tools...
 
@@ -775,12 +788,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 03, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-tools">
     11.03.13
     Tools for Development
   </a>
-</h3>
+</h2>
   <em>[WordPress]</em>
 	Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text editor for that matter and a good internet connection. Some tools are better than others but tooling is a highly...
 
@@ -793,12 +806,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 03, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-theoretical-minimum">
     11.03.13
     Theoretical Minimum
   </a>
-</h3>
+</h2>
   <em>[Wordpress]</em>
 	WordPress is built using a collection of technologies and languages. To build an application using this platform, you need a modicum of skill on HTML, PHP, CSS, JavaScript and SQL HTML. Most of the things a CMS needs to do are already taken cared of by the WordPress core files....
 
@@ -811,12 +824,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 03, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-setup">
     11.03.13
     Setup
   </a>
-</h3>
+</h2>
   <em>[WordPress]</em>
 	WordPress needs a web server capable of running PHP and a MySQL database. The more popular choice for the web server is Apache, although many others will suffice just as well. For our purpose we will use Apache. MySQL, PHP and Apache are open source software (OSS). They are widely...
 
@@ -829,12 +842,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		November 03, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wordpress-html">
     11.03.13
     Introduction to HTML
   </a>
-</h3>
+</h2>
   <em>[WordPress]</em>
 	I'm hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it &mdash; at least what it looks like and what it is used for. That will spare us the dry details of description. While we can dodge the academic description...
 
@@ -847,12 +860,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 31, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/linux-download-accelerator-cli">
     10.31.13
     Download Accelerator
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	Axel is a CLI download accelerator. It's available on Linux repos. I am using Debian that's why the package manager is aptitude. Just use your own package manager and look for axel. $ sudo apt-get install axel $ axel -n 10 http://wordpress.org/latest.zip -n 10 means you want to use 10...
 
@@ -865,12 +878,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 25, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-training">
     10.25.13
     HTML5 Canvas Programming
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	The training covers the new structural elements of HTML5, WebWorkers, WebSockets, GEOLocation etc, but the main thrust of this training will be on Canvas and SVG Programming. This is the part of HTML5 that a lot of people are referring to as the flash killer. When you see a job...
 
@@ -883,12 +896,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 24, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-introduction">
     10.24.13
     Introduction
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	These are my notes on the Java Programming Language. These notes used to be hosted at tedhagos.com/java-programming, it was written on a single HTML page. Now, these notes are getting a rewrite. Most probably in tutorial form. There is a navigation bar on the side, please use it as you...
 
@@ -901,12 +914,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 24, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-coding-process">
     10.24.13
     Coding Process
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	Java source files are unicode text files. They have a .java extension on their file names.
 
@@ -920,12 +933,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/phonegap-network-connectivity">
     10.20.13
     Network Connectivity
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not &mdash; there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected...
 
@@ -938,12 +951,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/phonegap-getting-started">
     10.20.13
     Getting Started
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	PhoneGap development starts with preparing a project folder. Inside this folder, you will find files and sub folders. This project structure is a collection of specific files that PhoneGap needs to do its work. Inside it are build files, library files, the Apache Cordova middle ware and typical web components/files...
 
@@ -956,12 +969,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/phonegap-development-environment-ios">
     10.20.13
     iOS Setup
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	You need a Mac. The Apple&reg; tools needed to build iOS applications runs only on Apple&reg; hardware, lest you violate their TOS. Specifically, to build iOS apps using PhoneGap 3.0, you need an Intel based Mac and at least OSX 10.7 (Lion). The second thing you need is XCode&reg;, at...
 
@@ -974,12 +987,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/phonegap-development-environment-android">
     10.20.13
     Android Setup
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant. I'm assuming further that these tools are...
 
@@ -992,12 +1005,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/phonegap-database-programming">
     10.20.13
     Database Programming
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	There are two ways to persist data on PhoneGap. One is to use local storage and the other, WebSQL. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value. The other way...
 
@@ -1010,12 +1023,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 20, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-how-much-java-do-you-need">
     10.20.13
     Theoretical Minimum
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	A list of things you need get a handle on before diving into Android programming. Inheritance. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that...
 
@@ -1028,12 +1041,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		October 18, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-database-programming">
     10.18.13
     Database Programming with WebSQL
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	There are two ways to persist data on HTML5. One is to use local storage and the other, WebSQL. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value. The other way...
 
@@ -1046,12 +1059,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		July 22, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-studio">
     07.22.13
     Using Android Studio
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	We will use the Android Studio for these examples. Android Studio is an IDE specifically designed for Android Development. It does the things that Eclipse + ADT does. It basically combined all the tools you use when working on an Android app. It is based on IntelliJ, so you know...
 
@@ -1064,12 +1077,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		March 24, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-objects-with-different-speeds">
     03.24.13
     Objects with Different Speeds
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	Most of the time, you will deal with more than one moving object inside the canvas, they might need to move at different speedss. You could be tempted to set a different timer (setTimeout) for each box, that will be a mistake. You will mess up the timer of your...
 
@@ -1082,12 +1095,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		March 24, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-managing-complexity">
     03.24.13
     Managing Complexity
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	When you start working with non-trivial Canvas applications, you will need to deal with multiple objects, having multiple shapes moving at different speeds and having different locations in the canvas. If you try to manage them all procedurally, you will soon run into the problem of very confusing and hard...
 
@@ -1100,12 +1113,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		March 24, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-handling-clicks">
     03.24.13
     Handling Clicks
   </a>
-</h3>
+</h2>
   <em>[html5]</em>
 	To capture click events on the canvas, you will need to attach an event handler on the canvas itself, not the context. Since the canvas element is just like any other DOM element, attaching a click event to it is very straightforward. It can be done in any number of...
 
@@ -1118,12 +1131,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		March 23, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-collission-detection-canvas">
     03.23.13
     Handling Collissions
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	Collission detection inside the canvas needs to be managed by you. Everytime you update the location of any object, you will need to provide the programming logic to check if any of your canvas objects is colliding with any other object or if it is colliding with the bounds of...
 
@@ -1136,12 +1149,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 28, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-moving-straight-line">
     01.28.13
     Linear Movement
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	The canvas is a basic drawing surface. Making things move in a canvas is very similar in process to flip-book or flick-book animation. The three things you will neeed to do in order to animate things are; Update the location of the objects Erase the canvas Redraw the object To...
 
@@ -1154,12 +1167,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 28, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-move-circular-path">
     01.28.13
     Animation, Circular Movement
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	This should be the clock example.
 
@@ -1173,12 +1186,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 28, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-basics">
     01.28.13
     Canvas Basics
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	The canvas is a 2D drawing surface. If you ever used Microsoft Paint before, then you have an idea of what it is. It basically exposes the capability to draw into a surface using pixels &mdash; it is bitmapped. The idea is to draw a pixel at a specific location...
 
@@ -1191,12 +1204,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 28, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-acceleration">
     01.28.13
     Acceleration
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	Making objects fall inside the canvas is pretty straightforward. You simply need to move the object along the y-axis of the canvas. Each time you redraw the frame, incrase the y position of the object. To make the fall a bit more realistic, you need to add some acceleration. Speed...
 
@@ -1209,12 +1222,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 27, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-what-you-will-need">
     01.27.13
     Tools and Requisite Knowledge
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	Working with HTML5 does not require much. You can get by with the tools you probably already have &mdash; an HTML5 compliant browser, a programmer's editor or any text editor for that matter and a good internet connection. Some tools are better than others but tooling is a highly debatable...
 
@@ -1227,12 +1240,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 27, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-markup-basics">
     01.27.13
     Markup Basics
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	A markup is something that you add to plain text to alter its presentation, either on print or on screen. For the older audience, you probably could remember WordStar &mdash; when you use CTRL-B to give instruction to the printer to render it in bold face, that was a markup...
 
@@ -1245,12 +1258,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 25, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/mobile-app-development-phonegap">
     01.25.13
     Introduction
   </a>
-</h3>
+</h2>
   <em>[PhoneGap]</em>
 	These notes were lifted from lesson plans. They have undergone quite a few changes chiefly because of the changes from PhoneGap 2.0 to 3.0. My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical...
 
@@ -1263,12 +1276,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 21, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/developing-with-netbeans">
     01.21.13
     Netbeans development environment
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Environment setup Make sure you have already installed the ANDROID SDK and that you have properly configured the PATHs to tools and platform-tools. Make sure also that you have properly installed and configured Apache ANT. Download Netbeans from netbeans.org, install it. The installation is straightforward, just follow the prompts. Install...
 
@@ -1281,12 +1294,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 18, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-event-handling-overview">
     01.18.13
     Event Handling
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	User Interfaces usually contains views e.g. Buttons that users may activate. When these views are triggered, you will need a way to react to this event. This programming skill is called event handling. There are two ways to handle events in Android. You can do it from within the XML...
 
@@ -1299,12 +1312,12 @@ These Flash Cards are on Quizlet.com. You can use it as a study resource
 		January 02, 2013
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/tutorials">
     01.02.13
     TUTORIALS
   </a>
-</h3>
+</h2>
   <em>[Notice]</em>
 	We're reconstituting these pages. It won't be long now. Sorry for the mess. In the meantime, here are the links for the tutorials
 
@@ -1325,12 +1338,12 @@ JAVASCRIPT
 		December 16, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-check-connectivity">
     12.16.12
     Check for Network Connectivity
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Finding out the state of connectivity of an Android device is a fundamental technique. You need to know which type of connectivity the device has before you perform any activity that requires data transfer. You may encounter situations where you want to send data e.g. picture files, maps or any...
 
@@ -1343,12 +1356,12 @@ JAVASCRIPT
 		December 12, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-location-api">
     12.12.12
     Location API
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	GEOLocation is a major fuctionality of a mobile device. There are plenty of practical uses for this nifty feature, apart from stamping where you were when you took that photo. This feature makes it possible to know where you are during those situations when you are lost. A powerful enough...
 
@@ -1361,12 +1374,12 @@ JAVASCRIPT
 		December 11, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/developing-with-eclipse">
     12.11.12
     Setting Up an Eclipse Development Environment
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Make sure you have already installed the ANDROID SDK and that you have properly configured the PATHs to tools and platform-tools. Make sure also that you have properly installed and configured Apache ANT. Download Eclipse from eclipse.org, This is usually zipped or tgz'ed file. You will need to extract eclipse...
 
@@ -1379,12 +1392,12 @@ JAVASCRIPT
 		December 05, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/lg-optimus-enable-debugging">
     12.05.12
     LG optimus, prepare for development
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Go to settings Then connections Tap on the USB connection Choose Charge only Go back to the Settings screen Enable USB Debugging. You need to do this while the device is not yet connected to the PC (it will be greyed out if the device is connected when you do...
 
@@ -1397,12 +1410,12 @@ JAVASCRIPT
 		November 27, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/simple-camera-code">
     11.27.12
     Using the Camera
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is NOT about that. The code example in this chapter uses the camera at an API level. Here's a rundown of what we need to do to accomplish...
 
@@ -1415,12 +1428,12 @@ JAVASCRIPT
 		November 24, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/logcat">
     11.24.12
     Debugging with LogCat
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	This section is not about some spiffy tool that lets put breakpoints in your IDE or something that allows you to step through your code line-by-line. Nothing like that. This is about how to use a crude and old technique of debugging. Outputting something into your screen at specific points...
 
@@ -1433,12 +1446,12 @@ JAVASCRIPT
 		November 23, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/signing-an-android-app">
     11.23.12
     Signing an App
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app. KEYTOOL Check if you have keytool in your system path. Run the keytool command on a terminal window and you will...
 
@@ -1451,12 +1464,12 @@ JAVASCRIPT
 		November 23, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-project-workflow">
     11.23.12
     Project Workflow
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	CREATE THE PROJECT android create project --path --target --package --Activity WORK THE MANIFEST If necessary, modify the *AndroidManifest.xml. There will be certain applications that will require explicit permissions to be declared on manifest e.g. use of camera, use of the MIC for media recording etc SOURCE CONTROL This is for...
 
@@ -1469,12 +1482,12 @@ JAVASCRIPT
 		November 05, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-java-recording-voice">
     11.05.12
     Using the Mic for Recording
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Voice capture and voice playback in Android is handled by two classes; android.media.MediaRecorder and android.media.MediaPlayer, for recording and playback respectively. They are very straightforward to use. The usual sequence in using MediaRecoder and MediaPlayer is; Create an instance of MediaRecorder Set its audiosource to MIC Set the filename where the...
 
@@ -1487,12 +1500,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/training-java-core">
     10.26.12
     Core Java Programming Training
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	WHAT WILL BE COVERED Setting up a proper development environment Language fundamentals Object Oriented Programming Memory, Garbage collection and Object lifecycle Data types, Primitives and Reference types Control structures Exception handling Java methods java.util and java.lang I/O Multi threaded programs Graphical Desktop User Interfaces (javax.swing) Event driven programming Database programming...
 
@@ -1505,12 +1518,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/training-android-programming">
     10.26.12
     Android Programming
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	The job market for mobile applications is already huge and is growing at an enormous pace. People are using their mobile devices more than they are using their notebook or desktop computers, and Android based devices are being launched frequently. As of May 2012, the number of apps that have...
 
@@ -1523,12 +1536,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/training-android-java">
     10.26.12
     Java & Android Programming
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	WHAT WILL BE COVERED CORE JAVA Setting up a proper development environment Language fundamentals Object Oriented Programming Memory, Garbage collection and Object lifecycle Data types, Primitives and Reference types Control structures Exception handling Java methods java.util and java.lang I/O Multi threaded programs Graphical Desktop User Interfaces (javax.swing) Event driven programming...
 
@@ -1541,12 +1554,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/courses">
     10.26.12
     Training Courses
   </a>
-</h3>
+</h2>
   <em>[Notice]</em>
 	We used to publish the training courses and their details on this page. As it turns out, nobody read it. On the off chance that you bookmarked this page sometime ago and trying to return to it, my apologies. The more popular training courses in theLogBox are HTML5 Canvas Programming,...
 
@@ -1559,12 +1572,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog">
     10.26.12
     BLOG
   </a>
-</h3>
+</h2>
   <em>[Notice]</em>
 	Sorry about this mess. If you are looking for the old BLOG index, I moved it to a more appropriate place. It's still here, don't worry about it. I just needed to consolidate and reorganize a bit. Click the button below to view the blog archives. All Contents are Here...
 
@@ -1577,12 +1590,12 @@ JAVASCRIPT
 		October 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/about">
     10.26.12
     About
   </a>
-</h3>
+</h2>
   <em>[Notice]</em>
 	theLogBox is a learning resource for beginning and practicing devs. it contains notes, tutorials and offers tech training on select topics such as mobile, web &amp; cloud computing.
 
@@ -1603,12 +1616,12 @@ JAVASCRIPT
 		October 18, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/working-with-html5">
     10.18.12
     Introduction
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	Welcome to HTML5 tutorial. This is a mini site. It contains howto's and lots of code examples about HTML5 programming. There is a nav bar on the right. Use it as you would a table of contents. I tried to organize them as such. These were compiled from training sessions...
 
@@ -1621,12 +1634,12 @@ JAVASCRIPT
 		October 18, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/html5-canvas-programming">
     10.18.12
     HTML5 Canvas Programming
   </a>
-</h3>
+</h2>
   <em>[HTML5]</em>
 	 
 
@@ -1647,12 +1660,12 @@ This content has moved. You can view it using the link below
 		October 18, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-programming-mirah-pindah">
     10.18.12
     Mirah and Pindah
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See official Mirah site for more info about the language. To...
 
@@ -1665,12 +1678,12 @@ This content has moved. You can view it using the link below
 		October 15, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/web-development-tools">
     10.15.12
     Web Development Tools
   </a>
-</h3>
+</h2>
   <em>[Web]</em>
 	HAML FOR TEMPLATING Can be used stand alone or integrated into frameworks like Sinatra, Rails etc. It can be downloaded form the Haml Site or simply via rubygem---gem install haml. If you use it stand alone, it is an HTML generator, if you use within a framework, it can be...
 
@@ -1683,12 +1696,12 @@ This content has moved. You can view it using the link below
 		October 12, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/sinatra">
     10.12.12
     Sinatra
   </a>
-</h3>
+</h2>
   <em>[Ruby]</em>
 	GET UP AND RUNNING Switch your ruby version Install Sinatra sudo gem install sinatra. While you are it, install the thin package as well sudo gem install thin. Sinatra apps will run without thin Make sure it's running, do the HelloWorld app # helloworld.rb require &#39;rubygems&#39; if RUBY_VERSION &lt; &#39;1.9&#39;...
 
@@ -1701,12 +1714,12 @@ This content has moved. You can view it using the link below
 		October 12, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/galaxy-tab-prepare-for-dev">
     10.12.12
     galaxy tab, android development
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	To use the galaxy tab as a testing device; Go to Settings Then Applications Enable USB Debugging Do the above steps while the device is not yet connected to the PC, otherwise, the USB debugging options will be greyed out. Connect the device, test it by running either adb or...
 
@@ -1719,12 +1732,12 @@ This content has moved. You can view it using the link below
 		October 10, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/typescript-html5-canvas-cartesian">
     10.10.12
     Line Graphing in HTML5 Canvas
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way---each vertex and line is a DOM element, which...
 
@@ -1737,12 +1750,12 @@ This content has moved. You can view it using the link below
 		October 03, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/typescript-first-notes">
     10.03.12
     TypeScript
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	Official website is at TypeScriptLang.org. The language was borne out of Microsoft. It looks a lot like JavaScript, because it is a superset of JavaScript; This means all existing, valid and native JavaScript codes are already valid TypeScript codes. INFO licensed under Apache 2.0 Anders Hejlsberg is responsible for it....
 
@@ -1755,12 +1768,12 @@ This content has moved. You can view it using the link below
 		September 23, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/csharp-programming-notes">
     09.23.12
     C# Programming Notes
   </a>
-</h3>
+</h2>
   <em>[CSharp]</em>
 	0. Who should read this I wrote this note for Steph. Hopefully, she will have a genuine interest in programming and that she may find this note as a useful learning resource as she goes through her college programming subjects---I know that this term, it is C#, hence, this guide....
 
@@ -1773,12 +1786,12 @@ This content has moved. You can view it using the link below
 		September 21, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/ruby-programming-notes">
     09.21.12
     Ruby Notes
   </a>
-</h3>
+</h2>
   <em>[Ruby]</em>
 	1. Use the Ruby Version Manager (rvm) Don't incur technical debt on this one, you will be sorry if you skip this step &mdash; that is for sure. Ruby has crept in lots development areas e.g. web programming, desktop and mobile programming. It has also made its way into lots...
 
@@ -1791,12 +1804,12 @@ This content has moved. You can view it using the link below
 		September 01, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-activity-lifecycle">
     09.01.12
     Android Activity Life Cycle
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	As an (Activity-based) application is started up until it is discarded, it will go through several states; namely, created, started, paused, resumed then eventually destroyed. onCreate() - When an Activity is first created. Typically this is place for setup of data sources, UI and other layouts. You cannot display anything...
 
@@ -1809,12 +1822,12 @@ This content has moved. You can view it using the link below
 		August 30, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-logging-and-adb-logcat">
     08.30.12
     Logging and adb logcat
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Debugging is a crucial skill in development. It has been made more crucial because of the rise of mobile platforms. Debugging on an emulated or simulated environment presents additional challenges &mdash; your runtime environment is different than the development environment. This chapter deals with more than just debugging. The example...
 
@@ -1827,12 +1840,12 @@ This content has moved. You can view it using the link below
 		August 18, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-install-sdk-windows">
     08.18.12
     Windows setup
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant. I'm assuming further that these tools are...
 
@@ -1845,12 +1858,12 @@ This content has moved. You can view it using the link below
 		August 07, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-core-tutorial">
     08.07.12
     Introduction
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	DOC HISTORY 7.August.2012 created 30.14.October.2012 Added sections on Inheritance, DOM and event programming JS (JavaScript) is a loose, dynamically typed and interpreted scripting language. It began life as LiveScript (1995); when it was a project at Netscape Communications. At some point in time, it was renamed JavaScript (roughly around the...
 
@@ -1863,12 +1876,12 @@ This content has moved. You can view it using the link below
 		July 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/objc-language-fundamentals">
     07.26.12
     Objective C Language Fundamentals
   </a>
-</h3>
+</h2>
   <em>[OBJC]</em>
 	Preparation and setup You need a Mac. You can get by using Linux or even Windows at first because you can get gcc running on it. I don't think though that you are simply trying to learn objective c for the fun of it---face it, you want to go to...
 
@@ -1881,12 +1894,12 @@ This content has moved. You can view it using the link below
 		July 26, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/cocoa-programming">
     07.26.12
     Programming for the Mac
   </a>
-</h3>
+</h2>
   <em>[OBJC]</em>
 	Doc History 26.Jul.2012 &mdash; started/created 18.Nov.2012 &mdash; published Contents Objective C 1. Compilation 2. Data types 3. Classes 4. Getting and Setting values 5. Properties 6. Object Construction 7. Instance members 8. Protocols Required reading Allocate time for this, there is no way around the required reading. You won't learn...
 
@@ -1899,12 +1912,12 @@ This content has moved. You can view it using the link below
 		July 25, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/workshop-javascript-batch-1">
     07.25.12
     RD JS Workshop.072012
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	You will need the nodejs runtime for this workshop. You will also need the node package manager (npm) which usually comes with the installation of nodejs. SETUP Download the installer from nodejs site Run the installer Get to the command line cmd.exe in Windows, Terminal.app in OSX, xterm, aterm or...
 
@@ -1917,12 +1930,12 @@ This content has moved. You can view it using the link below
 		July 23, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-programming-concepts">
     07.23.12
     RD Skill Building. Programming Concepts
   </a>
-</h3>
+</h2>
   <em>[Training]</em>
 	Overview Programming Concepts is 1 of 3 training modules to prepare non-programming folks for HTML5 programming. The route we will take is rather a traditional one. We will build skills fundamental to programming, progress to JavaScript and finally, take HTML5 programming head on. The reason we need the programming skills...
 
@@ -1935,12 +1948,12 @@ This content has moved. You can view it using the link below
 		July 22, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-scrolling-edittext-using-scrollview">
     07.22.12
     Scrollable Text
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	There will be times when you will need to display multiple lines of text that will exceed the height of visible display. You will need to scroll to view the rest of the text. For example, if you read something from a datasource, a file or a database and display...
 
@@ -1953,12 +1966,12 @@ This content has moved. You can view it using the link below
 		July 20, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-mydevelopment-setup">
     07.20.12
     JavaScript Toolchain
   </a>
-</h3>
+</h2>
   <em>[WebDev]</em>
 	NOTE: Platform - OSX 10.8 (Mountain Lion) Editor(s) - TextMate 2.0 Alpha, Smultron4 JavaScript Environments - SpiderMonkey, RingoJS, NodeJS, Rhino Code checker - JSLint (via JavaScript tools) Node.JS Go to nodejs.org, download the tar.gz version, then make install. This way, the npm installer is also intalled. Yes you can try...
 
@@ -1971,12 +1984,12 @@ This content has moved. You can view it using the link below
 		July 20, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-layout-weights">
     07.20.12
     Using Layout Weights
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that's just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics. Linear layouts will do exactly...
 
@@ -1989,12 +2002,12 @@ This content has moved. You can view it using the link below
 		July 19, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-event-handling-programmatic">
     07.19.12
     Programmatic Event Handling
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	NOTE; I'm consolidating the textual content of this chapter.
 
@@ -2008,12 +2021,12 @@ This content has moved. You can view it using the link below
 		July 19, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-event-handling-declarative">
     07.19.12
     Declarative Event Handling
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Declarative event handling is one of the two ways you can react to user events. The other way of handling events is programmatically &mdash; which is discussed in a chapter of its own. Handling events declaratively means you will make the event declaration inside the XML file where the UI...
 
@@ -2026,12 +2039,12 @@ This content has moved. You can view it using the link below
 		July 15, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-java-for-android-development">
     07.15.12
     How Much Java is required for Android
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	  
 
@@ -2052,12 +2065,12 @@ This content has moved. You can view it using the link below
 		July 15, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-activity">
     07.15.12
     Activity and the UI
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is...
 
@@ -2070,12 +2083,12 @@ This content has moved. You can view it using the link below
 		July 14, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/javascript-docco-for-java-files">
     07.14.12
     Docco For Java
   </a>
-</h3>
+</h2>
   <em>[JavaScript]</em>
 	Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby---but it won't work for Java files. If you are looking for the clean and proper way to generate docco-style...
 
@@ -2088,12 +2101,12 @@ This content has moved. You can view it using the link below
 		July 14, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-install-eclipse-plugin">
     07.14.12
     Eclipse Development Environment
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	At the time of writing, Eclipse version is Juno Launch Eclipse Go to Help, then Install new software On the textbox that says work with:, type https://dl-ssl.google.com/android/eclipse/, then click Add* Choose Developer Tools on the checkboxes, you can choose to ignore the NDK tools Review the install details, then click...
 
@@ -2106,12 +2119,12 @@ This content has moved. You can view it using the link below
 		July 14, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-create-project-eclipse">
     07.14.12
     Create a Project in Eclipse
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	What you need to proceed A properly installed Android SDK Properly installed Eclipse plugin for Android Create a basic Activity based android project in Eclipse From the Eclipse menu, choose New project. Select Android, drill down to Android Application Project, Click Next. Eclipse will ask for some information about the...
 
@@ -2124,12 +2137,12 @@ This content has moved. You can view it using the link below
 		July 13, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-linear-layout">
     07.13.12
     Linear Layout
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	We will work with project you created in the last chapter. The layout seems okay but a little weird. The labels are usually laid out to the left of a text field and not on top. This is happening because the LinearLayout's orientation is vertical. That caused the components to...
 
@@ -2142,12 +2155,12 @@ This content has moved. You can view it using the link below
 		July 10, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-testing-a-project">
     07.10.12
     Testing on AVD and Actual Device
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	By testing the android project, I mean running it. There is another concept testing which is unit testing with JUnit, that is not what I mean and that is not what we are going to do right now---we will tackle that much later. The test we will do actually involves...
 
@@ -2160,12 +2173,12 @@ This content has moved. You can view it using the link below
 		July 10, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-compiling-a-project">
     07.10.12
     Compiling a Project
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Gone are the days when we can simply compile a practice project with simple javac, then fire the the JRE to appreciate our code at runtime. A lot of the Java projects have fallen victim to unnatural stretching because of increasing complexity---android projects are not immune to this stretching. As...
 
@@ -2178,12 +2191,12 @@ This content has moved. You can view it using the link below
 		July 09, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-programming-tutorial">
     07.09.12
     Introduction
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	These tutorials started a series of notes and lesson plans. They date back to 2008. They get updated whenever I have to teach an Android programming class or during a project when I have to do some digging. My name is Ted Hagos. I work for RenditionDigital Inc. It is...
 
@@ -2196,12 +2209,12 @@ This content has moved. You can view it using the link below
 		July 08, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/choosing-books-for-android">
     07.08.12
     Books
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	
 
@@ -2226,14 +2239,14 @@ Android Programming Bibliography
 		July 08, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-studying-and-practicing-android">
     07.08.12
     Study Tips
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
-	PICK UP A BOOK. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the BIBLIOGRAPHY section of this mini site. There are some ideas there that can get you started in choosing reference materials START TAKING NOTES for your android learning....
+	Pick up a book. Ask a friend, your teacher, a developer whose opinion you trust. You can also take a look at the BIBLIOGRAPHY section of this mini site. There are some ideas there that can get you started in choosing reference materials Take notes for your android learning. Get...
 
 
 	   
@@ -2244,12 +2257,12 @@ Android Programming Bibliography
 		July 08, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-choosing-books-for-android">
     07.08.12
     Bibliography
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	This the short list of the books I used for my android learning. I did not list all of them, only the ones I liked and the ones I thought would actually help a beginning developer get into grips with android. Learning Android - One of early books I used...
 
@@ -2262,12 +2275,12 @@ Android Programming Bibliography
 		July 08, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-am-i-ready-for-android-programming">
     07.08.12
     Programming Readiness
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	  
 
@@ -2292,12 +2305,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		July 06, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-programming-concepts-workbook">
     07.06.12
     Workbook on Programming Concepts
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	Part 1. Machine problems Problem 1. Given a String name, e.g. "John", return a greeting of the form "Hello Bob!". helloName("John") -> "Hello Bob!" helloName("Alice") -> "Hello Alice!" helloName("X") -> "Hello X!" class One { public static void main(String[] args) { hello(&quot;John&quot;); } private static void hello(String var){ //Write your...
 
@@ -2310,12 +2323,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		July 03, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-android-intro-talk">
     07.03.12
     IT Week at Asia Pacific College
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	In a few hours, I will head back to Asia Pacific College to give an introductory talk about Android applications development. I haven't been to APC for a very long time, and I haven't talked in front of a crowd for a very long time as well, much less give...
 
@@ -2328,12 +2341,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		July 02, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/blog-feature_creep">
     07.02.12
     Feature Creep
   </a>
-</h3>
+</h2>
   <em>[Blog]</em>
 	
 
@@ -2347,12 +2360,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		July 01, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/cannot-find-buildxml">
     07.01.12
     Cannot Find build.xml
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	This is an ANT script problem, at the time of writing, I am using ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager. If you invoke the ant tool and see something like the error below BUILD FAILED /Users/ted/workarea/android-training/practice...
 
@@ -2365,12 +2378,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		June 22, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-database-programming-basics">
     06.22.12
     Database Programming
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	While there exist a class of applications that do not use databases, they are few. It's almost an automatic expectation that a programmer knows how to deal with databases. We will use the built-in database of Android, SQLite. To use this database, we simply need to declare it in our...
 
@@ -2383,12 +2396,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		June 10, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-create-project">
     06.10.12
     Creating A Project
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	NOTICE. THIS CONTENT HAS BEEN REWRITTEN. The updated content is at Android Getting Started The Hello World application in android is very different from what you might remember when you created your first app in Java. Back then, you only needed a single source file where everything you need to...
 
@@ -2401,12 +2414,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		June 10, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-background-information">
     06.10.12
     Background Info
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	This section is probably the least interesting of all. I would guess that only programming instructors will leaf through these pages so we will keep it short. The section however, contains a bit more than history. It also discusses some foundational tech structure of Android, in that regard, I still...
 
@@ -2419,12 +2432,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		April 12, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/rip-youtube-videos-linux-osx">
     04.12.12
     Rip YouTube Vids
   </a>
-</h3>
+</h2>
   <em>[OSX]</em>
 	This works for Linux and OSX; youtube-dl is a command line tool for saving YouTube videos. These are what you need: youtube-dl - This pull the youtube content, ala curl or wget ffmpeg and lame - These two you will need to transform the downloaded content because youtube-dl will pull...
 
@@ -2437,12 +2450,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		April 11, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/screen-shooting-android">
     04.11.12
     Screen Shooting
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	You need the JDK (Java Development Toolkit). The Android development environment depends on Java, that is why you need this. Take note that you need the JDK not the JRE (Java Runtime Environment). If you install the JDK though, you would also have installed the JRE You need to the...
 
@@ -2455,12 +2468,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		April 11, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/problem-issh-vim-ipad">
     04.11.12
     iSSH and Vim
   </a>
-</h3>
+</h2>
   <em>[iOS]</em>
 	I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt. I had issues with iSSH, these are found below: Could...
 
@@ -2473,12 +2486,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		April 09, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/send-receive-sms-messages-usb-modem-linux">
     04.09.12
     Send-Receive SMS
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	This small guide uses gnokii-sms to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of WaveComm iTegra type equipment. The SMS project was ran on a Debian Linux. If you...
 
@@ -2491,12 +2504,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		April 08, 2012
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/what-port-am-i-using">
     04.08.12
     What Application is ssing Port 80
   </a>
-</h3>
+</h2>
   <em>[Windows]</em>
 	After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be Address already in use.., Bind Exception .., Port 80 already in use.. etc. Apache needs port 80 to be free, unused...
 
@@ -2509,12 +2522,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		November 21, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-object-oriented-programming">
     11.21.11
     Java Object Oriented Programming
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	If you set out to truly understand how an automobile works, down to tiniest detail of how each nut and bolt performs, you could be in over your head---especially if do not have a degree in mechanical engineering. On the other hand, if the goal is a simpler one such...
 
@@ -2527,12 +2540,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		November 20, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-controlling-program-flow">
     11.20.11
     Control Flow
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are; You can execute commands one after another -- sequencing You can...
 
@@ -2545,12 +2558,12 @@ This content has been rewritten. I encourage you to read the more updated materi
 		November 11, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/java-beginning-to-program">
     11.11.11
     Beginning to Program Java
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	CONTENT HAS MOVED
 
@@ -2566,12 +2579,12 @@ This is now at Java Beginnning to Program
 		November 06, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/free-resource-java-shooters-pdf">
     11.06.11
     Free eBook
   </a>
-</h3>
+</h2>
   <em>[Java]</em>
 	DOWNLOAD HERE Java Shooters PDF Java Shooters is an introduction to the Java programming language. The examples and concepts are based upon JSE 1.6. About the name, it is called Shooters because like the alcoholic drink that is typically drank in 1.5 ounces shot-glass, the key concepts are meant to...
 
@@ -2584,12 +2597,12 @@ This is now at Java Beginnning to Program
 		October 25, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-error-install-parse-failed">
     10.25.11
     Install Parse Failed Error
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Failure [INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES] This error can happen when you have used an Android device on a different development machine. There is a signature on the device that came from the old development machine, that is the one getting in the way. Solution Just delete the Android applications that are installed on...
 
@@ -2602,12 +2615,12 @@ This is now at Java Beginnning to Program
 		October 11, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/installing-mysql-osx-lion">
     10.11.11
     How to Install MySQL on OSX
   </a>
-</h3>
+</h2>
   <em>[OSX]</em>
 	This was done on Leopard, Snow Leopard, Lion and Mountain Lion Motivation Install a mysql-server for development purposes on OSX Lion Use the include mysql CLI (Command Line Interface), specifically mysql client Possible routes Using BREW -- $ sudo brew install mysql Using MacPorts -- sudo port install mysql Download...
 
@@ -2615,17 +2628,17 @@ This is now at Java Beginnning to Program
 	   
 	
   <!--
-	<h2><a href="/android-virtual-device">Virtual Device (AVD)</a></h2>
+	<h2><a href="/android-virtual-device">Virtual Device (avd)</a></h2>
 	<div class='content-meta'>
 		August 12, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-virtual-device">
     08.12.11
-    Virtual Device (AVD)
+    Virtual Device (avd)
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	You will need a runtime environment to complete your development setup. The SDK will allow you write and compile android programs. But to test them, you need a place where to deploy and test those programs. The AVD is used for testing Android Projects. It is an emulator that mimics...
 
@@ -2638,12 +2651,12 @@ This is now at Java Beginnning to Program
 		August 12, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-physical-device">
     08.12.11
     Physical Device
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device. On your device, go to Settings &rarr; Applications &rarr; Development. You need to enable USB debugging Fig 3: Enable...
 
@@ -2656,12 +2669,12 @@ This is now at Java Beginnning to Program
 		August 12, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/android-getting-started">
     08.12.11
     Getting Started
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	One of the best, if not the best way to learn something is to start doing it. Get your feet wet. Your hands dirty, so to speak. What will happen in the next couple of minutes, maybe hours is that you will read some code, some theories, some explanations. Not...
 
@@ -2674,12 +2687,12 @@ This is now at Java Beginnning to Program
 		August 11, 2011
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/installing-android-sdk">
     08.11.11
     Setting Up the Development Environment
   </a>
-</h3>
+</h2>
   <em>[Android]</em>
 	Download the Android SDK from android.developer.com. Choose your platform. In my case, it was a zipped file Place the unzipped file somewhere in your directories. It is best not to put in a directory that contains white space. I placed mine inside /Users/myname/prgtools/android-sdk (this is your ANDROID-HOME) Go to your...
 
@@ -2692,12 +2705,12 @@ This is now at Java Beginnning to Program
 		October 27, 2010
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/remote-desktop-to-ubuntu-from-windows">
     10.27.10
     Connect to Ubuntu Remote Desktop (Windows)
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	To connect to an Ubuntu machine and control its desktop To do No. 1 from a Windows machine To do No. 1 and not use VNC - for some reason, I just don't like VNC Because logmein.com is not an option for Linux To do No. 1 without installing FreeNX...
 
@@ -2710,12 +2723,12 @@ This is now at Java Beginnning to Program
 		October 26, 2010
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/viewing-google-tasks">
     10.26.10
     Google Tasks
   </a>
-</h3>
+</h2>
   <em>[Hack]</em>
 	Via Snippage - This is not a specific application written for Google Tasks. It actually can produce an application out of any web page. I have never been a big fan of these things, but if you are ... While in Gmail (Of course!) - but I don't want to...
 
@@ -2728,12 +2741,12 @@ This is now at Java Beginnning to Program
 		October 01, 2010
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/automatically-backup-mysql-database">
     10.01.10
     Automatic Backup of MySQL
   </a>
-</h3>
+</h2>
   <em>[MySQL]</em>
 	USE CASE To backup a MySQl database regularly, in fixed periods of time To do No. 1 using freely available tools. SOLUTION You need to do this on a Terminal window. $ sudo mysqldump -u UserName -p --all-databases > /path/to/file.backup UserName - replace this with the username you are using...
 
@@ -2746,12 +2759,12 @@ This is now at Java Beginnning to Program
 		April 06, 2010
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/wireless-linux-music-player">
     04.06.10
     Wireless Linux Music Player
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	WHY I didn't want to throw away my old notebook computer, so I looked for something it can still be useful for I have wanted (sometime in the past) to play audio files and get the sound coming out of a proper stereo receiver and some decent speakers. Hooking up...
 
@@ -2764,12 +2777,12 @@ This is now at Java Beginnning to Program
 		November 22, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/file-sharing-osx-linux">
     11.22.09
     File Sharing between OSX and Linux
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	Plenty of ways to share files between Linux and Mac, after all, they are brethrens because of their UNIX nature -- I would have said lineage but that may be contestable by the purists. After all, I am not an expert on UNIX history. History and purity aside, some of...
 
@@ -2782,12 +2795,12 @@ This is now at Java Beginnning to Program
 		April 10, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/install-kyocera-km1820-osx">
     04.10.09
     How to Install KYOCERA KM 1820 on OSX
   </a>
-</h3>
+</h2>
   <em>[OSX]</em>
 	To connect OSX to a Kyocera KM-1820, you will need the following. The KPDL driver of Kyocera, you can download it at kyocera StuffIt expander, you can download it at stuffit If the Kyocera printer is a networked printer Download the StuffIt expander, double-click the DMG installer and follow the...
 
@@ -2800,12 +2813,12 @@ This is now at Java Beginnning to Program
 		April 08, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/connect-windows-to-cups-printer">
     04.08.09
     How to Connect Windows to a CUPS Print Server
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	There are a couple of ways to print to a CUPS printer from a Windows machine--CUPS printer means it's a printer connected to either a UNIX, Linux or an OSX machine, CUPS is the system which these OSes use to serve up print services. One way to print from Windows...
 
@@ -2818,12 +2831,12 @@ This is now at Java Beginnning to Program
 		April 07, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/install-clp315-on-linux-print-server">
     04.07.09
     Install CLP 315 on Debian
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	These steps will install the Samsung CLP 315 on a headless Linux Server. You will need a properly configured CUPS server before proceeding. If you haven't configured a printer server yet, read this one first then come back. You will also need an internet connection for this one. There are...
 
@@ -2836,12 +2849,12 @@ This is now at Java Beginnning to Program
 		April 07, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/connect-mac-osx-to-cups-printer">
     04.07.09
     How to Connect OSX to a CUPS Print Server
   </a>
-</h3>
+</h2>
   <em>[OSX]</em>
 	Open System Preferences dialog. You can reach this dialog by clicking the small Apple logo at upper-left most corner of your desktop, Click Print and Fax On Printers column, click the plus sign to add a printer (There is a + sign at the lower left portion of the dialog...
 
@@ -2854,12 +2867,12 @@ This is now at Java Beginnning to Program
 		March 01, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/mac-mini-microphone-hack">
     03.01.09
     MAC MINI MIC HACK
   </a>
-</h3>
+</h2>
   <em>[OSX]</em>
 	The usual microphones used in PC's and headset-mic combos won't work with the mac mini &mdash; the mac mini mic input requires line level input, meaning the mic needs to be powered. The usual mic input for PCs are mic level input (about 1 millivolt, the mic doesn't need to...
 
@@ -2872,12 +2885,12 @@ This is now at Java Beginnning to Program
 		February 11, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/improve-your-team">
     02.11.09
     Improve Your Team
   </a>
-</h3>
+</h2>
   <em>[Notice]</em>
 	READ TECH TUTORIALS. We will send you email &mdash; very INFREQUENTLY &mdash; when new tutorials are released or while they are in progress. Join the mailing list so we can notify you. We won't give away or sell your email address to anyone or any company. GET THE COURSES. We...
 
@@ -2890,12 +2903,12 @@ This is now at Java Beginnning to Program
 		February 06, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/easy-way-to-install-print-server-linux">
     02.06.09
     Installing a Print Server
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	Objective Make a printer available for sharing over a local area network Use Linux as the print server Make the printer available over IPP (internet printing protocol) and LPD (Linux Print Daemon) What to work with Minimally installed Debian squeeze - print server Samsung CLP-315 color printer Single subnet local...
 
@@ -2908,12 +2921,12 @@ This is now at Java Beginnning to Program
 		February 03, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/which-application-is-using-what-port">
     02.03.09
     How to Find Out Which App is Using What Port
   </a>
-</h3>
+</h2>
   <em>[Windows]</em>
 	UPDATE (June 3,2009) The original article describes the steps to take on how to find applications that are using your port in a Windows machine, using only tools that came with your Windows installation--no third party apps. I am updating the article now to include a third party tool; WinNetstat...
 
@@ -2926,12 +2939,12 @@ This is now at Java Beginnning to Program
 		January 02, 2009
 	</div>
   -->   
-  <h3>  
+  <h2>  
   <a href="/install-ssh-on-debian">
     01.02.09
     Install SSH
   </a>
-</h3>
+</h2>
   <em>[Linux]</em>
 	To install SSH on Debian or its derivatives, get it from the repositories &mdash; sudo apt-get install ssh If you prefer to do it in GUI mode and you are running a desktop program in Linux like Gnome, Unity, LXDE etc, you could do it using synaptic, search ssh and...
 

@@ -22,7 +22,7 @@ categories:
 
 By testing the android project, I mean running it. There is another concept testing which is **unit testing with JUnit**, that is not what I mean and that is not what we are going to do right now---we will tackle that much later. The test we will do actually involves deploying the project either in an AVD (Android Virtual Device) or a physical android device, so we can see it run. You need one or the other in order to run our android app.
 
-# ANDROID VIRTUAL DEVICE (AVD)
+# Android Virtual Device (avd)
 
 The emulator needs to be configured. It is not configured for you when you installed the SDK. The reason for this is because there are various android API levels (Froyo is 2.2, Gingerbread is 2.3.3 etc). You will need to specify which API level an emulator is supposed to, well---emulate. You can create as many AVDs as you need, probably one for Froyo, one for Gingerbread, another one for Honeycomb so on and so forth. 
 

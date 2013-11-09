@@ -1,17 +1,19 @@
 <style>
 
-#sharebuttons { float: right; line-height: inherit; margin-right: 2em; padding-top: 5px; background: #F0F0F0;}
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px; background: #F8F8F7;}
 
 * {
-  background: #fbfbfb;
+  /* background: #fbfbfb; */
+  background : #FFFFF0;
 }
 
 p, li, .content-meta, body, p, br {
-	font-family: 'Libre Baskerville','Helvetica','Tahoma';
+
+	font-family: 'Libre Baskerville','Georgia', serif; 
 	font-size: 16px;
 	line-height: 1.7em;
   /* color: #414141; */
-  color: #323232;
+  color: #1e1e1e;
 }
 
 ol, ul { padding-left:20px; line-height:1.8em;}
@@ -21,7 +23,7 @@ li {margin-bottom: 10px;}
   font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 auto;
   color: #555555;
   background: inherit;
@@ -36,7 +38,9 @@ li {margin-bottom: 10px;}
   text-align: center;
   color: #555555;
   position:relative;
-  background: #F0F0F0;
+  /* background: #F0F0F0;
+  background: #F0F0FF; */
+  background: #F8F8F7;
 }
 .running-head a:link, .running-head a:visited {background: inherit;}
 
@@ -60,14 +64,16 @@ li {margin-bottom: 10px;}
 }
 
 #articletitle {
-	font-family: 'Rokkitt','Libre Baskerville', 'Helvetica', 'Arial', sans-serif;
-	font-size: 42px;
+	font-family: 'Libre Baskerville','Georgia', serif; 
+	font-size: 35px;
 	font-weight: normal;
   text-align: left;
-  line-height: 1em;
-  color: #0f0f0f;
+  line-height: 1.4em;
+  color: #292929;
+  letter-spacing: -1.5px;
   margin-top: 0px;
   padding-top: 0px;
+  text-align:center;
 }
 
 .content-meta {
@@ -103,15 +109,19 @@ li {margin-bottom: 10px;}
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Libre Baskerville','Tauri', 'helvetica', sans-serif;
   letter-spacing: -1px;
 	color: #0F0F0F;
-  font-weight:normal;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-h1 {font-size: 20px; letter-spacing: -1px;}
-h2 {font-size: 18px; } 
-h3 {font-size: 16px; }
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {font-size: 22px; } 
+h3 {font-size: 18px; }
 
 #feature {
   min-height: 400px;
@@ -133,7 +143,7 @@ h3 {font-size: 16px; }
 }
 
 .feature-article {
-  font-family: 'Libre Baskerville','Helvetica','Tahoma';
+  font-family: 'Libre Baskerville','Georgia', serif; 
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -168,14 +178,10 @@ h3 {font-size: 16px; }
   margin-top: 50px;
 }
 
-body {
-    
-  font-family: 'Libre Baskerville','Arial';
-    
+body {   
   margin:0;
   padding:0;
   border:0;
-  
 }
 
 article {
@@ -227,11 +233,11 @@ code {
 
 pre {
 	font-family: 'Lekton';
-	font-size: 15px;
+	font-size: 14px;
 	padding: 1em;
 
-  line-height: 1.3em;
-  background: #FBFCF9; 
+  line-height: 1.2em;
+/*  background: #FBFCF9; */
   /*
   border: 3px solid #F0F2E7;
   */
@@ -243,7 +249,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -252,18 +258,19 @@ pre {
 }
 
   pre.codeblock {
-    padding: 1em;
-    background: #e8ebef;
+    padding: .7em;
+    /*background: #e8ebef;*/
+    background: #F0F0FF; 
     color: #000000;
-    line-height:130%;
+    line-height:120%;
 }
 
 #lst {
-	font-family: 'Rokkitt';
-  color: #000000;
+  color: #B30000;
 	font-style:normal;
-	font-size: 19px;
+	font-size: 15px;
 	margin-top:0px;
+  margin-bottom: 15px;
 	padding-top:0px;
 	padding-bottom:10px;
   text-align:center;
@@ -276,12 +283,13 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:12px;
+  font-family: 'Titillium Web'; font-size:14px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  text-align:center;
 }
 
 footer a:link, footer a:visited {
@@ -321,8 +329,9 @@ img {
   }
 
 aside {
-  
   padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   border: 2px solid #CACACA;
   
 }

@@ -60,7 +60,7 @@ For the PHP script to execute, an HTTP request has to be made. When web server r
 ***
 
 
-## BASIC CONCEPTS
+## Basic Concepts
 
 
 Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.
@@ -71,7 +71,7 @@ A Wordpress app requires knowledge HTML, JavaScript, CSS and PHP. I did not incl
 
 We will start building our programming competencies in PHP, this is what this chapter is all about.
 
-## STATEMENTS
+## Statements
 
 Remember the recipe analogy? First we need to know what kinds of things we can work with. In programming that means data. What kinds of data you can work with. You can work with numbers, both whole and real. You can use strings (words). You can work with boolean values (true or false). There are other things you can also work with but they are bit advanced, these are objects and arrays. We will circle back to these two when you have a bit more programming muscles.
 
@@ -108,7 +108,7 @@ $i = $i + 1;
 
 {% endhighlight %}
 
-## CO MINGLED WITH HTML
+## Co-mingling with html
 
 You need to write your PHP statements inside this tag *&lt;?php  ?&gt;*. PHP is a server side scripting language, the php tag tells the server that what's inside is not HTML. It contains PHP instructions that needs to be *parsed and evaluated*. When these instructions are evaluated, sometimes they produce HTML and other times they don't. Through your practice, you will learn which statements produce HTML and which parts do something else. You don't always need to output something, sometimes you just need to do some stuff that don't necessary need to be seen by the user. 
 

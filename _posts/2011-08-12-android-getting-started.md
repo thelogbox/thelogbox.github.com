@@ -25,7 +25,7 @@ We will still do the **Hello World** example, not really to observe the time hon
 
 The Hello World in Android is way more involved than simply creating a basic class, defining a static main() and invoking the out.println(). It is way more involved than that. You will need to create an *Activity* object, override its *onCreate()* method, invoke the *ant* build tool, define an AVD (Android Virtual Device) and install the *.apk* (Android Package) either into the AVD or a physical Android Device. That's how messy the **Hello World** program is in Android. Be mindful that you are not writing desktop programs, you are writing mobile applications. You maybe familiar with the language &mdash; Java &mdash; but the tools and programming workflow are different.
 
-# HELLO WORLD
+# The Hello World project
 
 We need to create a project. An Android project is a collection of files which are structured and nested in a very specific way so that the build tools can work with them properly. This is the reason why it is not advisable to build the structure by hand, manually. Use the SDK tools.
 
@@ -46,7 +46,7 @@ The folder structure of an android project is shown below
 <img class="default" src="/img/android-project-structure.png">
 <div id='lst'>Folder Structure of an Android project</div>
 
-# THE CREATE PROJECT COMMAND
+# How to create a project
 
 **--target** expects an integer value. This value stands for a unique API level for a specific android version. In our example above, level 8 was specified because I intend to target android 2.2 (Froyo). Gingerbread will have a different value, Honeycomb, ICS and Jekllybean will have a different ones as well. 
 
@@ -60,7 +60,7 @@ If you want to see all the possible targets, you can type <code class="codeblock
 
 **--package** an android project will be comprised of various XML files, resource files and Java source files. The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files)
 
-# TEST AND RUN
+# How to test and run
 
 On the command terminal, make sure you are at root directory of the project, run the command <code class="codeblock">ant debug install</code>. That should compile, build then install the empty project we just created.
 

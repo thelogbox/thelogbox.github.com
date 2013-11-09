@@ -32,7 +32,7 @@ For example, if you need to work with real numbers, Java has defined the float a
 
 These abstractions are high enough that we don’t get bogged down by the de- tails of how they are stored and structured on the disk, we can worry about other things like the logic of our application.
 
-## DATA TYPES
+# Data Types
 
 You need to know what kinds of stuff you can create, define and manipulate in JS. 
 

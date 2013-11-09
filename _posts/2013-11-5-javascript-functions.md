@@ -19,7 +19,7 @@ categories:
 ---
 
 
-A JS function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. 
+A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. 
 
 
 {% highlight javascript %}

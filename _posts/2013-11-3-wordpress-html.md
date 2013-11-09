@@ -28,7 +28,7 @@ Marking up means adding instructions to a document, more specifically adding pre
 
 HTML is a modern way of marking up documents. It was first thought of by Tim Berners Lee during his stay at CERN. The history of HTML, while an interesting read is simply not part of the scope of this document so I will refer you to the trusty Wikipedia page for [HTML history](http://en.wikipedia.org/wiki/HTML) for an extended reading session about the origins and evolution of HTML. For our purpose, I would like to address the technical aspects of it and how it will help us build Wordpress apps.
 
-## GETTING STARTED
+## Getting Started
 
 I need you to remember the folder where you installed WAMP. If you followed the instruction during the setup chapter, that folder would be in *C:\Users\yourname\wamp*. Go to that folder. You will find another folder called *www* inside it. Go to the www folder. 
 
@@ -50,7 +50,7 @@ Don't worry about the contents for now. They will be discussed soon enough. We a
 
 Double click first.html. Your browser would have launched. You have just created your first HTML document.
 
-## STRUCTURE AND COMPOSITION
+## Structure and Composition
 
 Words inside angle brackets &mdash; *&lt; like this &gt;*  &mdash; are instructions. They are part of the HTML language. They have special meaning to the browser. When the browser reads a pair of angle brackets, it will carry out an instruction. So things inside these brackets are what might you might call special words. Although developers refer to them as *tags* or *elements*. You better get used to calling them that as well.
 

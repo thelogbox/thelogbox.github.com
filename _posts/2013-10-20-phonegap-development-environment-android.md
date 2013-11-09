@@ -48,7 +48,7 @@ If you have really fast internet connection and you are not sure which API to ch
 
 **MODIFY THE SYSTEM PATH**. Include the *android tools* and *platform tools* in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are **ANDROID-HOME/tools** and **ANDROID-HOME/platform-tools**
 
-## WINDOWS 
+## Setup for Windows 
 
 There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).
 
@@ -74,7 +74,7 @@ Close the dialog window. To test if all the PATH is working as expected, get ano
 
 Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.
 
-## OSX 
+## Setup for OSX  
 
 Edit **~/.bash_profile** and export the Android SDK directories
 
@@ -92,7 +92,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:.
 
 ***
 
-# PHONEGAP TOOL CHAIN
+# The PhoneGap ToolChain
 
 After the Android SDK requirement has been satisfied, we can proceed to installing the actual tools for PhoneGap development.
 
