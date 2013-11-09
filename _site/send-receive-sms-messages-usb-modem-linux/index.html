@@ -29,7 +29,7 @@
 <meta name="keywords" content="sms ,modem">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Simple steps to setup your own SMS gateway in Linux" />
-<title>Linux , Send-Receive SMS | theLogBox </title>
+<title>Linux , Send-Receive SMS message via USB modem | theLogBox </title>
 
 <!-- 1. Moot style -->
 <link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
@@ -152,7 +152,7 @@ li {margin-bottom: 10px;}
   border-bottom: 1px solid #CACACA;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: normal;
@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5 {
 h1 {font-size: 25px; letter-spacing: -1px;}
 h2 {font-size: 22px; } 
 h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 #feature {
   min-height: 400px;
@@ -253,9 +254,9 @@ footer {
 
 hr {
 	border:0;
-	color: #CACACA;
-	background: #CACACA;
-	height: 2px;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -263,7 +264,7 @@ hr {
 hr .section {
   background: #61781a;
   color: #61781a;
-  border: 3px solid #DEDEDE;
+  border: 1px solid #DEDEDE;
 }
 
 strong {
@@ -293,7 +294,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -327,7 +328,7 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:14px;
+  font-family: 'Titillium Web'; font-size:15px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
@@ -528,7 +529,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <div class='byline'>
   by: <a href='https://plus.google.com/+TedHagos' 'rel=author'>Ted Hagos</a>
 </div>
-      <div id="articletitle">Send-Receive SMS</div>
+      <div id="articletitle">Send-Receive SMS message via USB modem</div>
 
       <div class='vspacer'></div>
     </header>
@@ -537,7 +538,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This small guide uses <em>gnokii-sms</em> to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of <em>WaveComm</em> <em>iTegra</em> type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.</p>
+		    <p>This guide uses <em>gnokii-sms</em> to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of <em>WaveComm</em> <em>iTegra</em> type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.</p>
 
 <p>There were a couple of other solution approaches but I went for <em>gnokii-sms</em>. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.</p>
 
@@ -550,12 +551,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <p>You will need the items below to follow this guide.</p>
 
 <ol>
-<li>DEBIAN linux</li>
+<li>Debian Linux</li>
 <li>USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.</li>
 </ol>
 
 
-<h1>Steps</h1>
+<h1>Installation and Configuration</h1>
 
 <p>Get gnokii-smsd and mysql-server from the Debian repositories.</p>
 
@@ -573,11 +574,13 @@ $ sudo apt-get install gnokii-smsd-mysql
 
 <p>When you know the device name of the modem, edit the configurationt file of <em>gnokii-sms</em>. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file &amp;mdash the <code class="codeblock">PORT</code> and <code class="codeblock">model</code> entries.</p>
 
+<p><aside></p>
+
+<p><strong>NOTE</strong>: On some Debian variant like <em>CrunchBang</em>, the config file was not found at <em>~/.config</em> folder, it does not exist at all. There was a config file though at /etc/xdg/gnokii/config. If this is your case, you can simply create the configuration file and directory manually</p>
+
+<p></aside></p>
+
 <p>Set <code class="codeblock">port = /dev/tty0</code> (substitute your actual device name to tth0). Set <code class="codeblock">model = AT</code>, the default is <em>6510</em> which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.</p>
-
-<h2>Extra notes</h2>
-
-<p>On some Debian variant like <em>CrunchBang</em>, the config file was not found at <em>~/.config</em> folder, it does not exist at all. There was a config file though at <em>/etc/xdg/gnokii/config</em>. If this is your case, you can simply create the configuration file and directory manually</p>
 
 <pre class="codeblock">  
 
@@ -638,8 +641,8 @@ $ mysql> select * from inbox;
 		  </div>
             
       <a class="moot"
-        title=Send-Receive SMS
-        href="https://moot.it/i/thelogbox/linux:Send-Receive SMS">
+        title=Send-Receive SMS message via USB modem
+        href="https://moot.it/i/thelogbox/linux:Send-Receive SMS message via USB modem">
         Comments 
       </a>  
         
@@ -660,6 +663,7 @@ $ mysql> select * from inbox;
       <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
       <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
       <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+            <li><a href="/problem-issh-vim-ipad">iSSH, Prompt and Linux</a></li>
     </ul>
     </div>    
     

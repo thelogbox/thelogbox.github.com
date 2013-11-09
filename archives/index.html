@@ -24,12 +24,12 @@ categories:
 		{{ post.date | date: "%B %d, %Y" }}
 	</div>
   -->   
-  <h2>  
+  <h4>  
   <a href="{{ post.url }}">
     {{ post.date | date: "%m.%d.%y" }}
     {{ post.title }}
   </a>
-</h2>
+</h4>
   <em>[{{post.categories | join: '  ,' }}]</em>
 	{{ post.content | strip_html |truncatewords: 50 }}
 

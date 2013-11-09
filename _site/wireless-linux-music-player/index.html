@@ -152,7 +152,7 @@ li {margin-bottom: 10px;}
   border-bottom: 1px solid #CACACA;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: normal;
@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5 {
 h1 {font-size: 25px; letter-spacing: -1px;}
 h2 {font-size: 22px; } 
 h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 #feature {
   min-height: 400px;
@@ -253,9 +254,9 @@ footer {
 
 hr {
 	border:0;
-	color: #CACACA;
-	background: #CACACA;
-	height: 2px;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -263,7 +264,7 @@ hr {
 hr .section {
   background: #61781a;
   color: #61781a;
-  border: 3px solid #DEDEDE;
+  border: 1px solid #DEDEDE;
 }
 
 strong {
@@ -293,7 +294,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -327,7 +328,7 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:14px;
+  font-family: 'Titillium Web'; font-size:15px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
@@ -537,36 +538,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h1>WHY</h1>
+		    <p>This project will let you control a music player daemon running on a Linux box. The Linux box can is jacked into a stereo receiver &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.</p>
 
-<ol>
-<li>I didn't want to throw away my old notebook computer, so I looked for something it can still be useful for</li>
-<li>I have wanted (sometime in the past) to play audio files and get the sound coming out of a proper stereo receiver and some decent speakers. Hooking up an iPod to the stereo receiver should do it, but I really wanted to do it using the notebook</li>
-<li>I want to control the playlist from any computer. The Airport express from Apple should actually be able to do this, but what was I going to do with the old notebook? Besides, this solution has some advantage over the Airport Express option because the audio data is flowing directly from the notebook computer to the stereo receiver via a physical audio cable. In Airport Express, the audio data travels wirelessly.</li>
-</ol>
+<p>For this project, I used 1) an old notebook with WiFi still working 2) an old stereo receiver with 3.5mm stereo jack input</p>
 
-
-<h1>WHO IS THIS FOR</h1>
-
-<p>This might suit you if you;</p>
-
-<ol>
-<li>Have some extra time in your hands and;</li>
-<li>Have an old notebook that you don't want to throw away and;</li>
-<li>Are a bit handy on Linux and have some experience working on the Terminal</li>
-</ol>
-
-
-<h1>WHAT IS NEEDED</h1>
-
-<ol>
-<li>An old notebook with wifi capability</li>
-<li>Stereo receivers</li>
-<li>Audio cable with a 3.5mm jack on one end and RCA jacks on the other (depending on the connections of your stereo receiver)</li>
-</ol>
-
-
-<h1>HOW TO DO IT</h1>
+<h2>Installation and Configuration</h2>
 
 <ol>
 <li>Get the <strong>MPD</strong> (Music Player Daemon) -- <em>$ sudo apt-get install mpd mpc</em></li>
@@ -606,6 +582,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
       <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
       <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+            <li><a href="/problem-issh-vim-ipad">iSSH, Prompt and Linux</a></li>
     </ul>
     </div>    
     

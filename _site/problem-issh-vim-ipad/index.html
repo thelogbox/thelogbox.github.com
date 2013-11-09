@@ -152,7 +152,7 @@ li {margin-bottom: 10px;}
   border-bottom: 1px solid #CACACA;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: normal;
@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5 {
 h1 {font-size: 25px; letter-spacing: -1px;}
 h2 {font-size: 22px; } 
 h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 #feature {
   min-height: 400px;
@@ -253,9 +254,9 @@ footer {
 
 hr {
 	border:0;
-	color: #CACACA;
-	background: #CACACA;
-	height: 2px;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -263,7 +264,7 @@ hr {
 hr .section {
   background: #61781a;
   color: #61781a;
-  border: 3px solid #DEDEDE;
+  border: 1px solid #DEDEDE;
 }
 
 strong {
@@ -293,7 +294,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -327,7 +328,7 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:14px;
+  font-family: 'Titillium Web'; font-size:15px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
@@ -502,12 +503,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
   
   </head>
-  <body>    
-      
+  <body>
+    
     <div class="running-head">   
-      <div class='tutorial-writeup'>        
-        ARCHIVES
-        <!-- AddThis Button BEGIN -->
+      <div class='tutorial-writeup'>             
+        LINUX NOTES
+         <!-- AddThis Button BEGIN -->
 <div id='sharebuttons' class="addthis_toolbox addthis_default_style addthis_16x16_style">
 <a class="addthis_button_google_plusone_share"></a>
 <a class="addthis_button_facebook"></a>
@@ -517,18 +518,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527d287225536182"></script>
 <!-- AddThis Button END --> 
       </div>
+     
+    </div>
+    
+    <div id="wrap">
         
-    </div>   
-    <div id="wrap">     
-    <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>
-      <div class='vspacer'></div>          
-      <div id="articletitle">iSSH and Vim</div>
-      
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
       <div class='byline'>
-       by: <a href='https://plus.google.com/107317535953221277825' 'rel=author'>
-       Ted Hagos</a>, April 11 , 2012 
-      </div>
+  by: <a href='https://plus.google.com/+TedHagos' 'rel=author'>Ted Hagos</a>
+</div>
+      <div id="articletitle">iSSH and Vim</div>
+
+      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -537,15 +540,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.</p>
 
-<p>I had issues with iSSH, these are found below:</p>
+<h2>Issues with iSSH</h2>
 
-<p>Could not get 256 colors to work. Elsewhere on the Internet (forums etc), the instruction were to set the 256 color on the Advanced settings and/or to set the <em>TERM</em> variable equal to <em>term-256color</em>, which I did, but still could not get it to work. The <strong>Prompt</strong> app though worked out of the box, I did not have to fiddle with anything</p>
+<p>I could not get 256 colors to work. A quick research &mdash; by that I mean quick Googling &mdash; I found some instructions to set the 256 color on the Advanced settings and/or to set the <em>term</em> variable equal to <em>term-256color</em>.  Which I did. But still could not get it to work. The <em>Prompt</em> app though worked out of the box, I did not have to fiddle with anything</p>
 
-<p>The Vim screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p>
+<p>Vim's screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p>
 
 <p><img class="shadow" src="/img/issh-1.jpg"></p>
 
-<p>Later, after inspecting my .vimrc on the target machine, I found out that I had a :set columns=100. This was causing the wobbling and the display of weird characters  in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
+<p>Later, after inspecting my <em>.vimrc</em> on the target machine, I found out that I had a <code class="codeblock">:set columns=100</code>. This was causing the wobbling and the display of weird characters  in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
 
 <p><img class="shadow" src="/img/issh-2.jpg"></p>
 
@@ -553,17 +556,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>This is a deal killer, Vim uses this alot when switching   between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box</p>
 
-<hr />
+<h2>Prompt</h2>
 
-<p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don't use the iPad to VNC or to connect via Remote Desktop Connection anyway, just SSH</p>
+<p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don't use the iPad to VNC or to connect via Remote Desktop Connection anyway. I just needed it for SSH</p>
 
 <ol>
-<li><p>the CTRL keys work out of the box, using a bluetooth keyboard. I could not get it to work on iSSH. Despite trying a lot of acrobatics on the settings -- Yes. I did try enable Options Mapping. No joy!</p></li>
-<li><p>Prompt appeared a bit faster too</p></li>
+<li>the CTRL keys work out of the box, using a bluetooth keyboard. I could not get it to work on iSSH. Despite trying a lot of acrobatics on the settings &mdash; Yes. I did try enable Options Mapping. No joy!</li>
+<li>Prompt appeared a bit faster too</li>
 </ol>
 
 
-<p>If not for my frustration on the CTRL keys not working out of the box on iSSH, it would have been a better fit for my use, because;</p>
+<p>If not for the the CTRL keys not working out of the box on iSSH, it would have been a better fit for my use, because;</p>
 
 <ul>
 <li>The size of the screen can configured via a slider control. This was not available on Prompt. You could choose the size of the font (but not the screen font itself)</li>
@@ -577,15 +580,39 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         </div>
 							
 		  </div>
+            
+      <a class="moot"
+        title=iSSH and Vim
+        href="https://moot.it/i/thelogbox/linux:iSSH and Vim">
+        Comments 
+      </a>  
+        
 		</article>
     
+    <div class="toc">
+      
+      <ul>
+      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
+      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
+      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
+      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
+      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
+      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
+      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
+      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
+      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
+      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
+      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
+      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+            <li><a href="/problem-issh-vim-ipad">iSSH, Prompt and Linux</a></li>
+    </ul>
+    </div>    
     
-    <a href="/" class='button'>HOME PAGE</a>  
-    <a href="/archives" class='button'>BLOG ARCHIVES</a>
     
-  </div> <!-- WRAP -->   
-		
-    <footer>
+
+    </div>  <!--  div wrap -->
+
+		<footer>
 <a href="/android-programming-tutorial">Android</a> &nbsp;
 <a href="/java-introduction">Java</a> &nbsp;
 <a href="/working-with-html5">HTML5</a> &nbsp;

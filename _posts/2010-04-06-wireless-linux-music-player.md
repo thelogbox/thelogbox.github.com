@@ -16,28 +16,11 @@ categories:
 
 ---
 
-# WHY
+This project will let you control a music player daemon running on a Linux box. The Linux box can is jacked into a stereo receiver &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.
 
-1. I didn't want to throw away my old notebook computer, so I looked for something it can still be useful for
-2. I have wanted (sometime in the past) to play audio files and get the sound coming out of a proper stereo receiver and some decent speakers. Hooking up an iPod to the stereo receiver should do it, but I really wanted to do it using the notebook
-3. I want to control the playlist from any computer. The Airport express from Apple should actually be able to do this, but what was I going to do with the old notebook? Besides, this solution has some advantage over the Airport Express option because the audio data is flowing directly from the notebook computer to the stereo receiver via a physical audio cable. In Airport Express, the audio data travels wirelessly. 
+For this project, I used 1) an old notebook with WiFi still working 2) an old stereo receiver with 3.5mm stereo jack input 
 
-
-# WHO IS THIS FOR
-
-This might suit you if you;
-
-1. Have some extra time in your hands and;
-2. Have an old notebook that you don't want to throw away and;
-3. Are a bit handy on Linux and have some experience working on the Terminal
-
-# WHAT IS NEEDED
-
-1. An old notebook with wifi capability
-2. Stereo receivers
-3. Audio cable with a 3.5mm jack on one end and RCA jacks on the other (depending on the connections of your stereo receiver)
-
-# HOW TO DO IT
+## Installation and Configuration
 
 1. Get the **MPD** (Music Player Daemon) -- *$ sudo apt-get install mpd mpc*
 2. Edit the configuration file -- *$ sudo nano /etc/mpd.conf*.

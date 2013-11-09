@@ -152,7 +152,7 @@ li {margin-bottom: 10px;}
   border-bottom: 1px solid #CACACA;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: normal;
@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5 {
 h1 {font-size: 25px; letter-spacing: -1px;}
 h2 {font-size: 22px; } 
 h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 #feature {
   min-height: 400px;
@@ -253,9 +254,9 @@ footer {
 
 hr {
 	border:0;
-	color: #CACACA;
-	background: #CACACA;
-	height: 2px;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -263,7 +264,7 @@ hr {
 hr .section {
   background: #61781a;
   color: #61781a;
-  border: 3px solid #DEDEDE;
+  border: 1px solid #DEDEDE;
 }
 
 strong {
@@ -293,7 +294,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -327,7 +328,7 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:14px;
+  font-family: 'Titillium Web'; font-size:15px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
@@ -537,27 +538,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h1>USE CASE</h1>
+		    <p>The key command we need is</p>
 
-<ol>
-<li>To backup a MySQl database regularly, in fixed periods of time</li>
-<li>To do No. 1 using freely available tools.</li>
-</ol>
+<pre class='codeblock'>
+$ sudo mysqldump -u UserName -p --all-databases > /path/to/file.backup 
+</pre>
 
 
-<h1>SOLUTION</h1>
+<p>The <em>--all-databases</em> flag will back up everything inside of the MySQL instance. If you don't want to backup everything, specify the database name(s) instead of backing up everything.</p>
 
-<p>You need to do this on a Terminal window.</p>
+<p>The result of <em>mysqldump</em> is a series of SQL commands that contains both the structure and contents of the database.</p>
 
-<p><span class='codeblock'>$ sudo mysqldump -u UserName -p --all-databases > /path/to/file.backup </span></p>
-
-<p><em>UserName</em> - replace this with the username you are using to access MySQL</p>
-
-<p><em>--all-databases</em> - This will back up everything in MySQL. if you don't want to backup everything, specify the database name here<br/></p>
-
-<p><em>The > redirection sign</em>  after the <span class='codeblock'>--all-databases</span> portion is necessary because mysqldump basically sends the textual content of the database to the screen, that is why we need to redirect the output to a file, so that we can restore it a later time.</p>
-
-<p>The result of mysqldump is actually a series of SQL commands that contains both the structure and contents of the database. It is very straightforward to restore it using</p>
+<h2>How to Restore</h2>
 
 <pre class='codeblock'>
   
@@ -570,20 +562,16 @@ mysql > .\file.backup
 </pre>
 
 
-<h2>How to perform MySQL backup automatically</h2>
-
-<p><strong>TODO</strong></p>
+<p>Some extra things you can do to make this a bit more robust.</p>
 
 <ol>
-<li>Put this in a cron job</li>
+<li>Put this command in a cron job</li>
 <li>Refine by gzipping redirected text-output</li>
 <li>Refine further by adding time stamp to the backup files</li>
 <li>Refine by setting up Rsync to work with this backup approach</li>
-<li>I could actually put backup file inside DropBox, then I won't need rsync. However, mostly likely, if the installation is enterprise grade, chances are the Dropbox code won't be an optoin -- but hey, investigte it.</li>
+<li>I could actually put backup file inside DropBox, then I won't need rsync. However, mostly likely, if the installation is enterprise grade, chances are the Dropbox code won't be an option</li>
 </ol>
 
-
-<p>And there you have it, a respectable DRM for your database</p>
 
         </div>
 							
@@ -612,6 +600,7 @@ mysql > .\file.backup
       <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
       <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
       <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+            <li><a href="/problem-issh-vim-ipad">iSSH, Prompt and Linux</a></li>
     </ul>
     </div>    
     

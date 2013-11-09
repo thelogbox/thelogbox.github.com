@@ -20,7 +20,7 @@ These steps will install the Samsung CLP 315 on a headless Linux Server.
 
 You will need a properly configured CUPS server before proceeding. If you haven't configured a printer server yet, [read this one first](/easy-way-to-install-print-server-linux) then come back. You will also need an internet connection for this one. There are some files to download.
 
-# STEPS
+## Steps
 
 1. Get the UnifiedLinuxDriver.tar either from the CD that came with the printer or from the [Samsung site](http://www.samsung.com). You need to navigate the site a little bit. Go to *Support and Downloads* page, then find the printer, there is a wizard
 2. Find a way to SSH to your Linux Server, [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) should do it
@@ -29,7 +29,7 @@ You will need a properly configured CUPS server before proceeding. If you haven'
 5. Change directory to *cdroot*, this is one of the folders that is contained in the UnifiedLinuxDriver
 6. Run the installer -- *$ sudo install.sh* . The installer was intended to be ran from GUI workstation, so it will give you some warnings that may look like errors. It will eventually detect that you are not running on a GUI and it will degrade gracefully to a text-based installation. We need to run the installer because we need a very specific file. That file is **rastertosamsungsplc**, it is the PPD file we need for the CLP 315 printer to function normally in Linux
 
-# CONFIGURATION
+## Configuration
 
 Copy the rastertosamsungsplc ppd file to the */usr/lib/cups/filter* folder 
 

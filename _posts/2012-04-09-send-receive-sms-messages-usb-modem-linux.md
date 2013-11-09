@@ -1,7 +1,7 @@
 ---
 layout: linux
 
-title:  Send-Receive SMS
+title:  Send-Receive SMS message via USB modem
 
 description: Simple steps to setup your own SMS gateway in Linux
 
@@ -16,7 +16,7 @@ categories:
 
 ---
 
-This small guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
+This guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
 
 There were a couple of other solution approaches but I went for *gnokii-sms*. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.  
 
@@ -28,10 +28,10 @@ Hence, this mashup uses *gnokii-sms*. It is a stand-alone application with a dae
 
 You will need the items below to follow this guide.
 
-1. DEBIAN linux
+1. Debian Linux
 2. USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.
 
-# Steps
+# Installation and Configuration
 
 Get gnokii-smsd and mysql-server from the Debian repositories.
 
@@ -48,12 +48,14 @@ What you are looking for is the device name for the modem. Usually, the modem is
 
 When you know the device name of the modem, edit the configurationt file of *gnokii-sms*. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file &mdash the <code class="codeblock">PORT</code> and <code class="codeblock">model</code> entries. 
 
+<aside>
+
+**NOTE**: On some Debian variant like *CrunchBang*, the config file was not found at *~/.config* folder, it does not exist at all. There was a config file though at /etc/xdg/gnokii/config. If this is your case, you can simply create the configuration file and directory manually
+
+</aside>
+
 Set <code class="codeblock">port = /dev/tty0</code> (substitute your actual device name to tth0). Set <code class="codeblock">model = AT</code>, the default is *6510* which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.
 
-
-## Extra notes
-
-On some Debian variant like *CrunchBang*, the config file was not found at *~/.config* folder, it does not exist at all. There was a config file though at */etc/xdg/gnokii/config*. If this is your case, you can simply create the configuration file and directory manually
 
 <pre class="codeblock">  
 

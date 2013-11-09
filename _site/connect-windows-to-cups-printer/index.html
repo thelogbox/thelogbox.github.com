@@ -152,7 +152,7 @@ li {margin-bottom: 10px;}
   border-bottom: 1px solid #CACACA;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: normal;
@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5 {
 h1 {font-size: 25px; letter-spacing: -1px;}
 h2 {font-size: 22px; } 
 h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 #feature {
   min-height: 400px;
@@ -253,9 +254,9 @@ footer {
 
 hr {
 	border:0;
-	color: #CACACA;
-	background: #CACACA;
-	height: 2px;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -263,7 +264,7 @@ hr {
 hr .section {
   background: #61781a;
   color: #61781a;
-  border: 3px solid #DEDEDE;
+  border: 1px solid #DEDEDE;
 }
 
 strong {
@@ -293,7 +294,7 @@ pre {
 }
 
 .codeblock {
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'Lekton';
   color: #000000;
   padding:0px;
@@ -327,7 +328,7 @@ a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
  .byline a:hover {border-bottom: 1px solid #DEDEDE;}
 
 .byline { 
-  font-family: 'Titillium Web'; font-size:14px;
+  font-family: 'Titillium Web'; font-size:15px;
   color: #cbcbcb;
   margin-bottom:0px;
   margin-top:0px;
@@ -537,25 +538,27 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>There are a couple of ways to print to a CUPS printer from a Windows machine--CUPS printer means it's a printer connected to either a UNIX, Linux or an OSX machine, CUPS is the system which these OSes use to serve up print services. One way to print from Windows is via the Samba capabilities of your Linux server, if you have already set it up. Samba appears to be easier for the Windows users because Samba looks and feels just like another Windows box. I won't use Samba for this guide, instead we'll connect to the CUPS printer using internet printing protocol (this is actually oversimplification, the IPP is a much more involved subject than how I'm presenting it here).</p>
+		    <p>There are a couple of ways to print to a CUPS printer from a Windows machine. <em>CUPS</em> printer means it's a printer connected to either a UNIX, Linux or an OSX machine. CUPS is the system which these OSes use to share print services.</p>
+
+<p>One way to print from Windows is to use the  Samba features of your Linux server. Samba appears to be easier for the Windows users because Samba looks and feels just like another Windows box. I won't use Samba for this guide. Instead we will connect to the CUPS printer using internet printing protocol.</p>
 
 <h2>Things you will need</h2>
 
 <ol>
-<li><p>A driver for your printer. I don't know what printer you have so I can't list generic resources here. You can use the CD/DVD that came with your printer, or you can get the latest drivers online (always better to get updated drivers). This approach assumes that the Windows machine contains the printer driver locally. This doesn't scale very well for enterprise settings, if you are looking for a setup where CUPS is the RIP (if you don't know what a RIP is, then it's probably not for you) by acting as a generic postscript printer by using PPDs and CUPS filter queues, you can head over to LinuxPrinting.org, printing with CUPS in Samba</p></li>
-<li><p>A properly configured CUPS printer. There are some posts I have written in the past related to installation and configuration of CUPS, here they are If you need to build a linux print server, If you need to add a printer to a CUPS server</p></li>
+<li>A <em>driver</em> for your printer. I don't know what printer you have so I can't list generic resources here. You can use the CD/DVD that came with your printer, or you can get the latest drivers online (always better to get updated drivers). This approach assumes that the Windows machine contains the printer driver locally. This doesn't scale very well for enterprise settings, if you are looking for a setup where CUPS is the RIP (if you don't know what a RIP is, then it's probably not for you) by acting as a generic postscript printer by using PPDs and CUPS filter queues, you can head over to LinuxPrinting.org, printing with CUPS in Samba</li>
+<li>A properly configured <em>CUPS printer</em>. If you haven not configured your CUPS printer yet, <a href="/easy-way-to-install-print-server-linux">read this one firsrt</a>, then come back here</li>
 </ol>
 
 
-<h2>Connecting the dots ...</h2>
+<h2>Configuration</h2>
 
 <ol>
-<li><p>Make sure the CUPS printer is powered on, connected, and that you can ping it from your windows machine.</p></li>
-<li><p>From your Windows machine, go to the "Add printers" section--you know how to find this.</p></li>
-<li><p>Choose <strong>Add a network printer</strong>. The CUPS won't be listed, so click "My printer isn't listed"</p></li>
-<li><p>On the box provided, type <strong>http://IpOrNameOfPrintServer:631/printers/nameofQueue</strong> the "printers" subdirectory is pretty common for CUPS printers, the <strong>nameofQueue</strong> is something your Sys Admin (or you) would know, this the name of the printer added to CUPS, if you are not sure, launch a web browser and type http://IpOrNameOfPrintServer:631 then click "Printers" so that you can verify the name of the printer queue</p></li>
-<li><p>After clicking "Next", you will be prompted to select a driver for your printer, just go on ahead and select it.</p></li>
-<li><p>Print a test page</p></li>
+<li>Make sure the CUPS printer is powered on, connected, and that you can ping it from your windows machine.</li>
+<li>From your Windows machine, go to the "Add printers" section--you know how to find this.</li>
+<li>Choose <em>Add a network printer</em>. The CUPS won't be listed, so click "My printer isn't listed"</li>
+<li>On the box provided, type <code class="codeblock">http://IpOrNameOfPrintServer:631/printers/nameofQueue</code> the "printers" subdirectory is pretty common for CUPS printers, the <em>nameofQueue</em> is something your Sys Admin (or you) would know, this the name of the printer added to CUPS, if you are not sure, launch a web browser and type http://IpOrNameOfPrintServer:631 then click "Printers" so that you can verify the name of the printer queue</li>
+<li>After clicking "Next", you will be prompted to select a driver for your printer, just go on ahead and select it.</li>
+<li>Print a test page</li>
 </ol>
 
 
@@ -586,6 +589,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
       <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
       <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+            <li><a href="/problem-issh-vim-ipad">iSSH, Prompt and Linux</a></li>
     </ul>
     </div>    
     
