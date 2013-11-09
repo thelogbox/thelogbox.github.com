@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-09T18:22:41+08:00</updated>
+ <updated>2013-11-09T18:46:49+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -33,13 +33,15 @@
    <link href="http://thelogbox.com/javascript-program-flow"/>
    <updated>2013-11-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-program-flow</id>
-   <content type="html">&lt;p&gt;You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).&lt;/p&gt;
+   <content type="html">&lt;p&gt;A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements.&lt;/p&gt;
 
-&lt;p&gt;A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements&lt;/p&gt;
+&lt;p&gt;Think of program statements like a river. It streams. It flows in a linear way unless something influences the direction of flow.&lt;/p&gt;
+
+&lt;p&gt;There are two ways to alter the flow of control in your script. There are statements that can fork or branch the direction and there are statements that can loop.&lt;/p&gt;
 
 &lt;h1&gt;Branching&lt;/h1&gt;
 
-&lt;p&gt;&lt;em&gt;if-else&lt;/em&gt; statement is way to branch. When the expression inside the &lt;em&gt;if()&lt;/em&gt; construct yields true, the statement inside the if block is executed.&lt;/p&gt;
+&lt;p&gt;Branching statements allows you to side step some statements when some conditions are true; &lt;em&gt;if-else&lt;/em&gt; statement is one way to branch. When the expression inside the &lt;em&gt;if()&lt;/em&gt; construct yields true, the statement inside the if block is executed.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -71,7 +73,7 @@
 
 &lt;p&gt;Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned &lt;strong&gt;true&lt;/strong&gt; is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the &lt;em&gt;true&lt;/em&gt; value.&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&quot;stress&quot;&gt;Switch statement&lt;/span&gt; is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Switch statement&lt;/em&gt; is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;

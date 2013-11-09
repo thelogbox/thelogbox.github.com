@@ -20,8 +20,6 @@
 
 <link 
 
-<link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
-
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
@@ -540,13 +538,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>You will need to know how to direct program flow. There are 3 ways; execute statements one after another (sequencing), execute some statements when some condition is true (branching) and performing some statements repeatedly while some conditions are true (looping or iteration).</p>
+		    <p>A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements.</p>
 
-<p>A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements</p>
+<p>Think of program statements like a river. It streams. It flows in a linear way unless something influences the direction of flow.</p>
+
+<p>There are two ways to alter the flow of control in your script. There are statements that can fork or branch the direction and there are statements that can loop.</p>
 
 <h1>Branching</h1>
 
-<p><em>if-else</em> statement is way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed.</p>
+<p>Branching statements allows you to side step some statements when some conditions are true; <em>if-else</em> statement is one way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed.</p>
 
 <div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
@@ -578,7 +578,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value.</p>
 
-<p><span class="stress">Switch statement</span> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
+<p><em>Switch statement</em> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
