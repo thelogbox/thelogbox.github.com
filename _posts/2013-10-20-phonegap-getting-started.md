@@ -7,6 +7,10 @@ description: Create, compile, build and deploy your first PhoneGap project
 
 excerpt: 
 
+author: Ted Hagos
+
+lastupdate: 2013-11-10
+
 tags:
 - Introduction
 - Compiling

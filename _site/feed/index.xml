@@ -5,13 +5,81 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2013-11-10T00:34:28+08:00</updated>
+ <updated>2013-11-11T01:00:55+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Python Virtual Environment</title>
+   <link href="http://thelogbox.com/mac-python-virtual-environment"/>
+   <updated>2013-11-10T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/mac-python-virtual-environment</id>
+   <content type="html">&lt;pre class=&quot;codeblock&quot;&gt;
+$ brew install python
+&lt;/pre&gt;
+
+
+&lt;p&gt;Yes, I know OSX comes with Python pre-installed, but this formula for python comes with pip and setuptools.&lt;/p&gt;
+
+&lt;p&gt;Just to make sure pip and setuptools are up to date, do this also&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ sudo pip install --upgrade setuptools
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Virtual Environment Setup&lt;/h2&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ sudo pip install virtualenv
+$ sudo pip install virtualenvwrapper
+$ mkdir ~/pythonenvs
+$ echo &quot;WORKON_HOME=~/pythonenvs&quot; &gt;&gt; ~/.bash_profile
+$ source /usr/local/virtualenvwrapper.sh   
+&lt;/pre&gt;
+
+
+&lt;p&gt;Quit and re-open the terminal for the changes to take effect &amp;mdash; or just launch another terminal window and work there.&lt;/p&gt;
+
+&lt;h2&gt;Usage&lt;/h2&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ mkvirtualenv gae
+$ mkvirtualenv standard
+$ workon gae
+$ workon standard
+&lt;/pre&gt;
+
+
+&lt;h2&gt;Another Usage&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;mkdir ~/workarea/notes-gae (if you are working on a Python Google App Engine project, for example)&lt;/li&gt;
+&lt;li&gt;cd to it&lt;/li&gt;
+&lt;li&gt;mkvirtualenv notes-gae&lt;/li&gt;
+&lt;li&gt;work on notes-gae, install some new eggs, site packages&lt;/li&gt;
+&lt;li&gt;write the software to install inside requirements.txt, Ian Bicking wrote something about this&lt;/li&gt;
+&lt;li&gt;then pip -r requirements.txt&lt;/li&gt;
+&lt;li&gt;you can use yolk -l to see what packages are installed in the env&lt;/li&gt;
+&lt;li&gt;then use pip freeze &gt; stable-requirements.txtto freeze the software versions&lt;/li&gt;
+&lt;li&gt;Use deactivate command to get out of virtual environments&lt;/li&gt;
+&lt;li&gt;version the project, git init (gotta use git for source control)&lt;/li&gt;
+&lt;li&gt;add some files to the project, then git add .&lt;/li&gt;
+&lt;li&gt;do some commits, git commit -m “comments”&lt;/li&gt;
+&lt;li&gt;and push the commits to a remote repo, git push -u origin master&lt;/li&gt;
+&lt;li&gt;When you pick the project up another day, remember to git pull, before doing anything else&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Why do it&lt;/h2&gt;
+
+&lt;p&gt;A virtual environment setup keeps python packages across projects separate. They have independence. That's a good thing. When you are working on a new python project, you can't avoid installing python packages for it. If the new packages does not agree with packages you have installed for other projects, you are in for a bag of hurt. If the packages were managed using virtual environments, the independence of packages start becoming valuable.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>document history</title>
@@ -1139,7 +1207,7 @@ define('DB_COLLATE', '');
    <link href="http://thelogbox.com/javascript-core-environment-setup"/>
    <updated>2013-11-04T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-core-environment-setup</id>
-   <content type="html">&lt;p&gt;If you are reading this post, you already have the minimum tools you need to start coding in JavaScript. You just need a modern browser, a text editor and a good internet connection. Meeting the minimum requirement does not mean it's ideal for development. I really don't like prescribing tools because choice of coding weapons tend to be personal in nature, but allow me to risk some recommendations. Please find them below.&lt;/p&gt;
+   <content type="html">&lt;p&gt;You most likely already have the minimum tools you need to start coding in JavaScript. You just need a modern browser, a text editor and a good internet connection. Meeting the minimum requirement does not mean it's ideal for development. I really don't like prescribing tools because choice of coding weapons tend to be personal in nature, but allow me to risk some recommendations. Please find them below.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;em&gt;A modern browser&lt;/em&gt;. IE9/10, latest stable build of Chrome, FireFox or Safari. I suppose you would like to write code that is compliant with the current ECMAScript specification. Chances are, modern browsers will be compliant&lt;/li&gt;
@@ -1794,120 +1862,127 @@ $ open platforms/ios/HelloWorld.xcodeproj
  </entry>
  
  <entry>
-   <title>Android Setup</title>
+   <title>Android Setup for OSX</title>
    <link href="http://thelogbox.com/phonegap-development-environment-android"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/phonegap-development-environment-android</id>
-   <content type="html">&lt;p&gt;This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This chapter will walk through the steps to setup an Android development environment. The Android SDK requires that a Java development environment and Apache Ant are installed.&lt;/p&gt;
 
-&lt;p&gt;I'm assuming further that these tools are properly resolvable from any terminal window. That means the executable files are already part of the system path.&lt;/p&gt;
+&lt;h2 class='section'&gt;Java Development Kit&lt;/h2&gt;
 
-&lt;p&gt;If you have JDK and Apache ANT already, you can proceed with the android sdk setup.&lt;/p&gt;
 
-&lt;p&gt;The android sdk setup requires that you download, install and configure from setup files. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/index.html&quot;&gt;the JDK&lt;/a&gt; from the Oracle site. More than likely it will be a &lt;em&gt;.dmg&lt;/em&gt; file. You can install that by simply double clicking.&lt;/p&gt;
 
-&lt;p&gt;If that is still not clear enough, you can look at the &lt;a href=&quot;https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing&quot;&gt;setup instructions I wrote for my students here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The path to Java executables will be taken cared of by the installer. The &lt;em&gt;java compiler&lt;/em&gt; and other command line utilities of the JDK will be automatically added to the system path.&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h2 class='section'&gt;Apache Ant&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;DOWNLOAD THE INSTALLER&lt;/strong&gt; from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;You might be tempted to get the ADT bundle because the link on that one is prominently displayed, that is not the one you need, that is for Eclipse users. Download just SDK, not the bundle.&lt;/p&gt;
+&lt;p&gt;Download the installer from &lt;a href=&quot;http://ant.apache.org/&quot;&gt;ant.apache.org&lt;/a&gt;. Look for the download section. Apache Ant can be downloaded either in source or binary form. We have no use for the source distribution for now. Just download the binary format. At the time of writing, there are three formats for binary distribution &amp;mdash; &lt;em&gt;zip, tar.gz&lt;/em&gt; and &lt;em&gt;bz2&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;GET THE ZIPPED FILE&lt;/strong&gt;. Unzip the file to a user directory so that you will not need elevated privileges to use the executable files.&lt;/p&gt;
+&lt;p&gt;After the download is finished, choose directory where you will install &lt;em&gt;ant&lt;/em&gt;. For the purpose of this chapter, we will install it in a user directory.&lt;/p&gt;
 
-&lt;p&gt;The user directory in Windows is usually inside C:\User\yourname. Try to install on a folder without a white space. White spaces in Windows can become very troublesome when working on the command line. In OSX it will be inside &lt;code class=&quot;codeblock&quot;&gt;/Users/yourname/&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Try to remember the full path of the directory where you unzipped the Android SDK, this will be the &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;GET A TERMINAL WINDOW&lt;/strong&gt; &amp;mdash; cmd.exe in Windows and Terminal.app in OSX. Go to the ANDROID-HOME/tools directory, run the &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt; executable. This will launch the Android SDK Manager.&lt;/p&gt;
-
-&lt;p&gt;The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won't be much. Choose the API levels that you would like to install in your machine.&lt;/p&gt;
-
-&lt;p&gt;Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Jellybean SDK, for example, then check the box next to API level 17.&lt;/p&gt;
-
-&lt;p&gt;If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete though.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MODIFY THE SYSTEM PATH&lt;/strong&gt;. Include the &lt;em&gt;android tools&lt;/em&gt; and &lt;em&gt;platform tools&lt;/em&gt; in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2&gt;Setup for Windows&lt;/h2&gt;
-
-&lt;p&gt;There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).&lt;/p&gt;
-
-&lt;pre class='codeblock'&gt; 
-
-SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
-  
-SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
-
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ cd ~/
+$ mkdir progtools
+$ cd progtools
+$ cp ~/Downloads/apache-ant-1.9.2-bin.zip
+$ unzip apache-ant-1.9.2-bin.zip
 &lt;/pre&gt;
 
 
-&lt;p&gt;You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.&lt;/p&gt;
+&lt;p&gt;Your version of ant might not be exactly &lt;em&gt;1.9.2&lt;/em&gt;, so substitute accordingly.&lt;/p&gt;
 
-&lt;p&gt;If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box.&lt;/p&gt;
+&lt;h2 class='section'&gt;Android SDK&lt;/h2&gt;
 
-&lt;p&gt;First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;em&gt;Environment variables&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/windows-environment-variables.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Download the SDK from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;developer.android.com&lt;/a&gt;. The web page might display the &lt;em&gt;ADT&lt;/em&gt; bundle more prominently. It's not the ADT we need. Find the link for &quot;Existing IDE&quot;&lt;/p&gt;
 
-&lt;p&gt;If you have local admin rights on the machine, click the &lt;strong&gt;New&lt;/strong&gt; button on &lt;strong&gt;System variables&lt;/strong&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;em&gt;PATH&lt;/em&gt;, then click the &lt;em&gt;Edit&lt;/em&gt; button. Go to the last character of the existing entry, then add &lt;code class=&quot;codeblock&quot;&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/download-android-sdk.png&quot; alt=&quot;other IDE&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type &quot;android&quot;, it should launch the SDK manager&lt;/p&gt;
-
-&lt;p&gt;Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.&lt;/p&gt;
-
-&lt;h2&gt;Setup for OSX&lt;/h2&gt;
-
-&lt;p&gt;Edit &lt;strong&gt;~/.bash_profile&lt;/strong&gt; and export the Android SDK directories&lt;/p&gt;
+&lt;p&gt;Copy the zipped file to your users directory just like what we did with Apache ant.&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
+$ cd ~/progtools
+$ cp ~/Downloads/android-sdk_r22.3-macosx.zip
+$ unzip android-sdk_r22.3-macosx.zip
+&lt;/pre&gt;
 
-export ANDROID_HOME=/Users/ted/progtools/adnroid-sdk-macosx
 
+
+
+&lt;h2 class='section'&gt;Node Package Manager&lt;/h2&gt;
+
+
+&lt;p&gt;Node package manager is part of the &lt;strong&gt;NodeJS&lt;/strong&gt; installation. Download them from &lt;a href=&quot;http://nodejs.org&quot;&gt;nodejs.org&lt;/a&gt;. The downloaded package will most likely be in &lt;em&gt;pkg&lt;/em&gt; format. They can be installed by simply double clicking.&lt;/p&gt;
+
+&lt;h2 class='section'&gt;HomeBrew&lt;/h2&gt;
+
+
+&lt;p&gt;If you have performed the PhoneGap installation for iOS, then you have everything you need to install HomeBrew. Brew is a package management system for OSX, just like MacPorts and Fink. You can find instructions on how to install Brew at their website &lt;a href=&quot;http://brew.sh&quot;&gt;brew.sh&lt;/a&gt;. I've pasted the instruction in this section to save you time. To install Brew now, paste the following code in a terminal window&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+ruby -e &quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)&quot;
+&lt;/pre&gt;
+
+
+
+
+&lt;h2 class='section'&gt;System Path&lt;/h2&gt;
+
+
+&lt;p&gt;Open your startup script for editing. It's located at ~/.bash_profile. Add the following entries&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+export ANT_HOME=~/progtools/apache-ant-1.9.2
+export ANDROID_HOME=~/progtools/android-sdk_r22.3-macosx
 export PATH=$PATH:$ANDROID_HOME/platform-tools:.
-
 export PATH=$PATH:$ANDROID_HOME/tools:.
+export PATH=$PATH:$ANT_HOME/bin:.
+&lt;/pre&gt;
 
+
+&lt;p&gt;Quit the terminal then re-open it. This gives your startup script a chance to execute. From now on, all these PATH settings are available to you whenever you open a terminal window.&lt;/p&gt;
+
+&lt;h2 class='section'&gt;PhoneGap and Cordova Tools&lt;/h2&gt;
+
+
+&lt;p&gt;The last remaining pieces of the setup is to get both the PhoneGap and Cordova command line utilities. If your terminal window is still open, type these&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;
+$ sudo npm install -g phonegap
+$ sudo npm install -g cordova
 &lt;/pre&gt;
 
 
 
 
-&lt;div id='lst'&gt;/.bash_profile&lt;/div&gt;
+&lt;h2 class='section'&gt;Android Manager&lt;/h2&gt;
 
 
-&lt;hr /&gt;
+&lt;p&gt;The Android SDK setup is not yet complete. You will need to download a lot more software and you will do so using the Android SDK Manager. From a terminal window, type &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1&gt;The PhoneGap ToolChain&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/android-manager.png&quot; alt=&quot;android manager&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;After the Android SDK requirement has been satisfied, we can proceed to installing the actual tools for PhoneGap development.&lt;/p&gt;
-
-&lt;p&gt;You will need the node packager manager to proceed. The phonegap and cordova command line tools depend on the presence of a proper node package manager (NPM). You can download it at the &lt;a href=&quot;http://nodejs.org&quot;&gt;NodeJS site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;On OSX, another way of getting &lt;strong&gt;npm&lt;/strong&gt; is either via &lt;a href=&quot;http://brew.sh&quot;&gt;HomeBrew&lt;/a&gt; or &lt;a href=&quot;http://macports.org&quot;&gt;MacPorts&lt;/a&gt;, I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.&lt;/p&gt;
-
-&lt;p&gt;When you are done with the npm installation, you can get the PhoneGap installers. Get a terminal window &amp;mdash; cmd.exe for Windows and Terminal.app for OSX&lt;/p&gt;
-
-&lt;pre class=&quot;codeblock&quot;&gt;
-
-npm install -g phonegap
-npm install -g cordova
-
-&lt;/pre&gt;
+&lt;div id='lst'&gt;Android SDK Manager&lt;/div&gt;
 
 
-&lt;p&gt;A quick test is best so we can find out if we have a proper PhoneGap installation.&lt;/p&gt;
+&lt;p&gt;At a minimum you will need to install the SDK tools, platform tools and a couple of API levels. It depends on what platform of Android you are targeting. If you want to develop for Jellybean, get API level 19, 18,17 and 16. Ice Cream Sandwich is API level 15 and Honeycomb is 13. Get the &lt;em&gt;SDK platform&lt;/em&gt; and the &lt;em&gt;ARM EABI system image&lt;/em&gt; for each API level that you choose. You need the system images for building the &lt;em&gt;android virtual device&lt;/em&gt; which you will use for testing later on.&lt;/p&gt;
+
+&lt;p&gt;Select that packages that you need and click the &lt;em&gt;Install packages&lt;/em&gt; button. That may take a while.&lt;/p&gt;
+
+&lt;h2 class='section'&gt;Test the Setup&lt;/h2&gt;
+
+
+&lt;p&gt;Create a throw away project, then try to compile it using the PhoneGap CLI tools&lt;/p&gt;
 
 &lt;pre class=&quot;codeblock&quot;&gt;
-
 $ mkdir ~/workarea
 $ cd ~/workarea
 $ phonegap create first
 $ cd first
 $ phonegap build android
 $ cd platforms
-
 &lt;/pre&gt;
 
 
@@ -7114,33 +7189,13 @@ SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\
    <link href="http://thelogbox.com/javascript-core-tutorial"/>
    <updated>2012-08-07T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-core-tutorial</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;DOC HISTORY&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;7.August.2012&lt;/em&gt; created&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;30.14.October.2012&lt;/em&gt; Added sections on Inheritance, DOM and event programming&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;hr /&gt;
-
-&lt;p&gt;JS (JavaScript) is a loose, dynamically typed and interpreted  scripting language. It began life as LiveScript (1995); when it was a project at Netscape Communications. At some point in time, it was renamed JavaScript (roughly around the time when plugin support for the Java language was added to Netscape Navigator).&lt;/p&gt;
+   <content type="html">&lt;p&gt;JavaScript is a loose, dynamically typed and interpreted  scripting language. It began life as LiveScript (1995); when it was a project at Netscape Communications. At some point in time, it was renamed JavaScript (roughly around the time when plugin support for the Java language was added to Netscape Navigator).&lt;/p&gt;
 
 &lt;p&gt;Java and JavaScript are not related to each other, not even remotely, they simply share a commonality in their names.&lt;/p&gt;
 
 &lt;p&gt;JavaScript's popularity maybe attributed to it's ubiquity amongst web pages (client side JavaScript), but it is actually being used in lots of places other than web pages. JS can be ran on the server (Node.JS), it can be used to do MVC type development of web apps (Backbone.JS) and it can also be used to stitch together a bunch of Java apps together (Rhino); these are just some of the other uses of JavaScript.&lt;/p&gt;
 
 &lt;p&gt;JavaScript as we know it today, is the scripting language consistent with ECMAScript. ECMAScript is a standardized scripting language according to ECMA specification 262 and ISO/IEC 16262. ECMAScript exist in the form of JavaScript, ActionScript and JScript. If you are looking for language specification of JavaScript, you can look at the ECMAScript 262 specification---it is included in the Bibliography.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;The tutorial has evolved overtime. When this was started, it aimed only to introduce the bare-boned JavaScript core language &amp;mdash; without the attendant technologies e.g. DOM, JQuery, AJAX, node  etc. As it turns out, JavaScript is right in the middle of a lot of important and emerging technologies right now, hence, it is difficult not to mention the eco system of JavaScript technologies.&lt;/p&gt;
-
-&lt;h1&gt;AUDIENCE&lt;/h1&gt;
-
-&lt;p&gt;I wrote this for an internal (company) programming workshop. It is &lt;strong&gt;Part 2&lt;/strong&gt; of a 3-part programme for HTML5 programming. The participants had little (or no) prior programming background. Prior to JavaScript, the participants took up programming concepts using the Java language.&lt;/p&gt;
-
-&lt;p&gt;This tutorial does not cover the fundamental concepts of programming. Neither does it cover the more advanced techniques of JavaScript. It aims to cover Core JavaScript (ECMAScript 5) language fundamentals.&lt;/p&gt;
 </content>
  </entry>
  
@@ -13580,15 +13635,16 @@ $ sudo /etc/init.d/cupsd restart
  </entry>
  
  <entry>
-   <title>MAC MINI MIC HACK</title>
+   <title>Mac Mini Mic Hack</title>
    <link href="http://thelogbox.com/mac-mini-microphone-hack"/>
    <updated>2009-03-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/mac-mini-microphone-hack</id>
-   <content type="html">&lt;p&gt;The usual microphones used in PC's and headset-mic combos won't work with the mac mini &amp;mdash; the mac mini mic input requires line level input, meaning the mic needs to be powered. The usual mic input for PCs are mic level input (about 1 millivolt, the mic doesn't need to be powered). Bottom line is, if you have an existing mic which has worked with your PC, chances are it won't work on the mac mini.&lt;/p&gt;
+   <content type="html">&lt;p&gt;The Mac Mini requires line level mic input. It needs to be powered. A mic that works on PC may not work on the mini.&lt;/p&gt;
 
-&lt;p&gt;There are lots of solutions for this problem, just google the term &quot;mac mini mic&quot; and I'm sure you won't run out of options &amp;mdash; there are USB mics, and for sure you will run into the iMic from Griffin. But this guide is not about the iMic, I wasn't inclined to buy a condenser mic or the iMic simply because I use the mic on the mini just on ocassions.&lt;/p&gt;
+&lt;p&gt;You can spare your self the experimentation and reading this guide if you just buy the third party products designed for the mac mini e.g. iMic. If you have the time and the materials suggested here, go on and hack away.&lt;/p&gt;
 
-&lt;h1&gt;HACK&lt;/h1&gt;
+&lt;h2 class='section'&gt;The Hack&lt;/h2&gt;
+
 
 &lt;ol&gt;
 &lt;li&gt;Find an old voice recorder. There could be one (or two) gathering dust in that sealed box of yesteryear-gadgets. I found an old Sony TCM-150. Any recorder with a built-in microphone should do it.&lt;/li&gt;

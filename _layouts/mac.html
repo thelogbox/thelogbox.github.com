@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div class="running-head">   
+      <div class='tutorial-writeup'>             
+        MACLIFE
+         {% include addthis.html %} 
+      </div>
+     
+    </div>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">{{ page.title }}</div>
+
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+      {% include postmeta.html %}      
+      <a class="moot"
+        title={{ page.title }}
+        href="https://moot.it/i/thelogbox/mac:{{ page.title }}">
+        Comments 
+      </a>  
+    
+		</article>
+    
+    <div class="toc">
+      
+    <ul>
+      <li><a href="/mac-mini-microphone-hack">Mac Mini Mic Hack</a></li>
+      <li><a href="/mac-python-virtual-environment">Python Virtual Environment</a></li>
+       <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+    </div>    
+    
+    
+    </div>  <!--  div wrap -->
+
+		<footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>

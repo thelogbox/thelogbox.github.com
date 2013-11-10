@@ -19,7 +19,7 @@
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
       <div class='vspacer'></div>
-      {%  include byline.html %}
+
       <div id="articletitle">{{ page.title }}</div>
       <div class='vspacer'></div>
     </header>
@@ -30,7 +30,7 @@
         </div>
 							
 		  </div>
-      
+      {% include postmeta.html %}
       <a class="moot"
         title={{ page.title }}
         href="https://moot.it/i/thelogbox/android:{{ page.title }}">

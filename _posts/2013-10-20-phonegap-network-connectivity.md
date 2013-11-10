@@ -7,6 +7,10 @@ description: How to detect if the device has internet connection
 
 excerpt: 
 
+author: Ted Hagos
+
+lastupdate: 2013-11-08
+
 tags:
 - Network
 - Connectivity

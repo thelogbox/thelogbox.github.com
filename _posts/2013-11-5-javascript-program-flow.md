@@ -7,19 +7,21 @@ description: Branching, Looping and Sequencing in JavaScript
 
 excerpt: 
 
+author: Ted Hagos
+
+lastupdate: 2013-11-09
+
 tags:
-- if
-- case
-- while
-- for
+- control_structures
 - loop
 - branch
-- sequence
+
 
 categories:
 - JavaScript
 
 ---
+
 
 A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements.
 

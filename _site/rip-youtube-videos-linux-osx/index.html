@@ -164,7 +164,7 @@ h1, h2, h3 {
 }
 
 h1 {font-size: 25px; letter-spacing: -1px;}
-h2 {font-size: 22px; } 
+h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
@@ -324,18 +324,8 @@ pre {
 a:link, a:visited {color: #3a5d9f; text-decoration: none;}
 a:hover {color: #3a5d9f;border-bottom: 1px solid #6083c5;}
 
-.byline a:link, .byline a:visited {color: #cbcbcb;}
- .byline a:hover {border-bottom: 1px solid #DEDEDE;}
-
-.byline { 
-  font-family: 'Titillium Web'; font-size:15px;
-  color: #cbcbcb;
-  margin-bottom:0px;
-  margin-top:0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  text-align:center;
-}
+#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
@@ -526,9 +516,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
       <div class='vspacer'></div>
-      <div class='byline'>
-  by: <a href='https://plus.google.com/+TedHagos' 'rel=author'>Ted Hagos</a>
-</div>
+
       <div id="articletitle">Rip YouTube Vids</div>
 
       <div class='vspacer'></div>
@@ -574,7 +562,14 @@ $ sudo brew install lame
         </div>
 							
 		  </div>
-            
+      <div id="postmeta" class='light'>
+  <div style="text-decoration: overline; color: inherited">
+  file: #
+  </div> 
+  last updated:  <br/>
+  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+</div>
+      
       <a class="moot"
         title=Rip YouTube Vids
         href="https://moot.it/i/thelogbox/linux:Rip YouTube Vids">
@@ -603,7 +598,6 @@ $ sudo brew install lame
     </div>    
     
     
-
     </div>  <!--  div wrap -->
 
 		<footer>

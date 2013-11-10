@@ -1,11 +1,15 @@
 ---
 layout: phonegap
 
-title: Android Setup
+title: Android Setup for OSX
 
 description: How to setup the Android SDK in preparation for PhoneGap Development
 
 excerpt: 
+
+author: Ted Hagos
+
+lastupdate: 2013-11-11
 
 tags:
 - Android
@@ -14,112 +18,105 @@ tags:
 categories:
 - PhoneGap
 
+lastupdate: 2013-11-10
+
 ---
 
-This chapter will guide you through the setup process of an Android development environment. There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.
+This chapter will walk through the steps to setup an Android development environment. The Android SDK requires that a Java development environment and Apache Ant are installed. 
 
-I'm assuming further that these tools are properly resolvable from any terminal window. That means the executable files are already part of the system path.
+<h2 class='section'>Java Development Kit</h2>
 
-If you have JDK and Apache ANT already, you can proceed with the android sdk setup.
+Download [the JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) from the Oracle site. More than likely it will be a *.dmg* file. You can install that by simply double clicking.  
 
-The android sdk setup requires that you download, install and configure from setup files. But these things are easily managed by simply following instructions. When the instructions on these pages fail you, I'm sure you will Google for them. The official site of android can be found [here](http://developer.android.com/sdk/index.html) and [here](http://developer.android.com/sdk/index.html). 
+The path to Java executables will be taken cared of by the installer. The *java compiler* and other command line utilities of the JDK will be automatically added to the system path.
 
-If that is still not clear enough, you can look at the [setup instructions I wrote for my students here](https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing)
+<h2 class='section'>Apache Ant</h2>
 
-***
+Download the installer from [ant.apache.org](http://ant.apache.org/). Look for the download section. Apache Ant can be downloaded either in source or binary form. We have no use for the source distribution for now. Just download the binary format. At the time of writing, there are three formats for binary distribution &mdash; *zip, tar.gz* and *bz2*. 
 
-**DOWNLOAD THE INSTALLER** from [Android SDK from android.developer.com]( http://developer.android.com/sdk/index.html ).
-
-You might be tempted to get the ADT bundle because the link on that one is prominently displayed, that is not the one you need, that is for Eclipse users. Download just SDK, not the bundle.
-
-**GET THE ZIPPED FILE**. Unzip the file to a user directory so that you will not need elevated privileges to use the executable files. 
-
-The user directory in Windows is usually inside C:\User\yourname\. Try to install on a folder without a white space. White spaces in Windows can become very troublesome when working on the command line. In OSX it will be inside <code class="codeblock">/Users/yourname/</code>.
-
-Try to remember the full path of the directory where you unzipped the Android SDK, this will be the **ANDROID_HOME**. 
-
-**GET A TERMINAL WINDOW** &mdash; cmd.exe in Windows and Terminal.app in OSX. Go to the ANDROID-HOME/tools directory, run the <code class="codeblock">android</code> executable. This will launch the Android SDK Manager. 
-
-The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won't be much. Choose the API levels that you would like to install in your machine.
-
-Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Jellybean SDK, for example, then check the box next to API level 17. 
-
-If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete though.
-
-**MODIFY THE SYSTEM PATH**. Include the *android tools* and *platform tools* in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are **ANDROID-HOME/tools** and **ANDROID-HOME/platform-tools**
-
-## Setup for Windows 
-
-There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).
-
-<pre class='codeblock'> 
-
-SET ANDROID_HOME=c:\>path\where\you\installed\android\
-  
-SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
-
-</pre>
-
-You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.
-
-If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box. 
-
-First, open Control Panel, go to System Properties, then Advanced System Settings then click the button *Environment variables*
-
-<img class="shadow" src="/img/windows-environment-variables.png">
-
-If you have local admin rights on the machine, click the **New** button on **System variables** section. On the variable name, type *ANDROID_HOME*. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find *PATH*, then click the *Edit* button. Go to the last character of the existing entry, then add <code class="codeblock">%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.</code>
-
-Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type "android", it should launch the SDK manager
-
-Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.
-
-## Setup for OSX  
-
-Edit **~/.bash_profile** and export the Android SDK directories
+After the download is finished, choose directory where you will install *ant*. For the purpose of this chapter, we will install it in a user directory. 
 
 <pre class="codeblock">
+$ cd ~/
+$ mkdir progtools
+$ cd progtools
+$ cp ~/Downloads/apache-ant-1.9.2-bin.zip
+$ unzip apache-ant-1.9.2-bin.zip
+</pre>
 
-export ANDROID_HOME=/Users/ted/progtools/adnroid-sdk-macosx
+Your version of ant might not be exactly *1.9.2*, so substitute accordingly.
 
+<h2 class='section'>Android SDK</h2>
+
+Download the SDK from [developer.android.com](http://developer.android.com/sdk/index.html). The web page might display the *ADT* bundle more prominently. It's not the ADT we need. Find the link for "Existing IDE" 
+
+![other IDE](/img/phonegap/download-android-sdk.png)
+
+Copy the zipped file to your users directory just like what we did with Apache ant.
+
+<pre class="codeblock">
+$ cd ~/progtools
+$ cp ~/Downloads/android-sdk_r22.3-macosx.zip
+$ unzip android-sdk_r22.3-macosx.zip
+</pre>
+
+<h2 class='section'>Node Package Manager</h2>
+
+Node package manager is part of the **NodeJS** installation. Download them from [nodejs.org](http://nodejs.org). The downloaded package will most likely be in *pkg* format. They can be installed by simply double clicking.
+
+<h2 class='section'>HomeBrew</h2>
+
+If you have performed the PhoneGap installation for iOS, then you have everything you need to install HomeBrew. Brew is a package management system for OSX, just like MacPorts and Fink. You can find instructions on how to install Brew at their website [brew.sh](http://brew.sh). I've pasted the instruction in this section to save you time. To install Brew now, paste the following code in a terminal window
+
+<pre class="codeblock">
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+</pre>
+
+<h2 class='section'>System Path</h2>
+
+Open your startup script for editing. It's located at ~/.bash_profile. Add the following entries
+
+<pre class="codeblock">
+export ANT_HOME=~/progtools/apache-ant-1.9.2
+export ANDROID_HOME=~/progtools/android-sdk_r22.3-macosx
 export PATH=$PATH:$ANDROID_HOME/platform-tools:.
-
 export PATH=$PATH:$ANDROID_HOME/tools:.
-
+export PATH=$PATH:$ANT_HOME/bin:.
 </pre>
 
-<div id='lst'>/.bash_profile</div>
+Quit the terminal then re-open it. This gives your startup script a chance to execute. From now on, all these PATH settings are available to you whenever you open a terminal window.
 
-***
+<h2 class='section'>PhoneGap and Cordova Tools</h2>
 
-# The PhoneGap ToolChain
-
-After the Android SDK requirement has been satisfied, we can proceed to installing the actual tools for PhoneGap development.
-
-You will need the node packager manager to proceed. The phonegap and cordova command line tools depend on the presence of a proper node package manager (NPM). You can download it at the [NodeJS site](http://nodejs.org). 
-
-On OSX, another way of getting **npm** is either via [HomeBrew](http://brew.sh) or [MacPorts](http://macports.org), I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.
-
-When you are done with the npm installation, you can get the PhoneGap installers. Get a terminal window &mdash; cmd.exe for Windows and Terminal.app for OSX
+The last remaining pieces of the setup is to get both the PhoneGap and Cordova command line utilities. If your terminal window is still open, type these
 
 <pre class="codeblock">
-
-npm install -g phonegap
-npm install -g cordova
-
+$ sudo npm install -g phonegap
+$ sudo npm install -g cordova
 </pre>
 
-A quick test is best so we can find out if we have a proper PhoneGap installation. 
+<h2 class='section'>Android Manager</h2>
+
+The Android SDK setup is not yet complete. You will need to download a lot more software and you will do so using the Android SDK Manager. From a terminal window, type <code class="codeblock">android</code>
+
+![android manager](/img/phonegap/android-manager.png)
+<div id='lst'>Android SDK Manager</div>
+
+At a minimum you will need to install the SDK tools, platform tools and a couple of API levels. It depends on what platform of Android you are targeting. If you want to develop for Jellybean, get API level 19, 18,17 and 16. Ice Cream Sandwich is API level 15 and Honeycomb is 13. Get the *SDK platform* and the *ARM EABI system image* for each API level that you choose. You need the system images for building the *android virtual device* which you will use for testing later on.
+
+Select that packages that you need and click the *Install packages* button. That may take a while.
+
+<h2 class='section'>Test the Setup</h2>
+
+Create a throw away project, then try to compile it using the PhoneGap CLI tools
 
 <pre class="codeblock">
-
 $ mkdir ~/workarea
 $ cd ~/workarea
 $ phonegap create first
 $ cd first
 $ phonegap build android
 $ cd platforms
-
 </pre>
 
 An android project folder should have been created inside the platforms folder. This folder contains the necessary android project structure for testing and deployment.

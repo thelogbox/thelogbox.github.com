@@ -7,6 +7,10 @@ description:
 
 excerpt: 
 
+author: Ted Hagos
+
+lastupdate: 2013-11-11
+
 tags:
 - iOS
 - Setup

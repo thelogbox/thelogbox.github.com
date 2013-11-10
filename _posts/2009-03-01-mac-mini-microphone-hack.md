@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: mac
 
-title: MAC MINI MIC HACK
+title: Mac Mini Mic Hack
 
 description: If you don't want to pay for iMic, use the condenser mic from an old voice recorder
 
@@ -10,19 +10,20 @@ excerpt:
 tags:
 - hack
 - mac
+- mini
 
 categories:
 - OSX
 
+lastupdate: 2013-11-10
+
 ---
 
+The Mac Mini requires line level mic input. It needs to be powered. A mic that works on PC may not work on the mini.
 
-The usual microphones used in PC's and headset-mic combos won't work with the mac mini &mdash; the mac mini mic input requires line level input, meaning the mic needs to be powered. The usual mic input for PCs are mic level input (about 1 millivolt, the mic doesn't need to be powered). Bottom line is, if you have an existing mic which has worked with your PC, chances are it won't work on the mac mini.
+You can spare your self the experimentation and reading this guide if you just buy the third party products designed for the mac mini e.g. iMic. If you have the time and the materials suggested here, go on and hack away.
 
-
-There are lots of solutions for this problem, just google the term "mac mini mic" and I'm sure you won't run out of options &mdash; there are USB mics, and for sure you will run into the iMic from Griffin. But this guide is not about the iMic, I wasn't inclined to buy a condenser mic or the iMic simply because I use the mic on the mini just on ocassions.
-
-# HACK
+<h2 class='section'>The Hack</h2>
 
 1. Find an old voice recorder. There could be one (or two) gathering dust in that sealed box of yesteryear-gadgets. I found an old Sony TCM-150. Any recorder with a built-in microphone should do it.
 2. A 3.5mm stereo jack (mini jack) with both ends as male connectors. This can be easily procured at any audio supplies store or hardware supply store. I got mine from ACE hardware.
