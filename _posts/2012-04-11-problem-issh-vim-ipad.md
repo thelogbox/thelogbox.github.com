@@ -1,5 +1,5 @@
 ---
-layout: linux
+layout: mac
 
 title: iSSH and Vim
 
