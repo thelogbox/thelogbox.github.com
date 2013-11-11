@@ -1,5 +1,5 @@
 ---
-layout: linux
+layout: mac
 
 title: How to Connect OSX to a CUPS Print Server
 
