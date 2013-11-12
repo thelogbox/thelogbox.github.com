@@ -16,7 +16,7 @@ categories:
 
 ---
 
-This project will let you control a music player daemon running on a Linux box. The Linux box can is jacked into a stereo receiver &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.
+This project will let you control a music player daemon running on a Linux box. The Linux box (headphone jack) will be connected into a stereo receiver (input) &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.
 
 For this project, I used 1) an old notebook with WiFi still working 2) an old stereo receiver with 3.5mm stereo jack input 
 
