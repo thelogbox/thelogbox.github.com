@@ -16,7 +16,7 @@ categories:
 
 ---
 
-This guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
+This guide uses *gnokii-sms* to send and receive SMS messages using Linux PC. The project I was working on did not require industrial grade throughput. That is the reason I cannot justify the cost of *WaveComm* *iTegra* type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.
 
 There were a couple of other solution approaches but I went for *gnokii-sms*. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.  
 
@@ -42,11 +42,11 @@ $ sudo apt-get install gnokii-smsd-mysql
 
 </pre>
 
-Connect the USB modem to Debian and find out which port it is using &mdash; <code class="codeblock">sudo lsusb</code> or <code class="codeblock">sudo dmesg | grep USB</code> should do the trick
+1. Connect the USB modem to Debian and find out which port it is using &mdash; <code class="codeblock">sudo lsusb</code> or <code class="codeblock">sudo dmesg | grep USB</code> should do the trick
 
 What you are looking for is the device name for the modem. Usually, the modem is at */dev/tty0*, but just to be sure, run either *lsusb* or the *dmesg* command as stated above.
 
-When you know the device name of the modem, edit the configurationt file of *gnokii-sms*. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file &mdash the <code class="codeblock">PORT</code> and <code class="codeblock">model</code> entries. 
+When you know the device name of the modem, edit the configurationt file of *gnokii-sms*. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file, specifically the *port* and *model* entries.
 
 <aside>
 
