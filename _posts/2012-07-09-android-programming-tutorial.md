@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Introduction 
+title: Android Programming 
 
 description: A short introduction to Android Programming
 

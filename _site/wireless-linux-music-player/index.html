@@ -50,13 +50,26 @@ p, li, .content-meta, body, p, br {
 
 	font-family: 'Libre Baskerville','Georgia', serif; 
 	font-size: 16px;
-	line-height: 1.7em;
+	line-height: 1.8em;
   /* color: #414141; */
-  color: #1e1e1e;
+  color: #111111;
 }
 
 ol, ul { padding-left:20px; line-height:1.8em;}
 li {margin-bottom: 10px;}
+
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  color: #555555;
+  counter-increment: mycounter;
+  font-style: italic;
+  font-family: 'Titillium Web';
+  left: -2em;
+}
+
 
 .tutorial-writeup {
   font-family:  'Titillium Web';
@@ -86,33 +99,20 @@ li {margin-bottom: 10px;}
 .vspacer {height:20px;}
 
 #wrap {
-	width:90%;
 	margin: 0 auto;
-	padding-top: 1em;
 }
 
 /* FOR THE article block */
 
-.withtoc {
-  float:left;
-  width:72%;
-}
-
-.notoc {
-  width:90%;
-}
-
 #articletitle {
-	font-family: 'Libre Baskerville','Georgia', serif; 
-	font-size: 35px;
-	font-weight: normal;
+	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+	font-size: 45px;
+	font-weight: bold;
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  letter-spacing: -1.5px;
   margin-top: 0px;
   padding-top: 0px;
-  text-align:center;
   text-rendering: optimizeLegibility;
 }
 
@@ -124,12 +124,28 @@ li {margin-bottom: 10px;}
   text-align: left;
 }
 
+article {
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ffffff;
+  border-right: 1px solid #dedede;
+}
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+.notoc {
+  width:80%;
+}
 .toc {
+  padding-top: 60px;
   text-align:left;
-  width:24%;
-  overflow: visible;
-  padding-left: 15px;
+  width:18%;
   float: right;
+  padding-right: 2%;
 }
 .toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
 .toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
@@ -224,10 +240,7 @@ body {
   margin:0;
   padding:0;
   border:0;
-}
-
-article {
-  padding-bottom: 20px;
+  background: #fbfbfb;
 }
 
 #discussions {
@@ -235,18 +248,6 @@ article {
   margin-bottom: 40px;
   padding: 15px;
   border: 2px solid #DEDEDE;
-}
-
-footer {
-  font-family: 'Titillium Web';
-  color: #414141;
-	font-style:normal;
-  clear:both;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  line-height: 2em;
-  text-align: center;
-  background: #dedede;  
 }
 
 hr {
@@ -276,14 +277,16 @@ code {
 pre {
 	font-family: 'Lekton';
 	font-size: 14px;
-	padding: 1em;
+	padding-top: 1em;
+  padding-bottom: 1em;
 
   line-height: 1.2em;
 /*  background: #FBFCF9; */
   /*
   border: 3px solid #F0F2E7;
   */
-  border: 1px solid #DEDEDE;
+  border-top: 1px dashed #DEDEDE;
+  border-bottom: 1px dashed #DEDEDE;
 
 	margin-bottom:2em;
   margin-top:2em;
@@ -325,6 +328,20 @@ a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
 
 #postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
 #postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+
+#addthis {margin-top:20px;margin-bottom:30px;}
+
+footer {
+  font-family: 'Titillium Web';
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  border-top: 1px solid #dedede;
+}
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
@@ -493,23 +510,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
   </head>
   <body>
-    
-    <div class="running-head">   
-      <div class='tutorial-writeup'>             
-        LINUX NOTES
-         <!-- AddThis Button BEGIN -->
-<div id='sharebuttons' class="addthis_toolbox addthis_default_style addthis_16x16_style">
-<a class="addthis_button_google_plusone_share"></a>
-<a class="addthis_button_facebook"></a>
-<a class="addthis_button_twitter"></a>
-<a class="addthis_button_email"></a>
-</div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527d287225536182"></script>
-<!-- AddThis Button END --> 
-      </div>
-     
-    </div>
-    
+        
     <div id="wrap">
         
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
@@ -525,7 +526,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This project will let you control a music player daemon running on a Linux box. The Linux box can is jacked into a stereo receiver &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.</p>
+		    <p>This project will let you control a music player daemon running on a Linux box. The Linux box (headphone jack) will be connected into a stereo receiver (input) &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.</p>
 
 <p>For this project, I used 1) an old notebook with WiFi still working 2) an old stereo receiver with 3.5mm stereo jack input</p>
 
@@ -564,7 +565,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     po.src = 'https://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
-</script>      
+</script>
+      <!-- AddThis Button BEGIN -->
+<div id="addthis" class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_email"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527d287225536182"></script>
+<!-- AddThis Button END -->      
       <a class="moot"
         title=Wireless Linux Music Player
         href="https://moot.it/i/thelogbox/linux:Wireless Linux Music Player">
@@ -578,7 +589,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <ul>
       <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
       <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
-      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
       <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
       <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
       <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
