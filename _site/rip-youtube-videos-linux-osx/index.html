@@ -54,6 +54,13 @@ p, li, .content-meta, body, p, br {
   /* color: #414141; */
   color: #111111;
 }
+p.archives {padding-left: 30px}
+
+.archivestitle:link, .archivestitle:visited {
+  font-family: 'Titillium Web'; font-size: 18px;
+  text-decoration: underline;
+}
+.archivestitle:hover {border-bottom: 0px; color: blue;}
 
 ol, ul { padding-left:20px; line-height:1.8em;}
 li {margin-bottom: 10px;}
@@ -146,6 +153,7 @@ article {
   width:18%;
   float: right;
   padding-right: 2%;
+  font-family: 'Titillium Web';
 }
 .toc a:link, .toc a:visited {font-family: 'Titillium Web' , 'sans-serif';}
 .toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
@@ -322,6 +330,7 @@ pre {
 
 a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
 a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+
 
 #postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
 #postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
@@ -589,16 +598,27 @@ $ sudo brew install lame
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527d287225536182"></script>
 <!-- AddThis Button END -->      
-      <a class="moot"
-        title=Rip YouTube Vids
-        href="https://moot.it/i/thelogbox/linux:Rip YouTube Vids">
-        Comments 
-      </a>  
-        
+       <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->    
 		</article>
     
     <div class="toc">
-      
+      Linux Notes
       <ul>
       <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
       <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>

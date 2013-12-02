@@ -31,17 +31,11 @@
 		  </div>
       {% include postmeta.html %}
       {% include addthis.html %}
-      <a class="moot"
-        title={{ page.title }}
-        href="https://moot.it/i/thelogbox/javascript:{{ page.title }}">
-        Comments 
-      </a>  
-      
-      
+      {% include disqus.html %}      
 		</article>
     
     <div class="toc">
-      
+      JavaScript Tutorial
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>

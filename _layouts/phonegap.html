@@ -31,16 +31,11 @@
 		  </div>
       {% include postmeta.html %}
       {% include addthis.html %}
-      <a class="moot"
-        title={{ page.title }}
-        href="https://moot.it/i/thelogbox/phonegap:{{ page.title }}">
-        Comments 
-      </a>  
-      
+      {% include disqus.html %}      
 		</article>
     
     <div class="toc">
-      
+      PhoneGap Programming
       <ul>
       <li><a href="/mobile-app-development-phonegap">Introduction</a></li>
       <li><a href="/phonegap-development-environment-ios">iOS Setup</a></li>

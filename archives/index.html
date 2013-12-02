@@ -9,13 +9,15 @@ categories:
 
 ---
 
-<div class="running-head">   
-  <div class='tutorial-writeup'>        
-    ARCHIVES
-  </div>  
-</div> 
+
 <div id="wrap" class="notoc">
+    
 <div class="content">
+  
+  <div style="height:40px;"></div>
+  This is the archive page. The entries are listed in reverse chronological order
+  <div style="height:40px;"></div>
+  
 	{% for post in site.posts %}   
 	
   <!--
@@ -24,15 +26,16 @@ categories:
 		{{ post.date | date: "%B %d, %Y" }}
 	</div>
   -->   
-  <h4>  
-  <a href="{{ post.url }}">
+    
+  <a href="{{ post.url }}" class='archivestitle'>
     {{ post.date | date: "%m.%d.%y" }}
     {{ post.title }}
   </a>
-</h4>
+  
+  <p class='archives'>
   <em>[{{post.categories | join: '  ,' }}]</em>
 	{{ post.content | strip_html |truncatewords: 50 }}
-
+  </p>
 
 	{% endfor %}
 </div>

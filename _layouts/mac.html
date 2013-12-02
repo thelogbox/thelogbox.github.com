@@ -31,16 +31,11 @@
 		  </div>
       {% include postmeta.html %}
       {% include addthis.html %}      
-      <a class="moot"
-        title={{ page.title }}
-        href="https://moot.it/i/thelogbox/mac:{{ page.title }}">
-        Comments 
-      </a>  
-    
+      {% include disqus.html %}
 		</article>
     
     <div class="toc">
-      
+      Mac Notes
     <ul>
       <li><a href="/mac-mini-microphone-hack">Mac Mini Mic Hack</a></li>
       <li><a href="/mac-python-virtual-environment">Python Virtual Environment</a></li>

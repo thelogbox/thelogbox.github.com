@@ -32,16 +32,11 @@
 		  </div>
       {% include postmeta.html %}
       {% include addthis.html %}      
-      <a class="moot"
-        title={{ page.title }}
-        href="https://moot.it/i/thelogbox/linux:{{ page.title }}">
-        Comments 
-      </a>  
-        
+      {% include disqus.html %}    
 		</article>
     
     <div class="toc">
-      
+      Linux Notes
       <ul>
       <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
       <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
