@@ -1,5 +1,5 @@
 ---
-layout: android
+layout: androidtutorial
 
 title: Cannot Find build.xml
 
