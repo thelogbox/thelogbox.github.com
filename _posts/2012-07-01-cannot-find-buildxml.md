@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: android
 
 title: Cannot Find build.xml
 
