@@ -98,4 +98,4 @@ He also has many years of experience in corporate training. He held a post as in
 <a href="https://leanpub.com/javalessons"><img src="/img/javalessons.png" class="thumbnail"/></a> 
 
 <p/>
-The course will use the book <a href="https://leanpub.com/javalessons">Java Lessons for Beginners</a>. Written by the trainer. The reference material is part the fee. You do not need to purchase the book if you attend the course.
+The course will use the book <a href="https://leanpub.com/javalessons">Java Lessons for Beginners</a>. Written by the trainer. The book is part of fee. You do not need to purchase it if you attend the course.
