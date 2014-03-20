@@ -92,3 +92,10 @@ From live interaction to workbooks, the training is an instructor led course wit
 The trainer is currently heading the software development group of A Dublin based software development company. He is a certified Java programmer and enterprise architect. He has over 15 years of software development experience.
 
 He also has many years of experience in corporate training. He held a post as instructor in IBM Advanced Career Education, Ateneo ITI and Asia Pacific College. He has already trained hundreds of programmers in various languages and platforms.
+
+## Reference material
+
+<a href="https://leanpub.com/javalessons"><img src="/img/javalessons.png" class="thumbnail"/></a> 
+
+<p/>
+The course will use the book <a href="https://leanpub.com/javalessons">Java Lessons for Beginners</a>. Written by the trainer. The reference material is part the fee. You do not need to purchase the book if you attend the course.
