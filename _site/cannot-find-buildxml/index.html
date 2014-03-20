@@ -173,6 +173,7 @@ article {
 }
 
 h1, h2, h3 {
+  font-family: Arial;
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: 700;
@@ -491,6 +492,30 @@ aside {
   border: 0;
 }
 
+#training-sidebar {
+  float:right;
+  font-family: Arial;  
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar p, #training-sidebar ul, #training-sidebar li {
+ font-family: Arial;  
+}
+
+#training-sidebar h4 {
+  font-family: Arial;
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
 
 
 /*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
@@ -508,24 +533,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
    ========================================================================== */
 
 
-</style>
-    
-    <!--
-		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
-    -->
-  
+</style>  
   </head>
-  <body>    
+  <body>
         
-    <div id="wrap">     
-    <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>
-      <div class='vspacer'></div>          
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+
       <div id="articletitle">Cannot Find build.xml</div>
+      <div class='vspacer'></div>
     </header>
-    <!--
-    <article itemscope itemtype="http://schema.org/Article">
-    -->
+    
 		  <div id="post">
         <div itemprop='articleBody'>
 		    <p>This is an ANT script problem, at the time of writing, I am using ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager.</p>
@@ -585,6 +606,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-527d287225536182"></script>
 <!-- AddThis Button END -->
+      
+ 
        <!-- DISQUS javascript -->
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -604,8 +627,51 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <!-- END Disqus-->
 		</article>
     
-  </div> <!-- WRAP -->   
-		
+    <div class="toc">
+      Android Programming
+      <ul>
+      <li><a href="/android-programming-tutorial">Introduction</a></li>
+      <li><a href="/android-how-much-java-do-you-need">How Much Java Do You Need</a></li>
+      <li><a href="/android-background-information">Background Information</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>
+      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-getting-started">Getting Started</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android-layout-weights">Using Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Using the Camera</a></li>
+      <li><a href="/android-java-recording-voice">Working with Audio</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
+  
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
+    </ul>
+    
+    <hr/>
+    
+    <ul>
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+    </ul>
+    
+    </div>    
+    
+    
+    </div>  <!--  div wrap -->
     <footer>
 <a href="/android-programming-tutorial">Android</a> &nbsp;
 <a href="/java-introduction">Java</a> &nbsp;

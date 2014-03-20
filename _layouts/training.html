@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+        
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>
+       <div class='vspacer'></div>
+      
+      <div id="articletitle">{{ page.title }}</div>
+
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+      {% include postmeta.html %}
+      {% include addthis.html %}
+      {% include disqus.html %}     
+		</article>
+    
+    <div class="toc">
+      HTML5 Programming
+      <ul>
+      <li><a href="/working-with-html5">Introduction</a></li>
+      <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
+      <li><a href="#">Markup Basics</a></li>
+      <li><a href="/html5-canvas-basics">Canvas - Basics</a></li>
+      <li><a href="/html5-moving-straight-line">Canvas -  Moving Objects</a></li>
+      <li><a href="/html5-canvas-acceleration">Canvas - Accelerating Objects</a></li>
+      <li><a href="/html5-canvas-handling-clicks">Canvas - Event handling</a></li>
+      <li><a href="/html5-canvas-objects-with-different-speeds">Canvas - Moving at Different speeds</a></li>
+      <li><a href="/html5-canvas-managing-complexity">Canvas - Managing Complexity</a></li>
+      <li><a href="/html5-database-programming">Database Programming with WebSQL</a></li>
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>{% include footer.html%}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>

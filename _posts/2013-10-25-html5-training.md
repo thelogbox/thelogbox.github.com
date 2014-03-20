@@ -1,5 +1,5 @@
 ---
-layout: courses
+layout: notice
 
 title: HTML5 Canvas Programming 
 
