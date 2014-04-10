@@ -206,18 +206,95 @@ At this point, we know we can display a picture, wait for a user's input and val
 
 ### Complexity
 
+The complexity of the use case, clearly, does not lie in mechanics of input, validation and graphics display. Those are easy enough tasks to manage. The slight difficulty in the use case is in the workflow. We need a simplistic game engine to satisfy the use case requirement.  
 
+1. Display the graphics
+2. Accept input from the user
+3. If the user got it right, clear the text field, update the heading status, then move on to the next round
+4. If the user got it wrong, clear the text field, update the heading status and keep him in the current round until he gets it
 
+This is the basic workflow that we need. 
 
 <img class=default src="/img/javascript/guessing-game.png"/>
+
+If you look at it closely, you might see that it resembles the basic engine for a flash card application. A flash card is a set of cards that one uses as a study aide. On one face of the card are either words, numbers, pictures or any combination of the three. The front side of the card usually is a question. And on the other side of the card is the answer.  The idea is to go through a set of cards, show the front side to the user and let him guess.
+
+In the previous section, we explored how to display just one card and let the user guess. That much we can do. The challenge is how to make more cards and let the user go through all of them.  Using the flash card analogy, let's rewrite our game engine workflow.
+
+1. Take out one card from the deck
+2. Display the front side of the card
+3. Let the user guess
+4. If the user guesses right, clear the text field, update the heading status and proceed to the next card&mdash;which means go back to step no. 1
+5. If the user guesses wrong, clear the text field, update the heading status and let the user guess again
+
+Now that we have clarified our solution approach, the next task is to figure out how to translate them into codes.
+
+There are two data structures that we need to figure out. The card and the deck. The card data structure cannot be held by simple scalar variables. It needs a more capable and complex data structure. We want it to hold the picture and the answer key. The deck is really just a collection of cards, 
+
+There are lots of options for us. At first glance it looks like a relational database is good tool to represent our data structure. A record in the database will represent a card and a deck of cards is a table. We can also use an XML file. Or we can use JavaScript objects. For the purpose of our practice, we will use JavaScript objects to represent the card and we will store all these cards inside an Array. The Array data structure is our deck.
+
+The card data structure can be represented in code like this
+
+{% highlight javascript %}
+var card1 = {
+  card: 1,
+  picture : "bugsbunny.jpg",
+  answertext : "Bart"
+};
+{% endhighlight %}
+
+The above code shows how to declare an object in JavaScript Object Notation (JSON). See the text on [JavaScript Complex Types](/javascript-complex-types) if you need a background or review on JS data structures. This data structure satisfies our purpose.
+
+We need to somehow define each card and populate the deck with it. We will use the built-in JS Array to represent the deck. 
+
+
+{% highlight java %}
+
+    var deck = new Array();
+    
+    
+    // OTHER STATEMENTS 
+    
+
+    var card1 = {
+      card: 1,
+      picture : "bugsbunny.jpg",
+      answertext : "Bugs Bunny"
+    };
+    
+    var card2 = {
+      card: 2,
+      picture : "bart.jpg",
+      answertext : "Bart"
+    };
+    
+    deck.push(card1);
+    deck.push(card2);
+    
+{% endhighlight %}
+
+Next task is how to pop a card from the deck and display the picture.  [needs more verbiage]
+
+
+{% highlight java %}
+
+  function Draw() {
+    currcard  =  deck.shift();
+    $("#a").attr("src", currcard.picture);
+  }
+
+{% endhighlight %}
+
+[tie up some loose ends]
 
 
 
 {% highlight javascript %}
+// script.js
 $(document).ready(function() {
   
-  var gamedb = new Array();
-  var currentround = null;
+  var deck = new Array();
+  var currcard = null;
   
   Init();
   Draw();
@@ -228,10 +305,10 @@ $(document).ready(function() {
     var useranswer = $("#answer").val();
     $("#status").html(useranswer);
     
-    if (currentround.answertext == useranswer) {
+    if (currcard.answertext == useranswer) {
       alert("correct");
       ClearText();
-      Draw(); // Move on to the next round
+      Draw(); // GET the next card
     }
     else {
       alert("try again");
@@ -247,26 +324,26 @@ $(document).ready(function() {
   
   function Init() {
     
-    var round1 = {
-      round: 1,
+    var card1 = {
+      card: 1,
       picture : "bugsbunny.jpg",
       answertext : "Bugs Bunny"
     };
     
-    var round2 = {
-      round: 2,
+    var card2 = {
+      card: 2,
       picture : "bart.jpg",
       answertext : "Bart"
     };
     
-    gamedb.push(round1);
-    gamedb.push(round2);
+    deck.push(card1);
+    deck.push(card2);
     
   }
   
   function Draw() {
-    currentround  =  gamedb.shift();
-    $("#a").attr("src", currentround.picture);
+    currcard  =  deck.shift();
+    $("#a").attr("src", currcard.picture);
   }
   
 });

@@ -741,12 +741,93 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h3>Complexity</h3>
 
+<p>The complexity of the use case, clearly, does not lie in mechanics of input, validation and graphics display. Those are easy enough tasks to manage. The slight difficulty in the use case is in the workflow. We need a simplistic game engine to satisfy the use case requirement.</p>
+
+<ol>
+<li>Display the graphics</li>
+<li>Accept input from the user</li>
+<li>If the user got it right, clear the text field, update the heading status, then move on to the next round</li>
+<li>If the user got it wrong, clear the text field, update the heading status and keep him in the current round until he gets it</li>
+</ol>
+
+
+<p>This is the basic workflow that we need.</p>
+
 <p><img class=default src="/img/javascript/guessing-game.png"/></p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<p>If you look at it closely, you might see that it resembles the basic engine for a flash card application. A flash card is a set of cards that one uses as a study aide. On one face of the card are either words, numbers, pictures or any combination of the three. The front side of the card usually is a question. And on the other side of the card is the answer.  The idea is to go through a set of cards, show the front side to the user and let him guess.</p>
+
+<p>In the previous section, we explored how to display just one card and let the user guess. That much we can do. The challenge is how to make more cards and let the user go through all of them.  Using the flash card analogy, let's rewrite our game engine workflow.</p>
+
+<ol>
+<li>Take out one card from the deck</li>
+<li>Display the front side of the card</li>
+<li>Let the user guess</li>
+<li>If the user guesses right, clear the text field, update the heading status and proceed to the next card&mdash;which means go back to step no. 1</li>
+<li>If the user guesses wrong, clear the text field, update the heading status and let the user guess again</li>
+</ol>
+
+
+<p>Now that we have clarified our solution approach, the next task is to figure out how to translate them into codes.</p>
+
+<p>There are two data structures that we need to figure out. The card and the deck. The card data structure cannot be held by simple scalar variables. It needs a more capable and complex data structure. We want it to hold the picture and the answer key. The deck is really just a collection of cards,</p>
+
+<p>There are lots of options for us. At first glance it looks like a relational database is good tool to represent our data structure. A record in the database will represent a card and a deck of cards is a table. We can also use an XML file. Or we can use JavaScript objects. For the purpose of our practice, we will use JavaScript objects to represent the card and we will store all these cards inside an Array. The Array data structure is our deck.</p>
+
+<p>The card data structure can be represented in code like this</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">card</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">,</span>
+  <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bart&quot;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>The above code shows how to declare an object in JavaScript Object Notation (JSON). See the text on <a href="/javascript-complex-types">JavaScript Complex Types</a> if you need a background or review on JS data structures. This data structure satisfies our purpose.</p>
+
+<p>We need to somehow define each card and populate the deck with it. We will use the built-in JS Array to represent the deck.</p>
+
+<div class="highlight"><pre><code class="java">    <span class="n">var</span> <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Array</span><span class="o">();</span>
+    
+    
+    <span class="c1">// OTHER STATEMENTS </span>
+    
+
+    <span class="n">var</span> <span class="n">card1</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="nl">card:</span> <span class="mi">1</span><span class="o">,</span>
+      <span class="n">picture</span> <span class="o">:</span> <span class="s">&quot;bugsbunny.jpg&quot;</span><span class="o">,</span>
+      <span class="n">answertext</span> <span class="o">:</span> <span class="s">&quot;Bugs Bunny&quot;</span>
+    <span class="o">};</span>
+    
+    <span class="n">var</span> <span class="n">card2</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="nl">card:</span> <span class="mi">2</span><span class="o">,</span>
+      <span class="n">picture</span> <span class="o">:</span> <span class="s">&quot;bart.jpg&quot;</span><span class="o">,</span>
+      <span class="n">answertext</span> <span class="o">:</span> <span class="s">&quot;Bart&quot;</span>
+    <span class="o">};</span>
+    
+    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card1</span><span class="o">);</span>
+    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card2</span><span class="o">);</span>
+    
+</code></pre></div>
+
+
+<p>Next task is how to pop a card from the deck and display the picture.  [needs more verbiage]</p>
+
+<div class="highlight"><pre><code class="java">  <span class="n">function</span> <span class="nf">Draw</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">currcard</span>  <span class="o">=</span>  <span class="n">deck</span><span class="o">.</span><span class="na">shift</span><span class="o">();</span>
+    <span class="n">$</span><span class="o">(</span><span class="s">&quot;#a&quot;</span><span class="o">).</span><span class="na">attr</span><span class="o">(</span><span class="s">&quot;src&quot;</span><span class="o">,</span> <span class="n">currcard</span><span class="o">.</span><span class="na">picture</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>
+
+
+
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// script.js</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
-  <span class="kd">var</span> <span class="nx">gamedb</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-  <span class="kd">var</span> <span class="nx">currentround</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   
   <span class="nx">Init</span><span class="p">();</span>
   <span class="nx">Draw</span><span class="p">();</span>
@@ -757,10 +838,10 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="kd">var</span> <span class="nx">useranswer</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#answer&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">useranswer</span><span class="p">);</span>
     
-    <span class="k">if</span> <span class="p">(</span><span class="nx">currentround</span><span class="p">.</span><span class="nx">answertext</span> <span class="o">==</span> <span class="nx">useranswer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">currcard</span><span class="p">.</span><span class="nx">answertext</span> <span class="o">==</span> <span class="nx">useranswer</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;correct&quot;</span><span class="p">);</span>
       <span class="nx">ClearText</span><span class="p">();</span>
-      <span class="nx">Draw</span><span class="p">();</span> <span class="c1">// Move on to the next round</span>
+      <span class="nx">Draw</span><span class="p">();</span> <span class="c1">// GET the next card</span>
     <span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
       <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;try again&quot;</span><span class="p">);</span>
@@ -776,26 +857,26 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
   <span class="kd">function</span> <span class="nx">Init</span><span class="p">()</span> <span class="p">{</span>
     
-    <span class="kd">var</span> <span class="nx">round1</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">round</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">,</span>
       <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bugs Bunny&quot;</span>
     <span class="p">};</span>
     
-    <span class="kd">var</span> <span class="nx">round2</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">round</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="kd">var</span> <span class="nx">card2</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
       <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bart.jpg&quot;</span><span class="p">,</span>
       <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bart&quot;</span>
     <span class="p">};</span>
     
-    <span class="nx">gamedb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">round1</span><span class="p">);</span>
-    <span class="nx">gamedb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">round2</span><span class="p">);</span>
+    <span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">card1</span><span class="p">);</span>
+    <span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">card2</span><span class="p">);</span>
     
   <span class="p">}</span>
   
   <span class="kd">function</span> <span class="nx">Draw</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">currentround</span>  <span class="o">=</span>  <span class="nx">gamedb</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="nx">currentround</span><span class="p">.</span><span class="nx">picture</span><span class="p">);</span>
+    <span class="nx">currcard</span>  <span class="o">=</span>  <span class="nx">deck</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="nx">currcard</span><span class="p">.</span><span class="nx">picture</span><span class="p">);</span>
   <span class="p">}</span>
   
 <span class="p">});</span>
