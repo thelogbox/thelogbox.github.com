@@ -812,16 +812,29 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<p>Next task is how to pop a card from the deck and display the picture.  [needs more verbiage]</p>
+<p>Next task is how to pop a card from the deck and display the picture. What we want is to take the top card from the Array, make it available for data retrieval and display the picture.</p>
 
-<div class="highlight"><pre><code class="java">  <span class="n">function</span> <span class="nf">Draw</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="java">  <span class="n">var</span> <span class="n">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+
+  <span class="n">function</span> <span class="nf">Draw</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">currcard</span>  <span class="o">=</span>  <span class="n">deck</span><span class="o">.</span><span class="na">shift</span><span class="o">();</span>
     <span class="n">$</span><span class="o">(</span><span class="s">&quot;#a&quot;</span><span class="o">).</span><span class="na">attr</span><span class="o">(</span><span class="s">&quot;src&quot;</span><span class="o">,</span> <span class="n">currcard</span><span class="o">.</span><span class="na">picture</span><span class="o">);</span>
   <span class="o">}</span>
 </code></pre></div>
 
 
+<p>The variable <em>currcard</em> is initially defined as null. It was defined outside the <em>Draw</em> function so that it other functions will have access to it. We will need the data stored on the current card when we check the user's answer against the answer key (which is stored on the current card).</p>
 
+<p>The <em>shift</em> method of the JS Array provides the mechanism to take the top card from the deck. When you call <em>shift</em>, it removes whatever is on the top element of the array and returns its value&mdash;it allows us to store the return value to a variable, that was why it was assigned to <em>currcard</em>.</p>
+
+<h3>Full code</h3>
+
+<p>We now have the essential technical details and workflow to put it all together. The program entry point is when the DOM has finished loading. There are two data structures that we will use, the <em>card</em> data structure which is an object literal (JSON format) and the <em>dec</em> which will hold the collection of cards, the deck will just be a standard JS Array.</p>
+
+<p>First thing to do is to initialize our cards and deck. We will give them some values. These codes are encapsulated in the function named <em>Init</em>.</p>
+
+<p>When the cards and the deck has been initialized, we call the <em>Draw</em> function. It pops the top card and displays the picture associated with that card. It also stores the value of the top card to the variable <em>currcard</em> because we will need the value of current top card when we compare the user's answer to our answer key.</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="c1">// script.js</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -882,6 +895,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="p">});</span>
 </code></pre></div>
 
+
+<p>When the user types his answer and clicks the button, we simply compare the value of <em>currcard.answertext</em> which is our answer key to whatever the user has typed on the text field.</p>
 
         </div>
 							

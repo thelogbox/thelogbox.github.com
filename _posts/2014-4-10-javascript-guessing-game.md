@@ -273,10 +273,12 @@ We need to somehow define each card and populate the deck with it. We will use t
     
 {% endhighlight %}
 
-Next task is how to pop a card from the deck and display the picture.  [needs more verbiage]
-
+Next task is how to pop a card from the deck and display the picture. What we want is to take the top card from the Array, make it available for data retrieval and display the picture.
 
 {% highlight java %}
+
+  var currcard = null;
+
 
   function Draw() {
     currcard  =  deck.shift();
@@ -285,9 +287,17 @@ Next task is how to pop a card from the deck and display the picture.  [needs mo
 
 {% endhighlight %}
 
-[tie up some loose ends]
+The variable *currcard* is initially defined as null. It was defined outside the *Draw* function so that it other functions will have access to it. We will need the data stored on the current card when we check the user's answer against the answer key (which is stored on the current card).
 
+The *shift* method of the JS Array provides the mechanism to take the top card from the deck. When you call *shift*, it removes whatever is on the top element of the array and returns its value&mdash;it allows us to store the return value to a variable, that was why it was assigned to *currcard*.
 
+### Full code 
+
+We now have the essential technical details and workflow to put it all together. The program entry point is when the DOM has finished loading. There are two data structures that we will use, the *card* data structure which is an object literal (JSON format) and the *dec* which will hold the collection of cards, the deck will just be a standard JS Array. 
+
+First thing to do is to initialize our cards and deck. We will give them some values. These codes are encapsulated in the function named *Init*. 
+
+When the cards and the deck has been initialized, we call the *Draw* function. It pops the top card and displays the picture associated with that card. It also stores the value of the top card to the variable *currcard* because we will need the value of current top card when we compare the user's answer to our answer key.
 
 {% highlight javascript %}
 // script.js
@@ -348,3 +358,9 @@ $(document).ready(function() {
   
 });
 {% endhighlight %}
+
+When the user types his answer and clicks the button, we simply compare the value of *currcard.answertext* which is our answer key to whatever the user has typed on the text field.  
+
+
+
+
