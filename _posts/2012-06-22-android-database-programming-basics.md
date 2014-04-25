@@ -7,6 +7,8 @@ description: Understand the basics of how to use SQLite in your mobile apps
 
 excerpt: Database programming is probably the one of the most common programming task. Even entertainment oriented applications has a need for a database backend. The Android platform has a database library and runtime. That's SQLite3. This database is baked right into Android. There is no need for a separate installation activity.
 
+author: Ted Hagos
+
 tags:
 - Database
 - Introduction
