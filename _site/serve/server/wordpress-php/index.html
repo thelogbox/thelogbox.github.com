@@ -1,0 +1,863 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
+
+<meta name="keywords" content="php">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="A simple introduction to the PHP language. Just about enough so you can build WordPress applications" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>WordPress , Introduction to PHP | theLogBox </title>
+
+
+		<style>
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+p, li, .content-meta, body, p, br {
+
+	/*font-family: 'Libre Baskerville','Georgia', serif; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-size: 15px;
+	/*line-height: 1.8em;*/
+  line-height: 1.5em;
+  /* color: #414141; */
+  color: #111111;
+}
+p.archives {padding-left: 30px}
+
+.archivestitle:link, .archivestitle:visited {
+  font-family: 'Titillium Web'; font-size: 18px;
+  text-decoration: underline;
+}
+.archivestitle:hover {border-bottom: 0px; color: blue;}
+
+ol, ul { padding-left:20px; line-height:1.5em;}
+li {margin-bottom: 10px;}
+
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  color: #555555;
+  counter-increment: mycounter;
+  font-style: normal;
+  /*font-family: 'Titillium Web';*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  left: -2em;
+}
+
+
+.tutorial-writeup {
+  font-family:  'Titillium Web';
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  /* background: #F0F0F0;
+  background: #F0F0FF; */
+  background: #F8F8F7;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/* FOR THE article block */
+
+#articletitle {
+	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+	font-size: 45px;
+	font-weight: bold;
+  text-align: left;
+  line-height: 1.4em;
+  color: #292929;
+  margin-top: 0px;
+  padding-top: 0px;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+  font-family: 'Muli';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article {
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ffffff;
+  border-right: 1px solid #dedede;
+}
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+.notoc {
+  width:80%;
+}
+.toc {
+  padding-top: 60px;
+  text-align:center;
+  width:18%;
+  float: right;
+  padding-right: 2%;
+  font-family: 'Muli';
+}
+.toc a:link, .toc a:visited {font-family: 'Muli' , 'sans-serif'; font-size: 14px;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3 {
+  font-family: Arial;
+  letter-spacing: -1px;
+	color: #0F0F0F;
+  font-weight: 700;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  /*font-family: 'Rokkitt'; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-weight: bold;
+  font-size: 45px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  /*font-family: 'Libre Baskerville','Georgia', serif;*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif;  
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {   
+  margin:0;
+  padding:0;
+  border:0;
+  background: #fbfbfb;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+	border:0;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+strong {
+  font-weight: normal;
+  color: #000000;
+}
+
+code {
+	font-family: 'Lekton';
+}
+
+pre {
+	font-family: 'Lekton';
+	font-size: 14px;
+  padding: 1em;
+  line-height: 1.2em;
+/*  background: #FBFCF9; */
+  
+  border: 2px solid #F0F2E7;
+  
+  /*
+  border-top: 1px dashed #DEDEDE;
+  border-bottom: 1px dashed #DEDEDE;
+  */
+	margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  font-size: 15px;
+  font-family: 'Lekton';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: .7em;
+    /*background: #e8ebef;*/
+    background: #F0F0FF; 
+    color: #000000;
+    line-height:120%;
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
+a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+
+
+#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+
+#addthis {margin-top:20px;margin-bottom:30px;}
+
+footer {
+  font-family: 'Titillium Web';
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  border-top: 1px solid #dedede;
+}
+
+footer a:link, footer a:visited {
+  color: #000000; background: inherit;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+ footer a:hover {border-bottom: 1px solid #000000;}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+  }
+  img.thumbnail {
+    float:left;
+    width: 30%;
+    margin-top: 0px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  font-family: Arial;  
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar p, #training-sidebar ul, #training-sidebar li {
+ font-family: Arial;  
+}
+
+#training-sidebar h4 {
+  font-family: Arial;
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+iframe {display:block;}
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+    
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Introduction to PHP</div>
+
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the <strong>DOCUMENT ROOT</strong> of Apache.</p>
+
+<p>In HTML introduction chapter, we have already created a folder on the document root</p>
+
+<pre class="codeblock">
+C:\Users\yourname\wamp\www\practice
+</pre>
+
+
+<p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+Hello
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script.</p>
+
+<p>Let's add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
+
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">   Today&#39;s date is</span>
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript).</p>
+
+<p>For the PHP script to execute, an HTTP request has to be made. When web server reads PHP instructions, it will hand over the execution to a program that understands PHP instructions. It will execute the instructions, then it will produce the resulting html files.</p>
+
+<hr />
+
+<h2>Basic Concepts</h2>
+
+<p>Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.</p>
+
+<p>Programming is a lot like that. It might be oversimplication but oversimplification is what we need in order to begin understanding a complex subject. Before you can begin writing codes, you need to decide on a lot of things e.g. which language are we going to use, should we learn desktop, web or mobile programming etc. In our case, a lot of these decisions have already been made. We are building skills so that we can write a Wordpress app. That narrows things down for us.</p>
+
+<p>A Wordpress app requires knowledge HTML, JavaScript, CSS and PHP. I did not include MySQL anymore because the Wordpress platform insulates you from dealing with the database. You will only need to deal with the database if you are working on a really unusual problem.</p>
+
+<p>We will start building our programming competencies in PHP, this is what this chapter is all about.</p>
+
+<h2>Statements</h2>
+
+<p>Remember the recipe analogy? First we need to know what kinds of things we can work with. In programming that means data. What kinds of data you can work with. You can work with numbers, both whole and real. You can use strings (words). You can work with boolean values (true or false). There are other things you can also work with but they are bit advanced, these are objects and arrays. We will circle back to these two when you have a bit more programming muscles.</p>
+
+<p>A statement in PHP is a declaration of an operation, something that you would like to do. For example, if you want define a variable and store a number in it, you need to tell PHP exactly that.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$anumber</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="mi">4</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required.</p>
+
+<p>When you define a variable in PHP, you need to prepend it with the dollar sign so that PHP knows you are declaring a variable. The equal sign is used for assignment. In this statement, we defined a variable named <em>anumber</em> and assigned an an integer to it.</p>
+
+<p>You will notice that there is a semicolon right after the number 10. That is a big deal. The semicolon tells PHP that you are already done with the statement. Just like when you want to end a sentence, you would punctuate it with a period to signal that it is already a complete thought, you need to punctuate your PHP statements with a semicolon.</p>
+
+<p><em>$anumber</em> is called a variable because we can change it’s value later on. You can add, subtract, divide and multiply it with some other value then store the new results on $anumber thereby changing its original value, like this</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">$j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="nv">$k</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="nv">$i</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
+<span class="nv">$i</span> <span class="o">=</span> <span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<h2>Co-mingling with html</h2>
+
+<p>You need to write your PHP statements inside this tag <em>&lt;?php  ?&gt;</em>. PHP is a server side scripting language, the php tag tells the server that what's inside is not HTML. It contains PHP instructions that needs to be <em>parsed and evaluated</em>. When these instructions are evaluated, sometimes they produce HTML and other times they don't. Through your practice, you will learn which statements produce HTML and which parts do something else. You don't always need to output something, sometimes you just need to do some stuff that don't necessary need to be seen by the user.</p>
+
+<p>PHP statements are often found co-mingled with HTML, like this;</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html lang=en&gt;</span>
+<span class="x">&lt;body&gt;</span>
+<span class="x">  &lt;h1&gt;My Spanking Web App&lt;/h1&gt;</span>
+<span class="x">  &lt;span&gt;Today is &lt;/span&gt; </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<p>See that. Most of the codes are in HTML except for that tiny <em>&lt;?php echo date(DATE_RFC822); ?&gt;</em> which basically just outputs the current date. When the server sees that instruction, it will get the  system date then <em>echo</em> the return value as HTML. By this time you must have figured out that whatever you <em>echo</em> it will be part of the HTML output.</p>
+
+<p>Many developers frown upon the practice of peppering your HTML codes with PHP expressions and statements, I don't necessarily agree with this approach as well, but were just starting out to learn PHP, so don't sweat about it just yet. Get some grips with the language first then worry about separation of concerns, MVC and other artsy fartsy architectural buzzwords.</p>
+
+<p>Before you can write elegant prose, you need to know vocabulary first, then grammar and rhetoric structures. Prose will come later, not before.</p>
+
+<h2>THREE THINGS YOU CAN DO WITH STATEMENTS</h2>
+
+<p>First. You can write one statement after another, like this</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$in = 5;</span>
+<span class="x">$cm = 10;</span>
+<span class="x">$factor = 2.54;</span>
+
+<span class="x">echo $in . &quot; inches = &quot; . $in / $factor;</span>
+<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span>
+</code></pre></div>
+
+
+<p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do.</p>
+
+<hr />
+
+<p>Second. You can execute some statements when some condition is true, if it is not true, do something else; like this</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
+<span class="x">$b = 20;</span>
+
+<span class="x">if($a &gt; $b) {</span>
+<span class="x">  echo &quot;a is &gt; b&quot;;</span>
+<span class="x">}</span>
+<span class="x">else {</span>
+<span class="x">  echo &quot;a &lt; b&quot;;</span>
+<span class="x">}</span>
+</code></pre></div>
+
+
+<p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran.</p>
+
+<p>The pair of curly braces is called a <em>block</em>. When statements are inside a block, they are executed as a group, start with the first one and all go all the way til the last. When you reach the last curly brace, execution resumes &mdash; unless you encounter another branching command or any command that alters the sequential flow of instruction. You will usually find blocks in control structures that either branch or loop.</p>
+
+<p>The <em>else block</em> gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
+<span class="x">$b = 20;</span>
+
+<span class="x">if($a &gt; $b) {</span>
+<span class="x">  echo &quot;a is &gt; b&quot;;</span>
+<span class="x">}</span>
+</code></pre></div>
+
+
+<p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense.</p>
+
+<hr />
+
+<p>We come to the last thing you can do with statements. If branching allows you sidestep some statements depending on some conditions, looping will let you perform some statements repeatedly until some conditions hold true.</p>
+
+<p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the <em>while</em> and the <em>for</em> statements to implement iterative constructions. For our purpose, we will only consider using the <em>whilte</em> statement because this is what you will encounter most when programming WordPress.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> 
+
+<span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span><span class="p">(</span><span class="nv">$counter</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$counter</span><span class="p">;</span>
+  <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+
+
+<div id='lst'>while loop</div>
+
+
+<p>The <em>while</em> loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to <em>true</em>, all the statements inside the block &mdash; the paired curly braces &mdash; will execute. You have to take care that the condition of the while loop will evaluate to <em>false</em> at some point in time lest your program will not terminate. In our example code above, the program will terminate when the <em>$counter</em> variable becomes <em>10</em>.</p>
+
+        </div>
+							
+		  </div>
+      
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta" class='light'>
+  <div style="text-decoration: overline; color: inherited">
+  file: #php
+  </div> 
+  last updated:  <br/>
+  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+       <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->  
+		</article>
+    
+    <div class="toc">
+      WordPress Notes
+      <ul>
+      <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
+      <li><a href="/wordpress-tools">Tools</a></li>
+      <li><a href="/wordpress-setup">Setup</a></li>
+      <li><a href="/wordpress-html">HTML</a></li>
+      <li><a href="#">Common html tags</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="/wordpress-php">PHP</a></li>
+      <li><a href="#">Wordpress makeup</a></li>
+      <li><a href="/wordpress-installation">Installation and Configuration</a></li>  
+      <li><a href="#">Using Wordpress</a></li>  
+      <li><a href="#">Custom theme</a></li>  
+      <li><a href="#">Templates</a></li>  
+      <li><a href="#">Extending Wordpress</a></li>  
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+
+		<footer>
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+
+
+<br/>
+
+Copyright&nbsp; &copy; 2004-2013 Ted Hagos
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-04-11T14:09:39+08:00</updated>
+ <updated>2014-07-02T00:29:44+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -11475,11 +11475,40 @@ ant debug install
    <link href="http://thelogbox.com/android-programming-tutorial"/>
    <updated>2012-07-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-programming-tutorial</id>
-   <content type="html">&lt;p&gt;These tutorials started a series of notes and lesson plans. They date back to 2008. They get updated whenever I have to teach an Android programming class or during a project when I have to do some digging.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.&lt;/p&gt;
 
-&lt;p&gt;My name is Ted Hagos. I work for RenditionDigital Inc. It is an outsourcing company that is involved heavily in software development. I hold a technical management position. I also teach. I taught at Asia Pacific College, IBM Advance Career Education and Ateneo ITI. That's probably what you need to know about the author of this work.&lt;/p&gt;
+&lt;p&gt;Shortly thereafer, 200,000 android devices were being activated on a daily basis (at the time of writing, over half million android devices are activated each day). The small-ish mobile phone software began to make waves.&lt;/p&gt;
 
-&lt;p&gt;There is side navigation bar on this mini site. Use them as you would a &lt;strong&gt;table of contents&lt;/strong&gt; in a book. I tried to organize them as such. The side bar is organized sequentially. You can get the most information by following this sequence.&lt;/p&gt;
+&lt;p&gt;Android's snowball noticeably gained momentum sometime in 2008 - 2009---this is the time they began using sweet snack monikers on each version of Android; it has been unstoppable since then.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2003&lt;/strong&gt; - Android Inc., was founded by Andy Rubin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2005&lt;/strong&gt; - Android Inc was Acquired by Google*&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2008&lt;/strong&gt; - version 1.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2009&lt;/strong&gt; - version 1.1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2009&lt;/strong&gt; - v1.5 (CupCake), v1.6 (Donut)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2009&lt;/strong&gt; - v2.0/2.1 (Eclair)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2010&lt;/strong&gt; - v2.2 (Froyo), v2.3 (GingerBread)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2011&lt;/strong&gt; - v3.0 (HoneyComb)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2011&lt;/strong&gt; - v4.0 (Ice Cream Sandwich)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2012&lt;/strong&gt; - v4.1 (Jelly Bean)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013&lt;/strong&gt; - v4.4 (KitKat)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;An article about Andy Rubin and Android, titled &lt;a href=&quot;http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html&quot;&gt;Android Invasion&lt;/a&gt; appeared on a NewsWeek article sometime in 2010.&lt;/p&gt;
+
+&lt;h1&gt;Technology Stack&lt;/h1&gt;
+
+&lt;p&gt;The Android is made up of a slew of tech but the most visible ones are &lt;em&gt;Linux&lt;/em&gt; and &lt;em&gt;Java&lt;/em&gt;. It is a complete operating system and it provides a container that can support rich applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/android-architecture.png&quot; alt=&quot;Android Architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Under the hood of Android is Linux. It was chosen for many reasons, but primarily because of it's stability. Out of the box, Android comes with a couple of useful libraries like &lt;em&gt;SQLite&lt;/em&gt; for database programming, &lt;em&gt;OpenGL&lt;/em&gt; for graphics, &lt;em&gt;Webkit&lt;/em&gt; (the browser engine that power Safari and Chrome) and &lt;em&gt;SSL&lt;/em&gt; for security.&lt;/p&gt;
+
+&lt;p&gt;The Android runtime consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. This runtime has a subset of Apache Harmony which is an open source, free Java implementation from the Apache Software Foundation. The politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that information somewhere else.&lt;/p&gt;
+
+&lt;p&gt;Android also comes packaged with Application Frameworks. This is the part of the Android that you will see frequently. As a developer you will spend a great deal of time reading, studying, implementing and using these frameworks.&lt;/p&gt;
 </content>
  </entry>
  
@@ -12414,106 +12443,14 @@ $ sudo brew install lame
    <link href="http://thelogbox.com/send-receive-sms-messages-usb-modem-linux"/>
    <updated>2012-04-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/send-receive-sms-messages-usb-modem-linux</id>
-   <content type="html">&lt;p&gt;This guide uses &lt;em&gt;gnokii-sms&lt;/em&gt; to send and receive SMS messages using Linux PC. The project I was working on did not require industrial grade throughput. That is the reason I cannot justify the cost of &lt;em&gt;WaveComm&lt;/em&gt; &lt;em&gt;iTegra&lt;/em&gt; type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.&lt;/p&gt;
-
-&lt;p&gt;There were a couple of other solution approaches but I went for &lt;em&gt;gnokii-sms&lt;/em&gt;. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.&lt;/p&gt;
-
-&lt;p&gt;I could have used &lt;em&gt;Kannel&lt;/em&gt; but it was so big. I only needed a simple mechanism to receve and send SMS message. I did not need a full gateway with all the bells and whistles.&lt;/p&gt;
-
-&lt;p&gt;GNOKii-SMS and Gammu were mature solutions. I went eventually with &lt;em&gt;gnokii-sms&lt;/em&gt; but Gammu would have been a fit as well.&lt;/p&gt;
-
-&lt;p&gt;Hence, this mashup uses &lt;em&gt;gnokii-sms&lt;/em&gt;. It is a stand-alone application with a daemon and it uses MySQL database as a datastore.  I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the &lt;em&gt;gnokii-sms&lt;/em&gt; backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms&lt;/p&gt;
-
-&lt;p&gt;You will need the items below to follow this guide.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Debian Linux&lt;/li&gt;
-&lt;li&gt;USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.&lt;/li&gt;
-&lt;/ol&gt;
+   <content type="html">&lt;div id=&quot;feature-button&quot;&gt;
+The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
+&lt;p/&gt;
+&lt;a href=&quot;http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html&quot;&gt;notes.tedhagos.com/UsbModemLinux-SMS&lt;/a&gt;   
+&lt;/div&gt;
 
 
-&lt;h1&gt;Installation and Configuration&lt;/h1&gt;
-
-&lt;p&gt;Get gnokii-smsd and mysql-server from the Debian repositories.&lt;/p&gt;
-
-&lt;pre class=&quot;codeblock&quot;&gt;
-
-$ sudo apt-get install mysql-server
-$ sudo apt-get install gnokii-smsd-mysql
-
-&lt;/pre&gt;
-
-
-&lt;ol&gt;
-&lt;li&gt;Connect the USB modem to Debian and find out which port it is using &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;sudo lsusb&lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt;sudo dmesg | grep USB&lt;/code&gt; should do the trick&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;What you are looking for is the device name for the modem. Usually, the modem is at &lt;em&gt;/dev/tty0&lt;/em&gt;, but just to be sure, run either &lt;em&gt;lsusb&lt;/em&gt; or the &lt;em&gt;dmesg&lt;/em&gt; command as stated above.&lt;/p&gt;
-
-&lt;p&gt;When you know the device name of the modem, edit the configurationt file of &lt;em&gt;gnokii-sms&lt;/em&gt;. It is over at &lt;code class=&quot;codeblock&quot;&gt;~/.config/gnokii/config&lt;/code&gt;. You need to make 2 changes on the config file, specifically the &lt;em&gt;port&lt;/em&gt; and &lt;em&gt;model&lt;/em&gt; entries.&lt;/p&gt;
-
-&lt;p&gt;&lt;aside&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: On some Debian variant like &lt;em&gt;CrunchBang&lt;/em&gt;, the config file was not found at &lt;em&gt;~/.config&lt;/em&gt; folder, it does not exist at all. There was a config file though at /etc/xdg/gnokii/config. If this is your case, you can simply create the configuration file and directory manually&lt;/p&gt;
-
-&lt;p&gt;&lt;/aside&gt;&lt;/p&gt;
-
-&lt;p&gt;Set &lt;code class=&quot;codeblock&quot;&gt;port = /dev/tty0&lt;/code&gt; (substitute your actual device name to tth0). Set &lt;code class=&quot;codeblock&quot;&gt;model = AT&lt;/code&gt;, the default is &lt;em&gt;6510&lt;/em&gt; which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.&lt;/p&gt;
-
-&lt;pre class=&quot;codeblock&quot;&gt;  
-
-$ mkdir ~/.config
-$ cd ~/.config
-$ mkdir gnokii
-$ cd gnokii
-$ cp /etc/xdg/gnokii/config config
-
-&lt;/pre&gt;
-
-
-&lt;p&gt;Then make the edits on PORT and model just the same.&lt;/p&gt;
-
-&lt;h2&gt;Testing&lt;/h2&gt;
-
-&lt;p&gt;To test if everything is in order, you can run &lt;code class=&quot;codeblock&quot;&gt;sudo gnokii --identify&lt;/code&gt;. This should give you some diagnostics and some quick peek if something is wrong with the configuration file&lt;/p&gt;
-
-&lt;h2&gt;Prepare the database backend&lt;/h2&gt;
-
-&lt;p&gt;I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install &lt;em&gt;gnokii-smsd-pgsql&lt;/em&gt; instead of &lt;em&gt;gnokii-smsd-mysql&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here is how to prepare the MySQL back-end&lt;/p&gt;
-
-&lt;pre class='codeblock'&gt;
-
-$ mysql -u root -p
-$ mysql&gt; create database smsgw;
-$ mysql&gt; use smsgw;
-$ mysql&gt;\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
-
-&lt;/pre&gt;
-
-
-&lt;p&gt;Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find.&lt;/p&gt;
-
-&lt;h2&gt;Test the SMS gateway&lt;/h2&gt;
-
-&lt;p&gt;Run gnokii-sms as a daemon process &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;sudo smsd -u root -p &lt;MySQL Password&gt; -d smsgw -c localhost -m mysql&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Try sending some SMS messages to the phone number of the USB modem, then view the messages on the MySQL database.&lt;/p&gt;
-
-&lt;pre class='codeblock'&gt;
-
-$ mysql -u root -p
-$ mysql&gt; use smsgw;
-$ mysql&gt; select * from inbox;
-
-&lt;/pre&gt;
-
-
-&lt;p&gt;Try sending some SMS messages from the command line to your phone using &lt;code class=&quot;codeblock&quot;&gt;echo &quot;Test message&quot; | gnokii --sendsmd +SMSNO&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Where &lt;em&gt;SMSNO&lt;/em&gt; is structured as (countrycode) cell phone number&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 </content>
  </entry>
  

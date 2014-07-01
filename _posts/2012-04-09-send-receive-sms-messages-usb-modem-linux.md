@@ -16,6 +16,9 @@ categories:
 
 ---
 
-This page moved to <a href="http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html">notes.tedhagos.com/USBModemLinux-SMS</a>      
 
-
+<div id="feature-button">
+The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
+<p/>
+<a href="http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html">notes.tedhagos.com/UsbModemLinux-SMS</a>   
+</div>  

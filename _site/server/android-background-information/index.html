@@ -1,0 +1,744 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
+
+<meta name="keywords" content="history">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="A short history of the Android mobile platform" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>Android , Background Info | theLogBox </title>
+
+
+		<style>
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+p, li, .content-meta, body, p, br {
+
+	/*font-family: 'Libre Baskerville','Georgia', serif; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-size: 15px;
+	/*line-height: 1.8em;*/
+  line-height: 1.5em;
+  /* color: #414141; */
+  color: #111111;
+}
+p.archives {padding-left: 30px}
+
+.archivestitle:link, .archivestitle:visited {
+  font-family: 'Titillium Web'; font-size: 18px;
+  text-decoration: underline;
+}
+.archivestitle:hover {border-bottom: 0px; color: blue;}
+
+ol, ul { padding-left:20px; line-height:1.5em;}
+li {margin-bottom: 10px;}
+
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  color: #555555;
+  counter-increment: mycounter;
+  font-style: normal;
+  /*font-family: 'Titillium Web';*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  left: -2em;
+}
+
+
+.tutorial-writeup {
+  font-family:  'Titillium Web';
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  /* background: #F0F0F0;
+  background: #F0F0FF; */
+  background: #F8F8F7;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/* FOR THE article block */
+
+#articletitle {
+	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+	font-size: 45px;
+	font-weight: bold;
+  text-align: left;
+  line-height: 1.4em;
+  color: #292929;
+  margin-top: 0px;
+  padding-top: 0px;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+  font-family: 'Muli';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article {
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ffffff;
+  border-right: 1px solid #dedede;
+}
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+.notoc {
+  width:80%;
+}
+.toc {
+  padding-top: 60px;
+  text-align:center;
+  width:18%;
+  float: right;
+  padding-right: 2%;
+  font-family: 'Muli';
+}
+.toc a:link, .toc a:visited {font-family: 'Muli' , 'sans-serif'; font-size: 14px;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3 {
+  font-family: Arial;
+  letter-spacing: -1px;
+	color: #0F0F0F;
+  font-weight: 700;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  /*font-family: 'Rokkitt'; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-weight: bold;
+  font-size: 45px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  /*font-family: 'Libre Baskerville','Georgia', serif;*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif;  
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {   
+  margin:0;
+  padding:0;
+  border:0;
+  background: #fbfbfb;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+	border:0;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+strong {
+  font-weight: normal;
+  color: #000000;
+}
+
+code {
+	font-family: 'Lekton';
+}
+
+pre {
+	font-family: 'Lekton';
+	font-size: 14px;
+  padding: 1em;
+  line-height: 1.2em;
+/*  background: #FBFCF9; */
+  
+  border: 2px solid #F0F2E7;
+  
+  /*
+  border-top: 1px dashed #DEDEDE;
+  border-bottom: 1px dashed #DEDEDE;
+  */
+	margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  font-size: 15px;
+  font-family: 'Lekton';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: .7em;
+    /*background: #e8ebef;*/
+    background: #F0F0FF; 
+    color: #000000;
+    line-height:120%;
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
+a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+
+
+#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+
+#addthis {margin-top:20px;margin-bottom:30px;}
+
+footer {
+  font-family: 'Titillium Web';
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  border-top: 1px solid #dedede;
+}
+
+footer a:link, footer a:visited {
+  color: #000000; background: inherit;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+ footer a:hover {border-bottom: 1px solid #000000;}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+  }
+  img.thumbnail {
+    float:left;
+    width: 30%;
+    margin-top: 0px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  font-family: Arial;  
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar p, #training-sidebar ul, #training-sidebar li {
+ font-family: Arial;  
+}
+
+#training-sidebar h4 {
+  font-family: Arial;
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+iframe {display:block;}
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+</style>  
+  </head>
+  <body>
+        
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+
+      <div id="articletitle">Background Info</div>
+      <div class='vspacer'></div>
+    </header>
+    
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>This section is probably the least interesting of all. I would guess that only programming instructors will leaf through these pages so we will keep it short. The section however, contains a bit more than history. It also discusses some foundational tech structure of Android, in that regard, I still suggest to read through it so that you can appreciate some architectural information about the platform.</p>
+
+<h1>Short History</h1>
+
+<p>Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.</p>
+
+<p>Shortly thereafer, 200,000 android devices were being activated on a daily basis (at the time of writing, over half million android devices are activated each day). The small-ish mobile phone software began to make waves.</p>
+
+<p>Android's snowball noticeably gained momentum sometime in 2008 - 2009---this is the time they began using sweet snack monikers on each version of Android; it has been unstoppable since then.</p>
+
+<ul>
+<li><strong>2003</strong> - Android Inc., was founded by Andy Rubin</li>
+<li><strong>2005</strong> - Android Inc was Acquired by Google*</li>
+<li><strong>2008</strong> - version 1.0</li>
+<li><strong>2009</strong> - version 1.1</li>
+<li><strong>2009</strong> - v1.5 (CupCake), v1.6 (Donut)</li>
+<li><strong>2009</strong> - v2.0/2.1 (Eclair)</li>
+<li><strong>2010</strong> - v2.2 (Froyo), v2.3 (GingerBread)</li>
+<li><strong>2011</strong> - v3.0 (HoneyComb)</li>
+<li><strong>2011</strong> - v4.0 (Ice Cream Sandwich)</li>
+<li><strong>2012</strong> - v4.1 (Jelly Bean)</li>
+</ul>
+
+
+<p>An article about Andy Rubin and Android, titled <a href="http://www.thedailybeast.com/newsweek/2010/10/03/how-android-is-transforming-mobile-computing.html">Android Invasion</a> appeared on a NewsWeek article sometime in 2010.</p>
+
+<h1>Technology Stack</h1>
+
+<p>The Android is made up of a slew of tech but the most visible ones are <em>Linux</em> and <em>Java</em>. It is a complete operating system and it provides a container that can support rich applications.</p>
+
+<p><img  src="/img/android-architecture.png" style="border: 1px solid gray"></p>
+
+<div id='lst'>Fig 1: Android Architecture</div>
+
+
+<p>Under the hood of Android is Linux. It was chosen for many reasons, but primarily because of it's stability. Out of the box, Android comes with a couple of useful libraries like <em>SQLite</em> for database programming, <em>OpenGL</em> for graphics, <em>Webkit</em> (the browser engine that power Safari and Chrome) and <em>SSL</em> for security.</p>
+
+<p>The Android runtime consists of (some) core Java libraries and the Dalvik VM. The runtime is not the same JRE/JDK that you have on your desktop. This runtime has a subset of Apache Harmony which is an open source, free Java implementation from the Apache Software Foundation. The politics of why Android did not use the Oracle reference implementation of the JDK will not be part of this tutorial, I am sure you can find that information somewhere else.</p>
+
+<p>Android also comes packaged with Application Frameworks. This is the part of the Android that you will see frequently. As a developer you will spend a great deal of time reading, studying, implementing and using these frameworks.</p>
+
+<p><strong>Next &raquo;</strong> <a href="/android-install-sdk-windows">Development Setup</a></p>
+
+        </div>
+							
+		  </div>
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta" class='light'>
+  <div style="text-decoration: overline; color: inherited">
+  file: #history
+  </div> 
+  last updated:  <br/>
+  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+       <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
+		</article>
+    
+    <div class="toc">
+      
+      <iframe width="200" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true"></iframe>  
+      
+      <ul>
+      <li><a href="/android-programming-tutorial">Introduction</a></li>
+      <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>
+      <li><a href="/android-background-information">Background Information</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>
+      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-getting-started">Getting Started</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android-layout-weights">Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Camera</a></li>
+      <li><a href="/android-java-recording-voice">Audio</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
+  
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
+    </ul>
+    
+    <hr/>
+    
+    <ul>
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+    </ul>
+    
+    </div>    
+    
+    
+    </div>  <!--  div wrap -->
+    <footer>
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+
+
+<br/>
+
+Copyright&nbsp; &copy; 2004-2013 Ted Hagos
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

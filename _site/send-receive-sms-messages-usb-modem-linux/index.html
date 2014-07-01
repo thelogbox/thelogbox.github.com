@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
+  <head>				
 		<!--
 <link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -25,11 +25,6 @@
 
 <link 
 
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
-
 <meta name="keywords" content="sms ,modem">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Simple steps to setup your own SMS gateway in Linux" />
@@ -39,59 +34,33 @@
 <title>Linux , Send-Receive SMS message via USB modem | theLogBox </title>
 
 
-		<style>
+    <style>
+
+@import
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
-p, li, .content-meta, body, p, br {
-
-	/*font-family: 'Libre Baskerville','Georgia', serif; */
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-  font-size: 15px;
-	/*line-height: 1.8em;*/
-  line-height: 1.5em;
-  /* color: #414141; */
-  color: #111111;
+body {   
+  font-family: 'Source Sans Pro';
+  margin:0;
+  padding:0;
+  border:0;
+  background: #fbfbfb;
 }
-p.archives {padding-left: 30px}
-
-.archivestitle:link, .archivestitle:visited {
-  font-family: 'Titillium Web'; font-size: 18px;
-  text-decoration: underline;
-}
-.archivestitle:hover {border-bottom: 0px; color: blue;}
-
-ol, ul { padding-left:20px; line-height:1.5em;}
-li {margin-bottom: 10px;}
-
-ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
-ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
-ol > li:before {
-  position: absolute;
-  content: counter(mycounter, decimal-leading-zero) ".";
-  color: #555555;
-  counter-increment: mycounter;
-  font-style: normal;
-  /*font-family: 'Titillium Web';*/
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-  left: -2em;
-}
-
 
 .tutorial-writeup {
-  font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
   font-size: 18px;
   margin: 0 auto;
   color: #555555;
   background: inherit;
-  line-height: 1.5em;
   text-transform: uppercase;
 }
 
 .running-head {
-  
   line-height:1.5em;
   font-size: 60px;
   text-align: center;
@@ -112,8 +81,7 @@ ol > li:before {
 /* FOR THE article block */
 
 #articletitle {
-	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-	font-size: 45px;
+	font-size: 30px;
 	font-weight: bold;
   text-align: left;
   line-height: 1.4em;
@@ -124,7 +92,6 @@ ol > li:before {
 }
 
 .content-meta {
-  font-family: 'Muli';
 	font-style: normal;
   margin-top: 5px;
 	margin-bottom:20px;
@@ -149,20 +116,18 @@ article {
 }
 .toc {
   padding-top: 60px;
-  text-align:center;
+  text-align:right;
   width:18%;
   float: right;
   padding-right: 2%;
-  font-family: 'Muli';
 }
-.toc a:link, .toc a:visited {font-family: 'Muli' , 'sans-serif'; font-size: 14px;}
+.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
 .toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
 .toc ul {padding-left: 0;}
 
 #blogtitle {margin-bottom:2em;}
 
 #blogtitle a:link, #blogtitle a:visited {
-	font-family: 'Tauri', 'helvetica', sans-serif;
 	text-decoration: none;
   color: black;
 }
@@ -173,14 +138,12 @@ article {
 }
 
 h1, h2, h3 {
-  font-family: Arial;
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: 700;
   margin-left: 0px;
   padding-left: 0px;
   padding-top: 20px;
-  padding-bottom: 20px;
   text-rendering: optimizeLegibility;
 }
 
@@ -197,8 +160,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 .feature-title {
-  /*font-family: 'Rokkitt'; */
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
   font-weight: bold;
   font-size: 45px;
   color: #2F2F2F;
@@ -211,8 +172,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 .feature-article {
-  /*font-family: 'Libre Baskerville','Georgia', serif;*/
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif;  
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -224,10 +183,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   /* color: #9a3c31; */
   color: #ADADAD;
   display:block;
-  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
-  /* background: #999999; 
-  background: #800000; */
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -245,13 +201,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   clear: both;
   margin: 0 auto;
   margin-top: 50px;
-}
-
-body {   
-  margin:0;
-  padding:0;
-  border:0;
-  background: #fbfbfb;
 }
 
 #discussions {
@@ -282,30 +231,22 @@ strong {
 }
 
 code {
-	font-family: 'Lekton';
+	font-family: 'Droid Sans Mono';
 }
 
 pre {
-	font-family: 'Lekton';
-	font-size: 14px;
+	font-family: 'Droid Sans Mono';
+  font-size: 13px;
   padding: 1em;
-  line-height: 1.2em;
-/*  background: #FBFCF9; */
-  
   border: 2px solid #F0F2E7;
-  
-  /*
-  border-top: 1px dashed #DEDEDE;
-  border-bottom: 1px dashed #DEDEDE;
-  */
-	margin-bottom:2em;
+  margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
 }
 
 .codeblock {
   font-size: 15px;
-  font-family: 'Lekton';
+  font-family: 'Inconsolata';
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -333,17 +274,16 @@ pre {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
-a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
+a:hover {color: blue; border-bottom: 1px solid #6083c5;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
 footer {
-  font-family: 'Titillium Web';
   color: #414141;
 	font-style:normal;
   clear:both;
@@ -477,8 +417,6 @@ aside {
 .button {
   position: relative;
   display: inline-block;
-  font-family:  'Titillium Web' ,Arial;
-  font-size: 17px;
   display: inline;
 /*  background: #800000; */
 /*  background: #3a5d9f; */
@@ -509,7 +447,6 @@ aside {
 
 #training-sidebar {
   float:right;
-  font-family: Arial;  
   margin-right: 30px;
   padding: 20px;
   border: 1px solid #CACACA;
@@ -517,12 +454,7 @@ aside {
   margin-left: 20px;
 }
 
-#training-sidebar p, #training-sidebar ul, #training-sidebar li {
- font-family: Arial;  
-}
-
 #training-sidebar h4 {
-  font-family: Arial;
   color: #CC0000;
   font-size: 16px;
   font-weight: bold;
@@ -550,221 +482,30 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
-    
-    <!--
-		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
-    -->
-  
   </head>
+	
   <body>
-        
-    <div id="wrap">
-        
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
-     <header>          
-      <div class='vspacer'></div>
-
-      <div id="articletitle">Send-Receive SMS message via USB modem</div>
-
-      <div class='vspacer'></div>
+    <div id="wrap" class='notoc'>
+    <header>
+      <div class='feature-title'>
+        Send-Receive SMS message via USB modem
+      </div>
     </header>
-    <!--
-    <article itemscope itemtype="http://schema.org/Article">
-    -->
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    <p>This guide uses <em>gnokii-sms</em> to send and receive SMS messages using Linux PC. The project I was working on did not require industrial grade throughput. That is the reason I cannot justify the cost of <em>WaveComm</em> <em>iTegra</em> type equipment. The SMS project was ran on a Debian Linux. If you are using a different distro, use the packaging mechanism of your distro.</p>
-
-<p>There were a couple of other solution approaches but I went for <em>gnokii-sms</em>. I didn't have a lot of time, which ruled out whipping serial I/O codes and concocting SMS messages using Hayes AT command set.</p>
-
-<p>I could have used <em>Kannel</em> but it was so big. I only needed a simple mechanism to receve and send SMS message. I did not need a full gateway with all the bells and whistles.</p>
-
-<p>GNOKii-SMS and Gammu were mature solutions. I went eventually with <em>gnokii-sms</em> but Gammu would have been a fit as well.</p>
-
-<p>Hence, this mashup uses <em>gnokii-sms</em>. It is a stand-alone application with a daemon and it uses MySQL database as a datastore.  I don't need to learn any API in order to integrate it with my application. All I need to do is to write an application that will query the <em>gnokii-sms</em> backend. I won't even alter the structure of the gnokii-sms database. My application will simply use gnokii for the SMS facility. No application logic will be added to gnokii-sms</p>
-
-<p>You will need the items below to follow this guide.</p>
-
-<ol>
-<li>Debian Linux</li>
-<li>USB modem. A post-paid plan works better for me. I could have chosen pre-paid but I need to be mindful when the SIM is running out of pre-paid load credits.</li>
-</ol>
-
-
-<h1>Installation and Configuration</h1>
-
-<p>Get gnokii-smsd and mysql-server from the Debian repositories.</p>
-
-<pre class="codeblock">
-
-$ sudo apt-get install mysql-server
-$ sudo apt-get install gnokii-smsd-mysql
-
-</pre>
-
-
-<ol>
-<li>Connect the USB modem to Debian and find out which port it is using &mdash; <code class="codeblock">sudo lsusb</code> or <code class="codeblock">sudo dmesg | grep USB</code> should do the trick</li>
-</ol>
-
-
-<p>What you are looking for is the device name for the modem. Usually, the modem is at <em>/dev/tty0</em>, but just to be sure, run either <em>lsusb</em> or the <em>dmesg</em> command as stated above.</p>
-
-<p>When you know the device name of the modem, edit the configurationt file of <em>gnokii-sms</em>. It is over at <code class="codeblock">~/.config/gnokii/config</code>. You need to make 2 changes on the config file, specifically the <em>port</em> and <em>model</em> entries.</p>
-
-<p><aside></p>
-
-<p><strong>NOTE</strong>: On some Debian variant like <em>CrunchBang</em>, the config file was not found at <em>~/.config</em> folder, it does not exist at all. There was a config file though at /etc/xdg/gnokii/config. If this is your case, you can simply create the configuration file and directory manually</p>
-
-<p></aside></p>
-
-<p>Set <code class="codeblock">port = /dev/tty0</code> (substitute your actual device name to tth0). Set <code class="codeblock">model = AT</code>, the default is <em>6510</em> which assumes you are using a Nokia phone. You are not. You are using a non-nokia USB modem.</p>
-
-<pre class="codeblock">  
-
-$ mkdir ~/.config
-$ cd ~/.config
-$ mkdir gnokii
-$ cd gnokii
-$ cp /etc/xdg/gnokii/config config
-
-</pre>
-
-
-<p>Then make the edits on PORT and model just the same.</p>
-
-<h2>Testing</h2>
-
-<p>To test if everything is in order, you can run <code class="codeblock">sudo gnokii --identify</code>. This should give you some diagnostics and some quick peek if something is wrong with the configuration file</p>
-
-<h2>Prepare the database backend</h2>
-
-<p>I chose the MySQL variant of the gnokii-smsd, if you use another database like PostgreSQL, you can do that too, but you need to install <em>gnokii-smsd-pgsql</em> instead of <em>gnokii-smsd-mysql</em>.</p>
-
-<p>Here is how to prepare the MySQL back-end</p>
-
-<pre class='codeblock'>
-
-$ mysql -u root -p
-$ mysql> create database smsgw;
-$ mysql> use smsgw;
-$ mysql>\. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
-
-</pre>
-
-
-<p>Line No. 4 above is the SQL script that you need to run in order to create the MySQL table structures which gnokii-smsd expects to find.</p>
-
-<h2>Test the SMS gateway</h2>
-
-<p>Run gnokii-sms as a daemon process &mdash; <code class="codeblock">sudo smsd -u root -p <MySQL Password> -d smsgw -c localhost -m mysql</code></p>
-
-<p>Try sending some SMS messages to the phone number of the USB modem, then view the messages on the MySQL database.</p>
-
-<pre class='codeblock'>
-
-$ mysql -u root -p
-$ mysql> use smsgw;
-$ mysql> select * from inbox;
-
-</pre>
-
-
-<p>Try sending some SMS messages from the command line to your phone using <code class="codeblock">echo "Test message" | gnokii --sendsmd +SMSNO</code></p>
-
-<p>Where <em>SMSNO</em> is structured as (countrycode) cell phone number</p>
-
-        </div>
-							
-		  </div>
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta" class='light'>
-  <div style="text-decoration: overline; color: inherited">
-  file: #sms  #modem
-  </div> 
-  last updated:  <br/>
-  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
+    <section>
+      <div class='feature article'>
+      <div id="feature-button">
+The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
+<p/>
+<a href="http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html">notes.tedhagos.com/UsbModemLinux-SMS</a>   
 </div>
 
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>    
-       <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->    
-		</article>
-    
-    <div class="toc">
-      Linux Notes
-      <ul>
-      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
-      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
-      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
-      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
-      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
-      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
-      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
-      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
-      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
-      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
-      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
-    </ul>
-    </div>    
-    
-    
-    </div>  <!--  div wrap -->
+<p></p>
 
-		<footer>
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
-
-
-<br/>
-
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    <!-- Start of StatCounter Code for Default Guide -->
+    </div>
+    </section>
+  </div>
+  <!-- Start of StatCounter Code for Default Guide -->
 	
   <script type="text/javascript">
   var sc_project=7827488; 
@@ -779,5 +520,20 @@ Copyright&nbsp; &copy; 2004-2013 Ted Hagos
       src="http://c.statcounter.com/7827488/0/069357c9/1/"
       alt="customizable counter"></a></div></noscript>
   <!-- End of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   </body>
 </html>

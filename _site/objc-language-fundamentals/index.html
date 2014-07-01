@@ -25,11 +25,6 @@
 
 <link 
 
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
-
 <meta name="keywords" content="Fundamentals">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="If you want to build iOS apps, you must know Objective C first." />
@@ -41,57 +36,31 @@
 
 		<style>
 
+@import
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+
+
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
-p, li, .content-meta, body, p, br {
-
-	/*font-family: 'Libre Baskerville','Georgia', serif; */
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-  font-size: 15px;
-	/*line-height: 1.8em;*/
-  line-height: 1.5em;
-  /* color: #414141; */
-  color: #111111;
+body {   
+  font-family: 'Source Sans Pro';
+  margin:0;
+  padding:0;
+  border:0;
+  background: #fbfbfb;
 }
-p.archives {padding-left: 30px}
-
-.archivestitle:link, .archivestitle:visited {
-  font-family: 'Titillium Web'; font-size: 18px;
-  text-decoration: underline;
-}
-.archivestitle:hover {border-bottom: 0px; color: blue;}
-
-ol, ul { padding-left:20px; line-height:1.5em;}
-li {margin-bottom: 10px;}
-
-ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
-ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
-ol > li:before {
-  position: absolute;
-  content: counter(mycounter, decimal-leading-zero) ".";
-  color: #555555;
-  counter-increment: mycounter;
-  font-style: normal;
-  /*font-family: 'Titillium Web';*/
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-  left: -2em;
-}
-
 
 .tutorial-writeup {
-  font-family:  'Titillium Web';
   text-align: left;
   width: 90%;
   font-size: 18px;
   margin: 0 auto;
   color: #555555;
   background: inherit;
-  line-height: 1.5em;
   text-transform: uppercase;
 }
 
 .running-head {
-  
   line-height:1.5em;
   font-size: 60px;
   text-align: center;
@@ -112,8 +81,7 @@ ol > li:before {
 /* FOR THE article block */
 
 #articletitle {
-	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
-	font-size: 45px;
+	font-size: 30px;
 	font-weight: bold;
   text-align: left;
   line-height: 1.4em;
@@ -124,7 +92,6 @@ ol > li:before {
 }
 
 .content-meta {
-  font-family: 'Muli';
 	font-style: normal;
   margin-top: 5px;
 	margin-bottom:20px;
@@ -149,20 +116,18 @@ article {
 }
 .toc {
   padding-top: 60px;
-  text-align:center;
+  text-align:right;
   width:18%;
   float: right;
   padding-right: 2%;
-  font-family: 'Muli';
 }
-.toc a:link, .toc a:visited {font-family: 'Muli' , 'sans-serif'; font-size: 14px;}
+.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
 .toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
 .toc ul {padding-left: 0;}
 
 #blogtitle {margin-bottom:2em;}
 
 #blogtitle a:link, #blogtitle a:visited {
-	font-family: 'Tauri', 'helvetica', sans-serif;
 	text-decoration: none;
   color: black;
 }
@@ -173,14 +138,12 @@ article {
 }
 
 h1, h2, h3 {
-  font-family: Arial;
   letter-spacing: -1px;
 	color: #0F0F0F;
   font-weight: 700;
   margin-left: 0px;
   padding-left: 0px;
   padding-top: 20px;
-  padding-bottom: 20px;
   text-rendering: optimizeLegibility;
 }
 
@@ -197,8 +160,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 .feature-title {
-  /*font-family: 'Rokkitt'; */
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
   font-weight: bold;
   font-size: 45px;
   color: #2F2F2F;
@@ -211,8 +172,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 .feature-article {
-  /*font-family: 'Libre Baskerville','Georgia', serif;*/
-  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif;  
   font-size: 17px;
   color: #555555;
   line-height: 1.5em; 
@@ -224,10 +183,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   /* color: #9a3c31; */
   color: #ADADAD;
   display:block;
-  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
   font-size: 20px;
-  /* background: #999999; 
-  background: #800000; */
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -245,13 +201,6 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   clear: both;
   margin: 0 auto;
   margin-top: 50px;
-}
-
-body {   
-  margin:0;
-  padding:0;
-  border:0;
-  background: #fbfbfb;
 }
 
 #discussions {
@@ -282,30 +231,22 @@ strong {
 }
 
 code {
-	font-family: 'Lekton';
+	font-family: 'Droid Sans Mono';
 }
 
 pre {
-	font-family: 'Lekton';
-	font-size: 14px;
+	font-family: 'Droid Sans Mono';
+  font-size: 13px;
   padding: 1em;
-  line-height: 1.2em;
-/*  background: #FBFCF9; */
-  
   border: 2px solid #F0F2E7;
-  
-  /*
-  border-top: 1px dashed #DEDEDE;
-  border-bottom: 1px dashed #DEDEDE;
-  */
-	margin-bottom:2em;
+  margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
 }
 
 .codeblock {
   font-size: 15px;
-  font-family: 'Lekton';
+  font-family: 'Inconsolata';
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -333,17 +274,16 @@ pre {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
-a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
+a:hover {color: blue; border-bottom: 1px solid #6083c5;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
 footer {
-  font-family: 'Titillium Web';
   color: #414141;
 	font-style:normal;
   clear:both;
@@ -477,8 +417,6 @@ aside {
 .button {
   position: relative;
   display: inline-block;
-  font-family:  'Titillium Web' ,Arial;
-  font-size: 17px;
   display: inline;
 /*  background: #800000; */
 /*  background: #3a5d9f; */
@@ -509,7 +447,6 @@ aside {
 
 #training-sidebar {
   float:right;
-  font-family: Arial;  
   margin-right: 30px;
   padding: 20px;
   border: 1px solid #CACACA;
@@ -517,12 +454,7 @@ aside {
   margin-left: 20px;
 }
 
-#training-sidebar p, #training-sidebar ul, #training-sidebar li {
- font-family: Arial;  
-}
-
 #training-sidebar h4 {
-  font-family: Arial;
   color: #CC0000;
   font-size: 16px;
   font-weight: bold;
@@ -652,12 +584,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		  </div>
       <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
-<div id="postmeta" class='light'>
+<div id="postmeta">
+  <!--
   <div style="text-decoration: overline; color: inherited">
   file: #Fundamentals
   </div> 
   last updated:  <br/>
-  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  -->
+  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
   
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
   
@@ -670,36 +604,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-       <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
 		</article>
     
   </div> <!-- WRAP -->   
 		
     <footer>
+<!--
 <a href="/android-programming-tutorial">Android</a> &nbsp;
 <a href="/java-introduction">Java</a> &nbsp;
 <a href="/working-with-html5">HTML5</a> &nbsp;
 <a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
 <a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
-
-
-<br/>
+-->
 
 Copyright&nbsp; &copy; 2004-2013 Ted Hagos
 

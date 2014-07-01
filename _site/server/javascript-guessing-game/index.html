@@ -1,0 +1,1015 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+-->
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
+
+<meta name="keywords" content="javascript ,jquery">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>JavaScript , Guessing Game coding practice | theLogBox </title>
+
+
+		<style>
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+p, li, .content-meta, body, p, br {
+
+	/*font-family: 'Libre Baskerville','Georgia', serif; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-size: 15px;
+	/*line-height: 1.8em;*/
+  line-height: 1.5em;
+  /* color: #414141; */
+  color: #111111;
+}
+p.archives {padding-left: 30px}
+
+.archivestitle:link, .archivestitle:visited {
+  font-family: 'Titillium Web'; font-size: 18px;
+  text-decoration: underline;
+}
+.archivestitle:hover {border-bottom: 0px; color: blue;}
+
+ol, ul { padding-left:20px; line-height:1.5em;}
+li {margin-bottom: 10px;}
+
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  color: #555555;
+  counter-increment: mycounter;
+  font-style: normal;
+  /*font-family: 'Titillium Web';*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  left: -2em;
+}
+
+
+.tutorial-writeup {
+  font-family:  'Titillium Web';
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.running-head {
+  
+  line-height:1.5em;
+  font-size: 60px;
+  text-align: center;
+  color: #555555;
+  position:relative;
+  /* background: #F0F0F0;
+  background: #F0F0FF; */
+  background: #F8F8F7;
+}
+.running-head a:link, .running-head a:visited {background: inherit;}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/* FOR THE article block */
+
+#articletitle {
+	font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+	font-size: 45px;
+	font-weight: bold;
+  text-align: left;
+  line-height: 1.4em;
+  color: #292929;
+  margin-top: 0px;
+  padding-top: 0px;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+  font-family: 'Muli';
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article {
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ffffff;
+  border-right: 1px solid #dedede;
+}
+
+.withtoc {
+  float:left;
+  width:68%;
+}
+.notoc {
+  width:80%;
+}
+.toc {
+  padding-top: 60px;
+  text-align:center;
+  width:18%;
+  float: right;
+  padding-right: 2%;
+  font-family: 'Muli';
+}
+.toc a:link, .toc a:visited {font-family: 'Muli' , 'sans-serif'; font-size: 14px;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
+.toc ul {padding-left: 0;}
+
+#blogtitle {margin-bottom:2em;}
+
+#blogtitle a:link, #blogtitle a:visited {
+	font-family: 'Tauri', 'helvetica', sans-serif;
+	text-decoration: none;
+  color: black;
+}
+
+#blogtitle a:hover {
+	/* border-bottom: 1px solid #79a663;*/
+  border-bottom: 1px solid #CACACA;
+}
+
+h1, h2, h3 {
+  font-family: Arial;
+  letter-spacing: -1px;
+	color: #0F0F0F;
+  font-weight: 700;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {font-size: 25px; letter-spacing: -1px;}
+h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  /*font-family: 'Rokkitt'; */
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif; 
+  font-weight: bold;
+  font-size: 45px;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  /*font-family: 'Libre Baskerville','Georgia', serif;*/
+  font-family: 'Helvetical Neue','Helvetica','Arial', sans-serif;  
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  /* color: #9a3c31; */
+  color: #ADADAD;
+  display:block;
+  font-family:  'Titillium Web','Helvetica', 'Arial', 'Tahoma';
+  font-size: 20px;
+  /* background: #999999; 
+  background: #800000; */
+  background: #F0F0F0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align:center;
+  line-height:1.5em;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+body {   
+  margin:0;
+  padding:0;
+  border:0;
+  background: #fbfbfb;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+	border:0;
+	color: #DEDEDE;
+	background: #DEDEDE;
+	height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+strong {
+  font-weight: normal;
+  color: #000000;
+}
+
+code {
+	font-family: 'Lekton';
+}
+
+pre {
+	font-family: 'Lekton';
+	font-size: 14px;
+  padding: 1em;
+  line-height: 1.2em;
+/*  background: #FBFCF9; */
+  
+  border: 2px solid #F0F2E7;
+  
+  /*
+  border-top: 1px dashed #DEDEDE;
+  border-bottom: 1px dashed #DEDEDE;
+  */
+	margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+}
+
+.codeblock {
+  font-size: 15px;
+  font-family: 'Lekton';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: .7em;
+    /*background: #e8ebef;*/
+    background: #F0F0FF; 
+    color: #000000;
+    line-height:120%;
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {color: steelblue; text-decoration: none; font-weight: 400;}
+a:hover {color: steelblue; border-bottom: 1px solid #6083c5;}
+
+
+#postmeta {padding-top:30px;padding-bottom:30px; color: #D4D4D4;font-weight:normal; font-size: 14px;}
+#postmeta a:link, #postmeta a:visited {color: #D4D4D4;}
+
+#addthis {margin-top:20px;margin-bottom:30px;}
+
+footer {
+  font-family: 'Titillium Web';
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  border-top: 1px solid #dedede;
+}
+
+footer a:link, footer a:visited {
+  color: #000000; background: inherit;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+ footer a:hover {border-bottom: 1px solid #000000;}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 100%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+  }
+  img.thumbnail {
+    float:left;
+    width: 30%;
+    margin-top: 0px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 2px solid #CACACA;
+  
+}
+
+/* Pygments stylesheets */
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:  'Titillium Web' ,Arial;
+  font-size: 17px;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  font-family: Arial;  
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar p, #training-sidebar ul, #training-sidebar li {
+ font-family: Arial;  
+}
+
+#training-sidebar h4 {
+  font-family: Arial;
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+iframe {display:block;}
+
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
+</style>
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+        
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <header>          
+      <div class='vspacer'></div>
+      <div id="articletitle">Guessing Game coding practice</div>
+
+      <div class='vspacer'></div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <h2>Use case</h2>
+
+<p>When the page loads up, a picture will be shown. The user will guess who or what the picture is by typing his answer on the provided text field and clicking the submit button.</p>
+
+<p>If the user guesses correctly, proceed to the next picture and let the user guess again. If the guess is incorrect, display a "Try again message", clear the text field and await for the response.</p>
+
+<h2>Solution approach</h2>
+
+<p>Will make the html portion quite spartan. We won't use any fancy divs or nested tables so that we won't get distracted by styling clutter.  We will handle the image using the <em>img</em> tag. We will use the old school <em>input</em> element for the text field and we will use the <em>button</em> element for, well, the button.</p>
+
+<p>The JavaScript part of our solution will be in an external file named <em>script.js</em>, so our JS and HTML codes don't mingle up. We will use JQuery for DOM manipulation, surely by now you must be tired of typing <em>document.getElementById</em>. We can do this by embedding two <em>script</em> elements in the <em>head</em> region of the html code.</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery-1.11.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;script.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+
+
+<p>The script tag above assumes that you have downloaded the JQuery library into your work area. It also assumes that the JQuery file and <em>script.js</em> is located on the same directory where the html file is.</p>
+
+<p>The full code listing for the html part is below.</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+
+<span class="c">&lt;!--  index.html --&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery-1.11.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;script.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  
+  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+  
+    <span class="nf">#status</span> <span class="p">{</span>
+      <span class="k">color</span><span class="o">:</span> <span class="m">#CACACA</span><span class="p">;</span>
+      <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="p">}</span>
+  
+    <span class="o">*</span> <span class="p">{</span>
+      <span class="k">font-family</span><span class="o">:</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="k">serif</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="nt">img</span> <span class="p">{</span>
+      <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+      <span class="k">margin-top</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+      <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+      <span class="k">height</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">body</span> <span class="p">{</span>
+      <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;status&quot;</span><span class="nt">&gt;</span>The Status<span class="nt">&lt;/h4&gt;</span>
+
+  <span class="nt">&lt;img</span> <span class="na">id=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">text</span> <span class="na">id=</span><span class="s">&quot;answer&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;clickme&quot;</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<h3>The JavaScript part</h3>
+
+<p>Create a file named <em>script.js</em> on the same folder where you created <em>index.html</em>. It is not necessary, neither it is always desirable to put the JS files on same folder as other files such as html or images, but we chose to do it that way to keep the codes and directory structure simple.</p>
+
+<p>First thing we need to write is the block of code where we will put all of our subsequent JavaScript codes. Many other programs require such an entry point. If you have experience coding in other languages, you might remember that there is a function <strong>main</strong> which serves as the program entry point. In JavaScript however, you cannot simply write a function called <strong>main</strong> and proceed from there. Well, actually you can write a function and name it <em>main</em>, but that won't do anything. It will simply be a regular function. It won't have magical powers that makes it a program entry point.</p>
+
+<p>JavaScript is event aware. You can listen for events and then write code when that event is raised. There are two sources of events in our use case. The user will raise an event when he types his answer on the text field and when he clicks the button to submit his answer. The browser also raises events. When a page is pulled from a web server, it goes through some stages</p>
+
+<ol>
+<li>It scans all the html tags and renders them</li>
+<li>If you have some directives to pull files, e.g. a CDN hosted JQuery library, it will pull that from the server. When it is done processing the directives on the <em>head</em> region, it goes to the <em>body</em> region. At this point, it raises an event that the <em>body</em> part of the html document is being loaded.</li>
+<li>When it encounters a <em>script</em> tag, it momentarily stops rendering any html element. It needs to stop because JavaScript is capable of writing and changing the DOM (Document Object Model), the browser will wait for all the script tag to be processed before it can continue rendering html elements. When all the DOM elements have been processed, the browser raises an event saying that the "document is ready".</li>
+<li>If you have image tags, the browser will make another request to the server to download the image files</li>
+<li>Once all the resources have been completely downloaded and rendered, the browser raises an event that says it the "window is ready". Ideally, this is the point where it is safe to do anything with JavaScript because all the DOM resources that your code anticipates, are already available. In some occasions, you might want to start doing things before the document is ready, say during <em>body onLoad</em> but for this example, we will wait for the document to finish loading.</li>
+</ol>
+
+
+<p>In order to write our program entry point, we will choose an event that the browser will raise, and use it as the entry point.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// this is our entry point</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>The above snippet is a JQuery code. It binds our code into <em>document.onload</em> event of the browser. When the browser has finished processing all the DOM elements in the html, it will raise the document.onload event. We are simply latching on to that event. Think of this code block as some sort of initialization routine. If you need to define arrays, variables or bind buttons to events, this is the place to do it.</p>
+
+<h3>Make sure the simplest scenario is working</h3>
+
+<p>The best advice I have ever given to beginning programmers is to <em>make sure the simplest scenario is working</em>&mdash; next only to "don't forget the semi colon". A complex system does not start out to be complex, they start out as simple systems. They get complex in time. Make sure that the building blocks of your code are sound and that they are working.</p>
+
+<p>We need to make sure that our program entry point actually does something. A small noticeable change in the UI will do. Let's change the text of the heading element.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>Open <em>index.html</em> using the browser. You should see the "Hello there" message when it loads. It will confirm that our code is actually running when the page loads. If you don't see the message, you need to check your code for spelling and other typing errors. If you know how to use the debugging tools in the browser such as <em>FireBug</em> in FireFox and the developer tools of <em>Chrome/Safari</em>, they will help you find the errors faster.</p>
+
+<p>Next step is to display just a single image when the page loads. That can be managed using the following code</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>The code above assumes the file <em>bugsbunny.jpg</em> is on the same folder where <em>index.html</em> and <em>script.js</em> are. Right after we get the IMG element using the #a selector, we changed the <em>SRC</em> attribute programmatically using the JQuery <em>attr</em> function. That code should display the contents of the image.</p>
+
+<p>Next thing to manage is accept user input via the text element and do something with when he clicks the button. For that, we need to bind the click event of the button to our code.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#clickme&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>    
+    <span class="kd">var</span> <span class="nx">useranswer</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#answer&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">useranswer</span><span class="p">);</span>    
+  <span class="p">});</span>  
+  
+  
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>To bind the button to our code, we selected it via JQuery and invoked the the <em>click</em> function. The JQuery click function takes a single argument. You can put a named function inside it or an anonymous function. Either way, JQuery will call whatever you put inside the <em>click</em> function when the user clicks the button.</p>
+
+<p>Our click handler is quite simple. It extracts the value of the text field and changes the message of the heading element to whatever the user has typed in the text field.</p>
+
+<p>We will add some more codes so we can check the user's input against the correct answer.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#clickme&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>    
+    <span class="kd">var</span> <span class="nx">useranswer</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#answer&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">useranswer</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">useranswer</span> <span class="o">==</span> <span class="s2">&quot;Bugs Bunny&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;correct&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;try again&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>    
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>An <em>if-else</em> statement provides a simple validation for our code. Note that the <em>if</em> branch is inside the click handler block. We will perform this check only when the button is clicked. If you place it outside the click handler block, it will be evaluated during <em>page load</em>&mdash;which does not make sense.</p>
+
+<p>The answer key in our example code is hard coded, in a real life application this should be pulled from a data structure like a database or a file.</p>
+
+<p>At this point, we know we can display a picture, wait for a user's input and validate whether it is correct or otherwise. We can now use this as a building block for the more complex portion of the solution.</p>
+
+<h3>Complexity</h3>
+
+<p>The complexity of the use case, clearly, does not lie in mechanics of input, validation and graphics display. Those are easy enough tasks to manage. The slight difficulty in the use case is in the workflow. We need a simplistic game engine to satisfy the use case requirement.</p>
+
+<ol>
+<li>Display the graphics</li>
+<li>Accept input from the user</li>
+<li>If the user got it right, clear the text field, update the heading status, then move on to the next round</li>
+<li>If the user got it wrong, clear the text field, update the heading status and keep him in the current round until he gets it</li>
+</ol>
+
+
+<p>This is the basic workflow that we need.</p>
+
+<p><img class=default src="/img/javascript/guessing-game.png"/></p>
+
+<p>If you look at it closely, you might see that it resembles the basic engine for a flash card application. A flash card is a set of cards that one uses as a study aide. On one face of the card are either words, numbers, pictures or any combination of the three. The front side of the card usually is a question. And on the other side of the card is the answer.  The idea is to go through a set of cards, show the front side to the user and let him guess.</p>
+
+<p>In the previous section, we explored how to display just one card and let the user guess. That much we can do. The challenge is how to make more cards and let the user go through all of them.  Using the flash card analogy, let's rewrite our game engine workflow.</p>
+
+<ol>
+<li>Take out one card from the deck</li>
+<li>Display the front side of the card</li>
+<li>Let the user guess</li>
+<li>If the user guesses right, clear the text field, update the heading status and proceed to the next card&mdash;which means go back to step no. 1</li>
+<li>If the user guesses wrong, clear the text field, update the heading status and let the user guess again</li>
+</ol>
+
+
+<p>Now that we have clarified our solution approach, the next task is to figure out how to translate them into codes.</p>
+
+<p>There are two data structures that we need to figure out. The card and the deck. The card data structure cannot be held by simple scalar variables. It needs a more capable and complex data structure. We want it to hold the picture and the answer key. The deck is really just a collection of cards,</p>
+
+<p>There are lots of options for us. At first glance it looks like a relational database is good tool to represent our data structure. A record in the database will represent a card and a deck of cards is a table. We can also use an XML file. Or we can use JavaScript objects. For the purpose of our practice, we will use JavaScript objects to represent the card and we will store all these cards inside an Array. The Array data structure is our deck.</p>
+
+<p>The card data structure can be represented in code like this</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">card</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">,</span>
+  <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bart&quot;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>The above code shows how to declare an object in JavaScript Object Notation (JSON). See the text on <a href="/javascript-complex-types">JavaScript Complex Types</a> if you need a background or review on JS data structures. This data structure satisfies our purpose.</p>
+
+<p>We need to somehow define each card and populate the deck with it. We will use the built-in JS Array to represent the deck.</p>
+
+<div class="highlight"><pre><code class="java">    <span class="n">var</span> <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Array</span><span class="o">();</span>
+    
+    
+    <span class="c1">// OTHER STATEMENTS </span>
+    
+
+    <span class="n">var</span> <span class="n">card1</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="nl">card:</span> <span class="mi">1</span><span class="o">,</span>
+      <span class="n">picture</span> <span class="o">:</span> <span class="s">&quot;bugsbunny.jpg&quot;</span><span class="o">,</span>
+      <span class="n">answertext</span> <span class="o">:</span> <span class="s">&quot;Bugs Bunny&quot;</span>
+    <span class="o">};</span>
+    
+    <span class="n">var</span> <span class="n">card2</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="nl">card:</span> <span class="mi">2</span><span class="o">,</span>
+      <span class="n">picture</span> <span class="o">:</span> <span class="s">&quot;bart.jpg&quot;</span><span class="o">,</span>
+      <span class="n">answertext</span> <span class="o">:</span> <span class="s">&quot;Bart&quot;</span>
+    <span class="o">};</span>
+    
+    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card1</span><span class="o">);</span>
+    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card2</span><span class="o">);</span>
+    
+</code></pre></div>
+
+
+<p>Next task is how to pop a card from the deck and display the picture. What we want is to take the top card from the Array, make it available for data retrieval and display the picture.</p>
+
+<div class="highlight"><pre><code class="java">  <span class="n">var</span> <span class="n">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+
+  <span class="n">function</span> <span class="nf">Draw</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">currcard</span>  <span class="o">=</span>  <span class="n">deck</span><span class="o">.</span><span class="na">shift</span><span class="o">();</span>
+    <span class="n">$</span><span class="o">(</span><span class="s">&quot;#a&quot;</span><span class="o">).</span><span class="na">attr</span><span class="o">(</span><span class="s">&quot;src&quot;</span><span class="o">,</span> <span class="n">currcard</span><span class="o">.</span><span class="na">picture</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>
+
+
+<p>The variable <em>currcard</em> is initially defined as null. It was defined outside the <em>Draw</em> function so that it other functions will have access to it. We will need the data stored on the current card when we check the user's answer against the answer key (which is stored on the current card).</p>
+
+<p>The <em>shift</em> method of the JS Array provides the mechanism to take the top card from the deck. When you call <em>shift</em>, it removes whatever is on the top element of the array and returns its value&mdash;it allows us to store the return value to a variable, that was why it was assigned to <em>currcard</em>.</p>
+
+<h3>Full code</h3>
+
+<p>We now have the essential technical details and workflow to put it all together. The program entry point is when the DOM has finished loading. There are two data structures that we will use, the <em>card</em> data structure which is an object literal (JSON format) and the <em>dec</em> which will hold the collection of cards, the deck will just be a standard JS Array.</p>
+
+<p>First thing to do is to initialize our cards and deck. We will give them some values. These codes are encapsulated in the function named <em>Init</em>.</p>
+
+<p>When the cards and the deck has been initialized, we call the <em>Draw</em> function. It pops the top card and displays the picture associated with that card. It also stores the value of the top card to the variable <em>currcard</em> because we will need the value of current top card when we compare the user's answer to our answer key.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// script.js</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="kd">var</span> <span class="nx">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  
+  <span class="nx">Init</span><span class="p">();</span>
+  <span class="nx">Draw</span><span class="p">();</span>
+
+  <span class="c1">// EVENT HANDLER</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#clickme&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    
+    <span class="kd">var</span> <span class="nx">useranswer</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#answer&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">useranswer</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">currcard</span><span class="p">.</span><span class="nx">answertext</span> <span class="o">==</span> <span class="nx">useranswer</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;correct&quot;</span><span class="p">);</span>
+      <span class="nx">ClearText</span><span class="p">();</span>
+      <span class="nx">Draw</span><span class="p">();</span> <span class="c1">// GET the next card</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;try again&quot;</span><span class="p">);</span>
+      <span class="nx">ClearText</span><span class="p">();</span>
+    <span class="p">}</span>    
+  <span class="p">});</span>
+  
+  <span class="kd">function</span> <span class="nx">ClearText</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#answer&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  
+  <span class="kd">function</span> <span class="nx">Init</span><span class="p">()</span> <span class="p">{</span>
+    
+    <span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">,</span>
+      <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bugs Bunny&quot;</span>
+    <span class="p">};</span>
+    
+    <span class="kd">var</span> <span class="nx">card2</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bart.jpg&quot;</span><span class="p">,</span>
+      <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bart&quot;</span>
+    <span class="p">};</span>
+    
+    <span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">card1</span><span class="p">);</span>
+    <span class="nx">deck</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">card2</span><span class="p">);</span>
+    
+  <span class="p">}</span>
+  
+  <span class="kd">function</span> <span class="nx">Draw</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">currcard</span>  <span class="o">=</span>  <span class="nx">deck</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="nx">currcard</span><span class="p">.</span><span class="nx">picture</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>When the user types his answer and clicks the button, we simply compare the value of <em>currcard.answertext</em> which is our answer key to whatever the user has typed on the text field.</p>
+
+        </div>
+							
+		  </div>
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta" class='light'>
+  <div style="text-decoration: overline; color: inherited">
+  file: #javascript  #jquery
+  </div> 
+  last updated: April 10, 2014 <br/>
+  by: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+       <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->      
+		</article>
+    
+    <div class="toc">
+      JavaScript Tutorial
+      <ul>
+      <li><a href="/javascript-core-tutorial">Introduction</a></li>
+      <li><a href="/javascript-core-environment-setup">Tools</a></li>
+      <li><a href="/javascript-code-structure">Code Structure</a></li>
+      <li><a href="/javascript-data-types">Typing</a></li>
+      <li><a href="/javascript-functions">Functions</a></li>
+      <li><a href="/javascript-keywords">Keywords</a></li>
+      <li><a href="/javascript-program-flow">Program Flow</a></li>
+      <li><a href="/javascript-complex-types">Complex Types</a></li>
+      <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
+      <li><a href="/javascript-objects">Objects</a></li>
+      <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
+      <li><a href="/javascript-inheritance">Inheritance</a></li>
+      <li><a href="/javascript-guessing-game">Guessing Game</a></li>
+    </ul>
+    
+    <hr/>
+    
+    <ul>
+      <li><a href="/javascript-document-history">Doc History</a></li>
+    </ul>
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+
+
+<br/>
+
+Copyright&nbsp; &copy; 2004-2013 Ted Hagos
+
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>
