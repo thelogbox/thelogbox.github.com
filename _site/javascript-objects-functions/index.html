@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>JavaScript , Objects and Functions | theLogBox </title>
+<title>javascript , Objects and Functions | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -508,7 +504,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You can put any type of member inside an object. A member could be any data type in JS, simple data or complex data&mdash;which means you can put another object inside another object. This is the part we need to make a leap on our JS knowledge. <strong>Functions</strong> in JS are objects as well, that's right. Which means, we can put functions inside objects, and when functions are inside objects, they become methods of the objects.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// file: obj3.js</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// file: obj3.js</span>
 
 <span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
     
@@ -518,15 +514,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span></code></pre></div>
 
 
 <p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named "work". When we invoked the <em>work()</em> property as function&mdash;as we should, because it is a function, it then executed whatever was defined inside the function block.</p>
 
 <p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
     
     <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Ted&quot;</span><span class="p">,</span> 
     <span class="nx">work</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -542,13 +537,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span></code></pre></div>
 
 
 <p>While this is perfectly legal to do, the idiom used in creating the <em>rommel</em> object is bit bitter to the taste, surely, there has to be a way to achieve some sort <em>Object factory</em> idiom in JS. The code is too malleable (it could be a good thing though). It seems that following this idiom, one can pretty much add properties as you go along. I am sure there is a class of problems where this kind of flexibility and malleability is desired, probably necessary even. Coming from a language that supported classical OOP (like Java), it can send some chill on the spine knowing that I could easily change properties of my object anywhere in the code. Fortunately, JS is very orthogonal language&mdash;there are lots of ways of achieving same results, so let's look for something more palatable for classical OO programmers.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// Employee object: Template</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Employee object: Template</span>
 
 <span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dept</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
@@ -590,15 +584,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
 <span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
 
-<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span></code></pre></div>
 
 
 <p>The preceding code feels a bit firmer than the one before it. This code used the function as some sort of constructor (actually, it is called exactly that, a function constructor). JavaScript does not have class mechanisms like Java or C++. Code reuse is not achieved by class extensions, but rather by Object extensions. By the way, this last code we just did sure looks a lot like the class mechanism, if you could just get over the fact that it said <strong>function</strong> rather than <em>class</em>.</p>
 
 <p>There a couple of things we need to talk about in this code, specifically they keyword <strong>this</strong>, but before we go there, let's look at another code, it is exactly the <em>Employee</em> and <em>Company</em> constructor code also, but with a bit of modification.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// Company.js</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Company.js</span>
 
 <span class="c1">// Employee object: Template</span>
 
@@ -641,8 +634,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
 <span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
 
-<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span></code></pre></div>
 
 
         </div>

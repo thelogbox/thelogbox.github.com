@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Ruby , Sinatra | theLogBox </title>
+<title>ruby , Sinatra | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -510,15 +506,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </ol>
 
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># helloworld.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># helloworld.rb</span>
 
 <span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 
 <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
     <span class="s2">&quot;Hello World&quot;</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>Run the web program using <code class="codeblock">ruby helloworld.rb</code>. Open a web browser, if you can you see "Hello World" on http://localhost:4567, then Sinatra is up and running and you did not make a mess of the sample code</p>
@@ -527,19 +522,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>It doesn't hurt to enclose the Sinatra routes in classes</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># helloworld.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># helloworld.rb</span>
 
 <span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 
-<span class="k">class</span> <span class="nc">First</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span>
+<span class="k">class</span> <span class="nc">First</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span>
     <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
         <span class="s2">&quot;Hello World&quot;</span>
     <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="no">First</span><span class="o">.</span><span class="n">run!</span>
-</code></pre></div>
+<span class="no">First</span><span class="o">.</span><span class="n">run!</span></code></pre></div>
 
 
 <p>run it again using <code class="codeblock">ruby helloworld.rb</code>, you may need to stop the currently running web server install on the terminal (CTRL-C)</p>
@@ -548,12 +542,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Create a config.ru file</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># config.ru</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config.ru</span>
 
 <span class="nb">require</span> <span class="s1">&#39;helloworld&#39;</span>
 
-<span class="no">First</span><span class="o">.</span><span class="n">run!</span>
-</code></pre></div>
+<span class="no">First</span><span class="o">.</span><span class="n">run!</span></code></pre></div>
 
 
 <p><em>First.new</em>  would have worked as well. Creating a new instance of a <em>Sinatra::Base</em> class will also run the web app</p>
@@ -562,10 +555,10 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h2>Routes</h2>
 
-<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span> 
+<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
 
     <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
         <span class="s2">&quot;Landing page&quot;</span>
@@ -578,18 +571,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
         <span class="s2">&quot;Contact page&quot;</span>
     <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p><strong>get</strong> is a method call, its not a method definition, this is one of the reasons why Sinatra is DSL (Domain Specific Language), its domain is RESTful web apps</p>
 
 <h2>4.1 QueryString parameters</h2>
 
-<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span> 
+<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
 
     <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
         <span class="s2">&quot;Landing page&quot;</span>
@@ -605,8 +597,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
         <span class="s2">&quot;Contact page&quot;</span>
     <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>QueryString parameters can be accessed using the <strong>params</strong> array, make sure that querystring arguments is a ruby symbol. The get/client call has two lines inside it, but only the last line (which is a string) will be returned by the HTTP request</p>
@@ -615,14 +606,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Make the trailing slash optional in QueryString by adding <strong>/?</strong> in the get method</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra/reloader&#39;</span> <span class="k">if</span> <span class="n">development?</span>
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span> 
+<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
 
     <span class="n">configure</span> <span class="ss">:development</span> <span class="k">do</span>
-        <span class="n">register</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Reloader</span>
+        <span class="n">register</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Reloader</span>
     <span class="k">end</span>
 
     <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
@@ -640,8 +631,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="s2">&quot;Contact page&quot;</span>
     <span class="k">end</span>
 
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <h2>HOT RELOADING</h2>
@@ -650,14 +640,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Before you can use the Sinatra::Reloader, you need to get the gem first. <strong>gem install sintra-contrib</strong></p>
 
-<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;sinatra/reloader&#39;</span> <span class="k">if</span> <span class="n">development?</span>
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span> 
+<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
 
     <span class="n">configure</span> <span class="ss">:development</span> <span class="k">do</span>
-        <span class="n">register</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Reloader</span>
+        <span class="n">register</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Reloader</span>
     <span class="k">end</span>
 
     <span class="c1"># APP methods</span>
@@ -677,8 +667,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="s2">&quot;Contact page&quot;</span>
     <span class="k">end</span>
 
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>Just <em>require</em> the sinatra/reloader and register it inside your app, like the code above. Now, there is no need to restart the web server when changes occur in the source file. Use this only for development, not in production. There are other ways to achieve hot-reloading, go to the <a href="http://www.sinatrarb.com/faq.html">Sinatra FAQ</a></p>

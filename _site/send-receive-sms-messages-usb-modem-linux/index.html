@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Linux , Send-Receive SMS message via USB modem | theLogBox </title>
+<title>linux , Send-Receive SMS message via USB modem | theLogBox </title>
 
 
     <style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -496,11 +492,90 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <div id="feature-button">
 The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
 <p/>
+
 <a href="http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html">notes.tedhagos.com/UsbModemLinux-SMS</a>   
+<p/>
+
+The original guide was left here for quick references only. This guide will no longer be updated here
 </div>
 
 
 <p></p>
+
+<hr/>
+
+
+<h1>What you need</h1>
+
+<ol>
+<li>A Linux PC. Debian was used but I got to test it on Crunchbang as well, worked out fine. It should work fairly well on the Debian derivatives e.g. Ubuntu, Xubuntu, Mint etc</li>
+<li>A USB modem. A post paid plan was used for the project, but a USB stick on pre-paid should work just as well</li>
+</ol>
+
+
+<h1>Installation</h1>
+
+<p><code>sudo apt-get update</code><br/>
+<code>sudo apt-get install mysql-server</code><br/>
+<code>sudo apt-get install gnokii-smsd-mysql</code></p>
+
+<h1>Config</h1>
+
+<p>Connect the USB modem to PC and find out which port it is using</p>
+
+<p><code>sudo lsusb</code></p>
+
+<p>Another command to use could be</p>
+
+<p><code>sudo dmesg | grep USB</code></p>
+
+<p>What you are looking for is the device name for the modem. Usually, the modem is at <code>/dev/tty0</code>, but just to be sure, run either lsusb or the dmesg command as stated above. Remember the device name because you will need it when you edit <code>~/.config/gnokii/config</code> &#x2014; that is the configuration file for gnokii.</p>
+
+<p>On some Debian derivatives like Crunchbang, the gnokii config file was not created during the installation . If that is the case, just create the config file manually.</p>
+
+<p><code>sudo mkdir -p ~/.config/gnokii</code><br/>
+<code>sudo touch ~/.config/gnokii/config</code></p>
+
+<p>Edit the <strong>config</strong> file. Set the port number and model to their appropriate values</p>
+
+<pre><code>port=/dev/tty0
+model=AT
+</code></pre>
+
+<p>There might a default value for the model property, it could be 6510. That value corresponds to a Nokia phone. But we are not using a Nokia phone, we are using a USB modem, so set the model value to <strong>AT</strong>.</p>
+
+<p>Once done with the configuration, just do a quick test so that we know things are working out fine. Gnokii has a command that can quickly tell us if we are doing things correctly.</p>
+
+<p><code>sudo gnokii --identify</code></p>
+
+<p>It should give us some diagnostics and a quick peek if we did something wrong on the configuration file.</p>
+
+<h1>Database backend</h1>
+
+<p>The gnokii-smsd-msyql package contains the SQL scripts necessary to create the table structure, but the database itself still needs to be manually prepared.</p>
+
+<p><code>mysql -u root -p</code><br/>
+<code>mysql&gt; create database smsgw;</code><br/>
+<code>mysql&gt; use smsgw;</code><br/>
+<code>mysql&gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;</code></p>
+
+<h1>Sending and Receiving SMS</h1>
+
+<p>First, the daemon smsgw daemon process needs to run. Get another terminal window and run the daemon process from there</p>
+
+<p><code>sudo smsd -u root -p smsgw -c localhost -m mysql</code></p>
+
+<p>To send an SMS message, the command is</p>
+
+<p><code>echo "Test message | gnokii --sendsmsd +MobileNumber</code></p>
+
+<p>+MobileNumber is structured as <span class="underline">(country code) phone number</span></p>
+
+<p>If you send an SMS message to the number of the USB modem, all incoming messages are stored in the <strong>inbox</strong> table of the database</p>
+
+<p><code>mysql -u root -p</code><br/>
+<code>mysql&gt; use smsgw;</code><br/>
+<code>mysql&gt; select * from inbox;</code></p>
 
     </div>
     </section>

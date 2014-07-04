@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>HTML5 , Managing Complexity | theLogBox </title>
+<title>html5 , Managing Complexity | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -511,7 +507,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p><a href='http://jsfiddle.net/tedhagos/FYbwH/embedded/result/' class='button'>See the Demo</a></p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
   
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
@@ -625,8 +621,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
      <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">acc</span><span class="p">;</span>
    <span class="p">}</span>
   <span class="p">}</span>   
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>The basic approach of the code above to abstract the whole canvas into an object <strong>function Stage()</strong>, it also abstracts the shapes Box, Rectangle and Circle using the OOP idioms. The basic idea is that each time a shape is created, it is stored and managed inside an array. Each time the timer expires, it is the responsibility of the <strong>Stage</strong> to process all the objects stored in the array then draw them to the canvas. The logic of drawing to the canvas was coded inside every shape object, so that when the <strong>Stage</strong> calls the <em>draw()</em> method against each shape that is processed,  it is oblivious to the details on how each shape should be drawn.</p>

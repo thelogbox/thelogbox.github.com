@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Training , RD Skill Building. Programming Concepts | theLogBox </title>
+<title>training , RD Skill Building. Programming Concepts | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -663,16 +659,12 @@ _$
 </ul>
 
 
-<p>~~~
-class BusinessCard {</p>
-
-<pre><code>String name;
-String phoneno;
-String emailaddress;
+<pre><code>class BusinessCard {
+    String name;
+    String phoneno;
+    String emailaddress;
+}
 </code></pre>
-
-<p>}
-~~~</p>
 
 <ul>
 <li><p><strong>Objects</strong> - it is quite convenient (for now) to think of Java Objects as some sort of data structure, since it is, after all, a complex data type. Its difference with a traditional data structure (like the BusinessCard example above) is that, a Java object has <em>behavior</em> (because there are functions in it), while a traditional data structure cannot exhibit behavior</p></li>
@@ -881,16 +873,12 @@ String emailaddress;
 </ul>
 
 
-<p>~~~</p>
-
-<p>void foo();     // as opposed to
-void foo() {}   // which is a concrete method because it has a method body</p>
-
-<pre><code>            // a pair of curly braces constitutes a method body even if
-            // the braces are empty
+<pre><code>
+void foo();     // as opposed to
+void foo() {}   // which is a concrete method because it has a method body
+                // a pair of curly braces constitutes a method body even if
+                // the braces are empty
 </code></pre>
-
-<p>~~~</p>
 
 <p>Facts you need to know about the abstract method and an abstract class</p>
 
@@ -912,16 +900,14 @@ void foo() {}   // which is a concrete method because it has a method body</p>
 
 <p><strong>USAGE:</strong></p>
 
-<p>~~~</p>
+<pre><code>
+String a = "HELLO WORLD";
+String b = a.toUpperCase();
 
-<p>String a = "HELLO WORLD";
-String b = a.toUpperCase();</p>
+if(a.equals(b)) {
 
-<p>if(a.equals(b)) {</p>
-
-<p>}</p>
-
-<p>~~~</p>
+}
+</code></pre>
 
 <h1>Day 15</h1>
 

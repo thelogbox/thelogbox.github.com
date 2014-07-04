@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>HTML5 , Markup Basics | theLogBox </title>
+<title>html5 , Markup Basics | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -513,28 +509,27 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Basic structure</h1>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
 
   <span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 
-<p>The &lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head></strong> and the <strong>&lt;body></strong> elements.</p>
+<p>The \&lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>\&lt;head></strong> and the <strong>\&lt;body></strong> elements.</p>
 
 <p>All the visible things that you want to show on an HTML page goes to the body element. For example, ordered lists, un-ordered lists, headings, paragraphs, tables.</p>
 
 <p>Things written inside the head element will not be visible on the HTML page. That is not to say they are less important. Some of the things you may find on the head element are script–for embedding Javascript codes, link–for CSS amongst other things, title etc.</p>
 
-<p>You probably noticed that the tags came in pair. The opening &lt;body> tag is paired with the closing &lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
+<p>You probably noticed that the tags came in pair. The opening \&lt;body> tag is paired with the closing \&lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
 
 <h2>DOCTYPE</h2>
 
-<p>The <em>&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
+<p>The <em>\&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
 
 <h2>Versions of HTML</h2>
 
@@ -559,16 +554,16 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <h1>Common tags</h1>
 
 <ol>
-<li>&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
-<li>&lt;h2> - another heading, less important than &lt;h1> but more important than;</li>
-<li>&lt;h3></li>
-<li>&lt;strong> - display something in bold face</li>
-<li>&lt;em> - display something in italics (emphasised)</li>
-<li>&lt;ol> - display a list, a numbered (ordered) one</li>
-<li>&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
-<li>&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
-<li>&lt;p> - a paragraph break</li>
-<li>&lt;br> - a line break</li>
+<li>\&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
+<li>\&lt;h2> - another heading, less important than \&lt;h1> but more important than;</li>
+<li>\&lt;h3></li>
+<li>\&lt;strong> - display something in bold face</li>
+<li>\&lt;em> - display something in italics (emphasised)</li>
+<li>\&lt;ol> - display a list, a numbered (ordered) one</li>
+<li>\&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
+<li>\&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
+<li>\&lt;p> - a paragraph break</li>
+<li>\&lt;br> - a line break</li>
 </ol>
 
 
@@ -576,9 +571,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Attributes</h1>
 
-<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like &lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
+<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like \&lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
 
-<p>For example, in the tag <em>&lt;a href="http://thelogbox.com">thelogbox&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
+<p>For example, in the tag <em>\<a href="http://thelogbox.com"\>thelogbox\&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
 
 <p><strong>GOOD TO KNOW</strong>:</p>
 
@@ -593,7 +588,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
@@ -606,8 +601,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
     <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>

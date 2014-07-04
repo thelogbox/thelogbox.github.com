@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Logging and adb logcat | theLogBox </title>
+<title>android , Logging and adb logcat | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -520,7 +516,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Next, add some UI elements and some event methods. Edit the <em>/res/layout/main.xml</em> and follow the code sample</p>
 
-<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
   <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
   <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
@@ -548,8 +544,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="na">android:text=</span><span class="s">&quot;Click me&quot;</span>
     <span class="na">android:onClick=</span><span class="s">&quot;btnClick&quot;</span> 
     <span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 
 <p>The TextView will be used to provide some sort of proxy to STDOUT of our little app. While we will use logcat to view the call-backs, we will also print it out on the screen of the device. The TextView is wrapped inside a <em>ScrollView</em> because we will append  new messages on top of older messages, it will spill over the height of the viewport.</p>
@@ -558,7 +553,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You will need to override some call back functions in the main Activity class. Go the file <em>src/com/thelogbox/LifeCycle.java</em> and follow the sample code</p>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
@@ -623,8 +618,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">btnClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
         <span class="n">log</span><span class="o">(</span><span class="s">&quot;Button was clicked&quot;</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 <h1>TEST &amp; RUN</h1>

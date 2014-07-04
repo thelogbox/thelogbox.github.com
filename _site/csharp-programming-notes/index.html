@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>CSharp , C# Programming Notes | theLogBox </title>
+<title>csharp , C# Programming Notes | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -555,7 +551,7 @@ $ mate Hello.cs
 
 <p>Type the following code inside the editor</p>
 
-<div class="highlight"><pre><code class="c#"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="cm">/*</span>
 
 <span class="cm">filename: Hello.cs</span>
 <span class="cm">author: Ted</span>
@@ -572,8 +568,7 @@ $ mate Hello.cs
         
         <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
     <span class="p">}</span>    
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>You need the C Sharp Compiler (csc) to build this. If the Framework SDK has been properly setup on your Windows machine, you will have a short-cut to a batch file called <strong>VCVARS32.BAT</strong> somewhere on the windows menu-->Microsoft Visual Studio…</p>
@@ -635,7 +630,7 @@ C:\> Hello.exe
 
 <p>Think of a variable as a shoebox or a desk drawer--actually, just a shoebox, it is easier to explain the concept that way. You can put things inside a shoe box like a ball, paper, etc. The box is used basically as a storage. Program variables work that way too, they function as a storage. One time you can put a red-colored ball into the shoebox, then another time you can take the red ball out and replace it with say, a green ball.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Vars</span> <span class="p">{</span>
     
@@ -649,15 +644,14 @@ C:\> Hello.exe
         
         <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>In the above sample code, we defined a variable called <strong>"a"</strong>, then we assigned the whole number 1 into it. At a later time, we assigned a different value to <strong>a</strong>, then printed it again. This is a typical programming use of variables. You may assign them intially some value, then change that value later on.</p>
 
 <p>Let's mess around with the sample code a little bit and try to break it deliberately. See if you can spot the difference.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Vars</span> <span class="p">{</span>
     
@@ -671,8 +665,7 @@ C:\> Hello.exe
         
         <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>If you try to compile this source, you would have encountered your first <strong>compiler error</strong>. You probably got a message like this;</p>
@@ -733,8 +726,8 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <p>The number of bits assigned to a data type is what determines the higher-bound and lower-bound values (at least for integral types like short, byte, int, long etc). The general idea is this;</p>
 
 <ol>
-<li>Lower range is = 2<sup>(n-1)</sup> where n is equal to the number of bits</li>
-<li>Higher range is = 2<sup>(n-1)</sup> - 1 where n is equal to the number of bits</li>
+<li>Lower range is = 2<sup>n-1</sup> where n is equal to the number of bits</li>
+<li>Higher range is = 2<sup>n-1</sup> - 1 where n is equal to the number of bits</li>
 </ol>
 
 
@@ -750,15 +743,14 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>Whenever you see a pair of curly braces, you will usually find a group of statements inside them. That is precisely their purpose, to group statements.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="p">{</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="p">{</span>
    <span class="cm">/*</span>
 <span class="cm">   </span>
 <span class="cm">   Statements inside a block are executed in a linear fashion, top to bottom.</span>
 <span class="cm">   </span>
 <span class="cm">   */</span>
    
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as <strong>if, while, for etc</strong>.</p>
@@ -767,16 +759,15 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>This is used if you need to branch or you want to decide whether a statement (or a group of statements) should be executed, based on some condition</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
    <span class="c1">// execute these statements</span>
    <span class="c1">// ...   </span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>The <strong>if</strong> statement actually includes some optional forms, like the <strong>else if and else</strong> branches. The complete form of the <strong>if</strong> statement is as follows;</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">if</span><span class="p">(</span><span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">){</span>
    
 <span class="p">}</span>
 
@@ -796,8 +787,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <span class="k">else</span> <span class="p">{</span>
    
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>You can write as many <strong>else ifs</strong> as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first <strong>if</strong> block will be performed and then the if block is exited. The other conditions stated on <strong>else ifs and else</strong> will not be executed.</p>
@@ -806,7 +796,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>If none of the conditions on the <strong>if and else ifs</strong> return true, then the group of statements inside the <strong>else</strong> branch will be executed. If you did not have an else block, then none of the statements will be executed if none of the specified conditions evaluates to true.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
     
@@ -827,13 +817,12 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Clueless&quot;</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>In this example, "One hundred and One" will be printed.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
     
@@ -851,13 +840,12 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Clueless&quot;</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>In this example, "Clueless" will be printed because there are no conditions that evaluates to true</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">If</span> <span class="p">{</span>
     
@@ -872,8 +860,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>In this example, the program will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no <strong>else</strong> branch</p>
@@ -882,7 +869,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>The <strong>switch</strong> statement is another branching mechanism. It passes control though each <em>case</em> statement inside the switch block. The <strong>case</strong> statement expects a constant value, so you cannot do something like <strong>case == 1</strong>. See the example code for more info.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Switch</span> <span class="p">{</span>
     
@@ -905,15 +892,14 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
                 <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>    
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>Why is there a <strong>break</strong> statement inside each <strong>case</strong>--because withou the break statement, the flow of control will cascade to the next <strong>case</strong> or <strong>default</strong> statement--that is not what you want. As a matter of exercise, try removing the <strong>break</strong> on the case statements and see what happens.</p>
 
 <p>The <strong>switch</strong> can also handle string arguments, not only integers.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Switch</span> <span class="p">{</span>
     
@@ -936,15 +922,14 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
                 <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>    
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <h2>While</h2>
 
 <p>A looping mechanism. Use this if you would like to perform a group of statements repeatedly. General format is <strong>while(expression) statement</strong> -- if you need to execute more than one statmeent, use the curly braces to group the statements. Example;</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">While</span> <span class="p">{</span>
     
@@ -957,8 +942,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
         <span class="p">}</span>
         
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>The expression <strong>a++</strong> is syntactically equivalent to <strong>a = a + 1</strong>, it simply adds one to current value of a;</p>
@@ -969,7 +953,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>Let's rewrite the <strong>while loop</strong> example using the for loop.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
 
@@ -981,8 +965,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
         
         <span class="p">}</span>        
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>Take a closer look at the form of the <em>for-loop</em>, it is actually like this; <strong>for(initializer ; condition ; iterator) statement</strong>.</p>
@@ -996,7 +979,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>The *initializer and iterator** arguments of the for-loop takes more than one value, you just need to separate them with commas. As a beginning programmer though, you probably would have a less easy time making sense of convoluted codes like that, but just to show what else you can do with for-loops, take a look at the following code.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
 
@@ -1012,8 +995,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
     <span class="k">static</span> <span class="k">void</span> <span class="nf">foo</span><span class="p">(){</span>
         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Foo&quot;</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 <p>In this sample code, two variables (a and b) were initialized. Variable <strong>a</strong> was set to 0 and variable <strong>b</strong> was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable <strong>a</strong> is incremented by 1 and variable <strong>b</strong> is decremented by 1---not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.</p>
@@ -1022,7 +1004,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 
 <p>You can write loops inside other loops, ifs inside other ifs, switches inside ifs or whatever combination you can imagine (or need). Here is an example of a for-loop nested inside a for-loop.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
 
@@ -1067,15 +1049,14 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <span class="cm">values of i and j are 5 4</span>
 <span class="cm">values of i and j are 5 5</span>
 
-<span class="cm">*/</span>
-</code></pre></div>
+<span class="cm">*/</span></code></pre></div>
 
 
 <p>The outer loop counts from 1 to 5 using the iterator (variable) <strong>i</strong>, the inner loop counts from 1 to 5 also. This kind of program produces what you might call a <strong>cartesian product</strong>. Notice how the variable <strong>i</strong> is printed 5 times--i is printed for each iteration of <strong>j</strong>. That is the reason why you have 25 rows of output; i iterates up to 5 and j iterates up to 5 also (5 * 5 = 25).</p>
 
 <p><strong>NOTE :</strong> - The curly braces inside the string is called a formatter, it is somewhat similar to the <strong>sprintf</strong> of the C language---but you haven't coded in C, which means you will need some more explanation and examples;</p>
 
-<div class="highlight"><pre><code class="c#"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
 
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The value of a is {0}&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
@@ -1085,13 +1066,12 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <span class="c1">//value of a will be substituted to {0}, and value of b will be subsituted to {1}</span>
 <span class="c1">//0 corresponds to the first actual number right after the string, and 1 to next, so on</span>
 <span class="c1">// and so forth. 0 and 1 are actually positional values of the arguments that follow</span>
-<span class="c1">// string</span>
-</code></pre></div>
+<span class="c1">// string</span></code></pre></div>
 
 
 <p>You can genearate the multiplication table using nested loops, like this;</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ForLoop</span> <span class="p">{</span>
 
@@ -1115,8 +1095,7 @@ a = function() {return "Hello"}; // a little too weird for now, but this is poss
 <span class="cm">4  8   12  16  20  </span>
 <span class="cm">5  10  15  20  25</span>
 
-<span class="cm">*/</span>
-</code></pre></div>
+<span class="cm">*/</span></code></pre></div>
 
 
 <p>The <strong>\t</strong> is to simply add a tab in between the numbers. I used <em>Console.Write</em> so that the line won't add a carriage return/line feed after every number. I need the CRLF at the end of the row (that is the reason why there is an empty WriteLine outside the inner loop)</p>

@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Web , Web Development Tools | theLogBox </title>
+<title>web , Web Development Tools | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -545,8 +541,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Install using ruby gems &mdash; <code class="codeblock">gem install sass</code></p>
 
-<div class="highlight"><pre><code class="css"><span class="nf">#main</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
   <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span>
 
   <span class="n">ul</span> <span class="err">{</span> <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
@@ -554,22 +550,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
     <span class="n">a</span> <span class="err">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
   <span class="err">}</span>
-<span class="err">}</span>
-</code></pre></div>
+<span class="err">}</span></code></pre></div>
 
 
 <p>When processed using the <strong>saas</strong> command, it will emit the following;</p>
 
-<div class="highlight"><pre><code class="css"><span class="nf">#main</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
   <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span> <span class="p">}</span>
   <span class="nf">#main</span> <span class="nt">ul</span> <span class="p">{</span>
     <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
   <span class="nf">#main</span> <span class="nt">li</span> <span class="p">{</span>
     <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
     <span class="nf">#main</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-      <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div>
+      <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 
 <p>The <strong>saas</strong> command line tool has a <strong>--watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
@@ -626,7 +620,7 @@ $ gem install thin
 
 <p>You actually don't need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># quick (but not dirty) and simple</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># quick (but not dirty) and simple</span>
 <span class="c1"># restful web endpoint</span>
 
 <span class="c1"># this app will listen on http://localhost:4567</span>
@@ -643,8 +637,7 @@ $ gem install thin
 
 <span class="n">get</span> <span class="s1">&#39;/somethingelse&#39;</span> <span class="k">do</span>
     <span class="s2">&quot;return something else&quot;</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p><em>http://localhost:4567</em> displays "return something"; <em>http://localhost:4567/somethingelse</em> displays "return something else" in the browser.</p>
@@ -659,22 +652,21 @@ $ gem install thin
 
 <p>The simplest node program from the (NodeJS website)</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// server.js</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// server.js</span>
 
 <span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
 <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">});</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World\n&#39;</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:1337/&#39;</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:1337/&#39;</span><span class="p">);</span></code></pre></div>
 
 
 <p>Run the code using <code class="codeblock">node server.js</code>. Get a browser and open <em>http://localhost:1337</em>. You can already use this to mock REST endpoints, just replace the string inside res.end('Hello World');</p>
 
 <p>A more involved node server code sample is below</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
@@ -728,8 +720,7 @@ $ gem install thin
             <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]);</span>
         <span class="p">}</span>                        
     <span class="p">}</span>
-<span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
-</code></pre></div>
+<span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span></code></pre></div>
 
 
 <p>This will listen on <em>locahost:8080</em>, if you want to change the port of the webserver, just replace the port number, it's the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>

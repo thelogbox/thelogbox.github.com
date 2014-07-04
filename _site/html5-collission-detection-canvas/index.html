@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>HTML5 , Handling Collissions | theLogBox </title>
+<title>html5 , Handling Collissions | theLogBox </title>
 
 
 		<style>
@@ -230,10 +230,6 @@ strong {
   color: #000000;
 }
 
-code {
-	font-family: 'Droid Sans Mono';
-}
-
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 13px;
@@ -244,7 +240,7 @@ pre {
   white-space: pre-wrap;
 }
 
-.codeblock {
+.codeblock, code {
   font-size: 15px;
   font-family: 'Inconsolata';
   color: #000000;
@@ -507,7 +503,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>Collission detection inside the canvas needs to be managed by you. Everytime you update the location of any object, you will need to provide the programming logic to check if any of your canvas objects is colliding with any other object or if it is colliding with the bounds of the canvas.</p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>    
     <span class="nt">&lt;script&gt;</span>
@@ -550,8 +546,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="nt">&lt;/canvas&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 
 <p>This code sample basically moves the box object along the <em>y-axis</em>. Notice that prior to the <em>clear-update-redraw</em> operation, the bounds of the box is checked against the height of the canvas. If the box's current <em>y-location</em> plus the height of the box is less than the value of the canvas' height, the animation continues, if not, then no action is taken. This gives the appearance that the box stops at the bottom of the canvas.</p>
@@ -560,7 +555,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You could make the codes a bit more modular if you move the programming logic of the collission detection away from the drawing logic.</p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>    
     <span class="nt">&lt;script&gt;</span>
@@ -611,8 +606,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&#39;mycanvas&#39;</span> <span class="na">height=</span><span class="s">&#39;400&#39;</span> <span class="na">width=</span><span class="s">&#39;500&#39;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/canvas&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 
 <p>The function <strong>isInCollission()</strong> takes a parameter (a box parameter) and checks if either the bottom or the right side of the box is in contact with either the right boundary or the floor of the canvas &mdash; of course you make it more robust by including codes that checks for collission on ceiling or the left side of the canvas, but that is left to you as an exercise.</p>
