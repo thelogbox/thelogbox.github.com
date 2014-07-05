@@ -10,15 +10,17 @@
   
   </head>
   <body>
-    
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        WordPress
+      </div>
+    </div>    
     <div id="wrap">
         
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
-      <div class='vspacer'></div>
       <div id="articletitle">{{ page.title }}</div>
-
-      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -30,11 +32,11 @@
 							
 		  </div>
       
-      {% include postmeta.html %}
 		</article>
-    
+    <div class="promo">
+      <h1>WordPress : Table of Contents</h1>
+    </div>
     <div class="toc">
-      WordPress Notes
       <ul>
       <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
       <li><a href="/wordpress-tools">Tools</a></li>
@@ -52,10 +54,12 @@
     </ul>
     </div>    
     
-
+    <div class="promo">
+      {% include postmeta.html %}   
+    </div>   
     </div>  <!--  div wrap -->
 
-		<footer>{% include footer.html%}</footer>
+		<footer></footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

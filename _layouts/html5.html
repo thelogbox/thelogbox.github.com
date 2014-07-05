@@ -10,16 +10,18 @@
   
   </head>
   <body>
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        HTML5
+      </div>
+    </div>
         
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article">
      <header>
-       <div class='vspacer'></div>
-      
       <div id="articletitle">{{ page.title }}</div>
-
-      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -30,11 +32,10 @@
         </div>
 							
 		  </div>
-      {% include postmeta.html %}  
 		</article>
-    
+ 
     <div class="toc">
-      HTML5 Programming
+      HTML5
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
       <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
@@ -49,10 +50,12 @@
     </ul>
     </div>    
     
-
+    <div class="promo">
+      {% include postmeta.html %}   
+    </div>   
     </div>  <!--  div wrap -->
     
-		<footer>{% include footer.html%}</footer>
+		<footer></footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

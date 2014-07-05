@@ -5,15 +5,18 @@
 		{% include nostyle.html %}  
   </head>
   <body>
-        
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Android Programming
+      </div>
+    </div>
+
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article" >
      <header>          
-      <div class='vspacer'></div>
-
       <div id="articletitle">{{ page.title }}</div>
-      <div class='vspacer'></div>
     </header>
     
 		  <div id="post">
@@ -22,13 +25,20 @@
         </div>
 							
 		  </div>
-      {% include postmeta.html %}
 		</article>
     
+     
+    <div class="promo">
+      
+    </div> 
+    
     <div class="toc">
+      <!--
       
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
+      -->
       
+      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>
@@ -56,9 +66,7 @@
       <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
       <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
     </ul>
-    
-    <hr/>
-    
+      
     <ul>
       <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
       <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
@@ -69,9 +77,11 @@
     
     </div>    
     
-    
+    <div class="promo">
+      {% include postmeta.html %}   
+    </div>
     </div>  <!--  div wrap -->
-    <footer>{% include footer.html%}</footer>
+    <footer></footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

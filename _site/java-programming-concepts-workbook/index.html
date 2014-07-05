@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>java , Workbook on Programming Concepts | theLogBox </title>
+<title>Java , Workbook on Programming Concepts | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -488,8 +533,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         
     <div id="wrap">     
     <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>
-      <div class='vspacer'></div>          
+     <header>     
       <div id="articletitle">Workbook on Programming Concepts</div>
     </header>
     <!--
@@ -507,7 +551,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>helloName("X") -> "Hello X!"</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
@@ -516,12 +560,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
         <span class="c1">//Write your code here</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., "Hello" and "World" returns "HelloWorld"</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Two.java </span>
+<div class="highlight"><pre><code class="java"><span class="c1">//Two.java </span>
 <span class="c1">//Item # 2 Java Programming Workbook</span>
 
 <span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
@@ -533,7 +578,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
         <span class="c1">//Write your code here</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns "Hello World" with a space in between.</p>
@@ -555,7 +601,7 @@ Java"</p>
 
 <p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Three.java </span>
+<div class="highlight"><pre><code class="java"><span class="c1">//Three.java </span>
 <span class="c1">//Item # 3 Java Programming Workbook</span>
 
 <span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
@@ -567,7 +613,8 @@ Java"</p>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
         <span class="c1">//write your code here </span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
@@ -668,7 +715,7 @@ Java"</p>
 
 <p>What will happen if you try to compile and run the following code</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
     <span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
     <span class="o">}</span>
@@ -676,7 +723,8 @@ Java"</p>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <ol>
@@ -705,11 +753,12 @@ class MyClass{}</p>
 
 <p>3)</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*This is a comment */</span>
+<div class="highlight"><pre><code class="java"><span class="cm">/*This is a comment */</span>
 
 <span class="kn">package</span> <span class="n">MyPackage</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
-<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span></code></pre></div>
+<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span>
+</code></pre></div>
 
 
 <p><strong>Question 4)</strong></p>
@@ -729,12 +778,13 @@ class MyClass{}</p>
 
 <p>What will happen when you compile and run the following code?</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
  <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[]){</span>
  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
  <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <ol>
@@ -777,10 +827,15 @@ class MyClass{}</p>
   </div> 
   last updated:  <br/>
   -->
+
   By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  July 06, 2012 <p/>
   
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
+  -->
 </div>
 
 <script type="text/javascript">
@@ -790,6 +845,7 @@ class MyClass{}</p>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
+
 		</article>
     
   </div> <!-- WRAP -->   

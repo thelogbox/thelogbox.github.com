@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>javascript , TypeScript | theLogBox </title>
+<title>JavaScript , TypeScript | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -488,8 +533,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         
     <div id="wrap">     
     <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>
-      <div class='vspacer'></div>          
+     <header>     
       <div id="articletitle">TypeScript</div>
     </header>
     <!--
@@ -558,33 +602,36 @@ Options:
 
 <p>The "Hello World" test</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename: Hello.ts</span>
+<div class="highlight"><pre><code class="javascript"><span class="c1">// filename: Hello.ts</span>
 
 <span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
+</code></pre></div>
 
 
 <p>Compile it using <strong>tsc Hello.ts</strong>, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
+</code></pre></div>
 
 
 <p>You can run the resulting <strong>.js</strong> code either via <em>node Hello.js</em> or <strong>*js Hello.js</strong> if you have it setup on your machine.</p>
 
 <p>To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
+</code></pre></div>
 
 
 <p>If you try <strong>tsc Hello.ts</strong> again, you will get and error like <em>Function declared a non-void return type, but has no return expression</em>. The reason for that is because we added a type-checking information on both the <em>args</em> variable and the our function itself. <strong>args : string</strong> means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime.</p>
@@ -595,7 +642,7 @@ Options:
 
 <p>Trying out the class and interface facilities of TypeScript</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//BoxSample.ts</span>
+<div class="highlight"><pre><code class="javascript"><span class="c1">//BoxSample.ts</span>
 
 <span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
     
@@ -681,7 +728,8 @@ Options:
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+</code></pre></div>
 
 
 <p>The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;</p>
@@ -690,20 +738,21 @@ Options:
 
 <p><strong>2.</strong> There is an <strong>implements</strong> keyword supported for class constructs, so I could have written the example as</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
     <span class="c1">// …</span>
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Box</span> <span class="kr">implements</span> <span class="p">{</span>
     <span class="c1">// class body</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>It doesn't seem like I needed it though (note to self => read the spec over and over again to find out why).</p>
 
 <h2>INHERITANCE AND POLYMORPHISM</h2>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
     
     <span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
         
@@ -738,7 +787,8 @@ Options:
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
 
 <span class="nx">a</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span></code></pre></div>
+<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</code></pre></div>
 
 
 <p>Inheritance works as expected, no big surprises. TypeScript uses the <strong>extends</strong> keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the <em>extends<strong> keyword with a colon (pretty much like in CSharp), it seems to have the same effect as </strong>extends** too&mdash;but better stick with </em>extends*, that is what the lang spec specifies for inheritance anyway.</p>
@@ -751,7 +801,7 @@ Options:
 
 <p><strong>super</strong> refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
     
     <span class="nx">foo</span><span class="p">(){</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
@@ -777,14 +827,15 @@ Options:
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span></code></pre></div>
+<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
+</code></pre></div>
 
 
 <h2>OPTIONAL ARGUMENTS TO FUNCTIONS</h2>
 
 <p>Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
     
     <span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
     <span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
@@ -823,14 +874,15 @@ Options:
 
 <span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="s2">&quot;new square&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
+</code></pre></div>
 
 
 <h2>Overloading</h2>
 
 <p>Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
 
     
     <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
@@ -871,7 +923,8 @@ Options:
         
     <span class="p">}</span>
         
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.</p>
@@ -880,7 +933,7 @@ Options:
 
 <p>This looks purely like syntactic sugar, but just the same, note it. The <strong>() => {}</strong> notation was added so that you don't have to say <strong>function() {}</strong> &mdash; this reminds me of CoffeeScript though.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
     
     <span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
     <span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -889,7 +942,8 @@ Options:
     
 <span class="p">}</span>
 
-<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span></code></pre></div>
+<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span>
+</code></pre></div>
 
 
 <ol>
@@ -913,10 +967,15 @@ Options:
   </div> 
   last updated:  <br/>
   -->
+
   By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  October 03, 2012 <p/>
   
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
+  -->
 </div>
 
 <script type="text/javascript">
@@ -926,6 +985,7 @@ Options:
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
+
 		</article>
     
   </div> <!-- WRAP -->   

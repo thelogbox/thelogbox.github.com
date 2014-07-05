@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>objc , Programming for the Mac | theLogBox </title>
+<title>OBJC , Programming for the Mac | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -488,8 +533,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         
     <div id="wrap">     
     <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>
-      <div class='vspacer'></div>          
+     <header>     
       <div id="articletitle">Programming for the Mac</div>
     </header>
     <!--
@@ -560,7 +604,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p><em>Objective C</em> is a superset of C, all valid <em>C</em> codes are valid in Objective C. Test your environment.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;stdio.h&gt;</span>
 <span class="cp">#import &lt;stdlib.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -573,23 +617,25 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="c1">// compile:</span>
 <span class="c1">//     gcc Hello.c</span>
 <span class="c1">// output</span>
-<span class="c1">// a.out</span></code></pre></div>
+<span class="c1">// a.out</span>
+</code></pre></div>
 
 
 <p>Environment testing with <em>Foundation Framework</em></p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 <span class="cp">#import &lt;stdlib.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     
-    <span class="n">NSLog</span> <span class="p">(@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">NSLog</span> <span class="p">(</span><span class="err">@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
 
 <span class="p">}</span>
 
 <span class="c1">// compile:</span>
-<span class="c1">// gcc -framework Foundation Hello.m -o Hello.out</span></code></pre></div>
+<span class="c1">// gcc -framework Foundation Hello.m -o Hello.out</span>
+</code></pre></div>
 
 
 <p>You need to tell gcc that you will use the Foundation framework using the -framework flag, lest the Foundation headers won't be resolved by the compiler.</p>
@@ -598,22 +644,23 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The next set of codes is a simple Cocoa test</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 <span class="cp">#import &lt;Appkit/Appkit.h&gt;</span>
 
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     <span class="p">[</span><span class="n">NSApplication</span> <span class="n">sharedApplication</span><span class="p">];</span>
 
-    <span class="n">NSRunAlertPanel</span><span class="p">(@</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="p">@</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span> <span class="p">@</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">,</span> <span class="nb">nil</span><span class="p">);</span>
+    <span class="n">NSRunAlertPanel</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="err">@</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span> <span class="err">@</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">,</span> <span class="nb">nil</span><span class="p">);</span>
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 <span class="p">}</span>
 
 <span class="c1">// compile:</span>
-<span class="c1">// clang -framework Cocoa Hello.m</span></code></pre></div>
+<span class="c1">// clang -framework Cocoa Hello.m</span>
+</code></pre></div>
 
 
 <p>You can use <em>clang</em> in place of <em>gcc</em>, it is another front end to LLVM (Low Level Virtual Machine) which Objective C uses. The AppKit was <em>#include</em>(d) because of the use of  NSRunAlertPanel.</p>
@@ -626,43 +673,45 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>There is another type in Objective C called <strong>id</strong>, but its discussion is deferred to later sections.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
     <span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">100.00</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">100e+2</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">d</span> <span class="o">=</span> <span class="sc">&#39;g&#39;</span><span class="p">;</span>
-    <span class="kt">BOOL</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="kt">BOOL</span> <span class="n">e</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
 
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Integer a = %i&quot;</span> <span class="p">,</span> <span class="n">a</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Float b = %f&quot;</span> <span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Double c = %e&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Double c = %g&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Char d = %c&quot;</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;BOOL e = %d&quot;</span> <span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Integer a = %i&quot;</span> <span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Float b = %f&quot;</span> <span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Double c = %e&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Double c = %g&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Char d = %c&quot;</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;BOOL e = %d&quot;</span> <span class="p">,</span> <span class="n">e</span><span class="p">);</span>
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p><strong>NSLog</strong> takes format specifiers like fprintf. The reference page for <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html">String format specifiers are here</a></p>
 
 <p>You can use <strong>c99</strong> bool instead of BOOL. You need to keep in mind though that Cocoa and the other Frameworks uses BOOL instead of bool&mdash;peeking into Foundation/objc.h, you can find the definition of BOOL.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">typedef</span> <span class="kt">signed</span> <span class="kt">char</span>     <span class="kt">BOOL</span><span class="p">;</span> 
+<div class="highlight"><pre><code class="objective-c"><span class="k">typedef</span> <span class="kt">signed</span> <span class="kt">char</span>     <span class="kt">BOOL</span><span class="p">;</span> 
 <span class="c1">// BOOL is explicitly signed so @encode(BOOL) == &quot;c&quot; rather than &quot;C&quot; </span>
 <span class="c1">// even if -funsigned-char is used.</span>
 <span class="cp">#define OBJC_BOOL_DEFINED</span>
 
 
 <span class="cp">#define YES             (BOOL)1</span>
-<span class="cp">#define NO              (BOOL)0</span></code></pre></div>
+<span class="cp">#define NO              (BOOL)0</span>
+</code></pre></div>
 
 
 <p>Be prudent, use BOOL to future proof your code a little bit, in case Apple decides to change the implementation (not likely, but who knows).</p>
@@ -673,19 +722,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h3>A Person class example</h3>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.h</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: Person.h</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">Person</span>: <span class="bp">NSObject</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">Person</span>: <span class="nc">NSObject</span> <span class="p">{</span>
 
     <span class="kt">int</span> <span class="n">theint</span><span class="p">;</span>
 
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span>    <span class="nf">getInt</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>   <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>   <span class="nf">foo</span><span class="p">;</span> 
+<span class="o">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span>    <span class="n">getInt</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>   <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">var</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>   <span class="nf">foo</span><span class="p">;</span> 
 
 <span class="k">@end</span>
 
@@ -696,19 +745,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="k">@implementation</span> <span class="nc">Person</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">theint</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">var</span> <span class="p">{</span>
     <span class="n">theint</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">foo</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="k">@end</span></code></pre></div>
+<span class="k">@end</span>
+</code></pre></div>
 
 
 <p>The <em>@interface</em> section declares member variables and member methods. The member method only contains the method signature (return type, method name and argument).</p>
@@ -721,23 +771,23 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You cannot compile the code yet, it will complain because an entry point to the program has not been defined. You need to define a <em>main()</em> function to test this code. The main() function can be in a different implementation source file, but it is not a requirement.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.m</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: Person.m</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 <span class="cp">#import &quot;Person.h&quot;</span>
 
 <span class="k">@implementation</span> <span class="nc">Person</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">theint</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">var</span> <span class="p">{</span>
     <span class="n">theint</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">foo</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
@@ -747,10 +797,10 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// Setup a garbage collected pool</span>
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="n">Person</span> <span class="o">*</span> <span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Person</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">person</span> <span class="nl">setInt</span><span class="p">:</span> <span class="mi">100</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">person</span> <span class="nl">setInt:</span> <span class="mi">100</span><span class="p">];</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span> <span class="n">getInt</span><span class="p">];</span>
 
     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="p">);</span>
@@ -763,7 +813,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="p">}</span>
 
 <span class="c1">// compile:</span>
-<span class="c1">// clang -framework Foundation Person.m</span></code></pre></div>
+<span class="c1">// clang -framework Foundation Person.m </span>
+</code></pre></div>
 
 
 <p>The person object could have been created using the <em>new</em> message [Person new] &mdash;  <strong>new</strong> is not a keyword in Objective C, it is a method of the NSObject which actually calls allo, then init. The Person class in the example is inheriting from NSObject, which means it has everything that NSObject has, including the  <em>new</em> method.</p>
@@ -778,22 +829,22 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Getting and setting values of member vars of an object is a very common programming practice, it is a necessary technique in creating value objects.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.h</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: Person.h</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
 
-<span class="k">@interface</span> <span class="nc">Person</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">Person</span> : <span class="nc">NSObject</span> <span class="p">{</span>
 
-    <span class="bp">NSString</span> <span class="o">*</span> <span class="n">name</span><span class="p">;</span>
-    <span class="bp">NSString</span> <span class="o">*</span> <span class="n">email</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">email</span><span class="p">;</span>
 
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setName:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEmail:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getEmail</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getName</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setName:</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="n">var</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEmail:</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="n">var</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getEmail</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getName</span><span class="p">;</span>
 
 <span class="k">@end</span>
 
@@ -804,19 +855,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="k">@implementation</span> <span class="nc">Person</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setName:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setName:</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">var</span> <span class="p">{</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEmail:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setEmail:</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">var</span> <span class="p">{</span>
     <span class="n">email</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getName</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">getName</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getEmail</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">getEmail</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">email</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -826,41 +877,42 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     <span class="n">Person</span> <span class="o">*</span> <span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Person</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
-    <span class="p">[</span><span class="n">person</span> <span class="nl">setName</span><span class="p">:</span> <span class="p">@</span> <span class="s">&quot;Ted&quot;</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">person</span> <span class="nl">setEmail</span><span class="p">:</span> <span class="p">@</span> <span class="s">&quot;tedhagos@gmail.com&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">person</span> <span class="nl">setName:</span> <span class="err">@</span> <span class="s">&quot;Ted&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">person</span> <span class="nl">setEmail:</span> <span class="err">@</span> <span class="s">&quot;tedhagos@gmail.com&quot;</span><span class="p">];</span>
 
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getEmail</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getName</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getEmail</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getName</span><span class="p">]);</span>
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 
 <span class="p">}</span>
 
-<span class="c1">// compile: clang -framework Foundation Person.m</span></code></pre></div>
+<span class="c1">// compile: clang -framework Foundation Person.m</span>
+</code></pre></div>
 
 
 <h1>Properties</h1>
 
 <p>You do not need to write individual getters and setters methods for member vars. Objective C as the @property and @synthesize to do that automatically</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Prop.h</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: Prop.h</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">Prop</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">Prop</span> : <span class="nc">NSObject</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">one</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">two</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">@property</span>  <span class="kt">int</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">;</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span><span class="p">;</span>
 
 <span class="k">@end</span>
 
@@ -873,20 +925,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="k">@synthesize</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">;</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One is %i and Two is %i&quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One is %i and Two is %i&quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i / %i = %f &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="o">/</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">two</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;%i / %i = %f &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="o">/</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">two</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i * %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">*</span> <span class="n">two</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;%i * %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">*</span> <span class="n">two</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i + %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">+</span>  <span class="n">two</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;%i + %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">+</span>  <span class="n">two</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
@@ -894,12 +946,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="c1">/////////////////////////////////////////////////</span>
 
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     <span class="n">Prop</span> <span class="o">*</span> <span class="n">prop</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Prop</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">prop</span> <span class="nl">setOne</span><span class="p">:</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo</span><span class="p">:</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">prop</span> <span class="nl">setOne:</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo:</span> <span class="mi">2</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">prop</span> <span class="n">divideem</span><span class="p">];</span>
     <span class="p">[</span><span class="n">prop</span> <span class="n">addem</span><span class="p">];</span>
@@ -908,14 +960,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>@property is declared on the interface declaration and @synthesize on the implementation portion. In the example code above, the member vars <em>one &amp; two</em> were synthesized. Accessor methods were automatically generated for these vars.</p>
 
 <p>The accessor method which was generated for our member vars one &amp; two are the following;</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cm">/*</span>
 
 <span class="cm">The acccessor to get the member var is exactly the same name as</span>
 <span class="cm">the member var.</span>
@@ -941,8 +994,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">*/</span>
 
 
-<span class="p">[</span><span class="n">prop</span> <span class="nl">setOne</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span>
-<span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span></code></pre></div>
+<span class="p">[</span><span class="n">prop</span> <span class="nl">setOne:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span>
+<span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span>
+</code></pre></div>
 
 
 <h1>Constructors</h1>
@@ -951,20 +1005,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>On the other hand, each object, before they are created, are sent the messages <em>alloc</em> then <em>init</em>. It's probably not a good idea to fool around with <em>alloc</em> but it is a very common practice to override <em>init</em> and perform initialization codes.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="nl">filename</span><span class="p">:</span> <span class="n">Obj</span><span class="p">.</span><span class="n">h</span>
+<div class="highlight"><pre><code class="objective-c"><span class="nl">filename:</span> <span class="n">Obj</span><span class="p">.</span><span class="n">h</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="nc">NSObject</span> <span class="p">{</span>
 
-    <span class="bp">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
 
 <span class="p">}</span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
 
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span><span class="p">;</span>
 
 <span class="k">@end</span>
 
@@ -977,18 +1031,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="k">@implementation</span> <span class="nc">Obj</span> 
 <span class="k">@synthesize</span> <span class="n">objname</span><span class="p">;</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
 
-    <span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;In the CTOR of Obj&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
 
     <span class="c1">// NSLog(@ &quot;Class method foo printing %@ &quot;, objname);</span>
     <span class="c1">// Cannot do this, Class methods cannot access instance</span>
@@ -998,8 +1052,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Instance method goo printing %@&quot;</span><span class="p">,</span> <span class="n">objname</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Instance method goo printing %@&quot;</span><span class="p">,</span> <span class="n">objname</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
@@ -1007,20 +1061,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="c1">///////////////////////////////////</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="n">Obj</span> <span class="o">*</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">obj</span> <span class="nl">setObjname</span><span class="p">:</span> <span class="s">@&quot;The object name&quot;</span><span class="p">];</span>
-    <span class="n">NSLog</span><span class="p">(</span> <span class="p">@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span> <span class="n">objname</span><span class="p">]);</span>
+    <span class="p">[</span><span class="n">obj</span> <span class="nl">setObjname:</span> <span class="s">@&quot;The object name&quot;</span><span class="p">];</span>
+    <span class="n">NSLog</span><span class="p">(</span> <span class="err">@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span> <span class="n">objname</span><span class="p">]);</span>
 
     <span class="p">[</span><span class="n">Obj</span> <span class="n">foo</span><span class="p">];</span>
     <span class="p">[</span><span class="n">obj</span> <span class="n">goo</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>The <strong>self</strong> is conceptually equivalent to <strong>this</strong> in Java, it is a reference to one's instance. In our example, self was assigned the value returned by a call to the <em>init</em> of its parent object. It is a good idea to call the superclass' init to ensure that proper initialization is also happenning up the object graph.</p>
@@ -1029,12 +1084,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>A simple use of the <em>self</em> keyword. The following code is an adaptation of the Leaf.java source by Bruce Eckel, it was used as an example demonsrating the use of the <em>this</em> keyword. The <a href="http://www.cs.hut.fi/Docs/Eckel/TIJ3ed/code/c04/Leaf.java">Java source can be found here</a>.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">Leaf</span> : <span class="bp">NSObject</span><span class="p">{}</span>
+<span class="k">@interface</span> <span class="nc">Leaf</span> : <span class="nc">NSObject</span><span class="p">{}</span>
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">getLeaf</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span><span class="p">;</span>
+<span class="o">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="n">getLeaf</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span><span class="p">;</span>
 <span class="k">@end</span>
 
 
@@ -1043,35 +1098,36 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="k">static</span> <span class="kt">int</span> <span class="n">instance_counter</span><span class="p">;</span>
 <span class="k">static</span> <span class="kt">int</span> <span class="n">leaf_counter</span><span class="p">;</span>
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
     <span class="n">instance_counter</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">getLeaf</span> <span class="p">{</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">getLeaf</span> <span class="p">{</span>
     <span class="n">leaf_counter</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;instance counter : %i&quot;</span> <span class="p">,</span> <span class="n">instance_counter</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;leaf counter : %i&quot;</span> <span class="p">,</span> <span class="n">leaf_counter</span><span class="p">);</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;instance counter : %i&quot;</span> <span class="p">,</span> <span class="n">instance_counter</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;leaf counter : %i&quot;</span> <span class="p">,</span> <span class="n">leaf_counter</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
 
 <span class="c1">////////////////////////////////////////////////////</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="n">Leaf</span> <span class="o">*</span> <span class="n">leaf</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Leaf</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
     <span class="p">[[[</span><span class="n">leaf</span> <span class="n">getLeaf</span><span class="p">]</span> <span class="n">getLeaf</span><span class="p">]</span> <span class="n">printStats</span><span class="p">];</span> 
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <h1>Instance members and class members</h1>
@@ -1080,11 +1136,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Vars that are declared within @interface are unique to each instance (object), while vars declared within @implementation is global to all instance &mdash; hence, equivalent of static members in Java. There is a keyword <em>static</em> in Objective C but it refers to a storage class, it is not semantically equivalent to the <em>static</em> keyword in Java or C#.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: instancecount.m</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: instancecount.m</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">InstanceCount</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">InstanceCount</span> : <span class="nc">NSObject</span> <span class="p">{</span>
 
     <span class="c1">// You cannot declare a static type here, only in the</span>
     <span class="c1">// implementation source. Otherwise you will get the error</span>
@@ -1107,31 +1163,31 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="kt">int</span> <span class="n">counterImplementation</span><span class="p">;</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
 
-    <span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
     
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;counterInterface = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterInterface</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;counterImplementation = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterImplementation</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;counterInterface = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterInterface</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;counterImplementation = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterImplementation</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
     <span class="c1">//But you cannot access it here if you declared counter to be a </span>
     <span class="c1">//a local variable inside the constructor.</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Foo: counterInterface = %i&quot;</span><span class="p">,</span> <span class="n">counterInterface</span><span class="p">);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Foo: counterImplementation = %i&quot;</span><span class="p">,</span> <span class="n">counterImplementation</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Foo: counterInterface = %i&quot;</span><span class="p">,</span> <span class="n">counterInterface</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Foo: counterImplementation = %i&quot;</span><span class="p">,</span> <span class="n">counterImplementation</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">@end</span>
 
 <span class="c1">////////////////////////////////////////////</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
-    <span class="k">@autoreleasepool</span> <span class="p">{</span>
+    <span class="err">@</span><span class="n">autoreleasepool</span> <span class="p">{</span>
 
         <span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
         <span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
@@ -1165,40 +1221,41 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">2012-11-18 22:52:30.338 a.out[6614:707] Foo: counterInterface = 1</span>
 <span class="cm">2012-11-18 22:52:30.339 a.out[6614:707] Foo: counterImplementation = 6</span>
 
-<span class="cm">*/</span></code></pre></div>
+<span class="cm">*/</span>
+</code></pre></div>
 
 
 <p>Another example</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: instance.m</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: instance.m</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="bp">NSObject</span> <span class="p">{</span>
-    <span class="bp">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
+<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="nc">NSObject</span> <span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
 <span class="k">@end</span>
 
 <span class="k">@implementation</span> <span class="nc">Obj</span>
 <span class="k">@synthesize</span> <span class="n">color</span><span class="p">;</span>
 
-<span class="bp">NSString</span> <span class="o">*</span> <span class="n">shape</span><span class="p">;</span>
+<span class="n">NSString</span> <span class="o">*</span> <span class="n">shape</span><span class="p">;</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
 
-    <span class="n">color</span> <span class="o">=</span> <span class="p">@</span> <span class="s">&quot;Black&quot;</span><span class="p">;</span>
-    <span class="n">shape</span> <span class="o">=</span> <span class="p">@</span> <span class="s">&quot;No shape&quot;</span><span class="p">;</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="err">@</span> <span class="s">&quot;Black&quot;</span><span class="p">;</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="err">@</span> <span class="s">&quot;No shape&quot;</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getShape</span> <span class="p">{</span>
+<span class="k">-</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getShape</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">shape</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setShape:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setShape:</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">var</span> <span class="p">{</span>
     <span class="n">shape</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -1208,23 +1265,23 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="n">Obj</span> <span class="o">*</span> <span class="n">one</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
     <span class="n">Obj</span> <span class="o">*</span> <span class="n">two</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
 
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
 
-    <span class="p">[</span><span class="n">two</span> <span class="nl">setColor</span><span class="p">:</span> <span class="s">@&quot;Red&quot;</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">two</span> <span class="nl">setShape</span><span class="p">:</span> <span class="s">@&quot;Circle&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">two</span> <span class="nl">setColor:</span> <span class="s">@&quot;Red&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">two</span> <span class="nl">setShape:</span> <span class="s">@&quot;Circle&quot;</span><span class="p">];</span>
 
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
-    <span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="err">@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
 
     <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
 
@@ -1246,7 +1303,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">2012-11-18 23:05:24.543 a.out[6662:707] One shape = Circle</span>
 <span class="cm">2012-11-18 23:05:24.544 a.out[6662:707] Two shape = Circle</span>
 
-<span class="cm">*/</span></code></pre></div>
+<span class="cm">*/</span>
+</code></pre></div>
 
 
 <p>Changing the value of the <em>color</em> member var in object two affected only the color value of object two, it did not have any effect on the color value of object one because the color member var was defined within the @interface. Each instance have their own copy of the color variable.</p>
@@ -1259,35 +1317,35 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>One thing to note though is that a protocol is not a type. You may not declare an object having the name of a protocol as a type &amp;,dash; you may however declare that an instance of an object <em>is conforming</em> to a specific protocol.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: poly.m</span>
+<div class="highlight"><pre><code class="objective-c"><span class="c1">// filename: poly.m</span>
 
 <span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
 <span class="k">@protocol</span> <span class="nc">Printing</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span><span class="p">;</span>
 <span class="k">@end</span>
 
 <span class="k">@protocol</span> <span class="nc">Faxing</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span><span class="p">;</span>
 <span class="k">@end</span>
 
-<span class="k">@interface</span> <span class="nc">Multi</span> : <span class="bp">NSObject</span> <span class="o">&lt;</span><span class="n">Printing</span><span class="p">,</span> <span class="n">Faxing</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">@interface</span> <span class="nc">Multi</span> : <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">Printing</span><span class="p">,</span> <span class="n">Faxing</span><span class="o">&gt;</span> <span class="p">{</span>
 
 <span class="p">}</span>
 <span class="k">@end</span>
 
 <span class="k">@implementation</span> <span class="nc">Multi</span>
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span> <span class="p">{</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span> <span class="p">{</span>
 
 <span class="p">}</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span> <span class="p">{</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span> <span class="p">{</span>
 
 <span class="p">}</span>
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span> <span class="p">{</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span> <span class="p">{</span>
 
 <span class="p">}</span>
 
@@ -1295,9 +1353,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="c1">/////////////////////////////////////////////////</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
     <span class="n">Multi</span> <span class="o">*</span> <span class="n">multi</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Multi</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span> <span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
     <span class="p">[</span><span class="n">multi</span> <span class="n">print</span><span class="p">];</span>
@@ -1321,7 +1379,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="p">}</span>
 
 <span class="c1">// compile:</span>
-<span class="c1">//     clang -framework Foundation poly.m</span></code></pre></div>
+<span class="c1">//     clang -framework Foundation poly.m</span>
+</code></pre></div>
 
 
 <p>A class may declare that it conforms to more than one protocol. Protocol conformance in a class is denoted by enclosing the protocol names inside the angle brackets as part of the @interface declaration.</p>
@@ -1344,10 +1403,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   </div> 
   last updated:  <br/>
   -->
+
   By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  July 26, 2012 <p/>
   
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
+  -->
 </div>
 
 <script type="text/javascript">
@@ -1357,6 +1421,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
+
 		</article>
     
   </div> <!-- WRAP -->   

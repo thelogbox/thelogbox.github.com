@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>wordpress , Introduction to PHP | theLogBox </title>
+<title>WordPress , Introduction to PHP | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -485,15 +530,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
   </head>
   <body>
-    
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        WordPress
+      </div>
+    </div>    
     <div id="wrap">
         
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
-      <div class='vspacer'></div>
       <div id="articletitle">Introduction to PHP</div>
-
-      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -511,24 +558,26 @@ C:\Users\yourname\wamp\www\practice
 
 <p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 Hello
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 
 <p>It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script.</p>
 
 <p>Let's add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
 <span class="x">&lt;html&gt;</span>
 <span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
 
 <span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">   Today&#39;s date is</span>
 <span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;/html&gt;</span></code></pre></div>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
 
 
 <p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript).</p>
@@ -553,11 +602,12 @@ Hello
 
 <p>A statement in PHP is a declaration of an operation, something that you would like to do. For example, if you want define a variable and store a number in it, you need to tell PHP exactly that.</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$anumber</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="mi">4</span>
 
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required.</p>
@@ -568,7 +618,7 @@ Hello
 
 <p><em>$anumber</em> is called a variable because we can change it’s value later on. You can add, subtract, divide and multiply it with some other value then store the new results on $anumber thereby changing its original value, like this</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nv">$j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
@@ -576,7 +626,8 @@ Hello
 <span class="nv">$i</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
 <span class="nv">$i</span> <span class="o">=</span> <span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 <h2>Co-mingling with html</h2>
@@ -585,13 +636,14 @@ Hello
 
 <p>PHP statements are often found co-mingled with HTML, like this;</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
 <span class="x">&lt;html lang=en&gt;</span>
 <span class="x">&lt;body&gt;</span>
 <span class="x">  &lt;h1&gt;My Spanking Web App&lt;/h1&gt;</span>
 <span class="x">  &lt;span&gt;Today is &lt;/span&gt; </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">&lt;/body&gt;</span>
-<span class="x">&lt;/html&gt;</span></code></pre></div>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div>
 
 
 <p>See that. Most of the codes are in HTML except for that tiny <em>&lt;?php echo date(DATE_RFC822); ?&gt;</em> which basically just outputs the current date. When the server sees that instruction, it will get the  system date then <em>echo</em> the return value as HTML. By this time you must have figured out that whatever you <em>echo</em> it will be part of the HTML output.</p>
@@ -604,12 +656,13 @@ Hello
 
 <p>First. You can write one statement after another, like this</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$in = 5;</span>
+<div class="highlight"><pre><code class="php"><span class="x">$in = 5;</span>
 <span class="x">$cm = 10;</span>
 <span class="x">$factor = 2.54;</span>
 
 <span class="x">echo $in . &quot; inches = &quot; . $in / $factor;</span>
-<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span></code></pre></div>
+<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span>
+</code></pre></div>
 
 
 <p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do.</p>
@@ -618,7 +671,7 @@ Hello
 
 <p>Second. You can execute some statements when some condition is true, if it is not true, do something else; like this</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
+<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
 <span class="x">$b = 20;</span>
 
 <span class="x">if($a &gt; $b) {</span>
@@ -626,7 +679,8 @@ Hello
 <span class="x">}</span>
 <span class="x">else {</span>
 <span class="x">  echo &quot;a &lt; b&quot;;</span>
-<span class="x">}</span></code></pre></div>
+<span class="x">}</span>
+</code></pre></div>
 
 
 <p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran.</p>
@@ -635,12 +689,13 @@ Hello
 
 <p>The <em>else block</em> gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
+<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
 <span class="x">$b = 20;</span>
 
 <span class="x">if($a &gt; $b) {</span>
 <span class="x">  echo &quot;a is &gt; b&quot;;</span>
-<span class="x">}</span></code></pre></div>
+<span class="x">}</span>
+</code></pre></div>
 
 
 <p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense.</p>
@@ -651,7 +706,7 @@ Hello
 
 <p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the <em>while</em> and the <em>for</em> statements to implement iterative constructions. For our purpose, we will only consider using the <em>whilte</em> statement because this is what you will encounter most when programming WordPress.</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> 
 
 <span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -660,7 +715,8 @@ Hello
   <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 
 
 
@@ -674,32 +730,11 @@ Hello
 							
 		  </div>
       
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #php
-  </div> 
-  last updated:  <br/>
-  -->
-  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
 		</article>
-    
+    <div class="promo">
+      <h1>WordPress : Table of Contents</h1>
+    </div>
     <div class="toc">
-      WordPress Notes
       <ul>
       <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
       <li><a href="/wordpress-tools">Tools</a></li>
@@ -717,21 +752,39 @@ Hello
     </ul>
     </div>    
     
+    <div class="promo">
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #php
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  November 04, 2013 <p/>
+  
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+   
+    </div>   
     </div>  <!--  div wrap -->
 
-		<footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
-
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
+		<footer></footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

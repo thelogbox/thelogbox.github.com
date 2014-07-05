@@ -10,16 +10,17 @@
   
   </head>
   <body>
-        
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Linux
+      </div>
+    </div>        
     <div id="wrap">
         
      <article itemscope itemtype="http://schema.org/Article" class="withtoc">
      <header>          
-      <div class='vspacer'></div>
-
       <div id="articletitle">{{ page.title }}</div>
-
-      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -29,8 +30,7 @@
 		    {{ content }}
         </div>
 							
-		  </div>
-      {% include postmeta.html %}      
+		  </div>    
 		</article>
     
     <div class="toc">
@@ -50,10 +50,12 @@
     </ul>
     </div>    
     
-    
+    <div class="promo">
+      {% include postmeta.html %}   
+    </div>       
     </div>  <!--  div wrap -->
 
-		<footer>{% include footer.html%}</footer>
+		<footer></footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

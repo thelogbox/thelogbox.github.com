@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>android , Getting Started | theLogBox </title>
+<title>Android , Getting Started | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -477,18 +521,22 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
    ========================================================================== */
 
 
-</style>  
+</style>
+  
   </head>
   <body>
-        
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Android Programming
+      </div>
+    </div>
+
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article" >
      <header>          
-      <div class='vspacer'></div>
-
       <div id="articletitle">Getting Started</div>
-      <div class='vspacer'></div>
     </header>
     
 		  <div id="post">
@@ -554,34 +602,20 @@ If you want to see all the possible targets, you can type <code class="codeblock
         </div>
 							
 		  </div>
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #HelloWorld  #Activity  #Compilation  #Build
-  </div> 
-  last updated:  <br/>
-  -->
-  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
 		</article>
     
+     
+    <div class="promo">
+      
+    </div> 
+    
     <div class="toc">
+      <!--
       
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
+      -->
       
+      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>
@@ -609,9 +643,7 @@ If you want to see all the possible targets, you can type <code class="codeblock
       <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
       <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
     </ul>
-    
-    <hr/>
-    
+      
     <ul>
       <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
       <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
@@ -622,20 +654,38 @@ If you want to see all the possible targets, you can type <code class="codeblock
     
     </div>    
     
-    
+    <div class="promo">
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #HelloWorld  #Activity  #Compilation  #Build
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  August 12, 2011 <p/>
+  
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+   
+    </div>
     </div>  <!--  div wrap -->
-    <footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
-
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
+    <footer></footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

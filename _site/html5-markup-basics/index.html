@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>html5 , Markup Basics | theLogBox </title>
+<title>HTML5 , Markup Basics | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -485,16 +530,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
   </head>
   <body>
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        HTML5
+      </div>
+    </div>
         
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article">
      <header>
-       <div class='vspacer'></div>
-      
       <div id="articletitle">Markup Basics</div>
-
-      <div class='vspacer'></div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -509,27 +556,28 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Basic structure</h1>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
 
   <span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 
-<p>The \&lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>\&lt;head></strong> and the <strong>\&lt;body></strong> elements.</p>
+<p>The &lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head></strong> and the <strong>&lt;body></strong> elements.</p>
 
 <p>All the visible things that you want to show on an HTML page goes to the body element. For example, ordered lists, un-ordered lists, headings, paragraphs, tables.</p>
 
 <p>Things written inside the head element will not be visible on the HTML page. That is not to say they are less important. Some of the things you may find on the head element are script–for embedding Javascript codes, link–for CSS amongst other things, title etc.</p>
 
-<p>You probably noticed that the tags came in pair. The opening \&lt;body> tag is paired with the closing \&lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
+<p>You probably noticed that the tags came in pair. The opening &lt;body> tag is paired with the closing &lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
 
 <h2>DOCTYPE</h2>
 
-<p>The <em>\&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
+<p>The <em>&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
 
 <h2>Versions of HTML</h2>
 
@@ -554,16 +602,16 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <h1>Common tags</h1>
 
 <ol>
-<li>\&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
-<li>\&lt;h2> - another heading, less important than \&lt;h1> but more important than;</li>
-<li>\&lt;h3></li>
-<li>\&lt;strong> - display something in bold face</li>
-<li>\&lt;em> - display something in italics (emphasised)</li>
-<li>\&lt;ol> - display a list, a numbered (ordered) one</li>
-<li>\&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
-<li>\&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
-<li>\&lt;p> - a paragraph break</li>
-<li>\&lt;br> - a line break</li>
+<li>&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
+<li>&lt;h2> - another heading, less important than &lt;h1> but more important than;</li>
+<li>&lt;h3></li>
+<li>&lt;strong> - display something in bold face</li>
+<li>&lt;em> - display something in italics (emphasised)</li>
+<li>&lt;ol> - display a list, a numbered (ordered) one</li>
+<li>&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
+<li>&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
+<li>&lt;p> - a paragraph break</li>
+<li>&lt;br> - a line break</li>
 </ol>
 
 
@@ -571,9 +619,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Attributes</h1>
 
-<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like \&lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
+<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like &lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
 
-<p>For example, in the tag <em>\<a href="http://thelogbox.com"\>thelogbox\&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
+<p>For example, in the tag <em>&lt;a href="http://thelogbox.com">thelogbox&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
 
 <p><strong>GOOD TO KNOW</strong>:</p>
 
@@ -588,7 +636,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
@@ -601,7 +649,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
     <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
@@ -617,32 +666,10 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         </div>
 							
 		  </div>
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #Markup  #Elements
-  </div> 
-  last updated:  <br/>
-  -->
-  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>  
 		</article>
-    
+ 
     <div class="toc">
-      HTML5 Programming
+      HTML5
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
       <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
@@ -657,21 +684,39 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     </ul>
     </div>    
     
+    <div class="promo">
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #Markup  #Elements
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  January 27, 2013 <p/>
+  
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+   
+    </div>   
     </div>  <!--  div wrap -->
     
-		<footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
-
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
+		<footer></footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

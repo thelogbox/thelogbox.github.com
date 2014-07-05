@@ -31,23 +31,35 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>javascript , Program Flow | theLogBox </title>
+<title>JavaScript , Program Flow | theLogBox </title>
 
 
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:700|Muli);
+url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
+  font-size: 95%;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+}
+
+#wrap, .toc, .promo, .feature-banner-text {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.feature-banner-text {text-transform: uppercase;}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
 }
 
 .tutorial-writeup {
@@ -86,7 +98,7 @@ body {
   text-align: left;
   line-height: 1.4em;
   color: #292929;
-  margin-top: 0px;
+  margin-top: 20px;
   padding-top: 0px;
   text-rendering: optimizeLegibility;
 }
@@ -99,14 +111,15 @@ body {
 }
 
 article {
+  /*
   padding-left:5%;
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  background: #ffffff;
-  border-right: 1px solid #dedede;
+  */
 }
 
+/*
 .withtoc {
   float:left;
   width:68%;
@@ -114,16 +127,28 @@ article {
 .notoc {
   width:80%;
 }
+*/
+
 .toc {
-  padding-top: 60px;
-  text-align:right;
-  width:18%;
-  float: right;
-  padding-right: 2%;
+  text-align:left;
+  /* width:18%; 
+  float: right; 
+  padding-right: 2%; */
+  
+  padding: 20px;
+  background: #dcdcff;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius:10px;                                                                                                       
+  border-radius: 10p
 }
-.toc a:link, .toc a:visited {font-family: 'Muli'; font-size: 14px; color: steelblue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.6em; margin-bottom:6px;}
-.toc ul {padding-left: 0;}
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
 
 #blogtitle {margin-bottom:2em;}
 
@@ -134,7 +159,7 @@ article {
 
 #blogtitle a:hover {
 	/* border-bottom: 1px solid #79a663;*/
-  border-bottom: 1px solid #CACACA;
+  text-decoration:underline;
 }
 
 h1, h2, h3 {
@@ -187,8 +212,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   background: #F0F0F0;
   padding-top: 3px;
   padding-bottom: 3px;
-  text-align:center;
   line-height:1.5em;
+  margin-bottom: 40px;
 }
 
 #feature-button {
@@ -231,18 +256,31 @@ strong {
 }
 
 pre {
-	font-family: 'Droid Sans Mono';
-  font-size: 13px;
-  padding: 1em;
-  border: 2px solid #F0F2E7;
+	font-family: 'Inconsolata';
+  font-size: 15px;
+  padding: 5px;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
+  
+  background: #f0f0ff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-.codeblock, code {
+
+code {font-size: 15px; font-family: 'Inconsolata';}
+
+.codeblock {
   font-size: 15px;
   font-family: 'Inconsolata';
+  font-weight: bold;
   color: #000000;
   padding:0px;
   margin: 0px;
@@ -251,6 +289,7 @@ pre {
 
   pre.codeblock {
     padding: .7em;
+    font-weight: bold;
     /*background: #e8ebef;*/
     background: #F0F0FF; 
     color: #000000;
@@ -271,11 +310,17 @@ pre {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
-a:hover {color: blue; border-bottom: 1px solid #6083c5;}
+a:hover {color: blue; text-decoration:underline;}
 
 
-#postmeta {padding-top:30px;padding-bottom:30px; color: gray;font-weight:normal; font-size: 14px;}
-#postmeta a:link, #postmeta a:visited {/*color: #D4D4D4;*/ color: gray;}
+#postmeta {
+  padding-top:50px;
+  padding-bottom:30px; 
+  font-family: 'Muli'
+  font-weight:normal; 
+  font-size: 90%;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
 
 #addthis {margin-top:20px;margin-bottom:30px;}
 
@@ -287,12 +332,11 @@ footer {
   padding-bottom: 15px;
   line-height: 2em;
   text-align: center;
-  border-top: 1px solid #dedede;
+  /*border-top: 1px solid #dedede;*/
 }
 
 footer a:link, footer a:visited {
   color: #000000; background: inherit;
-  font-size: 18px;
   text-transform: uppercase;
 }
  footer a:hover {border-bottom: 1px solid #000000;}
@@ -303,7 +347,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 100%;
+  width: 80%;
 }
   img.shadow {
     display:block;
@@ -478,6 +522,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 
 </style>
+
     
     <!--
 		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
@@ -485,15 +530,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
   </head>
   <body>
-        
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        JavaScript
+      </div>
+    </div>        
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article">
      <header>          
-      <div class='vspacer'></div>
       <div id="articletitle">Program Flow</div>
-
-      <div class='vspacer'></div>
+      
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -510,7 +558,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Branching statements allows you to side step some statements when some conditions are true; <em>if-else</em> statement is one way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
 <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">);</span>
@@ -519,12 +567,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;nah!&quot;</span><span class="o">);</span>
 <span class="o">}</span> 
 
-<span class="c1">// RETURNS nah!</span></code></pre></div>
+<span class="c1">// RETURNS nah!</span>
+</code></pre></div>
 
 
 <p>Be careful when writing your comparisson operator. Here's a slightly modified version of the code above</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
@@ -533,14 +582,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nah!&quot;</span><span class="p">);</span>
 <span class="p">}</span> 
 
-<span class="c1">// RETURNS true</span></code></pre></div>
+<span class="c1">// RETURNS true</span>
+</code></pre></div>
 
 
 <p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value.</p>
 
 <p><em>Switch statement</em> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
 
 <span class="k">switch</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
@@ -567,7 +617,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="cm">RETURNS &quot;Hello&quot;</span>
 
-<span class="cm">*/</span></code></pre></div>
+<span class="cm">*/</span>
+</code></pre></div>
 
 
 <p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found.</p>
@@ -578,31 +629,33 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The <em>while</em> statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">timetoexit</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;counter = &quot;</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>You can use the <strong>break</strong> keyword to break out of loops, like this</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 <span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
 <span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.</p>
 
 <p>Another keyword related to loop structures is the <strong>continue</strong> keyword. It causes program flow to jump also</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 <span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
 <span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
@@ -613,16 +666,20 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="k">continue</span><span class="o">;</span> 
     <span class="o">}</span>
     <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+</code></pre></div>
 
 
 <p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed.</p>
 
 <p>The <em>for</em> statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">([</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">begin</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">stop</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">step</span><span class="p">])</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="k">for</span> <span class="p">([</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">begin</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">stop</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">step</span><span class="p">])</span> <span class="p">{</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+  
+  
+</code></pre></div>
 
 
 
@@ -632,18 +689,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>A key concept in using the for loop is the counter (the step). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the step value is incremented. The incremented step value is then compared to the ending value, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>The code sample above defines the starting point at 1 (i = 1), it will stop the loop execution when <em>i &lt; 10</em>.  Each time the <em>for</em> loop is evaluated, the i variable will be incremented by 1 (i++).</p>
 
 <p>Here is a another sample of the for loop.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -674,40 +732,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">8   16  24  32  40  48  56  64  72  </span>
 <span class="cm">9   18  27  36  45  54  63  72  81</span>
 
-<span class="cm">*/</span></code></pre></div>
+<span class="cm">*/</span>
+</code></pre></div>
 
 
 <p>This code requires the node.js library <em>util</em>. We can't use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it.</p>
 
         </div>
 							
-		  </div>
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #control_structures  #loop  #branch
-  </div> 
-  last updated: 2013-11-09 <br/>
-  -->
-  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>     
+		  </div>  
 		</article>
     
     <div class="toc">
-      JavaScript Tutorial
+      JavaScript
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>
@@ -723,29 +760,43 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <li><a href="/javascript-inheritance">Inheritance</a></li>
       <li><a href="/javascript-guessing-game">Guessing Game</a></li>
     </ul>
+    </div>
     
-    <hr/>
-    
-    <ul>
-      <li><a href="/javascript-document-history">Doc History</a></li>
-    </ul>
+    <div class="promo">
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #control_structures  #loop  #branch
+  </div> 
+  last updated: 2013-11-09 <br/>
+  -->
+
+  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+  November 05, 2013 <p/>
+  
+  Copyright Ted Hagos 2004 - 2013
+  
+  <!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+   
     </div>    
     
 
     </div>  <!--  div wrap -->
     
-		<footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
-
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
+		<footer></footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

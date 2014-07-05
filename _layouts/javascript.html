@@ -10,15 +10,18 @@
   
   </head>
   <body>
-        
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        JavaScript
+      </div>
+    </div>        
     <div id="wrap">
         
-     <article itemscope itemtype="http://schema.org/Article" class="withtoc">
+     <article itemscope itemtype="http://schema.org/Article">
      <header>          
-      <div class='vspacer'></div>
       <div id="articletitle">{{ page.title }}</div>
-
-      <div class='vspacer'></div>
+      
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -28,12 +31,11 @@
 		    {{ content }}
         </div>
 							
-		  </div>
-      {% include postmeta.html %}     
+		  </div>  
 		</article>
     
     <div class="toc">
-      JavaScript Tutorial
+      JavaScript
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>
@@ -49,18 +51,16 @@
       <li><a href="/javascript-inheritance">Inheritance</a></li>
       <li><a href="/javascript-guessing-game">Guessing Game</a></li>
     </ul>
+    </div>
     
-    <hr/>
-    
-    <ul>
-      <li><a href="/javascript-document-history">Doc History</a></li>
-    </ul>
+    <div class="promo">
+      {% include postmeta.html %}   
     </div>    
     
 
     </div>  <!--  div wrap -->
     
-		<footer>{% include footer.html%}</footer>
+		<footer></footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
