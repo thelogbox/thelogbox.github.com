@@ -21,18 +21,21 @@ Docco is a quick-and-dirty, hundred-line-long, literate-programming-style docume
 
 The solution on this page is a hack. It is not a port of Docco for Java they Jocco or Marginalia is. There, you've been warned.
 
-
 # The hack
 
-The setup used in this exercise is an OSX 10.8 machine, but it should be applicable to a Linux box as well
+Get nodejs and the node package manager. Docco depends on this. It can be installed via brew or by downloading the binary installer from http://nodejs.org. The binary installer already includes npm.
 
-Get Node.JS (docco depends on this). If you installed *brew* you can simply run **brew install node*. If not, head over to http://nodejs.org, there is a .pkg download for OSX. The .pkg installation includes the **npm** tool, which you will need
+`brew install -g node`
 
-Install Pygments. You can use *easy_install* to get Pygments; easy_install is part of the [Python setuptools](http://pypi.python.org/pypi/setuptools). When you already got the easy_install tool, run **sudo easy_install pygments** on the terminal
+`brew install -g npm`
 
 Get Docco via npm
 
 `sudo npm -g install docco`
+
+Intall pygments
+
+`sudo easy_install pygmnets`
 
 Locate the docco script
 
@@ -70,7 +73,6 @@ This is somewhere between line 98 to line 120. Java was not there, it was added 
 Using docco is very simple, run it against any supported file, for example
 
 `docco MyProgram.java`
-`docco MyProgram.js`
 
 To learn more about Docco, head over it's [github page](http://jashkenas.github.com/docco/)
 
