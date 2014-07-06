@@ -1,5 +1,5 @@
 ---
-layout: notice
+layout: linux
 
 title:  Send-Receive SMS message via USB modem
 

@@ -59,7 +59,7 @@ This approach to event handling does have one shortcoming, it can only handle th
 
 You will need to learn how to work with *Listeners*. 
 
-# INPUT EVENTS
+## Input Events
 
 Input events from the user are triggered when he touches widgets like Buttons and TextViews. A lot of Android widgets inherits the *android.view.View* class either directly or indirectly. This is a good reason to be aware of the View's built-in listeners.
 
@@ -71,7 +71,7 @@ The OnClickListener is implemented as a nested class inside android.view.View. T
 
 User input like a long-click, should be handled using the **android.view.View.OnLongClickListener**, if the user pops up the keyboard and you want to intercept the keystrokes -- you use the  *OnKeyListener*; you get the idea by now. Go through the official documentation that was pointed earlier if you need to go through deeper details of the API. 
 
-# PROGRAMMATIC EVENT HANDLING
+## Programmatic Event Handling
 
 To handle a click event, you need to create a listener object (View.OnClickListener) then register the widget of interest (a Button probably) to the listener. This is how the Android runtime will know that when a click happens to the Button, the runtime needs to invoke  the **public void onClick()** method.
 
@@ -133,6 +133,6 @@ class MyActivity extends Activity implements OnLongClickListener {
 
 The long click *Listener's* method is not identical to the void signature of the *click* event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully. 
  
-**Next** &raquo; [Declarative Event Handling](/android-event-handling-declarative)
+
 
 

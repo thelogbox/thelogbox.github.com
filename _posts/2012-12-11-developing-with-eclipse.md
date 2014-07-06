@@ -19,7 +19,7 @@ Make sure you have already installed the ANDROID SDK and that you have properly 
 Download Eclipse from [eclipse.org](http://eclipse.org), This is usually zipped or tgz'ed file. You will need to extract eclipse to a folder of your choice and setup the correct links/PATH
 
 
-# INSTALL ADT (ANDROID DEV TOOL)
+## Get the ADT
 
 1. Launch Eclipse
 2. Go to **Help** &rarr; **Install new software**
@@ -29,7 +29,7 @@ Download Eclipse from [eclipse.org](http://eclipse.org), This is usually zipped 
 5. Eclipse will restart after the plugin has been completely downloaded
 
 
-# CREATE A PROJECT
+## Create a project
 
 Go to **File** &rarr; **New Project** &rarr; *Android* &rarr; *Android application project*. It will be a series of dialog screens, but what you need to remember are the following;
 
@@ -42,7 +42,7 @@ Go to **File** &rarr; **New Project** &rarr; *Android* &rarr; *Android applicati
 
 
 
-# TESTING
+## Test
 
 If you don't have a physical Android device, you can use the AVD (Android Virtual Device) but I strongly suggest that you get a physical device because the AVD is painfully slow. You need to get the AVD setup first before you can run anything, there are detailed instructions and information about the AVD on [android developer site](http://developer.android.com/tools/devices/managing-avds.html). You will need either the AVD or a physical device because Android applications are meant to run on an environment that is very different from your PC, that is why you need at least an emulator. 
 
@@ -53,7 +53,7 @@ If you have a physical Android device, there are somethings you need to note bef
 3. You need to properly configure the USB settings on your machine before you can plug in your Android device and use it for development. There are detailed instructions on the [android developer site](http://developer.android.com/tools/device.html), read through it and follow it
 4. Once the setup is done, as soon as you click **Run** on the eclipse menu (CTRLF11), the new android project will be deployed to the physical machine &mdash; as if you ran **ant debug install** from the command line
 
-# REFERENCES
+## References
 
 1. [developer.android.com/AVD](http://developer.android.com/tools/devices/managing-avds.html) - Managing AVDs. Google, 2012
 2. [developer.android.com/tools/device](http://developer.android.com/tools/device.html) - Setting up USB devices for Android testing. Google, 2012

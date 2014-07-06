@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-07-05T20:38:07+08:00</updated>
+ <updated>2014-07-06T22:58:24+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -3721,7 +3721,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 
 &lt;p&gt;You will need to learn how to work with &lt;em&gt;Listeners&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h1&gt;INPUT EVENTS&lt;/h1&gt;
+&lt;h2&gt;Input Events&lt;/h2&gt;
 
 &lt;p&gt;Input events from the user are triggered when he touches widgets like Buttons and TextViews. A lot of Android widgets inherits the &lt;em&gt;android.view.View&lt;/em&gt; class either directly or indirectly. This is a good reason to be aware of the View's built-in listeners.&lt;/p&gt;
 
@@ -3733,7 +3733,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 
 &lt;p&gt;User input like a long-click, should be handled using the &lt;strong&gt;android.view.View.OnLongClickListener&lt;/strong&gt;, if the user pops up the keyboard and you want to intercept the keystrokes -- you use the  &lt;em&gt;OnKeyListener&lt;/em&gt;; you get the idea by now. Go through the official documentation that was pointed earlier if you need to go through deeper details of the API.&lt;/p&gt;
 
-&lt;h1&gt;PROGRAMMATIC EVENT HANDLING&lt;/h1&gt;
+&lt;h2&gt;Programmatic Event Handling&lt;/h2&gt;
 
 &lt;p&gt;To handle a click event, you need to create a listener object (View.OnClickListener) then register the widget of interest (a Button probably) to the listener. This is how the Android runtime will know that when a click happens to the Button, the runtime needs to invoke  the &lt;strong&gt;public void onClick()&lt;/strong&gt; method.&lt;/p&gt;
 
@@ -3791,8 +3791,6 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 
 
 &lt;p&gt;The long click &lt;em&gt;Listener's&lt;/em&gt; method is not identical to the void signature of the &lt;em&gt;click&lt;/em&gt; event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt; &amp;raquo; &lt;a href=&quot;/android-event-handling-declarative&quot;&gt;Declarative Event Handling&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4121,7 +4119,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 
 &lt;p&gt;Download Eclipse from &lt;a href=&quot;http://eclipse.org&quot;&gt;eclipse.org&lt;/a&gt;, This is usually zipped or tgz'ed file. You will need to extract eclipse to a folder of your choice and setup the correct links/PATH&lt;/p&gt;
 
-&lt;h1&gt;INSTALL ADT (ANDROID DEV TOOL)&lt;/h1&gt;
+&lt;h2&gt;Get the ADT&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Launch Eclipse&lt;/li&gt;
@@ -4133,7 +4131,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 &lt;/ol&gt;
 
 
-&lt;h1&gt;CREATE A PROJECT&lt;/h1&gt;
+&lt;h2&gt;Create a project&lt;/h2&gt;
 
 &lt;p&gt;Go to &lt;strong&gt;File&lt;/strong&gt; &amp;rarr; &lt;strong&gt;New Project&lt;/strong&gt; &amp;rarr; &lt;em&gt;Android&lt;/em&gt; &amp;rarr; &lt;em&gt;Android application project&lt;/em&gt;. It will be a series of dialog screens, but what you need to remember are the following;&lt;/p&gt;
 
@@ -4147,7 +4145,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 &lt;/ol&gt;
 
 
-&lt;h1&gt;TESTING&lt;/h1&gt;
+&lt;h2&gt;Test&lt;/h2&gt;
 
 &lt;p&gt;If you don't have a physical Android device, you can use the AVD (Android Virtual Device) but I strongly suggest that you get a physical device because the AVD is painfully slow. You need to get the AVD setup first before you can run anything, there are detailed instructions and information about the AVD on &lt;a href=&quot;http://developer.android.com/tools/devices/managing-avds.html&quot;&gt;android developer site&lt;/a&gt;. You will need either the AVD or a physical device because Android applications are meant to run on an environment that is very different from your PC, that is why you need at least an emulator.&lt;/p&gt;
 
@@ -4161,7 +4159,7 @@ phonegap create db --name &quot;DbCodes&quot; --id com.thelogbox
 &lt;/ol&gt;
 
 
-&lt;h1&gt;REFERENCES&lt;/h1&gt;
+&lt;h2&gt;References&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://developer.android.com/tools/devices/managing-avds.html&quot;&gt;developer.android.com/AVD&lt;/a&gt; - Managing AVDs. Google, 2012&lt;/li&gt;
@@ -7403,14 +7401,12 @@ $ irb
 
 &lt;p&gt;This chapter deals with more than just debugging. The example code demonstrates not only debugging techniques but also the the basic life cycle of an Activity class.  Before we are done, we intend to take away the following.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Validate the &lt;em&gt;Activity&lt;/em&gt; life cycle. See for ourselves when the Activity &lt;em&gt;call-backs&lt;/em&gt; are fired&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Validate the Activity life cycle. See for ourselves when the Activity call-backs are fired&lt;/li&gt;
 &lt;li&gt;Use the android.util.Log for logging messages&lt;/li&gt;
-&lt;li&gt;View the logged messages using &lt;em&gt;adb logcat&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;View the logged messages using adb logcat&lt;/li&gt;
+&lt;/ul&gt;
 
-
-&lt;hr /&gt;
 
 &lt;p&gt;To follow this exercise, it will be best to create a new project.&lt;/p&gt;
 
@@ -7420,7 +7416,7 @@ $ irb
 
 &lt;p&gt;A Froyo target (API level 8) is what I used. Use whatever API level you need or works for you. I used Froyo because this is what is installed on my physical testing device. If you need to find out which API levels are installed on your machine, type &lt;code class=&quot;codeblock&quot;&gt;android list targets&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Next, add some UI elements and some event methods. Edit the &lt;em&gt;/res/layout/main.xml&lt;/em&gt; and follow the code sample&lt;/p&gt;
+&lt;p&gt;Next, add some UI elements and some event methods. Edit the &lt;strong&gt;/res/layout/main.xml&lt;/strong&gt; and follow the code sample&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;&lt;/span&gt;
@@ -7429,36 +7425,35 @@ $ irb
   &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;ScrollView&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ScrollView&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;9&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;  
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt; 
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/displaytext&amp;quot;&lt;/span&gt; 
-    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World, LifeCycle&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ScrollView&amp;gt;&lt;/span&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
-    
-    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Click me&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:onClick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btnClick&amp;quot;&lt;/span&gt; 
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;  
+      &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt; 
+      &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/displaytext&amp;quot;&lt;/span&gt; 
+      &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World, LifeCycle&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ScrollView&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Click me&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:onClick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btnClick&amp;quot;&lt;/span&gt;   
     &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The TextView will be used to provide some sort of proxy to STDOUT of our little app. While we will use logcat to view the call-backs, we will also print it out on the screen of the device. The TextView is wrapped inside a &lt;em&gt;ScrollView&lt;/em&gt; because we will append  new messages on top of older messages, it will spill over the height of the viewport.&lt;/p&gt;
+&lt;p&gt;The TextView will be used to provide some sort of proxy to STDOUT of our little app. While we will use logcat to view the call-backs, we will also print it out on the screen of the device. The TextView is wrapped inside a ScrollView because we will append  new messages on top of older messages, it will spill over the height of the viewport.&lt;/p&gt;
 
-&lt;p&gt;A Button is also included in the UI. After the application hits the &lt;em&gt;onResume()&lt;/em&gt; callback, our app now has focus, it is ready to accept input and respond to the user, the Button is a simple mechanism to demonstrate the &lt;em&gt;actual life&lt;/em&gt; of the application &amp;mdash; when it is interacting with the user.&lt;/p&gt;
+&lt;p&gt;A Button is also included in the UI. After the application hits the onResume callback, our app now has focus, it is ready to accept input and respond to the user, the Button is a simple mechanism to demonstrate the actual life of the application &amp;mdash; when it is interacting with the user.&lt;/p&gt;
 
-&lt;p&gt;You will need to override some call back functions in the main Activity class. Go the file &lt;em&gt;src/com/thelogbox/LifeCycle.java&lt;/em&gt; and follow the sample code&lt;/p&gt;
+&lt;p&gt;You will need to override some call back functions in the main Activity class. Go the file &lt;strong&gt;src/com/thelogbox/LifeCycle.java&lt;/strong&gt; and follow the sample code&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thelogbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -7529,11 +7524,11 @@ $ irb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;TEST &amp;amp; RUN&lt;/h1&gt;
+&lt;h1&gt;Test&lt;/h1&gt;
 
 &lt;p&gt;Inspect the logged activity using the built-in android debugger &lt;span class='codeblock'&gt;adb logcat com.thelogbox.LifeCycle *:S &lt;/span&gt; &amp;mdash;  If I don't do this, I would have been inundated with a lot of android messages.&lt;/p&gt;
 
-&lt;p&gt;Where is the &lt;em&gt;System.out.println&lt;/em&gt;?  Well, this was re-routed to logcat, because there is no &lt;em&gt;STDOUT&lt;/em&gt; in android. If you really want to see it, you need to run &lt;span class='codeblock'&gt;adb logcat System.out *:S &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Where is the System.out.println?  Well, this was re-routed to logcat, because there is no STDOUT in android. If you really want to see it, you need to run &lt;span class='codeblock'&gt;adb logcat System.out *:S &lt;/span&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -11025,34 +11020,31 @@ ant debug install
    <link href="http://thelogbox.com/javascript-docco-for-java-files"/>
    <updated>2012-07-14T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-docco-for-java-files</id>
-   <content type="html">&lt;p&gt;Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby---but it won't work for Java files.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won't work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are &lt;a href=&quot;https://github.com/Krilivye/Jocco&quot;&gt;Jocco&lt;/a&gt; and &lt;a href=&quot;http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/&quot;&gt;Marginalia (for Clojure)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you are looking for the clean and proper way to generate docco-style docs for Java source files, this guide is not what that is&amp;mdash;this is a hack of docco to make it work with Java source files. You could take a look at &lt;a href=&quot;https://github.com/Krilivye/Jocco&quot;&gt;Jocco&lt;/a&gt; or &lt;a href=&quot;http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/&quot;&gt;Marginalia (for Clojure)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The solution on this page is a hack. It is not a port of Docco for Java they Jocco or Marginalia is. There, you've been warned.&lt;/p&gt;
 
-&lt;p&gt;If you really want to use docco to generate documentation for .java files, you can;&lt;/p&gt;
+&lt;h1&gt;The hack&lt;/h1&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Rename the .java to .js (temporarily)&lt;/li&gt;
-&lt;li&gt;Run the docco app against the renamed .java files (.js file right now)&lt;/li&gt;
-&lt;li&gt;Edit the resulting HTML file and replace the &lt;em&gt;title&lt;/em&gt; and first &lt;em&gt;H1&lt;/em&gt; to reflect the name of your Java file&lt;/li&gt;
-&lt;li&gt;Rename the .js file back to .java file---lest you get into trouble&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Get nodejs and the node package manager. Docco depends on this. It can be installed via brew or by downloading the binary installer from http://nodejs.org. The binary installer already includes npm.&lt;/p&gt;
 
+&lt;p&gt;&lt;code&gt;brew install -g node&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;You can do all 4 steps above, provided that you write your comments in C++ style (&lt;strong&gt;//&lt;/strong&gt; comment). Or you can tweak the docco script just a little bit so that it reads .java files as well--this is what this text is all about.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install -g npm&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1&gt;HACKING DOCCO&lt;/h1&gt;
+&lt;p&gt;Get Docco via npm&lt;/p&gt;
 
-&lt;p&gt;I am using an OSX machine, so these steps were done using OSX 10.8; I think these things should be applicable to a Linux machine as well. The steps below are done in the Terminal.app&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo npm -g install docco&lt;/code&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Get Node.JS (docco depends on this). If you installed &lt;em&gt;brew&lt;/em&gt; you can simply run &lt;strong&gt;brew install node*. If not, head over to http://nodejs.org, there is a .pkg download for OSX. The .pkg installation includes the &lt;/strong&gt;npm** tool, which you will need&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Install Pygments. You can use &lt;em&gt;easy_install&lt;/em&gt; to get Pygments; easy_install is part of the &lt;a href=&quot;http://pypi.python.org/pypi/setuptools&quot;&gt;Python setuptools&lt;/a&gt;. When you already got the easy_install tool, run &lt;strong&gt;sudo easy_install pygments&lt;/strong&gt; on the terminal&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Install docco using npm &lt;strong&gt;sudo npm -g install docco&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Try to find the docco script &lt;strong&gt;which docco&lt;/strong&gt;. It will point you to /usr/local/bin/docco. If you list docco using  the -l flag, like so &lt;strong&gt;ls -l /usr/local/bin/docco&lt;/strong&gt;, you will notice that it is a link to &lt;em&gt;/usr/local/lib/node_modules/docco/bin/docco&lt;/em&gt;. This is the docco the script, but it is not the main script. The main script is at &lt;em&gt;/usr/local/lib/node_modules/docco/lib/docco.js&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Open docco.js, and add the .java entry to the &lt;strong&gt;languages&lt;/strong&gt; object literal.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Intall pygments&lt;/p&gt;
 
+&lt;p&gt;&lt;code&gt;sudo easy_install pygmnets&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Locate the docco script&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ls -l&lt;/code&gt;which docco&lt;code&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the &lt;code&gt;.java&lt;/code&gt; entry to the languages object literal.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;languages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s1&quot;&gt;&amp;#39;.coffee&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -11079,11 +11071,20 @@ ant debug install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for .java files.&lt;/p&gt;
+&lt;p&gt;This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.&lt;/p&gt;
 
-&lt;p&gt;Just remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block. Using docco is very simple, run it against any supported file e.g. &lt;strong&gt;docco MyProgram.java&lt;/strong&gt; or &lt;strong&gt;docco MyProgram.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Using docco is very simple, run it against any supported file, for example&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;docco MyProgram.java&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;To learn more about Docco, head over it's &lt;a href=&quot;http://jashkenas.github.com/docco/&quot;&gt;github page&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;References&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Jeremy Ashkenas, &quot;Docco&quot;, http://jashkenas.github.io/docco&lt;/li&gt;
+&lt;/ol&gt;
+
 </content>
  </entry>
  
@@ -11960,29 +11961,27 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;p&gt;This is an ANT script problem, at the time of writing, I am using ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager.&lt;/p&gt;
-
-&lt;p&gt;If you invoke the &lt;strong&gt;ant&lt;/strong&gt; tool and see something like the error below&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is a build script problem, at the time of writing, I am using Apache Ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager.&lt;/p&gt;
 
 &lt;pre class='codeblock'&gt;
 
-    BUILD FAILED
-    /Users/ted/workarea/android-training/practice
-    /helloworld/    build.xml:83: Cannot find /Users/ted/
-    progtools/android-sdk-macos/tools/ant/build.xml 
-    imported from /Users/ted/workarea/android-training/
-    practice/helloworld/build.xml
+BUILD FAILED
+/Users/ted/workarea/android-training/practice
+/helloworld/    build.xml:83: Cannot find /Users/ted/
+progtools/android-sdk-macos/tools/ant/build.xml 
+imported from /Users/ted/workarea/android-training/
+practice/helloworld/build.xml
 
-    Total time: 0 seconds
+Total time: 0 seconds
 
 &lt;/pre&gt;
 
 
-&lt;p&gt;Just read the error carefully and you will see. It cannot find the &lt;em&gt;build.xml&lt;/em&gt; file on the SDK.DIR (the folder where you installed the android SDK). Line number 83 of build.xml inside your project folder is actually an import directive. It is importing a generic build.xml from SDK.DIR/tools/ folder.&lt;/p&gt;
+&lt;p&gt;Just read the error carefully and you will see. It cannot find the &lt;code&gt;build.xml&lt;/code&gt; file on the SDK.DIR (the folder where you installed the android SDK). Line number 83 of build.xml inside your project folder is actually an import directive. It is importing a generic build.xml from SDK.DIR/tools/ folder.&lt;/p&gt;
 
-&lt;h2&gt;HOW TO FIX&lt;/h2&gt;
+&lt;h2&gt;What to do&lt;/h2&gt;
 
-&lt;p&gt;Check carefully that the directory entry on &lt;strong&gt;local.properties&lt;/strong&gt; for the sdk.dir is actually correct. The local.properties file is on the root folder of the android project you created. For some reason (that I don't know yet), the sdk.dir value on the properties file incorrect. Just make the necessary adjustments, then try to run &lt;strong&gt;ant&lt;/strong&gt; again. It should work by now.&lt;/p&gt;
+&lt;p&gt;Check carefully that the directory entry on the file &lt;code&gt;local.properties&lt;/code&gt; for the SDK.DIR is correct. The local.properties file is on the root folder of the android project you created. For some reason (that I don't know yet), the SDK.DIR value on the properties file was incorrect. Just make the necessary adjustments, then run &lt;code&gt;ant&lt;/code&gt;  again. It should work by now.&lt;/p&gt;
 </content>
  </entry>
  
@@ -12338,36 +12337,27 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/rip-youtube-videos-linux-osx"/>
    <updated>2012-04-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/rip-youtube-videos-linux-osx</id>
-   <content type="html">&lt;p&gt;This works for Linux and OSX; &lt;em&gt;youtube-dl&lt;/em&gt; is a command line tool for saving YouTube videos.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;youtube-dl&lt;/strong&gt; is a command line tool to rip youtube videos. Works on OSX and Linux. There could be a way to make this work on Windows but I did not try that.&lt;/p&gt;
 
-&lt;p&gt;These are what you need:&lt;/p&gt;
+&lt;p&gt;In Linux you can pretty much just get it from the repositories.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://rg3.github.com/youtube-dl/&quot;&gt;youtube-dl&lt;/a&gt; - This pull the youtube content, ala curl or wget&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://ffmpeg.org&quot;&gt;ffmpeg&lt;/a&gt; and &lt;a href=&quot;http://lame.sourceforge.net&quot;&gt;lame&lt;/a&gt; - These two you will need to transform the downloaded content because youtube-dl will pull a .webm file, if you have capability to play a .webm file, you may not need to transform them. In Lubuntu, the .webm is supported&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install ffmpeg lame youtube-dl&lt;/code&gt;&lt;/p&gt;
 
+&lt;p&gt;In OSX you can get it either via brew, macports or fink. I used brew.&lt;/p&gt;
 
-&lt;p&gt;This method used the Debian apt-get installer, it will be different for other Linux distros&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install youtube-dl&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;FOR LINUX&lt;/strong&gt;, get the &lt;em&gt;youtube-dl&lt;/em&gt; from the repositories &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;$ sudo apt-get install ffmpeg lame youtube-dl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install ffmpeg&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;FOR OSX&lt;/strong&gt;, You can choose to use either HomeBrew or MacPorts. I used BREW&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install lame&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre class='codeblock'&gt;
-$ sudo brew install youtube-dl
-$ sudo brew install ffmpeg
-$ sudo brew install lame
-&lt;/pre&gt;
-
-
-&lt;h1&gt;HOW TO RIP&lt;/h1&gt;
+&lt;h1&gt;Usage&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Find the url of the youtube video you want to rip&lt;/li&gt;
-&lt;li&gt;use youtube-dl to rip the content -- &lt;em&gt;$ youtube-dl {http://YoutubeVideo Address}&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;The downloaded file is a .webm file, transform it to wav &amp;mdash; &lt;code class=&quot;codeblock&quot;&gt;&lt;em&gt;$ ffmpeg -i {DownloadedFileName.webm} {TargetFileName.wav}&lt;/em&gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;If .wav is okay for you, you can stop now. If you want to transform further to MP3 format use the lame utility -- &lt;em&gt;$ lame {FileName.wav} {FileName.mp3}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;use youtube-dl to rip the content -- &lt;code&gt;youtube-dl http://YoutubeVideo Address&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The downloaded file is a .webm file, transform it to wav &amp;mdash; &lt;code&gt;ffmpeg -i &amp;lt;DownloadedFileName.webm&amp;gt; &amp;lt;TargetFileName.wav&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If .wav is okay for you, you can stop now. If you want to transform further to MP3 format use the lame utility -- &lt;code&gt;lame &amp;lt;FileName.wav&amp;gt; &amp;lt;FileName.mp3&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 </content>

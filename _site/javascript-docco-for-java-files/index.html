@@ -37,14 +37,14 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Inconsolata:400,700|Muli|Open+Sans:400,600);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
   font-family: 'Open Sans';
-  font-size: 95%;
+  font-size: 92%;
   margin:0;
   padding:0;
   border:0;
@@ -56,7 +56,13 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.feature-banner-text {text-transform: uppercase;}
+
+.feature-banner-text {
+  color: #2c2c2c;
+  font-size:35px;
+  font-weight:bold;
+  line-height:135%;
+}
 
 .toc, .promo {
   margin:0;padding:0;border:0;
@@ -93,13 +99,13 @@ body {
 /* FOR THE article block */
 
 #articletitle {
-	font-size: 30px;
+	font-size: 32px;
 	font-weight: bold;
   text-align: left;
   line-height: 1.4em;
-  color: #292929;
-  margin-top: 20px;
-  padding-top: 0px;
+  /*color: #292929; */
+  margin-top: 0;
+  padding-top: 0;
   text-rendering: optimizeLegibility;
 }
 
@@ -117,6 +123,9 @@ article {
   padding-top: 50px;
   padding-bottom: 50px;
   */
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2
 }
 
 /*
@@ -135,6 +144,7 @@ article {
   float: right; 
   padding-right: 2%; */
   
+  margin-top: 30px;
   padding: 20px;
   background: #dcdcff;
   column-count:3;
@@ -144,6 +154,18 @@ article {
   -webkit-border-radius: 10px;
   -moz-border-radius:10px;                                                                                                       
   border-radius: 10p
+}
+
+
+ol, ul {padding-left:20px;}
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  counter-increment: mycounter;
+  font-style: normal;
+  left: -2em;
 }
 
 /* .toc a:link, .toc a:visited {color: blue;}
@@ -170,6 +192,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
+  text-transform: capitalize;
 }
 
 h1 {font-size: 25px; letter-spacing: -1px;}
@@ -257,8 +280,9 @@ strong {
 
 pre {
 	font-family: 'Inconsolata';
-  font-size: 15px;
+  font-size: 13px;
   padding: 5px;
+  font-weight: normal;
   /*
   border-bottom: 2px solid #F0F2E7;
   border-top: 2px solid #F0F2E7;
@@ -275,10 +299,10 @@ pre {
 }
 
 
-code {font-size: 15px; font-family: 'Inconsolata';}
+code {font-size: 13px; font-family: 'Inconsolata'; font-weight:bold;}
 
-.codeblock {
-  font-size: 15px;
+.codeblock, p.code {
+  font-size: 14px;
   font-family: 'Inconsolata';
   font-weight: bold;
   color: #000000;
@@ -347,7 +371,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 80%;
+  width: 95%;
 }
   img.shadow {
     display:block;
@@ -386,7 +410,6 @@ aside {
   margin-bottom: 15px;
   margin-top: 15px;
   border: 2px solid #CACACA;
-  
 }
 
 /* Pygments stylesheets */
@@ -529,46 +552,50 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
   
   </head>
-  <body>    
+  <body>
+
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Docco For Java
+      </div>
+    </div>
+
+    <div id="wrap">
         
-    <div id="wrap">     
-    <article itemscope itemtype="http://schema.org/Article" class="notoc">
-     <header>     
-      <div id="articletitle">Docco For Java</div>
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <!--<div id="articletitle">Docco For Java</div> -->
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby---but it won't work for Java files.</p>
+		    <p>Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won't work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are <a href="https://github.com/Krilivye/Jocco">Jocco</a> and <a href="http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/">Marginalia (for Clojure)</a>.</p>
 
-<p>If you are looking for the clean and proper way to generate docco-style docs for Java source files, this guide is not what that is&mdash;this is a hack of docco to make it work with Java source files. You could take a look at <a href="https://github.com/Krilivye/Jocco">Jocco</a> or <a href="http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/">Marginalia (for Clojure)</a></p>
+<p>The solution on this page is a hack. It is not a port of Docco for Java they Jocco or Marginalia is. There, you've been warned.</p>
 
-<p>If you really want to use docco to generate documentation for .java files, you can;</p>
+<h1>The hack</h1>
 
-<ol>
-<li>Rename the .java to .js (temporarily)</li>
-<li>Run the docco app against the renamed .java files (.js file right now)</li>
-<li>Edit the resulting HTML file and replace the <em>title</em> and first <em>H1</em> to reflect the name of your Java file</li>
-<li>Rename the .js file back to .java file---lest you get into trouble</li>
-</ol>
+<p>Get nodejs and the node package manager. Docco depends on this. It can be installed via brew or by downloading the binary installer from http://nodejs.org. The binary installer already includes npm.</p>
 
+<p><code>brew install -g node</code></p>
 
-<p>You can do all 4 steps above, provided that you write your comments in C++ style (<strong>//</strong> comment). Or you can tweak the docco script just a little bit so that it reads .java files as well--this is what this text is all about.</p>
+<p><code>brew install -g npm</code></p>
 
-<h1>HACKING DOCCO</h1>
+<p>Get Docco via npm</p>
 
-<p>I am using an OSX machine, so these steps were done using OSX 10.8; I think these things should be applicable to a Linux machine as well. The steps below are done in the Terminal.app</p>
+<p><code>sudo npm -g install docco</code></p>
 
-<ol>
-<li><p>Get Node.JS (docco depends on this). If you installed <em>brew</em> you can simply run <strong>brew install node*. If not, head over to http://nodejs.org, there is a .pkg download for OSX. The .pkg installation includes the </strong>npm** tool, which you will need</p></li>
-<li><p>Install Pygments. You can use <em>easy_install</em> to get Pygments; easy_install is part of the <a href="http://pypi.python.org/pypi/setuptools">Python setuptools</a>. When you already got the easy_install tool, run <strong>sudo easy_install pygments</strong> on the terminal</p></li>
-<li><p>Install docco using npm <strong>sudo npm -g install docco</strong></p></li>
-<li><p>Try to find the docco script <strong>which docco</strong>. It will point you to /usr/local/bin/docco. If you list docco using  the -l flag, like so <strong>ls -l /usr/local/bin/docco</strong>, you will notice that it is a link to <em>/usr/local/lib/node_modules/docco/bin/docco</em>. This is the docco the script, but it is not the main script. The main script is at <em>/usr/local/lib/node_modules/docco/lib/docco.js</em></p></li>
-<li><p>Open docco.js, and add the .java entry to the <strong>languages</strong> object literal.</p></li>
-</ol>
+<p>Intall pygments</p>
 
+<p><code>sudo easy_install pygmnets</code></p>
+
+<p>Locate the docco script</p>
+
+<p><code>ls -l</code>which docco<code></code></p>
+
+<p>The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the <code>.java</code> entry to the languages object literal.</p>
 
 <div class="highlight"><pre><code class="javascript">  <span class="nx">languages</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;.coffee&#39;</span><span class="o">:</span> <span class="p">{</span>
@@ -595,15 +622,46 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </code></pre></div>
 
 
-<p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for .java files.</p>
+<p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.</p>
 
-<p>Just remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block. Using docco is very simple, run it against any supported file e.g. <strong>docco MyProgram.java</strong> or <strong>docco MyProgram.js</strong>.</p>
+<p>Using docco is very simple, run it against any supported file, for example</p>
+
+<p><code>docco MyProgram.java</code></p>
 
 <p>To learn more about Docco, head over it's <a href="http://jashkenas.github.com/docco/">github page</a></p>
 
+<h1>References</h1>
+
+<ol>
+<li>Jeremy Ashkenas, "Docco", http://jashkenas.github.io/docco</li>
+</ol>
+
+
         </div>
 							
-		  </div>
+		  </div>  
+		</article>
+    
+    <div class="toc">
+      JavaScript
+      <ul>
+      <li><a href="/javascript-core-tutorial">Introduction</a></li>
+      <li><a href="/javascript-core-environment-setup">Tools</a></li>
+      <li><a href="/javascript-code-structure">Code Structure</a></li>
+      <li><a href="/javascript-data-types">Typing</a></li>
+      <li><a href="/javascript-functions">Functions</a></li>
+      <li><a href="/javascript-keywords">Keywords</a></li>
+      <li><a href="/javascript-program-flow">Program Flow</a></li>
+      <li><a href="/javascript-complex-types">Complex Types</a></li>
+      <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
+      <li><a href="/javascript-objects">Objects</a></li>
+      <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
+      <li><a href="/javascript-inheritance">Inheritance</a></li>
+      <li><a href="/javascript-guessing-game">Guessing Game</a></li>
+    </ul>
+    </div>
+    
+    <div class="promo">
       <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
@@ -631,23 +689,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-
-		</article>
+   
+    </div>    
     
-  </div> <!-- WRAP -->   
-		
-    <footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
 
-Copyright&nbsp; &copy; 2004-2013 Ted Hagos
-
-</footer>
+    </div>  <!--  div wrap -->
+    
+		<footer></footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];
