@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>    
+    
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        {{ page.title }}
+      </div>
+    </div>
+    <div id="wrap">     
+    <article itemscope itemtype="http://schema.org/Article" class="notoc">
+     <header>     
+      
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+		</article>
+  
+  <div class='promo'>{% include postmeta.html %}</div>  
+  </div> <!-- WRAP -->    Ê=#Ê=
+    <footer></footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>
