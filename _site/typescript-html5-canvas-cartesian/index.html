@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>JavaScript , Line Graphing in HTML5 Canvas | theLogBox </title>
+<title>javascript , Line Graphing in HTML5 Canvas | theLogBox </title>
 
 
 		<style>
@@ -583,7 +583,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h2>1. Create the HTML part (filename = line-draw.html)</h2>
 
-<div class="highlight"><pre><code class="javascript"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
         
@@ -602,8 +602,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nx">Your</span> <span class="nx">browser</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">capable</span> <span class="nx">of</span> <span class="nx">displaying</span> <span class="nx">HTML5</span> <span class="nx">canvas</span> <span class="nx">components</span>       
     <span class="o">&lt;</span><span class="err">/canvas&gt;</span>
     <span class="o">&lt;</span><span class="err">/body&gt;</span>
-<span class="o">&lt;</span><span class="err">/html&gt;</span>
-</code></pre></div>
+<span class="o">&lt;</span><span class="err">/html&gt;</span></code></pre></div>
 
 
 <p>The default-canvas html element is not important to the actual code, it is just a quick and dirty way to check if the browser being used does not support the canvas element, you could use Modernizr.JS for a more proper way of checking for HTML5 capability of the browser. The NOSCRIPT tag is also a quick and dirty way of detecting if JavaScript is disabled in the browser---I just don't see how this can kind of exercise can degrade gracefully if JavaScript is diabled, so its an all or nothing deal; No JavaScript, no demo.</p>
@@ -612,7 +611,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Create a TypeScript source file on the same directory as <em>line-draw.html</em>, for the exercise, I named it <em>MathE.ts</em>, this will later emit a file called <em>MathE.js</em> which is the <strong>src</strong> of our script tag on the HTML file</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// filename : MathE.js </span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename : MathE.js </span>
 <span class="c1">// An example of using HTML5 canvas to do primitive lines on a cartesian plane.</span>
 
 
@@ -982,8 +981,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Paper</span><span class="p">();</span>
-</code></pre></div>
+<span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Paper</span><span class="p">();</span></code></pre></div>
 
 
 <p>Compile the TypeScript source; <strong>$ tsc -c MathE.ts</strong>. The -c flag is there so that even the comments in the TypeScript source file will be emitted in resulting JavaScript file.</p>

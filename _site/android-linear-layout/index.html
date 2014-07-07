@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Linear Layout | theLogBox </title>
+<title>android , Linear Layout | theLogBox </title>
 
 
 		<style>
@@ -573,7 +573,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>We can change the current  behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to <strong>horizontal</strong></p>
 
-<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
@@ -588,8 +588,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
         <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
     <span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 
 <p>Save the project, compile, then run. Notice any difference?</p>
@@ -616,7 +615,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You will do this by editing <em>main.xml</em> again.</p>
 
-<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
@@ -636,8 +635,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
         <span class="na">android:text=</span><span class="s">&quot;Click me &quot;</span>           
     <span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 
 <p>As usual, compile and run. You will do the <em>edit-compile-run</em> routine lots of times, you need to get used to it. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run.</p>
@@ -651,7 +649,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>To fix this, we need to place the <em>Button</em> in it's own container. It cannot share the container with EditText and Textview. After that, the <em>EditText</em> will be the last component defined in the inner <em>LinearLayout</em>. We must change its <em>layout_width</em> to <em>fill_parent</em>, so it can occupy whatever space will be left to its right</p>
 
-<div class="highlight"><pre><code class="xml"><span class="c">&lt;!-- main.xml --&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- main.xml --&gt;</span>
 
 <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
@@ -685,8 +683,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="na">android:text=</span><span class="s">&quot;Click me &quot;</span>           
     <span class="nt">/&gt;</span>
     
-    <span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div>
+    <span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 
 <p><img class="small" src="/img/lin-sample-4.png" width="50%"></p>

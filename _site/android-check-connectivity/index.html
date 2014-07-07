@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Check for Network Connectivity | theLogBox </title>
+<title>android , Check for Network Connectivity | theLogBox </title>
 
 
 		<style>
@@ -583,7 +583,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h3>Code</h3>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
 
 <span class="cm">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
 <span class="cm">All rights reserved.</span>
@@ -617,7 +617,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
     <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
     <span class="k">this</span><span class="o">.</span><span class="na">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
-    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextView</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextView</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
     <span class="n">addView</span><span class="o">(</span><span class="n">tv</span><span class="o">);</span>
     <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 
@@ -625,7 +625,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
 
-    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">();</span>
     <span class="n">connman</span> <span class="o">=</span> <span class="o">(</span><span class="n">ConnectivityManager</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">CONNECTIVITY_SERVICE</span><span class="o">);</span>
     <span class="n">netinfo</span> <span class="o">=</span> <span class="n">connman</span><span class="o">.</span><span class="na">getActiveNetworkInfo</span><span class="o">();</span> 
 
@@ -659,10 +659,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="n">ViewConnnTest</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">ViewConnnTest</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
         </div>

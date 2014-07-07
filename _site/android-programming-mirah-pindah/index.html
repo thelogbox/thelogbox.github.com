@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Mirah and Pindah | theLogBox </title>
+<title>android , Mirah and Pindah | theLogBox </title>
 
 
 		<style>
@@ -594,7 +594,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 </ol>
 
 
-<div class="highlight"><pre><code class="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
 
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">Activity</span>
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">Bundle</span>
@@ -638,8 +638,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">ctx</span>
     <span class="vc">@@ctx</span>
   <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>The generated <strong>R.layout.main</strong> is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class <strong>ToastCode</strong> extending the LinearLayout class.</p>
@@ -647,20 +646,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <p>To handle the onClick of the button, usually you will need an <strong>OnClickListener</strong>
 object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># ANONYMOUS METHOD</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># ANONYMOUS METHOD</span>
 
 <span class="vi">@button</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">context</span>
 <span class="vi">@button</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
   <span class="c1"># code here ...</span>
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <p>This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper <em>OnClickListener</em> objects might be a cleaner approach</p>
 
 <p>To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="c1"># handling click event using OnClickListener</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># handling click event using OnClickListener</span>
 
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span>
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">Context</span>
@@ -699,13 +697,12 @@ object. This is usually accomplished using an anonymous class. In the sample cod
     <span class="c1"># ... code when button is clicked</span>
   <span class="k">end</span>
     
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 <h1>DETECTING EVENT SOURCE</h1>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
 
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">Activity</span>
 <span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">LinearLayout</span>
@@ -773,8 +770,7 @@ object. This is usually accomplished using an anonymous class. In the sample cod
     <span class="vc">@@ctx</span>
   <span class="k">end</span>
   
-<span class="k">end</span>
-</code></pre></div>
+<span class="k">end</span></code></pre></div>
 
 
 

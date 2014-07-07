@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Linux , Installing a Print Server | theLogBox </title>
+<title>linux , Installing a Print Server | theLogBox </title>
 
 
 		<style>
@@ -595,7 +595,7 @@ $ sudo echo "" > cupsd.conf
 
 <p>Second line above makes a copy of the original cupsd.conf and the third line wipes out the textual content of <em>cupsd.conf</em>. After that we can edit cupsd.conf with minimal fuss. The new <em>cupsd.conf</em> looks like the following</p>
 
-<div class="highlight"><pre><code class="xml">LogLevel debug
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">LogLevel debug
 SystemGroup lpadmin
 #Allow remote access
 Port 631
@@ -633,8 +633,7 @@ BrowseAddress @LOCAL
   #Allow remote access to the configuration files...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/Location&gt;</span></code></pre></div>
 
 
 <p>Obviously not a very tight and secure CUPS configuration. You can harden it later when you know more about the configuration. For now, this will happily function as a basic, albeit, insecure print server.</p>

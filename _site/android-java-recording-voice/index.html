@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Using the Mic for Recording | theLogBox </title>
+<title>android , Using the Mic for Recording | theLogBox </title>
 
 
 		<style>
@@ -591,7 +591,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The source for this exercise is below. There is no main.xml because the UI was built programatically, instead of declaratively</p>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
@@ -611,7 +611,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="n">RView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">RView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
@@ -629,11 +629,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <span class="n">filename</span> <span class="o">=</span> <span class="n">Environment</span><span class="o">.</span><span class="na">getExternalStorageDirectory</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">();</span>
         <span class="n">filename</span> <span class="o">+=</span> <span class="s">&quot;/test.3gp&quot;</span><span class="o">;</span>
 
-        <span class="n">mr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MediaRecorder</span><span class="o">();</span>
-        <span class="n">mp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MediaPlayer</span><span class="o">();</span>
+        <span class="n">mr</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MediaRecorder</span><span class="o">();</span>
+        <span class="n">mp</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MediaPlayer</span><span class="o">();</span>
 
-        <span class="n">btnstart</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-        <span class="n">btnstop</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+        <span class="n">btnstart</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+        <span class="n">btnstop</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
 
         <span class="n">btnstart</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">);</span>
         <span class="n">btnstop</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;stop&quot;</span><span class="o">);</span>
@@ -700,8 +700,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 
@@ -709,9 +708,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <h2 class="section">PERMISSIONS</h2>
 
 
-<p>The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the <em>Start</em> button. The <em>MediaRecorder</em> will not initialize properly and hence will hit an <em>IllegalStateException</em> when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the <em>AndroidManifest.xml</em> file, you will need to add the entry <em>&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /></em> to the manifest. Make sure also that you add the permissions entry out the &lt;application .../> node. Here is the full entry of the <em>AndroidManifest.xml</em> for this exercise.</p>
+<p>The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the <em>Start</em> button. The <em>MediaRecorder</em> will not initialize properly and hence will hit an <em>IllegalStateException</em> when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the <em>AndroidManifest.xml</em> file, you will need to add the entry <em>\<uses-permission android:name="android.permission.RECORD_AUDIO" /\></em> to the manifest. Make sure also that you add the permissions entry out the \<application .../\> node. Here is the full entry of the <em>AndroidManifest.xml</em> for this exercise.</p>
 
-<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
       <span class="na">package=</span><span class="s">&quot;com.thelogbox&quot;</span>
       <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span>
@@ -728,8 +727,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
             <span class="nt">&lt;/intent-filter&gt;</span>
         <span class="nt">&lt;/activity&gt;</span>
     <span class="nt">&lt;/application&gt;</span>
-<span class="nt">&lt;/manifest&gt;</span> 
-</code></pre></div>
+<span class="nt">&lt;/manifest&gt;</span></code></pre></div>
 
 
 

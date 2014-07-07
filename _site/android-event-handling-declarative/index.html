@@ -31,7 +31,7 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>Android , Declarative Event Handling | theLogBox </title>
+<title>android , Declarative Event Handling | theLogBox </title>
 
 
 		<style>
@@ -579,7 +579,7 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
 
 <p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
-<div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
@@ -598,15 +598,14 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
     <span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
 <span class="nt">/&gt;</span>
 
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 
 <p>You will need to implement a method called "showMe()" inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>.</p>
 
 <p>Next, add the <em>showMe()</em> method to the Activity class.</p>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
@@ -632,8 +631,7 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
         <span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 
