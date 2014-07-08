@@ -14,6 +14,7 @@
     <div class='feature-banner'>
       <div class='feature-banner-text'>
         {{ page.title }}
+        {% include postmeta.html %}
       </div>
     </div>
 
@@ -57,12 +58,12 @@
     </div>    
 
     <div class="promo">
-      {% include postmeta.html %}   
+  
     </div>       
 
     </div>  <!--  div wrap -->
 
-		<footer></footer>
+		<footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

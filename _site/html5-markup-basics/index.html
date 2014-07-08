@@ -31,7 +31,11 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title> , Markup Basics | theLogBox </title>
+<title>
+  
+    Markup Basics | theLogBox
+  
+</title>
 
 
 		<style>
@@ -79,18 +83,6 @@ body {
   text-transform: uppercase;
 }
 
-.running-head {
-  line-height:1.5em;
-  font-size: 60px;
-  text-align: center;
-  color: #555555;
-  position:relative;
-  /* background: #F0F0F0;
-  background: #F0F0FF; */
-  background: #F8F8F7;
-}
-.running-head a:link, .running-head a:visited {background: inherit;}
-
 .vspacer {height:20px;}
 
 #wrap {
@@ -129,34 +121,20 @@ article, #archives {
   -webkit-column-count:2
 }
 
-/*
-.withtoc {
-  float:left;
-  width:68%;
-}
-.notoc {
-  width:80%;
-}
-*/
-
 .toc {
-  text-align:left;
-  /* width:18%; 
-  float: right; 
-  padding-right: 2%; */
-  
+  text-align:left;  
   margin-top: 30px;
   padding: 20px;
-  background: #dcdcff;
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
 
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                                                                       
-  border-radius: 10p
+  -moz-border-radius:10px;                                                   border-radius: 10;
+  background: #dcdcff;
 }
 
+/*
 
 ol, ul {padding-left:20px;}
 ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
@@ -169,24 +147,14 @@ ol > li:before {
   left: -2em;
 }
 
+*/
+
 /* .toc a:link, .toc a:visited {color: blue;}
 .toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
 .toc ul {padding-left: 0;} */
 
-#blogtitle {margin-bottom:2em;}
-
-#blogtitle a:link, #blogtitle a:visited {
-	text-decoration: none;
-  color: black;
-}
-
-#blogtitle a:hover {
-	/* border-bottom: 1px solid #79a663;*/
-  text-decoration:underline;
-}
 
 h1, h2, h3 {
-  letter-spacing: -1px;
   margin-left: 0px;
   padding-left: 0px;
   padding-top: 20px;
@@ -194,7 +162,7 @@ h1, h2, h3 {
   text-transform: capitalize;
 }
 
-h1 {font-size: 25px; letter-spacing: -1px;}
+h1 {font-size: 25px;}
 h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
@@ -227,11 +195,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 .feature-banner{
-  /* color: #9a3c31; */
-  color: #ADADAD;
+  /* color: #adadad; */
   display:block;
   font-size: 20px;
-  background: #F0F0F0;
+/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -315,7 +282,6 @@ pre.code {font-size:13px; font-weight:normal}
 
   pre.codeblock {
     padding: .7em;
-    font-weight: bold;
     /*background: #e8ebef;*/
     background: #dcdcFF; 
     color: #000000;
@@ -335,20 +301,18 @@ pre.code {font-size:13px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: blue; text-decoration: none; font-weight: 400;}
+a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
 a:hover {color: blue; text-decoration:underline;}
 
-
 #postmeta {
-  padding-top:50px;
-  padding-bottom:30px; 
-  font-family: 'Muli'
+  padding-top:0;
+  padding-bottom:0; 
   font-weight:normal; 
-  font-size: 90%;
+  font-size: 14px;
+  line-height:100%;
+  margin-left: 10px;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
-
-#addthis {margin-top:20px;margin-bottom:30px;}
 
 footer {
   color: #414141;
@@ -360,12 +324,6 @@ footer {
   text-align: center;
   /*border-top: 1px solid #dedede;*/
 }
-
-footer a:link, footer a:visited {
-  color: #000000; background: inherit;
-  text-transform: uppercase;
-}
- footer a:hover {border-bottom: 1px solid #000000;}
 
 img {
   display:block;
@@ -559,6 +517,32 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <div class='feature-banner'>
       <div class='feature-banner-text'>
         Markup Basics
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #Markup  #Elements
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  January 27, 2013 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
       </div>
     </div>
 
@@ -581,27 +565,28 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Basic structure</h1>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
 
   <span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 
-<p>The \&lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>\&lt;head></strong> and the <strong>\&lt;body></strong> elements.</p>
+<p>The &lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head></strong> and the <strong>&lt;body></strong> elements.</p>
 
 <p>All the visible things that you want to show on an HTML page goes to the body element. For example, ordered lists, un-ordered lists, headings, paragraphs, tables.</p>
 
 <p>Things written inside the head element will not be visible on the HTML page. That is not to say they are less important. Some of the things you may find on the head element are script–for embedding Javascript codes, link–for CSS amongst other things, title etc.</p>
 
-<p>You probably noticed that the tags came in pair. The opening \&lt;body> tag is paired with the closing \&lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
+<p>You probably noticed that the tags came in pair. The opening &lt;body> tag is paired with the closing &lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
 
 <h2>DOCTYPE</h2>
 
-<p>The <em>\&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
+<p>The <em>&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
 
 <h2>Versions of HTML</h2>
 
@@ -626,16 +611,16 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <h1>Common tags</h1>
 
 <ol>
-<li>\&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
-<li>\&lt;h2> - another heading, less important than \&lt;h1> but more important than;</li>
-<li>\&lt;h3></li>
-<li>\&lt;strong> - display something in bold face</li>
-<li>\&lt;em> - display something in italics (emphasised)</li>
-<li>\&lt;ol> - display a list, a numbered (ordered) one</li>
-<li>\&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
-<li>\&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
-<li>\&lt;p> - a paragraph break</li>
-<li>\&lt;br> - a line break</li>
+<li>&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
+<li>&lt;h2> - another heading, less important than &lt;h1> but more important than;</li>
+<li>&lt;h3></li>
+<li>&lt;strong> - display something in bold face</li>
+<li>&lt;em> - display something in italics (emphasised)</li>
+<li>&lt;ol> - display a list, a numbered (ordered) one</li>
+<li>&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
+<li>&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
+<li>&lt;p> - a paragraph break</li>
+<li>&lt;br> - a line break</li>
 </ol>
 
 
@@ -643,9 +628,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1>Attributes</h1>
 
-<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like \&lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
+<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like &lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
 
-<p>For example, in the tag <em>\<a href="http://thelogbox.com"\>thelogbox\&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
+<p>For example, in the tag <em>&lt;a href="http://thelogbox.com">thelogbox&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
 
 <p><strong>GOOD TO KNOW</strong>:</p>
 
@@ -660,7 +645,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span> 
   <span class="nt">&lt;/head&gt;</span>
@@ -673,7 +658,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
     <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
   <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
@@ -692,7 +678,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		</article>
  
     <div class="toc">
-      HTML5
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
       <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
@@ -708,38 +693,23 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     </div>    
     
     <div class="promo">
-      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #Markup  #Elements
-  </div> 
-  last updated:  <br/>
-  -->
-
-  By: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-  January 27, 2013 <p/>
   
-  Copyright Ted Hagos 2004 - 2013
-  
-  <!--
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  -->
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-   
     </div>   
     </div>  <!--  div wrap -->
     
-		<footer></footer>
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

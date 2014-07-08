@@ -31,7 +31,10 @@ categories:
   </a>
   
   <p class='archives'>
-  <!-- <b>[{{post.categories | join: '  ,' }}]</b> -->
+  <!--<b>[{{post.categories | join: '  ,' }}]</b> -->
+  {% if post.categories.size > 0 %}
+    <b><u>{{post.categories | join: '  ,' }}</u></b>
+  {% endif %}
 	{{ post.content | strip_html |truncatewords: 30 }}
   </p>
 

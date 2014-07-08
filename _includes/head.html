@@ -28,5 +28,11 @@
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<title>{{page.categories | join: ' ,'}} , {{ page.title }} | theLogBox </title>
+<title>
+  {% if post.categories.size > 0 %}
+    {{ page.categories | join: ' ' }} , {{ page.title }} | theLogBox
+  {% else %}
+    {{ page.title }} | theLogBox
+  {% endif%}
+</title>
 

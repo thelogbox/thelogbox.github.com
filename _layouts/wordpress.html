@@ -14,6 +14,7 @@
     <div class='feature-banner'>
       <div class='feature-banner-text'>
         {{ page.title }}
+        {% include postmeta.html %}
       </div>
     </div>
 
@@ -39,15 +40,15 @@
     </div>
     <div class="toc">
       <ul>
-      <li><a href="/wordpress-theoretical-minimum">Theoretical minimum</a></li>
-      <li><a href="/wordpress-tools">Tools</a></li>
+      <li><a href="/wordpress/wordpress-theoretical-minimum">Theoretical minimum</a></li>
+      <li><a href="/wordpress/wordpress-tools">Tools</a></li>
       <li><a href="/wordpress-setup">Setup</a></li>
-      <li><a href="/wordpress-html">HTML</a></li>
+      <li><a href="/wordpress/wordpress-html">HTML</a></li>
       <li><a href="#">Common html tags</a></li>
       <li><a href="#">CSS</a></li>
-      <li><a href="/wordpress-php">PHP</a></li>
+      <li><a href="/wordpress/wordpress-php">PHP</a></li>
       <li><a href="#">Wordpress makeup</a></li>
-      <li><a href="/wordpress-installation">Installation and Configuration</a></li>  
+      <li><a href="/wordpress/wordpress-installation">Installation and Configuration</a></li>  
       <li><a href="#">Using Wordpress</a></li>  
       <li><a href="#">Custom theme</a></li>  
       <li><a href="#">Templates</a></li>  
@@ -56,11 +57,10 @@
     </div>    
     
     <div class="promo">
-      {% include postmeta.html %}   
     </div>   
     </div>  <!--  div wrap -->
 
-		<footer></footer>
+		<footer>{% include footer.html %}>/footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

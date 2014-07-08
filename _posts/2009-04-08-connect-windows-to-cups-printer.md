@@ -10,10 +10,6 @@ excerpt:
 tags:
 - Printer
 - Server
-
-categories:
-- Linux
-
 ---
 
 There are a couple of ways to print to a CUPS printer from a Windows machine. *CUPS* printer means it's a printer connected to either a UNIX, Linux or an OSX machine. CUPS is the system which these OSes use to share print services. 

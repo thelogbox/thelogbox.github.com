@@ -14,6 +14,7 @@
     <div class='feature-banner'>
       <div class='feature-banner-text'>
         {{ page.title }}
+        {% include postmeta.html %}
       </div>
     </div>
 
@@ -35,7 +36,6 @@
 		</article>
  
     <div class="toc">
-      HTML5
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
       <li><a href="/html5-what-you-will-need">What you need for Dev</a></li>
@@ -51,11 +51,11 @@
     </div>    
     
     <div class="promo">
-      {% include postmeta.html %}   
+  
     </div>   
     </div>  <!--  div wrap -->
     
-		<footer></footer>
+		<footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
