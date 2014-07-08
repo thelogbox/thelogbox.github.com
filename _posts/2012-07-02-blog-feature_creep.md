@@ -10,8 +10,6 @@ except:
 tags:
 - blog
 
-categories:
-- Blog
 
 ---
 

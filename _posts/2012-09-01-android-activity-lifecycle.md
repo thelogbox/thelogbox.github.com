@@ -11,9 +11,6 @@ tags:
 - Activity
 - LifeCycle
 
-categories:
-- Android
-
 ---
 
 

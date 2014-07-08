@@ -11,9 +11,6 @@ tags:
 - APC
 - Presentation
 
-categories:
-- Android
-
 ---
 
 

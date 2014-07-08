@@ -9,9 +9,6 @@ tags:
 - Event
 - Listeners
 
-categories:
-- Android
-
 ---
 
 User Interfaces usually contains views e.g. Buttons that users may activate. When these views are triggered, you will need a way to react to this event. This programming skill is called event handling.

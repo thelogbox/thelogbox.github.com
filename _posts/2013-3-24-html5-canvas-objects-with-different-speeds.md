@@ -8,9 +8,6 @@ description: How to make objects move in different speeds. Canvas Programming
 tags:
 - Animation
 
-categories:
-- HTML5
-
 ---
 
 Most of the time, you will deal with more than one moving object inside the canvas, they might need to move at different speedss.  You could be tempted to set a different timer (setTimeout) for each box, that will be a mistake. You will mess up the timer of your canvas. The way to approach the problem of moving objects at different speed is to vary the pixel displacement of each individual object, rather than construct a timer for each object. 

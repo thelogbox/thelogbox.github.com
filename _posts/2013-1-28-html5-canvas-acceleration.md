@@ -8,9 +8,6 @@ description: Add simple physics to your HTML5 animations
 tags:
 - Animation
 
-categories:
-- HTML5
-
 ---
 
 Making objects fall inside the canvas is pretty straightforward. You simply need to move the object along the *y-axis* of the canvas. Each time you redraw the frame, incrase the *y position* of the object.

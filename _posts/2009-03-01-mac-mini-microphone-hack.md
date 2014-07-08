@@ -12,9 +12,6 @@ tags:
 - mac
 - mini
 
-categories:
-- OSX
-
 lastupdate: 2013-11-10
 
 ---

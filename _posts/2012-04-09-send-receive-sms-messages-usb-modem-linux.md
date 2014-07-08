@@ -11,9 +11,6 @@ tags:
 - sms
 - modem
 
-categories:
-- Linux
-
 ---
 
 

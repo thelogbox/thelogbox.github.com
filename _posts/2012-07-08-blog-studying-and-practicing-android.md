@@ -11,9 +11,6 @@ tags:
 - Study
 - Practice
 
-categories:
-- Android
-
 ---
 
 

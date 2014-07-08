@@ -10,9 +10,6 @@ excerpt:
 - Linux
 - Ripping
 
-categories:
-- OSX
-
 ---
 
 **youtube-dl** is a command line tool to rip youtube videos. Works on OSX and Linux. There could be a way to make this work on Windows but I did not try that.

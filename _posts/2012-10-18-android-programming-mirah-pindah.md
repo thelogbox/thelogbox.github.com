@@ -11,9 +11,6 @@ tags:
 - Ruby
 - Mobile
 
-categories:
-- Android
-
 ---
 
 

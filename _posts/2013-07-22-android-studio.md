@@ -11,9 +11,6 @@ tags:
 - IDE
 
 
-categories:
-- Android
-
 ---
 
 

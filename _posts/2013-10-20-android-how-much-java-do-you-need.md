@@ -11,9 +11,6 @@ tags:
 - Java
 - Requisite
 
-categories:
-- Android
-
 ---
 
 A list of things you need get a handle on before diving into Android programming.

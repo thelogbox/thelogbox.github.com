@@ -12,9 +12,6 @@ tags:
 - Literate
 - Programming
 
-categories:
-- JavaScript
-
 ---
 
 Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won't work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are [Jocco](https://github.com/Krilivye/Jocco) and [Marginalia (for Clojure)](http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/).

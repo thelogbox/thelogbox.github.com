@@ -11,9 +11,6 @@ tags:
 - Cocoa
 - Fundamentals
 
-categories:
-- OBJC
-
 ---
 
 

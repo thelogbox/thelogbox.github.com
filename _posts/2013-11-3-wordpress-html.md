@@ -13,7 +13,7 @@ tags:
 author: Ted Hagos
 
 categories:
-- WordPress
+- wordPress
 ---
 
 I'm hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it &mdash; at least what it looks like and what it is used for. That will spare us the dry details of description.

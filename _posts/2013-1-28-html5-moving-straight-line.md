@@ -8,9 +8,6 @@ description: Make things move in HTML5 Canvas
 tags:
 - Animation
 
-categories:
-- HTML5
-
 ---
 
 

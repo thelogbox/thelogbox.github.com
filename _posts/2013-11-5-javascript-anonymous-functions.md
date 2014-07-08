@@ -14,9 +14,6 @@ tags:
 
 author: Ted Hagos
 
-categories:
-- JavaScript
-
 ---
 
 We have already taken a look at functions earlier. At first glance, functions in Javascript does not seem too special. Like in any other language, we used it to contain a bunch of statements and gave it a name. This name, when we call them at a later time, will execute the set of commands inside its block. We use the function simply as an encapsulation unit for a sequence of statements.

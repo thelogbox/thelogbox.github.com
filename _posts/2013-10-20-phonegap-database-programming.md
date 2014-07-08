@@ -12,9 +12,6 @@ tags:
 - SQLite
 - HTML5
 
-categories:
-- PhoneGap
-
 ---
 
 There are two ways to persist data on PhoneGap. One is to use *local storage* and the other, *WebSQL*. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  

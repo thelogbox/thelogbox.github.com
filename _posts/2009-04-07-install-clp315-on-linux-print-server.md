@@ -11,9 +11,6 @@ tags:
 - Printer
 - Server
 
-categories:
-- Linux
-
 ---
 
 These steps will install the Samsung CLP 315 on a headless Linux Server. 

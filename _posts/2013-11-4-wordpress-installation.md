@@ -13,7 +13,7 @@ tags:
 author: Ted Hagos
 
 categories:
-- WordPress
+- wordPress
 
 ---
 

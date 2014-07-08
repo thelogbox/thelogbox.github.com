@@ -11,9 +11,6 @@ tags:
 - UI
 - Layout
 
-categories:
-- Android
-
 ---
 
 

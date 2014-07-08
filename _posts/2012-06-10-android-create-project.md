@@ -11,9 +11,6 @@ tags:
 - Project
 - Creation
 
-categories:
-- Android
-
 ---
 
 **NOTICE**. THIS CONTENT HAS BEEN REWRITTEN. The updated content is at [Android Getting Started](/android-getting-started)

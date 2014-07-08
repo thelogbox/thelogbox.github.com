@@ -12,9 +12,6 @@ tags:
 - Microsoft
 - Emitter
 
-categories:
-- JavaScript
-
 ---
 
 Official website is at [TypeScriptLang.org](http://www.typescriptlang.org). The language was borne out of Microsoft. It looks a lot like JavaScript, because it is a superset of JavaScript;  This means all existing, valid and native JavaScript codes are already valid TypeScript codes. 

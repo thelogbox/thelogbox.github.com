@@ -10,9 +10,6 @@ except:
 tags:
 - Eclipse
 
-categories:
-- Android
-
 ---
 
 

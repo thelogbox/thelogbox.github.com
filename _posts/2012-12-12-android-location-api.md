@@ -9,9 +9,6 @@ description: Detailed steps on how to use the GPS and other Location API in Andr
 tags:
 - GEOLocation
 
-categories:
-- Android
-
 ---
 
 

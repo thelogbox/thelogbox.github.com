@@ -12,8 +12,6 @@ tags:
 - Core
 - HelloWorld
 
-categories:
-- Java
 
 ---
 

@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Fundamentals
 
-categories:
-- OBJC
-
 ---
 
 

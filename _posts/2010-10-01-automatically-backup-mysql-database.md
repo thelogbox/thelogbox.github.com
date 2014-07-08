@@ -11,9 +11,6 @@ tags:
 - database
 - backup
 
-categories:
-- MySQL
-
 ---
 
 The key command we need is 

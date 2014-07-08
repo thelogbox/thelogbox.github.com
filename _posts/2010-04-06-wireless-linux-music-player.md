@@ -11,9 +11,6 @@ tags:
 - hack
 - mpd
 
-categories:
-- Linux
-
 ---
 
 This project will let you control a music player daemon running on a Linux box. The Linux box (headphone jack) will be connected into a stereo receiver (input) &mdash; It's an over engineered music player. But if you don't have anything better to do with an old notebook, this might save it from the junk yard.

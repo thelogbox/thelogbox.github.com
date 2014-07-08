@@ -17,8 +17,6 @@ tags:
 - jquery
 
 
-categories: JavaScript
-
 ---
 
 

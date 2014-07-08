@@ -10,9 +10,6 @@ excerpt:
 tags:
 - RVM
 
-categories:
-- Ruby
-
 ---
 
 

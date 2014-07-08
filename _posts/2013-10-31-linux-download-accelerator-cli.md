@@ -12,10 +12,6 @@ tags:
 - utility
 - Debian
 
-categories:
-- Linux
-
-
 ---
 
 

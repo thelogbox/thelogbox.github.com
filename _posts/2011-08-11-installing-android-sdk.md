@@ -11,10 +11,6 @@ tags:
 - Programming
 - Environment 
 
-categories:
-- Android
-
-
 ---
 
 

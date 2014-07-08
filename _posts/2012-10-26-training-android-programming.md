@@ -12,7 +12,7 @@ tags:
 - Course
 
 categories:
-- Training
+- training
 
 ---
 

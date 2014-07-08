@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Introduction
 
-categories:
-- HTML5
-
 ---
 
 Welcome to HTML5 tutorial. This is a mini site. It contains howto's and lots of code examples about HTML5 programming.

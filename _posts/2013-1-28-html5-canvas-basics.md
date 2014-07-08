@@ -9,9 +9,6 @@ tags:
 - Canvas
 - 2D
 
-categories: 
-- HTML5
-
 ---
 
 The canvas is a 2D drawing surface. If you ever used Microsoft Paint before, then you have an idea of what it is. It basically exposes the capability to draw into a surface using pixels &mdash; it is bitmapped.

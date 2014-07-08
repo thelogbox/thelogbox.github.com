@@ -11,9 +11,6 @@ tags:
 - TypeScript
 - HTML5
 
-categories:
-- JavaScript
-
 ---
 
 

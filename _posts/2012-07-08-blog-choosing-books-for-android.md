@@ -9,9 +9,6 @@ tags:
 - Books
 - Resources
 
-categories:
-- Android
-
 ---
 
 

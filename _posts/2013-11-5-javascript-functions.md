@@ -13,9 +13,6 @@ tags:
 
 author: Ted Hagos
 
-categories:
-- JavaScript
-
 ---
 
 

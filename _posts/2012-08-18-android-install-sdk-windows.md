@@ -11,9 +11,6 @@ tags:
 - Windows
 - SDK
 
-categories:
-- Android
-
 ---
 
 This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.

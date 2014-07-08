@@ -10,9 +10,6 @@ excerpt:
 tags:
 - RDP
 
-categories:
-- Linux
-
 ---
 
 1. Get the *tsclient*. <code class="codeblock">$ sudo apt-get install xnest</code>

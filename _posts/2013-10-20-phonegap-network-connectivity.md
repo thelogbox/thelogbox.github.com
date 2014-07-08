@@ -16,9 +16,6 @@ tags:
 - Connectivity
 - Plugin
 
-categories:
-- PhoneGap
-
 ---
 
 Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not &mdash; there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don't always pull updates if the connection is less than wifi. 

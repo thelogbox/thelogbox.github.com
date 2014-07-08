@@ -9,9 +9,6 @@ tags:
 - Markup
 - Elements
 
-categories:
-- HTML5
-
 ---
 
 A markup is something that you add to plain text to alter its presentation, either on print or on screen. For the older audience, you probably could remember WordStar &mdash; when you use CTRL-B to give instruction to the printer to render it in **bold face**, that was a markup instruction. 

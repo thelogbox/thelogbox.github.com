@@ -13,9 +13,6 @@ tags:
 - Media
 - Audio
 
-categories:
-- Android
-
 ---
 
 

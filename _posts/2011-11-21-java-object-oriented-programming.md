@@ -10,9 +10,6 @@ excerpt:
 tags:
 - OOP
 
-categories:
-- Java
-
 ---
 
 

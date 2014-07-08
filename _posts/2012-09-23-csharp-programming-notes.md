@@ -12,9 +12,6 @@ tags:
 - Language
 - Fundamentals
 
-categories:
-- CSharp
-
 ---
 
 

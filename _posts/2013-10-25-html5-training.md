@@ -9,7 +9,7 @@ tags:
 - HTML5
  
 categories:
-- Training
+- training
 
 ---
 

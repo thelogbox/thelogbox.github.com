@@ -10,9 +10,6 @@ tags:
 - OOP
 - Array
 
-categories:
-- HTML5
-
 ---
 
 When you start working with non-trivial Canvas applications, you will need to deal with multiple objects, having multiple shapes moving at different speeds and having different locations in the canvas. If you try to manage them all procedurally, you will soon run into the problem of very confusing and hard to maintain codes. JavaScript is an object oriented programming language and it has decent data structures built-in, you can use them to tame the complexity of dealing with multiple objects.

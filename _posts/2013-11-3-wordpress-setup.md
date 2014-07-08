@@ -14,7 +14,7 @@ tags:
 - setup
 
 categories:
-- WordPress
+- wordPress
 
 ---
 

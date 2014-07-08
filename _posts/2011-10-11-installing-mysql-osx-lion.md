@@ -11,9 +11,6 @@ tags:
 - MySQL
 - Database
 
-categories:
-- OSX
-
 ---
 
 

@@ -11,9 +11,6 @@ tags:
 - error
 - failed
 
-categories:
-- Android
-
 ---
 
 

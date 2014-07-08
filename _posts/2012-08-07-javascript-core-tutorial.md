@@ -12,9 +12,6 @@ tags:
 - Language
 - Basics
 
-categories:
-- JavaScript
-
 ---
 
 JavaScript is a loose, dynamically typed and interpreted  scripting language. It began life as LiveScript (1995); when it was a project at Netscape Communications. At some point in time, it was renamed JavaScript (roughly around the time when plugin support for the Java language was added to Netscape Navigator).

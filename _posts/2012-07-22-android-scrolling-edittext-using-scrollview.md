@@ -11,9 +11,6 @@ tags:
 - UI
 - View
 
-categories:
-- Android
-
 ---
 
 There will be times when you will need to display multiple lines of text that will exceed the height of visible display. You will need to scroll to view the rest of the text. For example, if you read something from a datasource, a file or a database and display its contents, chances are the number of lines of the datasource will be greater than the height of View component.

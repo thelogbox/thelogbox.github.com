@@ -8,9 +8,6 @@ description: When things inside the HTML5 Canvas bumps into each other
 tags:
 - Animation
 
-categories:
-- HTML5
-
 ---
 
 

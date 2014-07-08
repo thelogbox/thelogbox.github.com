@@ -10,9 +10,6 @@ excerpt:
 tags:
 - avd
 
-categories:
-- Android
-
 ---
 
 You will need a runtime environment to complete your development setup. The SDK will allow you write and compile android programs. But to test them, you need a place where to deploy and test those programs. 

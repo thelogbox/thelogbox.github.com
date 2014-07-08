@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Productivity
 
-categories:
-- Hack
-
 ---
 
 

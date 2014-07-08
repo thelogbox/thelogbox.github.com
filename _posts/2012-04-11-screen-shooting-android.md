@@ -11,9 +11,6 @@ tags:
 - utility
 - ddms
 
-categories:
-- Android
-
 ---
 
 

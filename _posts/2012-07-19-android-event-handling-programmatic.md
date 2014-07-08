@@ -11,9 +11,6 @@ tags:
 - Event
 - Listeners
 
-categories:
-- Android
-
 ---
 
 **NOTE**; I'm consolidating the textual content of this chapter.

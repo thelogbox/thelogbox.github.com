@@ -11,9 +11,6 @@ tags:
 - Activity
 - UI
 
-categories:
-- Android
-
 ---
 
 

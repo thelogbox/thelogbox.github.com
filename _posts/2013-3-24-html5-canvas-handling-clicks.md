@@ -11,9 +11,6 @@ tags:
 - Client
 - JavaScript
 
-categories: 
-- html5
-
 ---
 
 To capture click events on the canvas, you will need to attach an event handler on the canvas itself, not the context. Since the canvas element is just like any other DOM element, attaching a click event to it is very straightforward. It can be done in any number of ways, the simplest is probably

@@ -11,8 +11,6 @@ tags:
 - Ubuntu
 - SSH
 
-categories:
-- Linux
 
 ---
 

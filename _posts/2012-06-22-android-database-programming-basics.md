@@ -13,9 +13,6 @@ tags:
 - Database
 - Introduction
 
-categories:
-- Android
-
 ---
 
 While there exist a class of applications that do not use databases, they are few. It's almost an automatic expectation that a programmer knows how to deal with databases. 

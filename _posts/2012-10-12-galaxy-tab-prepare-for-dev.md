@@ -8,9 +8,6 @@ tags:
 - Samsung
 - Device
 
-categories:
-- Android
-
 ---
 
 To use the galaxy tab as a testing device;

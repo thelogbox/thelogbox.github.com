@@ -17,9 +17,6 @@ tags:
 - branch
 
 
-categories:
-- JavaScript
-
 ---
 
 

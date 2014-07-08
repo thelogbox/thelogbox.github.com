@@ -14,9 +14,6 @@ tags:
 
 author: Ted Hagos
 
-categories:
-- JavaScript
-
 ---
 
 Objects are easy to create, construct and modify in JS. Adding a property to an object takes nothing more than declarating the name of the property (attached to the object using the dot notation), then simply assigning a value to to it. Just don't forget that objects in JS are like hash tables, each member of the object is a pair of data, the first one is the key and the second one is the value. 

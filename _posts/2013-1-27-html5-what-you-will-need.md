@@ -8,8 +8,6 @@ tags:
 - Tools
 - Requisite
 
-categories:
-- HTML5
 
 ---
 

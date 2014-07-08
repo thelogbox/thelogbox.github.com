@@ -11,9 +11,6 @@ tags:
 - Event
 - Listeners
 
-categories:
-- Android
-
 ---
 
 Declarative event handling is one of the two ways you can react to user events. The other way of handling events is *programmatically* &mdash; which is discussed in a chapter of its own.

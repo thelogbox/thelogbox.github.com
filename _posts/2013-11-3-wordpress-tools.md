@@ -14,7 +14,7 @@ tags:
 author: Ted Hagos
 
 categories:
-- WordPress
+- wordPress
 
 ---
 Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text editor for that matter and a good internet connection.

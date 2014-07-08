@@ -9,9 +9,6 @@ tags:
 - File
 - Sharing
 
-categories:
-- Linux
-
 ---
 
 

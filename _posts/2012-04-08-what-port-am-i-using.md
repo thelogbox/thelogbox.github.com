@@ -11,9 +11,6 @@ tags:
 - network
 - admin
 
-categories:
-- Windows
-
 ---
 
 

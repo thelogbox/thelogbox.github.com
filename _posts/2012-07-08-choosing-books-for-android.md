@@ -11,9 +11,6 @@ tags:
 - Bibliography
 - References
 
-categories:
-- Android
-
 ---
 
 <div id='feature-button'>

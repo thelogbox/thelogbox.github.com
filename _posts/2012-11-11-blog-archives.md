@@ -11,7 +11,7 @@ tags:
 - Notice
 
 categories:
-- Notice
+- notice
 
 ---
 

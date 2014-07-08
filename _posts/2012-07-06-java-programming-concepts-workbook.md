@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Exercises
 
-categories:
-- Java
-
 ---
 
 

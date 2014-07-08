@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Tools 
 
-categories:
-- WebDev
-
 ---
 
 

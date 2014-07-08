@@ -8,8 +8,6 @@ tags:
 - Connectivity
 - Network
 
-categories: 
-- Android
 ---
 
 Finding out the state of connectivity of an Android device is a fundamental technique. You need to know which type of connectivity the device has before you perform any activity that requires data transfer. You may encounter situations where you want to send data e.g. picture files,  maps or any other sizeable data through the wire, only when WIFI connectivity is up.

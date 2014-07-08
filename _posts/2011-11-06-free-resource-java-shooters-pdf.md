@@ -11,9 +11,6 @@ tags:
 - free
 - book
 
-categories:
-- Java 
-
 ---
 
 

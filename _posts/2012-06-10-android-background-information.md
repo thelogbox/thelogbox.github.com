@@ -10,9 +10,6 @@ except:
 tags:
 - history
 
-categories:
-- Android
-
 ---
 
 

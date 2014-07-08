@@ -11,9 +11,6 @@ tags:
 - Introduction
 - Preface
 
-categories:
-- Android
-
 ---
 
 Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.

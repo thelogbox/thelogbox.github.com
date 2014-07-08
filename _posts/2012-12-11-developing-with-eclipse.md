@@ -7,9 +7,6 @@ description: How to use Eclipse for Android development
 tags:
 - Eclipse
 
-categories:
-- Android
-
 ---
 
 

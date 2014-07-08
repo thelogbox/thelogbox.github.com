@@ -10,9 +10,6 @@ except:
 tags:
 - Basics
 
-categories:
-- HTML5
-
 ---
 
  <div id="feature-button">

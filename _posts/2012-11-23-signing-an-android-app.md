@@ -11,9 +11,6 @@ tags:
 - Google
 - Play
 
-categories:
-- Android
-
 ---
 
 You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.

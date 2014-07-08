@@ -16,9 +16,6 @@ tags:
 - Compiling
 - Setup
 
-categories:
-- PhoneGap
-
 ---
 
 

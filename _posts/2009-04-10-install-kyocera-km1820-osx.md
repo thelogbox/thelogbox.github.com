@@ -11,9 +11,6 @@ tags:
 - mac
 - Printer
 
-categories:
-- OSX
-
 ---
 
 

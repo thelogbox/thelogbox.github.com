@@ -14,7 +14,7 @@ tags:
 author: Ted Hagos
 
 categories:
-- Wordpress
+- wordpress
 
 ---
 

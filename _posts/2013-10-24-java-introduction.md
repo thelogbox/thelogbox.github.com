@@ -11,9 +11,6 @@ tags:
 - Introduction
 - Preface
 
-categories:
-- Java
-
 ---
 
 These are my notes on the Java Programming Language. These notes used to be hosted at [tedhagos.com/java-programming](http://tedhagos.com/java-programming), it was written on a single HTML page. Now, these notes are getting a rewrite. Most probably in tutorial form. There is a navigation bar on the side, please use it as you would a table of contents, I organized these notes as such.

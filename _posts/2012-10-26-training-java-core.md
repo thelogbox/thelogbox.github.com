@@ -11,7 +11,7 @@ tags:
 - Java
 
 categories:
-- Training
+- training
 
 ---
 

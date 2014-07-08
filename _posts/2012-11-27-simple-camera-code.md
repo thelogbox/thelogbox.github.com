@@ -10,9 +10,6 @@ tags:
 - Camera
 
 
-categories:
-- Android
-
 ---
 
 Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is **NOT** about that. The code example in this chapter uses the camera at an API level. 

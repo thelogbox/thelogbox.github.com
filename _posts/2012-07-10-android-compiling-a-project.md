@@ -10,9 +10,6 @@ except:
 tags:
 - compile
 
-categories:
-- Android
-
 ---
 
 

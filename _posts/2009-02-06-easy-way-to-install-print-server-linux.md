@@ -11,9 +11,6 @@ Tags:
 - Printer
 - Server
 
-categories:
-- Linux
-
 ---
 
 This guide will walk through the steps on how to share a printer over a local network using a Linux server. It will use the *internet printing protocol* and the *linux print daemon*.  

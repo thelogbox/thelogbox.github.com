@@ -12,10 +12,6 @@ tags:
 - structure
 - procedural
 
-categories:
-- Java
-
-
 ---
 
 

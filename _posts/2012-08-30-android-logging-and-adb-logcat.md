@@ -11,9 +11,6 @@ tags:
 - Logging
 - Debugging
 
-categories:
-- Android
-
 ---
 
 Debugging is a crucial skill in development. It has been made more crucial because of the rise of mobile platforms. Debugging on an emulated or simulated environment presents additional challenges &mdash; your runtime environment is different than the development environment. 

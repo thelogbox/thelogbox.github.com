@@ -13,8 +13,6 @@ tags:
 - Compilation
 - Build
 
-categories:
-- Android
 ---
 
 One of the best, if not the best way to learn something is to start doing it. Get your feet wet. Your hands dirty, so to speak.

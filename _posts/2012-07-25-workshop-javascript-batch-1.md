@@ -11,10 +11,6 @@ tags:
 - Workshop
 - JavaScript
 
-
-categories:
-- Training
-
 ---
 
 You will need the nodejs runtime for this workshop. You will also need the node package manager (npm) which usually comes with the installation of nodejs.

@@ -13,7 +13,7 @@ tags:
 - Android
 
 categories:
-- Training
+- training
 
 ---
 

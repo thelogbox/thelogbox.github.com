@@ -11,9 +11,6 @@ tags:
 - Preface
 - Introduction
 
-categories:
-- PhoneGap
-
 ---
 
 These notes were lifted from lesson plans. They have undergone quite a few changes chiefly because of the changes from PhoneGap 2.0 to 3.0. 

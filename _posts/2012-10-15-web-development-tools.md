@@ -11,9 +11,6 @@ tags:
 - Tools
 - Development
 
-categories:
-- Web
-
 ---
 
 

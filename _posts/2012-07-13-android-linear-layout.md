@@ -11,9 +11,6 @@ tags:
 - Layout
 - UI
 
-categories:
-- Android
-
 ---
 
 We will work with project you created in the [last chapter](/android-activity). The layout seems okay but a little weird. The labels are usually laid out to the left of a text field and not on top. This is happening because the LinearLayout's orientation is **vertical**. That caused the components to flow from top to bottom. 

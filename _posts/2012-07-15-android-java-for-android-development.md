@@ -11,10 +11,6 @@ tags:
 - Readiness
 - Java
 
-categories:
-- Android
-
-
 ---
 
   <div id="feature-button">

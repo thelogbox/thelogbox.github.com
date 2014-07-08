@@ -13,9 +13,6 @@ tags:
 - tools
 
 
-categories:
-- Javascript
-
 ---
 
 

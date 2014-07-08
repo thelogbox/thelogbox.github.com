@@ -19,9 +19,6 @@ tags:
 - OSX
 - Mac
 
-categories:
-- OSX
-
 ---
 
 

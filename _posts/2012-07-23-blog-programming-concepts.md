@@ -12,9 +12,6 @@ tags:
 - Programming
 - Introduction
 
-categories:
-- Training
-
 ---
 
 

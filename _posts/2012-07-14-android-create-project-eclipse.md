@@ -12,9 +12,6 @@ tags:
 - Create
 - Eclipse
 
-categories:
-- Android
-
 ---
 
 

@@ -12,10 +12,6 @@ tags:
 - Virtual
 - Device
 
-categories:
-- Android
-
-
 ---
 
 

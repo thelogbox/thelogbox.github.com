@@ -15,9 +15,6 @@ tags:
 - Android
 - Setup
 
-categories:
-- PhoneGap
-
 lastupdate: 2013-11-10
 
 ---

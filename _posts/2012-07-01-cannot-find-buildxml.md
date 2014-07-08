@@ -12,9 +12,6 @@ tags:
 - Ant
 - XML
 
-categories:
-- Android
-
 ---
 
 This is a build script problem, at the time of writing, I am using Apache Ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager. 

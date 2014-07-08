@@ -10,9 +10,6 @@ excerpt:
 tags:
 - Device
 
-categories:
-- Android
-
 ---
 
 If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device. 

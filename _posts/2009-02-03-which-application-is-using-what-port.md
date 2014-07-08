@@ -11,9 +11,6 @@ tags:
 - Admin
 - Networking
 
-categories:
-- Windows
-
 ---
 
 **UPDATE (June 3,2009)**

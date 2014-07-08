@@ -10,13 +10,11 @@ categories:
 ---
 
 
-<div id="wrap" class="notoc">
-    
-<div class="content">
+<div id="wrap">
+
+
+<div id="archives" class="content">
   
-  <div style="height:40px;"></div>
-  This is the archive page. The entries are listed in reverse chronological order
-  <div style="height:40px;"></div>
   
 	{% for post in site.posts %}   
 	
@@ -34,7 +32,7 @@ categories:
   
   <p class='archives'>
   <!-- <b>[{{post.categories | join: '  ,' }}]</b> -->
-	{{ post.content | strip_html |truncatewords: 50 }}
+	{{ post.content | strip_html |truncatewords: 30 }}
   </p>
 
 	{% endfor %}

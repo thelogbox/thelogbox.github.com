@@ -10,9 +10,6 @@ tags:
 - Environment
 - IDE
 
-categories:
-- Android
-
 ---
 
 ## Environment setup

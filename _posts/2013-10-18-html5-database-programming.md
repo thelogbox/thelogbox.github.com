@@ -11,9 +11,6 @@ tags:
 - Storage
 - Database
 
-categories:
-- HTML5
-
 ---
 
 
