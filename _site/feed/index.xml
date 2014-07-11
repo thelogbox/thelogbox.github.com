@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-07-08T23:48:10+08:00</updated>
+ <updated>2014-07-11T22:36:42+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -11961,27 +11961,40 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;p&gt;This is a build script problem, at the time of writing, I am using Apache Ant 1.8.2. This can happen after immediately installing the android SDK or after performing an update using the SDK manager.&lt;/p&gt;
+   <content type="html">&lt;p&gt;After running &lt;code&gt;ant debug install&lt;/code&gt;, an error happens.&lt;/p&gt;
 
-&lt;pre class='codeblock'&gt;
-
+&lt;pre class=&quot;codeblock&quot;&gt;&lt;/code&gt;
 BUILD FAILED
 /Users/ted/workarea/android-training/practice
 /helloworld/    build.xml:83: Cannot find /Users/ted/
-progtools/android-sdk-macos/tools/ant/build.xml 
+progtools/android-sdk-macos/tools/ant/build.xml
 imported from /Users/ted/workarea/android-training/
 practice/helloworld/build.xml
 
 Total time: 0 seconds
-
 &lt;/pre&gt;
 
 
-&lt;p&gt;Just read the error carefully and you will see. It cannot find the &lt;code&gt;build.xml&lt;/code&gt; file on the SDK.DIR (the folder where you installed the android SDK). Line number 83 of build.xml inside your project folder is actually an import directive. It is importing a generic build.xml from SDK.DIR/tools/ folder.&lt;/p&gt;
+&lt;p&gt;This is a build script problem. What the error tells us is that, it cannot find &lt;strong&gt;build.xml&lt;/strong&gt;. How can that be? The android SDK tools actually setup up everything for us, the ant build script is one of the artefacts created when you start a new android project.
+There could be lots of reasons, but this particular error happened to me because I was using two machines for program development. And that I forgot to include the &lt;strong&gt;local.properties&lt;/strong&gt; in the .gitignore file. So the settings and properties on one machine spilled
+over to the other development machine.&lt;/p&gt;
 
-&lt;h2&gt;What to do&lt;/h2&gt;
+&lt;p&gt;If you inspect the build.xml in your android project folder, you will find out that it is actually importing another &lt;strong&gt;build.xml&lt;/strong&gt;, a generic one. This generic build.xml is located at &lt;strong&gt;SDK.DIR/tools/build.xml&lt;/strong&gt;. SDK.DIR is the folder where you installed the
+Android SDK when you downloaded it.&lt;/p&gt;
 
-&lt;p&gt;Check carefully that the directory entry on the file &lt;code&gt;local.properties&lt;/code&gt; for the SDK.DIR is correct. The local.properties file is on the root folder of the android project you created. For some reason (that I don't know yet), the SDK.DIR value on the properties file was incorrect. Just make the necessary adjustments, then run &lt;code&gt;ant&lt;/code&gt;  again. It should work by now.&lt;/p&gt;
+&lt;p&gt;The following example downloads and installs the android SDK&lt;/p&gt;
+
+&lt;pre class=&quot;codeblock&quot;&gt;&lt;/code&gt;
+mkdir ~/progtools
+cd progtools
+wget http://dl.google.com/android/android-sdk-linux.tgz
+tar -xzvf android-sdk-linux.tgz
+&lt;/pre&gt;
+
+
+&lt;p&gt;This will create a folder named &lt;strong&gt;&lt;strong&gt;~/progtools/android-sdk-linux/&lt;/strong&gt;&lt;/strong&gt;. This is the SDK.DIR&lt;/p&gt;
+
+&lt;p&gt;To fix this error, you need to make sure that the value of &lt;strong&gt;&lt;strong&gt;SDK.DIR&lt;/strong&gt;&lt;/strong&gt; inside the local.properties file is pointing to the correct location. The local.properties file is located on the top level folder of your android project.&lt;/p&gt;
 </content>
  </entry>
  
@@ -12437,7 +12450,7 @@ Total time: 0 seconds
 The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
 &lt;p/&gt;
 
-&lt;a href=&quot;http://notes.tedhagos.com/linux/UsbModemLinux-SMS.html&quot;&gt;notes.tedhagos.com/UsbModemLinux-SMS&lt;/a&gt;   
+&lt;a href=&quot;http://tedhagos.com/linux/UsbModemLinux-SMS.html&quot;&gt;tedhagos.com/UsbModemLinux-SMS&lt;/a&gt;   
 &lt;p/&gt;
 
 The original guide was left here for quick references only. This guide will no longer be updated here
