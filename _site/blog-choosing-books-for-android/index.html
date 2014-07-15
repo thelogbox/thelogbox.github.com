@@ -41,7 +41,7 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
@@ -88,6 +88,22 @@ body {
 #wrap {
 	margin: 0 auto;
 }
+
+#leanpubbook {
+  background: #f5d2a4;
+  padding: 20px; 
+  text-align:center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+
+
+
 
 /* FOR THE article block */
 
@@ -352,6 +368,7 @@ img {
   }
   img.default {
     width: inherit;
+    margin: 8px auto;
   }
   img.thumbnail {
     float:left;
@@ -564,15 +581,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>If you want to look at a more extensive list, O'Reilly released the <a href="http://www.amazon.com/gp/product/B005GMR9S8/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B005GMR9S8&linkCode=as2&tag=thelogboxcom-20">Android Development Bibliography</a><img src="http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&l=as2&o=1&a=B005GMR9S8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> for free.</p>
 
-        </div>
-							
+        </div>					
 		  </div>
+      
+      <div id="leanpubbook">        
+        Ted is writing an android book for 
+        beginners. It's a work in progress.
+        
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+      
+        <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+        can read it (free) online</a> over at LeanPub.
+        
+      </div>
 		</article>
     
-     
-    <div class="promo">
-      
-    </div> 
     
     <div class="toc">
       <!--
@@ -620,9 +643,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
     </div>    
     
-    <div class="promo">
-  
-    </div>
     </div>  <!--  div wrap -->
     <footer>
 <!--

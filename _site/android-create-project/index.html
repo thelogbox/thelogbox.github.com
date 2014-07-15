@@ -41,7 +41,7 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
@@ -88,6 +88,22 @@ body {
 #wrap {
 	margin: 0 auto;
 }
+
+#leanpubbook {
+  background: #f5d2a4;
+  padding: 20px; 
+  text-align:center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+
+
+
 
 /* FOR THE article block */
 
@@ -352,6 +368,7 @@ img {
   }
   img.default {
     width: inherit;
+    margin: 8px auto;
   }
   img.thumbnail {
     float:left;
@@ -614,15 +631,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The <strong>android create project</strong> script actually generated a Java class source file for us, the <em>Hello.java</em>. This is an Activity class, for now just think of an Activity as some sort of window---it is more than that actually, but for now just think of it like a window so we don't have to deal with the complications.  You would normally use an Activity class if you want <strong>"the user to do something"</strong>. In this case, we want to show him a simple "Hello World" message.</p>
 
-        </div>
-							
+        </div>					
 		  </div>
+      
+      <div id="leanpubbook">        
+        Ted is writing an android book for 
+        beginners. It's a work in progress.
+        
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+      
+        <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+        can read it (free) online</a> over at LeanPub.
+        
+      </div>
 		</article>
     
-     
-    <div class="promo">
-      
-    </div> 
     
     <div class="toc">
       <!--
@@ -670,9 +693,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
     </div>    
     
-    <div class="promo">
-  
-    </div>
     </div>  <!--  div wrap -->
     <footer>
 <!--

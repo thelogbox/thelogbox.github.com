@@ -41,7 +41,7 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
@@ -88,6 +88,22 @@ body {
 #wrap {
 	margin: 0 auto;
 }
+
+#leanpubbook {
+  background: #f5d2a4;
+  padding: 20px; 
+  text-align:center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+
+
+
 
 /* FOR THE article block */
 
@@ -352,6 +368,7 @@ img {
   }
   img.default {
     width: inherit;
+    margin: 8px auto;
   }
   img.thumbnail {
     float:left;
@@ -590,15 +607,21 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:.
 
 <p>If you are using Eclipse, see the steps on <a href="/android-install-eclipse-plugin/">how to configure android for eclipse</a></p>
 
-        </div>
-							
+        </div>					
 		  </div>
+      
+      <div id="leanpubbook">        
+        Ted is writing an android book for 
+        beginners. It's a work in progress.
+        
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+      
+        <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+        can read it (free) online</a> over at LeanPub.
+        
+      </div>
 		</article>
     
-     
-    <div class="promo">
-      
-    </div> 
     
     <div class="toc">
       <!--
@@ -646,9 +669,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:.
     
     </div>    
     
-    <div class="promo">
-  
-    </div>
     </div>  <!--  div wrap -->
     <footer>
 <!--

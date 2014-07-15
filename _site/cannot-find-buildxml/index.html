@@ -41,7 +41,7 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
 
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
@@ -88,6 +88,22 @@ body {
 #wrap {
 	margin: 0 auto;
 }
+
+#leanpubbook {
+  background: #f5d2a4;
+  padding: 20px; 
+  text-align:center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+
+
+
 
 /* FOR THE article block */
 
@@ -352,6 +368,7 @@ img {
   }
   img.default {
     width: inherit;
+    margin: 8px auto;
   }
   img.thumbnail {
     float:left;
@@ -550,7 +567,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>After running <code>ant debug install</code>, an error happens.</p>
+		    <p>After running ant debug install, an error happens.</p>
 
 <pre class="codeblock"></code>
 BUILD FAILED
@@ -581,19 +598,25 @@ tar -xzvf android-sdk-linux.tgz
 </pre>
 
 
-<p>This will create a folder named <strong><strong>~/progtools/android-sdk-linux/</strong></strong>. This is the SDK.DIR</p>
+<p>This will create a folder named <strong>~/progtools/android-sdk-linux/</strong>. This is the SDK.DIR</p>
 
-<p>To fix this error, you need to make sure that the value of <strong><strong>SDK.DIR</strong></strong> inside the local.properties file is pointing to the correct location. The local.properties file is located on the top level folder of your android project.</p>
+<p>To fix this error, you need to make sure that the value of <strong>SDK.DIR</strong> inside the local.properties file is pointing to the correct location. The local.properties file is located on the top level folder of your android project.</p>
 
-        </div>
-							
+        </div>					
 		  </div>
+      
+      <div id="leanpubbook">        
+        Ted is writing an android book for 
+        beginners. It's a work in progress.
+        
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+      
+        <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+        can read it (free) online</a> over at LeanPub.
+        
+      </div>
 		</article>
     
-     
-    <div class="promo">
-      
-    </div> 
     
     <div class="toc">
       <!--
@@ -641,9 +664,6 @@ tar -xzvf android-sdk-linux.tgz
     
     </div>    
     
-    <div class="promo">
-  
-    </div>
     </div>  <!--  div wrap -->
     <footer>
 <!--
