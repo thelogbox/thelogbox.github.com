@@ -7,13 +7,14 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,6
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 body {   
-  font-family: 'Source Sans Pro';
-  font-size: 97%;
+/*  font-family: 'Source Sans Pro'; */
+/*  font-size: 97%; */
 /*  font-size: 14px;*/
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
+  line-height: 1.2em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -27,6 +28,7 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
+  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -50,19 +52,20 @@ body {
 }
 
 #leanpubbook {
-  background: #f5d2a4;
+/*  background: #f5d2a4; */
   padding: 20px; 
   text-align:center;
-  -webkit-border-radius: 10px;
+/*  -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  */
+  border-top: 2px solid #CACACA;
+ 
 }
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
-
 
 
 /* FOR THE article block */
@@ -91,10 +94,11 @@ article, #archives {
   padding-right: 5%;
   padding-top: 50px;
   padding-bottom: 50px;
-  */
+  
   column-count:2;
   -moz-column-count:2;
-  -webkit-column-count:2
+  -webkit-column-count:2 
+  */
 }
 
 .toc {
@@ -107,7 +111,8 @@ article, #archives {
 
   -webkit-border-radius: 10px;
   -moz-border-radius:10px;                                                   border-radius: 10;
-  background: #dcdcff;
+/*  background: #dcdcff; */
+  border: 2px solid #CACACA;
 }
 
 /*
@@ -136,6 +141,7 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
+  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -179,6 +185,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 #feature-button {
@@ -223,7 +230,7 @@ strong {
 pre {
 	font-family: 'Droid Sans Mono';
   font-size: 12px;
-  padding: 5px;
+  padding: 10px;
   font-weight: normal;
   /*
   border-bottom: 2px solid #F0F2E7;
@@ -234,17 +241,18 @@ pre {
   margin-top:2em;
   white-space: pre-wrap;
   
-  background: #dcdcff;
+/*  background: #dcdcff; */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  border: 2px solid #2d2d2d;
 
   white-space:pre-wrap;
   overflow:auto;
 }
 
 
-code {font-size: 12px; font-family: 'Droid Sans Mono';}
+code {font-size: 13px; font-family: 'Droid Sans Mono';}
 pre.code {font-size:13px; font-weight:normal}
 
 .codeblock, p.code {
@@ -307,7 +315,7 @@ img {
   margin-right: auto;
   margin-top:2em;
   margin-bottom:2em;
-  width: 95%;
+  width: 75%;
 }
   img.shadow {
     display:block;
