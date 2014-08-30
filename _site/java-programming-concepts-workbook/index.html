@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -580,63 +583,61 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h2>Part 1. Machine problems</h2>
+		    <h2 id="part-1-machine-problems">Part 1. Machine problems</h2>
 
-<p><strong>Problem 1.</strong> Given a String name, e.g. "John", return a greeting of the form "Hello Bob!".</p>
+<p><strong>Problem 1.</strong> Given a String name, e.g. “John”, return a greeting of the form “Hello Bob!”. </p>
 
-<p>helloName("John") -> "Hello Bob!"</p>
+<p>helloName(“John”) -&gt; “Hello Bob!”</p>
 
-<p>helloName("Alice") -> "Hello Alice!"</p>
+<p>helloName(“Alice”) -&gt; “Hello Alice!”</p>
 
-<p>helloName("X") -> "Hello X!"</p>
+<p>helloName(“X”) -&gt; “Hello X!”</p>
 
 <div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
-        <span class="c1">//Write your code here</span>
-    <span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
-
-<p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., "Hello" and "World" returns "HelloWorld"</p>
+<p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., “Hello” and “World” returns “HelloWorld”</p>
 
 <div class="highlight"><pre><code class="java"><span class="c1">//Two.java </span>
 <span class="c1">//Item # 2 Java Programming Workbook</span>
 
 <span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">bang</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
-        <span class="c1">//Write your code here</span>
-    <span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">bang</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
+<p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns “Hello World” with a space in between.</p>
 
-<p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns "Hello World" with a space in between.</p>
+<p><strong>Problem 2.2</strong> Make some modifications to Two.java such that it returns </p>
 
-<p><strong>Problem 2.2</strong> Make some modifications to Two.java such that it returns</p>
+<p>“Hello
+Java”</p>
 
-<p>"Hello
-Java"</p>
+<p>Insert a CRLF (Carriage Return Linefeed) after the String “Hello”</p>
 
-<p>Insert a CRLF (Carriage Return Linefeed) after the String "Hello"</p>
+<p><strong>Problem 2.3</strong> Still following the principle of item 2 above, given two strings, a and b, return the result of putting them together in the order abba, e.g. “Hi” and “Bye” returns “HiByeByeHi”. </p>
 
-<p><strong>Problem 2.3</strong> Still following the principle of item 2 above, given two strings, a and b, return the result of putting them together in the order abba, e.g. "Hi" and "Bye" returns "HiByeByeHi".</p>
+<p>bang(“Hi”, “Bye”) -&gt; “HiByeByeHi”</p>
 
-<p>bang("Hi", "Bye") -> "HiByeByeHi"</p>
+<p>bang(“Yo”, “Alice”) -&gt; “YoAliceAliceYo”</p>
 
-<p>bang("Yo", "Alice") -> "YoAliceAliceYo"</p>
-
-<p>bang("x", "y") -> "xyyx"</p>
+<p>bang(“x”, “y”) -&gt; “xyyx”</p>
 
 <p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
 
@@ -645,42 +646,41 @@ Java"</p>
 
 <span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">printmult</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
-        <span class="c1">//write your code here </span>
-    <span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">printmult</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
+		<span class="c1">//write your code here	</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
-
 <p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
 
-<p><strong>Problem 4.</strong> Find the GCD (greatest common factor) of 15 and 12 using Euclid's algorithm. You need to research this one. There is no need to provide a skeleton code because you can write the entire solution inside <em>public static void main()</em></p>
+<p><strong>Problem 4.</strong> Find the GCD (greatest common factor) of 15 and 12 using Euclid’s algorithm. You need to research this one. There is no need to provide a skeleton code because you can write the entire solution inside <em>public static void main()</em></p>
 
 <p><strong>Problem 4.1</strong>  Do this program in GUI using javax.swing. Use TextFields to input the number. Use a button to start the calculation. Use the JDialog to output the result</p>
 
-<p><strong>Problem 5.</strong> Consider a string, return a string where for every letter in the original, the letter will be printed twice</p>
+<p><strong>Problem 5.</strong> Consider a string, return a string where for every letter in the original, the letter will be printed twice </p>
 
-<p>twice("The") -> "TThhee"</p>
+<p>twice(“The”) -&gt; “TThhee”</p>
 
-<p>twice("AAbb") -> "AAAAbbbb"</p>
+<p>twice(“AAbb”) -&gt; “AAAAbbbb”</p>
 
-<p>twice("Hi-There") -> "HHii--TThheerree"</p>
+<p>twice(“Hi-There”) -&gt; “HHii–TThheerree”</p>
 
-<p><strong>Problem 6.</strong> Create a function that will take a String and prints out the String in reverse. e.g. "Hello" --> outputs "olleH"</p>
+<p><strong>Problem 6.</strong> Create a function that will take a String and prints out the String in reverse. e.g. “Hello” –&gt; outputs “olleH”</p>
 
-<p><strong>Problem 6.1.</strong> Now, check to see if the String is a palindrome. A palindrome is a word(s) which is spelled exactly the same whether read backwards or forward. If it is palindome, output should be e.g. "madamimadam is a palindrome"</p>
+<p><strong>Problem 6.1.</strong> Now, check to see if the String is a palindrome. A palindrome is a word(s) which is spelled exactly the same whether read backwards or forward. If it is palindome, output should be e.g. “madamimadam is a palindrome” </p>
 
 <p><strong>Problem 6.2</strong> Create this function using javax.swing, create a textfield for the user to input the string and a button. When the button is pressed, run your algorithm. Use the JDialog to output the results</p>
 
-<p><strong>Problem 7.</strong> Write a program that counts from 1..10,000. Process each number. If the number is even, print out if it is even. e.g. "2 is even", "3 is odd"</p>
+<p><strong>Problem 7.</strong> Write a program that counts from 1..10,000. Process each number. If the number is even, print out if it is even. e.g. “2 is even”, “3 is odd”</p>
 
 <p><strong>Problem 7.2</strong> Find the sum of all even numbers below 5,000, print it out</p>
 
-<p><strong>Problem 7.3</strong> Revise the program, if the number is a multiple of 3, print out "Crunch", if it is a multiple of 5, print out "Bang". If the number if both a multiple of 3 and 5, print out "!#"</p>
+<p><strong>Problem 7.3</strong> Revise the program, if the number is a multiple of 3, print out “Crunch”, if it is a multiple of 5, print out “Bang”. If the number if both a multiple of 3 and 5, print out “!#”</p>
 
 <p><strong>Problem 7.4</strong> Revise the program, as the program is counting from 1..10,000; check to see if the number is a palindrome, if it is, print it out, if not, ignore it</p>
 
@@ -690,7 +690,7 @@ Java"</p>
 
 <p><strong>Problem 8.</strong> Write a program that will print out the following;</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
 *
 * *
@@ -702,12 +702,11 @@ Java"</p>
 
 </pre>
 
-
 <p>Use either a for loop or a while loop</p>
 
 <p><strong>Problem 9.</strong> Write a program that will print out the following;</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
  1 
  1 1 
@@ -720,35 +719,33 @@ Java"</p>
 
 </pre>
 
-
-<p><strong>Problem 10.</strong> Create a function that takes in two java.util.Date parameters, return the difference in terms of number of days</p>
+<p><strong>Problem 10.</strong> Create a function that takes in two java.util.Date parameters, return the difference in terms of number of days </p>
 
 <p><strong>Problem 11.</strong> Create a database driven GUI application (todo list) that keeps the following data points;</p>
 
 <ul>
-<li>todo item (string)</li>
-<li>date created (date)</li>
-<li>status (string)</li>
+  <li>todo item (string)</li>
+  <li>date created (date)</li>
+  <li>status (string) </li>
 </ul>
-
 
 <p>The application should also be able to display the list of all todo items in a separate window.</p>
 
-<h2>Part 2. Self check questions</h2>
+<h2 id="part-2-self-check-questions">Part 2. Self check questions</h2>
 
 <p><strong>Question 1)</strong></p>
 
 <p>Which of the following lines will compile without warning or error.</p>
 
-<p>1) float f=1.3;</p>
+<p>1) float f=1.3; </p>
 
-<p>2) char c="a";</p>
+<p>2) char c=”a”; </p>
 
-<p>3) byte b=257;</p>
+<p>3) byte b=257; </p>
 
-<p>4) boolean b=null;</p>
+<p>4) boolean b=null; </p>
 
-<p>5) int i=10;</p>
+<p>5) int i=10; </p>
 
 <p><strong>Question 2)</strong></p>
 
@@ -756,23 +753,21 @@ Java"</p>
 
 <div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
-    <span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+	<span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
     <span class="o">}</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">amethod</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
-
 <ol>
-<li>error Can't make static reference to void amethod.</li>
-<li>error method main not correct</li>
-<li>error array must include parameter</li>
-<li>amethod must be declared with String</li>
+  <li>error Can’t make static reference to void amethod. </li>
+  <li>error method main not correct </li>
+  <li>error array must include parameter </li>
+  <li>amethod must be declared with String</li>
 </ol>
-
 
 <p><strong>Question 3)</strong></p>
 
@@ -799,23 +794,21 @@ class MyClass{}</p>
 <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span>
 </code></pre></div>
 
-
 <p><strong>Question 4)</strong></p>
 
 <p>Which of the following are keywords or reserved words in Java?</p>
 
 <ol>
-<li>if</li>
-<li>then</li>
-<li>goto</li>
-<li>while</li>
-<li>case</li>
+  <li>if </li>
+  <li>then </li>
+  <li>goto </li>
+  <li>while </li>
+  <li>case</li>
 </ol>
-
 
 <p><strong>Question 5)</strong></p>
 
-<p>What will happen when you compile and run the following code?</p>
+<p>What will happen when you compile and run the following code? </p>
 
 <div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
  <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
@@ -825,14 +818,12 @@ class MyClass{}</p>
 <span class="o">}</span>
 </code></pre></div>
 
-
 <ol>
-<li>Error Variable i may not have been initialized</li>
-<li>null</li>
-<li>1</li>
-<li>0</li>
+  <li>Error Variable i may not have been initialized </li>
+  <li>null </li>
+  <li>1 </li>
+  <li>0</li>
 </ol>
-
 
 <p><strong>Question 6.</strong></p>
 
@@ -848,7 +839,7 @@ class MyClass{}</p>
 
 <p><strong>Question 9.</strong></p>
 
-<p>What is the difference betwen abstract class and interface</p>
+<p>What is the difference betwen abstract class and interface </p>
 
 <p><strong>Question 10.</strong></p>
 

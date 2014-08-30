@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -586,9 +589,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>    
-    <span class="nt">&lt;script&gt;</span>
-    
+<span class="nt">&lt;head&gt;</span>	
+	<span class="nt">&lt;script&gt;</span>
+	
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -619,7 +622,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
   <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
+	<span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 
 <span class="nt">&lt;body&gt;</span>
@@ -630,18 +633,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
+<p>This code sample basically moves the box object along the <em>y-axis</em>. Notice that prior to the <em>clear-update-redraw</em> operation, the bounds of the box is checked against the height of the canvas. If the box’s current <em>y-location</em> plus the height of the box is less than the value of the canvas’ height, the animation continues, if not, then no action is taken. This gives the appearance that the box stops at the bottom of the canvas.</p>
 
-<p>This code sample basically moves the box object along the <em>y-axis</em>. Notice that prior to the <em>clear-update-redraw</em> operation, the bounds of the box is checked against the height of the canvas. If the box's current <em>y-location</em> plus the height of the box is less than the value of the canvas' height, the animation continues, if not, then no action is taken. This gives the appearance that the box stops at the bottom of the canvas.</p>
-
-<h2>Refactor</h2>
+<h2 id="refactor">Refactor</h2>
 
 <p>You could make the codes a bit more modular if you move the programming logic of the collission detection away from the drawing logic.</p>
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>    
-    <span class="nt">&lt;script&gt;</span>
-    
+<span class="nt">&lt;head&gt;</span>	
+	<span class="nt">&lt;script&gt;</span>
+	
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -681,7 +683,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
   <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
+	<span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 
 <span class="nt">&lt;body&gt;</span>
@@ -691,8 +693,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
+<p>The function <strong>isInCollission()</strong> takes a parameter (a box parameter) and checks if either the bottom or the right side of the box is in contact with either the right boundary or the floor of the canvas — of course you make it more robust by including codes that checks for collission on ceiling or the left side of the canvas, but that is left to you as an exercise.</p>
 
-<p>The function <strong>isInCollission()</strong> takes a parameter (a box parameter) and checks if either the bottom or the right side of the box is in contact with either the right boundary or the floor of the canvas &mdash; of course you make it more robust by including codes that checks for collission on ceiling or the left side of the canvas, but that is left to you as an exercise.</p>
 
         </div>
 							

@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -580,81 +583,76 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h1>Preparation and setup</h1>
+		    <h1 id="preparation-and-setup">Preparation and setup</h1>
 
 <ol>
-<li>You need a Mac. You can get by using Linux or even Windows at first because you can get gcc running on it. I don't think though that you are simply trying to learn objective c for the fun of it---face it, you want to go to IOS or Cocoa programming; and for that, you need to get a Mac hardware</li>
-<li>Get Xcode setup. In OSX Lion (and Mountain Lion), Xcode is available as download from the App Store (it's free). It's a hefty download so prepare to wait for a bit</li>
-<li>Once the download is over, open Xcode and go to <em>Preferences</em>, go to <em>Downloads</em> section. Click <em>Install</em> button next to the <strong>Command line</strong> tools. Yes you can use the Xcode GUI to create Objective C CLI apps, but try to learn the CLI way of compiling Objective C codes---this will pay off later; How? It forces your brain to work harder when you are doing things harder---which is what you need when you are learning an unfamiliar language for the first time</li>
+  <li>You need a Mac. You can get by using Linux or even Windows at first because you can get gcc running on it. I don’t think though that you are simply trying to learn objective c for the fun of it—face it, you want to go to IOS or Cocoa programming; and for that, you need to get a Mac hardware</li>
+  <li>Get Xcode setup. In OSX Lion (and Mountain Lion), Xcode is available as download from the App Store (it’s free). It’s a hefty download so prepare to wait for a bit</li>
+  <li>Once the download is over, open Xcode and go to <em>Preferences</em>, go to <em>Downloads</em> section. Click <em>Install</em> button next to the <strong>Command line</strong> tools. Yes you can use the Xcode GUI to create Objective C CLI apps, but try to learn the CLI way of compiling Objective C codes—this will pay off later; How? It forces your brain to work harder when you are doing things harder—which is what you need when you are learning an unfamiliar language for the first time</li>
 </ol>
 
+<h1 id="baby-steps">Baby steps</h1>
 
-<h1>Baby steps</h1>
+<p>Learn how to write the simplest code in Objective. The purpose of this exercise is not to gobble up a lot of chunks of Objective C, in fact, you won’t do anything remotely object oriented. The point of the exercise is to write the simplest code, compile and run it. Objective C is, after all, still C—so in the tradition of K &amp; R’s <em>The C Programming language</em>, we will do the <strong>Hello World</strong> example.</p>
 
-<p>Learn how to write the simplest code in Objective. The purpose of this exercise is not to gobble up a lot of chunks of Objective C, in fact, you won't do anything remotely object oriented. The point of the exercise is to write the simplest code, compile and run it. Objective C is, after all, still C---so in the tradition of K &amp; R's <em>The C Programming language</em>, we will do the <strong>Hello World</strong> example.</p>
-
-<p>Create a file named <em>Hello.m</em>---why <em>.m</em> extension, because the convention for file name extensions is:</p>
+<p>Create a file named <em>Hello.m</em>—why <em>.m</em> extension, because the convention for file name extensions is:</p>
 
 <ul>
-<li><em>.c</em> - C language source file</li>
-<li><em>.cc, .cpp</em> -  C++ language source file</li>
-<li><em>.h</em> - Header file</li>
-<li><em>.m</em> - Objective-C source file</li>
-<li><em>.mm</em> - Objective-C++ source file</li>
-<li><em>.pl</em> - Perl source file</li>
-<li><em>.o</em> - Object (compiled) file</li>
+  <li><em>.c</em> - C language source file</li>
+  <li><em>.cc, .cpp</em> -  C++ language source file</li>
+  <li><em>.h</em> - Header file</li>
+  <li><em>.m</em> - Objective-C source file</li>
+  <li><em>.mm</em> - Objective-C++ source file</li>
+  <li><em>.pl</em> - Perl source file</li>
+  <li><em>.o</em> - Object (compiled) file</li>
 </ul>
 
-
-<p>It actually doesn't much matter if you wanted to use any extension you want, the compiler will happily compile it for you. However, it sure is easier to tell what kind of code a file contains if you just follow the convention---easier for others to read your code and easier for you (when you are looking at your code months after you first created it)</p>
+<p>It actually doesn’t much matter if you wanted to use any extension you want, the compiler will happily compile it for you. However, it sure is easier to tell what kind of code a file contains if you just follow the convention—easier for others to read your code and easier for you (when you are looking at your code months after you first created it)</p>
 
 <p>Type the contents of the following code</p>
 
 <div class="highlight"><pre><code class="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    
-    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="n">NSLog</span> <span class="p">(</span><span class="err">@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    
-    <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	<span class="n">NSLog</span> <span class="p">(</span><span class="err">@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+	
+	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Compiling this code requires the <em>gcc</em> toolchain. If you already have set it up using XCode, you can compile the code on the terminal using <code class="codeblock">$ gcc -framework Foundation Hello.m -o Hello</code></p>
 
 <p>Never mind the <em>-framework Foundation</em> directive for now, you will have plenty of time to explore it later. Just mind the <em>-o</em> (that is a minus sign and a small letter oh), it means that you would like the output of the compilation to be named <em>Hello</em>. You could have gotten by compiling it with <code class="codeblock">$ gcc -framework Foundation Hello.m</code></p>
 
-<p>That would have been fine, but the <em>Hello.m</em> source file will be compiled into a file named <em>a.out</em>---this is the default output if you did not use the <em>-o</em> flag; by the way, this flag means <strong>output to</strong></p>
+<p>That would have been fine, but the <em>Hello.m</em> source file will be compiled into a file named <em>a.out</em>—this is the default output if you did not use the <em>-o</em> flag; by the way, this flag means <strong>output to</strong></p>
 
 <p>Run the code</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
-    $ Hello
-    2012-07-26 23:19:58.900 Hello[2103:707] Hello World
+	$ Hello
+	2012-07-26 23:19:58.900 Hello[2103:707] Hello World
 
 </pre>
 
-
-<p>That's it. That's the workflow.</p>
+<p>That’s it. That’s the workflow. </p>
 
 <ol>
-<li>Write the code, give it proper extension</li>
-<li>Compile it using gcc (with the proper -framework flag)</li>
-<li>Run the code</li>
+  <li>Write the code, give it proper extension</li>
+  <li>Compile it using gcc (with the proper -framework flag)</li>
+  <li>Run the code</li>
 </ol>
 
+<p>Provided you did not misspell anything while you are typing, you should not encounter any errors at this point. The compiler will happily die silently after invoking <em>gcc</em> if everything is in order, if not, it will scream and spit out really cryptic error messages. </p>
 
-<p>Provided you did not misspell anything while you are typing, you should not encounter any errors at this point. The compiler will happily die silently after invoking <em>gcc</em> if everything is in order, if not, it will scream and spit out really cryptic error messages.</p>
-
-<h1>References</h1>
+<h1 id="references">References</h1>
 
 <ol>
-<li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html">Apple Developer</a></li>
-<li>Programming in Objective C, Stephen G. Kochan</li>
+  <li><a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html">Apple Developer</a></li>
+  <li>Programming in Objective C, Stephen G. Kochan</li>
 </ol>
 
 

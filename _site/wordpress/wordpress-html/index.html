@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,7 +585,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>I'm hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it &mdash; at least what it looks like and what it is used for. That will spare us the dry details of description.</p>
+		    <p>I’m hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it — at least what it looks like and what it is used for. That will spare us the dry details of description.</p>
 
 <p>While we can dodge the academic description of the markup language, a passing appreciation of the language will not do. Not if you are a developer. You will need to know more. Just a bit more.</p>
 
@@ -594,13 +597,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>HTML is a modern way of marking up documents. It was first thought of by Tim Berners Lee during his stay at CERN. The history of HTML, while an interesting read is simply not part of the scope of this document so I will refer you to the trusty Wikipedia page for <a href="http://en.wikipedia.org/wiki/HTML">HTML history</a> for an extended reading session about the origins and evolution of HTML. For our purpose, I would like to address the technical aspects of it and how it will help us build Wordpress apps.</p>
 
-<h2>Getting Started</h2>
+<h2 id="getting-started">Getting Started</h2>
 
-<p>I need you to remember the folder where you installed WAMP. If you followed the instruction during the setup chapter, that folder would be in <em>C:\Users\yourname\wamp</em>. Go to that folder. You will find another folder called <em>www</em> inside it. Go to the www folder.</p>
+<p>I need you to remember the folder where you installed WAMP. If you followed the instruction during the setup chapter, that folder would be in <em>C:\Users\yourname\wamp</em>. Go to that folder. You will find another folder called <em>www</em> inside it. Go to the www folder. </p>
 
-<p>Create a folder inside <em>www</em>, name it <em>practice</em>. This is where we will store all our practice files.</p>
+<p>Create a folder inside <em>www</em>, name it <em>practice</em>. This is where we will store all our practice files. </p>
 
-<p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window's context menu, then choose a program editor to open the html file. Edit it and write the following</p>
+<p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window’s context menu, then choose a program editor to open the html file. Edit it and write the following</p>
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -610,21 +613,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
+<div id="lst">first.html</div>
 
-
-
-<div id='lst'>first.html</div>
-
-
-<p>Don't worry about the contents for now. They will be discussed soon enough. We are simply making sure that our tools are working properly.</p>
+<p>Don’t worry about the contents for now. They will be discussed soon enough. We are simply making sure that our tools are working properly. </p>
 
 <p>Double click first.html. Your browser would have launched. You have just created your first HTML document.</p>
 
-<h2>Structure and Composition</h2>
+<h2 id="structure-and-composition">Structure and Composition</h2>
 
-<p>Words inside angle brackets &mdash; <em>&lt; like this &gt;</em>  &mdash; are instructions. They are part of the HTML language. They have special meaning to the browser. When the browser reads a pair of angle brackets, it will carry out an instruction. So things inside these brackets are what might you might call special words. Although developers refer to them as <em>tags</em> or <em>elements</em>. You better get used to calling them that as well.</p>
+<p>Words inside angle brackets — <em>&lt; like this &gt;</em>  — are instructions. They are part of the HTML language. They have special meaning to the browser. When the browser reads a pair of angle brackets, it will carry out an instruction. So things inside these brackets are what might you might call special words. Although developers refer to them as <em>tags</em> or <em>elements</em>. You better get used to calling them that as well.</p>
 
-<p>You might have noticed that the instructions come in pairs. They don't always do &mdash; like in the case of the &lt; !doctype &gt;. But most of the time instructions come in pairs.</p>
+<p>You might have noticed that the instructions come in pairs. They don’t always do — like in the case of the &lt; !doctype &gt;. But most of the time instructions come in pairs.</p>
 
 <p>Don’t worry about the doctype yet, we won’t get into that right now because its gory details will lead us into the rabbit hole of XML and SGML — don’t worry about those two either. They are not important to you for now. The doctype is basically a declaration of what kind of document the file is. In this case, it says HTML.</p>
 
@@ -638,11 +637,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-
-
-
-<div id='lst'>basic structure</div>
-
+<div id="lst">basic structure</div>
 
 <p>Whatever it is that you will write inside an HTML doc has to be inside the paired html tags. It doesn’t make sense to put anything outside of them except DOCTYPE.</p>
 
@@ -661,23 +656,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-
-
-
-<div id='lst'>HTML doc structure</div>
-
+<div id="lst">HTML doc structure</div>
 
 <p>An HTML doc will have two major parts. The HEAD and the BODY.
 The BODY part contains most of the things you see on a web page. It has the meat and potatoes of the web content. This is where your headings, footers, videos, paragraph content and others.</p>
 
 <p>The HEAD part is not entirely visible to the visible. With the exception of title tag, nothing inside the head part can be seen on a web page. The HEAD contains structure and meta information about the page while the BODY has the content.</p>
 
-<p><img src="/img/wordpress/html-head-body.png" alt="HTML head and body" /></p>
+<p><img src="/img/wordpress/html-head-body.png" alt="HTML head and body" />
+&lt;div id='lst'&gt;head and body part&lt;/div&gt;</p>
 
-<div id='lst'>head and body part</div>
+<p>If you edited our <em>first.html</em> practice file and followed along, you can try viewing the result of the edited document so you can see the results in your browser. </p>
 
-
-<p>If you edited our <em>first.html</em> practice file and followed along, you can try viewing the result of the edited document so you can see the results in your browser.</p>
 
         </div>
 							
@@ -685,7 +675,6 @@ The BODY part contains most of the things you see on a web page. It has the meat
       
 		</article>
     <div class="promo">
-      <h1>WordPress : Table of Contents</h1>
     </div>
     <div class="toc">
       <ul>
@@ -721,7 +710,7 @@ The BODY part contains most of the things you see on a web page. It has the meat
 <div style="text-align:center;">
   <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
 </div>
->/footer>
+</footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

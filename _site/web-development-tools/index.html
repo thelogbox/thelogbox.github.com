@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -580,9 +583,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h1>HAML FOR TEMPLATING</h1>
+		    <h1 id="haml-for-templating">HAML FOR TEMPLATING</h1>
 
-<p>Can be used stand alone or integrated into frameworks like Sinatra, Rails etc. It can be downloaded form the Haml Site or simply via rubygem---gem install haml. If you use it stand alone, it is an HTML generator, if you use within a framework, it can be a filter or a template</p>
+<p>Can be used stand alone or integrated into frameworks like Sinatra, Rails etc. It can be downloaded form the Haml Site or simply via rubygem—gem install haml. If you use it stand alone, it is an HTML generator, if you use within a framework, it can be a filter or a template </p>
 
 <pre class="codeblock">
 
@@ -592,37 +595,36 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 -# a minus sign followed by hash char is also another way
 -# comment. This kind of haml comemnt, this won't be emitted to html
 
-!!!5  / <!DOCTYPE html>
+!!!5  / &lt;!DOCTYPE html&gt;
 %html
   %head
 
     %title First haml
-    %link{:rel => "stylesheet", :href=>"stylesheet.css"}
-    %script{:src => "one.js"}
+    %link{:rel =&gt; "stylesheet", :href=&gt;"stylesheet.css"}
+    %script{:src =&gt; "one.js"}
     
   %body
         
-    %div{:id=>"canvas"} / this a way to define a div
+    %div{:id=&gt;"canvas"} / this a way to define a div
 
     #hello Hi there / shorter way to define a div with id
     .content Output a div with class attribute
 
-    %a{:href => "http://haml.info/docs/yardoc/file.REFERENCE.html"} Haml Site - Reference
+    %a{:href =&gt; "http://haml.info/docs/yardoc/file.REFERENCE.html"} Haml Site - Reference
 
-    %something-else{:class => "define-this-in-css"} Inside something else
+    %something-else{:class =&gt; "define-this-in-css"} Inside something else
 
 </pre>
-
 
 <p><strong>$ haml first.html</strong> emits the resulting HTML file into stdout (screen).</p>
 
 <p><strong>$ haml first.haml first.html</strong> emits the output to <em>first.html</em>. The syntax reference can be found at <a href="http://haml.info/docs/yardoc/file.REFERENCE.html">Haml Ref Site</a>. Haml syntax is sensitive to indentation, so be careful, a really good editor will be very helpful here.</p>
 
-<h1>2. SaSS (Syntactically Awesome Style Sheets)</h1>
+<h1 id="sass-syntactically-awesome-style-sheets">2. SaSS (Syntactically Awesome Style Sheets)</h1>
 
-<h1>SASS (SYNTACTICALLY AWESOME STYLE SHEETS)</h1>
+<h1 id="sass-syntactically-awesome-style-sheets-1">SASS (SYNTACTICALLY AWESOME STYLE SHEETS)</h1>
 
-<p>Install using ruby gems &mdash; <code class="codeblock">gem install sass</code></p>
+<p>Install using ruby gems — <code class="codeblock">gem install sass</code></p>
 
 <div class="highlight"><pre><code class="css"><span class="nf">#main</span> <span class="p">{</span>
   <span class="k">width</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
@@ -635,7 +637,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="err">}</span>
 <span class="err">}</span>
 </code></pre></div>
-
 
 <p>When processed using the <strong>saas</strong> command, it will emit the following;</p>
 
@@ -650,20 +651,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
 </code></pre></div>
 
-
-<p>The <strong>saas</strong> command line tool has a <strong>--watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
+<p>The <strong>saas</strong> command line tool has a <strong>–watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
 
 <p>SAAS is a superset of CSS3, the extra syntax are syntactic sugar to enable cleaner nestings, provide modular approach to CSS source file management using @import, string interpolations, mixins (for inheritance), use of variables inside the CSS etc. Head over to <a href="http://sass-lang.com/tutorial.html">SasS lang site tutorial</a> for more info.</p>
 
-<h1>WEB SERVER</h1>
+<h1 id="web-server">WEB SERVER</h1>
 
 <p>For quick and dirty serving up of static files without server-side processing, here are my favorites</p>
 
-<h3>PYTHON</h3>
+<h3 id="python">PYTHON</h3>
 
 <p>invoke <em>python -m SimpleHTTPServer</em> on any directory or folder, the contents of the folder will be served up on <strong>http://localhost:8000</strong></p>
 
-<h3>NODE</h3>
+<h3 id="node">NODE</h3>
 
 <p>Get a terminal window,</p>
 
@@ -675,20 +675,19 @@ $ http-server
 
 </pre>
 
-
 <p>This will serve the contents of the dir to http://localhost:8080</p>
 
-<h3>PHP STANDALONE SERVER</h3>
+<h3 id="php-standalone-server">PHP STANDALONE SERVER</h3>
 
-<p>Since PHP 5.4, you can use the stand alone server. There is no need for Apache anymore &mdash; provided that you have installed PHP CLI as well.</p>
+<p>Since PHP 5.4, you can use the stand alone server. There is no need for Apache anymore — provided that you have installed PHP CLI as well.</p>
 
 <p>From a terminal window type <code class="codeblock">php -S localhost:8080</code>. It will start serving the files of the current directory.</p>
 
-<h1>QUICK RESTFUL ENDPOINTS</h1>
+<h1 id="quick-restful-endpoints">QUICK RESTFUL ENDPOINTS</h1>
 
-<h3>SINATRA</h3>
+<h3 id="sinatra">SINATRA</h3>
 
-<p>Sinatra a small ruby DSL (Domain Specific Language), it's often referred to as a microframework. There are other microframeworks e.g. <a href="http://www.sparkjava.com/">Spark (Java)</a>, <a href="http://flask.pocoo.org/">Flask (Python)</a>, <a href="http://www.cherrypy.org/">CherryPy (Python)</a>, Limonade (PHP), <a href="http://www.slimframework.com/">Slim (PHP)</a> and many others.</p>
+<p>Sinatra a small ruby DSL (Domain Specific Language), it’s often referred to as a microframework. There are other microframeworks e.g. <a href="http://www.sparkjava.com/">Spark (Java)</a>, <a href="http://flask.pocoo.org/">Flask (Python)</a>, <a href="http://www.cherrypy.org/">CherryPy (Python)</a>, Limonade (PHP), <a href="http://www.slimframework.com/">Slim (PHP)</a> and many others.</p>
 
 <p>You need <strong>ruby &amp; rubygems</strong> before you can install sinatra. Install instructions for Ruby are on the ruby site</p>
 
@@ -702,8 +701,7 @@ $ gem install thin
 
 </pre>
 
-
-<p>You actually don't need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
+<p>You actually don’t need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
 
 <div class="highlight"><pre><code class="ruby"><span class="c1"># quick (but not dirty) and simple</span>
 <span class="c1"># restful web endpoint</span>
@@ -725,14 +723,13 @@ $ gem install thin
 <span class="k">end</span>
 </code></pre></div>
 
+<p><em>http://localhost:4567</em> displays “return something”; <em>http://localhost:4567/somethingelse</em> displays “return something else” in the browser.</p>
 
-<p><em>http://localhost:4567</em> displays "return something"; <em>http://localhost:4567/somethingelse</em> displays "return something else" in the browser.</p>
+<p>Each get in the sinatra source file is a method call, a route actually. You don’t have to write literal ruby strings, it can be function calls, expressions etc, as long as it resolves to a string. This is handy when (quickly) mocking up server end points for AJAX clients. There are some <a href="/sinatra/">Sinatra notes here</a>.</p>
 
-<p>Each get in the sinatra source file is a method call, a route actually. You don't have to write literal ruby strings, it can be function calls, expressions etc, as long as it resolves to a string. This is handy when (quickly) mocking up server end points for AJAX clients. There are some <a href="/sinatra/">Sinatra notes here</a>.</p>
+<h3 id="node-1">NODE</h3>
 
-<h3>NODE</h3>
-
-<p>Node is JavaScript on the server side. You need to understand JavaScript core language (pretty well, cut and paste JavaScript experience won't cut it here).</p>
+<p>Node is JavaScript on the server side. You need to understand JavaScript core language (pretty well, cut and paste JavaScript experience won’t cut it here).</p>
 
 <p>The <a href="http://nodejs.org/">NodeJS site</a> has the install instructions, head over there to download, install npm too (Node Package Manager). It can also be instlled via brew on OSX (brew install node)</p>
 
@@ -748,8 +745,7 @@ $ gem install thin
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:1337/&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
-<p>Run the code using <code class="codeblock">node server.js</code>. Get a browser and open <em>http://localhost:1337</em>. You can already use this to mock REST endpoints, just replace the string inside res.end('Hello World');</p>
+<p>Run the code using <code class="codeblock">node server.js</code>. Get a browser and open <em>http://localhost:1337</em>. You can already use this to mock REST endpoints, just replace the string inside res.end(‘Hello World’);</p>
 
 <p>A more involved node server code sample is below</p>
 
@@ -759,81 +755,80 @@ $ gem install thin
 <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">pages</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;&#39;</span><span class="o">:</span> <span class="s2">&quot;Landing page&quot;</span><span class="p">,</span>
-    <span class="nx">about</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;Yeah Foo&quot;</span><span class="p">,</span>
-    <span class="nx">goo</span><span class="o">:</span> <span class="s2">&quot;Yeah Goo&quot;</span><span class="p">,</span>
-    <span class="nx">xoo</span><span class="o">:</span> <span class="nx">callxoo</span><span class="p">()</span>
+	<span class="s1">&#39;&#39;</span><span class="o">:</span> <span class="s2">&quot;Landing page&quot;</span><span class="p">,</span>
+	<span class="nx">about</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
+	<span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;Yeah Foo&quot;</span><span class="p">,</span>
+	<span class="nx">goo</span><span class="o">:</span> <span class="s2">&quot;Yeah Goo&quot;</span><span class="p">,</span>
+	<span class="nx">xoo</span><span class="o">:</span> <span class="nx">callxoo</span><span class="p">()</span>
 <span class="p">};</span>
 
 <span class="kd">function</span> <span class="nx">callxoo</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">empname</span><span class="o">:</span> <span class="s2">&quot;Ted Hagos&quot;</span><span class="p">,</span>
-        <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;tedhagos@gmail.com&quot;</span>
-    <span class="p">};</span>
-    <span class="c1">// I cannot return the bare JS object because</span>
-    <span class="c1">// the HTTP object of node will throw an error.</span>
-    <span class="c1">// First type argument must be a string or buffer</span>
-    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">retval</span><span class="p">);</span>
-    
+	<span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">empname</span><span class="o">:</span> <span class="s2">&quot;Ted Hagos&quot;</span><span class="p">,</span>
+		<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;tedhagos@gmail.com&quot;</span>
+	<span class="p">};</span>
+	<span class="c1">// I cannot return the bare JS object because</span>
+	<span class="c1">// the HTTP object of node will throw an error.</span>
+	<span class="c1">// First type argument must be a string or buffer</span>
+	<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">retval</span><span class="p">);</span>
+	
 <span class="p">}</span>
 
 <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
-        
-        <span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nb">decodeURI</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">));</span>
-        <span class="kd">var</span> <span class="nx">thedata</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        
-        <span class="c1">// Check first if we are looking for an HTML file</span>
-        <span class="nx">fs</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
-                <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">woops</span><span class="p">,</span> <span class="nx">filecontent</span><span class="p">){</span>
-                    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">woops</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="c1">//console.log(filecontent);</span>
-                        <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
-                        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">filecontent</span><span class="p">);</span>
-                    <span class="p">}</span>
-                <span class="p">});</span>              
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside the else&quot;</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-                
-        <span class="k">if</span> <span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside pages&quot;</span><span class="p">);</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]);</span>
-        <span class="p">}</span>                        
-    <span class="p">}</span>
+	<span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+		
+		<span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nb">decodeURI</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">));</span>
+		<span class="kd">var</span> <span class="nx">thedata</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		
+		<span class="c1">// Check first if we are looking for an HTML file</span>
+		<span class="nx">fs</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
+				<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">woops</span><span class="p">,</span> <span class="nx">filecontent</span><span class="p">){</span>
+					<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">woops</span><span class="p">)</span> <span class="p">{</span>
+						<span class="c1">//console.log(filecontent);</span>
+						<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+						<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">filecontent</span><span class="p">);</span>
+					<span class="p">}</span>
+				<span class="p">});</span>				
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="p">{</span>
+				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside the else&quot;</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">});</span>
+				
+		<span class="k">if</span> <span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside pages&quot;</span><span class="p">);</span>
+			<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+			<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]);</span>
+		<span class="p">}</span>						
+	<span class="p">}</span>
 <span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
 </code></pre></div>
 
-
-<p>This will listen on <em>locahost:8080</em>, if you want to change the port of the webserver, just replace the port number, it's the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>
+<p>This will listen on <em>locahost:8080</em>, if you want to change the port of the webserver, just replace the port number, it’s the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>
 
 <p>The routes here are inside the pages object literal, replace them with your own RESTful endpoints</p>
 
-<h1>OOP FRAMEWORKS FOR JAVASCRIPT</h1>
+<h1 id="oop-frameworks-for-javascript">OOP FRAMEWORKS FOR JAVASCRIPT</h1>
 
-<p>You can just tough it out, do not pay attention to OO abstractions for HTML5 Canvas, SVG or WebGL programming; just code it on the fly, really up to you, but it can get very hairy (it will, and pretty quickly too).</p>
+<p>You can just tough it out, do not pay attention to OO abstractions for HTML5 Canvas, SVG or WebGL programming; just code it on the fly, really up to you, but it can get very hairy (it will, and pretty quickly too). </p>
 
 <p>A coarse grained abstractions of the animation objects goes a long way. JavaScript is equipped with Prototypal inheritance and Functions are pretty much object factories; You can use them to achieve coarse grained abstractions of the problem domain.</p>
 
 <p>To use a more classical OO approach in JavaScript there are plenty of extensions to the JavaScript language, a <a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">list of things that compile or extend JavaScript is here</a>.</p>
 
-<h1>6. DEBUGGING, TESTING &amp; PROFILING TOOLS</h1>
+<h1 id="debugging-testing--profiling-tools">6. DEBUGGING, TESTING &amp; PROFILING TOOLS</h1>
 
 <p>Developing in JavaScript is painful without debug and watch tools. Webkit browsers (Safari and Chrome) have Developer tools, they can very useful during development. Another tool to use is <a href="http://getfirebug.com/">FireBug</a> of Mozilla FireFox browser.</p>
 
-<p>You've got to do unit-testing, you just got to---this shouldn't be up for debate anymore. Things to use are;</p>
+<p>You’ve got to do unit-testing, you just got to—this shouldn’t be up for debate anymore. Things to use are;</p>
 
 <ol>
-<li><a href="http://pivotal.github.com/jasmine/">Jasmine</a> - A BDD (Behavior Driven Development) test framework</li>
-<li><a href="http://qunitjs.com/">QUnit</a> - Used by JQuery, JQueryUI and JQuery Mobile projects. A unit test framework.</li>
-<li><a href="http://funcunit.com/">FuncUnit</a> - uses JQuery syntax</li>
-<li><a href="http://developer.yahoo.com/yui/yuitest/">YUITest</a> - by Yahoo</li>
+  <li><a href="http://pivotal.github.com/jasmine/">Jasmine</a> - A BDD (Behavior Driven Development) test framework</li>
+  <li><a href="http://qunitjs.com/">QUnit</a> - Used by JQuery, JQueryUI and JQuery Mobile projects. A unit test framework.</li>
+  <li><a href="http://funcunit.com/">FuncUnit</a> - uses JQuery syntax</li>
+  <li><a href="http://developer.yahoo.com/yui/yuitest/">YUITest</a> - by Yahoo</li>
 </ol>
 
 

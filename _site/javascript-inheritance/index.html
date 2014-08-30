@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,28 +585,28 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>You can use JavaScript pretty much in a procedural way. What I mean by that is, without using coarse grained abstractions for interesting objects of your problem domain. But as soon as you find yourself coding way past 300 lines of code (give or take a 100 lines), you might find yourself in a (pretty) mess. The code becomes incresingly complex and increasingly difficult to change or introduce new features. Soon you need to find a way to compartmentalize the mess, you will still deal with the mess, but with OO abstractions, the messes are in bigger boxes. Inheritance is one of the bigger concepts in OO programming, here's one way to do them in JS.</p>
+		    <p>You can use JavaScript pretty much in a procedural way. What I mean by that is, without using coarse grained abstractions for interesting objects of your problem domain. But as soon as you find yourself coding way past 300 lines of code (give or take a 100 lines), you might find yourself in a (pretty) mess. The code becomes incresingly complex and increasingly difficult to change or introduce new features. Soon you need to find a way to compartmentalize the mess, you will still deal with the mess, but with OO abstractions, the messes are in bigger boxes. Inheritance is one of the bigger concepts in OO programming, here’s one way to do them in JS.</p>
 
 <div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">Person</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">work</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;Person working&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;should not be implemented here&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">work</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;Person working&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;should not be implemented here&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 
 <span class="n">var</span> <span class="n">Manager</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;am managing&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">managing</span> <span class="o">=</span> <span class="n">function</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;am managing&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 <span class="o">}</span>
 
 <span class="n">Manager</span><span class="o">.</span><span class="na">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">;</span>
 
 <span class="n">var</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Manager</span><span class="o">();</span>
-<span class="n">m</span><span class="o">.</span><span class="na">work</span><span class="o">();</span>      <span class="c1">// Person working</span>
-<span class="n">m</span><span class="o">.</span><span class="na">managing</span><span class="o">();</span>  <span class="c1">// am managing</span>
+<span class="n">m</span><span class="o">.</span><span class="na">work</span><span class="o">();</span>		<span class="c1">// Person working</span>
+<span class="n">m</span><span class="o">.</span><span class="na">managing</span><span class="o">();</span> 	<span class="c1">// am managing</span>
 
 <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;Keys : &quot;</span> <span class="o">+</span> <span class="n">Object</span><span class="o">.</span><span class="na">keys</span><span class="o">(</span><span class="n">m</span><span class="o">));</span>
 <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;isPrototypeOf manager : &quot;</span> <span class="o">+</span> <span class="n">Person</span><span class="o">.</span><span class="na">prototype</span><span class="o">.</span><span class="na">isPrototypeOf</span><span class="o">(</span><span class="n">m</span><span class="o">));</span> 
@@ -616,12 +619,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;m instanceof Function :&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">m</span> <span class="k">instanceof</span> <span class="n">Function</span><span class="o">));</span> <span class="c1">//false</span>
 </code></pre></div>
 
+<p>JavaScript is an OO language but it is not class-based. There are no templates (classes) you can use to create objects. Objects, in JavaScript are created using other objects; more specifically, they are created using the function object. There is a way to create an object in JS using a literal, but we are not interested in those, we are interested in objects created using constructor functions. </p>
 
-<p>JavaScript is an OO language but it is not class-based. There are no templates (classes) you can use to create objects. Objects, in JavaScript are created using other objects; more specifically, they are created using the function object. There is a way to create an object in JS using a literal, but we are not interested in those, we are interested in objects created using constructor functions.</p>
+<p>When you create a constructor function (like Manager and Person, in the examples above), they will have a property called <em>prototype</em>. A prototype is an object whose properties are shared by all the objects that have that prototype . In the example above, Manager inherits from Person via the code <code class="codeblock">Manager.prototype = new Person</code>. Whatever Person have, Manager will also have.  </p>
 
-<p>When you create a constructor function (like Manager and Person, in the examples above), they will have a property called <em>prototype</em>. A prototype is an object whose properties are shared by all the objects that have that prototype . In the example above, Manager inherits from Person via the code <code class="codeblock">Manager.prototype = new Person</code>. Whatever Person have, Manager will also have.</p>
-
-<p>To override an inherited method, simply redefine (reimplement) the method in inheriting class (the child class), that makes the method polymorphic. When you invoke a method against an object, the method will be searched (first) on the child class, if the method is not found, the search will go up the prototype chain until the method definition is found.</p>
+<p>To override an inherited method, simply redefine (reimplement) the method in inheriting class (the child class), that makes the method polymorphic. When you invoke a method against an object, the method will be searched (first) on the child class, if the method is not found, the search will go up the prototype chain until the method definition is found. </p>
 
         </div>
 							
@@ -629,7 +631,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		</article>
     
     <div class="toc">
-      JavaScript
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>

@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,19 +578,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is <strong>NOT</strong> about that. The code example in this chapter uses the camera at an API level.</p>
+		    <p>Android comes with a Camera application. You can call that from your code with a little help from Android Intents. This section is <strong>NOT</strong> about that. The code example in this chapter uses the camera at an API level. </p>
 
-<p>Here's a rundown of what we need to do to accomplish the task.</p>
+<p>Here’s a rundown of what we need to do to accomplish the task.</p>
 
 <ol>
-<li>import some classes from android.hardware.Camera, specifically the PictureCallback and shutterCallback classes</li>
-<li>Get an instance of the Camera by calling the static <em>open() method</em></li>
-<li>Create a SurfaceView object. A necessary step in the Android camera operation is to call <em>setPreview()</em> method, this method requires a SurfaceView object. A dummy SurfaceView object can be constructed for applications that do not require taking a preview before capturing an image</li>
-<li>Call the <em>takePicture()</em> method. This method requires three parameters, each of them a callback (a callback in Java can be achieved by using anonymous classes. The first parameter is a shutterCallback, you don’t need to do anything here, but this is a good place to start if you want to say, silence the shutter clicking sound. The second parameter is the rawCallback, we will not use this for this example. I really am interested only in capturing JPEGs, hence the only thing to override is the jpgCallback–this is where we extract the actual picture taken by the camera. The <em>onPictureTaken()</em> method contains a byte array data which contains the image file. What is left to do is to serialize this byte array into a stream and save it into the file system</li>
+  <li>import some classes from android.hardware.Camera, specifically the PictureCallback and shutterCallback classes</li>
+  <li>Get an instance of the Camera by calling the static <em>open() method</em></li>
+  <li>Create a SurfaceView object. A necessary step in the Android camera operation is to call <em>setPreview()</em> method, this method requires a SurfaceView object. A dummy SurfaceView object can be constructed for applications that do not require taking a preview before capturing an image</li>
+  <li>Call the <em>takePicture()</em> method. This method requires three parameters, each of them a callback (a callback in Java can be achieved by using anonymous classes. The first parameter is a shutterCallback, you don’t need to do anything here, but this is a good place to start if you want to say, silence the shutter clicking sound. The second parameter is the rawCallback, we will not use this for this example. I really am interested only in capturing JPEGs, hence the only thing to override is the jpgCallback–this is where we extract the actual picture taken by the camera. The <em>onPictureTaken()</em> method contains a byte array data which contains the image file. What is left to do is to serialize this byte array into a stream and save it into the file system</li>
 </ol>
 
-
-<h2>CODE SAMPLE</h2>
+<h2 id="code-sample">CODE SAMPLE</h2>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
@@ -694,21 +696,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
-
-
-
-<div id='lst'>SimpleCamera.java</div>
-
+<div id="lst">SimpleCamera.java</div>
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -722,7 +720,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

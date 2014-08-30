@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -584,42 +587,41 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.</p>
 
-<h2>Issues with iSSH</h2>
+<h2 id="issues-with-issh">Issues with iSSH</h2>
 
-<p>I could not get 256 colors to work. A quick research &mdash; by that I mean quick Googling &mdash; I found some instructions to set the 256 color on the Advanced settings and/or to set the <em>term</em> variable equal to <em>term-256color</em>.  Which I did. But still could not get it to work. The <em>Prompt</em> app though worked out of the box, I did not have to fiddle with anything</p>
+<p>I could not get 256 colors to work. A quick research — by that I mean quick Googling — I found some instructions to set the 256 color on the Advanced settings and/or to set the <em>term</em> variable equal to <em>term-256color</em>.  Which I did. But still could not get it to work. The <em>Prompt</em> app though worked out of the box, I did not have to fiddle with anything</p>
 
-<p>Vim's screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering.</p>
+<p>Vim’s screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering. </p>
 
-<p><img class="shadow" src="/img/issh-1.jpg"></p>
+<p><img class="shadow" src="/img/issh-1.jpg" /></p>
 
 <p>Later, after inspecting my <em>.vimrc</em> on the target machine, I found out that I had a <code class="codeblock">:set columns=100</code>. This was causing the wobbling and the display of weird characters  in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
 
-<p><img class="shadow" src="/img/issh-2.jpg"></p>
+<p><img class="shadow" src="/img/issh-2.jpg" /></p>
 
-<p>The CTRL key doesn't work, I actually still don't know how to make it work. Yes, I have enabled Options Mapping.</p>
+<p>The CTRL key doesn’t work, I actually still don’t know how to make it work. Yes, I have enabled Options Mapping. </p>
 
 <p>This is a deal killer, Vim uses this alot when switching   between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box</p>
 
-<h2>Prompt</h2>
+<h2 id="prompt">Prompt</h2>
 
-<p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don't use the iPad to VNC or to connect via Remote Desktop Connection anyway. I just needed it for SSH</p>
+<p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don’t use the iPad to VNC or to connect via Remote Desktop Connection anyway. I just needed it for SSH</p>
 
 <ol>
-<li>the CTRL keys work out of the box, using a bluetooth keyboard. I could not get it to work on iSSH. Despite trying a lot of acrobatics on the settings &mdash; Yes. I did try enable Options Mapping. No joy!</li>
-<li>Prompt appeared a bit faster too</li>
+  <li>the CTRL keys work out of the box, using a bluetooth keyboard. I could not get it to work on iSSH. Despite trying a lot of acrobatics on the settings — Yes. I did try enable Options Mapping. No joy!</li>
+  <li>Prompt appeared a bit faster too</li>
 </ol>
-
 
 <p>If not for the the CTRL keys not working out of the box on iSSH, it would have been a better fit for my use, because;</p>
 
 <ul>
-<li>The size of the screen can configured via a slider control. This was not available on Prompt. You could choose the size of the font (but not the screen font itself)</li>
-<li>It was more intuitive if you need another SSH session, just press the plus sign (+) on the top portion of the screen</li>
-<li>It had lot more controls than Prompt.</li>
+  <li>The size of the screen can configured via a slider control. This was not available on Prompt. You could choose the size of the font (but not the screen font itself)</li>
+  <li>It was more intuitive if you need another SSH session, just press the plus sign (+) on the top portion of the screen</li>
+  <li>It had lot more controls than Prompt.  </li>
 </ul>
 
-
 <p>I bought the two apps anyway. It seems though, I find my self using the Prompt more than I use iSSH</p>
+
 
         </div>
 							
@@ -627,7 +629,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		</article>
     
     <div class="toc">
-      Mac Notes
     <ul>
       <li><a href="/mac-mini-microphone-hack">Mac Mini Mic Hack</a></li>
       <li><a href="/mac-python-virtual-environment">Python Virtual Environment</a></li>

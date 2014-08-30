@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,73 +585,55 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>PhoneGap development starts with preparing a project folder. Inside this folder, you will find files and sub folders. This project structure is a collection of specific files that PhoneGap needs to do its work. Inside it are build files, library files, the Apache Cordova middle ware and typical web components/files e.g. HTML, JavaScript, CSS and some image assets. It will be difficult and impractical to assemble them by hand that is why PhoneGap includes a CLI (Command Line Interface) with its SDK.</p>
+		    <p>PhoneGap development starts with preparing a project folder. Inside this folder, you will find files and sub folders. This project structure is a collection of specific files that PhoneGap needs to do its work. Inside it are build files, library files, the Apache Cordova middle ware and typical web components/files e.g. HTML, JavaScript, CSS and some image assets. It will be difficult and impractical to assemble them by hand that is why PhoneGap includes a CLI (Command Line Interface) with its SDK. </p>
 
-<p>The PhoneGap CLI (Command Line Interface) has a set of commands that allows you create, build and install mobile app projects. If you have a proper installation of the PhoneGap development environment, you should be able to execute <em>phonegap</em> from the command line. In fact, it's a good idea to test it now before you proceed any further, just to make sure that it really is working.</p>
+<p>The PhoneGap CLI (Command Line Interface) has a set of commands that allows you create, build and install mobile app projects. If you have a proper installation of the PhoneGap development environment, you should be able to execute <em>phonegap</em> from the command line. In fact, it’s a good idea to test it now before you proceed any further, just to make sure that it really is working. </p>
 
-<p>Invoking <em>phonegap</em> from cmd line displays its usage.</p>
+<p>Invoking <em>phonegap</em> from cmd line displays its usage. </p>
 
-<p><img src="/img/phonegap/phonegap-cli.png" alt="The phonegap gap command" /></p>
+<p><img src="/img/phonegap/phonegap-cli.png" alt="The phonegap gap command" />
+&lt;div id='lst'&gt;phonegap command&lt;/div&gt;</p>
 
-<div id='lst'>phonegap command</div>
-
-
-<p>As you can see, there are lots of things we can do with it. We can create, build and install mobile app projects using this command. In this chapter, we will create our first project using the PhoneGap CLI. We won't do anything with it just yet, we simply want to sample the feel of the  workflow and get acquainted with the process of creating, testing and building PhoneGap projects. Before the chapter is done, we would have created, built and tested a sample project in either an iOS simulator or an Android emulator.</p>
+<p>As you can see, there are lots of things we can do with it. We can create, build and install mobile app projects using this command. In this chapter, we will create our first project using the PhoneGap CLI. We won’t do anything with it just yet, we simply want to sample the feel of the  workflow and get acquainted with the process of creating, testing and building PhoneGap projects. Before the chapter is done, we would have created, built and tested a sample project in either an iOS simulator or an Android emulator.</p>
 
 <p>To create a project, get a terminal window (cmd.exe in Windows, Terminal.app in OSX, xterm in Linux)</p>
 
-<p><img src="/img/phonegap/phonegap-create-project-windows.png" alt="Project Creation. Windows" /></p>
-
-<div id='lst'>Project Creation. Windows</div>
-
+<p><img src="/img/phonegap/phonegap-create-project-windows.png" alt="Project Creation. Windows" />
+&lt;div id='lst'&gt;Project Creation. Windows&lt;/div&gt;</p>
 
 <p>If you are using either Linux or OSX, this is the set of command to follow</p>
 
-<p><img src="/img/phonegap/phonegap-create-project-osx.png" alt="Project Creation. OSX" /></p>
-
-<div id='lst'>Project Creation. OSX</div>
-
+<p><img src="/img/phonegap/phonegap-create-project-osx.png" alt="Project Creation. OSX" />
+&lt;div id='lst'&gt;Project Creation. OSX&lt;/div&gt;</p>
 
 <p>The first time you execute the <em>create</em> command, PhoneGap will try to pull some setup files and libraries from the internet, so you need to be connected while you are doing this.</p>
 
 <p>The <em>create</em> command will produce a folder named <strong>first</strong> in the current working directory, that folder contains things that are necessary for you to build a project.</p>
 
-<p><img src="/img/phonegap/phonegap-project-structure.png" alt="PhoneGap Project" /></p>
-
-<div id='lst'>Project Structure</div>
-
+<p><img src="/img/phonegap/phonegap-project-structure.png" alt="PhoneGap Project" />
+&lt;div id='lst'&gt;Project Structure&lt;/div&gt;</p>
 
 <p>You will find a folder called WWW on the root project directory. This WWW folder is where you will add HTML files, JavaScript, CSS and Images which will form part of the mobile application. We will take a look at them shortly.</p>
 
 <p>A this point, We will not introduce any code changes on the project at this point. We will simply compile, build and deploy the project. The default project created a basic HelloWorld app. You can compile and deploy that one right now.</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 $ phonegap build ios
 $ open platforms/ios/HelloWorld.xcodeproj
 </pre>
+<div id="lst"> How To Build in OSX</div>
 
-
-<div id='lst'> How To Build in OSX</div>
-
-
-
-
-<pre class='codeblock'>
+<pre class="codeblock">
 $ phonegap run android
 </pre>
+<div id="lst"> How To Build and Run in Android</div>
 
+<p>I deployed the app quite differently in Android than I did in OSX. I could have used the command <code class="codeblock">$ phonegap run ios</code> just like the process in Android. I did not. The reason is I did not want to use the <em>ios-sim</em> software to view the application in the iOS simulator. I wanted to open the generated ios project and open it using XCode. I also wanted to use XCode to deploy the app in the simulator that came with XCode and not ios-sim. </p>
 
-<div id='lst'> How To Build and Run in Android</div>
+<p><img src="/img/phonegap/generic-phonegap-app.png" class="shadow" />
+&lt;div id='lst'&gt;Firt App&lt;/div&gt;</p>
 
-
-<p>I deployed the app quite differently in Android than I did in OSX. I could have used the command <code class='codeblock'>$ phonegap run ios</code> just like the process in Android. I did not. The reason is I did not want to use the <em>ios-sim</em> software to view the application in the iOS simulator. I wanted to open the generated ios project and open it using XCode. I also wanted to use XCode to deploy the app in the simulator that came with XCode and not ios-sim.</p>
-
-<p><img src='/img/phonegap/generic-phonegap-app.png' class='shadow' /></p>
-
-<div id='lst'>Firt App</div>
-
-
-<h1>MAKING CHANGES TO INDEX.HTML</h1>
+<h1 id="making-changes-to-indexhtml">MAKING CHANGES TO INDEX.HTML</h1>
 
 <p>The WWW folder contains a default index.html. This HTML file was generated by the <em>phonegap create</em> command. This is how it looks like out of the box.</p>
 
@@ -678,8 +663,7 @@ $ phonegap run android
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-
-<p>The code above is what you saw on the welcome screen. You may use it as a baseline for your experimentation. But I think the default html file has lots of things we don't need for now, so we will discard all of it and build a basic HTML file for our experiments.</p>
+<p>The code above is what you saw on the welcome screen. You may use it as a baseline for your experimentation. But I think the default html file has lots of things we don’t need for now, so we will discard all of it and build a basic HTML file for our experiments.</p>
 
 <p>Open index.html using any programming editor of your choice. Replace it with a really basic HTML page.</p>
 
@@ -689,62 +673,50 @@ $ phonegap run android
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
+<p>Because we made changes on the project source file, we need to go through another compilation and another deployment cycle. </p>
 
-<p>Because we made changes on the project source file, we need to go through another compilation and another deployment cycle.</p>
-
-<pre class='codeblock'>
+<pre class="codeblock">
 $ phonegap build ios
 $ open platforms/ios/HelloWorld.xcodeproj
 </pre>
+<div id="lst">OSX</div>
 
-
-<div id='lst'>OSX</div>
-
-
-
-
-<pre class='codeblock'>
+<pre class="codeblock">
 $ phonegap run android
 </pre>
+<div id="lst">Android</div>
 
-
-<div id='lst'>Android</div>
-
-
-<p>You should see you first app after the deployment step.</p>
+<p>You should see you first app after the deployment step. </p>
 
 <p><img src="/img/phonegap/programming-workflow.png" alt="Programming Workflow" /></p>
 
-<p><img src="/img/phonegap/phonegap-empty-project.png" /></p>
+<p><img src="/img/phonegap/phonegap-empty-project.png" />
+&lt;div id='lst'&gt;PhoneGap Project Folder Structure&lt;/div&gt;</p>
 
-<div id='lst'>PhoneGap Project Folder Structure</div>
+<h2 id="difference-from-desktop-app-or-web-app-programming">Difference from Desktop App or Web App Programming</h2>
 
-
-<h2>Difference from Desktop App or Web App Programming</h2>
-
-<h2>Recap</h2>
+<h2 id="recap">Recap</h2>
 
 <p>The basic workflow that you may find your self following is this.</p>
 
 <ol>
-<li>Create a project using the PhoneGap CLI</li>
-<li>Inside the project, make the changes to files inside the <strong>WWW</strong> folder</li>
-<li>Do a build either in Android, iOS or any platform you like</li>
-<li>If you are using Android, you can test and deploy using the PhoneGap CLI &mdash; <code>phonegap run android</code></li>
-<li>If you are on iOS, just build the project using <code>phonegap build ios</code>, then do the testing, simulation and deployment using XCode</li>
+  <li>Create a project using the PhoneGap CLI</li>
+  <li>Inside the project, make the changes to files inside the <strong>WWW</strong> folder</li>
+  <li>Do a build either in Android, iOS or any platform you like</li>
+  <li>If you are using Android, you can test and deploy using the PhoneGap CLI — <code>phonegap run android</code></li>
+  <li>If you are on iOS, just build the project using <code>phonegap build ios</code>, then do the testing, simulation and deployment using XCode</li>
 </ol>
-
 
 <p>Regardless of the platform you are targetting, you will make the code changes in the <strong>WWW</strong> folder of PhoneGap, and the <em>www</em> of either Android, iOS or WP7/8</p>
 
-<h2>VOCABULARY</h2>
+<h2 id="vocabulary">VOCABULARY</h2>
 
 <ol>
-<li>PhoneGap CLI</li>
-<li>XCode</li>
-<li>Android Emulator</li>
-<li>iOS Simulator</li>
-<li>cmd - short for command, so if you see something like <em>cmd line</em>, that means command line, which means do it from a terminal window.</li>
+  <li>PhoneGap CLI</li>
+  <li>XCode</li>
+  <li>Android Emulator</li>
+  <li>iOS Simulator</li>
+  <li>cmd - short for command, so if you see something like <em>cmd line</em>, that means command line, which means do it from a terminal window.</li>
 </ol>
 
 
@@ -754,7 +726,6 @@ $ phonegap run android
 		</article>
     
     <div class="toc">
-      PhoneGap Programming
       <ul>
       <li><a href="/mobile-app-development-phonegap">Introduction</a></li>
       <li><a href="/phonegap-development-environment-ios">iOS Setup</a></li>

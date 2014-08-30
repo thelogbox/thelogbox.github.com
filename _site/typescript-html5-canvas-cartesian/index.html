@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,46 +585,45 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way---each vertex and line is a DOM element, which means they can easily be bound to events such as click or mousedown. Anyway, it still a good coding calesthenics, so canvas it is.</p>
+		    <p>This is an exercise on the HTML5 canvas, so it will use canvas. Admittedly, this would (probably) be a lot simpler if this was done in SVG, because repositioning the vertices and the lines could be handled in a more straightforward way—each vertex and line is a DOM element, which means they can easily be bound to events such as click or mousedown. Anyway, it still a good coding calesthenics, so canvas it is.  </p>
 
-<p>The exercise has lots of parts. The cartesian plane needs to be drawn, a way to remember what has been drawn on canvas is also needed and the canvas needs a little bit of state management (counting the number of clicks)---one click means that we are about to draw a line, two clicks means we have chosen the second vertex and we need to do three things 1) complete the data of the line 2) store the information of the newly created line and then 3) redraw all of the previous lines we have created. It could be an ardous task if we won't try apply some form of abstractions on all of these things---a procedural-ish code might cut it, will cut it, but an OO style programming I think is warranted, even on this trivial exercise.</p>
+<p>The exercise has lots of parts. The cartesian plane needs to be drawn, a way to remember what has been drawn on canvas is also needed and the canvas needs a little bit of state management (counting the number of clicks)—one click means that we are about to draw a line, two clicks means we have chosen the second vertex and we need to do three things 1) complete the data of the line 2) store the information of the newly created line and then 3) redraw all of the previous lines we have created. It could be an ardous task if we won’t try apply some form of abstractions on all of these things—a procedural-ish code might cut it, will cut it, but an OO style programming I think is warranted, even on this trivial exercise. </p>
 
 <p><a href="/typescript-first-notes/">TypeScript</a> came out just recently, even at its early stages, its OO and static type checking could be useful to this exercise, hence, TypeScript it is</p>
 
-<p><img class="shadow" src="/img/cartesian-canvas.png"></p>
+<p><img class="shadow" src="/img/cartesian-canvas.png" /></p>
 
-<h1>How to do it</h1>
+<h1 id="how-to-do-it">How to do it</h1>
 
-<h2>1. Create the HTML part (filename = line-draw.html)</h2>
+<h2 id="create-the-html-part-filename--line-drawhtml">1. Create the HTML part (filename = line-draw.html)</h2>
 
 <div class="highlight"><pre><code class="javascript"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-        
-        
-        <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;</span><span class="err">/title&gt;</span>
-        
-    <span class="o">&lt;</span><span class="err">/head&gt;</span>
-    <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">noscript</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">demo</span> <span class="nx">will</span> <span class="nx">not</span> <span class="nx">work</span> <span class="k">if</span> <span class="nx">JavaScript</span> <span class="nx">is</span> <span class="nx">disabled</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span><span class="p">.</span> 
-        <span class="nx">Please</span> <span class="nx">enable</span> <span class="nx">JavaScript</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span> <span class="nx">then</span> <span class="nx">load</span> <span class="k">this</span> <span class="nx">page</span> <span class="nx">again</span><span class="p">.</span> 
-        <span class="nx">Thanks</span>
-    <span class="o">&lt;</span><span class="err">/noscript&gt;</span>
-    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;MathE.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
-    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;default-canvas&quot;</span><span class="o">&gt;</span>
-    <span class="nx">Your</span> <span class="nx">browser</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">capable</span> <span class="nx">of</span> <span class="nx">displaying</span> <span class="nx">HTML5</span> <span class="nx">canvas</span> <span class="nx">components</span>       
-    <span class="o">&lt;</span><span class="err">/canvas&gt;</span>
-    <span class="o">&lt;</span><span class="err">/body&gt;</span>
+	<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+		
+		
+		<span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;</span><span class="err">/title&gt;</span>
+		
+	<span class="o">&lt;</span><span class="err">/head&gt;</span>
+	<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nx">noscript</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">demo</span> <span class="nx">will</span> <span class="nx">not</span> <span class="nx">work</span> <span class="k">if</span> <span class="nx">JavaScript</span> <span class="nx">is</span> <span class="nx">disabled</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span><span class="p">.</span> 
+		<span class="nx">Please</span> <span class="nx">enable</span> <span class="nx">JavaScript</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span> <span class="nx">then</span> <span class="nx">load</span> <span class="k">this</span> <span class="nx">page</span> <span class="nx">again</span><span class="p">.</span> 
+		<span class="nx">Thanks</span>
+	<span class="o">&lt;</span><span class="err">/noscript&gt;</span>
+	<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;MathE.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+	<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+	<span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;default-canvas&quot;</span><span class="o">&gt;</span>
+	<span class="nx">Your</span> <span class="nx">browser</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">capable</span> <span class="nx">of</span> <span class="nx">displaying</span> <span class="nx">HTML5</span> <span class="nx">canvas</span> <span class="nx">components</span>		
+	<span class="o">&lt;</span><span class="err">/canvas&gt;</span>
+	<span class="o">&lt;</span><span class="err">/body&gt;</span>
 <span class="o">&lt;</span><span class="err">/html&gt;</span>
 </code></pre></div>
 
+<p>The default-canvas html element is not important to the actual code, it is just a quick and dirty way to check if the browser being used does not support the canvas element, you could use Modernizr.JS for a more proper way of checking for HTML5 capability of the browser. The NOSCRIPT tag is also a quick and dirty way of detecting if JavaScript is disabled in the browser—I just don’t see how this can kind of exercise can degrade gracefully if JavaScript is diabled, so its an all or nothing deal; No JavaScript, no demo.</p>
 
-<p>The default-canvas html element is not important to the actual code, it is just a quick and dirty way to check if the browser being used does not support the canvas element, you could use Modernizr.JS for a more proper way of checking for HTML5 capability of the browser. The NOSCRIPT tag is also a quick and dirty way of detecting if JavaScript is disabled in the browser---I just don't see how this can kind of exercise can degrade gracefully if JavaScript is diabled, so its an all or nothing deal; No JavaScript, no demo.</p>
+<h2 id="the-typescript-file">2. The TypeScript file</h2>
 
-<h2>2. The TypeScript file</h2>
-
-<p>Create a TypeScript source file on the same directory as <em>line-draw.html</em>, for the exercise, I named it <em>MathE.ts</em>, this will later emit a file called <em>MathE.js</em> which is the <strong>src</strong> of our script tag on the HTML file</p>
+<p>Create a TypeScript source file on the same directory as <em>line-draw.html</em>, for the exercise, I named it <em>MathE.ts</em>, this will later emit a file called <em>MathE.js</em> which is the <strong>src</strong> of our script tag on the HTML file </p>
 
 <div class="highlight"><pre><code class="javascript"><span class="c1">// filename : MathE.js </span>
 <span class="c1">// An example of using HTML5 canvas to do primitive lines on a cartesian plane.</span>
@@ -996,8 +998,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Paper</span><span class="p">();</span>
 </code></pre></div>
 
+<p>Compile the TypeScript source; <strong>$ tsc -c MathE.ts</strong>. The -c flag is there so that even the comments in the TypeScript source file will be emitted in resulting JavaScript file. </p>
 
-<p>Compile the TypeScript source; <strong>$ tsc -c MathE.ts</strong>. The -c flag is there so that even the comments in the TypeScript source file will be emitted in resulting JavaScript file.</p>
 
         </div>
 							

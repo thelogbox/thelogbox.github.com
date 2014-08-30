@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,17 +585,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Most of the time, you will deal with more than one moving object inside the canvas, they might need to move at different speedss.  You could be tempted to set a different timer (setTimeout) for each box, that will be a mistake. You will mess up the timer of your canvas. The way to approach the problem of moving objects at different speed is to vary the pixel displacement of each individual object, rather than construct a timer for each object.</p>
+		    <p>Most of the time, you will deal with more than one moving object inside the canvas, they might need to move at different speedss.  You could be tempted to set a different timer (setTimeout) for each box, that will be a mistake. You will mess up the timer of your canvas. The way to approach the problem of moving objects at different speed is to vary the pixel displacement of each individual object, rather than construct a timer for each object. </p>
 
 <p>The following example draws two boxes. Each box starts to fall from the top of the canvas, one moves at 5 pixels per refresh and the other moves at 8 pixels per refresh.</p>
 
-<p><a href='http://jsfiddle.net/tedhagos/gEjMD/embedded/result/' class='button'>See the Demo</a></p>
+<p><a href="http://jsfiddle.net/tedhagos/gEjMD/embedded/result/" class="button">See the Demo</a></p>
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>    
-    <span class="nt">&lt;script&gt;</span>
-    
+<span class="nt">&lt;head&gt;</span>	
+	<span class="nt">&lt;script&gt;</span>
+	
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
@@ -626,7 +629,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="nx">speed</span><span class="p">;</span>
   <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
+	<span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 
 <span class="nt">&lt;body&gt;</span>
@@ -636,8 +639,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
-
-
 
 
         </div>

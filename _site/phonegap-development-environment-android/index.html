@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,21 +585,19 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This chapter will walk through the steps to setup an Android development environment. The Android SDK requires that a Java development environment and Apache Ant are installed.</p>
+		    <p>This chapter will walk through the steps to setup an Android development environment. The Android SDK requires that a Java development environment and Apache Ant are installed. </p>
 
-<h2 class='section'>Java Development Kit</h2>
+<h2 class="section">Java Development Kit</h2>
 
-
-<p>Download <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">the JDK</a> from the Oracle site. More than likely it will be a <em>.dmg</em> file. You can install that by simply double clicking.</p>
+<p>Download <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">the JDK</a> from the Oracle site. More than likely it will be a <em>.dmg</em> file. You can install that by simply double clicking.  </p>
 
 <p>The path to Java executables will be taken cared of by the installer. The <em>java compiler</em> and other command line utilities of the JDK will be automatically added to the system path.</p>
 
-<h2 class='section'>Apache Ant</h2>
+<h2 class="section">Apache Ant</h2>
 
+<p>Download the installer from <a href="http://ant.apache.org/">ant.apache.org</a>. Look for the download section. Apache Ant can be downloaded either in source or binary form. We have no use for the source distribution for now. Just download the binary format. At the time of writing, there are three formats for binary distribution — <em>zip, tar.gz</em> and <em>bz2</em>. </p>
 
-<p>Download the installer from <a href="http://ant.apache.org/">ant.apache.org</a>. Look for the download section. Apache Ant can be downloaded either in source or binary form. We have no use for the source distribution for now. Just download the binary format. At the time of writing, there are three formats for binary distribution &mdash; <em>zip, tar.gz</em> and <em>bz2</em>.</p>
-
-<p>After the download is finished, choose directory where you will install <em>ant</em>. For the purpose of this chapter, we will install it in a user directory.</p>
+<p>After the download is finished, choose directory where you will install <em>ant</em>. For the purpose of this chapter, we will install it in a user directory. </p>
 
 <pre class="codeblock">
 $ cd ~/
@@ -606,13 +607,11 @@ $ cp ~/Downloads/apache-ant-1.9.2-bin.zip
 $ unzip apache-ant-1.9.2-bin.zip
 </pre>
 
-
 <p>Your version of ant might not be exactly <em>1.9.2</em>, so substitute accordingly.</p>
 
-<h2 class='section'>Android SDK</h2>
+<h2 class="section">Android SDK</h2>
 
-
-<p>Download the SDK from <a href="http://developer.android.com/sdk/index.html">developer.android.com</a>. The web page might display the <em>ADT</em> bundle more prominently. It's not the ADT we need. Find the link for "Existing IDE"</p>
+<p>Download the SDK from <a href="http://developer.android.com/sdk/index.html">developer.android.com</a>. The web page might display the <em>ADT</em> bundle more prominently. It’s not the ADT we need. Find the link for “Existing IDE” </p>
 
 <p><img src="/img/phonegap/download-android-sdk.png" alt="other IDE" /></p>
 
@@ -624,30 +623,21 @@ $ cp ~/Downloads/android-sdk_r22.3-macosx.zip
 $ unzip android-sdk_r22.3-macosx.zip
 </pre>
 
-
-
-
-<h2 class='section'>Node Package Manager</h2>
-
+<h2 class="section">Node Package Manager</h2>
 
 <p>Node package manager is part of the <strong>NodeJS</strong> installation. Download them from <a href="http://nodejs.org">nodejs.org</a>. The downloaded package will most likely be in <em>pkg</em> format. They can be installed by simply double clicking.</p>
 
-<h2 class='section'>HomeBrew</h2>
+<h2 class="section">HomeBrew</h2>
 
-
-<p>If you have performed the PhoneGap installation for iOS, then you have everything you need to install HomeBrew. Brew is a package management system for OSX, just like MacPorts and Fink. You can find instructions on how to install Brew at their website <a href="http://brew.sh">brew.sh</a>. I've pasted the instruction in this section to save you time. To install Brew now, paste the following code in a terminal window</p>
+<p>If you have performed the PhoneGap installation for iOS, then you have everything you need to install HomeBrew. Brew is a package management system for OSX, just like MacPorts and Fink. You can find instructions on how to install Brew at their website <a href="http://brew.sh">brew.sh</a>. I’ve pasted the instruction in this section to save you time. To install Brew now, paste the following code in a terminal window</p>
 
 <pre class="codeblock">
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 </pre>
 
+<h2 class="section">System Path</h2>
 
-
-
-<h2 class='section'>System Path</h2>
-
-
-<p>Open your startup script for editing. It's located at ~/.bash_profile. Add the following entries</p>
+<p>Open your startup script for editing. It’s located at ~/.bash_profile. Add the following entries</p>
 
 <pre class="codeblock">
 export ANT_HOME=~/progtools/apache-ant-1.9.2
@@ -657,11 +647,9 @@ export PATH=$PATH:$ANDROID_HOME/tools:.
 export PATH=$PATH:$ANT_HOME/bin:.
 </pre>
 
-
 <p>Quit the terminal then re-open it. This gives your startup script a chance to execute. From now on, all these PATH settings are available to you whenever you open a terminal window.</p>
 
-<h2 class='section'>PhoneGap and Cordova Tools</h2>
-
+<h2 class="section">PhoneGap and Cordova Tools</h2>
 
 <p>The last remaining pieces of the setup is to get both the PhoneGap and Cordova command line utilities. If your terminal window is still open, type these</p>
 
@@ -670,25 +658,18 @@ $ sudo npm install -g phonegap
 $ sudo npm install -g cordova
 </pre>
 
-
-
-
-<h2 class='section'>Android Manager</h2>
-
+<h2 class="section">Android Manager</h2>
 
 <p>The Android SDK setup is not yet complete. You will need to download a lot more software and you will do so using the Android SDK Manager. From a terminal window, type <code class="codeblock">android</code></p>
 
-<p><img src="/img/phonegap/android-manager.png" alt="android manager" /></p>
-
-<div id='lst'>Android SDK Manager</div>
-
+<p><img src="/img/phonegap/android-manager.png" alt="android manager" />
+&lt;div id='lst'&gt;Android SDK Manager&lt;/div&gt;</p>
 
 <p>At a minimum you will need to install the SDK tools, platform tools and a couple of API levels. It depends on what platform of Android you are targeting. If you want to develop for Jellybean, get API level 19, 18,17 and 16. Ice Cream Sandwich is API level 15 and Honeycomb is 13. Get the <em>SDK platform</em> and the <em>ARM EABI system image</em> for each API level that you choose. You need the system images for building the <em>android virtual device</em> which you will use for testing later on.</p>
 
 <p>Select that packages that you need and click the <em>Install packages</em> button. That may take a while.</p>
 
-<h2 class='section'>Test the Setup</h2>
-
+<h2 class="section">Test the Setup</h2>
 
 <p>Create a throw away project, then try to compile it using the PhoneGap CLI tools</p>
 
@@ -701,8 +682,8 @@ $ phonegap build android
 $ cd platforms
 </pre>
 
-
 <p>An android project folder should have been created inside the platforms folder. This folder contains the necessary android project structure for testing and deployment.</p>
+
 
         </div>
 							
@@ -710,7 +691,6 @@ $ cd platforms
 		</article>
     
     <div class="toc">
-      PhoneGap Programming
       <ul>
       <li><a href="/mobile-app-development-phonegap">Introduction</a></li>
       <li><a href="/phonegap-development-environment-ios">iOS Setup</a></li>

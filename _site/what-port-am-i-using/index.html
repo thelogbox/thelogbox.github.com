@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -580,24 +583,23 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be <em>Address already in use..</em>, <em>Bind Exception</em>, <em>Port 80 already in use</em> and other things that sounds like those.</p>
+		    <p>After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be <em>Address already in use..</em>, <em>Bind Exception</em>, <em>Port 80 already in use</em> and other things that sounds like those. </p>
 
-<p>Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache's port, you probably don't need to read this guide. You already know what you are doing.</p>
+<p>Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache’s port, you probably don’t need to read this guide. You already know what you are doing.</p>
 
 <p>All the commands we will use will be done on a terminal. You will need to open cmd.exe</p>
 
 <pre class="codeblock">
 
-c:\>netstat -aon | findstr 0.0:80
+c:\&gt;netstat -aon | findstr 0.0:80
 
 </pre>
 
-
 <p>The first part of the command will list all active connections and their ports. The <em>-o</em> flag is important because it will tell you the process IDs of the applications running. The <em>-n</em> flag is to display the port numbers numerically (which is what we need).</p>
 
-<p>The <em>nestat</em> command will list all of the currently running applications, which could be a lot. That is why we need to filter the results to limit the list to only the applications we are interested in. Only those application(s) that is running on port 80.</p>
+<p>The <em>nestat</em> command will list all of the currently running applications, which could be a lot. That is why we need to filter the results to limit the list to only the applications we are interested in. Only those application(s) that is running on port 80. </p>
 
-<p>The next steps is to find the PID (Process ID) of the application currently running on port 80. You won't get the name of the application just yet.</p>
+<p>The next steps is to find the PID (Process ID) of the application currently running on port 80. You won’t get the name of the application just yet.  </p>
 
 <pre class="codeblock">
 
@@ -605,21 +607,18 @@ c:\>netstat -aon | findstr 0.0:80
 
 </pre>
 
+<p>The line above is an example of what you could get after running the netstat command, <strong>560</strong> is the process id of the application currently bound on port 80.  </p>
 
-<p>The line above is an example of what you could get after running the netstat command, <strong>560</strong> is the process id of the application currently bound on port 80.</p>
-
-<p>To find out who is application 560, type the command</p>
+<p>To find out who is application 560, type the command </p>
 
 <pre class="codeblock">
 tasklist | findstr 560
 </pre>
 
-
-<p></p>
-
-<p>After that command, it should give you the name of the application whose ID is <strong>560</strong> which is currently using port 80.</p>
+<p>After that command, it should give you the name of the application whose ID is <strong>560</strong> which is currently using port 80.  </p>
 
 <p>If you need to free up port 80 so that Apache can run, you can kill the Skype application by using the <em>Process Manager</em> (CTRL-ALT-DEL), then find the app and kill it. You can also terminate a process on the command line using <code class="codeblock">taskkill /F /PID 560*</code></p>
+
 
         </div>
 							

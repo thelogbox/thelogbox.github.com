@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -577,33 +580,31 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>Mirah is a relatively young language (v.08 when I got wind of it, and at the time of writing). It compiles to Java (it emits Java code), it has no runtime library and its syntax is borrowed from Ruby. See <a href="http://www.mirah.org">official Mirah site</a> for more info about the language.</p>
 
-<p>To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism &mdash; we will use <a href="https://github.com/mirah/pindah">pindah</a>. Pindah works great as a replacement for the <em>android create project  ...</em> CLI, it is also a great replacement for the <em>ant</em> build scripts, it uses <em>rake</em></p>
+<p>To use Mirah for Android programming, we will tap another tool to handle the android project creations and build mechanism — we will use <a href="https://github.com/mirah/pindah">pindah</a>. Pindah works great as a replacement for the <em>android create project  …</em> CLI, it is also a great replacement for the <em>ant</em> build scripts, it uses <em>rake</em> </p>
 
-<h1>SETUP</h1>
-
-<ol>
-<li>Get ruby and rubygems</li>
-<li>Get RVM (Ruby Version Manager)</li>
-<li>Get JRuby &mdash; <em>rvm install jruby</em></li>
-<li>Get mirah &mdash; <em>gem install mirah</em></li>
-<li>Get pindah &mdash; <em>gem install pindah</em></li>
-<li>Make sure you have a really good source code editor</li>
-<li>Brush up on Ruby, because mirah's syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it</li>
-<li>Brush up on the android SDK and API, best source of information on the APIs is <a href="http://developer.android.com/develop/index.html">developer.android.com</a>. There are lots of tutorials you can follow on Android development.</li>
-</ol>
-
-
-<h1>EVENT HANDLING AND NOTIFICATION</h1>
+<h1 id="setup">SETUP</h1>
 
 <ol>
-<li><em>pindah create com.thelogbox toastcode ToastCode</em> to create the project</li>
-<li>cd toastcode</li>
-<li><strong>android update project -p . &mdash;target 8</strong> to set the target API to level 8 (Froyo)</li>
-<li><strong>pindah</strong> will produce exactly the same project layout as would <em>android create project</em>, so go the <em>src</em> folder and work on the generated <em>ToastCode.mirah</em> source file</li>
-<li>Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)</li>
-<li><strong>pindah</strong> generated a rake file, so use it <strong>rake debug install</strong>; use the debug option of rake so you won't have to deal with signing the .apk before you can test the code</li>
+  <li>Get ruby and rubygems</li>
+  <li>Get RVM (Ruby Version Manager)</li>
+  <li>Get JRuby — <em>rvm install jruby</em></li>
+  <li>Get mirah — <em>gem install mirah</em></li>
+  <li>Get pindah — <em>gem install pindah</em></li>
+  <li>Make sure you have a really good source code editor</li>
+  <li>Brush up on Ruby, because mirah’s syntax is ruby, just keep in mind that mirah is not ruby, it just looks and feel a lot like it</li>
+  <li>Brush up on the android SDK and API, best source of information on the APIs is <a href="http://developer.android.com/develop/index.html">developer.android.com</a>. There are lots of tutorials you can follow on Android development.</li>
 </ol>
 
+<h1 id="event-handling-and-notification">EVENT HANDLING AND NOTIFICATION</h1>
+
+<ol>
+  <li><em>pindah create com.thelogbox toastcode ToastCode</em> to create the project</li>
+  <li>cd toastcode</li>
+  <li><strong>android update project -p . —target 8</strong> to set the target API to level 8 (Froyo)</li>
+  <li><strong>pindah</strong> will produce exactly the same project layout as would <em>android create project</em>, so go the <em>src</em> folder and work on the generated <em>ToastCode.mirah</em> source file</li>
+  <li>Connect and android device (preferred) or create an AVD to emulate an physical device (really slow)</li>
+  <li><strong>pindah</strong> generated a rake file, so use it <strong>rake debug install</strong>; use the debug option of rake so you won’t have to deal with signing the .apk before you can test the code</li>
+</ol>
 
 <div class="highlight"><pre><code class="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
 
@@ -652,7 +653,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="k">end</span>
 </code></pre></div>
 
-
 <p>The generated <strong>R.layout.main</strong> is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class <strong>ToastCode</strong> extending the LinearLayout class.</p>
 
 <p>To handle the onClick of the button, usually you will need an <strong>OnClickListener</strong>
@@ -665,7 +665,6 @@ object. This is usually accomplished using an anonymous class. In the sample cod
   <span class="c1"># code here ...</span>
 <span class="k">end</span>
 </code></pre></div>
-
 
 <p>This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper <em>OnClickListener</em> objects might be a cleaner approach</p>
 
@@ -713,8 +712,7 @@ object. This is usually accomplished using an anonymous class. In the sample cod
 <span class="k">end</span>
 </code></pre></div>
 
-
-<h1>DETECTING EVENT SOURCE</h1>
+<h1 id="detecting-event-source">DETECTING EVENT SOURCE</h1>
 
 <div class="highlight"><pre><code class="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
 
@@ -788,17 +786,15 @@ object. This is usually accomplished using an anonymous class. In the sample cod
 </code></pre></div>
 
 
-
-
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -812,7 +808,6 @@ object. This is usually accomplished using an anonymous class. In the sample cod
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

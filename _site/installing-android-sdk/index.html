@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -576,22 +579,26 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		  <div id="post">
         <div itemprop='articleBody'>
 		    <ol>
-<li><p>Download the <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. In my case, it was a zipped file</p></li>
-<li><p>Place the unzipped file somewhere in your directories. It is best not to put in a directory that contains white space. I placed mine inside /Users/myname/prgtools/android-sdk (this is your ANDROID-HOME)</p></li>
-<li><p>Go to your ANDROID-HOME/tools, launch the  <code class="codeblock">android</code> executable. This will launch the Android SDK Manager. The android SDK needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK, there won't be much. Choose the API levels that you would like to install in your machine.</p></li>
+  <li>
+    <p>Download the <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. In my case, it was a zipped file</p>
+  </li>
+  <li>
+    <p>Place the unzipped file somewhere in your directories. It is best not to put in a directory that contains white space. I placed mine inside /Users/myname/prgtools/android-sdk (this is your ANDROID-HOME)</p>
+  </li>
+  <li>
+    <p>Go to your ANDROID-HOME/tools, launch the  <code class="codeblock">android</code> executable. This will launch the Android SDK Manager. The android SDK needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK, there won’t be much. Choose the API levels that you would like to install in your machine.</p>
+  </li>
 </ol>
 
-
-<p>Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all---be warned though, you will wait for a long time for it to finish.</p>
+<p>Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all—be warned though, you will wait for a long time for it to finish.</p>
 
 <ol>
-<li>Include the android tools and platform tools in your shell's path. You will need it if you want to work with android using the command line. The two folders of interest are <strong>ANDROID-HOME/tools</strong> and <strong>ANDROID-HOME/platform-tools</strong></li>
+  <li>Include the android tools and platform tools in your shell’s path. You will need it if you want to work with android using the command line. The two folders of interest are <strong>ANDROID-HOME/tools</strong> and <strong>ANDROID-HOME/platform-tools</strong></li>
 </ol>
-
 
 <p>In OSX, you can add the following entries in th <em>~/.bash_profile</em></p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
 export ANDROID_HOME=/path/to/android-sdk
 export PATH=$PATH:$ANDROID_HOME/tools:.
@@ -599,10 +606,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:.
   
 </pre>
 
-
 <p>In Linux, add the following lines to <em>~/.bashrc</em>, if you are using bash</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
 export ANDROID_HOME=/path/to/android-sdk
 export PATH=$PATH:$ANDROID_HOME/tools:.
@@ -610,20 +616,20 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:.
 
 </pre>
 
-
-<p>Close the terminal, then launch it again in order to reflect the changes we made to the PATH variable. Try to type <span  class="boxed">android</span> from the command line. If it launches the android SDK manager, then you have set the android paths correctly.</p>
+<p>Close the terminal, then launch it again in order to reflect the changes we made to the PATH variable. Try to type <span class="boxed">android</span> from the command line. If it launches the android SDK manager, then you have set the android paths correctly.</p>
 
 <p>If you are using Eclipse, see the steps on <a href="/android-install-eclipse-plugin/">how to configure android for eclipse</a></p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -637,7 +643,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:.
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

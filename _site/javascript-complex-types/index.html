@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,69 +585,64 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>JavaScript has some containers (stuff that can contain other stuff, that can contain other stuff … ). We will take a look at two of them right now &mdash; Arrays and Objects. These are not simple types like Numbers or Strings or Boolean. Instead of representing single values, Objects and Arrays can represent a collection of values.</p>
+		    <p>JavaScript has some containers (stuff that can contain other stuff, that can contain other stuff … ). We will take a look at two of them right now — Arrays and Objects. These are not simple types like Numbers or Strings or Boolean. Instead of representing single values, Objects and Arrays can represent a collection of values. </p>
 
 <hr />
 
-<p><em>OBJECTS</em>. Lots of things are considered objects in JavaScript, even arrays and functions are objects, but let's not get distracted by that right now. Think of an object like a dictionary or the telephone yellow pages. It is just a collection of stuff. This stuff though has a format, it comes in pairs. The first part of the pair is a key, the other part of the pair is a value. Using the yellow pages analogy, the key is probably a person's name or name of a business. The value is the address or the phone number. The key has to be unique, you cannot have more than one key with exactly the same name.</p>
+<p><em>OBJECTS</em>. Lots of things are considered objects in JavaScript, even arrays and functions are objects, but let’s not get distracted by that right now. Think of an object like a dictionary or the telephone yellow pages. It is just a collection of stuff. This stuff though has a format, it comes in pairs. The first part of the pair is a key, the other part of the pair is a value. Using the yellow pages analogy, the key is probably a person’s name or name of a business. The value is the address or the phone number. The key has to be unique, you cannot have more than one key with exactly the same name. </p>
 
 <p>The value part of each pair could be anything. It could be simple data (Numbers, Booleans, Strings) or it could be complex data (Arrays, Objects or functions).</p>
 
 <p>There are a couple of ways to create objects in JS.</p>
 
 <ol>
-<li>Using object literals</li>
-<li>Using the new keyword against the Object type</li>
-<li>Constructor functions</li>
+  <li>Using object literals</li>
+  <li>Using the new keyword against the Object type</li>
+  <li>Constructor functions</li>
 </ol>
-
 
 <p>Try your best to ignore number 3 above (at least for now). We will circle around that later when we get to JavaScript OOP.</p>
 
-<h1>Object Literals</h1>
+<h1 id="object-literals">Object Literals</h1>
 
-<p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON &mdash; short for JavaScript Object Notation.</p>
+<p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON — short for JavaScript Object Notation.</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// this one constructs an empty object</span>
-<span class="kd">var</span> <span class="nx">pt</span>  <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
+<span class="kd">var</span> <span class="nx">pt</span> 	<span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
 <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
 
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@somewhere.com&quot;</span><span class="p">,</span>
+	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+	<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@somewhere.com&quot;</span><span class="p">,</span>
 
 <span class="p">}</span> <span class="c1">// an object that has two members, both of which are Strings</span>
 </code></pre></div>
 
-
-<p>When you use object literals to initialize objects, don't forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member--using the dot notation--and assigning them values</p>
+<p>When you use object literals to initialize objects, don’t forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member–using the dot notation–and assigning them values</p>
 
 <pre class="codeblock">
 person.date_hired = "some date value";
 person.address = "some address";
 </pre>
 
-
 <p>Similarly, you can access values of the object properties using the dot notation as well, although this is not the only way.</p>
 
-<pre class="codeblock"></code>
+<pre class="codeblock">
 console.log(person.name);
 console.log(person.address);
 </pre>
 
-
-<p>JavaScript's use of dot notation to access object properties and method will feel very familiar with programmers because a lot of other languages use this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this</p>
+<p>JavaScript’s use of dot notation to access object properties and method will feel very familiar with programmers because a lot of other languages use this notation too. What might not feel familiar will be the fact that JS can also access object properties using square brackets. Like this</p>
 
 <pre class="codeblock">
 person["name"];
 person["address"];
 </pre>
 
+<p>JS objects are actually associative arrays—I need to clarify one point, when I write <strong>Array</strong> (capitalized) I am referring to the JavaScript complex type. When I write <strong>array</strong> (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of <strong>named</strong> values, this is the reason you can use the square braces approach to reference a member of a specific object. </p>
 
-<p>JS objects are actually associative arrays---I need to clarify one point, when I write <strong>Array</strong> (capitalized) I am referring to the JavaScript complex type. When I write <strong>array</strong> (lowercase) I am referring to the array data structure in general, what I mean by this is a collection of rows (and sometimes columns). An object looks like an array because it a collection of <strong>named</strong> values, this is the reason you can use the square braces approach to reference a member of a specific object.</p>
+<h1 id="arrays">Arrays</h1>
 
-<h1>Arrays</h1>
-
-<p>An Array is also a collection of values. Unlike an object, an Array is a collection of <em>ordered values</em>, not <em>named values</em>. Each member of an Array is called an element. Each element is denoted by a numeric position in the array--the position is called an index. Like objects, Arrays can be created using a variety of ways;</p>
+<p>An Array is also a collection of values. Unlike an object, an Array is a collection of <em>ordered values</em>, not <em>named values</em>. Each member of an Array is called an element. Each element is denoted by a numeric position in the array–the position is called an index. Like objects, Arrays can be created using a variety of ways;</p>
 
 <pre class="codeblock">
 
@@ -655,10 +653,9 @@ var d = [[1,1], [2,2],[3,3]]; // an array with members, which are also arrays.
 
 </pre>
 
-
 <p>The other way to create an Array is to use the <strong>Array()</strong> constructor</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
 var a = new Array(); //equivalent to var a = []
 var b = new Array(1,2,3,4,5,6,7);
@@ -669,8 +666,7 @@ var e = new Array(5); //with 5 new elements
 
 </pre>
 
-
-<p>If you call the Array constructor with a single integer as parameter, it means you are specifying the length of the Array--you are not declaring an array with a single element, and the number you passed is the value of the first element.</p>
+<p>If you call the Array constructor with a single integer as parameter, it means you are specifying the length of the Array–you are not declaring an array with a single element, and the number you passed is the value of the first element.</p>
 
 <p>Array members can be retrieved by accessing the individual elements. Arrays are zero-based, hence the first element is index 0.</p>
 
@@ -681,8 +677,7 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
 
 </pre>
 
-
-<p>The characteristic of arrays having index positions makes them ideal for iterating using a for-loop. You cannot access members of an array using the dot notation--like you did when you accessed members of an object.</p>
+<p>The characteristic of arrays having index positions makes them ideal for iterating using a for-loop. You cannot access members of an array using the dot notation–like you did when you accessed members of an object.</p>
 
         </div>
 							
@@ -690,7 +685,6 @@ console.log(b[2]); //prints the value of the third element (remember, zero based
 		</article>
     
     <div class="toc">
-      JavaScript
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>

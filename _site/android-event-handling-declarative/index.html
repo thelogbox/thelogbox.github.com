@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,18 +578,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Declarative event handling is one of the two ways you can react to user events. The other way of handling events is <em>programmatically</em> &mdash; which is discussed in a chapter of its own.</p>
+		    <p>Declarative event handling is one of the two ways you can react to user events. The other way of handling events is <em>programmatically</em> — which is discussed in a chapter of its own.</p>
 
 <p>Handling events declaratively means you will make the event declaration inside the XML file where the UI is defined. Typically, this will an XML file inside <em>/res/layout</em> folder. You will use the <em>onClick</em> attribute of a widget such as a button and assign it a string value. This string value is usually a name of method which you also need to define on Activity class that is associated with XML file.</p>
 
-<p>To follow the code examples in this chapter, we will need to create a new android project.</p>
+<p>To follow the code examples in this chapter, we will need to create a new android project. </p>
 
 <pre class="codeblock">
 
 $ android create project --path hellotoast --package com.thelogbox --activity TestToast --target 8
 
 </pre>
-
 
 <p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
@@ -603,19 +605,18 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
     <span class="nt">/&gt;</span>
     
 <span class="nt">&lt;Button</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
-    <span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
+	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
+	<span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
 <span class="nt">/&gt;</span>
 
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 
+<p>You will need to implement a method called “showMe()” inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>. </p>
 
-<p>You will need to implement a method called "showMe()" inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>.</p>
-
-<p>Next, add the <em>showMe()</em> method to the Activity class.</p>
+<p>Next, add the <em>showMe()</em> method to the Activity class. </p>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
@@ -635,22 +636,18 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
-        <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">;</span>
-        <span class="n">Toast</span> <span class="n">notification</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="n">msg</span><span class="o">,</span><span class="n">duration</span><span class="o">);</span>
-        <span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-    <span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
+		<span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">;</span>
+		<span class="n">Toast</span> <span class="n">notification</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="n">msg</span><span class="o">,</span><span class="n">duration</span><span class="o">);</span>
+		<span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+	<span class="o">}</span>
 
 <span class="o">}</span>
 </code></pre></div>
 
-
-
-
-<div id='lst'>/src/com/thelogbox/TestToast.java.</div>
-
+<div id="lst">/src/com/thelogbox/TestToast.java.</div>
 
 <p>To compile and run this example, use the command</p>
 
@@ -658,26 +655,26 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
 ant debug install
 </pre>
 
-
-<p>The <em>showMe() method</em> is a programmer defined method. It is your responsibility to name it and implement it accordingly.</p>
+<p>The <em>showMe() method</em> is a programmer defined method. It is your responsibility to name it and implement it accordingly. </p>
 
 <p>The entry in the XML which is <code class="codeblock">android:onClick="showMe()"</code> is what makes the event handling possible. Upon compilation, the XML file will be expanded and translated to the necessary Java components that makes both UI display and event handling possible.</p>
 
-<p><aside>
-<em>Toast</em> is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears.
-</aside></p>
+<aside>
+*Toast* is a low hanging fruit for simple notifications. It is a built-in view that allows you display simple notifications to the user. These are the pop-up notifications you see on your android device. These notifications simply pops-up then disappears. 
+</aside>
 
-<p><strong>Next</strong> &raquo; <a href="/android-event-handling-programmatic">Programmatic Event Handling</a></p>
+<p><strong>Next</strong> » <a href="/android-event-handling-programmatic">Programmatic Event Handling</a></p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -691,7 +688,6 @@ ant debug install
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

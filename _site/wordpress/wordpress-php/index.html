@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,14 +585,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the <strong>DOCUMENT ROOT</strong> of Apache.</p>
+		    <p>To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the <strong>DOCUMENT ROOT</strong> of Apache. </p>
 
 <p>In HTML introduction chapter, we have already created a folder on the document root</p>
 
 <pre class="codeblock">
 C:\Users\yourname\wamp\www\practice
 </pre>
-
 
 <p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
 
@@ -599,10 +601,9 @@ Hello
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
+<p>It’s not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html — a valid html document is also a valid php script. </p>
 
-<p>It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script.</p>
-
-<p>Let's add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
+<p>Let’s add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
 
 <div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
 <span class="x">&lt;html&gt;</span>
@@ -614,14 +615,13 @@ Hello
 <span class="x">&lt;/html&gt;</span>
 </code></pre></div>
 
-
-<p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript).</p>
+<p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). </p>
 
 <p>For the PHP script to execute, an HTTP request has to be made. When web server reads PHP instructions, it will hand over the execution to a program that understands PHP instructions. It will execute the instructions, then it will produce the resulting html files.</p>
 
 <hr />
 
-<h2>Basic Concepts</h2>
+<h2 id="basic-concepts">Basic Concepts</h2>
 
 <p>Think of programming as if you are writing a recipe for a friend. To write a recipe, you need to tell him two things. Firstly, the ingredients, what kinds of things he needs to work with. Secondly, how to work on those things. Some things you slice or dice. Some things you put in the pan first before you put the others. Some things you keep on doing until the food is of a certain color or temperature or consistency.</p>
 
@@ -631,7 +631,7 @@ Hello
 
 <p>We will start building our programming competencies in PHP, this is what this chapter is all about.</p>
 
-<h2>Statements</h2>
+<h2 id="statements">Statements</h2>
 
 <p>Remember the recipe analogy? First we need to know what kinds of things we can work with. In programming that means data. What kinds of data you can work with. You can work with numbers, both whole and real. You can use strings (words). You can work with boolean values (true or false). There are other things you can also work with but they are bit advanced, these are objects and arrays. We will circle back to these two when you have a bit more programming muscles.</p>
 
@@ -644,8 +644,7 @@ Hello
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 
-
-<p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required.</p>
+<p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required. </p>
 
 <p>When you define a variable in PHP, you need to prepend it with the dollar sign so that PHP knows you are declaring a variable. The equal sign is used for assignment. In this statement, we defined a variable named <em>anumber</em> and assigned an an integer to it.</p>
 
@@ -664,10 +663,9 @@ Hello
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 
+<h2 id="co-mingling-with-html">Co-mingling with html</h2>
 
-<h2>Co-mingling with html</h2>
-
-<p>You need to write your PHP statements inside this tag <em>&lt;?php  ?&gt;</em>. PHP is a server side scripting language, the php tag tells the server that what's inside is not HTML. It contains PHP instructions that needs to be <em>parsed and evaluated</em>. When these instructions are evaluated, sometimes they produce HTML and other times they don't. Through your practice, you will learn which statements produce HTML and which parts do something else. You don't always need to output something, sometimes you just need to do some stuff that don't necessary need to be seen by the user.</p>
+<p>You need to write your PHP statements inside this tag <em>&lt;?php  ?&gt;</em>. PHP is a server side scripting language, the php tag tells the server that what’s inside is not HTML. It contains PHP instructions that needs to be <em>parsed and evaluated</em>. When these instructions are evaluated, sometimes they produce HTML and other times they don’t. Through your practice, you will learn which statements produce HTML and which parts do something else. You don’t always need to output something, sometimes you just need to do some stuff that don’t necessary need to be seen by the user. </p>
 
 <p>PHP statements are often found co-mingled with HTML, like this;</p>
 
@@ -680,14 +678,13 @@ Hello
 <span class="x">&lt;/html&gt;</span>
 </code></pre></div>
 
-
 <p>See that. Most of the codes are in HTML except for that tiny <em>&lt;?php echo date(DATE_RFC822); ?&gt;</em> which basically just outputs the current date. When the server sees that instruction, it will get the  system date then <em>echo</em> the return value as HTML. By this time you must have figured out that whatever you <em>echo</em> it will be part of the HTML output.</p>
 
-<p>Many developers frown upon the practice of peppering your HTML codes with PHP expressions and statements, I don't necessarily agree with this approach as well, but were just starting out to learn PHP, so don't sweat about it just yet. Get some grips with the language first then worry about separation of concerns, MVC and other artsy fartsy architectural buzzwords.</p>
+<p>Many developers frown upon the practice of peppering your HTML codes with PHP expressions and statements, I don’t necessarily agree with this approach as well, but were just starting out to learn PHP, so don’t sweat about it just yet. Get some grips with the language first then worry about separation of concerns, MVC and other artsy fartsy architectural buzzwords. </p>
 
-<p>Before you can write elegant prose, you need to know vocabulary first, then grammar and rhetoric structures. Prose will come later, not before.</p>
+<p>Before you can write elegant prose, you need to know vocabulary first, then grammar and rhetoric structures. Prose will come later, not before. </p>
 
-<h2>THREE THINGS YOU CAN DO WITH STATEMENTS</h2>
+<h2 id="three-things-you-can-do-with-statements">THREE THINGS YOU CAN DO WITH STATEMENTS</h2>
 
 <p>First. You can write one statement after another, like this</p>
 
@@ -699,8 +696,7 @@ Hello
 <span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span>
 </code></pre></div>
 
-
-<p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do.</p>
+<p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do. </p>
 
 <hr />
 
@@ -717,10 +713,9 @@ Hello
 <span class="x">}</span>
 </code></pre></div>
 
+<p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran. </p>
 
-<p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran.</p>
-
-<p>The pair of curly braces is called a <em>block</em>. When statements are inside a block, they are executed as a group, start with the first one and all go all the way til the last. When you reach the last curly brace, execution resumes &mdash; unless you encounter another branching command or any command that alters the sequential flow of instruction. You will usually find blocks in control structures that either branch or loop.</p>
+<p>The pair of curly braces is called a <em>block</em>. When statements are inside a block, they are executed as a group, start with the first one and all go all the way til the last. When you reach the last curly brace, execution resumes — unless you encounter another branching command or any command that alters the sequential flow of instruction. You will usually find blocks in control structures that either branch or loop.  </p>
 
 <p>The <em>else block</em> gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this</p>
 
@@ -732,8 +727,7 @@ Hello
 <span class="x">}</span>
 </code></pre></div>
 
-
-<p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense.</p>
+<p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense. </p>
 
 <hr />
 
@@ -753,13 +747,10 @@ Hello
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 
+<div id="lst">while loop</div>
 
+<p>The <em>while</em> loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to <em>true</em>, all the statements inside the block — the paired curly braces — will execute. You have to take care that the condition of the while loop will evaluate to <em>false</em> at some point in time lest your program will not terminate. In our example code above, the program will terminate when the <em>$counter</em> variable becomes <em>10</em>. </p>
 
-
-<div id='lst'>while loop</div>
-
-
-<p>The <em>while</em> loop needs to have a conditional expression. That is the one you put inside the parens. While that condition evaluates to <em>true</em>, all the statements inside the block &mdash; the paired curly braces &mdash; will execute. You have to take care that the condition of the while loop will evaluate to <em>false</em> at some point in time lest your program will not terminate. In our example code above, the program will terminate when the <em>$counter</em> variable becomes <em>10</em>.</p>
 
         </div>
 							
@@ -767,7 +758,6 @@ Hello
       
 		</article>
     <div class="promo">
-      <h1>WordPress : Table of Contents</h1>
     </div>
     <div class="toc">
       <ul>
@@ -803,7 +793,7 @@ Hello
 <div style="text-align:center;">
   <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
 </div>
->/footer>
+</footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

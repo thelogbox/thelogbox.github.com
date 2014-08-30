@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,13 +585,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>A markup is something that you add to plain text to alter its presentation, either on print or on screen. For the older audience, you probably could remember WordStar &mdash; when you use CTRL-B to give instruction to the printer to render it in <strong>bold face</strong>, that was a markup instruction.</p>
+		    <p>A markup is something that you add to plain text to alter its presentation, either on print or on screen. For the older audience, you probably could remember WordStar — when you use CTRL-B to give instruction to the printer to render it in <strong>bold face</strong>, that was a markup instruction. </p>
 
 <p>An HTML file is text file, more specifically a marked up text file. The markup instructions are called <em>tags</em>, sometimes they are also referred to as <em>*HTML elements</em> or elements for short, so we will start using those terms already. The tags are meant to be understood by web browsers, each tag defined in the HTML standard language means something to the browser. In order to use the markups effectively, you need to know what the tags are supposed to do.</p>
 
-<p>HTML is a language, but not in a way like JavaScript or Java or C is a language. It is a markup language, it has structures and rules that you need to observe.</p>
+<p>HTML is a language, but not in a way like JavaScript or Java or C is a language. It is a markup language, it has structures and rules that you need to observe. </p>
 
-<h1>Basic structure</h1>
+<h1 id="basic-structure">Basic structure</h1>
 
 <div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
 <span class="nt">&lt;html&gt;</span>
@@ -600,73 +603,68 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-
-<p>The &lt;html> element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head></strong> and the <strong>&lt;body></strong> elements.</p>
+<p>The &lt;html&gt; element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head&gt;</strong> and the <strong>&lt;body&gt;</strong> elements.</p>
 
 <p>All the visible things that you want to show on an HTML page goes to the body element. For example, ordered lists, un-ordered lists, headings, paragraphs, tables.</p>
 
-<p>Things written inside the head element will not be visible on the HTML page. That is not to say they are less important. Some of the things you may find on the head element are script–for embedding Javascript codes, link–for CSS amongst other things, title etc.</p>
+<p>Things written inside the head element will not be visible on the HTML page. That is not to say they are less important. Some of the things you may find on the head element are script–for embedding Javascript codes, link–for CSS amongst other things, title etc. </p>
 
-<p>You probably noticed that the tags came in pair. The opening &lt;body> tag is paired with the closing &lt;/body> tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
+<p>You probably noticed that the tags came in pair. The opening &lt;body&gt; tag is paired with the closing &lt;/body&gt; tag. It is important to remember that HTML markup always (almost) comes in pairs, lest, you will have some unpredictable results.</p>
 
-<h2>DOCTYPE</h2>
+<h2 id="doctype">DOCTYPE</h2>
+<p>The <em>&lt;!DOCTYPE&gt;</em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with. </p>
 
-<p>The <em>&lt;!DOCTYPE></em> is not the same as the other tags, it is an instruction to the processor (the web browser) that contains which version of HTML the document is using. This declaration is necessary because there is more than one version of HTML. The HTML technology has been evolving for the past two decades. The current version of HTML is 5, but it doesn’t mean that all web pages are now using HTML version 5. Some web pages are still coded using previous versions of HTML, that is the reason why the browser needs to know which version it is dealing with.</p>
-
-<h2>Versions of HTML</h2>
+<h2 id="versions-of-html">Versions of HTML</h2>
 
 <ol>
-<li>HTML - 1991</li>
-<li>HTML+ - 1993</li>
-<li>HTML 2.0 - 1995</li>
-<li>HTML 3.2 - 1997</li>
-<li>HTML 4.01 - 1999</li>
-<li>XHTML 1.0 - 2000</li>
-<li>HTML5 - 2012</li>
-<li>XHTML5 - 2013</li>
+  <li>HTML - 1991</li>
+  <li>HTML+ - 1993</li>
+  <li>HTML 2.0 - 1995 </li>
+  <li>HTML 3.2 - 1997 </li>
+  <li>HTML 4.01 - 1999 </li>
+  <li>XHTML 1.0 - 2000</li>
+  <li>HTML5 - 2012</li>
+  <li>XHTML5 - 2013</li>
 </ol>
-
 
 <p>The <a href="http://www.w3schools.com/html/html_intro.asp" title="HTML Versions">W3C</a> site maintains an up to date list of HTML versions.</p>
 
-<p>The way to declare a DOCTYPE in HTML 5 is &lt;!DOCTYPE html>, you can already use this now. It wasn't always this simple to declare a DOCTYPE, the previous versions of HTML required some pretty involved and almost cryptic entries for this. Fortunately, current browsers will look at the HTML5 DOCTYPE and switch to standards mode, this method of doctype declaration can already be used. What this means is that the HTML5 pages you will write today can last for a very long time.</p>
+<p>The way to declare a DOCTYPE in HTML 5 is &lt;!DOCTYPE html&gt;, you can already use this now. It wasn’t always this simple to declare a DOCTYPE, the previous versions of HTML required some pretty involved and almost cryptic entries for this. Fortunately, current browsers will look at the HTML5 DOCTYPE and switch to standards mode, this method of doctype declaration can already be used. What this means is that the HTML5 pages you will write today can last for a very long time.</p>
 
 <p>There are other ways to declare DOCTYPE for the other versions of HTML, <a href="http://www.w3schools.com/tags/tag_doctype.asp" title="DOCTYPE declarations">W3C keeps an updated page information on doctypes</a> if you need some historical reference.</p>
 
-<h1>Common tags</h1>
+<h1 id="common-tags">Common tags</h1>
 
 <ol>
-<li>&lt;h1> - Heading, the most important and most emphasised of the all heading tags</li>
-<li>&lt;h2> - another heading, less important than &lt;h1> but more important than;</li>
-<li>&lt;h3></li>
-<li>&lt;strong> - display something in bold face</li>
-<li>&lt;em> - display something in italics (emphasised)</li>
-<li>&lt;ol> - display a list, a numbered (ordered) one</li>
-<li>&lt;ul> - another list, but an unordered one. It doesn't have numbers before the items, they just display dots or squares</li>
-<li>&lt;li> - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
-<li>&lt;p> - a paragraph break</li>
-<li>&lt;br> - a line break</li>
+  <li>&lt;h1&gt; - Heading, the most important and most emphasised of the all heading tags</li>
+  <li>&lt;h2&gt; - another heading, less important than &lt;h1&gt; but more important than;</li>
+  <li>&lt;h3&gt;</li>
+  <li>&lt;strong&gt; - display something in bold face</li>
+  <li>&lt;em&gt; - display something in italics (emphasised)</li>
+  <li>&lt;ol&gt; - display a list, a numbered (ordered) one</li>
+  <li>&lt;ul&gt; - another list, but an unordered one. It doesn’t have numbers before the items, they just display dots or squares</li>
+  <li>&lt;li&gt; - this is an item on a list. You have to use this inside an ordered list or an unordered list, it will be meaningless if written outside <em>ol</em> or <em>ul</em></li>
+  <li>&lt;p&gt; - a paragraph break</li>
+  <li>&lt;br&gt; - a line break</li>
 </ol>
 
+<p><strong>GOOD TO KNOW</strong>: HTML is not case sensitive but it’s a good idea to write the tags in lowercase. The World Wide Web Consortium (W3C) <em>recommends</em> lower in HTML4 and <strong>demands</strong> lowercase in XHTML.</p>
 
-<p><strong>GOOD TO KNOW</strong>: HTML is not case sensitive but it's a good idea to write the tags in lowercase. The World Wide Web Consortium (W3C) <em>recommends</em> lower in HTML4 and <strong>demands</strong> lowercase in XHTML.</p>
+<h1 id="attributes">Attributes</h1>
 
-<h1>Attributes</h1>
+<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; &gt; like &lt;h1&gt;. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute. </p>
 
-<p>Sometimes tags are not written plainly as a word enclosed in a pair of &lt; > like &lt;h1>. Sometimes they contain some additional information about the HTML element. This additional information is called an attribute.</p>
-
-<p>For example, in the tag <em>&lt;a href="http://thelogbox.com">thelogbox&lt;a></em> &mdash; <em><em>a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The </em>href* is the attribute, it tells the hyperlink tag where exactly to jump.</p>
+<p>For example, in the tag <em>&lt;a href=”http://thelogbox.com”&gt;thelogbox&lt;a&gt;</em> — <em>*a</em> is the tag used to denote a hyperlink, it will make you jump to another location.  The jump can to a location on the same document, to a location on a completely new document on the same domain or to a new document on another domain. The <em>href</em> is the attribute, it tells the hyperlink tag where exactly to jump.</p>
 
 <p><strong>GOOD TO KNOW</strong>:</p>
 
 <ul>
-<li>There are lots of elements that can have attributes</li>
-<li>Attributes are always written on the opening tag</li>
-<li>Attributes are a dictionary pair, it's a got a key (href) and a value (http://thelogbox.com), like in our example</li>
+  <li>There are lots of elements that can have attributes</li>
+  <li>Attributes are always written on the opening tag</li>
+  <li>Attributes are a dictionary pair, it’s a got a key (href) and a value (http://thelogbox.com), like in our example</li>
 </ul>
 
-
-<h1>Exercise</h1>
+<h1 id="exercise">Exercise</h1>
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
@@ -686,14 +684,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
-
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
 
 <ol>
-<li>Omit the ending tag of <em>h1</em>, refresh the browser. See what happens, then put ending <em>h1</em> tag again</li>
-<li>Omit the ending <em>body</em> tag, see what happens</li>
-<li>Add an ordered list to your HTML file, place it right before the  closing <em>body</em> tag</li>
-<li>Make <strong>Hello World</strong> a hyperlink to <strong>Google.com</strong></li>
+  <li>Omit the ending tag of <em>h1</em>, refresh the browser. See what happens, then put ending <em>h1</em> tag again</li>
+  <li>Omit the ending <em>body</em> tag, see what happens</li>
+  <li>Add an ordered list to your HTML file, place it right before the  closing <em>body</em> tag </li>
+  <li>Make <strong>Hello World</strong> a hyperlink to <strong>Google.com</strong></li>
 </ol>
 
 

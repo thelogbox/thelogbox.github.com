@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -580,30 +583,28 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Official website is at <a href="http://www.typescriptlang.org">TypeScriptLang.org</a>. The language was borne out of Microsoft. It looks a lot like JavaScript, because it is a superset of JavaScript;  This means all existing, valid and native JavaScript codes are already valid TypeScript codes.</p>
+		    <p>Official website is at <a href="http://www.typescriptlang.org">TypeScriptLang.org</a>. The language was borne out of Microsoft. It looks a lot like JavaScript, because it is a superset of JavaScript;  This means all existing, valid and native JavaScript codes are already valid TypeScript codes. </p>
 
-<h1>INFO</h1>
-
-<ol>
-<li>licensed under Apache 2.0</li>
-<li>Anders Hejlsberg is responsible for it. He gave us C#, before that he wrote Pascal compilers which got him hitched with Borland (Turbo Pascal)</li>
-<li>typescript an be installed in lots of ways - via <strong>npm -g install typescript</strong>, or as a Visual Studio plugin. You can also get the source via <strong>git clone https://git01.codeplex.com/typescript</strong></li>
-<li>the anguage specification (currently v .08) is only 97 pages (in PDF). There is no excuse not to read it</li>
-</ol>
-
-
-<h1>WORKFLOW</h1>
+<h1 id="info">INFO</h1>
 
 <ol>
-<li>Create a source file with a <em>.ts</em> file extension</li>
-<li>Compile the .ts file using <em>tsc</em> (typescript compiler)</li>
-<li>Use the emitted JavaScript code any which way you need</li>
-<li>Go through your testing motions</li>
-<li>Rinse, repeat</li>
+  <li>licensed under Apache 2.0</li>
+  <li>Anders Hejlsberg is responsible for it. He gave us C#, before that he wrote Pascal compilers which got him hitched with Borland (Turbo Pascal) </li>
+  <li>typescript an be installed in lots of ways - via <strong>npm -g install typescript</strong>, or as a Visual Studio plugin. You can also get the source via <strong>git clone https://git01.codeplex.com/typescript</strong> </li>
+  <li>the anguage specification (currently v .08) is only 97 pages (in PDF). There is no excuse not to read it </li>
 </ol>
 
+<h1 id="workflow">WORKFLOW</h1>
 
-<h1>SETUP</h1>
+<ol>
+  <li>Create a source file with a <em>.ts</em> file extension</li>
+  <li>Compile the .ts file using <em>tsc</em> (typescript compiler)</li>
+  <li>Use the emitted JavaScript code any which way you need</li>
+  <li>Go through your testing motions</li>
+  <li>Rinse, repeat </li>
+</ol>
+
+<h1 id="setup">SETUP</h1>
 
 <p>Get the compiler, either via npm (Node Package Manager) or Visual Studio Plugin or via sourcecode</p>
 
@@ -630,16 +631,17 @@ Options:
   -w, --watch     Watch output files
   @<file>         Insert command line options and files from a file.
 
-</pre>
 
 
-<p>Try out the <strong>greeter.ts</strong> sample in <a href="http://www.typescriptlang.org/Tutorial/">typelang.org/tutorial</a></p>
 
-<p>If you are using TextMate in OSX, it won't know how to handle .ts files, so when you see the "Recommended Grammars" dialog box, just use JavaScript.</p>
+Try out the **greeter.ts** sample in [typelang.org/tutorial](http://www.typescriptlang.org/Tutorial/) 
 
-<hr />
+If you are using TextMate in OSX, it won't know how to handle .ts files, so when you see the "Recommended Grammars" dialog box, just use JavaScript.  
 
-<p>The "Hello World" test</p>
+***
+
+The "Hello World" test
+
 
 <div class="highlight"><pre><code class="javascript"><span class="c1">// filename: Hello.ts</span>
 
@@ -651,7 +653,8 @@ Options:
 </code></pre></div>
 
 
-<p>Compile it using <strong>tsc Hello.ts</strong>, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.</p>
+Compile it using **tsc Hello.ts**, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
@@ -661,52 +664,56 @@ Options:
 </code></pre></div>
 
 
-<p>You can run the resulting <strong>.js</strong> code either via <em>node Hello.js</em> or <strong>*js Hello.js</strong> if you have it setup on your machine.</p>
+You can run the resulting **.js** code either via *node Hello.js* or ***js Hello.js** if you have it setup on your machine.
 
-<p>To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this</p>
+To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
 </code></pre></div>
 
 
-<p>If you try <strong>tsc Hello.ts</strong> again, you will get and error like <em>Function declared a non-void return type, but has no return expression</em>. The reason for that is because we added a type-checking information on both the <em>args</em> variable and the our function itself. <strong>args : string</strong> means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime.</p>
+If you try **tsc Hello.ts** again, you will get and error like *Function declared a non-void return type, but has no return expression*. The reason for that is because we added a type-checking information on both the *args* variable and the our function itself. **args : string** means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime. 
 
-<h1>CODING NOTES</h1>
 
-<h2>CLASS CONSTRUCTION</h2>
+# CODING NOTES
 
-<p>Trying out the class and interface facilities of TypeScript</p>
+
+## CLASS CONSTRUCTION
+
+Trying out the class and interface facilities of TypeScript
+
 
 <div class="highlight"><pre><code class="javascript"><span class="c1">//BoxSample.ts</span>
 
 <span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
-    
-    <span class="nx">x</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">y</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">height</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">width</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    
+	
+	<span class="nx">x</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">width</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Box</span> <span class="p">{</span>
-    
-    <span class="kr">public</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="kr">public</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="kr">public</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="kr">public</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    
-    <span class="kr">public</span> <span class="nx">setDim</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">IBox</span><span class="p">){</span>
-        
-        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
-    
-    <span class="p">}</span>    
+	
+	<span class="kr">public</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="kr">public</span> <span class="nx">setDim</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">IBox</span><span class="p">){</span>
+		
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+	
+	<span class="p">}</span>	
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
@@ -728,11 +735,11 @@ Options:
 
 <span class="cm">compile using;</span>
 
-<span class="cm">   tsc BoxSample.ts</span>
+<span class="cm">	tsc BoxSample.ts</span>
 
 <span class="cm">outputs;</span>
 
-<span class="cm">   BoxSample.js</span>
+<span class="cm">	BoxSample.js</span>
 
 <span class="cm">*/</span>
 
@@ -771,49 +778,51 @@ Options:
 </code></pre></div>
 
 
-<p>The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;</p>
+The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;
 
-<p><strong>1.</strong> TS adds static type checking, so the general form is <strong>variable name [ : type ]</strong>. It seems I can use <strong>string, bool and number</strong> for static type checking. In the language spec of TypeScript, there was also a mention of the <strong>any</strong> type, which can stand for either *bool, string, number and undefined<strong>. If I use the </strong>any** type though, I lose the static type checking that TS performs, I probably should not do it, since I like type checking.</p>
+**1.** TS adds static type checking, so the general form is **variable name [ : type ]**. It seems I can use **string, bool and number** for static type checking. In the language spec of TypeScript, there was also a mention of the **any** type, which can stand for either *bool, string, number and undefined**. If I use the **any** type though, I lose the static type checking that TS performs, I probably should not do it, since I like type checking. 
 
-<p><strong>2.</strong> There is an <strong>implements</strong> keyword supported for class constructs, so I could have written the example as</p>
+**2.** There is an **implements** keyword supported for class constructs, so I could have written the example as
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
-    <span class="c1">// …</span>
+	<span class="c1">// …</span>
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Box</span> <span class="kr">implements</span> <span class="p">{</span>
-    <span class="c1">// class body</span>
+	<span class="c1">// class body</span>
 <span class="p">}</span>
 </code></pre></div>
 
 
-<p>It doesn't seem like I needed it though (note to self => read the spec over and over again to find out why).</p>
+It doesn't seem like I needed it though (note to self =&gt; read the spec over and over again to find out why). 
 
-<h2>INHERITANCE AND POLYMORPHISM</h2>
+## INHERITANCE AND POLYMORPHISM
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
-    
-    <span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
-        
-    <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
-    <span class="p">}</span>
-    
-    <span class="nx">setName</span><span class="p">(</span><span class="nx">val</span> <span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">mname</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-    <span class="p">}</span>
-    
-    <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;drawing Shape&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    
+	
+	<span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
+		
+	<span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="nx">setName</span><span class="p">(</span><span class="nx">val</span> <span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">mname</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;drawing Shape&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Circle</span> <span class="o">:</span> <span class="nx">Shape</span> <span class="p">{</span>
-    
-    <span class="nx">draw</span><span class="p">(){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Drawing Circle&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+	
+	<span class="nx">draw</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Drawing Circle&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
 
 <span class="p">}</span>
 
@@ -830,39 +839,40 @@ Options:
 </code></pre></div>
 
 
-<p>Inheritance works as expected, no big surprises. TypeScript uses the <strong>extends</strong> keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the <em>extends<strong> keyword with a colon (pretty much like in CSharp), it seems to have the same effect as </strong>extends** too&mdash;but better stick with </em>extends*, that is what the lang spec specifies for inheritance anyway.</p>
+Inheritance works as expected, no big surprises. TypeScript uses the **extends** keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the *extends** keyword with a colon (pretty much like in CSharp), it seems to have the same effect as **extends** too&mdash;but better stick with *extends*, that is what the lang spec specifies for inheritance anyway.
 
-<p>The rule is pretty basic on inheritance. Everything that on the base class that is defined to have <strong>public</strong> access is automatically inherited on the derived class. That is why the <em>Circle</em> type has a <strong>setName() and getName()</strong> method, they were inherited from <em>Shape</em>.</p>
+The rule is pretty basic on inheritance. Everything that on the base class that is defined to have **public** access is automatically inherited on the derived class. That is why the *Circle* type has a **setName() and getName()** method, they were inherited from *Shape*.  
 
-<p>Override works as expected also, just redefine the method on the the derived class and the method becomes polymorphic</p>
+Override works as expected also, just redefine the method on the the derived class and the method becomes polymorphic 
 
-<h2>SUPER</h2>
+## SUPER
 
-<p><strong>super</strong> refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected.</p>
+**super** refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected. 
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
-    
-    <span class="nx">foo</span><span class="p">(){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    
-    <span class="nx">constructor</span><span class="p">(){</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::ctor&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    
+	
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Derived</span> <span class="kr">extends</span> <span class="nx">Base</span> <span class="p">{</span>
-    
-    <span class="nx">foo</span><span class="p">(){</span>
-        <span class="kr">super</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::foo&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    
-    <span class="nx">constructor</span><span class="p">(){</span>
-        <span class="kr">super</span><span class="p">();</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::ctor&quot;</span><span class="p">);</span>
-    <span class="p">}</span>    
+	
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>	
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
@@ -870,37 +880,38 @@ Options:
 </code></pre></div>
 
 
-<h2>OPTIONAL ARGUMENTS TO FUNCTIONS</h2>
+## OPTIONAL ARGUMENTS TO FUNCTIONS
 
-<p>Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1</p>
+Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1 
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
-    
-    <span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    
-    <span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span><span class="o">?</span> <span class="o">:</span><span class="nx">string</span> <span class="p">,</span> <span class="nx">mcolor</span><span class="o">?</span> <span class="o">:</span> <span class="nx">string</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mname</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
-        <span class="p">}</span>
-        
-        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mcolor</span><span class="p">)</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span><span class="o">?</span> <span class="o">:</span><span class="nx">string</span> <span class="p">,</span> <span class="nx">mcolor</span><span class="o">?</span> <span class="o">:</span> <span class="nx">string</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mname</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mcolor</span><span class="p">)</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Circle</span> <span class="p">{</span>
 
-    <span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 
-    <span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span> <span class="o">=</span> <span class="s2">&quot;def name&quot;</span> <span class="p">,</span> <span class="nx">mcolor</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span> <span class="o">=</span> <span class="s2">&quot;def name&quot;</span> <span class="p">,</span> <span class="nx">mcolor</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">){</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
@@ -917,82 +928,105 @@ Options:
 </code></pre></div>
 
 
-<h2>Overloading</h2>
 
-<p>Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)</p>
+## Overloading
+
+Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
 
-    
-    <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    
-    <span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    
-    <span class="cm">/*</span>
-<span class="cm">   </span>
-<span class="cm">   this does not work, if you vary the number of arguments on the overload</span>
-<span class="cm">   declarations, it throws a compile error</span>
+	
+	<span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="cm">/*</span>
+<span class="cm">	</span>
+<span class="cm">	this does not work, if you vary the number of arguments on the overload</span>
+<span class="cm">	declarations, it throws a compile error</span>
 
-<span class="cm">   constructor();</span>
-<span class="cm">   constructor(x:number, y:number);</span>
-<span class="cm">   </span>
-<span class="cm">   */</span>
+<span class="cm">	constructor();</span>
+<span class="cm">	constructor(x:number, y:number);</span>
+<span class="cm">	</span>
+<span class="cm">	*/</span>
 
 
-    <span class="nx">constructor</span><span class="p">(</span><span class="nx">dim</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">y</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">width</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">height</span><span class="o">:</span><span class="nx">number</span><span class="p">;}){</span>
-    
-        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
-    
-    <span class="p">}</span>
-    
-    <span class="cm">/*</span>
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">dim</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">y</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">width</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">height</span><span class="o">:</span><span class="nx">number</span><span class="p">;}){</span>
+	
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+	
+	<span class="p">}</span>
+	
+	<span class="cm">/*</span>
 
-<span class="cm">   The overloaded forms of foo() is accepted because I only varied the type of x.      </span>
+<span class="cm">	The overloaded forms of foo() is accepted because I only varied the type of x.		</span>
 
-<span class="cm">   */</span>
+<span class="cm">	*/</span>
 
-    <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">);</span>
-    <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">string</span><span class="p">);</span>
-    <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">any</span><span class="p">){</span>
-        
-    <span class="p">}</span>
-        
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">string</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">any</span><span class="p">){</span>
+		
+	<span class="p">}</span>
+		
 <span class="p">}</span>
 </code></pre></div>
 
 
-<p>You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.</p>
+You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.
 
-<h2>ARROW EXPRESSIONS</h2>
 
-<p>This looks purely like syntactic sugar, but just the same, note it. The <strong>() => {}</strong> notation was added so that you don't have to say <strong>function() {}</strong> &mdash; this reminds me of CoffeeScript though.</p>
+## ARROW EXPRESSIONS
+
+This looks purely like syntactic sugar, but just the same, note it. The **() =&gt; {}** notation was added so that you don't have to say **function() {}** &mdash; this reminds me of CoffeeScript though. 
+
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
-    
-    <span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
-    <span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello Goo&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    
+	
+	<span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
+	<span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello Goo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
 <span class="p">}</span>
 
 <span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span>
 </code></pre></div>
 
 
-<ol>
-<li>TS looks usable if you want to add some OO organization to your code; CoffeeScript will do that for you too, so it comes down to a choice whether you like the Ruby syntax or JavaScript</li>
-<li>TS is not a replacement for JavaScript. You need to know JavaScript first before you can move conveniently in TypeScript &mdash; after all, TypeScript is a superset of JavaScript</li>
-<li>You need a basic understanding of classical OO (Object Oriented) concepts before you can use the class abstractions of TypeScript. C#, Java and C++ programmers should be right at home</li>
-<li>Classical JavaScript and TypeScript syntax can be mashup-ed, it's up to you &mdash; but I found it confusing, I think this is where coding practices and conventions can help a lot</li>
-<li>Type checking is a relief, I like that a lot &mdash; this is probably due to my experience bias (statically typed languages)</li>
-</ol>
 
+
+1. TS looks usable if you want to add some OO organization to your code; CoffeeScript will do that for you too, so it comes down to a choice whether you like the Ruby syntax or JavaScript 
+2. TS is not a replacement for JavaScript. You need to know JavaScript first before you can move conveniently in TypeScript &mdash; after all, TypeScript is a superset of JavaScript
+3. You need a basic understanding of classical OO (Object Oriented) concepts before you can use the class abstractions of TypeScript. C#, Java and C++ programmers should be right at home
+4. Classical JavaScript and TypeScript syntax can be mashup-ed, it's up to you &mdash; but I found it confusing, I think this is where coding practices and conventions can help a lot
+5. Type checking is a relief, I like that a lot &mdash; this is probably due to my experience bias (statically typed languages) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</file></pre>
 
         </div>
 							

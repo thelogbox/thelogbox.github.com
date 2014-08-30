@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,56 +578,64 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h2>What you need to proceed</h2>
-
+		    <h2 id="what-you-need-to-proceed">What you need to proceed</h2>
 <ol>
-<li><a href="/installing-android-sdk/">A properly installed Android SDK</a></li>
-<li><a href="/android-install-eclipse-plugin/">Properly installed Eclipse plugin for Android</a></li>
+  <li><a href="/installing-android-sdk/">A properly installed Android SDK</a></li>
+  <li><a href="/android-install-eclipse-plugin/">Properly installed Eclipse plugin for Android</a></li>
 </ol>
 
-
-<h2>Create a basic Activity based android project in Eclipse</h2>
+<h2 id="create-a-basic-activity-based-android-project-in-eclipse">Create a basic Activity based android project in Eclipse</h2>
 
 <p>From the Eclipse menu, choose <strong>New project</strong>. Select <em>Android</em>, drill down to <strong>Android Application Project</strong>, Click Next.</p>
 
-<p><img src="/img/eclipse-new-project-1.png"></p>
+<p><img src="/img/eclipse-new-project-1.png" /></p>
 
 <p>Eclipse will ask for some information about the project</p>
 
 <ul>
-<li><p><strong>Application name</strong> - This is the top level folder that will be created, it will become the root folder of the project. This is equivalent to the <em>--path</em> flag of the <strong>android create project</strong></p></li>
-<li><p><strong>Project name</strong> - The project name is an eclipse construct. Eclipse uses this information to identify the project within the Eclipse workspace</p></li>
-<li><p><strong>Package name</strong> - The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files). This is the exact equivalent of the <em>--package</em> directive in the <strong>android create project</strong></p></li>
-<li><p><strong>Build SDK</strong> - This value stands for a unique API level for a specific android version which you want the project to target. This is the equivalent of the <em>--target</em> directive in the <strong>android create project</strong></p></li>
-<li><p><strong>Minimum required SDK</strong> - it sets the minimum API level or android version on which the project can run on. This value gets inserted in the AndroidManifest.xml file</p></li>
+  <li>
+    <p><strong>Application name</strong> - This is the top level folder that will be created, it will become the root folder of the project. This is equivalent to the <em>–path</em> flag of the <strong>android create project</strong></p>
+  </li>
+  <li>
+    <p><strong>Project name</strong> - The project name is an eclipse construct. Eclipse uses this information to identify the project within the Eclipse workspace</p>
+  </li>
+  <li>
+    <p><strong>Package name</strong> - The Java source files will be stored using the package directive that we specify in the option. The package directive will only affect the location of Java source files, it will not affect the location and storage of the other android resources (i.e. XML files). This is the exact equivalent of the <em>–package</em> directive in the <strong>android create project</strong></p>
+  </li>
+  <li>
+    <p><strong>Build SDK</strong> - This value stands for a unique API level for a specific android version which you want the project to target. This is the equivalent of the <em>–target</em> directive in the <strong>android create project</strong></p>
+  </li>
+  <li>
+    <p><strong>Minimum required SDK</strong> - it sets the minimum API level or android version on which the project can run on. This value gets inserted in the AndroidManifest.xml file</p>
+  </li>
 </ul>
 
-
-<p><img src="/img/eclipse-new-project-2.png"></p>
+<p><img src="/img/eclipse-new-project-2.png" /></p>
 
 <p>If you clicked the <em>launcher icon</em> option, Eclipse will show a dialog where you can create a rudimentary icon for hte application.</p>
 
-<p><img src="/img/eclipse-new-project-3.png"></p>
+<p><img src="/img/eclipse-new-project-3.png" /></p>
 
-<p>Choose <em>BlankActivity</em>. The <em>MasterDetailFlow</em> option is pretty advanced stuff---also, it requires a higher SDK level. It won't be available for Froyo or Gingerbread.</p>
+<p>Choose <em>BlankActivity</em>. The <em>MasterDetailFlow</em> option is pretty advanced stuff—also, it requires a higher SDK level. It won’t be available for Froyo or Gingerbread.</p>
 
-<p><img src="/img/eclipse-new-project-4.png"></p>
+<p><img src="/img/eclipse-new-project-4.png" /></p>
 
-<p><strong>Activity Name</strong> will be the name of main (Activity class). This is the equivalent of the <em>--activity</em> directive on the <strong>android create project</strong>.</p>
+<p><strong>Activity Name</strong> will be the name of main (Activity class). This is the equivalent of the <em>–activity</em> directive on the <strong>android create project</strong>.</p>
 
 <p>The <strong>Layout Name</strong> will be the name of the XML file which will contain the instructions for the main UI. This is the equivalent of the file <em>android-project-folder/res/layout/main.xml</em></p>
 
-<p><img src="/img/eclipse-new-project-5.png"></p>
+<p><img src="/img/eclipse-new-project-5.png" /></p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -638,7 +649,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

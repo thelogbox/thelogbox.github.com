@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -590,13 +593,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Download the installer from the <a href="http://wordpress.org/download/">WordPress site</a>. This is usually a zipped file.</p>
 
-<p>Unzip the file and put it inside the folder <em>C:\Users\yourname\wamp\www</em>. This is the directory of our WAMP installation. Technically you can place the unzipped file anywhere and still manage to have the Apache web server find it. That however requires intermediate knowledge of the Apache configuration files &mdash; which I did not assume you have at this point. Hence, it will be best to simply put our expanded <em>wordpress</em> folder inside the default <em>Document Root</em> of Apache which is <em>C:\Users\yourname\wamp\www</em>.</p>
+<p>Unzip the file and put it inside the folder <em>C:\Users\yourname\wamp\www</em>. This is the directory of our WAMP installation. Technically you can place the unzipped file anywhere and still manage to have the Apache web server find it. That however requires intermediate knowledge of the Apache configuration files — which I did not assume you have at this point. Hence, it will be best to simply put our expanded <em>wordpress</em> folder inside the default <em>Document Root</em> of Apache which is <em>C:\Users\yourname\wamp\www</em>.</p>
 
-<h2>Creating the Database</h2>
+<h2 id="creating-the-database">Creating the Database</h2>
 
 <p>Check if the WAMP server is still running. You need WAMP to be in the running state to perform the following procedure.</p>
 
-<p>Launch a browser session and go to <em>http://localhost</em> (assuming that you did not change the port of Apache in your WAMP installation). The opening screen of WAMP contains a <em>tool</em> section, try to find it and click <em>phpmyadmin</em>.</p>
+<p>Launch a browser session and go to <em>http://localhost</em> (assuming that you did not change the port of Apache in your WAMP installation). The opening screen of WAMP contains a <em>tool</em> section, try to find it and click <em>phpmyadmin</em>. </p>
 
 <p>Go to the <em>SQL</em> tab and enter the following</p>
 
@@ -608,21 +611,18 @@ GRANT ALL PRIVILEGES ON wppractice.* TO yourname@’localhost’ IDENTIFIED BY '
 FLUSH privileges;
 </pre>
 
-
 <p>Replace <em>yourname</em> and <em>yourpassword</em> with any value you like &amp;mdash. Just a make a point to remember them because you will need them later.</p>
 
-<p><img src="/img/wordpress/phpmyadmin-sql.png" alt="PHPMyAdmin SQL Page" /></p>
-
-<div id='lst'>phpmyadmin SQL page</div>
-
+<p><img src="/img/wordpress/phpmyadmin-sql.png" alt="PHPMyAdmin SQL Page" />
+&lt;div id='lst'&gt;phpmyadmin SQL page&lt;/div&gt;</p>
 
 <p>Click the <em>GO</em> button on the page. That will execute the three lines of SQL commands you typed up on the SQL editor. This is probably your first and last personal encounter with the MySQL database in WordPress unless you are doing something crazy, advanced or both with WordPress.</p>
 
-<h2>CONFIGURE WP-CONFIG.INI</h2>
+<h2 id="configure-wp-configini">CONFIGURE WP-CONFIG.INI</h2>
 
-<p>Go to Wordpress folder you created, it should be in C:\Users\yourname\WAMP\wordpress-project &mdash; if you did not stray from the instructions.</p>
+<p>Go to Wordpress folder you created, it should be in C:\Users\yourname\WAMP\wordpress-project — if you did not stray from the instructions.</p>
 
-<p>The core files contains a file named <em>wp-config-sample.php. Make a copy of that file and name it </em>wp-config.php*. Open it up for editing &mdash; don't double click it, your system might be configured to launch a browser instead of opening an editor. Right-click on it and choose an editing program e.g. notepad. You need to make some changes to its contents.</p>
+<p>The core files contains a file named <em>wp-config-sample.php. Make a copy of that file and name it *wp-config.php</em>. Open it up for editing — don’t double click it, your system might be configured to launch a browser instead of opening an editor. Right-click on it and choose an editing program e.g. notepad. You need to make some changes to its contents.</p>
 
 <pre class="codeblock">
 
@@ -647,18 +647,17 @@ define('DB_COLLATE', '');
 
 </pre>
 
-
 <p>This part will tell WordPress what database to use, which user has access to the database and what is the password of that user. This is why you needed to remember the username and password during the database creation time on the SQL editor of phpmyadmin. Replace <em>yourusername</em> with the username you used when you created the database using phpmyadmin (the SQL part). Do the same with <em>yourpassword</em>.</p>
 
-<p>Save the file and launch a browser session. Go to <em>http://localhost/wordpress-project/wordpress</em></p>
+<p>Save the file and launch a browser session. Go to <em>http://localhost/wordpress-project/wordpress</em> </p>
 
 <p>You will be taken to the WordPress Site initialization page. That is straightforward to fill up. Think of a site name and give it an administrator password.</p>
 
-<p><aside></p>
+<aside>
 
-<p><strong>NOTE:</strong> The WordPress administrator password being requested on the WordPress site installation is different from your database password. Each wordpress installation must have at least one Admin user, so don’t lose your Admin password.</p>
+**NOTE:** The WordPress administrator password being requested on the WordPress site installation is different from your database password. Each wordpress installation must have at least one Admin user, so don’t lose your Admin password.
 
-<p></aside></p>
+</aside>
 
         </div>
 							
@@ -666,7 +665,6 @@ define('DB_COLLATE', '');
       
 		</article>
     <div class="promo">
-      <h1>WordPress : Table of Contents</h1>
     </div>
     <div class="toc">
       <ul>
@@ -702,7 +700,7 @@ define('DB_COLLATE', '');
 <div style="text-align:center;">
   <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
 </div>
->/footer>
+</footer>
     <script type="text/javascript">
 
   var _gaq = _gaq || [];

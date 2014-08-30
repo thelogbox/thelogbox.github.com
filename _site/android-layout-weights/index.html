@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,14 +578,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that's just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.</p>
+		    <p>Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that’s just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.  </p>
 
-<p>Linear layouts will do exactly what the name implies. It will layout the Views linearly. What it will not do is resize the Views to take advantage of free space.  If you do not manage free space in your layout, the design will not appear tight, and a bit, well, amateurish.</p>
+<p>Linear layouts will do exactly what the name implies. It will layout the Views linearly. What it will not do is resize the Views to take advantage of free space.  If you do not manage free space in your layout, the design will not appear tight, and a bit, well, amateurish. </p>
 
 <p>There is one easy thing that if you do, will add a bit of finesse to the UI design. That one thing is to add <em>layout weights</em> to the Views.</p>
 
 <h2 class="section">START WITH A BASIC UI WITHOUT LAYOUT</h2>
-
 
 <p>Create an <em>Activity based</em> project for this example. Use the default vertical linear layout and add an <em>EditText, TextView and Button</em> components</p>
 
@@ -593,47 +595,44 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
     <span class="nt">&gt;</span>
 
-    <span class="nt">&lt;EditText</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+
+	<span class="nt">/&gt;</span>
+
+	<span class="nt">&lt;TextView</span>  
+    	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    	<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
 
     <span class="nt">/&gt;</span>
 
-    <span class="nt">&lt;TextView</span>  
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-        <span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
-
-    <span class="nt">/&gt;</span>
-
-    <span class="nt">&lt;Button</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-        <span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
-        <span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+	<span class="nt">&lt;Button</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
+		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
 
 <span class="nt">/&gt;</span>
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 
+<p><img class="small" src="/img/layout-no-weight.png" width="50%" />
+&lt;div id='lst'&gt;The UI as it current looks&lt;/div&gt;</p>
 
-<p><img class="small" src="/img/layout-no-weight.png" width="50%"/></p>
+<p>This design suffers from a couple of problems. The vertical space for the <em>TextView</em> is lacking. If the application intends to display multiple lines on the <em>TextView</em> to let users type up inputs and append the results to TextView, then the TextView should have more vertical space than either the <em>Button</em> or the <em>EditText</em>. </p>
 
-<div id='lst'>The UI as it current looks</div>
+<p>We can increase the space occupied by the <em>TextView</em> by increasing the number of lines it will occupy. It can be done by adding  a statement like <em>android:lines=”10”</em> or any number of lines to the TextView declaration. That approach however, have some setbacks, it might work for a 5” screen device but you might need to tweak the number of lines if the app is deployed on another device with a different screen size. Specifying absolute values is a dangerous thing to do in UI design. You just don’t know the form factor of the device where you will app will run. </p>
 
+<h1 id="using-a-weighted-layout">USING A WEIGHTED LAYOUT</h1>
 
-<p>This design suffers from a couple of problems. The vertical space for the <em>TextView</em> is lacking. If the application intends to display multiple lines on the <em>TextView</em> to let users type up inputs and append the results to TextView, then the TextView should have more vertical space than either the <em>Button</em> or the <em>EditText</em>.</p>
+<p>Each <em>View</em> component can be assigned a <em>weight property</em>. You can specify the amount of remaining space that the component can occupy  relative to the amount of space that the other components are occupying. </p>
 
-<p>We can increase the space occupied by the <em>TextView</em> by increasing the number of lines it will occupy. It can be done by adding  a statement like <em>android:lines="10"</em> or any number of lines to the TextView declaration. That approach however, have some setbacks, it might work for a 5" screen device but you might need to tweak the number of lines if the app is deployed on another device with a different screen size. Specifying absolute values is a dangerous thing to do in UI design. You just don't know the form factor of the device where you will app will run.</p>
-
-<h1>USING A WEIGHTED LAYOUT</h1>
-
-<p>Each <em>View</em> component can be assigned a <em>weight property</em>. You can specify the amount of remaining space that the component can occupy  relative to the amount of space that the other components are occupying.</p>
-
-<p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated.</p>
+<p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated. </p>
 
 <div class="highlight"><pre><code class="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
@@ -642,60 +641,56 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
     <span class="nt">&gt;</span>
 
-    <span class="nt">&lt;EditText</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
-        <span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	<span class="nt">/&gt;</span>
+
+	<span class="nt">&lt;TextView</span>  
+    	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    	<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
     <span class="nt">/&gt;</span>
 
-    <span class="nt">&lt;TextView</span>  
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-        <span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
-        <span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
-    <span class="nt">/&gt;</span>
-
-    <span class="nt">&lt;Button</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-        <span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
-        <span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
-        <span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	<span class="nt">&lt;Button</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
+		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
 <span class="nt">/&gt;</span>
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 
+<div id="lst">LinearLayout with weights</div>
 
+<p><img class="small" src="/img/layout-weight.png" width="50%" /></p>
 
-
-<div id='lst'>LinearLayout with weights</div>
-
-
-<p><img class="small" src="/img/layout-weight.png" width="50%"/></p>
-
-<div id='lst'>How it looks with layout weights</div>
-
+<div id="lst">How it looks with layout weights</div>
 
 <p><strong>REMEMBER</strong></p>
 
 <p>Use the weight property of the view to allocate the amount of screen real estate for it.</p>
 
-<p>The weight of all the views will be summed up. If you have 3 views and you gave them all equal weights of 10, it is as good as assigning them equal weights of 1 or 0. The integer value does not matter, it is the proportion of each view relative to its sibling views.</p>
+<p>The weight of all the views will be summed up. If you have 3 views and you gave them all equal weights of 10, it is as good as assigning them equal weights of 1 or 0. The integer value does not matter, it is the proportion of each view relative to its sibling views. </p>
 
 <p>You can only use the <em>weight property</em> on a <strong>LinearLayout</strong>. The other layouts will have their own acrobatics to position views in relation to its sibling views and the frame</p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -709,7 +704,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

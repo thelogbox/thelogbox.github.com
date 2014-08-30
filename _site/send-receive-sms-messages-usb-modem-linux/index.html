@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -584,35 +587,30 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <div id="feature-button">
 The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
-<p/>
+<p />
 
 <a href="http://tedhagos.com/linux/UsbModemLinux-SMS.html">tedhagos.com/UsbModemLinux-SMS</a>   
-<p/>
+<p />
 
 The original guide was left here for quick references only. This guide will no longer be updated here
 </div>
 
+<hr />
 
-<p></p>
-
-<hr/>
-
-
-<h1>What you need</h1>
+<h1 id="what-you-need">What you need</h1>
 
 <ol>
-<li>A Linux PC. Debian was used but I got to test it on Crunchbang as well, worked out fine. It should work fairly well on the Debian derivatives e.g. Ubuntu, Xubuntu, Mint etc</li>
-<li>A USB modem. A post paid plan was used for the project, but a USB stick on pre-paid should work just as well</li>
+  <li>A Linux PC. Debian was used but I got to test it on Crunchbang as well, worked out fine. It should work fairly well on the Debian derivatives e.g. Ubuntu, Xubuntu, Mint etc</li>
+  <li>A USB modem. A post paid plan was used for the project, but a USB stick on pre-paid should work just as well</li>
 </ol>
 
+<h1 id="installation">Installation</h1>
 
-<h1>Installation</h1>
-
-<p><code>sudo apt-get update</code><br/>
-<code>sudo apt-get install mysql-server</code><br/>
+<p><code>sudo apt-get update</code><br />
+<code>sudo apt-get install mysql-server</code><br />
 <code>sudo apt-get install gnokii-smsd-mysql</code></p>
 
-<h1>Config</h1>
+<h1 id="config">Config</h1>
 
 <p>Connect the USB modem to PC and find out which port it is using</p>
 
@@ -622,11 +620,11 @@ The original guide was left here for quick references only. This guide will no l
 
 <p><code>sudo dmesg | grep USB</code></p>
 
-<p>What you are looking for is the device name for the modem. Usually, the modem is at <code>/dev/tty0</code>, but just to be sure, run either lsusb or the dmesg command as stated above. Remember the device name because you will need it when you edit <code>~/.config/gnokii/config</code> &#x2014; that is the configuration file for gnokii.</p>
+<p>What you are looking for is the device name for the modem. Usually, the modem is at <code>/dev/tty0</code>, but just to be sure, run either lsusb or the dmesg command as stated above. Remember the device name because you will need it when you edit <code>~/.config/gnokii/config</code> — that is the configuration file for gnokii. </p>
 
 <p>On some Debian derivatives like Crunchbang, the gnokii config file was not created during the installation . If that is the case, just create the config file manually.</p>
 
-<p><code>sudo mkdir -p ~/.config/gnokii</code><br/>
+<p><code>sudo mkdir -p ~/.config/gnokii</code><br />
 <code>sudo touch ~/.config/gnokii/config</code></p>
 
 <p>Edit the <strong>config</strong> file. Set the port number and model to their appropriate values</p>
@@ -643,16 +641,16 @@ model=AT
 
 <p>It should give us some diagnostics and a quick peek if we did something wrong on the configuration file.</p>
 
-<h1>Database backend</h1>
+<h1 id="database-backend">Database backend</h1>
 
-<p>The gnokii-smsd-msyql package contains the SQL scripts necessary to create the table structure, but the database itself still needs to be manually prepared.</p>
+<p>The gnokii-smsd-msyql package contains the SQL scripts necessary to create the table structure, but the database itself still needs to be manually prepared. </p>
 
-<p><code>mysql -u root -p</code><br/>
-<code>mysql&gt; create database smsgw;</code><br/>
-<code>mysql&gt; use smsgw;</code><br/>
+<p><code>mysql -u root -p</code><br />
+<code>mysql&gt; create database smsgw;</code><br />
+<code>mysql&gt; use smsgw;</code><br />
 <code>mysql&gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;</code></p>
 
-<h1>Sending and Receiving SMS</h1>
+<h1 id="sending-and-receiving-sms">Sending and Receiving SMS</h1>
 
 <p>First, the daemon smsgw daemon process needs to run. Get another terminal window and run the daemon process from there</p>
 
@@ -666,9 +664,10 @@ model=AT
 
 <p>If you send an SMS message to the number of the USB modem, all incoming messages are stored in the <strong>inbox</strong> table of the database</p>
 
-<p><code>mysql -u root -p</code><br/>
-<code>mysql&gt; use smsgw;</code><br/>
+<p><code>mysql -u root -p</code><br />
+<code>mysql&gt; use smsgw;</code><br />
 <code>mysql&gt; select * from inbox;</code></p>
+
 
         </div>
 							
@@ -676,7 +675,6 @@ model=AT
 		</article>
     
     <div class="toc">
-      Linux Notes
       <ul>
       <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
       <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>

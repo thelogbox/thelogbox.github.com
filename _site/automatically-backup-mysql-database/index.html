@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,38 +585,36 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>The key command we need is</p>
+		    <p>The key command we need is </p>
 
-<pre class='codeblock'>
-$ sudo mysqldump -u UserName -p --all-databases > /path/to/file.backup 
+<pre class="codeblock">
+$ sudo mysqldump -u UserName -p --all-databases &gt; /path/to/file.backup 
 </pre>
 
-
-<p>The <em>--all-databases</em> flag will back up everything inside of the MySQL instance. If you don't want to backup everything, specify the database name(s) instead of backing up everything.</p>
+<p>The <em>–all-databases</em> flag will back up everything inside of the MySQL instance. If you don’t want to backup everything, specify the database name(s) instead of backing up everything.</p>
 
 <p>The result of <em>mysqldump</em> is a series of SQL commands that contains both the structure and contents of the database.</p>
 
-<h2>How to Restore</h2>
+<h2 id="how-to-restore">How to Restore</h2>
 
-<pre class='codeblock'>
+<pre class="codeblock">
   
 $ mysql -u UserName -p
 
-mysql > create database name_of_name_database
-mysql > use name_of_new_database
-mysql > .\file.backup
+mysql &gt; create database name_of_name_database
+mysql &gt; use name_of_new_database
+mysql &gt; .\file.backup
     
 </pre>
-
 
 <p>Some extra things you can do to make this a bit more robust.</p>
 
 <ol>
-<li>Put this command in a cron job</li>
-<li>Refine by gzipping redirected text-output</li>
-<li>Refine further by adding time stamp to the backup files</li>
-<li>Refine by setting up Rsync to work with this backup approach</li>
-<li>I could actually put backup file inside DropBox, then I won't need rsync. However, mostly likely, if the installation is enterprise grade, chances are the Dropbox code won't be an option</li>
+  <li>Put this command in a cron job</li>
+  <li>Refine by gzipping redirected text-output</li>
+  <li>Refine further by adding time stamp to the backup files</li>
+  <li>Refine by setting up Rsync to work with this backup approach</li>
+  <li>I could actually put backup file inside DropBox, then I won’t need rsync. However, mostly likely, if the installation is enterprise grade, chances are the Dropbox code won’t be an option</li>
 </ol>
 
 
@@ -623,7 +624,6 @@ mysql > .\file.backup
 		</article>
     
     <div class="toc">
-      Linux Notes
       <ul>
       <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
       <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>

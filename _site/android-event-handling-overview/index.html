@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -577,7 +580,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>User Interfaces usually contains views e.g. Buttons that users may activate. When these views are triggered, you will need a way to react to this event. This programming skill is called event handling.</p>
 
-<p>There are two ways to handle events in Android. You can do it from within the XML file, this is called declarative event handling. The second method is programmatic which involves writing callback methods &mdash; they are called listeners &mdash; then writing codes inside the call backs.</p>
+<p>There are two ways to handle events in Android. You can do it from within the XML file, this is called declarative event handling. The second method is programmatic which involves writing callback methods — they are called listeners — then writing codes inside the call backs. </p>
 
 <p>This chapter explores the two ways of handling event. We will go a bit deeper into each method in the succeeding chapters.</p>
 
@@ -585,7 +588,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>To follow the examples, it will be best if you create a new Android project. I hope by now you are already proficient in creating projects using the SDK tools, like we did on <a href="/android-getting-started">Getting Started Chapter</a>.</p>
 
-<p>Once you already have a project, work on the <em>main.xml</em>. This file was generated when you created the project. Add a Button view in the main.xml file</p>
+<p>Once you already have a project, work on the <em>main.xml</em>. This file was generated when you created the project. Add a Button view in the main.xml file </p>
 
 <div class="highlight"><pre><code class="xml"><span class="nt">&lt;Button</span>
   <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
@@ -595,15 +598,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">/&gt;</span>
 </code></pre></div>
 
+<div id="lst">/res/layout/main.xml</div>
 
+<p>What’s new in this code is <em>onClick</em> attribute. When you add this to a view element, it adds event handling capability to your app. The value of the attribute in our example is <strong>showMe</strong>. This the method that the app will invoke when the user clicks on the button. It is your responsibility to implement this method.</p>
 
-
-<div id='lst'>/res/layout/main.xml</div>
-
-
-<p>What's new in this code is <em>onClick</em> attribute. When you add this to a view element, it adds event handling capability to your app. The value of the attribute in our example is <strong>showMe</strong>. This the method that the app will invoke when the user clicks on the button. It is your responsibility to implement this method.</p>
-
-<p>To implement the <strong>showMe</strong> callback, you need to add a method inside the Activity class &mdash; the one associated with <em>main.xml</em> where the Button is defined. This method has to be <em>void</em> and must accept a <em>View</em> object as a parameter.</p>
+<p>To implement the <strong>showMe</strong> callback, you need to add a method inside the Activity class — the one associated with <em>main.xml</em> where the Button is defined. This method has to be <em>void</em> and must accept a <em>View</em> object as a parameter.</p>
 
 <div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
   
@@ -614,31 +613,27 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
+<div id="lst">/src/com/thelogbox/MyActivity.java</div>
 
-
-
-<div id='lst'>/src/com/thelogbox/MyActivity.java</div>
-
-
-<p>This is called <em>declarative</em> event handling in Android because you use the XML to declare the handler (the showMe method) for the button. This works well and is quite friendly for beginning Android programmers.</p>
+<p>This is called <em>declarative</em> event handling in Android because you use the XML to declare the handler (the showMe method) for the button. This works well and is quite friendly for beginning Android programmers. </p>
 
 <p>This approach to event handling does have one shortcoming, it can only handle the <em>click</em> event. Other Android such as long-clicks, context-menus, touch etc, cannot be handled declaratively. To do those, you need to know how to handle events programmatically.</p>
 
-<p>You will need to learn how to work with <em>Listeners</em>.</p>
+<p>You will need to learn how to work with <em>Listeners</em>. </p>
 
-<h2>Input Events</h2>
+<h2 id="input-events">Input Events</h2>
 
-<p>Input events from the user are triggered when he touches widgets like Buttons and TextViews. A lot of Android widgets inherits the <em>android.view.View</em> class either directly or indirectly. This is a good reason to be aware of the View's built-in listeners.</p>
+<p>Input events from the user are triggered when he touches widgets like Buttons and TextViews. A lot of Android widgets inherits the <em>android.view.View</em> class either directly or indirectly. This is a good reason to be aware of the View’s built-in listeners.</p>
 
-<p>A <em>Listener</em> is a special object designated by Android. It contains callback methods which the Android runtime invokes when a specific event happens.</p>
+<p>A <em>Listener</em> is a special object designated by Android. It contains callback methods which the Android runtime invokes when a specific event happens. </p>
 
-<p>To intercept the <em>click</em> event for example, you need to create a <em>Listener</em> object that was specifically designed to listen for click events. That would be the <em>android.view.View.OnClickListener</em>.</p>
+<p>To intercept the <em>click</em> event for example, you need to create a <em>Listener</em> object that was specifically designed to listen for click events. That would be the <em>android.view.View.OnClickListener</em>. </p>
 
-<p>The OnClickListener is implemented as a nested class inside android.view.View. There are many Listener interfaces that nested inside the View class, you can refer to the <a href="http://developer.android.com/reference/android/view/package-summary.html">android.developer/documentation</a> for the details.</p>
+<p>The OnClickListener is implemented as a nested class inside android.view.View. There are many Listener interfaces that nested inside the View class, you can refer to the <a href="http://developer.android.com/reference/android/view/package-summary.html">android.developer/documentation</a> for the details. </p>
 
-<p>User input like a long-click, should be handled using the <strong>android.view.View.OnLongClickListener</strong>, if the user pops up the keyboard and you want to intercept the keystrokes -- you use the  <em>OnKeyListener</em>; you get the idea by now. Go through the official documentation that was pointed earlier if you need to go through deeper details of the API.</p>
+<p>User input like a long-click, should be handled using the <strong>android.view.View.OnLongClickListener</strong>, if the user pops up the keyboard and you want to intercept the keystrokes – you use the  <em>OnKeyListener</em>; you get the idea by now. Go through the official documentation that was pointed earlier if you need to go through deeper details of the API. </p>
 
-<h2>Programmatic Event Handling</h2>
+<h2 id="programmatic-event-handling">Programmatic Event Handling</h2>
 
 <p>To handle a click event, you need to create a listener object (View.OnClickListener) then register the widget of interest (a Button probably) to the listener. This is how the Android runtime will know that when a click happens to the Button, the runtime needs to invoke  the <strong>public void onClick()</strong> method.</p>
 
@@ -667,10 +662,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
-
 <p>The example code above is not the only way to create listener. You can implement the <em>Listener</em> on the Activity as well, it may be more efficient that way because you can avoid the performance hit of the extra class loading which was caused by the inner class implementation.</p>
 
-<p>The samples above should get you started on event programming, but let's take on another sample, this time, the long-click event.</p>
+<p>The samples above should get you started on event programming, but let’s take on another sample, this time, the long-click event.</p>
 
 <div class="highlight"><pre><code class="java"><span class="cm">/*</span>
 
@@ -694,18 +688,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
+<p>The long click <em>Listener’s</em> method is not identical to the void signature of the <em>click</em> event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully. </p>
 
-<p>The long click <em>Listener's</em> method is not identical to the void signature of the <em>click</em> event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully.</p>
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -719,7 +713,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

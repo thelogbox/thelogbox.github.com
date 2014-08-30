@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,15 +578,15 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <h1>CREATE THE PROJECT</h1>
+		    <h1 id="create-the-project">CREATE THE PROJECT</h1>
 
-<p><em>android create project --path <project folder> --target <API level> --package <package name> --Activity <Activity name></em></p>
+<p>*android create project –path <project folder=""> --target <api level=""> --package <package name=""> --Activity <activity name="">*</activity></package></api></project></p>
 
-<h1>WORK THE MANIFEST</h1>
+<h1 id="work-the-manifest">WORK THE MANIFEST</h1>
 
 <p>If necessary, modify the <em>*AndroidManifest.xml</em>. There will be certain applications that will require explicit permissions to be declared on manifest e.g. use of camera, use of the MIC for media recording etc</p>
 
-<h1>SOURCE CONTROL</h1>
+<h1 id="source-control">SOURCE CONTROL</h1>
 
 <p>This is for bitbucket.org, adjust the url accordingly for github.com</p>
 
@@ -595,8 +598,7 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
 
 </pre>
 
-
-<h1>ADD .gitignore and README file</h1>
+<h1 id="add-gitignore-and-readme-file">ADD .gitignore and README file</h1>
 
 <p>cd to project folder, create a .gitignore file. You don’t want all of the files to be under source control e.g. location of the build.xml and the android-SDK, these information are specific to developer workstation and may not be true for all developers. Also, you don’t want generated files to be part of source control</p>
 
@@ -611,32 +613,29 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
   project.properties  
 </pre>
 
-
-<p></p>
-
 <p>Don’t forget the README.txt. Even if you are working alone, it can’t hurt to write down your thoughts why you were trying to write that piece of code in the first place, put it in the README.txt</p>
 
-<h1>COMMIT REGULARLY</h1>
+<h1 id="commit-regularly">COMMIT REGULARLY</h1>
 
 <p>Keep adding files to the project, keep modifying files. At the end of the day, commit your changes. Now, the frequency of the commit is usually decided as a group. There are projects where you cannot until certain number of unit tests have been performed (and passed) etc. Know your project practices and adhere to them, but the last thing you want is losing a days worth of coding/unit testing, so commit to the repo religiously</p>
 
-<h1>LICENSE THE SOURCE FILE</h1>
+<h1 id="license-the-source-file">LICENSE THE SOURCE FILE</h1>
 
-<p>You need to decide which license you will use. Remember, if there is no explicit license on the source file, it means its a full copyright. No one can use your code, they will have to contact you and ask for express permissions &mdash; not that everybody abides by that, but still, if you intend other people to benefit from your creation, then license it either using a permissive license (like MIT or BSD) or the GPL or what have you.</p>
+<p>You need to decide which license you will use. Remember, if there is no explicit license on the source file, it means its a full copyright. No one can use your code, they will have to contact you and ask for express permissions — not that everybody abides by that, but still, if you intend other people to benefit from your creation, then license it either using a permissive license (like MIT or BSD) or the GPL or what have you.</p>
 
-<h1>DEBUG, OBSERVE, INSPECT, ADJUST</h1>
+<h1 id="debug-observe-inspect-adjust">DEBUG, OBSERVE, INSPECT, ADJUST</h1>
 
 <p>Learn how to type ant debug install really quickly, better yet, use a text expander so you have a fighting chance against carpal tunnel syndrome</p>
 
-<h1>BETA TEST</h1>
+<h1 id="beta-test">BETA TEST</h1>
 
 <p>Send the app to friends, relatives, colleagues etc, look for feedback. Go back to the app, refine. Let your thoughts germinate some more. You need to iterate a bit on the app before you release to the wild</p>
 
-<h1>SIGN THE APP</h1>
+<h1 id="sign-the-app">SIGN THE APP</h1>
 
-<p>ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to <a href="/signing-an-android-app">digitally sign your app</a> before you release it to the public</p>
+<p>ant debug install was fine for testing and development, but it cannot be consumed by other people without the developer signature. You need to <a href="/signing-an-android-app">digitally sign your app</a> before you release it to the public </p>
 
-<h1>GET TO GOOGLE PLAY</h1>
+<h1 id="get-to-google-play">GET TO GOOGLE PLAY</h1>
 
 <p>You can make the app available from your website as a downloadable apk (android package) or you could pay Google Play so you can sell the app at the Google Market Place (its like iTunes or the Apple App Store for Android apps)</p>
 
@@ -644,11 +643,11 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -662,7 +661,6 @@ $ git remote add origin https://yourname@bitbucket.org/yourname/yourproject.git
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,9 +578,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>Gone are the days when we can simply compile a practice project with simple <span class="boxed">javac</span>, then fire the the JRE to appreciate our code at runtime. A lot of the Java projects have fallen victim to unnatural stretching because of increasing complexity---android projects are not immune to this stretching. As the complexity of Java projects got higher and higher, we coped with tools and frameworks. One of these tools is <strong>ant</strong>.</p>
+		    <p>Gone are the days when we can simply compile a practice project with simple <span class="boxed">javac</span>, then fire the the JRE to appreciate our code at runtime. A lot of the Java projects have fallen victim to unnatural stretching because of increasing complexity—android projects are not immune to this stretching. As the complexity of Java projects got higher and higher, we coped with tools and frameworks. One of these tools is <strong>ant</strong>. </p>
 
-<p>Ant allows us to tame the complexity of project builds. Ant is a widely used build tool for Java projects, I'm willing to bet that you have seen or used this sometime in the past.</p>
+<p>Ant allows us to tame the complexity of project builds. Ant is a widely used build tool for Java projects, I’m willing to bet that you have seen or used this sometime in the past.  </p>
 
 <pre><code>├── AndroidManifest.xml
 ├── ant.properties
@@ -593,29 +596,32 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 │   └── values
 │       └── strings.xml
 └── src
-   └── com
-       └── thelogbox
-           └── Hello.java
+ 	   └── com
+ 	       └── thelogbox
+ 	           └── Hello.java
 </code></pre>
 
-<p>Notice the <strong>build.xml</strong> on the root folder of our project? That is an ant build file. The project creation script generated that for a reason, we are supposed to use ant to compile, build and deploy our android projects.</p>
+<p>Notice the <strong>build.xml</strong> on the root folder of our project? That is an ant build file. The project creation script generated that for a reason, we are supposed to use ant to compile, build and deploy our android projects. </p>
 
-<h2>Compiling the android project</h2>
+<h2 id="compiling-the-android-project">Compiling the android project</h2>
 
 <ol>
-<li><p>If you haven't closed the terminal yet, go to it. If you have closed it, open the terminal again and navigate to the root folder of the android project</p></li>
-<li><p>Try typing <span class="boxed">ant</span> on the terminal. It should echo a bunch of possible targets. We will use the <strong>debug</strong> target to build our android app.</p></li>
+  <li>
+    <p>If you haven’t closed the terminal yet, go to it. If you have closed it, open the terminal again and navigate to the root folder of the android project</p>
+  </li>
+  <li>
+    <p>Try typing <span class="boxed">ant</span> on the terminal. It should echo a bunch of possible targets. We will use the <strong>debug</strong> target to build our android app. </p>
+  </li>
 </ol>
 
-
-<p>We will use the debug target so that we can side step android's requirement to setup security keys and signing our applications with that key. Let's deal with the application signing later on when we get to deploying and releasing our mobile app in the wild.</p>
+<p>We will use the debug target so that we can side step android’s requirement to setup security keys and signing our applications with that key. Let’s deal with the application signing later on when we get to deploying and releasing our mobile app in the wild.</p>
 
 <p>If we use the <strong>debug</strong> target, ant will generate a debug key that will serve as the security key for our app. This is good enough for now because we are just fooling around. Compile the app by typing</p>
 
 <pre><code>$ ant debug
 </code></pre>
 
-<p>You should see a bunch of scrolling echo messages in the terminal. Look for a message (right towards the end) that says something like <em>BUILD SUCCESSFUL</em>. It should be successful for now because we haven't messed around with it yet. There is no reason at this point for the build to fail.</p>
+<p>You should see a bunch of scrolling echo messages in the terminal. Look for a message (right towards the end) that says something like <em>BUILD SUCCESSFUL</em>. It should be successful for now because we haven’t messed around with it yet. There is no reason at this point for the build to fail. </p>
 
 <pre><code>.
 ├── AndroidManifest.xml
@@ -661,25 +667,26 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 │       └── strings.xml
 └── src
     └── com
-       └── thelogbox
+ 	       └── thelogbox
             └── Hello.java
 
 15 directories, 30 files
 </code></pre>
 
-<p>Right after the compilation process, there are lots of changes within our project directory. Quite noticeably, there are now lots of files inside the <strong>bin</strong> and <strong>gen</strong> folders. Somewhere in these jungle lies the executables that we can actually deploy to a real device---but save that for later. Right now, the goal is to just be comfortable with the compilation process.</p>
+<p>Right after the compilation process, there are lots of changes within our project directory. Quite noticeably, there are now lots of files inside the <strong>bin</strong> and <strong>gen</strong> folders. Somewhere in these jungle lies the executables that we can actually deploy to a real device—but save that for later. Right now, the goal is to just be comfortable with the compilation process.</p>
 
-<p>In case you encounter a "Cannot find build.xml" error, take a look at your SDK setup. This is usually a config error on the <em>local.properties</em> file. <a href="/cannot-find-buildxml/">Look here for details of the error</a></p>
+<p>In case you encounter a “Cannot find build.xml” error, take a look at your SDK setup. This is usually a config error on the <em>local.properties</em> file. <a href="/cannot-find-buildxml/">Look here for details of the error</a></p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -693,7 +700,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

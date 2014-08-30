@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -584,65 +587,63 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>A program starts with the very first statement in a script. After it has been read, the second one is read next, then the third, so on and so forth. The program will stop when there are no more statements to process. This linear way of processing statements is the norm. Unless the program flow is altered by some statements.</p>
 
-<p>Think of program statements like a river. It streams. It flows in a linear way unless something influences the direction of flow.</p>
+<p>Think of program statements like a river. It streams. It flows in a linear way unless something influences the direction of flow. </p>
 
 <p>There are two ways to alter the flow of control in your script. There are statements that can fork or branch the direction and there are statements that can loop.</p>
 
-<h1>Branching</h1>
+<h1 id="branching">Branching</h1>
 
-<p>Branching statements allows you to side step some statements when some conditions are true; <em>if-else</em> statement is one way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed.</p>
+<p>Branching statements allows you to side step some statements when some conditions are true; <em>if-else</em> statement is one way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed. </p>
 
 <div class="highlight"><pre><code class="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
 <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">);</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">);</span>
 <span class="o">}</span>
 <span class="k">else</span> <span class="o">{</span>
-    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;nah!&quot;</span><span class="o">);</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;nah!&quot;</span><span class="o">);</span>
 <span class="o">}</span> 
 
 <span class="c1">// RETURNS nah!</span>
 </code></pre></div>
 
-
-<p>Be careful when writing your comparisson operator. Here's a slightly modified version of the code above</p>
+<p>Be careful when writing your comparisson operator. Here’s a slightly modified version of the code above</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nah!&quot;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nah!&quot;</span><span class="p">);</span>
 <span class="p">}</span> 
 
 <span class="c1">// RETURNS true</span>
 </code></pre></div>
 
+<p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality–but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value. </p>
 
-<p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality--but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value.</p>
-
-<p><em>Switch statement</em> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction.</p>
+<p><em>Switch statement</em> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction. </p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
 
 <span class="k">switch</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="k">case</span> <span class="s2">&quot;he&quot;</span><span class="o">:</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;he&quot;</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="kc">true</span><span class="o">:</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="s2">&quot;Hello&quot;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="o">:</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+	<span class="k">case</span> <span class="s2">&quot;he&quot;</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;he&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="kc">true</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="s2">&quot;Hello&quot;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">default</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ret</span><span class="p">);</span>
@@ -654,24 +655,22 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">*/</span>
 </code></pre></div>
 
+<p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences–without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found. </p>
 
-<p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences--without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found.</p>
-
-<h1>Iteration</h1>
+<h1 id="iteration">Iteration</h1>
 
 <p>Looping or iteration statements allows you to perform some statements repeatedly while some conditions are true.</p>
 
-<p>The <em>while</em> statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates.</p>
+<p>The <em>while</em> statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates. </p>
 
 <div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">timetoexit</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;counter = &quot;</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;counter = &quot;</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>You can use the <strong>break</strong> keyword to break out of loops, like this</p>
 
@@ -679,13 +678,12 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
 <span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div>
 
-
-<p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.</p>
+<p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.  </p>
 
 <p>Another keyword related to loop structures is the <strong>continue</strong> keyword. It causes program flow to jump also</p>
 
@@ -694,19 +692,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
 
-    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(++</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="k">continue</span><span class="o">;</span> 
-    <span class="o">}</span>
-    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(++</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">continue</span><span class="o">;</span>	
+	<span class="o">}</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div>
 
+<p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop—forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed. </p>
 
-<p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop---forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed.</p>
-
-<p>The <em>for</em> statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again.</p>
+<p>The <em>for</em> statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again. </p>
 
 <div class="highlight"><pre><code class="javascript"><span class="k">for</span> <span class="p">([</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">begin</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">stop</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">step</span><span class="p">])</span> <span class="p">{</span>
 
@@ -715,21 +712,16 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   
 </code></pre></div>
 
-
-
-
-<div id='lst'>Canonical Form</div>
-
+<div id="lst">Canonical Form</div>
 
 <p>A key concept in using the for loop is the counter (the step). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the step value is incremented. The incremented step value is then compared to the ending value, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block.</p>
 
 <div class="highlight"><pre><code class="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>The code sample above defines the starting point at 1 (i = 1), it will stop the loop execution when <em>i &lt; 10</em>.  Each time the <em>for</em> loop is evaluated, the i variable will be incremented by 1 (i++).</p>
 
@@ -769,8 +761,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="cm">*/</span>
 </code></pre></div>
 
+<p>This code requires the node.js library <em>util</em>. We can’t use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it. </p>
 
-<p>This code requires the node.js library <em>util</em>. We can't use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it.</p>
 
         </div>
 							
@@ -778,7 +770,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		</article>
     
     <div class="toc">
-      JavaScript
       <ul>
       <li><a href="/javascript-core-tutorial">Introduction</a></li>
       <li><a href="/javascript-core-environment-setup">Tools</a></li>

@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -582,39 +585,36 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>This was done on Leopard, Snow Leopard, Lion and Mountain Lion</p>
 
-<h2>Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 
 <ol>
-<li>Install a mysql-server for development purposes on OSX Lion</li>
-<li>Use the include mysql CLI (Command Line Interface), specifically mysql client</li>
+  <li>Install a mysql-server for development purposes on OSX Lion</li>
+  <li>Use the include mysql CLI (Command Line Interface), specifically mysql client</li>
 </ol>
 
-
-<h2>Possible routes</h2>
+<h2 id="possible-routes">Possible routes</h2>
 
 <ol>
-<li>Using BREW -- <em>$ sudo brew install mysql</em></li>
-<li>Using MacPorts -- <em>sudo port install mysql</em></li>
-<li>Download from  <a href="http://dev.mysql.com/downloads/">MySQL developer website</a></li>
+  <li>Using BREW – <em>$ sudo brew install mysql</em></li>
+  <li>Using MacPorts – <em>sudo port install mysql</em></li>
+  <li>Download from  <a href="http://dev.mysql.com/downloads/">MySQL developer website</a></li>
 </ol>
-
 
 <p>I went with No. 3 above. Installation went smoothly, except that the MySQL CLI was not included in the path, I had to manually add it to the PATH variable.</p>
 
-<pre class='codeblock'>
+<pre class="codeblock">
 
-    $ vi ~/.bash_rc
-    … some entries in the .bash_rc
-    … export PATH=PATH$:/usr/local/mysql/bin:.
+	$ vi ~/.bash_rc
+	… some entries in the .bash_rc
+	… export PATH=PATH$:/usr/local/mysql/bin:.
 
 </pre>
 
-
-<h2>To use MySQL on OSX</h2>
+<h2 id="to-use-mysql-on-osx">To use MySQL on OSX</h2>
 
 <ol>
-<li>The server is not started by default. There is a utility in the <em>System Preferences</em> under the entry <em>Others</em> right at the bottom part of the screen. Use it to start and stop MySQL server</li>
-<li>To communicate with MySQL, use the CLI client &mdash; <code class="codeblock">$ mysql -u root -p</code></li>
+  <li>The server is not started by default. There is a utility in the <em>System Preferences</em> under the entry <em>Others</em> right at the bottom part of the screen. Use it to start and stop MySQL server</li>
+  <li>To communicate with MySQL, use the CLI client — <code class="codeblock">$ mysql -u root -p</code></li>
 </ol>
 
 

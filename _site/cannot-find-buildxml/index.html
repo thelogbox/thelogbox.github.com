@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -577,7 +580,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>After running ant debug install, an error happens.</p>
 
-<pre class="codeblock"></code>
+<pre class="codeblock">
 BUILD FAILED
 /Users/ted/workarea/android-training/practice
 /helloworld/    build.xml:83: Cannot find /Users/ted/
@@ -588,7 +591,6 @@ practice/helloworld/build.xml
 Total time: 0 seconds
 </pre>
 
-
 <p>This is a build script problem. What the error tells us is that, it cannot find <strong>build.xml</strong>. How can that be? The android SDK tools actually setup up everything for us, the ant build script is one of the artefacts created when you start a new android project.
 There could be lots of reasons, but this particular error happened to me because I was using two machines for program development. And that I forgot to include the <strong>local.properties</strong> in the .gitignore file. So the settings and properties on one machine spilled
 over to the other development machine.</p>
@@ -598,27 +600,27 @@ Android SDK when you downloaded it.</p>
 
 <p>The following example downloads and installs the android SDK</p>
 
-<pre class="codeblock"></code>
+<pre class="codeblock">
 mkdir ~/progtools
 cd progtools
 wget http://dl.google.com/android/android-sdk-linux.tgz
 tar -xzvf android-sdk-linux.tgz
 </pre>
 
-
 <p>This will create a folder named <strong>~/progtools/android-sdk-linux/</strong>. This is the SDK.DIR</p>
 
 <p>To fix this error, you need to make sure that the value of <strong>SDK.DIR</strong> inside the local.properties file is pointing to the correct location. The local.properties file is located on the top level folder of your android project.</p>
+
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -632,7 +634,6 @@ tar -xzvf android-sdk-linux.tgz
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

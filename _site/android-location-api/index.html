@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,39 +578,37 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>GEOLocation is a major fuctionality of a mobile device. There are plenty of practical uses for this nifty feature, apart from stamping where you were when you took that photo.</p>
+		    <p>GEOLocation is a major fuctionality of a mobile device. There are plenty of practical uses for this nifty feature, apart from stamping where you were when you took that photo. </p>
 
 <p>This feature makes it possible to know where you are during those situations when you are lost. A powerful enough app can tell you how far you are from an intended destination. These are just a few use cases for this feature. This is the reason why you need to know how to code with it.</p>
 
-<h1>CURRENT LOCATION</h1>
+<h1 id="current-location">CURRENT LOCATION</h1>
 
 <p>To get information on the current location, you need to do the following;</p>
 
 <ol>
-<li>Allow the use Location based service on the device. The user has to do this,  there is no way to enable the service programatically</li>
-<li>Add permissions on the Manifest file</li>
-<li>Use the LocationManager and other related classes on the android.location.* package</li>
+  <li>Allow the use Location based service on the device. The user has to do this,  there is no way to enable the service programatically</li>
+  <li>Add permissions on the Manifest file</li>
+  <li>Use the LocationManager and other related classes on the android.location.* package</li>
 </ol>
-
 
 <hr />
 
 <p>To allow the use of **Location Based Service on the device</p>
 
 <ol>
-<li>Go to settings</li>
-<li>Go to Location and Security</li>
-<li>Choose the appropriate settings (use wireless networks and/or use gps sattelites)</li>
+  <li>Go to settings</li>
+  <li>Go to Location and Security</li>
+  <li>Choose the appropriate settings (use wireless networks and/or use gps sattelites)</li>
 </ol>
-
 
 <p>Note that this needs to be performed by the user. This means you, as a developer, cannot stealthily perform these activities without the user permission. Your application needs to be explicit about this fact on the terms of service.</p>
 
 <p>On the application side, you need to make some changes on *AndroidManifest.xml**. The changes you need to make are highlighted.</p>
 
-<p><img src='../img/android-manifest-xml-gps-permission.png'/></p>
+<p><img src="../img/android-manifest-xml-gps-permission.png" /></p>
 
-<h1>SAMPLE CODE</h1>
+<h1 id="sample-code">SAMPLE CODE</h1>
 
 <div class="highlight"><pre><code class="java"><span class="cm">/*</span>
 
@@ -736,27 +737,39 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
-
-<h1>CODE WALK THROUGH</h1>
+<h1 id="code-walk-through">CODE WALK THROUGH</h1>
 
 <ol>
-<li><p>Get an instance of a LocationManager object, this can be done by calling the getSystemService() method of the Application Context</p></li>
-<li><p>Call the getLastKnownLocation() method of the location manager object to get a Location object</p></li>
-<li><p>From the location object, you can extract the longitude and latitude information, both these methods will return a double data type. At this point, you already have latitude and longitude info---you can stop here if that is all you need. If on the other hand, you need to get a human readable address, like Country, Locality etc. Use the Geocoder class and do a reverse geocoding---continue to <em>step 4</em></p></li>
-<li><p>Create an instance of Geocoder</p></li>
-<li><p>Call the getFromLocation(latitude, longitude, 1) of the geocoder object. The third parameter is the maximum number of results (addresses) that you wish to extract. In the example, we are only interested in 1 address, hence the third parameter is an an int value 1</p></li>
-<li><p>getFromLocation() will return a java.util.List object, it will have only 1 element (because the third parameter that was passed instructed it to return only 1 value). Extract that element, it will be an android.location.Address object</p></li>
-<li><p>Extract the members of the Address object to get the address lines, country name and locality. There are a lot more information on the address object, just look up the API if you need to extract more information</p></li>
+  <li>
+    <p>Get an instance of a LocationManager object, this can be done by calling the getSystemService() method of the Application Context</p>
+  </li>
+  <li>
+    <p>Call the getLastKnownLocation() method of the location manager object to get a Location object</p>
+  </li>
+  <li>
+    <p>From the location object, you can extract the longitude and latitude information, both these methods will return a double data type. At this point, you already have latitude and longitude info—you can stop here if that is all you need. If on the other hand, you need to get a human readable address, like Country, Locality etc. Use the Geocoder class and do a reverse geocoding—continue to <em>step 4</em></p>
+  </li>
+  <li>
+    <p>Create an instance of Geocoder</p>
+  </li>
+  <li>
+    <p>Call the getFromLocation(latitude, longitude, 1) of the geocoder object. The third parameter is the maximum number of results (addresses) that you wish to extract. In the example, we are only interested in 1 address, hence the third parameter is an an int value 1</p>
+  </li>
+  <li>
+    <p>getFromLocation() will return a java.util.List object, it will have only 1 element (because the third parameter that was passed instructed it to return only 1 value). Extract that element, it will be an android.location.Address object</p>
+  </li>
+  <li>
+    <p>Extract the members of the Address object to get the address lines, country name and locality. There are a lot more information on the address object, just look up the API if you need to extract more information</p>
+  </li>
 </ol>
-
 
 <p><strong>NOTE:</strong> The LocationListener interface is not necessary if you simply want to get the current GPS information on the device. You will need the the callbacks of the LocationListener if you want something to happen in response to the following;</p>
 
 <ul>
-<li>When the location has changed – onLocationChanged()</li>
-<li>When there is change on status of the GPS provider – onStatusChanged()</li>
-<li>When the GPS provider is disabled – onProviderDisabled()</li>
-<li>When the GPS provider is enabled – onProviderEnabled()</li>
+  <li>When the location has changed – onLocationChanged()</li>
+  <li>When there is change on status of the GPS provider – onStatusChanged()</li>
+  <li>When the GPS provider is disabled – onProviderDisabled()</li>
+  <li>When the GPS provider is enabled – onProviderEnabled()</li>
 </ul>
 
 
@@ -764,11 +777,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -782,7 +795,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>

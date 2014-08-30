@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -583,69 +586,79 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 		    <p><em>NOTE:</em></p>
 
 <ul>
-<li><strong>Platform</strong> - OSX 10.8 (Mountain Lion)</li>
-<li><strong>Editor(s)</strong> - TextMate 2.0 Alpha, Smultron4</li>
-<li><strong>JavaScript Environments</strong> - SpiderMonkey, RingoJS, NodeJS, Rhino</li>
-<li><strong>Code checker</strong> - JSLint (via JavaScript tools)</li>
+  <li><strong>Platform</strong> - OSX 10.8 (Mountain Lion)</li>
+  <li><strong>Editor(s)</strong> - TextMate 2.0 Alpha, Smultron4</li>
+  <li><strong>JavaScript Environments</strong> - SpiderMonkey, RingoJS, NodeJS, Rhino</li>
+  <li><strong>Code checker</strong> - JSLint (via JavaScript tools)</li>
 </ul>
 
-
-<h1>Node.JS</h1>
-
-<ol>
-<li><p>Go to nodejs.org, download the tar.gz version, then <strong>make install</strong>. This way, the npm installer is also intalled. Yes you can try brew install node, but there were some problems installing the npm. Just the get the source and install using the make tools, like you used to. There is also a .PKG installer, this one is more painless than the source install--use the PKG whenever possible</p></li>
-<li><p>Get docco - sudo install -g docco</p></li>
-<li><p>If you encounter some 404 problems on the registry of npm, you can change the registry. Default registry is npm set registry http://registry.npmjs.org/ , I had to try either one of these two</p></li>
-<li><p>npm set registry http://85.10.209.91/</p></li>
-<li>npm set registry http://165.225.128.50:8000</li>
-</ol>
-
-
-<h1>JavaScript tools for TextMate</h1>
+<h1 id="nodejs">Node.JS</h1>
 
 <ol>
-<li><p>on the CLI, cd to <em>~/Users/ted/Library/Application Support/TextMate/Managed/Bundles</em>. On 1.x version of TextMate, this directory could have been <em>~/Library/Application Support/TextMate/Pristine Copy/Bundles</em></p></li>
-<li><p>git clone https://github.com/subtleGradient/javascript-tools.tmbundle.git</p></li>
-<li><p>Bundle should have been reloaded by now, if not</p></li>
+  <li>
+    <p>Go to nodejs.org, download the tar.gz version, then <strong>make install</strong>. This way, the npm installer is also intalled. Yes you can try brew install node, but there were some problems installing the npm. Just the get the source and install using the make tools, like you used to. There is also a .PKG installer, this one is more painless than the source install–use the PKG whenever possible</p>
+  </li>
+  <li>
+    <p>Get docco - sudo install -g docco</p>
+  </li>
+  <li>
+    <p>If you encounter some 404 problems on the registry of npm, you can change the registry. Default registry is npm set registry http://registry.npmjs.org/ , I had to try either one of these two</p>
+  </li>
 </ol>
 
+<ul>
+  <li>npm set registry http://85.10.209.91/</li>
+  <li>npm set registry http://165.225.128.50:8000</li>
+</ul>
 
-<h1>PhantomJS</h1>
+<h1 id="javascript-tools-for-textmate">JavaScript tools for TextMate</h1>
+
+<ol>
+  <li>
+    <p>on the CLI, cd to <em>~/Users/ted/Library/Application Support/TextMate/Managed/Bundles</em>. On 1.x version of TextMate, this directory could have been <em>~/Library/Application Support/TextMate/Pristine Copy/Bundles</em></p>
+  </li>
+  <li>
+    <p>git clone https://github.com/subtleGradient/javascript-tools.tmbundle.git</p>
+  </li>
+  <li>
+    <p>Bundle should have been reloaded by now, if not</p>
+  </li>
+</ol>
+
+<h1 id="phantomjs">PhantomJS</h1>
 
 <p>http://phantomjs.org, this is good for</p>
 
 <ul>
-<li>headless web testing</li>
-<li>site scraping</li>
-<li>SVG rendering</li>
-<li>network monitoring</li>
+  <li>headless web testing</li>
+  <li>site scraping</li>
+  <li>SVG rendering</li>
+  <li>network monitoring</li>
 </ul>
 
-
-<h1>Test tools</h1>
+<h1 id="test-tools">Test tools</h1>
 
 <ul>
-<li>Jasmine</li>
-<li>QUnit</li>
-<li>FuncUnit</li>
-<li>YUI Test</li>
+  <li>Jasmine</li>
+  <li>QUnit</li>
+  <li>FuncUnit</li>
+  <li>YUI Test </li>
 </ul>
-
 
 <p>There are some <a href="http://code.google.com/p/phantomjs/wiki/TestFrameworkIntegration">quick info on</a>. There is also some <a href="http://code.google.com/p/phantomjs/wiki/QuickStart">quickstart docs at</a></p>
 
-<h1>Test Web servers</h1>
+<h1 id="test-web-servers">Test Web servers</h1>
 
-<p>Ways to run a simple web server. This could be very handy if you are testing JavaScript and HTML5</p>
+<p>Ways to run a simple web server. This could be very handy if you are testing JavaScript and HTML5 </p>
 
 <ol>
-<li>Python -- just run python -m SimpleHTTPServer on any directory. The dir becomes the docroot. http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python for more info</li>
-<li>nanoc, of course</li>
-<li>LAMP, WAMP or use the default Apache installation in OSX</li>
-<li>Jetty - http://docs.codehaus.org/display/JETTY/Hightide+Documentation</li>
-<li>Apache Tomcat, Jetty</li>
-<li><a href="http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration">LightHttpd</a></li>
-<li>Node - <a href="http://www.sitepoint.com/serving-static-files-with-node-js/">Static file serving</a>. What I probably will use for RD training is http-server. Just "sudo npm -g install http-server" then start with http-server. The current directory will be served up</li>
+  <li>Python – just run python -m SimpleHTTPServer on any directory. The dir becomes the docroot. http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python for more info</li>
+  <li>nanoc, of course</li>
+  <li>LAMP, WAMP or use the default Apache installation in OSX</li>
+  <li>Jetty - http://docs.codehaus.org/display/JETTY/Hightide+Documentation</li>
+  <li>Apache Tomcat, Jetty</li>
+  <li><a href="http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration">LightHttpd</a></li>
+  <li>Node - <a href="http://www.sitepoint.com/serving-static-files-with-node-js/">Static file serving</a>. What I probably will use for RD training is http-server. Just “sudo npm -g install http-server” then start with http-server. The current directory will be served up</li>
 </ol>
 
 

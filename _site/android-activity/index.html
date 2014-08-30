@@ -99,14 +99,16 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 2px solid #CACACA;
- 
+  border-top: 5px solid #2d2d2d;
+  
 }
+
+/*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
   font-family: 'Rokkitt';
   font-size:21px;
 }
-
+*/
 
 /* FOR THE article block */
 
@@ -148,11 +150,12 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-
+  
+  /*
   -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                   border-radius: 10;
+  -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border: 2px solid #CACACA;
+  border-top: 5px solid #2d2d2d;
 }
 
 /*
@@ -292,8 +295,8 @@ pre {
 }
 
 
-code {font-size: 13px; font-family: 'Droid Sans Mono';}
-pre.code {font-size:13px; font-weight:normal}
+code {font-size: 12px; font-family: 'Droid Sans Mono';}
+pre.code {font-size:12px; font-weight:normal}
 
 .codeblock, p.code {
   font-size: 12px;
@@ -380,10 +383,10 @@ img {
   }
   img.thumbnail {
     float:left;
-    width: 30%;
-    margin-top: 0px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
     margin-left: 0px;
     -moz-box-shadow: -5px 0 35px 10px #888;
     -webkit-box-shadow: -5px 0 35px 10px #888;
@@ -575,19 +578,18 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don't need to worry these things so much because both the XML file and the Java source file would have been created automatically during the project creation process.</p>
+		    <p>A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don’t need to worry these things so much because both the XML file and the Java source file would have been created automatically during the project creation process.</p>
 
-<p>You will be increasingly aware of how much Android uses XML files. It uses XML a lot. Defining a user interface using XML files is one of two ways you can write UI codes in Android. The other way is do it programmatically. Programmatic UI definition is very similar to AWT (Abstract Window Toolkit) programming in Core Java. You will recognize the reference if you did that sort of thing in core Java programming, if not, that's okay. I didn't assume that you have background in AWT or Swing programming anyway.</p>
+<p>You will be increasingly aware of how much Android uses XML files. It uses XML a lot. Defining a user interface using XML files is one of two ways you can write UI codes in Android. The other way is do it programmatically. Programmatic UI definition is very similar to AWT (Abstract Window Toolkit) programming in Core Java. You will recognize the reference if you did that sort of thing in core Java programming, if not, that’s okay. I didn’t assume that you have background in AWT or Swing programming anyway. </p>
 
 <p>In this chapter, we will use the XML to build user interfaces. We will build our UI declaratively.</p>
 
 <hr />
 
-<p>To get started, create a new project. If you haven't gone through the <a href="/android-getting-started">Getting Started</a> section, now would be a good time to leave this section, read through <strong>Getting Started</strong> then come back.</p>
+<p>To get started, create a new project. If you haven’t gone through the <a href="/android-getting-started">Getting Started</a> section, now would be a good time to leave this section, read through <strong>Getting Started</strong> then come back.   </p>
 
 <pre class="codeblock">$ android create project --target 8 path hello --activity Hello --package com.thelogbox 
 </pre>
-
 
 <p>Go to the project folder. Go to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated.</p>
 
@@ -613,15 +615,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="o">}</span>
 </code></pre></div>
 
+<div id="lst">/src/com/thelogbox/HelloWorld.java</div>
 
+<p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the <code class="codeblock">onCreate()</code> method. That last statement is a directive on where and how to the get the instructions for building the user interface. </p>
 
-
-<div id='lst'>/src/com/thelogbox/HelloWorld.java</div>
-
-
-<p>It is a basic Java class that extended the <em>android.app.Activity</em> class. Take a look at the last statement inside the <code class="codeblock">onCreate()</code> method. That last statement is a directive on where and how to the get the instructions for building the user interface.</p>
-
-<p>The <code class="codeblock">setContentView()</code> is an overloaded method of Activity, it can take various parameter(s) and type. In our example, what was passed as parameter was <em>R.layout.main</em> &mdash; it is an integer constant. but don't worry about that now, that is not yet relevant. What is relevant is that the <em>R class</em> was auto-generated by Android &mdash; specifically, it was generated by the <code class="codeblock">appt</code>, short for <em>android asset packaging tool</em>.</p>
+<p>The <code class="codeblock">setContentView()</code> is an overloaded method of Activity, it can take various parameter(s) and type. In our example, what was passed as parameter was <em>R.layout.main</em> — it is an integer constant. but don’t worry about that now, that is not yet relevant. What is relevant is that the <em>R class</em> was auto-generated by Android — specifically, it was generated by the <code class="codeblock">appt</code>, short for <em>android asset packaging tool</em>. </p>
 
 <p><em>R.layout.main</em> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em>.</p>
 
@@ -639,21 +637,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 
+<div id="lst">/res/layout/main.xml</div>
 
+<p>The main node of the XML file is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let’s use the LinearLayout. </p>
 
+<p>Think of the LinearLayout as the equivalent of <em>java.awt.FlowLayout</em> in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom. </p>
 
-<div id='lst'>/res/layout/main.xml</div>
-
-
-<p>The main node of the XML file is <em>LinearLayout</em>, this is not always the case, there are a couple of layouts to choose from in Android. We will circle back to this later, but for now, let's use the LinearLayout.</p>
-
-<p>Think of the LinearLayout as the equivalent of <em>java.awt.FlowLayout</em> in JSE. It organizes the widgets by stacking them together linearly, from left to right, then top to bottom.</p>
-
-<p>Inside the main LinearLayout node is the <em>TextView</em> tag. This is the equivalent of <em>java.awt.Label</em> or <em>javax.swing.JLabel</em>. It is a static text widget. You won't be able to edit them, they are simple labels.</p>
+<p>Inside the main LinearLayout node is the <em>TextView</em> tag. This is the equivalent of <em>java.awt.Label</em> or <em>javax.swing.JLabel</em>. It is a static text widget. You won’t be able to edit them, they are simple labels. </p>
 
 <p>The order of how the views are defined in the XML affects the order of how the views are displayed. This is the simplest layout, that is why I chose this as a starting point.</p>
 
-<p>We will add another <em>View component</em> to our screen, an Editable Text. Go back to the editor and insert another view inside the LinearLayout main node.</p>
+<p>We will add another <em>View component</em> to our screen, an Editable Text. Go back to the editor and insert another view inside the LinearLayout main node. </p>
 
 <div class="highlight"><pre><code class="xml"><span class="c">&lt;!-- main.xml --&gt;</span>&gt;
 <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
@@ -662,41 +656,39 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
   <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
   <span class="nt">&gt;</span>
-    <span class="nt">&lt;TextView</span>  
+	<span class="nt">&lt;TextView</span>  
     <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
     <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
     <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
     <span class="nt">/&gt;</span>
-    <span class="nt">&lt;EditText</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-    <span class="nt">/&gt;</span>
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+	<span class="nt">/&gt;</span>
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 
-
 <p><em>EditText</em> is an editable text component that is very similar to javax.swing.JTextField. The android platform knows how to handle the EditText. Once this view has focus, the on-screen keyboard will pop so that the user can begin input. You do not need to handle the popping of the keyboard, it will be done for you automatically.</p>
 
-<p>Once you are done with edits, compile and test the project &mdash; <code class="codeblock">$ ant debug install</code></p>
+<p>Once you are done with edits, compile and test the project — <code class="codeblock">$ ant debug install</code></p>
 
-<p><img class="small" src="/img/lin-sample-1.png" width="300"></p>
+<p><img class="small" src="/img/lin-sample-1.png" width="300" />
+&lt;div id='lst'&gt;Your second app&lt;/div&gt;</p>
 
-<div id='lst'>Your second app</div>
+<p>We can still improve the appearance of the app, it doesn’t look right because of the way the label is positioned. We will fix that on the next chapter.</p>
 
+<p><strong>Next</strong> » <a href="/android-linear-layout">Linear Layout</a></p>
 
-<p>We can still improve the appearance of the app, it doesn't look right because of the way the label is positioned. We will fix that on the next chapter.</p>
-
-<p><strong>Next</strong> &raquo; <a href='/android-linear-layout'>Linear Layout</a></p>
 
         </div>					
 		  </div>
       
       <div id="leanpubbook">        
-        Ted is writing an android book for 
-        beginners. It's a work in progress.
-        
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="default"/> 
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
+        <div class="vspacer"></div>
+        Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
         
@@ -710,7 +702,6 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
       -->
       
-      Android Programming  
       <ul>
       <li><a href="/android-programming-tutorial">Introduction</a></li>
       <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>
