@@ -597,7 +597,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1 id="what-is-an-application-port-number">WHAT IS AN APPLICATION PORT NUMBER</h1>
 
-<p>Every application that needs to talk to other applications, needs to have a port number. Every computer can give out port numbers ranging from 0 - 65535, and once a port number is given, it cannot be given to another application (while it is running at least) – so, one application is to one port number. The reason why application have port numbers is so that, when one application (say Firefox) wants to talk to another application (in another computer, say Apache; a web server), Firefox needs to know that when he sends out a message, it will be received by the intended recipient (Apache), and this can only be done if Firefox knows exactly where Apache is. There are 2 components that make up a unique address of an application – one is the IP address of the machine where the application is running, and the other component is – you guessed it, the port number; Collectively these two (IP address and port number) are known as a socket, but that’s another story, let’s stop here – What’s important to know is that, port numbers are – well, important; they determine the uniqueness of an application within a machine.
+<p>Every application that needs to talk to other applications, needs to have a port number. Every computer can give out port numbers ranging from 0 - 65535, and once a port number is given, it cannot be given to another application (while it is running at least) – so, one application is to one port number. The reason why application have port numbers is so that, when one application (say Firefox) wants to talk to another application (in another computer, say Apache; a web server), Firefox needs to know that when he sends out a message, it will be received by the intended recipient (Apache), and this can only be done if Firefox knows exactly where Apache is. There are 2 components that make up a unique address of an application – one is the IP address of the machine where the application is running, and the other component is – you guessed it, the port number; Collectively these two (IP address and port number) are known as a socket, but that’s another story, let’s stop here – What’s important to know is that, port numbers are – well, important; they determine the uniqueness of an application within a machine.<br />
 How to hunt down applications via their port numbers</p>
 
 <p>I’m sure there could be a more neat - albeit geekier - way of finding out which app is using which port; but will do it verbosely; easier to follow too.</p>
@@ -608,13 +608,7 @@ How to hunt down applications via their port numbers</p>
 
 <p>Anyway, the basic idea is to use the netstat command so that we can list all the applications that are either accepting or sending network traffic, and we’d like to list their port numbers and their process IDs too. Then, when we find the port number we are looking for, we will list all the running processes and make the match using the process ID – then we’ll know who the culprit is.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></p>
 
 <p><em>-a</em> means list all active connections and their ports. -o means include their process IDs. -n means display the port numbers numerically.</p>
 
@@ -626,13 +620,7 @@ TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 560
 
 </pre>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></p>
 
 <p><em>tasklist</em> is another Windows command line utility which shows you a list of all active processes, again I’d feed it to the findstr utility via the pipe operator, and voila – Skype is the culprit.</p>
 

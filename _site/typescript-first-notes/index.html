@@ -643,25 +643,23 @@ If you are using TextMate in OSX, it won't know how to handle .ts files, so when
 The "Hello World" test
 
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// filename: Hello.ts</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename: Hello.ts</span>
 
 <span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 Compile it using **tsc Hello.ts**, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 You can run the resulting **.js** code either via *node Hello.js* or ***js Hello.js** if you have it setup on your machine.
@@ -669,12 +667,11 @@ You can run the resulting **.js** code either via *node Hello.js* or ***js Hello
 To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 If you try **tsc Hello.ts** again, you will get and error like *Function declared a non-void return type, but has no return expression*. The reason for that is because we added a type-checking information on both the *args* variable and the our function itself. **args : string** means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime. 
@@ -688,7 +685,7 @@ If you try **tsc Hello.ts** again, you will get and error like *Function declare
 Trying out the class and interface facilities of TypeScript
 
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">//BoxSample.ts</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//BoxSample.ts</span>
 
 <span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
 	
@@ -774,8 +771,7 @@ Trying out the class and interface facilities of TypeScript
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span></code></pre></div>
 
 
 The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;
@@ -785,14 +781,13 @@ The TypeScript version does look a lot cleaner, looks like it really has potenti
 **2.** There is an **implements** keyword supported for class constructs, so I could have written the example as
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
 	<span class="c1">// …</span>
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Box</span> <span class="kr">implements</span> <span class="p">{</span>
 	<span class="c1">// class body</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 It doesn't seem like I needed it though (note to self =&gt; read the spec over and over again to find out why). 
@@ -800,7 +795,7 @@ It doesn't seem like I needed it though (note to self =&gt; read the spec over a
 ## INHERITANCE AND POLYMORPHISM
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
 	
 	<span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
 		
@@ -835,8 +830,7 @@ It doesn't seem like I needed it though (note to self =&gt; read the spec over a
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
 
 <span class="nx">a</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span></code></pre></div>
 
 
 Inheritance works as expected, no big surprises. TypeScript uses the **extends** keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the *extends** keyword with a colon (pretty much like in CSharp), it seems to have the same effect as **extends** too&mdash;but better stick with *extends*, that is what the lang spec specifies for inheritance anyway.
@@ -850,7 +844,7 @@ Override works as expected also, just redefine the method on the the derived cla
 **super** refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected. 
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
 	
 	<span class="nx">foo</span><span class="p">(){</span>
 		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
@@ -876,8 +870,7 @@ Override works as expected also, just redefine the method on the the derived cla
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span></code></pre></div>
 
 
 ## OPTIONAL ARGUMENTS TO FUNCTIONS
@@ -885,7 +878,7 @@ Override works as expected also, just redefine the method on the the derived cla
 Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1 
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
 	
 	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
@@ -924,8 +917,7 @@ Two ways to do optional parameters/arguments. 1) You can add a question mark rig
 
 <span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="s2">&quot;new square&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
-</code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span></code></pre></div>
 
 
 
@@ -934,7 +926,7 @@ Two ways to do optional parameters/arguments. 1) You can add a question mark rig
 Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
 
 	
 	<span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
@@ -975,8 +967,7 @@ Don't get too excited yet about overloading, it's not like C# or Java (yet, I ho
 		
 	<span class="p">}</span>
 		
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 
 You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.
@@ -987,7 +978,7 @@ You can have multiple declarations of method, but only one of them can have an i
 This looks purely like syntactic sugar, but just the same, note it. The **() =&gt; {}** notation was added so that you don't have to say **function() {}** &mdash; this reminds me of CoffeeScript though. 
 
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
 	
 	<span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
 	<span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -996,8 +987,7 @@ This looks purely like syntactic sugar, but just the same, note it. The **() =&g
 	
 <span class="p">}</span>
 
-<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span>
-</code></pre></div>
+<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span></code></pre></div>
 
 
 

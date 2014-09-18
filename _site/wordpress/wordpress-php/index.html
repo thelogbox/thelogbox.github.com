@@ -595,25 +595,23 @@ C:\Users\yourname\wamp\www\practice
 
 <p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 Hello
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>It’s not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html — a valid html document is also a valid php script. </p>
 
 <p>Let’s add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
 <span class="x">&lt;html&gt;</span>
 <span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
 
 <span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">   Today&#39;s date is</span>
 <span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="x">&lt;/html&gt;</span></code></pre></div>
 
 <p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). </p>
 
@@ -637,12 +635,11 @@ Hello
 
 <p>A statement in PHP is a declaration of an operation, something that you would like to do. For example, if you want define a variable and store a number in it, you need to tell PHP exactly that.</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$anumber</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="mi">4</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required. </p>
 
@@ -652,7 +649,7 @@ Hello
 
 <p><em>$anumber</em> is called a variable because we can change it’s value later on. You can add, subtract, divide and multiply it with some other value then store the new results on $anumber thereby changing its original value, like this</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nv">$j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
@@ -660,8 +657,7 @@ Hello
 <span class="nv">$i</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
 <span class="nv">$i</span> <span class="o">=</span> <span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <h2 id="co-mingling-with-html">Co-mingling with html</h2>
 
@@ -669,14 +665,13 @@ Hello
 
 <p>PHP statements are often found co-mingled with HTML, like this;</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
 <span class="x">&lt;html lang=en&gt;</span>
 <span class="x">&lt;body&gt;</span>
 <span class="x">  &lt;h1&gt;My Spanking Web App&lt;/h1&gt;</span>
 <span class="x">  &lt;span&gt;Today is &lt;/span&gt; </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="x">&lt;/body&gt;</span>
-<span class="x">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="x">&lt;/html&gt;</span></code></pre></div>
 
 <p>See that. Most of the codes are in HTML except for that tiny <em>&lt;?php echo date(DATE_RFC822); ?&gt;</em> which basically just outputs the current date. When the server sees that instruction, it will get the  system date then <em>echo</em> the return value as HTML. By this time you must have figured out that whatever you <em>echo</em> it will be part of the HTML output.</p>
 
@@ -688,13 +683,12 @@ Hello
 
 <p>First. You can write one statement after another, like this</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">$in = 5;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$in = 5;</span>
 <span class="x">$cm = 10;</span>
 <span class="x">$factor = 2.54;</span>
 
 <span class="x">echo $in . &quot; inches = &quot; . $in / $factor;</span>
-<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span>
-</code></pre></div>
+<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span></code></pre></div>
 
 <p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do. </p>
 
@@ -702,7 +696,7 @@ Hello
 
 <p>Second. You can execute some statements when some condition is true, if it is not true, do something else; like this</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
 <span class="x">$b = 20;</span>
 
 <span class="x">if($a &gt; $b) {</span>
@@ -710,8 +704,7 @@ Hello
 <span class="x">}</span>
 <span class="x">else {</span>
 <span class="x">  echo &quot;a &lt; b&quot;;</span>
-<span class="x">}</span>
-</code></pre></div>
+<span class="x">}</span></code></pre></div>
 
 <p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran. </p>
 
@@ -719,13 +712,12 @@ Hello
 
 <p>The <em>else block</em> gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this</p>
 
-<div class="highlight"><pre><code class="php"><span class="x">$a = 10;</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
 <span class="x">$b = 20;</span>
 
 <span class="x">if($a &gt; $b) {</span>
 <span class="x">  echo &quot;a is &gt; b&quot;;</span>
-<span class="x">}</span>
-</code></pre></div>
+<span class="x">}</span></code></pre></div>
 
 <p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense. </p>
 
@@ -735,7 +727,7 @@ Hello
 
 <p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the <em>while</em> and the <em>for</em> statements to implement iterative constructions. For our purpose, we will only consider using the <em>whilte</em> statement because this is what you will encounter most when programming WordPress.</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span> 
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
 
 <span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -744,8 +736,7 @@ Hello
   <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <div id="lst">while loop</div>
 

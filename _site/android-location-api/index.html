@@ -610,7 +610,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h1 id="sample-code">SAMPLE CODE</h1>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
 
 <span class="cm"> BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
 <span class="cm"> All rights reserved.</span>
@@ -652,7 +652,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
   <span class="kd">public</span> <span class="nf">GPSView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextView</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextView</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
     <span class="k">this</span><span class="o">.</span><span class="na">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">;</span>
     <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
 
@@ -664,8 +664,8 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
 
     <span class="n">locm</span> <span class="o">=</span> <span class="o">(</span><span class="n">LocationManager</span><span class="o">)</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">ctx</span><span class="o">.</span><span class="na">LOCATION_SERVICE</span><span class="o">);</span>
-    <span class="n">loc</span> <span class="o">=</span> <span class="n">locm</span><span class="o">.</span><span class="na">getLastKnownLocation</span><span class="o">(</span><span class="n">locm</span><span class="o">.</span><span class="na">getBestProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">Criteria</span><span class="o">(),</span><span class="kc">false</span><span class="o">));</span>
-    <span class="n">geo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Geocoder</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">locm</span><span class="o">.</span><span class="na">getLastKnownLocation</span><span class="o">(</span><span class="n">locm</span><span class="o">.</span><span class="na">getBestProvider</span><span class="o">(</span><span class="k">new</span> <span class="nf">Criteria</span><span class="o">(),</span><span class="kc">false</span><span class="o">));</span>
+    <span class="n">geo</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Geocoder</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Got Location&quot;</span><span class="o">);</span>
     <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
@@ -732,10 +732,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="n">GPSView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">GPSView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <h1 id="code-walk-through">CODE WALK THROUGH</h1>
 

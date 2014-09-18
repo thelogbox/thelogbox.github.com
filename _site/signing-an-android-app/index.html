@@ -580,7 +580,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.</p>
 
-<p><strong>KEYTOOL</strong> 
+<p><strong>KEYTOOL</strong> <br />
 Check if you have keytool in your system path. Run the <code class="codeblock">keytool</code> command on a terminal window and you will soon find out if you have it or not. If you don’t have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path</p>
 
 <p><strong>GENERATE THE KEY</strong></p>
@@ -595,9 +595,9 @@ $ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias
 
 <p><strong>JARSIGNER</strong></p>
 
-<p><code class="codeblock" /></p>
+<p><code class="codeblock"></code></p>
 
-<p>jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk 
+<p>jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk <br />
 alias_name*</p>
 
 <p>&lt;/code&gt;</p>

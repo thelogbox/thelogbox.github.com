@@ -593,7 +593,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>helloName(“X”) -&gt; “Hello X!”</p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
 
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
@@ -602,12 +602,11 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
 		<span class="c1">//Write your code here</span>
 	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., “Hello” and “World” returns “HelloWorld”</p>
 
-<div class="highlight"><pre><code class="java"><span class="c1">//Two.java </span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Two.java </span>
 <span class="c1">//Item # 2 Java Programming Workbook</span>
 
 <span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
@@ -619,14 +618,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
 		<span class="c1">//Write your code here</span>
 	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns “Hello World” with a space in between.</p>
 
 <p><strong>Problem 2.2</strong> Make some modifications to Two.java such that it returns </p>
 
-<p>“Hello
+<p>“Hello<br />
 Java”</p>
 
 <p>Insert a CRLF (Carriage Return Linefeed) after the String “Hello”</p>
@@ -641,7 +639,7 @@ Java”</p>
 
 <p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
 
-<div class="highlight"><pre><code class="java"><span class="c1">//Three.java </span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Three.java </span>
 <span class="c1">//Item # 3 Java Programming Workbook</span>
 
 <span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
@@ -653,8 +651,7 @@ Java”</p>
 	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
 		<span class="c1">//write your code here	</span>
 	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
 
@@ -751,7 +748,7 @@ Java”</p>
 
 <p>What will happen if you try to compile and run the following code</p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
 	<span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
     <span class="o">}</span>
@@ -759,8 +756,7 @@ Java”</p>
 	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
 	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <ol>
   <li>error Can’t make static reference to void amethod. </li>
@@ -775,24 +771,23 @@ Java”</p>
 
 <p>1)</p>
 
-<p>import java.awt.*;
-package Mypackage;
+<p>import java.awt.*;<br />
+package Mypackage;<br />
 class Myclass {}</p>
 
 <p>2)</p>
 
-<p>package MyPackage;
-import java.awt.*;
+<p>package MyPackage;<br />
+import java.awt.*;<br />
 class MyClass{}</p>
 
 <p>3)</p>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/*This is a comment */</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*This is a comment */</span>
 
 <span class="kn">package</span> <span class="n">MyPackage</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
-<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span>
-</code></pre></div>
+<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span></code></pre></div>
 
 <p><strong>Question 4)</strong></p>
 
@@ -810,13 +805,12 @@ class MyClass{}</p>
 
 <p>What will happen when you compile and run the following code? </p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
  <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[]){</span>
  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <ol>
   <li>Error Variable i may not have been initialized </li>

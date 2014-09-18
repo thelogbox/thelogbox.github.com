@@ -597,15 +597,14 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The JavaScript part of our solution will be in an external file named <em>script.js</em>, so our JS and HTML codes don’t mingle up. We will use JQuery for DOM manipulation, surely by now you must be tired of typing <em>document.getElementById</em>. We can do this by embedding two <em>script</em> elements in the <em>head</em> region of the html code.</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery-1.11.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;script.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery-1.11.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;script.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
 
 <p>The script tag above assumes that you have downloaded the JQuery library into your work area. It also assumes that the JQuery file and <em>script.js</em> is located on the same directory where the html file is.</p>
 
 <p>The full code listing for the html part is below.</p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 
 <span class="c">&lt;!--  index.html --&gt;</span>
@@ -633,7 +632,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="p">}</span>
     <span class="nt">body</span> <span class="p">{</span>
       <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span>
-      <span class="k">width</span><span class="o">:</span> <span class="m">80</span><span class="o">%</span><span class="p">;</span>
+      <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="nt">&lt;/style&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
@@ -646,8 +645,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">&quot;clickme&quot;</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <h3 id="the-javascript-part">The JavaScript part</h3>
 
@@ -667,10 +665,9 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>In order to write our program entry point, we will choose an event that the browser will raise, and use it as the entry point. </p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="c1">// this is our entry point</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>The above snippet is a JQuery code. It binds our code into <em>document.onload</em> event of the browser. When the browser has finished processing all the DOM elements in the html, it will raise the document.onload event. We are simply latching on to that event. Think of this code block as some sort of initialization routine. If you need to define arrays, variables or bind buttons to events, this is the place to do it.</p>
 
@@ -680,26 +677,24 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>We need to make sure that our program entry point actually does something. A small noticeable change in the UI will do. Let’s change the text of the heading element. </p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>Open <em>index.html</em> using the browser. You should see the “Hello there” message when it loads. It will confirm that our code is actually running when the page loads. If you don’t see the message, you need to check your code for spelling and other typing errors. If you know how to use the debugging tools in the browser such as <em>FireBug</em> in FireFox and the developer tools of <em>Chrome/Safari</em>, they will help you find the errors faster.</p>
 
 <p>Next step is to display just a single image when the page loads. That can be managed using the following code</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>The code above assumes the file <em>bugsbunny.jpg</em> is on the same folder where <em>index.html</em> and <em>script.js</em> are. Right after we get the IMG element using the #a selector, we changed the <em>SRC</em> attribute programmatically using the JQuery <em>attr</em> function. That code should display the contents of the image. </p>
 
 <p>Next thing to manage is accept user input via the text element and do something with when he clicks the button. For that, we need to bind the click event of the button to our code. </p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
@@ -710,8 +705,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="p">});</span>  
   
   
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>To bind the button to our code, we selected it via JQuery and invoked the the <em>click</em> function. The JQuery click function takes a single argument. You can put a named function inside it or an anonymous function. Either way, JQuery will call whatever you put inside the <em>click</em> function when the user clicks the button.</p>
 
@@ -719,7 +713,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>We will add some more codes so we can check the user’s input against the correct answer.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
   
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&quot;hello there&quot;</span><span class="p">);</span>
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">);</span>
@@ -735,8 +729,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
       <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;try again&quot;</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">});</span>    
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>An <em>if-else</em> statement provides a simple validation for our code. Note that the <em>if</em> branch is inside the click handler block. We will perform this check only when the button is clicked. If you place it outside the click handler block, it will be evaluated during <em>page load</em>—which does not make sense. </p>
 
@@ -779,18 +772,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>The card data structure can be represented in code like this</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">card1</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">card</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="nx">picture</span> <span class="o">:</span> <span class="s2">&quot;bugsbunny.jpg&quot;</span><span class="p">,</span>
   <span class="nx">answertext</span> <span class="o">:</span> <span class="s2">&quot;Bart&quot;</span>
-<span class="p">};</span>
-</code></pre></div>
+<span class="p">};</span></code></pre></div>
 
 <p>The above code shows how to declare an object in JavaScript Object Notation (JSON). See the text on <a href="/javascript-complex-types">JavaScript Complex Types</a> if you need a background or review on JS data structures. This data structure satisfies our purpose.</p>
 
 <p>We need to somehow define each card and populate the deck with it. We will use the built-in JS Array to represent the deck. </p>
 
-<div class="highlight"><pre><code class="java">    <span class="n">var</span> <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Array</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Array</span><span class="o">();</span>
     
     
     <span class="c1">// OTHER STATEMENTS </span>
@@ -809,20 +801,17 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="o">};</span>
     
     <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card1</span><span class="o">);</span>
-    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card2</span><span class="o">);</span>
-    
-</code></pre></div>
+    <span class="n">deck</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">card2</span><span class="o">);</span></code></pre></div>
 
 <p>Next task is how to pop a card from the deck and display the picture. What we want is to take the top card from the Array, make it available for data retrieval and display the picture.</p>
 
-<div class="highlight"><pre><code class="java">  <span class="n">var</span> <span class="n">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">currcard</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
 
   <span class="n">function</span> <span class="nf">Draw</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">currcard</span>  <span class="o">=</span>  <span class="n">deck</span><span class="o">.</span><span class="na">shift</span><span class="o">();</span>
     <span class="n">$</span><span class="o">(</span><span class="s">&quot;#a&quot;</span><span class="o">).</span><span class="na">attr</span><span class="o">(</span><span class="s">&quot;src&quot;</span><span class="o">,</span> <span class="n">currcard</span><span class="o">.</span><span class="na">picture</span><span class="o">);</span>
-  <span class="o">}</span>
-</code></pre></div>
+  <span class="o">}</span></code></pre></div>
 
 <p>The variable <em>currcard</em> is initially defined as null. It was defined outside the <em>Draw</em> function so that it other functions will have access to it. We will need the data stored on the current card when we check the user’s answer against the answer key (which is stored on the current card).</p>
 
@@ -836,7 +825,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>When the cards and the deck has been initialized, we call the <em>Draw</em> function. It pops the top card and displays the picture associated with that card. It also stores the value of the top card to the variable <em>currcard</em> because we will need the value of current top card when we compare the user’s answer to our answer key.</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// script.js</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// script.js</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
   <span class="kd">var</span> <span class="nx">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
@@ -892,8 +881,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
     <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#a&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="nx">currcard</span><span class="p">.</span><span class="nx">picture</span><span class="p">);</span>
   <span class="p">}</span>
   
-<span class="p">});</span>
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 <p>When the user types his answer and clicks the button, we simply compare the value of <em>currcard.answertext</em> which is our answer key to whatever the user has typed on the text field.  </p>
 

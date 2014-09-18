@@ -587,7 +587,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
         <div itemprop='articleBody'>
 		    <p>To capture click events on the canvas, you will need to attach an event handler on the canvas itself, not the context. Since the canvas element is just like any other DOM element, attaching a click event to it is very straightforward. It can be done in any number of ways, the simplest is probably</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
   <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
   <span class="c1">// SOME CODES</span>
@@ -595,14 +595,13 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <span class="nx">canvas</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// CLICK CODES</span>
   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>The following code sample demonstrates how to trap the click event inside the canvas. It also showcases some capabilities of the canvas which makes the example a bit interesting.</p>
 
 <p><a href="http://jsfiddle.net/tedhagos/wNxpG/1/embedded/result/" class="button">See the Demo</a></p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 
 <span class="nt">&lt;head&gt;</span>
@@ -613,7 +612,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	<span class="p">}</span>
 	<span class="nf">#watch</span> <span class="p">{</span>
 		<span class="k">margin</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
-		<span class="k">font-size</span><span class="o">:</span><span class="m">130</span><span class="o">%</span><span class="p">;</span>
+		<span class="k">font-size</span><span class="o">:</span><span class="m">130%</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="nt">&lt;/style&gt;</span>
 	
@@ -665,8 +664,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>The current location of mouse is given by <strong>event.clientX &amp; event.clientY</strong>. The sample code uses the current location of the mouse to draw the <em>X &amp; Y</em> of the rectangle. The <em>offset</em> variable was used simply to reposition the top-left of the rectangle in order to coincide with tip of the mouse cursor.</p>
 
