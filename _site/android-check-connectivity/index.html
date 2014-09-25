@@ -40,16 +40,59 @@
 
 		<style>
 
+/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
+*/
 
+@import
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: .5em;
+  }
+  feature-title{ font-size: 2.5em;}
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+
+  feature-banner-text {font-size: 55px;}
+  
+  h1, h2, h3 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
+  }
+
+  h1 {font-size: 35px;}
+  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h3 {font-size: 28px; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+    
+}
+
 body {   
-/*  font-family: 'Source Sans Pro'; */
-/*  font-size: 97%; */
-/*  font-size: 14px;*/
+  font-family: 'Lato';
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -58,7 +101,7 @@ body {
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
-  width: 95%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,7 +111,6 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
-  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -184,7 +226,6 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
-  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -201,7 +242,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 .feature-title {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 1em;
   color: #2F2F2F;
   text-align: center;
   padding-top:40px;
@@ -228,7 +269,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 #feature-button {
@@ -285,11 +326,12 @@ pre {
   white-space: pre-wrap;
   
 /*  background: #dcdcff; */
+/*  
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 2px solid #2d2d2d;
-
+*/
   white-space:pre-wrap;
   overflow:auto;
 }
@@ -328,7 +370,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
+a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -400,71 +442,6 @@ aside {
   border: 2px solid #CACACA;
 }
 
-/* Pygments stylesheets */
-
-.hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #000000; font-weight: normal } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: normal } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
-.gs { font-weight: normal } /* Generic.Strong */
-.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
-.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
-.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
-.kp { color: #008000 } /* Keyword.Pseudo */
-.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
-.kt { color: #B00040; } /* Keyword.Type */
-.m { color: #666666; } /* Literal.Number */
-.s { color: #0000e5; } /* Literal.String */
-.na { color: #7D9029; } /* Name.Attribute */
-.nb { color: #008000; } /* Name.Builtin */
-.nc { color: #0000FF; font-weight: normal } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: normal } /* Name.Entity */
-.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
-.nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
-.nt { color: #008000; font-weight: normal } /* Name.Tag */
-.nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #0000e5 } /* Literal.String.Backtick */
-.sc { color: #0000e5 } /* Literal.String.Char */
-.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #0000e5 } /* Literal.String.Double */
-.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
-.sh { color: #0000e5 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #0000e5 } /* Literal.String.Single */
-.ss { color: #19177C } /* Literal.String.Symbol */
-.bp { color: #008000 } /* Name.Builtin.Pseudo */
-.vc { color: #19177C } /* Name.Variable.Class */
-.vg { color: #19177C } /* Name.Variable.Global */
-.vi { color: #19177C } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
 .button {
   position: relative;
   display: inline-block;
@@ -516,21 +493,6 @@ aside {
 }
 
 iframe {display:block;}
-
-/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
-
-/* ------------------------------------------
- * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
- * Licensed under Unlicense
- * http://github.com/necolas/css3-github-buttons
- * --------------------------------------- */
-
-I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
-
-/* =============================================================================
-   Base Button
-   ========================================================================== */
-
 
 </style>
   
@@ -596,85 +558,87 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <h3 id="code">Code</h3>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
+<div>
+  <pre><code class="java">/*
 
-<span class="cm">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
-<span class="cm">All rights reserved.</span>
+BSD License: Copyright (c) 2009-2012 Ted Hagos
+All rights reserved.
 
-<span class="cm">License text: http://thelogbox.com/source-docs/software-license.txt</span>
+License text: http://thelogbox.com/source-docs/software-license.txt
 
-<span class="cm">filename: ConnTest.java</span>
+filename: ConnTest.java
 
-<span class="cm">*/</span>
+*/
 
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+package com.thelogbox;
 
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.net.ConnectivityManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.net.NetworkInfo</span><span class="o">;</span>
+import android.app.Activity;
+import android.os.Bundle;
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
-<span class="kd">class</span> <span class="nc">ViewConnnTest</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span> <span class="o">{</span>
+class ViewConnnTest extends LinearLayout implements OnClickListener {
 
-  <span class="n">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">TextView</span> <span class="n">tv</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">ConnectivityManager</span> <span class="n">connman</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">NetworkInfo</span> <span class="n">netinfo</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  Context context = null;
+  TextView tv = null;
+  ConnectivityManager connman = null;
+  NetworkInfo netinfo = null;
 
-  <span class="kd">public</span> <span class="nf">ViewConnnTest</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+  public ViewConnnTest(Context context) {
 
-    <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
-    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextView</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-    <span class="n">addView</span><span class="o">(</span><span class="n">tv</span><span class="o">);</span>
-    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    super(context);
+    this.context = context;
+    tv = new TextView(context);
+    addView(tv);
+    setOnClickListener(this);
 
-  <span class="o">}</span>
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
+  public void onClick(View v){
 
-    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">();</span>
-    <span class="n">connman</span> <span class="o">=</span> <span class="o">(</span><span class="n">ConnectivityManager</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">CONNECTIVITY_SERVICE</span><span class="o">);</span>
-    <span class="n">netinfo</span> <span class="o">=</span> <span class="n">connman</span><span class="o">.</span><span class="na">getActiveNetworkInfo</span><span class="o">();</span> 
+    StringBuilder sb = new StringBuilder();
+    connman = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+    netinfo = connman.getActiveNetworkInfo(); 
 
-    <span class="k">switch</span><span class="o">(</span><span class="n">netinfo</span><span class="o">.</span><span class="na">getType</span><span class="o">())</span> <span class="o">{</span>
-      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_MOBILE</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nMobile data OK.&quot;</span><span class="o">);</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_WIFI</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nWIFI OK.&quot;</span><span class="o">);</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_WIMAX</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nWIMAX OK.&quot;</span><span class="o">);</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_ETHERNET</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nOn Ethernet.&quot;</span><span class="o">);</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_BLUETOOTH</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nBluetooth OK.&quot;</span><span class="o">);</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="k">default</span><span class="o">:</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nNot connected. Not OK.&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nState= &quot;</span><span class="o">);</span> 
-    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">netinfo</span><span class="o">.</span><span class="na">getState</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+    switch(netinfo.getType()) {
+      case ConnectivityManager.TYPE_MOBILE:
+        sb.append(&quot;\nMobile data OK.&quot;);
+        break;
+      case ConnectivityManager.TYPE_WIFI:
+        sb.append(&quot;\nWIFI OK.&quot;);
+        break;
+      case ConnectivityManager.TYPE_WIMAX:
+        sb.append(&quot;\nWIMAX OK.&quot;);
+        break;
+      case ConnectivityManager.TYPE_ETHERNET:
+        sb.append(&quot;\nOn Ethernet.&quot;);
+        break;
+      case ConnectivityManager.TYPE_BLUETOOTH:
+        sb.append(&quot;\nBluetooth OK.&quot;);
+        break;
+      default:
+        sb.append(&quot;\nNot connected. Not OK.&quot;);
+    }
+    sb.append(&quot;\nState= &quot;); 
+    sb.append(netinfo.getState().toString());
 
-    <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+    tv.setText(sb.toString());
+  }
+}
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConnTest</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">ViewConnnTest</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+public class ConnTest extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(new ViewConnnTest(this));
+    }
+}</code></pre>
+</div>
 
         </div>					
 		  </div>

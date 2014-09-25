@@ -40,16 +40,59 @@
 
 		<style>
 
+/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
+*/
 
+@import
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: .5em;
+  }
+  feature-title{ font-size: 2.5em;}
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+
+  feature-banner-text {font-size: 55px;}
+  
+  h1, h2, h3 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
+  }
+
+  h1 {font-size: 35px;}
+  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h3 {font-size: 28px; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+    
+}
+
 body {   
-/*  font-family: 'Source Sans Pro'; */
-/*  font-size: 97%; */
-/*  font-size: 14px;*/
+  font-family: 'Lato';
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -58,7 +101,7 @@ body {
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
-  width: 95%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,7 +111,6 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
-  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -184,7 +226,6 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
-  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -201,7 +242,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 .feature-title {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 1em;
   color: #2F2F2F;
   text-align: center;
   padding-top:40px;
@@ -228,7 +269,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 #feature-button {
@@ -285,11 +326,12 @@ pre {
   white-space: pre-wrap;
   
 /*  background: #dcdcff; */
+/*  
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 2px solid #2d2d2d;
-
+*/
   white-space:pre-wrap;
   overflow:auto;
 }
@@ -328,7 +370,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
+a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -400,71 +442,6 @@ aside {
   border: 2px solid #CACACA;
 }
 
-/* Pygments stylesheets */
-
-.hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #000000; font-weight: normal } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: normal } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
-.gs { font-weight: normal } /* Generic.Strong */
-.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
-.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
-.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
-.kp { color: #008000 } /* Keyword.Pseudo */
-.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
-.kt { color: #B00040; } /* Keyword.Type */
-.m { color: #666666; } /* Literal.Number */
-.s { color: #0000e5; } /* Literal.String */
-.na { color: #7D9029; } /* Name.Attribute */
-.nb { color: #008000; } /* Name.Builtin */
-.nc { color: #0000FF; font-weight: normal } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: normal } /* Name.Entity */
-.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
-.nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
-.nt { color: #008000; font-weight: normal } /* Name.Tag */
-.nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #0000e5 } /* Literal.String.Backtick */
-.sc { color: #0000e5 } /* Literal.String.Char */
-.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #0000e5 } /* Literal.String.Double */
-.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
-.sh { color: #0000e5 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #0000e5 } /* Literal.String.Single */
-.ss { color: #19177C } /* Literal.String.Symbol */
-.bp { color: #008000 } /* Name.Builtin.Pseudo */
-.vc { color: #19177C } /* Name.Variable.Class */
-.vg { color: #19177C } /* Name.Variable.Global */
-.vi { color: #19177C } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
 .button {
   position: relative;
   display: inline-block;
@@ -516,21 +493,6 @@ aside {
 }
 
 iframe {display:block;}
-
-/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
-
-/* ------------------------------------------
- * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
- * Licensed under Unlicense
- * http://github.com/necolas/css3-github-buttons
- * --------------------------------------- */
-
-I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
-
-/* =============================================================================
-   Base Button
-   ========================================================================== */
-
 
 </style>
 
@@ -632,51 +594,55 @@ console.log(typeof(anumber));
 
 <p>It is easy to create objects in JS, there is more than one way, look the following code.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// 1st way</span>
-<span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">{};</span>
+<div>
+  <pre><code class="javascript">// 1st way
+var r = {};
 
-<span class="nx">r</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Rommel&quot;</span><span class="p">;</span>
-<span class="nx">r</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;006&quot;</span><span class="p">;</span>
-<span class="nx">r</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="s2">&quot;Admin&quot;</span><span class="p">;</span>
+r.name = &quot;Rommel&quot;;
+r.id = &quot;006&quot;;
+r.dept = &quot;Admin&quot;;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span>
+console.log(r);
 
-<span class="c1">// 2nd way</span>
-<span class="kd">var</span> <span class="nx">rommel</span> <span class="o">=</span> <span class="p">{</span>
+// 2nd way
+var rommel = {
 	
-	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Rommel&quot;</span><span class="p">,</span>
-	<span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;006&quot;</span><span class="p">,</span>
-	<span class="nx">dept</span><span class="o">:</span> <span class="s2">&quot;Admin&quot;</span>	
-<span class="p">}</span>
+	name: &quot;Rommel&quot;,
+	id: &quot;006&quot;,
+	dept: &quot;Admin&quot;	
+}
 
-<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+var s = r.name;
+console.log(s);
 
 
-<span class="c1">//3rd way</span>
-<span class="kd">var</span> <span class="nx">r2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
-<span class="nx">r2</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Rommel&quot;</span><span class="p">;</span>
-<span class="nx">r2</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;006&quot;</span><span class="p">;</span>
-<span class="nx">r2</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="s2">&quot;Admin&quot;</span><span class="p">;</span>
+//3rd way
+var r2 = new Object();
+r2.name = &quot;Rommel&quot;;
+r2.id = &quot;006&quot;;
+r2.dept = &quot;Admin&quot;;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r2</span><span class="p">);</span></code></pre></div>
+console.log(r2);</code></pre>
+</div>
 
 <p>The 1st and 2nd methods (above) uses object literals to create objects. The 3rd method uses the Object() constructor. </p>
 
 <p><strong>Functions in JS are more than just an encapsulation unit</strong> for codes. They are malleable, flexibile and weird at first. Consider the following codes;</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">function goo() {
 
-   <span class="k">return</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>   
+   return &quot;Hello&quot;;   
    
-<span class="p">}</span>
+}
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">goo</span><span class="p">()));</span> <span class="c1">// returns &quot;Hello&quot;;</span>
+console.log(goo())); // returns &quot;Hello&quot;;
 
-<span class="nx">goo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+goo = 1;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">goo</span><span class="p">);</span>    <span class="c1">// returns 1;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">goo</span><span class="p">());</span>  <span class="c1">// fails now, because goo is no longer a function</span></code></pre></div>
+console.log(goo);    // returns 1;
+console.log(goo());  // fails now, because goo is no longer a function</code></pre>
+</div>
 
 <p>This is what I mean by malleable and flexible, function names do not have special privileges, they can be created, assigned and reassigned pretty much like regular variables. While this looks like weakness right now, it is not. It is a feauture of the language—by the way, that horrible code sample where we reassigned goo() to be a number variable, can be (should be) prevented by good programming practice (conventions etc) and is probably highly unlikely to happen. </p>
 
@@ -690,47 +656,51 @@ console.log(typeof(anumber));
 
 <p>You can return objects from a function, you can return a function from a function as well (We did touch a little bit on currying, but we won’t talk about currying just yet). You can pass functions as parameters to other functions, just like you can pass objects as parameters to functions. You can define properties for an object, you can define properties for a function as well (because functions are objects).  </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// an example of a function return another function</span>
+<div>
+  <pre><code class="javascript">// an example of a function return another function
 
-<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+var x = function() {
 	
-	<span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="s2">&quot;Goo&quot;</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+	return function() {
+		return &quot;Goo&quot;;
+	}
+}
 
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="p">();</span>
+var a = x();
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">());</span></code></pre></div>
+console.log(a());</code></pre>
+</div>
 
 <p>You can add functions as a property of an object. This is possible because properties of objects can be of any type, it can be simple types or complex types, like object or arrays. You can conjure a pretty sophisticated data structure by nesting objects within other objects. Functions, being objects themselves, means we can add a function as a property of an object.  </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">nameparam</span><span class="p">,</span> <span class="nx">deptparam</span><span class="p">)</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">function Employee(nameparam, deptparam) {
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">empname</span> <span class="o">=</span> <span class="nx">nameparam</span><span class="p">;</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="nx">deptparam</span><span class="p">;</span>
+	this.empname = nameparam;
+	this.dept = deptparam;
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">empname</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>	
-	<span class="p">}</span>			
-<span class="p">}</span>
+	this.work = function () {
+		console.log(this.empname + &quot; is working&quot;)	
+	}			
+}
 
 
-<span class="kd">var</span> <span class="nx">rommel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Rommel&quot;</span><span class="p">,</span> <span class="s2">&quot;Admin&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">ted</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Ted&quot;</span><span class="p">,</span> <span class="s2">&quot;SWD&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">pepper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Pepper&quot;</span><span class="p">,</span> <span class="s2">&quot;Admin&quot;</span><span class="p">);</span>
+var rommel = new Employee(&quot;Rommel&quot;, &quot;Admin&quot;);
+var ted = new Employee(&quot;Ted&quot;, &quot;SWD&quot;);
+var pepper = new Employee(&quot;Pepper&quot;, &quot;Admin&quot;);
 
 
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rommel</span><span class="p">.</span><span class="nx">empname</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rommel</span><span class="p">.</span><span class="nx">dept</span><span class="p">);</span>
+console.log(rommel.empname);
+console.log(rommel.dept);
 
-<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
-<span class="nx">ted</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
-<span class="nx">pepper</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
+rommel.work();
+ted.work();
+pepper.work();
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Employee</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span> <span class="c1">// results to Function</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rommel</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span> <span class="c1">// results to Employee</span></code></pre></div>
+console.log(Employee.constructor); // results to Function
+console.log(rommel.constructor); // results to Employee</code></pre>
+</div>
 
 <aside>
 **NOTE** the constructor property is present on all objects. It tells us which function was used to construct the current object. **function Employee** is not an employe object, it is a function object---see the result of running the code *Employee.constructor**. While the objects rommel, ted and pepper are Employee objects.
@@ -738,62 +708,66 @@ console.log(typeof(anumber));
 
 <p><strong>SEAT WORK</strong> - construct a car objects, such that we can make the calls</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">toyota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">();</span>
+<div>
+  <pre><code class="javascript">var toyota = new Car();
 
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">steering</span><span class="p">.</span><span class="nx">goLeft</span><span class="p">();</span>
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">engine</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span></code></pre></div>
+toyota.steering.goLeft();
+toyota.engine.shift();</code></pre>
+</div>
 
 <p>This challenge involves creating 3 objects, the <em>Car</em>, an <em>Engine</em> and a <em>Steering</em> object. The engine and steering objects are members of the Car object.</p>
 
 <p><strong>SOLUTION</strong></p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//solution 1</span>
+<div>
+  <pre><code class="javascript">//solution 1
 
-<span class="kd">function</span> <span class="nx">Car</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">engine</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Engine</span><span class="p">();</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">steering</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Steering</span><span class="p">();</span>
-<span class="p">}</span>
+function Car() {
+	this.engine = new Engine();
+	this.steering = new Steering();
+}
 
-<span class="kd">function</span> <span class="nx">Engine</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">shift</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;shifting&quot;</span><span class="p">);}</span>
-<span class="p">}</span>
+function Engine() {
+	this.shift = function(){console.log(&quot;shifting&quot;);}
+}
 
-<span class="kd">function</span> <span class="nx">Steering</span><span class="p">(){</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">goLeft</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;go left&quot;</span><span class="p">);}</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">goRight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;go right&quot;</span><span class="p">);}</span>
-<span class="p">}</span>
+function Steering(){
+	this.goLeft = function() {console.log(&quot;go left&quot;);}
+	this.goRight = function() {console.log(&quot;go right&quot;);}
+}
 
-<span class="kd">var</span> <span class="nx">toyota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">();</span>
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">engine</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">steering</span><span class="p">.</span><span class="nx">goLeft</span><span class="p">();</span>
+var toyota = new Car();
+toyota.engine.shift();
+toyota.steering.goLeft();
 
 
-<span class="c1">//solution 2</span>
+//solution 2
 
-<span class="kd">var</span> <span class="nx">Car</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+var Car = function() {
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">engine</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="nx">shift</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;shifting&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+	this.engine = {
+		shift : function() {
+			console.log(&quot;shifting&quot;);
+		}
+	}
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">steering</span> <span class="o">=</span>  <span class="p">{</span>
+	this.steering =  {
 		
-		<span class="nx">goLeft</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;going left&quot;</span><span class="p">);</span>
-		<span class="p">},</span>
-		<span class="nx">goRight</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;going right&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		goLeft : function() {
+			console.log(&quot;going left&quot;);
+		},
+		goRight : function() {
+			console.log(&quot;going right&quot;);
+		}
 		
-	<span class="p">}</span>
+	}
 	
-<span class="p">}</span>
+}
 
-<span class="kd">var</span> <span class="nx">toyota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">();</span>
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">steering</span><span class="p">.</span><span class="nx">goLeft</span><span class="p">();</span>
-<span class="nx">toyota</span><span class="p">.</span><span class="nx">engine</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span></code></pre></div>
+var toyota = new Car();
+toyota.steering.goLeft();
+toyota.engine.shift();</code></pre>
+</div>
 
 <p>Solution no. 1 is probably the more readable version because of its verbosity, but solution no. 2 is more compact and more concise. Use object literals sparingly, choose which style is applicable in your coding situation.</p>
 
@@ -803,21 +777,23 @@ console.log(typeof(anumber));
 
 <p>Your code will always run in a <em>context</em>. In JavaScript, these are the <strong>global</strong> context and the context of a function.  How you declare and where you declare your variables will determine their visibility or accessibility.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// this is the global context. anywhere that is not inside a function</span>
+<div>
+  <pre><code class="javascript">// this is the global context. anywhere that is not inside a function
 
-<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//global variable</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// another global variable, but I advise against doing this, always use var</span>
+var i = 10; //global variable
+x = 10; // another global variable, but I advise against doing this, always use var
 
-<span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> <span class="p">{</span>
+function goo() {
 
-	<span class="kd">var</span> <span class="nx">igoo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// this is not visible outside function goo()</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">goo_name</span> <span class="o">=</span> <span class="s2">&quot;function goo name&quot;</span><span class="p">;</span> <span class="c1">// this on the other hand is visible outside goo()</span>
-										 <span class="c1">// but it is not a global variable</span>
+	var igoo = 1; // this is not visible outside function goo()
+	this.goo_name = &quot;function goo name&quot;; // this on the other hand is visible outside goo()
+										 // but it is not a global variable
 
-	<span class="nx">aglobalvar</span> <span class="o">=</span> <span class="s2">&quot;I forgot to put var&quot;</span><span class="p">;</span> <span class="c1">// this automatically becomes a global variable, if you omit </span>
-										<span class="c1">// the var keyword. CAREFUL with this</span>
+	aglobalvar = &quot;I forgot to put var&quot;; // this automatically becomes a global variable, if you omit 
+										// the var keyword. CAREFUL with this
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p><strong>ARRAYS</strong></p>
 
@@ -825,39 +801,45 @@ console.log(typeof(anumber));
 
 <p>Here are some ways on how might declare an initialize an array</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">//an empty array</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">];</span> <span class="c1">//an array with 7 elements</span>
-<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">];</span> <span class="c1">//an array with members of diff types</span>
-<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]];</span> <span class="c1">// an array with members, which are also arrays. </span>
+<div>
+  <pre><code class="javascript">var a = []; //an empty array
+var b = [1,2,3,4,5,6,7]; //an array with 7 elements
+var c = [&quot;Hello&quot;, &quot;World&quot;, 1, 2.0, 0xFF]; //an array with members of diff types
+var d = [[1,1], [2,2],[3,3]]; // an array with members, which are also arrays. 
 
 
-<span class="c1">// other way to declare arrays</span>
+// other way to declare arrays
 
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span> <span class="c1">//equivalent to var a = []</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+var a = new Array(); //equivalent to var a = []
+var b = new Array(1,2,3,4,5,6,7);
+var c = new Array(&quot;Hello&quot;, &quot;World&quot;, 1, 2.0, 0xFF);
+var d = new Array(new Array(1,1), new Array(2,2), new Array(3,3));
 
-<span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//with 5 new elements</span></code></pre></div>
+var e = new Array(5); //with 5 new elements</code></pre>
+</div>
 
 <p>To access the elements of the array, use the bracket notation, like so</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// the first element of the b array, which is 1</span>
-<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">c</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// the second element of the c array, which is &quot;World&quot;</span></code></pre></div>
+<div>
+  <pre><code class="javascript">var i = b[0]; // the first element of the b array, which is 1
+var x = c[1]; // the second element of the c array, which is &quot;World&quot;</code></pre>
+</div>
 
 <p>I did say that JS Arrays are also objects (earlier), this is what I mean by that</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<div>
+  <pre><code class="javascript">var x = [1,2,3,4,5];
 
-<span class="nx">x</span><span class="p">.</span><span class="nx">thisname</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
+x.thisname = &quot;John&quot;;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">thisname</span><span class="p">)</span>
+console.log(x.thisname)
 
-<span class="nx">x</span><span class="p">.</span><span class="nx">doSomething</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;array doing something&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+x.doSomething = function() {
+	console.log(&quot;array doing something&quot;);
+}
 
-<span class="nx">x</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">();</span></code></pre></div>
+x.doSomething();</code></pre>
+</div>
 
 <p>Don’t get too confused about the code, the fact that an Array is an object, means you can really do these things—but should you? To get started on arrays, go for the simple usage first (bracket notations). If your abstraction of the problem at hand requires that you use this kind of programming idiom (arrays with your own custom methods), you may consider its usage then. It all depends on the problem you are trying to solve and the development goals you are after.</p>
 
@@ -867,44 +849,46 @@ console.log(typeof(anumber));
 
 <p>Discussion of the code below</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nb">window</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nb">document</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">docobject</span><span class="p">();</span>
-<span class="p">}</span>
+<div>
+  <pre><code class="javascript">function window() {
+	this.document = new docobject();
+}
 
-<span class="kd">function</span> <span class="nx">docobject</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">forms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">formcollection</span><span class="p">();</span>
-<span class="p">}</span>
+function docobject() {
+	this.forms = new formcollection();
+}
 
-<span class="kd">function</span> <span class="nx">formcollection</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">form1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">formobject</span><span class="p">();</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">form2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">formobject</span><span class="p">();</span>
-<span class="p">}</span>
+function formcollection() {
+	this.form1 = new formobject();
+	this.form2 = new formobject();
+}
 
-<span class="kd">function</span> <span class="nx">formobject</span><span class="p">(){</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">elements</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">elementcollection</span><span class="p">();</span>
-<span class="p">}</span>
+function formobject(){
+	this.elements = new elementcollection();
+}
 
-<span class="kd">function</span> <span class="nx">elementcollection</span><span class="p">(){</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">input1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">input</span><span class="p">();</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">input2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">input</span><span class="p">();</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">input3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">input</span><span class="p">();</span>
-<span class="p">}</span>
+function elementcollection(){
+	this.input1 = new input();
+	this.input2 = new input();
+	this.input3 = new input();
+}
 
-<span class="kd">function</span> <span class="nx">input</span><span class="p">()</span> <span class="p">{</span>
+function input() {
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">innerhtml</span> <span class="o">=</span> <span class="s2">&quot;default inner html&quot;</span><span class="p">;</span>
+	this.innerhtml = &quot;default inner html&quot;;
 	
-	<span class="k">this</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Clicked&quot;</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+	this.click = function() {
+		console.log(&quot;Clicked&quot;);
+	}
+}
 
 
-<span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">();</span>
+var w = new window();
 
-<span class="nx">w</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s2">&quot;form1&quot;</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;input1&quot;</span><span class="p">].</span><span class="nx">innerhtml</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
-<span class="nx">w</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s2">&quot;form1&quot;</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;input1&quot;</span><span class="p">].</span><span class="nx">click</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">w</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s2">&quot;form1&quot;</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;input1&quot;</span><span class="p">].</span><span class="nx">innerhtml</span><span class="p">);</span></code></pre></div>
+w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].innerhtml = &quot;Hello World&quot;;
+w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].click();
+console.log(w.document.forms[&quot;form1&quot;].elements[&quot;input1&quot;].innerhtml);</code></pre>
+</div>
 
 <p>An exercise on abstraction (and writing objects)</p>
 
@@ -916,145 +900,155 @@ console.log(typeof(anumber));
 
 <p>The <em>GCF</em> exercise using client-side JavaScript and HTML</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Fourth.html --&gt;</span>
-<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!-- Fourth.html --&gt;
+&lt;!DOCTYPE html&gt;
 
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;fourth.js&quot;</span><span class="nt">&gt;</span>
+		&lt;script src=&quot;fourth.js&quot;&gt;
 		
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-		<span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;objform&quot;</span><span class="nt">&gt;</span>
-			First number  :<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">text</span> <span class="na">name=</span><span class="s">text1</span><span class="nt">&gt;&lt;br/&gt;</span>
-			Second number :<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">text</span> <span class="na">name=</span><span class="s">text2</span><span class="nt">&gt;&lt;br/&gt;</span>
-			<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">button</span> <span class="na">name=</span><span class="s">btn1</span> <span class="na">value=</span><span class="s">&quot;Click&quot;</span> <span class="na">onclick=</span><span class="s">&quot;foo()&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/form&gt;</span>
+		&lt;form name=&quot;objform&quot;&gt;
+			First number  :&lt;input type=text name=text1&gt;&lt;br/&gt;
+			Second number :&lt;input type=text name=text2&gt;&lt;br/&gt;
+			&lt;input type=button name=btn1 value=&quot;Click&quot; onclick=&quot;foo()&quot;&gt;
+		&lt;/form&gt;
 		
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;gcf&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/div&gt;</span>
+		&lt;div id=&quot;gcf&quot;&gt;
+		&lt;/div&gt;
 		
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Fourth.js</span>
+<div>
+  <pre><code class="javascript">// Fourth.js
 
-<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+function foo() {
 	
-	<span class="kd">var</span> <span class="nx">form1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">text1</span> <span class="o">=</span> <span class="nx">form1</span><span class="p">.</span><span class="nx">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	var form1 = document.forms[0];
+	var text1 = form1.elements[0];
 	
-	<span class="kd">var</span> <span class="nx">text2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s2">&quot;objform&quot;</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;text2&quot;</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">gcf</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;gcf&quot;</span><span class="p">);</span>
+	var text2 = document.forms[&quot;objform&quot;].elements[&quot;text2&quot;];
+	var gcf = document.getElementById(&quot;gcf&quot;);
 	
 	
-	<span class="kd">var</span> <span class="nx">firstno</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">text1</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-	<span class="kd">var</span> <span class="nx">secondno</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">text2</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+	var firstno = parseInt(text1.value);
+	var secondno = parseInt(text2.value);
 	
-	<span class="nx">alert</span><span class="p">(</span><span class="nx">firstno</span> <span class="o">+</span> <span class="nx">secondno</span><span class="p">);</span>
+	alert(firstno + secondno);
 	
-	<span class="nx">gcf</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;This is the GCF&quot;</span><span class="p">;</span>
+	gcf.innerHTML = &quot;This is the GCF&quot;;
 		
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p><strong>Fifth.html (inlined JavaScript).</strong> A lot of things in the DOM can be clicked, and you can attach an <em>onclick</em> event even to DIVs in the DOM. This code sample shows that</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;script&gt;</span>
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-			<span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="s2">&quot;objform&quot;</span><span class="p">].</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;btn1&quot;</span><span class="p">].</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">btnclick</span><span class="p">();</span>
-			<span class="p">}</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script&gt;
+		window.onload = function(){
+			document.forms[&quot;objform&quot;].elements[&quot;btn1&quot;].onclick = function(){
+				btnclick();
+			}
 			
-			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;section1&quot;</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">sectionclick</span><span class="p">();</span>
-			<span class="p">}</span>
+			document.getElementById(&quot;section1&quot;).onclick = function(){
+				sectionclick();
+			}
 			
-		<span class="p">}</span>
+		}
 		
-		<span class="kd">function</span> <span class="nx">sectionclick</span><span class="p">(){</span>
-			<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;clicked the div&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function sectionclick(){
+			alert(&quot;clicked the div&quot;);
+		}
 		
-		<span class="kd">function</span> <span class="nx">btnclick</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
-		<span class="nt">&lt;/script&gt;</span>
+		function btnclick() {
+			alert(&quot;Hello&quot;);
+		}
+		&lt;/script&gt;
 		
-		<span class="nt">&lt;noscript&gt;</span>
+		&lt;noscript&gt;
 			You have to enable JavaScript
-		<span class="nt">&lt;/noscript&gt;</span>
+		&lt;/noscript&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 	
-	<span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;objform&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">button</span> <span class="na">name=</span><span class="s">&quot;btn1&quot;</span> <span class="na">value=</span><span class="s">&quot;hey&quot;</span><span class="nt">/&gt;</span>
-	<span class="nt">&lt;/form&gt;</span>
+	&lt;form name=&quot;objform&quot;&gt;
+		&lt;input type=button name=&quot;btn1&quot; value=&quot;hey&quot;/&gt;
+	&lt;/form&gt;
 	
-	<span class="nt">&lt;p&gt;</span>
-	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;section1&quot;</span> <span class="na">style=</span><span class="s">&quot;border: 2px solid gray; width:10%;&quot;</span><span class="nt">&gt;</span>
+	&lt;p&gt;
+	&lt;div id=&quot;section1&quot; style=&quot;border: 2px solid gray; width:10%;&quot;&gt;
 	You can click me
-	<span class="nt">&lt;/div&gt;</span>
+	&lt;/div&gt;
 	
 	
-	<span class="nt">&lt;/body&gt;</span>
+	&lt;/body&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <p><strong>OnChange Example</strong>. This code sample demonstrates the use of the <em>onkeyup</em> event using a <em>textarea</em> element. </p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
 
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;onchange.js&quot;</span><span class="nt">&gt;</span>
+		&lt;script src=&quot;onchange.js&quot;&gt;
 			
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;objform&quot;</span><span class="nt">&gt;</span>
-			<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;txtarea1&quot;</span> <span class="na">rows=</span><span class="s">&quot;10&quot;</span> <span class="na">cols=</span><span class="s">&quot;100&quot;</span> <span class="na">onkeyup=</span><span class="s">&quot;changetext()&quot;</span><span class="nt">&gt;</span>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;form name=&quot;objform&quot;&gt;
+			&lt;textarea name=&quot;txtarea1&quot; rows=&quot;10&quot; cols=&quot;100&quot; onkeyup=&quot;changetext()&quot;&gt;
 				
-			<span class="nt">&lt;/textarea&gt;</span>
-			<span class="nt">&lt;p&gt;</span>
-			<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick=</span><span class="s">&quot;btnclick()&quot;</span> <span class="na">value=</span><span class="s">&quot;click me&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/form&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;writetome&quot;</span><span class="nt">&gt;</span>
+			&lt;/textarea&gt;
+			&lt;p&gt;
+			&lt;input type=&quot;button&quot; onclick=&quot;btnclick()&quot; value=&quot;click me&quot;&gt;
+		&lt;/form&gt;
+		&lt;div id=&quot;writetome&quot;&gt;
 			This text will change
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The code for <em>onchange.js</em> is below</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// onchange.js</span>
+<div>
+  <pre><code class="javascript">// onchange.js
 
-<span class="kd">function</span> <span class="nx">btnclick</span><span class="p">()</span> <span class="p">{</span>
+function btnclick() {
 	
-	<span class="kd">var</span> <span class="nx">txtin</span> <span class="o">=</span> <span class="nx">objform</span><span class="p">.</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;txtarea1&quot;</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">txtout</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;writetome&quot;</span><span class="p">);</span>
+	var txtin = objform.elements[&quot;txtarea1&quot;];
+	var txtout = document.getElementById(&quot;writetome&quot;);
 
-	<span class="nx">txtout</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">txtin</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-<span class="p">}</span>
+	txtout.innerHTML = txtin.value;
+}
 
-<span class="kd">function</span> <span class="nx">changetext</span><span class="p">(){</span>
+function changetext(){
 	
-	<span class="kd">var</span> <span class="nx">txtin</span> <span class="o">=</span> <span class="nx">objform</span><span class="p">.</span><span class="nx">elements</span><span class="p">[</span><span class="s2">&quot;txtarea1&quot;</span><span class="p">];</span>
-	<span class="kd">var</span> <span class="nx">txtout</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;writetome&quot;</span><span class="p">);</span>
+	var txtin = objform.elements[&quot;txtarea1&quot;];
+	var txtout = document.getElementById(&quot;writetome&quot;);
 
-	<span class="nx">txtout</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">txtin</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+	txtout.innerHTML = txtin.value;
 	
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>You can experiment with the other <em>onkey</em> events like <strong>onkeypress</strong> and <strong>onkeyup</strong></p>
 
@@ -1070,108 +1064,112 @@ console.log(typeof(anumber));
 
 <p>An example declaration of the canvas element in HTML</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;thecanvas&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">200</span><span class="nt">&gt;</span>
+<div>
+  <pre><code class="html">&lt;canvas id=&quot;thecanvas&quot; width=500 height=200&gt;
  If the browser is not capable of displaying the canvas
  this message will be seen instead of a rendered 2D platform
-<span class="nt">&lt;/canvas&gt;</span></code></pre></div>
+&lt;/canvas&gt;</code></pre>
+</div>
 
 <p>You can omit the height and width attribute if you wish, but the canvas will default to 150 pixels tall and 300 pixels wide. </p>
 
 <p>The canvas API is rich and offers a wide variety of drawing basic elements like rectangles, circles, lines and text. Here’s a sample code on how to use the canvas</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
 
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;script&gt;</span>
+		&lt;script&gt;
 		
-		<span class="kd">function</span> <span class="nx">woot</span><span class="p">()</span> <span class="p">{</span>
+		function woot() {
 		
-			<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mycanvas&quot;</span><span class="p">);</span>
-			<span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+			var c = document.getElementById(&quot;mycanvas&quot;);
+			var ctx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeRect</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+			ctx.fillRect(10,10,50,50);
+			ctx.strokeRect(70,10,50,50);
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgb(255,0,0)&quot;</span><span class="p">;</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+			ctx.fillStyle = &quot;rgb(255,0,0)&quot;;
+			ctx.fillRect(10,70,50,50);
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;#ababab&quot;</span><span class="p">;</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeRect</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+			ctx.strokeStyle = &quot;#ababab&quot;;
+			ctx.strokeRect(70,70,50,50);
 			
-			<span class="c1">// DRAW LINES</span>
+			// DRAW LINES
 			
-			<span class="c1">//The line is gray bec the curr strokeStyle</span>
-			<span class="c1">//is #ababab</span>
+			//The line is gray bec the curr strokeStyle
+			//is #ababab
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">130</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+			ctx.lineWidth = 1;
+			ctx.beginPath();
+			ctx.moveTo(130, 130);
+			ctx.lineTo(0,0);
+			ctx.closePath();
+			ctx.stroke();
 			
-			<span class="c1">// DRAW some text</span>
+			// DRAW some text
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">&quot;40px serif&quot;</span><span class="p">;</span> <span class="c1">// you can add italics here, just like in css</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span><span class="mi">60</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeText</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+			ctx.fillText(&quot;Hello&quot;, 130,20);
+			ctx.font = &quot;40px serif&quot;; // you can add italics here, just like in css
+			ctx.fillText(&quot;Hello&quot;, 130,60);
+			ctx.strokeText(&quot;Hello&quot;, 130,100);
 			
-			<span class="c1">//DRAW CIRCLE</span>
+			//DRAW CIRCLE
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">;</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+			ctx.fillStyle = &quot;green&quot;;
+			ctx.beginPath();
+			ctx.arc(60,180,50,0,Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fill();
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span><span class="p">;</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">280</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+			ctx.fillStyle = &quot;orange&quot;;
+			ctx.beginPath();
+			ctx.arc(60,280,50,0,Math.PI, false);
+			ctx.closePath();
+			ctx.fill();
 			
-			<span class="c1">//BASIC ROTATION</span>
+			//BASIC ROTATION
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">4</span><span class="p">);</span>
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">);</span>
+			ctx.rotate(Math.PI/4);
+			ctx.fillRect(350,250,40,40);
 			
-		<span class="p">}</span>
+		}
 		
-		<span class="kd">function</span> <span class="nx">clearAll</span><span class="p">(){</span>
-			<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mycanvas&quot;</span><span class="p">);</span>
-			<span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+		function clearAll(){
+			var c = document.getElementById(&quot;mycanvas&quot;);
+			var ctx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">150</span><span class="p">);</span>
-		<span class="p">}</span>
+			ctx.clearRect(0,0,300,150);
+		}
 		
-		<span class="kd">function</span> <span class="nx">getSize</span><span class="p">(){</span>
-			<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mycanvas&quot;</span><span class="p">);</span>
-			<span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+		function getSize(){
+			var c = document.getElementById(&quot;mycanvas&quot;);
+			var ctx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;width = &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="s2">&quot;\nheight = &quot;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-		<span class="p">}</span>
+			alert(&quot;width = &quot; + c.width + &quot;\nheight = &quot; + c.height);
+		}
 		
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body</span> <span class="na">onload=</span><span class="s">&quot;woot()&quot;</span><span class="nt">&gt;</span>
+	&lt;/head&gt;
+	&lt;body onload=&quot;woot()&quot;&gt;
 		
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;mycanvas&quot;</span> <span class="na">style=</span><span class="s">&quot;border:1px solid gray;&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">500</span><span class="nt">&gt;</span>
+		&lt;canvas id=&quot;mycanvas&quot; style=&quot;border:1px solid gray;&quot; width=500 height=500&gt;
 			If you are seeing this, you are using a really old
 			browser
-		<span class="nt">&lt;/canvas&gt;</span>
+		&lt;/canvas&gt;
 		
-		<span class="nt">&lt;p&gt;</span>
-		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">button</span> <span class="na">value=</span><span class="s">&quot;Clear all&quot;</span> <span class="na">onclick=</span><span class="s">&quot;clearAll()&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">button</span> <span class="na">value=</span><span class="s">&quot;Size of C&quot;</span> <span class="na">onclick=</span><span class="s">&quot;getSize()&quot;</span><span class="nt">&gt;</span>
+		&lt;p&gt;
+		&lt;input type=button value=&quot;Clear all&quot; onclick=&quot;clearAll()&quot;&gt;
+		&lt;input type=button value=&quot;Size of C&quot; onclick=&quot;getSize()&quot;&gt;
 		
 		
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <ol>
   <li>When you set the fillStyle, every subsequent fillRect calls will follow the fillStyle. The other fillRects which were already drawn prior to the call will not be affected.</li>
@@ -1184,165 +1182,169 @@ console.log(typeof(anumber));
 
 <p>To get the current location of the mouse, you can use the <strong>event.clientX</strong> and <strong>event.clientY</strong> information. Here’s an example code on how to use it with the canvas</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;script&gt;</span>
+		&lt;script&gt;
 		
-		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var c = null;
+		var cx = null;
+		var output = null;
 		
-		<span class="kd">var</span> <span class="nx">shouldIPaint</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var shouldIPaint = null;
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-			<span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mycanvas&quot;</span><span class="p">);</span>
-			<span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+		window.onload = function(){
+			c = document.getElementById(&quot;mycanvas&quot;);
+			cx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">shouldIPaint</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-			<span class="nx">output</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">);</span>
+			shouldIPaint = true;
+			output = document.getElementById(&quot;output&quot;);
 			
-			<span class="nx">c</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">shouldIPaint</span> <span class="o">=</span> <span class="o">!</span><span class="nx">shouldIPaint</span><span class="p">;</span>
-			<span class="p">}</span>
+			c.onclick = function(){
+				shouldIPaint = !shouldIPaint;
+			}
 			
-			<span class="nx">c</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+			c.onmousemove = function(){
 				
-				<span class="nx">c</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cursor</span> <span class="o">=</span> <span class="s1">&#39;crosshair&#39;</span><span class="p">;</span>
+				c.style.cursor = 'crosshair';
 				
-				<span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;X : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="s2">&quot; | Y : &quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
-				<span class="nx">cx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#ababab&quot;</span><span class="p">;</span>
+				output.innerHTML = &quot;X : &quot; + event.clientX + &quot; | Y : &quot; + event.clientY;
+				cx.fillStyle = &quot;#ababab&quot;;
 		
-				<span class="k">if</span><span class="p">(</span><span class="nx">shouldIPaint</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
-					<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
+				if(shouldIPaint == true){
+					cx.fillRect(event.clientX-20,event.clientY-50,5,5);
+				}
+			}
+		}
 		
-		<span class="kd">function</span> <span class="nx">clearall</span><span class="p">(){</span>
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-		<span class="p">}</span>
+		function clearall(){
+			cx.clearRect(0,0,c.width,c.height);
+		}
 		
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">button</span> <span class="na">value=</span><span class="s">&quot;clear&quot;</span> <span class="na">onclick=</span><span class="s">&quot;clearall()&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;p&gt;</span>
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;mycanvas&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">400</span> <span class="na">style=</span><span class="s">&quot;border:1px dotted gray&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/canvas&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;input type=button value=&quot;clear&quot; onclick=&quot;clearall()&quot;&gt;
+		&lt;p&gt;
+		&lt;canvas id=&quot;mycanvas&quot; width=500 height=400 style=&quot;border:1px dotted gray&quot;&gt;
+		&lt;/canvas&gt;
 		
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;output&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/div&gt;</span>
-		<span class="nt">&lt;p&gt;</span>
+		&lt;div id=&quot;output&quot;&gt;
+		&lt;/div&gt;
+		&lt;p&gt;
 			
-		Additional complexity:<span class="nt">&lt;br&gt;</span>
-		<span class="nt">&lt;pre&gt;</span>
+		Additional complexity:&lt;br&gt;
+		&lt;pre&gt;
 		1. Use circles instead of squares
 		2. Use line drawings
 		3. Use bezier curves	
-		<span class="nt">&lt;/pre&gt;</span>	
+		&lt;/pre&gt;	
 		
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>This works because the canvas’s origin (0,0) is exactly the the 0,0 also of the HTML page. If the canvas is located somewhere else on the page, you should calculate some offset (the distance of upper left corner of the page from the upper left corner of the canvas element)</p>
 
 <p>Apart from knowing where the mouse position is, you should add another tool to your programming arsenal, that of knowing which key the user is pressing. This information can be acquired using the <strong>event.keyCode</strong> property. Here is an example on how to use it.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;script&gt;</span>
-		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;script&gt;
+		var c = null;
+		var cx = null;
 		
-		<span class="kd">var</span> <span class="nx">lastpos</span><span class="p">;</span> <span class="c1">// lets keep track of where we are</span>
+		var lastpos; // lets keep track of where we are
 		
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		window.onload = function() {
 			
-			<span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mycanvas&quot;</span><span class="p">);</span>
-			<span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+			c = document.getElementById(&quot;mycanvas&quot;);
+			cx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">lastpos</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">};</span>
+			lastpos = {x:0,y:0};
 			
-			<span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;READY&quot;</span><span class="p">;</span>
+			output.innerHTML = &quot;READY&quot;;
 			
-			<span class="c1">// arrow keys are only detected onkeydown, not onkeypress</span>
+			// arrow keys are only detected onkeydown, not onkeypress
 			
-			<span class="nx">c</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+			c.onkeydown = function(){
 				
-				<span class="kd">var</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">;</span>
+				var action = event.keyCode;
 				
-				<span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-					<span class="k">case</span> <span class="mi">37</span><span class="o">:</span> <span class="c1">// &lt;-</span>
-						<span class="nx">moveLeft</span><span class="p">();</span>
-						<span class="k">break</span><span class="p">;</span>
-					<span class="k">case</span> <span class="mi">38</span><span class="o">:</span> <span class="c1">// ^</span>
-						<span class="nx">moveUp</span><span class="p">();</span>
-						<span class="k">break</span><span class="p">;</span>
-					<span class="k">case</span> <span class="mi">39</span><span class="o">:</span> <span class="c1">// -&gt;</span>
-						<span class="nx">moveRight</span><span class="p">();</span>
-						<span class="k">break</span><span class="p">;</span>
-					<span class="k">case</span> <span class="mi">40</span><span class="o">:</span> <span class="c1">// V</span>
-						<span class="nx">moveDown</span><span class="p">();</span>
-						<span class="k">break</span><span class="p">;</span>
-					<span class="k">default</span><span class="o">:</span>
-						<span class="k">break</span><span class="p">;</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
+				switch(action) {
+					case 37: // &lt;-
+						moveLeft();
+						break;
+					case 38: // ^
+						moveUp();
+						break;
+					case 39: // -&gt;
+						moveRight();
+						break;
+					case 40: // V
+						moveDown();
+						break;
+					default:
+						break;
+				}
+			}
+		}
 		
-		<span class="kd">function</span> <span class="nx">showStat</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>
-			<span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="s2">&quot;ARROW key : &quot;</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span> <span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
-			<span class="nx">temp</span> <span class="o">=</span> <span class="nx">temp</span> <span class="o">+</span> <span class="s2">&quot;curr X : &quot;</span> <span class="o">+</span> <span class="nx">lastpos</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s2">&quot; | curr Y : &quot;</span> <span class="o">+</span> <span class="nx">lastpos</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-			<span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
-		<span class="p">}</span>
+		function showStat(key){
+			var temp = &quot;ARROW key : &quot; + key + &quot;&lt;br/&gt;&quot;;
+			temp = temp + &quot;curr X : &quot; + lastpos.x + &quot; | curr Y : &quot; + lastpos.y;
+			output.innerHTML = temp;
+		}
 		
-		<span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">pos</span><span class="p">){</span>
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">pos</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">pos</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-		<span class="p">}</span>
+		function draw(pos){
+			cx.clearRect(0,0,c.width, c.height);
+			cx.fillRect(pos.x, pos.y, 10,10);
+		}
 				
-		<span class="kd">function</span> <span class="nx">moveUp</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">lastpos</span><span class="p">.</span><span class="nx">y</span><span class="o">--</span><span class="p">;</span>
-			<span class="nx">draw</span><span class="p">(</span><span class="nx">lastpos</span><span class="p">);</span>
-			<span class="nx">showStat</span><span class="p">(</span><span class="s2">&quot;Up&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function moveUp() {
+			lastpos.y--;
+			draw(lastpos);
+			showStat(&quot;Up&quot;);
+		}
 		
-		<span class="kd">function</span> <span class="nx">moveDown</span><span class="p">(){</span>
-			<span class="nx">lastpos</span><span class="p">.</span><span class="nx">y</span><span class="o">++</span><span class="p">;</span>
-			<span class="nx">draw</span><span class="p">(</span><span class="nx">lastpos</span><span class="p">);</span>
-			<span class="nx">showStat</span><span class="p">(</span><span class="s2">&quot;Down&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function moveDown(){
+			lastpos.y++;
+			draw(lastpos);
+			showStat(&quot;Down&quot;);
+		}
 		
-		<span class="kd">function</span> <span class="nx">moveLeft</span><span class="p">(){</span>
-			<span class="nx">lastpos</span><span class="p">.</span><span class="nx">x</span><span class="o">--</span><span class="p">;</span>
-			<span class="nx">draw</span><span class="p">(</span><span class="nx">lastpos</span><span class="p">);</span>
-			<span class="nx">showStat</span><span class="p">(</span><span class="s2">&quot;Left&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function moveLeft(){
+			lastpos.x--;
+			draw(lastpos);
+			showStat(&quot;Left&quot;);
+		}
 		
-		<span class="kd">function</span> <span class="nx">moveRight</span><span class="p">(){</span>
-			<span class="nx">lastpos</span><span class="p">.</span><span class="nx">x</span><span class="o">++</span><span class="p">;</span>
-			<span class="nx">draw</span><span class="p">(</span><span class="nx">lastpos</span><span class="p">);</span>
-			<span class="nx">showStat</span><span class="p">(</span><span class="s2">&quot;Right&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function moveRight(){
+			lastpos.x++;
+			draw(lastpos);
+			showStat(&quot;Right&quot;);
+		}
 		
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;mycanvas&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">300</span> <span class="na">style=</span><span class="s">&quot;border: 1px dotted gray;&quot;</span> <span class="na">tabindex=</span><span class="s">1</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/canvas&gt;</span>
-		<span class="nt">&lt;p&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;output&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas id=&quot;mycanvas&quot; width=500 height=300 style=&quot;border: 1px dotted gray;&quot; tabindex=1&gt;
+		&lt;/canvas&gt;
+		&lt;p&gt;
+		&lt;div id=&quot;output&quot;&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>By attaching the onkeydown event to the canvas, we can now begin to trap some keyboard events. I used <strong>onkeydown</strong> and not onkeypress because onkeydown is capable of capturing the navigational arrow keys, and onkeypress is not. The keycodes for left, up, right and down arrow are 37,38,39 and 40 respectively. </p>
 
@@ -1354,89 +1356,93 @@ console.log(typeof(anumber));
 
 <p>The following sample code uses demonstrates the usage of getImageData().</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- imagedata.html --&gt;</span>
+<div>
+  <pre><code class="html">&lt;!-- imagedata.html --&gt;
 
-<span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
 			
-			<span class="nf">#canv</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
-			<span class="nf">#coloroutput</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="nb">orange</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span><span class="m">50px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="m">50px</span><span class="p">;}</span>
+			#canv {border:1px solid #ababab;}
+			#coloroutput {border:1px dotted orange; width:50px; height:50px;}
 
 		
-		<span class="nt">&lt;/style&gt;</span>
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;imagedata.js&quot;</span><span class="nt">&gt;</span>
+		&lt;/style&gt;
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;imagedata.js&quot;&gt;
 			
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;canv&quot;</span> <span class="na">width=</span><span class="s">400</span> <span class="na">height=</span><span class="s">400</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/canvas&gt;</span>
+		&lt;canvas id=&quot;canv&quot; width=400 height=400&gt;
+		&lt;/canvas&gt;
 		
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;coloroutput&quot;</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/div&gt;</span>
-		<span class="nt">&lt;p&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;textoutput&quot;</span><span class="nt">&gt;</span>
+		&lt;div id=&quot;coloroutput&quot;&gt;
+		&lt;/div&gt;
+		&lt;p&gt;
+		&lt;div id=&quot;textoutput&quot;&gt;
 			Color value
-		<span class="nt">&lt;/div&gt;</span>
+		&lt;/div&gt;
 		
 		
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>imagedata.js</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">mousepos</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<div>
+  <pre><code class="javascript">var c = null;
+var cx = null;
+var image = null;
+var mousepos = null;
 
-<span class="kd">var</span> <span class="nx">textout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">colorout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+var textout = null;
+var colorout = null;
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+window.onload = function() {
 	
-	<span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;canv&quot;</span><span class="p">);</span>
-	<span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+	c = document.getElementById(&quot;canv&quot;);
+	cx = c.getContext(&quot;2d&quot;);
 	
-	<span class="nx">mousepos</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">};</span>
-	<span class="nx">colorout</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;coloroutput&quot;</span><span class="p">);</span>
-	<span class="nx">textout</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;textoutput&quot;</span><span class="p">);</span>
+	mousepos = {x:0,y:0};
+	colorout = document.getElementById(&quot;coloroutput&quot;);
+	textout = document.getElementById(&quot;textoutput&quot;);
 	
-	<span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-	<span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;colorwheel.png&quot;</span><span class="p">;</span>
+	image = new Image();
+	image.src = &quot;colorwheel.png&quot;;
 	
-	<span class="nx">cx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+	cx.drawImage(image,0,0,c.width,c.height);
 	
-	<span class="nx">c</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	c.onmousemove = function(){
 		
-		<span class="c1">//figure out first where the mouse is</span>
+		//figure out first where the mouse is
 		
-		<span class="nx">mousepos</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
-		<span class="nx">mousepos</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+		mousepos.x = event.clientX;
+		mousepos.y = event.clientY;
 		
-		<span class="kd">var</span> <span class="nx">imagedata</span> <span class="o">=</span> <span class="nx">cx</span><span class="p">.</span><span class="nx">getImageData</span><span class="p">(</span><span class="nx">mousepos</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">mousepos</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-		<span class="kd">var</span> <span class="nx">pixel</span> <span class="o">=</span> <span class="nx">imagedata</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+		var imagedata = cx.getImageData(mousepos.x,mousepos.y,1,1);
+		var pixel = imagedata.data;
 		
-		<span class="kd">var</span> <span class="nx">pred</span> <span class="o">=</span> <span class="nx">pixel</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-		<span class="kd">var</span> <span class="nx">pgreen</span> <span class="o">=</span> <span class="nx">pixel</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-		<span class="kd">var</span> <span class="nx">pblue</span> <span class="o">=</span> <span class="nx">pixel</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-		<span class="kd">var</span> <span class="nx">palpha</span> <span class="o">=</span> <span class="nx">pixel</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+		var pred = pixel[0];
+		var pgreen = pixel[1];
+		var pblue = pixel[2];
+		var palpha = pixel[3];
 		
-		<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;rgba(&quot;</span> <span class="o">+</span> <span class="nx">pred</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">pgreen</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">pblue</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">palpha</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
+		var color = &quot;rgba(&quot; + pred + &quot;,&quot; + pgreen + &quot;,&quot; + pblue + &quot;,&quot; + palpha + &quot;)&quot;;
 		
-		<span class="nx">colorout</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-		<span class="nx">textout</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-		<span class="nx">textout</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+		colorout.style.backgroundColor = color;
+		textout.style.color = color;
+		textout.innerHTML = color;
 		
 		
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+	}
+}</code></pre>
+</div>
 
 <p>The sample code could have defined the image in the HTML using the img tag, but then, the image would have been visible in the HTML before we could draw it inside the canvas. Our code instead defined and initialized the image using JavaScript code so that it is only visible in the canvas and on the HTML page. </p>
 
@@ -1448,76 +1454,78 @@ console.log(typeof(anumber));
 
 <p>First sample code is <strong>anim.html</strong></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
 
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
-		<span class="nf">#canv</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
-		<span class="nt">&lt;/style&gt;</span>
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+		#canv {border: 1px solid #ababab;}
+		&lt;/style&gt;
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 			
-		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var c = null;
+		var cx = null;
 		
-		<span class="kd">var</span> <span class="nx">xpos</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">xpos2</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var xpos = null;
+		var xpos2 = null;
 		
-		<span class="kd">var</span> <span class="nx">stopDrawing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var stopDrawing = null;
 		
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 		
-			<span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;canv&quot;</span><span class="p">);</span>
-			<span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+			c = document.getElementById(&quot;canv&quot;);
+			cx = c.getContext(&quot;2d&quot;);
 			
-			<span class="nx">xpos</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-			<span class="nx">xpos2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+			xpos = 10;
+			xpos2 = 10;
 			
-			<span class="nx">stopDrawing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+			stopDrawing = false;
 			
-			<span class="nx">c</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">stopDrawing</span> <span class="o">=</span> <span class="o">!</span><span class="nx">stopDrawing</span><span class="p">;</span>
-			<span class="p">}</span>
+			c.onclick = function(){
+				stopDrawing = !stopDrawing;
+			}
 			
-			<span class="nx">draw</span><span class="p">();</span>
-		<span class="p">}</span>
+			draw();
+		}
 			
-		<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+		function draw(){
 			
-			<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">stopDrawing</span><span class="p">){</span>
-				<span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+			if(!stopDrawing){
+				cx.clearRect(0,0,c.width,c.height);
 			
-				<span class="k">if</span><span class="p">(</span><span class="nx">xpos</span> <span class="o">&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">){</span>
-					<span class="nx">xpos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="k">else</span><span class="p">{</span>
-					<span class="nx">xpos</span><span class="o">++</span><span class="p">;</span>
-				<span class="p">}</span>
+				if(xpos &gt; c.width){
+					xpos = 0;
+				}
+				else{
+					xpos++;
+				}
 				
-				<span class="k">if</span><span class="p">(</span><span class="nx">xpos2</span> <span class="o">&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">){</span>
-					<span class="nx">xpos2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="k">else</span> <span class="p">{</span>
-					<span class="nx">xpos2</span> <span class="o">+=</span> <span class="mi">5</span>
-				<span class="p">}</span>
+				if(xpos2 &gt; c.width){
+					xpos2 = 0;
+				}
+				else {
+					xpos2 += 5
+				}
 				
 			
-				<span class="c1">//setTimeout(draw,30);</span>
-				<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">xpos</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">);</span>
-				<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">xpos2</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
-			<span class="p">}</span>
-			<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">draw</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-		<span class="p">}</span>	
+				//setTimeout(draw,30);
+				cx.fillRect(xpos,10,40,40);
+				cx.fillRect(xpos2,40,20,20);
+			}
+			setTimeout(draw, 30)
+		}	
 			
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;canv&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">250</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/canvas&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas id=&quot;canv&quot; width=500 height=250&gt;
+		&lt;/canvas&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>Anim.html moves two squares across the width of the canvas. There is a little bit of collision detection at work here, as soon as the boxes collides with the right boundary of the canvas, we reset the <em>x-position</em> of each box to zero, it makes the illusion that the squares are reappearing from the right boundary of the canvas. </p>
 
@@ -1525,113 +1533,115 @@ console.log(typeof(anumber));
 
 <p>Anim2.html involves 3 shapes and sports a different behavior during collision, the shape bounces back to the opposite direction.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
 
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
-		<span class="nf">#canv</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
-		<span class="nt">&lt;/style&gt;</span>
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+		#canv {border: 1px solid #ababab;}
+		&lt;/style&gt;
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 			
-		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var c = null;
+		var cx = null;
 				
-		<span class="kd">var</span> <span class="nx">stopDrawing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">s1</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>	
+		var stopDrawing = null;
+		var s1 = null;
+		var s2 = null;	
 			
 			
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 		
-			<span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;canv&quot;</span><span class="p">);</span>
-			<span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+			c = document.getElementById(&quot;canv&quot;);
+			cx = c.getContext(&quot;2d&quot;);
 				
-			<span class="nx">stopDrawing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+			stopDrawing = false;
 			
-			<span class="nx">c</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">stopDrawing</span> <span class="o">=</span> <span class="o">!</span><span class="nx">stopDrawing</span><span class="p">;</span>
-			<span class="p">}</span>
+			c.onclick = function(){
+				stopDrawing = !stopDrawing;
+			}
 		
-			<span class="nx">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">60</span><span class="p">);</span>
-			<span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
-			<span class="nx">s3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+			s1 = new Square(0,10,60,60);
+			s2 = new Square(30,90,20,20);
+			s3 = new Square(60,140,10,50);
 			
-			<span class="nx">s2</span><span class="p">.</span><span class="nx">setAcceleration</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
-			<span class="nx">s1</span><span class="p">.</span><span class="nx">setAcceleration</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-			<span class="nx">s3</span><span class="p">.</span><span class="nx">setAcceleration</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+			s2.setAcceleration(30);
+			s1.setAcceleration(5);
+			s3.setAcceleration(9);
 			
-			<span class="nx">draw</span><span class="p">();</span>
-		<span class="p">}</span>
+			draw();
+		}
 			
-		<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+		function draw(){
 			
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+			cx.clearRect(0,0,c.width,c.height);
 		
-			<span class="nx">s1</span><span class="p">.</span><span class="nx">move2</span><span class="p">();</span>
-			<span class="nx">s2</span><span class="p">.</span><span class="nx">move2</span><span class="p">();</span>
-			<span class="nx">s3</span><span class="p">.</span><span class="nx">move2</span><span class="p">();</span>
+			s1.move2();
+			s2.move2();
+			s3.move2();
 			
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">s1</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">s1</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="nx">s1</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">s1</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">s2</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="nx">s2</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">s2</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-			<span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">s3</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">s3</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="nx">s3</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">s3</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+			cx.fillRect(s1.x,s1.y,s1.width,s1.height);
+			cx.fillRect(s2.x,s2.y,s2.width,s2.height);
+			cx.fillRect(s3.x,s3.y,s3.width,s3.height);
 			
-			<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">draw</span><span class="p">,</span><span class="mi">33</span><span class="p">);</span>
-		<span class="p">}</span>	
+			setTimeout(draw,33);
+		}	
 		
-		<span class="kd">function</span> <span class="nx">Square</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">width</span><span class="p">,</span><span class="nx">height</span><span class="p">){</span>
+		function Square(x,y,width,height){
 
-			<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+			this.x = x;
+			this.y = y;
+			this.width = width;
+			this.height = height;
 			
-			<span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// move left, false is right</span>
+			this.direction = true; // move left, false is right
 			
-			<span class="kd">var</span> <span class="nx">acceleration</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+			var acceleration = 1;
 			
-			<span class="k">this</span><span class="p">.</span><span class="nx">setAcceleration</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">accel</span><span class="p">){</span>
-				<span class="nx">acceleration</span> <span class="o">=</span> <span class="nx">accel</span><span class="p">;</span>
-			<span class="p">}</span>
+			this.setAcceleration = function(accel){
+				acceleration = accel;
+			}
 			
-			<span class="k">this</span><span class="p">.</span><span class="nx">move2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+			this.move2 = function(){
 				
-				<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">){</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">==</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;;</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span><span class="p">;</span>
-				<span class="p">}</span>
+				if(this.direction &amp;&amp; (this.x + this.width) &gt; c.width){
+					this.x = c.width - this.width;
+					this.direction = !this.direction;
+				}
+				else if(this.direction == false &amp;&amp; this.x &lt; 0){
+					this.x = 0;;
+					this.direction = !this.direction;
+				}
 				
-				<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">direction</span><span class="p">){</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">acceleration</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="k">else</span> <span class="p">{</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">-=</span> <span class="nx">acceleration</span><span class="p">;</span>
-				<span class="p">}</span>
+				if(this.direction){
+					this.x += acceleration;
+				}
+				else {
+					this.x -= acceleration;
+				}
 				
-			<span class="p">}</span>
+			}
 			
-			<span class="k">this</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">){</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="k">else</span><span class="p">{</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">acceleration</span><span class="p">;</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
+			this.move = function(){
+				if(this.x &gt; c.width){
+					this.x = 0;
+				}
+				else{
+					this.x += acceleration;
+				}
+			}
+		}
 		
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
-		<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;canv&quot;</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">250</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;/canvas&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas id=&quot;canv&quot; width=500 height=250&gt;
+		&lt;/canvas&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The code keeps track of the direction of each shape using a <em>direction</em> variable inside each Shape constructor. Abstracting each shape to be inside an object does make our code a bit more effective in taming the the complexities brought about by adding new shapes into the canvas.  </p>
 
@@ -1645,132 +1655,138 @@ console.log(typeof(anumber));
 
 <p><strong>CODE WORKS</strong></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 		
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
 		
-		<span class="nf">#mysvg</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
+		#mysvg {border:1px solid #ababab;}
 		
-		<span class="nt">&lt;/style&gt;</span>
+		&lt;/style&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-		<span class="nt">&lt;svg</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">400</span><span class="nt">&gt;</span>
-			<span class="nt">&lt;rect</span> <span class="na">id=</span><span class="s">&quot;rect1&quot;</span> <span class="na">x=</span><span class="s">&quot;10&quot;</span> <span class="na">y=</span><span class="s">&quot;10&quot;</span> <span class="na">width=</span><span class="s">&quot;50&quot;</span> <span class="na">height=</span><span class="s">&quot;50&quot;</span> <span class="nt">/&gt;</span>
-			<span class="nt">&lt;rect</span> <span class="na">id=</span><span class="s">&quot;rect2&quot;</span> <span class="na">x=</span><span class="s">&quot;70&quot;</span> <span class="na">y=</span><span class="s">&quot;70&quot;</span> <span class="na">width=</span><span class="s">&quot;50&quot;</span> <span class="na">height=</span><span class="s">&quot;50&quot;</span> <span class="nt">/&gt;</span>
-		<span class="nt">&lt;/svg&gt;</span>
+		&lt;svg width=500 height=400&gt;
+			&lt;rect id=&quot;rect1&quot; x=&quot;10&quot; y=&quot;10&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
+			&lt;rect id=&quot;rect2&quot; x=&quot;70&quot; y=&quot;70&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
+		&lt;/svg&gt;
 		
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+		&lt;div id=&quot;watch&quot;&gt;
 	
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>To insert an SVG drawing, create an SVG tag, specify the width and height using the attributes. To draw a rectangle, create a <strong>rect</strong> tag, specify the <em>x, y, width and height</em> attributes. </p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
 		
-		<span class="nf">#mycanvas</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
+		#mycanvas {border:1px solid #ababab;}
 		
-		<span class="nt">&lt;/style&gt;</span>
+		&lt;/style&gt;
 
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 		
-		<span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var r = null;
 		
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 			
-			<span class="nx">r</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;therect&quot;</span><span class="p">);</span>
+			r = document.getElementById(&quot;therect&quot;);
 			
-			<span class="nx">r</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">r</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-			<span class="p">}</span>
+			r.onclick = function(){
+				r.setAttribute(&quot;width&quot;, 200);
+			}
 						
-		<span class="p">}</span>
+		}
 			
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-		<span class="nt">&lt;svg</span> <span class="na">width=</span><span class="s">500</span> <span class="na">height=</span><span class="s">200</span><span class="nt">&gt;</span>
-			<span class="nt">&lt;rect</span> <span class="na">id=</span><span class="s">&quot;therect&quot;</span> <span class="na">x=</span><span class="s">10</span> <span class="na">y=</span><span class="s">20</span> <span class="na">width=</span><span class="s">50</span> <span class="na">height=</span><span class="s">100</span>
-			<span class="na">style=</span><span class="s">&quot;fill: #ababab; stroke:#000;&quot;</span>
-			<span class="nt">&gt;</span>
+		&lt;svg width=500 height=200&gt;
+			&lt;rect id=&quot;therect&quot; x=10 y=20 width=50 height=100
+			style=&quot;fill: #ababab; stroke:#000;&quot;
+			&gt;
 
-		<span class="nt">&lt;/svg&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+		&lt;/svg&gt;
+		&lt;div id=&quot;watch&quot;&gt;
 	
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The second example shows how attach an <strong>onclick</strong> event to the SVG drawing. As previously mentioned, SVG drawing elements are DOM addressable, they are part of the DOM, which means you can attach events to it just like you would say, a button, text or a DIV element. </p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
 		
-		<span class="nf">#mysvg</span> <span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ababab</span><span class="p">;}</span>
+		#mysvg {border:1px solid #ababab;}
 		
-		<span class="nt">&lt;/style&gt;</span>
+		&lt;/style&gt;
 
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 		
-		<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="c1">//var rectx = 0;</span>
+		var rect = null;
+		//var rectx = 0;
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-			<span class="nx">rect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;therect&quot;</span><span class="p">);</span>
-			<span class="nx">anim</span><span class="p">();</span>
-		<span class="p">};</span>
+		window.onload = function(){
+			rect = document.getElementById(&quot;therect&quot;);
+			anim();
+		};
 		
-		<span class="kd">function</span> <span class="nx">anim</span><span class="p">(){</span>
+		function anim(){
 		
 		
-			<span class="kd">var</span> <span class="nx">rectedge</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">));</span>
-			<span class="kd">var</span> <span class="nx">svgedge</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;mysvg&quot;</span><span class="p">).</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">));</span>
-			<span class="kd">var</span> <span class="nx">rectx</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">));</span>
+			var rectedge = parseInt(rect.getAttribute(&quot;x&quot;)) + parseInt(rect.getAttribute(&quot;width&quot;));
+			var svgedge = parseInt(document.getElementById(&quot;mysvg&quot;).getAttribute(&quot;width&quot;));
+			var rectx = parseInt(rect.getAttribute(&quot;x&quot;));
 			
-			<span class="k">if</span><span class="p">(</span><span class="nx">rectedge</span> <span class="o">&lt;</span> <span class="nx">svgedge</span><span class="p">){</span>
-				<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="nx">rectx</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">);</span>
-			<span class="p">}</span>
-			<span class="k">else</span> <span class="p">{</span>
-				<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-			<span class="p">}</span>
-			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;rect &quot;</span> <span class="o">+</span> <span class="nx">rectedge</span> <span class="o">+</span> <span class="s2">&quot; | svg edge : &quot;</span> <span class="o">+</span> <span class="nx">svgedge</span><span class="p">;</span>
-			<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">anim</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+			if(rectedge &lt; svgedge){
+				rect.setAttribute(&quot;x&quot;, rectx += 5);
+			}
+			else {
+				rect.setAttribute(&quot;x&quot;, 0);
+			}
+			document.getElementById(&quot;watch&quot;).innerHTML = &quot;rect &quot; + rectedge + &quot; | svg edge : &quot; + svgedge;
+			setTimeout(anim, 10);
 			
-		<span class="p">}</span>
+		}
 		
 			
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-		<span class="nt">&lt;svg</span> <span class="na">id=</span><span class="s">&quot;mysvg&quot;</span> <span class="na">width=</span><span class="s">800</span> <span class="na">height=</span><span class="s">200</span><span class="nt">&gt;</span>
-			<span class="nt">&lt;rect</span> <span class="na">id=</span><span class="s">&quot;therect&quot;</span> <span class="na">x=</span><span class="s">10</span> <span class="na">y=</span><span class="s">20</span> <span class="na">width=</span><span class="s">50</span> <span class="na">height=</span><span class="s">100</span>
-			<span class="na">style=</span><span class="s">&quot;stroke:gray;fill=gray;&quot;</span>
-			<span class="nt">&gt;</span>
+		&lt;svg id=&quot;mysvg&quot; width=800 height=200&gt;
+			&lt;rect id=&quot;therect&quot; x=10 y=20 width=50 height=100
+			style=&quot;stroke:gray;fill=gray;&quot;
+			&gt;
 
-		<span class="nt">&lt;/svg&gt;</span>
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+		&lt;/svg&gt;
+		&lt;div id=&quot;watch&quot;&gt;
 	
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The third example demonstrates the use of <em>getAttribute</em> and <em>setAttribute</em> methods. This example animates the location of the rectangle by altering the <strong>X</strong> attribute of the rectangle drawing. </p>
 
@@ -1787,73 +1803,75 @@ console.log(typeof(anumber));
   <li>Attach the newly created SVG elements (rect in this case) to the SVG element using the appendChild method</li>
 </ol>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-		<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
 		
-		<span class="nt">&lt;/style&gt;</span>
+		&lt;/style&gt;
 
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 			
-		<span class="kd">var</span> <span class="nx">NS</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">watch</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var NS=&quot;http://www.w3.org/2000/svg&quot;;
+		var svg = null;
+		var rect = null;
+		var watch = null;
 			
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 		
-			<span class="nx">watch</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+			watch = document.getElementById(&quot;watch&quot;);
 		
-			<span class="nx">svg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElementNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span> <span class="s2">&quot;svg&quot;</span><span class="p">);</span>
-			<span class="nx">svg</span><span class="p">.</span><span class="nx">setAttributeNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="s1">&#39;700px&#39;</span><span class="p">);</span>
-			<span class="nx">svg</span><span class="p">.</span><span class="nx">setAttributeNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s1">&#39;400px&#39;</span><span class="p">);</span>
+			svg = document.createElementNS(NS, &quot;svg&quot;);
+			svg.setAttributeNS(NS, &quot;width&quot;, '700px');
+			svg.setAttributeNS(NS, &quot;height&quot;, '400px');
 			
-			<span class="c1">//svg.width = 800;</span>
-			<span class="c1">//svg.height = 400;</span>
+			//svg.width = 800;
+			//svg.height = 400;
 			
-			<span class="nx">rect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElementNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span><span class="s2">&quot;rect&quot;</span><span class="p">);</span>
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+			rect = document.createElementNS(NS,&quot;rect&quot;);
+			rect.setAttribute(&quot;x&quot;, 10);
+			rect.setAttribute(&quot;y&quot;, 10);
 			
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;rx&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;ry&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+			rect.setAttribute(&quot;rx&quot;, 10);
+			rect.setAttribute(&quot;ry&quot;, 10);
 			
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+			rect.setAttribute(&quot;width&quot;, 50);
+			rect.setAttribute(&quot;height&quot;, 50);
 			
-			<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">svg</span><span class="p">);</span>
-			<span class="nx">svg</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">rect</span><span class="p">)</span>
+			document.body.appendChild(svg);
+			svg.appendChild(rect)
 						
-			<span class="nx">rect</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+			rect.onclick = function(){
 				
-				<span class="kd">var</span> <span class="nx">svgheight</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">svg</span><span class="p">.</span><span class="nx">getAttributeNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">));</span>
-				<span class="kd">var</span> <span class="nx">svgwidth</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">svg</span><span class="p">.</span><span class="nx">getAttributeNS</span><span class="p">(</span><span class="nx">NS</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">));</span>
+				var svgheight = parseInt(svg.getAttributeNS(NS, &quot;height&quot;));
+				var svgwidth = parseInt(svg.getAttributeNS(NS, &quot;width&quot;));
 				
-				<span class="kd">var</span> <span class="nx">newx</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">svgwidth</span><span class="p">);</span>
-				<span class="kd">var</span> <span class="nx">newy</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">svgheight</span><span class="p">);</span>
+				var newx = Math.round(Math.random() * svgwidth);
+				var newy = Math.round(Math.random() * svgheight);
 				
-				<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;X : &quot;</span> <span class="o">+</span> <span class="nx">newx</span> <span class="o">+</span> <span class="s2">&quot; | Y : &quot;</span> <span class="o">+</span> <span class="nx">newy</span><span class="p">;</span>
-				<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="nx">newx</span><span class="p">);</span>
-				<span class="nx">rect</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="nx">newy</span><span class="p">);</span>
-				<span class="nx">watch</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>				
+				var message = &quot;X : &quot; + newx + &quot; | Y : &quot; + newy;
+				rect.setAttribute(&quot;x&quot;, newx);
+				rect.setAttribute(&quot;y&quot;, newy);
+				watch.innerHTML = message;				
 
-			<span class="p">}</span>
+			}
 			
-		<span class="p">}</span>
+		}
 	
 			
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+		&lt;div id=&quot;watch&quot;&gt;
 	
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <hr />
 
@@ -1866,107 +1884,115 @@ console.log(typeof(anumber));
   <li>Include the library as external JS file</li>
 </ol>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;raphael-min.js&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/script&gt;</span></code></pre></div>
+<div>
+  <pre><code class="html">&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;raphael-min.js&quot;&gt;
+&lt;/script&gt;</code></pre>
+</div>
 
 <ol>
   <li>Follow the vanilla sample on the RaphaelJS site to make sure everything is working</li>
 </ol>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 
 
-		<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;raphael-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-		<span class="nt">&lt;script </span><span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+		&lt;script charset=&quot;utf-8&quot; src=&quot;raphael-min.js&quot;&gt;&lt;/script&gt;
+		&lt;script charset=&quot;utf-8&quot;&gt;
 			
-		<span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var paper = null;
 		
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 		
-			<span class="nx">paper</span> <span class="o">=</span> <span class="nx">Raphael</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">300</span><span class="p">);</span>
+			paper = Raphael(0,0,500,300);
 		
-			<span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="nx">paper</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+			var circle = paper.circle(200,150,100);
 			
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="s2">&quot;#ffffff&quot;</span><span class="p">);</span>
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;stroke&quot;</span><span class="p">,</span> <span class="s2">&quot;#000000&quot;</span><span class="p">);</span>
+			circle.attr(&quot;fill&quot;, &quot;#ffffff&quot;);
+			circle.attr(&quot;stroke&quot;, &quot;#000000&quot;);
 			
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">circleclick</span><span class="p">);</span>
+			circle.click(circleclick);
 						
-		<span class="p">}</span>
+		}
 		
-		<span class="kd">function</span> <span class="nx">circleclick</span><span class="p">(){</span>
-			<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
+		function circleclick(){
+			alert(&quot;Hello&quot;);
+		}
 
 			
-		<span class="nt">&lt;/script&gt;</span>
+		&lt;/script&gt;
 		
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+	&lt;/head&gt;
+	&lt;body&gt;
 		
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The constructor call <strong>Raphael(0,0,500,300)</strong> is equivalent to writing</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
-	<span class="nt">&lt;svg</span> <span class="na">width=</span><span class="s">&quot;500&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;/svg&gt;</span>
-<span class="nt">&lt;/body&gt;</span></code></pre></div>
+<div>
+  <pre><code class="html">&lt;body&gt;
+	&lt;svg width=&quot;500&quot; height=&quot;300&quot;&gt;
+	&lt;/svg&gt;
+&lt;/body&gt;</code></pre>
+</div>
 
 <p>Another sample of using the RaphaelJS functions featuring some simple drag-and-drop capabilities</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-	<span class="nt">&lt;head&gt;</span>
-		<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
 
 
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">src=</span><span class="s">&quot;raphael-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-		<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;raphael-min.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
 			
-		<span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>	
+		var paper = null;
+		var circle = null;	
 			
-		<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+		window.onload = function(){
 				
-			<span class="nx">paper</span> <span class="o">=</span> <span class="nx">Raphael</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">750</span><span class="p">,</span><span class="mi">400</span><span class="p">);</span>
-			<span class="nx">circle</span> <span class="o">=</span> <span class="nx">paper</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">70</span><span class="p">);</span>
+			paper = Raphael(0,0,750,400);
+			circle = paper.circle(150,150,70);
 			
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="s2">&quot;#ababab&quot;</span><span class="p">);</span>
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;stroke&quot;</span><span class="p">,</span> <span class="s2">&quot;#000000&quot;</span><span class="p">);</span>
+			circle.attr(&quot;fill&quot;, &quot;#ababab&quot;);
+			circle.attr(&quot;stroke&quot;, &quot;#000000&quot;);
 			
-			<span class="kd">var</span> <span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">({</span><span class="nx">cx</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">,</span> <span class="nx">cy</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">});</span>
-				<span class="nx">circle</span><span class="p">.</span><span class="nx">animate</span><span class="p">({</span><span class="nx">r</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">opacity</span><span class="o">:</span> <span class="p">.</span><span class="mi">25</span><span class="p">},</span><span class="mi">100</span><span class="p">);</span>
-			<span class="p">}</span>
+			var move = function(){
+				circle.attr({cx: event.clientX, cy: event.clientY});
+				circle.animate({r: 100, opacity: .25},100);
+			}
 			
-			<span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="nx">circle</span><span class="p">.</span><span class="nx">attr</span><span class="p">({</span><span class="nx">cx</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">,</span> <span class="nx">cy</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">});</span>
-			<span class="p">}</span>
+			var start = function(){
+				circle.attr({cx: event.clientX, cy: event.clientY});
+			}
 			
-			<span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-				<span class="c1">//circle.attr({cx: event.clientX, cy: event.clientY});</span>
-				<span class="nx">circle</span><span class="p">.</span><span class="nx">animate</span><span class="p">({</span><span class="nx">r</span><span class="o">:</span><span class="mi">70</span><span class="p">,</span> <span class="nx">opacity</span><span class="o">:</span> <span class="p">.</span><span class="mi">5</span><span class="p">},</span><span class="mi">100</span><span class="p">);</span>
-			<span class="p">}</span>
+			var up = function(){
+				//circle.attr({cx: event.clientX, cy: event.clientY});
+				circle.animate({r:70, opacity: .5},100);
+			}
 			
-			<span class="nx">circle</span><span class="p">.</span><span class="nx">drag</span><span class="p">(</span><span class="nx">move</span><span class="p">,</span><span class="nx">start</span><span class="p">,</span><span class="nx">up</span><span class="p">);</span>
+			circle.drag(move,start,up);
 			
 				
-		<span class="p">}</span>
+		}
 					
-		<span class="nt">&lt;/script&gt;</span>
-	<span class="nt">&lt;/head&gt;</span>
-	<span class="nt">&lt;body&gt;</span>
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
 
-		<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+		&lt;div id=&quot;watch&quot;&gt;
 			X Y
-		<span class="nt">&lt;/div&gt;</span>
-	<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The <strong>drag</strong> method attached to the circle object takes three <strong>callbacks</strong> parameters. On the first callback, write what you would like to happen during the initial mousedown event. On the second callback, write what you would like to happen during the mousemove and the final callback, write what you would like to happen when the user releases the mouse (mouseup).</p>
 

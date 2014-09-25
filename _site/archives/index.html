@@ -40,16 +40,59 @@
 
     <style>
 
+/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
+*/
 
+@import
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: .5em;
+  }
+  feature-title{ font-size: 2.5em;}
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+
+  feature-banner-text {font-size: 55px;}
+  
+  h1, h2, h3 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
+  }
+
+  h1 {font-size: 35px;}
+  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h3 {font-size: 28px; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+    
+}
+
 body {   
-/*  font-family: 'Source Sans Pro'; */
-/*  font-size: 97%; */
-/*  font-size: 14px;*/
+  font-family: 'Lato';
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -58,7 +101,7 @@ body {
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
-  width: 95%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,7 +111,6 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
-  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -184,7 +226,6 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
-  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -201,7 +242,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 .feature-title {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 1em;
   color: #2F2F2F;
   text-align: center;
   padding-top:40px;
@@ -228,7 +269,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 #feature-button {
@@ -285,11 +326,12 @@ pre {
   white-space: pre-wrap;
   
 /*  background: #dcdcff; */
+/*  
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 2px solid #2d2d2d;
-
+*/
   white-space:pre-wrap;
   overflow:auto;
 }
@@ -328,7 +370,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
+a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -400,71 +442,6 @@ aside {
   border: 2px solid #CACACA;
 }
 
-/* Pygments stylesheets */
-
-.hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #000000; font-weight: normal } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: normal } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
-.gs { font-weight: normal } /* Generic.Strong */
-.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
-.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
-.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
-.kp { color: #008000 } /* Keyword.Pseudo */
-.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
-.kt { color: #B00040; } /* Keyword.Type */
-.m { color: #666666; } /* Literal.Number */
-.s { color: #0000e5; } /* Literal.String */
-.na { color: #7D9029; } /* Name.Attribute */
-.nb { color: #008000; } /* Name.Builtin */
-.nc { color: #0000FF; font-weight: normal } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: normal } /* Name.Entity */
-.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
-.nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
-.nt { color: #008000; font-weight: normal } /* Name.Tag */
-.nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #0000e5 } /* Literal.String.Backtick */
-.sc { color: #0000e5 } /* Literal.String.Char */
-.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #0000e5 } /* Literal.String.Double */
-.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
-.sh { color: #0000e5 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #0000e5 } /* Literal.String.Single */
-.ss { color: #19177C } /* Literal.String.Symbol */
-.bp { color: #008000 } /* Name.Builtin.Pseudo */
-.vc { color: #19177C } /* Name.Variable.Class */
-.vg { color: #19177C } /* Name.Variable.Global */
-.vi { color: #19177C } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
 .button {
   position: relative;
   display: inline-block;
@@ -516,21 +493,6 @@ aside {
 }
 
 iframe {display:block;}
-
-/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
-
-/* ------------------------------------------
- * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
- * Licensed under Unlicense
- * http://github.com/necolas/css3-github-buttons
- * --------------------------------------- */
-
-I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
-
-/* =============================================================================
-   Base Button
-   ========================================================================== */
-
 
 </style>
 
@@ -813,21 +775,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-php">Introduction to PHP</a></h2>
+	<h2><a href="/wordPress/wordpress-php">Introduction to PHP</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-php" class='archivestitle'>
+  <a href="/wordPress/wordpress-php" class='archivestitle'>
     11.04.13
     Introduction to PHP
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the DOCUMENT ROOT of Apache. In...
   </p>
@@ -835,21 +797,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-installation">Installation and Configuration</a></h2>
+	<h2><a href="/wordPress/wordpress-installation">Installation and Configuration</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-installation" class='archivestitle'>
+  <a href="/wordPress/wordpress-installation" class='archivestitle'>
     11.04.13
     Installation and Configuration
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance. The process involves downloading the...
   </p>
@@ -877,21 +839,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-tools">Tools for Development</a></h2>
+	<h2><a href="/wordPress/wordpress-tools">Tools for Development</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-tools" class='archivestitle'>
+  <a href="/wordPress/wordpress-tools" class='archivestitle'>
     11.03.13
     Tools for Development
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text...
   </p>
@@ -921,21 +883,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-setup">Setup</a></h2>
+	<h2><a href="/wordPress/wordpress-setup">Setup</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-setup" class='archivestitle'>
+  <a href="/wordPress/wordpress-setup" class='archivestitle'>
     11.03.13
     Setup
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	WordPress needs a web server capable of running PHP and a MySQL database. The more popular choice for the web server is Apache, although many others will suffice just as...
   </p>
@@ -943,21 +905,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-html">Introduction to HTML</a></h2>
+	<h2><a href="/wordPress/wordpress-html">Introduction to HTML</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-html" class='archivestitle'>
+  <a href="/wordPress/wordpress-html" class='archivestitle'>
     11.03.13
     Introduction to HTML
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	I’m hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it — at least what it looks like and what...
   </p>
@@ -1560,21 +1522,21 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 	   
 	
   <!--
-	<h2><a href="/android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
+	<h2><a href="/Android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
 	<div class='content-meta'>
 		December 05, 2012
 	</div>
   -->   
     
-  <a href="/android/lg-optimus-enable-debugging" class='archivestitle'>
+  <a href="/Android/lg-optimus-enable-debugging" class='archivestitle'>
     12.05.12
     LG optimus, prepare for development
   </a>
   
   <p class='archives'>
-  <!--<b>[android]</b> -->
+  <!--<b>[Android]</b> -->
   
-    <b><u>android</u></b>
+    <b><u>Android</u></b>
   
 	Go to settings Then connections Tap on the USB connection Choose Charge only Go back to the Settings screen Enable USB Debugging. You need to do this while the device...
   </p>
@@ -1636,7 +1598,7 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
   <p class='archives'>
   <!--<b>[]</b> -->
   
-	You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app. KEYTOOL...
+	You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app. Keytool...
   </p>
 
 	   
@@ -2863,21 +2825,21 @@ Android Programming Bibliography
 	   
 	
   <!--
-	<h2><a href="/java/java-beginning-to-program">Beginning to Program Java</a></h2>
+	<h2><a href="/Java/java-beginning-to-program">Beginning to Program Java</a></h2>
 	<div class='content-meta'>
 		November 11, 2011
 	</div>
   -->   
     
-  <a href="/java/java-beginning-to-program" class='archivestitle'>
+  <a href="/Java/java-beginning-to-program" class='archivestitle'>
     11.11.11
     Beginning to Program Java
   </a>
   
   <p class='archives'>
-  <!--<b>[java]</b> -->
+  <!--<b>[Java]</b> -->
   
-    <b><u>java</u></b>
+    <b><u>Java</u></b>
   
 	CONTENT HAS MOVED
 

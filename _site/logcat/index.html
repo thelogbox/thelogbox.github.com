@@ -40,16 +40,59 @@
 
 		<style>
 
+/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
+*/
 
+@import
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: .5em;
+  }
+  feature-title{ font-size: 2.5em;}
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+
+  feature-banner-text {font-size: 55px;}
+  
+  h1, h2, h3 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
+  }
+
+  h1 {font-size: 35px;}
+  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h3 {font-size: 28px; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+    
+}
+
 body {   
-/*  font-family: 'Source Sans Pro'; */
-/*  font-size: 97%; */
-/*  font-size: 14px;*/
+  font-family: 'Lato';
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -58,7 +101,7 @@ body {
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
-  width: 95%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -68,7 +111,6 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
-  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -184,7 +226,6 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
-  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -201,7 +242,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 .feature-title {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 1em;
   color: #2F2F2F;
   text-align: center;
   padding-top:40px;
@@ -228,7 +269,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 #feature-button {
@@ -285,11 +326,12 @@ pre {
   white-space: pre-wrap;
   
 /*  background: #dcdcff; */
+/*  
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 2px solid #2d2d2d;
-
+*/
   white-space:pre-wrap;
   overflow:auto;
 }
@@ -328,7 +370,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
+a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -400,71 +442,6 @@ aside {
   border: 2px solid #CACACA;
 }
 
-/* Pygments stylesheets */
-
-.hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #000000; font-weight: normal } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: normal } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
-.gs { font-weight: normal } /* Generic.Strong */
-.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
-.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
-.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
-.kp { color: #008000 } /* Keyword.Pseudo */
-.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
-.kt { color: #B00040; } /* Keyword.Type */
-.m { color: #666666; } /* Literal.Number */
-.s { color: #0000e5; } /* Literal.String */
-.na { color: #7D9029; } /* Name.Attribute */
-.nb { color: #008000; } /* Name.Builtin */
-.nc { color: #0000FF; font-weight: normal } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: normal } /* Name.Entity */
-.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
-.nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
-.nt { color: #008000; font-weight: normal } /* Name.Tag */
-.nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #0000e5 } /* Literal.String.Backtick */
-.sc { color: #0000e5 } /* Literal.String.Char */
-.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #0000e5 } /* Literal.String.Double */
-.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
-.sh { color: #0000e5 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #0000e5 } /* Literal.String.Single */
-.ss { color: #19177C } /* Literal.String.Symbol */
-.bp { color: #008000 } /* Name.Builtin.Pseudo */
-.vc { color: #19177C } /* Name.Variable.Class */
-.vg { color: #19177C } /* Name.Variable.Global */
-.vi { color: #19177C } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
 .button {
   position: relative;
   display: inline-block;
@@ -516,21 +493,6 @@ aside {
 }
 
 iframe {display:block;}
-
-/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
-
-/* ------------------------------------------
- * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
- * Licensed under Unlicense
- * http://github.com/necolas/css3-github-buttons
- * --------------------------------------- */
-
-I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
-
-/* =============================================================================
-   Base Button
-   ========================================================================== */
-
 
 </style>
   
@@ -584,24 +546,26 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>You can still write <code class="codeblock">System.out.println</code> in your code but it won’t show up on the Android screen. The target of <em>println</em> is the stdout, hence it will show up on your <em>android debugger session (adb)</em> and not the Android device or emulator. Also, instead of using <em>println</em>, use the <strong>Log</strong> class instead if you need to insert some debugging info on your app.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// HOW TO USE THE LOG CLASS</span>
+<div>
+  <pre><code class="java">// HOW TO USE THE LOG CLASS
 
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+import android.util.Log;
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAndroidApp</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+public class MyAndroidApp extends Activity {
     
-  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+  private final String TAG = getClass().getName();
     
-    <span class="o">....</span>
+    ....
     
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someCallBack</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;string to log&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+    public void someCallBack() {
+      Log.v(TAG, &quot;string to log&quot;);
+    }
     
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;string to log&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+    public void someMethod() {
+      Log.v(TAG, &quot;string to log&quot;);
+    }
+}</code></pre>
+</div>
 
 <p>On a terminal window, run <code class="codeblock">adb logcat</code>. The logcat utility supports a couple of flags. Here’s how you might use them</p>
 
@@ -613,72 +577,74 @@ I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
 
 <p>Okay. Now lets try them on using the  <em>callbacks</em> of the Activity class.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// CALL BACKS OF THE ACTIVITY CLASS</span>
+<div>
+  <pre><code class="java">// CALL BACKS OF THE ACTIVITY CLASS
 
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+package com.thelogbox;
 
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 
-<span class="kd">class</span> <span class="nc">LCycleView</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span> <span class="o">{</span>
+class LCycleView extends LinearLayout implements View.OnClickListener {
   
-  <span class="n">LCycleView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-  <span class="o">}</span>
+  LCycleView(Context ctx) {
+    super(ctx);
+    setOnClickListener(this);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Clicked&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+  public void onClick(View view) {
+    System.out.println(&quot;Clicked&quot;);
+  }
+}
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LCycle</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-    <span class="cm">/** Called when the activity is first created. */</span>
+public class LCycle extends Activity {
+    /** Called when the activity is first created. */
     
-  <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+  String TAG = getClass().getName();
   
-  <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">LCycleView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onCreate&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+  @Override
+    public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(new LCycleView(this));
+    Log.v(TAG, &quot;onCreate&quot;);
+    }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onResume&quot;</span><span class="o">);</span>
-  <span class="o">}</span>    
+  @Override
+  public void onResume() {
+    super.onResume();
+    Log.v(TAG, &quot;onResume&quot;);
+  }    
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onRestart</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onRestart</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Restart&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onRestart() {
+    super.onRestart();
+    Log.v(TAG, &quot;Restart&quot;);
+  }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Paused&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onPause() {
+    super.onPause();
+    Log.v(TAG, &quot;Paused&quot;);
+  }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Stoppped&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onStop() {
+    super.onStop();
+    Log.v(TAG, &quot;Stoppped&quot;);
+  }
   
-  <span class="nd">@Override</span> 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">(){</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Destroy&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+  @Override 
+  public void onDestroy(){
+    super.onDestroy();
+    Log.v(TAG, &quot;Destroy&quot;);
+  }
+}</code></pre>
+</div>
 
 <p>The above code is one of the few examples an Android developer might spike while beginning to explore Android programming. After reading all about lifecycle of the Activity class, of course you want to know when the events will actually be fired. </p>
 

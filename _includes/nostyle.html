@@ -1,15 +1,58 @@
 <style>
 
+/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
+*/
 
+@import
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: .5em;
+  }
+  feature-title{ font-size: 2.5em;}
+}
+
+
+@media (min-width: 992px) {
+  body {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+
+  feature-banner-text {font-size: 55px;}
+  
+  h1, h2, h3 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+    text-transform: capitalize;
+  }
+
+  h1 {font-size: 35px;}
+  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h3 {font-size: 28px; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+    
+}
+
 body {   
-/*  font-family: 'Source Sans Pro'; */
-/*  font-size: 97%; */
-/*  font-size: 14px;*/
+  font-family: 'Lato';
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -18,7 +61,7 @@ body {
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
-  width: 95%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -28,7 +71,6 @@ body {
   font-size:35px;
   font-weight:bold;
   line-height:135%;
-  font-family: 'Source Sans Pro';
 }
 
 .toc, .promo {
@@ -144,7 +186,6 @@ h1, h2, h3 {
   padding-top: 20px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
-  font-family: 'Source Sans Pro';
 }
 
 h1 {font-size: 25px;}
@@ -161,7 +202,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 
 .feature-title {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 1em;
   color: #2F2F2F;
   text-align: center;
   padding-top:40px;
@@ -188,7 +229,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
   padding-bottom: 3px;
   line-height:1.5em;
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 #feature-button {
@@ -245,11 +286,12 @@ pre {
   white-space: pre-wrap;
   
 /*  background: #dcdcff; */
+/*  
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 2px solid #2d2d2d;
-
+*/
   white-space:pre-wrap;
   overflow:auto;
 }
@@ -288,7 +330,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {color: #1d1de2; text-decoration: none; font-weight:400;}
+a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -360,71 +402,6 @@ aside {
   border: 2px solid #CACACA;
 }
 
-/* Pygments stylesheets */
-
-.hll { background-color: #ffffcc }
-.c { color: #408080; font-style: italic } /* Comment */
-.err { border: 1px solid #FF0000 } /* Error */
-.k { color: #000000; font-weight: normal } /* Keyword */
-.o { color: #666666 } /* Operator */
-.cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.cp { color: #BC7A00 } /* Comment.Preproc */
-.c1 { color: #408080; font-style: italic } /* Comment.Single */
-.cs { color: #408080; font-style: italic } /* Comment.Special */
-.gd { color: #A00000 } /* Generic.Deleted */
-.ge { font-style: italic } /* Generic.Emph */
-.gr { color: #FF0000 } /* Generic.Error */
-.gh { color: #000080; font-weight: normal } /* Generic.Heading */
-.gi { color: #00A000 } /* Generic.Inserted */
-.go { color: #808080 } /* Generic.Output */
-.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
-.gs { font-weight: normal } /* Generic.Strong */
-.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
-.gt { color: #0040D0 } /* Generic.Traceback */
-.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
-.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
-.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
-.kp { color: #008000 } /* Keyword.Pseudo */
-.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
-.kt { color: #B00040; } /* Keyword.Type */
-.m { color: #666666; } /* Literal.Number */
-.s { color: #0000e5; } /* Literal.String */
-.na { color: #7D9029; } /* Name.Attribute */
-.nb { color: #008000; } /* Name.Builtin */
-.nc { color: #0000FF; font-weight: normal } /* Name.Class */
-.no { color: #880000 } /* Name.Constant */
-.nd { color: #AA22FF } /* Name.Decorator */
-.ni { color: #999999; font-weight: normal } /* Name.Entity */
-.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
-.nf { color: #0000FF } /* Name.Function */
-.nl { color: #A0A000 } /* Name.Label */
-.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
-.nt { color: #008000; font-weight: normal } /* Name.Tag */
-.nv { color: #19177C } /* Name.Variable */
-.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
-.w { color: #bbbbbb } /* Text.Whitespace */
-.mf { color: #666666 } /* Literal.Number.Float */
-.mh { color: #666666 } /* Literal.Number.Hex */
-.mi { color: #666666 } /* Literal.Number.Integer */
-.mo { color: #666666 } /* Literal.Number.Oct */
-.sb { color: #0000e5 } /* Literal.String.Backtick */
-.sc { color: #0000e5 } /* Literal.String.Char */
-.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #0000e5 } /* Literal.String.Double */
-.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
-.sh { color: #0000e5 } /* Literal.String.Heredoc */
-.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
-.sx { color: #008000 } /* Literal.String.Other */
-.sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #0000e5 } /* Literal.String.Single */
-.ss { color: #19177C } /* Literal.String.Symbol */
-.bp { color: #008000 } /* Name.Builtin.Pseudo */
-.vc { color: #19177C } /* Name.Variable.Class */
-.vg { color: #19177C } /* Name.Variable.Global */
-.vi { color: #19177C } /* Name.Variable.Instance */
-.il { color: #666666 } /* Literal.Number.Integer.Long */
-
-
 .button {
   position: relative;
   display: inline-block;
@@ -476,20 +453,5 @@ aside {
 }
 
 iframe {display:block;}
-
-/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
-
-/* ------------------------------------------
- * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
- * Licensed under Unlicense
- * http://github.com/necolas/css3-github-buttons
- * --------------------------------------- */
-
-I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
-
-/* =============================================================================
-   Base Button
-   ========================================================================== */
-
 
 </style>

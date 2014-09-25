@@ -1,44 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-  <head>				
-		<!--
-<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
-
-
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
--->
-
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
-
-<meta charset="utf-8">
-
-<link 
-
-<meta name="keywords" content="">
-<meta name="author" content="Ted Hagos">
-<meta name="description" content="" />
-
-<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
-
-<title>
-  
-    Tech Learning | theLogBox
-  
-</title>
-
-
-    <style>
+<style>
 
 /*
 @import
@@ -46,8 +6,7 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,6
 */
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
-
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
@@ -64,7 +23,7 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
 @media (min-width: 992px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
   }
   article, #archives { 
@@ -72,7 +31,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
     -moz-column-count:2;
     -webkit-column-count:2 
   }
-
   feature-banner-text {font-size: 55px;}
   
   h1, h2, h3 {
@@ -87,10 +45,14 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
   h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
-    
+  
 }
 
+
 body {   
+/*  font-family: 'Source Sans Pro'; */
+/*  font-size: 97%; */
+/*  font-size: 14px;*/
   font-family: 'Lato';
   font-weight: 300;
   margin:0;
@@ -442,6 +404,72 @@ aside {
   border: 2px solid #CACACA;
 }
 
+/* Pygments stylesheets */
+
+
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #000000; font-weight: normal } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: normal } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: normal } /* Generic.Prompt */
+.gs { font-weight: normal } /* Generic.Strong */
+.gu { color: #800080; font-weight: normal } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #e57300; font-weight: normal } /* Keyword.Constant */
+.kd { color: #e57300; font-weight: normal } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: normal } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: normal } /* Keyword.Reserved */
+.kt { color: #B00040; } /* Keyword.Type */
+.m { color: #666666; } /* Literal.Number */
+.s { color: #0000e5; } /* Literal.String */
+.na { color: #7D9029; } /* Name.Attribute */
+.nb { color: #008000; } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: normal } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: normal } /* Name.Entity */
+.ne { color: #D2413A; font-weight: normal } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: normal } /* Name.Namespace */
+.nt { color: #008000; font-weight: normal } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: normal } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #0000e5 } /* Literal.String.Backtick */
+.sc { color: #0000e5 } /* Literal.String.Char */
+.sd { color: #0000e5; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #0000e5 } /* Literal.String.Double */
+.se { color: #0000e5; font-weight: normal } /* Literal.String.Escape */
+.sh { color: #0000e5 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: normal } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #0000e5 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
 .button {
   position: relative;
   display: inline-block;
@@ -494,114 +522,19 @@ aside {
 
 iframe {display:block;}
 
+/*  GITHUB STYLE BUTTONS  FROM https://github.com/necolas/css3-github-buttons/blob/master/gh-buttons.css */
+
+/* ------------------------------------------
+ * CSS3 GITHUB BUTTONS (Nicolas Gallagher)
+ * Licensed under Unlicense
+ * http://github.com/necolas/css3-github-buttons
+ * --------------------------------------- */
+
+I HAVE DITCHED THE GITHUB BUTTONS IN FAVOR OF MY OWN CSS STYLED BUTTONS
+
+/* =============================================================================
+   Base Button
+   ========================================================================== */
+
+
 </style>
-
-    <!--
-		<link href="css/style.min.css" rel="stylesheet" type="text/css" />
-    -->		
-  </head>
-	
-  <body>
-    <header>
-
-    </header>
-    <section>
-      <div class='feature-banner'>
-  BUILD TECH SKILLS. NOW. QUICKLY. EFFECTIVELY.
-</div>
-
-<div id="feature">
-  <div class="feature-title">
-    Build iOS and Android Apps with HTML5, JS and CSS
-  </div>
-
-  <div class='feature-article'>
-    There's more than one way to build mobile apps. Years back, the only way to build apps for iOS and Android is to wrestle with Objective C, Cocoa and Java. 
-    
-    Now, you can build mobile apps with much less hair pulling. HTML5, JS and CSS can do that trick, with a little help of PhoneGap.
-
-    <div id="feature-button">
-      <a href="/mobile-app-development-phonegap" class='button'>Take me there<a>
-    </div>  
-  </div>
-</div>
-
-<div id="feature">
-  <div class='feature-title'>
-    Android Programming Tutorial
-  </div>
-  <div class='feature-article'>
-    This tutorial is getting thick. It gets updated everytime we conduct a training on Android Programming. If you don't mind reading through a bunch of instructions, working on the command line almost exlusively then you might want to check this out.
-  </div>
-  
-  <div id="feature-button">
-    <a href="/android-programming-tutorial" class='button'>Let's Go<a>
-  </div>  
-</div>  
-  
-</div>
-
-<div id="feature">
-  <div class='feature-title'>
-    Getting to Grips with HTML5
-  </div>
-  <div class='feature-article'>
-   
-  </div>
-
-  <div id="feature-button">
-    <a href="/html5-what-you-will-need" class='button'>Take me there<a>
-  </div>  
-</div>
-  
-</div>
-
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- Start of StatCounter Code for Default Guide -->
-	
-  <script type="text/javascript">
-  var sc_project=7827488; 
-  var sc_invisible=1; 
-  var sc_security="069357c9"; 
-  </script>
-  <script type="text/javascript"
-      src="http://www.statcounter.com/counter/counter.js"></script>
-  <noscript><div class="statcounter"><a title="customizable
-      counter" href="http://statcounter.com/free-hit-counter/"
-      target="_blank"><img class="statcounter"
-      src="http://c.statcounter.com/7827488/0/069357c9/1/"
-      alt="customizable counter"></a></div></noscript>
-  <!-- End of StatCounter Code for Default Guide -->
-
-<!--
-
-<hr/>
-
-<div id="feature">
-  <div class='feature-title'>
-    Server Side JS with NODE
-  </div>
-  <div class='feature-article'>
-    This 
-  </div>
-</div>
-
--->
-    </section>
-  </body>
-</html>
