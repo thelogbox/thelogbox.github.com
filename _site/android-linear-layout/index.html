@@ -24,7 +24,7 @@
 <meta charset="utf-8">
 
 <link 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="Layout ,UI">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Learn to use the horizontal and vertical orientation of the LinearLayout in Android. LinearLayout is the most basic UI layout in Android" />
@@ -41,23 +41,19 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
 @media (min-width: 768px) {
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: .5em;
-  }
-  feature-title{ font-size: 2.5em;}
+
+  .feature-banner-text {font-size: 45px;}
+
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   body {
     font-size: 17px;
   }
@@ -67,11 +63,11 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
     -webkit-column-count:2 
   }
 
-  feature-banner-text {font-size: 55px;}
+  .feature-banner-text {font-size: 55px;}
   
-  h1 {font-size: 35px;}
-  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-  h3 {font-size: 28px; }
+  h1 {font-size: 2em;}
+  h2 {font-size: 1.7em; }
+  h3 {font-size: 1.2em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
@@ -83,7 +79,7 @@ em {
 
 body {   
   font-family: 'Lato';
-  font-weight: 400;
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -98,9 +94,10 @@ body {
 }
 
 .feature-banner-text {
-  color: #2c2c2c;
+  /*color: #2c2c2c;*/
+  color:#222;
   font-size:35px;
-  font-weight:bold;
+  font-weight:300;
   line-height:135%;
 }
 
@@ -533,31 +530,33 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>We will work with project you created in the <a href="/android-activity">last chapter</a>. The layout seems okay but a little weird. The labels are usually laid out to the left of a text field and not on top. This is happening because the LinearLayout’s orientation is <strong>vertical</strong>. That caused the components to flow from top to bottom. </p>
 
-<p><img class="small" src="/img/lin-sample-1.png" width="300" /><br />
+<p><img class="small" src="/img/lin-sample-1.png" width="300" />
 &lt;div id='lst'&gt;Second app&lt;/div&gt;</p>
 
 <p>We can change the current  behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to <strong>horizontal</strong></p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-   	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
-	<span class="nt">&lt;TextView</span>  
-    <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
-    <span class="nt">/&gt;</span>
-	<span class="nt">&lt;EditText</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-	<span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+<div>
+  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;horizontal&quot;
+    android:layout_width=&quot;fill_parent&quot;
+   	android:layout_height=&quot;fill_parent&quot;
+    &gt;
+	&lt;TextView  
+    android:layout_width=&quot;wrap_content&quot; 
+    android:layout_height=&quot;wrap_content&quot; 
+    android:text=&quot;Hello World&quot;
+    /&gt;
+	&lt;EditText
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+	/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</div>
 
 <p>Save the project, compile, then run. Notice any difference?</p>
 
-<p><img class="small" src="/img/lin-sample-2.png" width="300" /><br />
+<p><img class="small" src="/img/lin-sample-2.png" width="300" />
 &lt;div id='lst'&gt;Second app, modified&lt;/div&gt;</p>
 
 <p>The <em>Name</em> TextView is now immediately to the left of the EditText, as compared to our first version of our layout where the <em>Name</em> TextView was on top of the editable text.  </p>
@@ -575,74 +574,78 @@ iframe {display:block;}
 
 <p>You will do this by editing <em>main.xml</em> again.</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-   	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-	    <span class="nt">&gt;</span>
-	<span class="nt">&lt;TextView</span>  
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
-    <span class="nt">/&gt;</span>
-	<span class="nt">&lt;EditText</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-	<span class="nt">/&gt;</span>
-	<span class="nt">&lt;Button</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:text=</span><span class="s">&quot;Click me &quot;</span>			
-	<span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+<div>
+  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+   	android:layout_height=&quot;fill_parent&quot;
+	    &gt;
+	&lt;TextView  
+    android:layout_width=&quot;fill_parent&quot; 
+    android:layout_height=&quot;wrap_content&quot; 
+    android:text=&quot;Hello World&quot;
+    /&gt;
+	&lt;EditText
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+	/&gt;
+	&lt;Button
+		android:layout_width=&quot;wrap_content&quot; 
+    	android:layout_height=&quot;wrap_content&quot; 
+    	android:text=&quot;Click me &quot;			
+	/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</div>
 
 <p>As usual, compile and run. You will do the <em>edit-compile-run</em> routine lots of times, you need to get used to it. Everytime you make a change on your code or any of the assets of the android project, you need to compile and run. </p>
 
-<p><img class="small" src="/img/lin-sample-3.png" width="300" /><br />
+<p><img class="small" src="/img/lin-sample-3.png" width="300" />
 &lt;div id='lst'&gt;The second app with a button&lt;/div&gt;</p>
 
 <p>It’s not pretty. The app looks this way because the <em>Button, TextView and EditText views</em> are inside a single Layout container, which will arrange each view to flow from left to right. On top of that, the EditText’s <em>layout_width</em> is set to <em>wrap_content</em>. That means in case there is a component right after EditText, it will generously give the space to the next view</p>
 
 <p>To fix this, we need to place the <em>Button</em> in it’s own container. It cannot share the container with EditText and Textview. After that, the <em>EditText</em> will be the last component defined in the inner <em>LinearLayout</em>. We must change its <em>layout_width</em> to <em>fill_parent</em>, so it can occupy whatever space will be left to its right</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- main.xml --&gt;</span>
+<div>
+  <pre><code class="xml">&lt;!-- main.xml --&gt;
 
-<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
 
-	<span class="nt">&lt;LinearLayout</span>
-		<span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-	<span class="nt">&gt;</span>
-		<span class="nt">&lt;TextView</span>  
-    		<span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span> 
-    		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    		<span class="na">android:text=</span><span class="s">&quot;Name &quot;</span>
-   	<span class="nt">/&gt;</span>
+	&lt;LinearLayout
+		android:orientation=&quot;horizontal&quot;
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+	&gt;
+		&lt;TextView  
+    		android:layout_width=&quot;wrap_content&quot; 
+    		android:layout_height=&quot;wrap_content&quot; 
+    		android:text=&quot;Name &quot;
+   	/&gt;
     
-		<span class="nt">&lt;EditText</span>
-			<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-			<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-			<span class="na">android:id=</span><span class="s">&quot;@+id/name&quot;</span>
-		<span class="nt">/&gt;</span>
+		&lt;EditText
+			android:layout_width=&quot;fill_parent&quot;
+			android:layout_height=&quot;wrap_content&quot;
+			android:id=&quot;@+id/name&quot;
+		/&gt;
 		
-	<span class="nt">&lt;/LinearLayout&gt;</span>
+	&lt;/LinearLayout&gt;
 	
-	<span class="nt">&lt;Button</span>
-    	<span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:text=</span><span class="s">&quot;Click me &quot;</span>			
-	<span class="nt">/&gt;</span>
+	&lt;Button
+    	android:layout_width=&quot;wrap_content&quot; 
+    	android:layout_height=&quot;wrap_content&quot; 
+    	android:text=&quot;Click me &quot;			
+	/&gt;
 	
-	<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+	&lt;/LinearLayout&gt;</code></pre>
+</div>
 
-<p><img class="small" src="/img/lin-sample-4.png" width="50%" /><br />
+<p><img class="small" src="/img/lin-sample-4.png" width="50%" />
 &lt;div id='lst'&gt;Second app, adjusted layout&lt;/div&gt;</p>
 
 

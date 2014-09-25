@@ -24,7 +24,7 @@
 <meta charset="utf-8">
 
 <link 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="html">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="A small introduction to HTML. Just the basics you need for WordPress" />
@@ -41,23 +41,19 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
 @media (min-width: 768px) {
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: .5em;
-  }
-  feature-title{ font-size: 2.5em;}
+
+  .feature-banner-text {font-size: 45px;}
+
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   body {
     font-size: 17px;
   }
@@ -67,11 +63,11 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
     -webkit-column-count:2 
   }
 
-  feature-banner-text {font-size: 55px;}
+  .feature-banner-text {font-size: 55px;}
   
-  h1 {font-size: 35px;}
-  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-  h3 {font-size: 28px; }
+  h1 {font-size: 2em;}
+  h2 {font-size: 1.7em; }
+  h3 {font-size: 1.2em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
@@ -83,7 +79,7 @@ em {
 
 body {   
   font-family: 'Lato';
-  font-weight: 400;
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -98,9 +94,10 @@ body {
 }
 
 .feature-banner-text {
-  color: #2c2c2c;
+  /*color: #2c2c2c;*/
+  color:#222;
   font-size:35px;
-  font-weight:bold;
+  font-weight:300;
   line-height:135%;
 }
 
@@ -558,12 +555,14 @@ iframe {display:block;}
 
 <p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window’s context menu, then choose a program editor to open the html file. Edit it and write the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-  <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+  &lt;h1&gt;Hello&lt;/h1&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">first.html</div>
 
@@ -583,10 +582,12 @@ iframe {display:block;}
 
 <p>The fundamental structure of an html document is as follows</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">basic structure</div>
 
@@ -596,24 +597,26 @@ iframe {display:block;}
 
 <p>There some more structural issues that we need to get out of the way before we can take a look at the presentation semantics of HTML. A more complete structure for an HTML doc looks like the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctypehtml&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> <span class="nt">&lt;title&gt;</span>First<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctypehtml&gt;
+&lt;html&gt;
+  &lt;head&gt; &lt;title&gt;First&lt;/title&gt;
+  &lt;/head&gt;
   
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span> 
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+  &lt;body&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt; 
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">HTML doc structure</div>
 
-<p>An HTML doc will have two major parts. The HEAD and the BODY.<br />
+<p>An HTML doc will have two major parts. The HEAD and the BODY.
 The BODY part contains most of the things you see on a web page. It has the meat and potatoes of the web content. This is where your headings, footers, videos, paragraph content and others.</p>
 
 <p>The HEAD part is not entirely visible to the visible. With the exception of title tag, nothing inside the head part can be seen on a web page. The HEAD contains structure and meta information about the page while the BODY has the content.</p>
 
-<p><img src="/img/wordpress/html-head-body.png" alt="HTML head and body" /><br />
+<p><img src="/img/wordpress/html-head-body.png" alt="HTML head and body" />
 &lt;div id='lst'&gt;head and body part&lt;/div&gt;</p>
 
 <p>If you edited our <em>first.html</em> practice file and followed along, you can try viewing the result of the edited document so you can see the results in your browser. </p>

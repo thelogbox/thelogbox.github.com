@@ -24,7 +24,7 @@
 <meta charset="utf-8">
 
 <link 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="Tools ,Literate ,Programming">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Really simple but inelegant hack to use Docco for Java source files. Produce literate programming style documentation for your Java programs" />
@@ -41,23 +41,19 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
 @media (min-width: 768px) {
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: .5em;
-  }
-  feature-title{ font-size: 2.5em;}
+
+  .feature-banner-text {font-size: 45px;}
+
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   body {
     font-size: 17px;
   }
@@ -67,11 +63,11 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
     -webkit-column-count:2 
   }
 
-  feature-banner-text {font-size: 55px;}
+  .feature-banner-text {font-size: 55px;}
   
-  h1 {font-size: 35px;}
-  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-  h3 {font-size: 28px; }
+  h1 {font-size: 2em;}
+  h2 {font-size: 1.7em; }
+  h3 {font-size: 1.2em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
@@ -83,7 +79,7 @@ em {
 
 body {   
   font-family: 'Lato';
-  font-weight: 400;
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -98,9 +94,10 @@ body {
 }
 
 .feature-banner-text {
-  color: #2c2c2c;
+  /*color: #2c2c2c;*/
+  color:#222;
   font-size:35px;
-  font-weight:bold;
+  font-weight:300;
   line-height:135%;
 }
 
@@ -564,28 +561,30 @@ iframe {display:block;}
 
 <p>The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the <code>.java</code> entry to the languages object literal.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">languages</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;.coffee&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coffee-script&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.js&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;javascript&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.rb&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.py&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-	<span class="s1">&#39;.java&#39;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;java&#39;</span><span class="p">,</span>
-		<span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
-	<span class="p">}</span>
-  <span class="p">};</span></code></pre></div>
+<div>
+  <pre><code class="javascript">languages = {
+    '.coffee': {
+      name: 'coffee-script',
+      symbol: '#'
+    },
+    '.js': {
+      name: 'javascript',
+      symbol: '//'
+    },
+    '.rb': {
+      name: 'ruby',
+      symbol: '#'
+    },
+    '.py': {
+      name: 'python',
+      symbol: '#'
+    },
+	'.java': {
+		name: 'java',
+		symbol: '//'
+	}
+  };</code></pre>
+</div>
 
 <p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.</p>
 

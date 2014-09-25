@@ -24,7 +24,7 @@
 <meta charset="utf-8">
 
 <link 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="types ,reference ,complex ,objects">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="JavaScript is object oriented. You can define complex data types in it" />
@@ -41,23 +41,19 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
 @media (min-width: 768px) {
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: .5em;
-  }
-  feature-title{ font-size: 2.5em;}
+
+  .feature-banner-text {font-size: 45px;}
+
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   body {
     font-size: 17px;
   }
@@ -67,11 +63,11 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
     -webkit-column-count:2 
   }
 
-  feature-banner-text {font-size: 55px;}
+  .feature-banner-text {font-size: 55px;}
   
-  h1 {font-size: 35px;}
-  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-  h3 {font-size: 28px; }
+  h1 {font-size: 2em;}
+  h2 {font-size: 1.7em; }
+  h3 {font-size: 1.2em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
@@ -83,7 +79,7 @@ em {
 
 body {   
   font-family: 'Lato';
-  font-weight: 400;
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -98,9 +94,10 @@ body {
 }
 
 .feature-banner-text {
-  color: #2c2c2c;
+  /*color: #2c2c2c;*/
+  color:#222;
   font-size:35px;
-  font-weight:bold;
+  font-weight:300;
   line-height:135%;
 }
 
@@ -560,14 +557,16 @@ iframe {display:block;}
 
 <p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON — short for JavaScript Object Notation.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// this one constructs an empty object</span>
-<span class="kd">var</span> <span class="nx">pt</span> 	<span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
-<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">var obj = {} // this one constructs an empty object
+var pt 	= {x:0, y:0} // an object with simple data types as members
+var person = {
 
-	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
-	<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@somewhere.com&quot;</span><span class="p">,</span>
+	name: &quot;John Doe&quot;,
+	email: &quot;johndoe@somewhere.com&quot;,
 
-<span class="p">}</span> <span class="c1">// an object that has two members, both of which are Strings</span></code></pre></div>
+} // an object that has two members, both of which are Strings</code></pre>
+</div>
 
 <p>When you use object literals to initialize objects, don’t forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member–using the dot notation–and assigning them values</p>
 

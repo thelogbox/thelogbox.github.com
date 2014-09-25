@@ -24,7 +24,7 @@
 <meta charset="utf-8">
 
 <link 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="UI ,Layout">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Advanced linear layout in Android" />
@@ -41,23 +41,19 @@
 		<style>
 
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
 
 @media (min-width: 768px) {
-  h1 {
-    font-size: 1em;
-  }
-  h2 {
-    font-size: .5em;
-  }
-  feature-title{ font-size: 2.5em;}
+
+  .feature-banner-text {font-size: 45px;}
+
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   body {
     font-size: 17px;
   }
@@ -67,11 +63,11 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
     -webkit-column-count:2 
   }
 
-  feature-banner-text {font-size: 55px;}
+  .feature-banner-text {font-size: 55px;}
   
-  h1 {font-size: 35px;}
-  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-  h3 {font-size: 28px; }
+  h1 {font-size: 2em;}
+  h2 {font-size: 1.7em; }
+  h3 {font-size: 1.2em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
@@ -83,7 +79,7 @@ em {
 
 body {   
   font-family: 'Lato';
-  font-weight: 400;
+  font-weight: 300;
   margin:0;
   padding:0;
   border:0;
@@ -98,9 +94,10 @@ body {
 }
 
 .feature-banner-text {
-  color: #2c2c2c;
+  /*color: #2c2c2c;*/
+  color:#222;
   font-size:35px;
-  font-weight:bold;
+  font-weight:300;
   line-height:135%;
 }
 
@@ -541,39 +538,41 @@ iframe {display:block;}
 
 <p>Create an <em>Activity based</em> project for this example. Use the default vertical linear layout and add an <em>EditText, TextView and Button</em> components</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
+<div>
+  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
 
-	<span class="nt">&lt;EditText</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+	&lt;EditText
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+		android:id=&quot;@+id/todoedit&quot;
 
-	<span class="nt">/&gt;</span>
+	/&gt;
 
-	<span class="nt">&lt;TextView</span>  
-    	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
+	&lt;TextView  
+    	android:layout_width=&quot;fill_parent&quot; 
+    	android:layout_height=&quot;wrap_content&quot; 
+    	android:text=&quot;I have nothing&quot;
+		android:id=&quot;@+id/tododisplay&quot;
 
-    <span class="nt">/&gt;</span>
+    /&gt;
 
-	<span class="nt">&lt;Button</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
-		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+	&lt;Button
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+		android:text=&quot;Add item&quot;
+		android:id=&quot;@+id/btnadd&quot;
+		android:onClick=&quot;recAdd&quot;
 
-<span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</div>
 
-<p><img class="small" src="/img/layout-no-weight.png" width="50%" /><br />
+<p><img class="small" src="/img/layout-no-weight.png" width="50%" />
 &lt;div id='lst'&gt;The UI as it current looks&lt;/div&gt;</p>
 
 <p>This design suffers from a couple of problems. The vertical space for the <em>TextView</em> is lacking. If the application intends to display multiple lines on the <em>TextView</em> to let users type up inputs and append the results to TextView, then the TextView should have more vertical space than either the <em>Button</em> or the <em>EditText</em>. </p>
@@ -586,37 +585,39 @@ iframe {display:block;}
 
 <p>Think of the weight approach as pie chart. If there 3 components in the UI, I can try to allocate percentages to each component. The percentages represents the amount of screen real-estate to be allocated. </p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
+<div>
+  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
 
-	<span class="nt">&lt;EditText</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
-		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
-	<span class="nt">/&gt;</span>
+	&lt;EditText
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+		android:id=&quot;@+id/todoedit&quot;
+		android:layout_weight=&quot;0&quot;
+	/&gt;
 
-	<span class="nt">&lt;TextView</span>  
-    	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-    	<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    	<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
-		<span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
-    <span class="nt">/&gt;</span>
+	&lt;TextView  
+    	android:layout_width=&quot;fill_parent&quot; 
+    	android:layout_height=&quot;wrap_content&quot; 
+    	android:text=&quot;I have nothing&quot;
+		android:id=&quot;@+id/tododisplay&quot;
+		android:layout_weight=&quot;10&quot;
+    /&gt;
 
-	<span class="nt">&lt;Button</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
-		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
-		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
-		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
-<span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+	&lt;Button
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+		android:text=&quot;Add item&quot;
+		android:id=&quot;@+id/btnadd&quot;
+		android:onClick=&quot;recAdd&quot;
+		android:layout_weight=&quot;0&quot;
+/&gt;
+&lt;/LinearLayout&gt;</code></pre>
+</div>
 
 <div id="lst">LinearLayout with weights</div>
 
