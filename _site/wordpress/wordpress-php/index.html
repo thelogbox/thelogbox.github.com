@@ -40,13 +40,8 @@
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -557,27 +548,23 @@ C:\Users\yourname\wamp\www\practice
 
 <p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
 
-<div>
-  <pre><code class="html">&lt;!doctype html&gt;
-&lt;html&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
 Hello
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>It’s not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html — a valid html document is also a valid php script. </p>
 
 <p>Let’s add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
 
-<div>
-  <pre><code class="php">&lt;!doctype html&gt;
-&lt;html&gt;
-  &lt;h1&gt;Hello World&lt;/h1&gt;
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
 
-  &lt;?php echo &quot;This is outputed by PHP&quot;; ?&gt;
-   Today's date is
-  &lt;?php echo date(DATE_RFC822); ?&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">   Today&#39;s date is</span>
+<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/html&gt;</span></code></pre></div>
 
 <p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). </p>
 
@@ -601,13 +588,11 @@ Hello
 
 <p>A statement in PHP is a declaration of an operation, something that you would like to do. For example, if you want define a variable and store a number in it, you need to tell PHP exactly that.</p>
 
-<div>
-  <pre><code class="php">&lt;?php
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-$anumber=10; 4
+<span class="nv">$anumber</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="mi">4</span>
 
-?&gt;</code></pre>
-</div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <p>The variable name is <em>anumber</em> but I did put a dollar sign before it. That is required. </p>
 
@@ -617,17 +602,15 @@ $anumber=10; 4
 
 <p><em>$anumber</em> is called a variable because we can change it’s value later on. You can add, subtract, divide and multiply it with some other value then store the new results on $anumber thereby changing its original value, like this</p>
 
-<div>
-  <pre><code class="php">&lt;?php
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-$i = 10;
-$j = 20;
-$k = &quot;Hello&quot;;
-$i = $j;
-$i = $i + 1;
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">$j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="nv">$k</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="nv">$i</span> <span class="o">=</span> <span class="nv">$j</span><span class="p">;</span>
+<span class="nv">$i</span> <span class="o">=</span> <span class="nv">$i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 
-?&gt;</code></pre>
-</div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <h2 id="co-mingling-with-html">Co-mingling with html</h2>
 
@@ -635,15 +618,13 @@ $i = $i + 1;
 
 <p>PHP statements are often found co-mingled with HTML, like this;</p>
 
-<div>
-  <pre><code class="php">&lt;!doctype html&gt;
-&lt;html lang=en&gt;
-&lt;body&gt;
-  &lt;h1&gt;My Spanking Web App&lt;/h1&gt;
-  &lt;span&gt;Today is &lt;/span&gt; &lt;?php echo date(DATE_RFC822); ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
+<span class="x">&lt;html lang=en&gt;</span>
+<span class="x">&lt;body&gt;</span>
+<span class="x">  &lt;h1&gt;My Spanking Web App&lt;/h1&gt;</span>
+<span class="x">  &lt;span&gt;Today is &lt;/span&gt; </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span></code></pre></div>
 
 <p>See that. Most of the codes are in HTML except for that tiny <em>&lt;?php echo date(DATE_RFC822); ?&gt;</em> which basically just outputs the current date. When the server sees that instruction, it will get the  system date then <em>echo</em> the return value as HTML. By this time you must have figured out that whatever you <em>echo</em> it will be part of the HTML output.</p>
 
@@ -655,14 +636,12 @@ $i = $i + 1;
 
 <p>First. You can write one statement after another, like this</p>
 
-<div>
-  <pre><code class="php">$in = 5;
-$cm = 10;
-$factor = 2.54;
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$in = 5;</span>
+<span class="x">$cm = 10;</span>
+<span class="x">$factor = 2.54;</span>
 
-echo $in . &quot; inches = &quot; . $in / $factor;
-echo $cm . &quot; cm = &quot; . $cm * $factor;</code></pre>
-</div>
+<span class="x">echo $in . &quot; inches = &quot; . $in / $factor;</span>
+<span class="x">echo $cm . &quot; cm = &quot; . $cm * $factor;</span></code></pre></div>
 
 <p>That is called <em>sequencing</em>. Your code starts executing the first statement until it runs out of things to do. </p>
 
@@ -670,17 +649,15 @@ echo $cm . &quot; cm = &quot; . $cm * $factor;</code></pre>
 
 <p>Second. You can execute some statements when some condition is true, if it is not true, do something else; like this</p>
 
-<div>
-  <pre><code class="php">$a = 10;
-$b = 20;
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
+<span class="x">$b = 20;</span>
 
-if($a &gt; $b) {
-  echo &quot;a is &gt; b&quot;;
-}
-else {
-  echo &quot;a &lt; b&quot;;
-}</code></pre>
-</div>
+<span class="x">if($a &gt; $b) {</span>
+<span class="x">  echo &quot;a is &gt; b&quot;;</span>
+<span class="x">}</span>
+<span class="x">else {</span>
+<span class="x">  echo &quot;a &lt; b&quot;;</span>
+<span class="x">}</span></code></pre></div>
 
 <p><em>if</em> is a special word in PHP, programers call it a reserved word. Like <em>echo</em> it has a specific action when used. The <em>if</em> keyword is what you use for branching. You need to give it an expression, a boolean expression to be exact and it needs to result to either true or false. When the condition is true, all of the statements inside the <em>if block</em> is ran. </p>
 
@@ -688,14 +665,12 @@ else {
 
 <p>The <em>else block</em> gets executed when the condition given on the if block results to false. Mind you that the else block is not always necessary. Some programs only writes the if block and nothing else, like this</p>
 
-<div>
-  <pre><code class="php">$a = 10;
-$b = 20;
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$a = 10;</span>
+<span class="x">$b = 20;</span>
 
-if($a &gt; $b) {
-  echo &quot;a is &gt; b&quot;;
-}</code></pre>
-</div>
+<span class="x">if($a &gt; $b) {</span>
+<span class="x">  echo &quot;a is &gt; b&quot;;</span>
+<span class="x">}</span></code></pre></div>
 
 <p>The code is still valid, although incomplete. So when do you use the else? That is left to your discretion, the programmer. Use it when it makes sense. </p>
 
@@ -705,18 +680,16 @@ if($a &gt; $b) {
 
 <p>There are a two ways to perform looping in PHP. They use very different keywords and have very characteristic semantics.  PHP uses the <em>while</em> and the <em>for</em> statements to implement iterative constructions. For our purpose, we will only consider using the <em>whilte</em> statement because this is what you will encounter most when programming WordPress.</p>
 
-<div>
-  <pre><code class="php">&lt;?php 
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
 
-$counter = 0;
+<span class="nv">$counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-while($counter &lt; 10) {
-  echo $counter;
-  $counter = $counter + 1;
-}
+<span class="k">while</span><span class="p">(</span><span class="nv">$counter</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$counter</span><span class="p">;</span>
+  <span class="nv">$counter</span> <span class="o">=</span> <span class="nv">$counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 
-?&gt;</code></pre>
-</div>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <div id="lst">while loop</div>
 

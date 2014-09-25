@@ -33,20 +33,15 @@
 
 <title>
   
-    Functions | theLogBox
+    JavaScript Functions | theLogBox
   
 </title>
 
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -506,7 +497,7 @@ iframe {display:block;}
 
     <div class='feature-banner'>
       <div class='feature-banner-text'>
-        Functions
+        JavaScript Functions
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
@@ -540,7 +531,7 @@ iframe {display:block;}
         
      <article itemscope itemtype="http://schema.org/Article" >
      <header>          
-      <!--<div id="articletitle">Functions</div> -->
+      <!--<div id="articletitle">JavaScript Functions</div> -->
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -549,19 +540,17 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. </p>
 
-<div>
-  <pre><code class="javascript">/*
-File name: hello.js
-The hello world program in JavaScript
-*/
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*</span>
+<span class="cm">File name: hello.js</span>
+<span class="cm">The hello world program in JavaScript</span>
+<span class="cm">*/</span>
 
-foo();
+<span class="nx">foo</span><span class="p">();</span>
 
-function foo() {
-	var s = &quot;Hello World\n&quot;;
-	console.log(s);
-}</code></pre>
-</div>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;Hello World\n&quot;</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
 
 <p>If you installed node.js (and I hope you did) you can run try this out on the command line using <strong>$ node hello.js</strong> </p>
 
@@ -573,12 +562,10 @@ function foo() {
 
 <p>The <em>console.log()</em> command is the STDIO library of Node.JS (although some browsers include this as part of their JavaScript runtime). This command routes the output to stderr and stdout (the command line screen) </p>
 
-<div>
-  <pre><code class="javascript">function &lt;name&gt; (&lt;parameters) {
-  // statements
-  [return &lt;value&gt;]
-}</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">parameters</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// statements</span>
+  <span class="p">[</span><span class="k">return</span> <span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="p">}</span></code></pre></div>
 
 <div id="lst">Canonical Form</div>
 
@@ -590,20 +577,15 @@ function foo() {
   <li>Calling a function with a return statement and a proper return value - returns the value</li>
 </ol>
 
-<aside>
-**CAREFUL** how you write your curly braces, JavaScript's defaults might produce unexpected results, see the following code
-</aside>
+<p>Be careful how you write your curly braces, JavaScript’s defaults might produce unexpected results, see the following code.</p>
 
-<div>
-  <pre><code class="javascript">function goo() {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> <span class="p">{</span>
 
-	return
-  {			// this line is unreachable
-		objprop: &quot;Some obj property&quot;;
-	}
-
-}</code></pre>
-</div>
+  <span class="k">return</span>
+  <span class="p">{</span>	<span class="c1">// this line is unreachable</span>
+    <span class="nx">objprop</span><span class="o">:</span> <span class="s2">&quot;Some obj property&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p>The statement will be unreachable because JavaScript would have inserted a semi-colon right after the <strong>return</strong> statement. The object literal is unreachable as a return value.</p>
 

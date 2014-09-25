@@ -40,13 +40,8 @@
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -624,7 +615,7 @@ $ sudo npm install -g cordova
 
 <p>The Android SDK setup is not yet complete. You will need to download a lot more software and you will do so using the Android SDK Manager. From a terminal window, type <code class="codeblock">android</code></p>
 
-<p><img src="/img/phonegap/android-manager.png" alt="android manager" />
+<p><img src="/img/phonegap/android-manager.png" alt="android manager" /><br />
 &lt;div id='lst'&gt;Android SDK Manager&lt;/div&gt;</p>
 
 <p>At a minimum you will need to install the SDK tools, platform tools and a couple of API levels. It depends on what platform of Android you are targeting. If you want to develop for Jellybean, get API level 19, 18,17 and 16. Ice Cream Sandwich is API level 15 and Honeycomb is 13. Get the <em>SDK platform</em> and the <em>ARM EABI system image</em> for each API level that you choose. You need the system images for building the <em>android virtual device</em> which you will use for testing later on.</p>

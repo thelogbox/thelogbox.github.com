@@ -40,13 +40,8 @@
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -568,44 +559,42 @@ iframe {display:block;}
 
 <p><code class="codeblock">$ android create project --target 15 --activity DbSample --path dbsample  --package com.thelogbox</code></p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:orientation=&quot;vertical&quot;
-    android:layout_width=&quot;fill_parent&quot;
-    android:layout_height=&quot;fill_parent&quot;
-    &gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="nt">&gt;</span>
 
-	&lt;EditText
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:id=&quot;@+id/todoedit&quot;
-		android:layout_weight=&quot;0&quot;
-	/&gt;
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	<span class="nt">/&gt;</span>
 
-	&lt;ScrollView
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:layout_weight=&quot;10&quot;
-	&gt;
+	<span class="nt">&lt;ScrollView</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
+	<span class="nt">&gt;</span>
 
-		&lt;TextView  
-    		android:layout_width=&quot;fill_parent&quot; 
-    		android:layout_height=&quot;wrap_content&quot; 
-    		android:text=&quot;I have nothing&quot;
-			android:id=&quot;@+id/tododisplay&quot;
-    	/&gt;
-	&lt;/ScrollView&gt;
-	&lt;Button
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:text=&quot;Add item&quot;
-		android:id=&quot;@+id/btnadd&quot;
-		android:onClick=&quot;recAdd&quot;
-		android:layout_weight=&quot;0&quot;
-/&gt;
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+		<span class="nt">&lt;TextView</span>  
+    		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    		<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
+			<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
+    	<span class="nt">/&gt;</span>
+	<span class="nt">&lt;/ScrollView&gt;</span>
+	<span class="nt">&lt;Button</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
+		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <div id="lst">main.xml generated by the project</div>
 
@@ -617,39 +606,37 @@ iframe {display:block;}
 
 <p>Create a class that extends the <code class="codeblock">SQLiteOpenHelper</code></p>
 
-<div>
-  <pre><code class="java">// SQLiteOpenHelper .java
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// SQLiteOpenHelper .java</span>
 
-package com.thelogbox;
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import static android.provider.BaseColumns._ID;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-
-public class DbHelper extends SQLiteOpenHelper {
-
-	String sqlcreate = &quot;CREATE TABLE todo( &quot; + _ID  + &quot; INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);&quot;;
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">android</span><span class="o">.</span><span class="na">provider</span><span class="o">.</span><span class="na">BaseColumns</span><span class="o">.</span><span class="na">_ID</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteDatabase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteOpenHelper</span><span class="o">;</span>
 
 
-	public DbHelper(Context ctx) {
-		super(ctx,&quot;tododb.db&quot;,null, 1);
-	}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbHelper</span> <span class="kd">extends</span> <span class="n">SQLiteOpenHelper</span> <span class="o">{</span>
+
+	<span class="n">String</span> <span class="n">sqlcreate</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE todo( &quot;</span> <span class="o">+</span> <span class="n">_ID</span>  <span class="o">+</span> <span class="s">&quot; INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);&quot;</span><span class="o">;</span>
+
+
+	<span class="kd">public</span> <span class="nf">DbHelper</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="s">&quot;tododb.db&quot;</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-		db.execSQL(sqlcreate);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">SQLiteDatabase</span> <span class="n">db</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">db</span><span class="o">.</span><span class="na">execSQL</span><span class="o">(</span><span class="n">sqlcreate</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
-		db.execSQL(&quot;DROP TABLE IF EXISTS tododb.db&quot;);
-		onCreate(db);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onUpgrade</span><span class="o">(</span><span class="n">SQLiteDatabase</span> <span class="n">db</span><span class="o">,</span> <span class="kt">int</span> <span class="n">oldversion</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newversion</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">db</span><span class="o">.</span><span class="na">execSQL</span><span class="o">(</span><span class="s">&quot;DROP TABLE IF EXISTS tododb.db&quot;</span><span class="o">);</span>
+		<span class="n">onCreate</span><span class="o">(</span><span class="n">db</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-}</code></pre>
-</div>
+<span class="o">}</span></code></pre></div>
 
 <p>You need to do <strong>3 things</strong> at a minimum when defining a SQLiteOpenHelper.</p>
 
@@ -665,84 +652,82 @@ public class DbHelper extends SQLiteOpenHelper {
 
 <p>We will use an instance of  <code class="codeblock">SQLiteOpenHelper</code> for reading and writing to the database</p>
 
-<div>
-  <pre><code class="java">// Activity .java}
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Activity .java}</span>
 
-package com.thelogbox;
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.content.Context; 
-import com.thelogbox.DbHelper;
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.Cursor;
-import android.widget.TextView;
-import android.widget.EditText;
-
-
-public class DbSample extends Activity {
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">com.thelogbox.DbHelper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ContentValues</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteDatabase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.Cursor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.EditText</span><span class="o">;</span>
 
 
-	DbHelper dh;
-	SQLiteDatabase dbwrite;
-	SQLiteDatabase dbread;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbSample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+
+
+	<span class="n">DbHelper</span> <span class="n">dh</span><span class="o">;</span>
+	<span class="n">SQLiteDatabase</span> <span class="n">dbwrite</span><span class="o">;</span>
+	<span class="n">SQLiteDatabase</span> <span class="n">dbread</span><span class="o">;</span>
 	
-	EditText input;
-	TextView output;
+	<span class="n">EditText</span> <span class="n">input</span><span class="o">;</span>
+	<span class="n">TextView</span> <span class="n">output</span><span class="o">;</span>
 	
 
-   /** Called when the activity is first created. */
-   @Override
-   public void onCreate(Bundle savedInstanceState) {
+   <span class="cm">/** Called when the activity is first created. */</span>
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     		
-    	dh = new DbHelper(getApplicationContext());
-    	dbwrite = dh.getWritableDatabase();
-    	dbread = dh.getReadableDatabase();
+    	<span class="n">dh</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">DbHelper</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
+    	<span class="n">dbwrite</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="na">getWritableDatabase</span><span class="o">();</span>
+    	<span class="n">dbread</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="na">getReadableDatabase</span><span class="o">();</span>
     	
-		// you cannot put the findViewById here, it causes errors
+		<span class="c1">// you cannot put the findViewById here, it causes errors</span>
     	
-		super.onCreate(savedInstanceState);
-      setContentView(R.layout.main);
-    }
+		<span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+      <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
     
     
-    public void recAdd(View v) {
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">recAdd</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
 
-    	input = (EditText) findViewById(R.id.todoedit);
-    	output = (TextView) findViewById(R.id.tododisplay);
+    	<span class="n">input</span> <span class="o">=</span> <span class="o">(</span><span class="n">EditText</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">todoedit</span><span class="o">);</span>
+    	<span class="n">output</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tododisplay</span><span class="o">);</span>
 		
-		String itemtoadd = input.getText().toString();		
+		<span class="n">String</span> <span class="n">itemtoadd</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>		
 		
-		ContentValues cv = new ContentValues();
-		cv.put(&quot;item&quot;, itemtoadd);
-		dbwrite.insertOrThrow(&quot;todo&quot;,null,cv);
+		<span class="n">ContentValues</span> <span class="n">cv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ContentValues</span><span class="o">();</span>
+		<span class="n">cv</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;item&quot;</span><span class="o">,</span> <span class="n">itemtoadd</span><span class="o">);</span>
+		<span class="n">dbwrite</span><span class="o">.</span><span class="na">insertOrThrow</span><span class="o">(</span><span class="s">&quot;todo&quot;</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="n">cv</span><span class="o">);</span>
 		
-		String temptext = (String) output.getText();
+		<span class="n">String</span> <span class="n">temptext</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">output</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
 		
-		//Write the dbExtraction routine here
+		<span class="c1">//Write the dbExtraction routine here</span>
 		
-		//temptext = temptext + &quot;\n&quot;;
-		output.setText(getTodos());
+		<span class="c1">//temptext = temptext + &quot;\n&quot;;</span>
+		<span class="n">output</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">getTodos</span><span class="o">());</span>
 		
-    }
+    <span class="o">}</span>
     
-    private String getTodos() {
+    <span class="kd">private</span> <span class="n">String</span> <span class="nf">getTodos</span><span class="o">()</span> <span class="o">{</span>
     	
-    	String cols[] = {&quot;item&quot;};
-    	StringBuilder sb = new StringBuilder(&quot;&quot;);
-    	Cursor cursor = dbread.query(&quot;todo&quot;,cols,null,null,null,null,&quot;item&quot;);
-    	startManagingCursor(cursor);
+    	<span class="n">String</span> <span class="n">cols</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;item&quot;</span><span class="o">};</span>
+    	<span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+    	<span class="n">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">dbread</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="s">&quot;todo&quot;</span><span class="o">,</span><span class="n">cols</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="s">&quot;item&quot;</span><span class="o">);</span>
+    	<span class="n">startManagingCursor</span><span class="o">(</span><span class="n">cursor</span><span class="o">);</span>
     	
-    	while(cursor.moveToNext()) {
-    		sb.append(cursor.getString(0));
-    		sb.append(&quot;\n&quot;);
-    	}
-    	return sb.toString();
-    }
-}</code></pre>
-</div>
+    	<span class="k">while</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+    		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+    		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">);</span>
+    	<span class="o">}</span>
+    	<span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p><em>DBSample</em> is a regular <em>Activity</em> class. It’s bad coding practice to embed the database logic in the UI, but were just starting out to learn about databases in Android, we will let it pass for now. If we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).</p>
 

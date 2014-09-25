@@ -1,7 +1,7 @@
 ---
 layout: javascript
 
-title: Functions
+title: JavaScript Functions
 
 description: The basics of writing JavaScript functions
 
@@ -29,8 +29,8 @@ The hello world program in JavaScript
 foo();
 
 function foo() {
-	var s = "Hello World\n";
-	console.log(s);
+  var s = "Hello World\n";
+  console.log(s);
 }
 
 {% endhighlight %}
@@ -63,25 +63,22 @@ Functions can contain a *return* statement, take note of the following though;
 2. Calling a function with return statement, but does actually return anything - returns undefined
 3. Calling a function with a return statement and a proper return value - returns the value
 
-<aside>
-**CAREFUL** how you write your curly braces, JavaScript's defaults might produce unexpected results, see the following code
-</aside>
+
+Be careful how you write your curly braces, JavaScript's defaults might produce unexpected results, see the following code.
 
 {% highlight javascript %}
 
 function goo() {
 
-	return
-  {			// this line is unreachable
-		objprop: "Some obj property";
-	}
-
+  return
+  {	// this line is unreachable
+    objprop: "Some obj property";
+  }
 }
 
 {% endhighlight %}
 
 The statement will be unreachable because JavaScript would have inserted a semi-colon right after the **return** statement. The object literal is unreachable as a return value.
-
 
 Functions are different from JS statements. Statements are executed at once as soon as it is encountered by interpreter. Functions on the other hand are *compiled* first, they are not executed when first encountered, intead, it will be parsed and stored for later use. 
 

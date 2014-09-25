@@ -40,13 +40,8 @@
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -553,26 +544,26 @@ iframe {display:block;}
 
 <p>Invoking <em>phonegap</em> from cmd line displays its usage. </p>
 
-<p><img src="/img/phonegap/phonegap-cli.png" alt="The phonegap gap command" />
+<p><img src="/img/phonegap/phonegap-cli.png" alt="The phonegap gap command" /><br />
 &lt;div id='lst'&gt;phonegap command&lt;/div&gt;</p>
 
 <p>As you can see, there are lots of things we can do with it. We can create, build and install mobile app projects using this command. In this chapter, we will create our first project using the PhoneGap CLI. We won’t do anything with it just yet, we simply want to sample the feel of the  workflow and get acquainted with the process of creating, testing and building PhoneGap projects. Before the chapter is done, we would have created, built and tested a sample project in either an iOS simulator or an Android emulator.</p>
 
 <p>To create a project, get a terminal window (cmd.exe in Windows, Terminal.app in OSX, xterm in Linux)</p>
 
-<p><img src="/img/phonegap/phonegap-create-project-windows.png" alt="Project Creation. Windows" />
+<p><img src="/img/phonegap/phonegap-create-project-windows.png" alt="Project Creation. Windows" /><br />
 &lt;div id='lst'&gt;Project Creation. Windows&lt;/div&gt;</p>
 
 <p>If you are using either Linux or OSX, this is the set of command to follow</p>
 
-<p><img src="/img/phonegap/phonegap-create-project-osx.png" alt="Project Creation. OSX" />
+<p><img src="/img/phonegap/phonegap-create-project-osx.png" alt="Project Creation. OSX" /><br />
 &lt;div id='lst'&gt;Project Creation. OSX&lt;/div&gt;</p>
 
 <p>The first time you execute the <em>create</em> command, PhoneGap will try to pull some setup files and libraries from the internet, so you need to be connected while you are doing this.</p>
 
 <p>The <em>create</em> command will produce a folder named <strong>first</strong> in the current working directory, that folder contains things that are necessary for you to build a project.</p>
 
-<p><img src="/img/phonegap/phonegap-project-structure.png" alt="PhoneGap Project" />
+<p><img src="/img/phonegap/phonegap-project-structure.png" alt="PhoneGap Project" /><br />
 &lt;div id='lst'&gt;Project Structure&lt;/div&gt;</p>
 
 <p>You will find a folder called WWW on the root project directory. This WWW folder is where you will add HTML files, JavaScript, CSS and Images which will form part of the mobile application. We will take a look at them shortly.</p>
@@ -592,50 +583,46 @@ $ phonegap run android
 
 <p>I deployed the app quite differently in Android than I did in OSX. I could have used the command <code class="codeblock">$ phonegap run ios</code> just like the process in Android. I did not. The reason is I did not want to use the <em>ios-sim</em> software to view the application in the iOS simulator. I wanted to open the generated ios project and open it using XCode. I also wanted to use XCode to deploy the app in the simulator that came with XCode and not ios-sim. </p>
 
-<p><img src="/img/phonegap/generic-phonegap-app.png" class="shadow" />
+<p><img src="/img/phonegap/generic-phonegap-app.png" class="shadow" /><br />
 &lt;div id='lst'&gt;Firt App&lt;/div&gt;</p>
 
 <h1 id="making-changes-to-indexhtml">MAKING CHANGES TO INDEX.HTML</h1>
 
 <p>The WWW folder contains a default index.html. This HTML file was generated by the <em>phonegap create</em> command. This is how it looks like out of the box.</p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi&quot; /&gt;
-  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/index.css&quot; /&gt;
-  &lt;title&gt;Hello World&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
- &lt;div class=&quot;app&quot;&gt;
-   &lt;h1&gt;PhoneGap&lt;/h1&gt;
-   &lt;div id=&quot;deviceready&quot; class=&quot;blink&quot;&gt;
-   &lt;p class=&quot;event listening&quot;&gt;Connecting to Device&lt;/p&gt;
-   &lt;p class=&quot;event received&quot;&gt;Device is Ready&lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;phonegap.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;js/index.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot;&gt;
-     app.initialize();
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;format-detection&quot;</span> <span class="na">content=</span><span class="s">&quot;telephone=no&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;css/index.css&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;h1&gt;</span>PhoneGap<span class="nt">&lt;/h1&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;deviceready&quot;</span> <span class="na">class=</span><span class="s">&quot;blink&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;event listening&quot;</span><span class="nt">&gt;</span>Connecting to Device<span class="nt">&lt;/p&gt;</span>
+   <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;event received&quot;</span><span class="nt">&gt;</span>Device is Ready<span class="nt">&lt;/p&gt;</span>
+   <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;phonegap.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;js/index.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+     <span class="nx">app</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>The code above is what you saw on the welcome screen. You may use it as a baseline for your experimentation. But I think the default html file has lots of things we don’t need for now, so we will discard all of it and build a basic HTML file for our experiments.</p>
 
 <p>Open index.html using any programming editor of your choice. Replace it with a really basic HTML page.</p>
 
-<div>
-  <pre><code class="html">&lt;!doctype html&gt;
-&lt;html&gt;
-  &lt;h1&gt;My First App&lt;/h1&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>My First App<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>Because we made changes on the project source file, we need to go through another compilation and another deployment cycle. </p>
 
@@ -654,7 +641,7 @@ $ phonegap run android
 
 <p><img src="/img/phonegap/programming-workflow.png" alt="Programming Workflow" /></p>
 
-<p><img src="/img/phonegap/phonegap-empty-project.png" />
+<p><img src="/img/phonegap/phonegap-empty-project.png" /><br />
 &lt;div id='lst'&gt;PhoneGap Project Folder Structure&lt;/div&gt;</p>
 
 <h2 id="difference-from-desktop-app-or-web-app-programming">Difference from Desktop App or Web App Programming</h2>

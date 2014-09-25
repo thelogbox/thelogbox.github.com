@@ -40,13 +40,8 @@
 
     <style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -635,7 +626,7 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/javascript-keywords">Reserved Words</a></h2>
+	<h2><a href="/javascript-keywords">JavaScript Reserved Words</a></h2>
 	<div class='content-meta'>
 		November 05, 2013
 	</div>
@@ -643,13 +634,13 @@ iframe {display:block;}
     
   <a href="/javascript-keywords" class='archivestitle'>
     11.05.13
-    Reserved Words
+    JavaScript Reserved Words
   </a>
   
   <p class='archives'>
   <!--<b>[]</b> -->
   
-	When you create identifiers, e.g. variable names, function names and class names, you need to stay away from certain words. The JavaScript reserved words. Here they are; These Flash Cards...
+	break: to get out of loops. Use it (sparingly) inside for or while loops. Used also inside switch statements to prevent cascading of flow. see also switch, for, while, continue...
   </p>
 
 	   
@@ -675,7 +666,7 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/javascript-functions">Functions</a></h2>
+	<h2><a href="/javascript-functions">JavaScript Functions</a></h2>
 	<div class='content-meta'>
 		November 05, 2013
 	</div>
@@ -683,7 +674,7 @@ iframe {display:block;}
     
   <a href="/javascript-functions" class='archivestitle'>
     11.05.13
-    Functions
+    JavaScript Functions
   </a>
   
   <p class='archives'>
@@ -775,21 +766,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordPress/wordpress-php">Introduction to PHP</a></h2>
+	<h2><a href="/wordpress/wordpress-php">Introduction to PHP</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordPress/wordpress-php" class='archivestitle'>
+  <a href="/wordpress/wordpress-php" class='archivestitle'>
     11.04.13
     Introduction to PHP
   </a>
   
   <p class='archives'>
-  <!--<b>[wordPress]</b> -->
+  <!--<b>[wordpress]</b> -->
   
-    <b><u>wordPress</u></b>
+    <b><u>wordpress</u></b>
   
 	To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the DOCUMENT ROOT of Apache. In...
   </p>
@@ -797,21 +788,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordPress/wordpress-installation">Installation and Configuration</a></h2>
+	<h2><a href="/wordpress/wordpress-installation">Installation and Configuration</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordPress/wordpress-installation" class='archivestitle'>
+  <a href="/wordpress/wordpress-installation" class='archivestitle'>
     11.04.13
     Installation and Configuration
   </a>
   
   <p class='archives'>
-  <!--<b>[wordPress]</b> -->
+  <!--<b>[wordpress]</b> -->
   
-    <b><u>wordPress</u></b>
+    <b><u>wordpress</u></b>
   
 	Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance. The process involves downloading the...
   </p>
@@ -839,21 +830,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordPress/wordpress-tools">Tools for Development</a></h2>
+	<h2><a href="/wordpress/wordpress-tools">Tools for Development</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordPress/wordpress-tools" class='archivestitle'>
+  <a href="/wordpress/wordpress-tools" class='archivestitle'>
     11.03.13
     Tools for Development
   </a>
   
   <p class='archives'>
-  <!--<b>[wordPress]</b> -->
+  <!--<b>[wordpress]</b> -->
   
-    <b><u>wordPress</u></b>
+    <b><u>wordpress</u></b>
   
 	Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text...
   </p>
@@ -883,21 +874,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordPress/wordpress-setup">Setup</a></h2>
+	<h2><a href="/wordpress/wordpress-setup">Setup</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordPress/wordpress-setup" class='archivestitle'>
+  <a href="/wordpress/wordpress-setup" class='archivestitle'>
     11.03.13
     Setup
   </a>
   
   <p class='archives'>
-  <!--<b>[wordPress]</b> -->
+  <!--<b>[wordpress]</b> -->
   
-    <b><u>wordPress</u></b>
+    <b><u>wordpress</u></b>
   
 	WordPress needs a web server capable of running PHP and a MySQL database. The more popular choice for the web server is Apache, although many others will suffice just as...
   </p>
@@ -905,21 +896,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordPress/wordpress-html">Introduction to HTML</a></h2>
+	<h2><a href="/wordpress/wordpress-html">Introduction to HTML</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordPress/wordpress-html" class='archivestitle'>
+  <a href="/wordpress/wordpress-html" class='archivestitle'>
     11.03.13
     Introduction to HTML
   </a>
   
   <p class='archives'>
-  <!--<b>[wordPress]</b> -->
+  <!--<b>[wordpress]</b> -->
   
-    <b><u>wordPress</u></b>
+    <b><u>wordpress</u></b>
   
 	I’m hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it — at least what it looks like and what...
   </p>
@@ -1522,21 +1513,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/Android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
+	<h2><a href="/android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
 	<div class='content-meta'>
 		December 05, 2012
 	</div>
   -->   
     
-  <a href="/Android/lg-optimus-enable-debugging" class='archivestitle'>
+  <a href="/android/lg-optimus-enable-debugging" class='archivestitle'>
     12.05.12
     LG optimus, prepare for development
   </a>
   
   <p class='archives'>
-  <!--<b>[Android]</b> -->
+  <!--<b>[android]</b> -->
   
-    <b><u>Android</u></b>
+    <b><u>android</u></b>
   
 	Go to settings Then connections Tap on the USB connection Choose Charge only Go back to the Settings screen Enable USB Debugging. You need to do this while the device...
   </p>
@@ -2825,21 +2816,21 @@ Android Programming Bibliography
 	   
 	
   <!--
-	<h2><a href="/Java/java-beginning-to-program">Beginning to Program Java</a></h2>
+	<h2><a href="/java/java-beginning-to-program">Beginning to Program Java</a></h2>
 	<div class='content-meta'>
 		November 11, 2011
 	</div>
   -->   
     
-  <a href="/Java/java-beginning-to-program" class='archivestitle'>
+  <a href="/java/java-beginning-to-program" class='archivestitle'>
     11.11.11
     Beginning to Program Java
   </a>
   
   <p class='archives'>
-  <!--<b>[Java]</b> -->
+  <!--<b>[java]</b> -->
   
-    <b><u>Java</u></b>
+    <b><u>java</u></b>
   
 	CONTENT HAS MOVED
 

@@ -40,13 +40,8 @@
 
 		<style>
 
-/*
 @import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro:400,600|Rokkitt|Lato:300,400,700.400italic);
-*/
-
-@import
-url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400italic);
+url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -65,7 +60,6 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 @media (min-width: 992px) {
   body {
     font-size: 17px;
-    font-weight: 400;
   }
   article, #archives { 
     column-count:2;
@@ -75,29 +69,26 @@ url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lato:300,400,700.400i
 
   feature-banner-text {font-size: 55px;}
   
-  h1, h2, h3 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-top: 20px;
-    text-rendering: optimizeLegibility;
-    text-transform: capitalize;
-  }
-
   h1 {font-size: 35px;}
-  h2 {font-size: 32px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+  h2 {font-size: 32px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
   h3 {font-size: 28px; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
     
 }
 
+em {
+  font-family: Georgia, Palatino;
+}
+
+
 body {   
   font-family: 'Lato';
-  font-weight: 300;
+  font-weight: 400;
   margin:0;
   padding:0;
   border:0;
   background: #fbfbfb;
-  line-height: 1.2em;
+  line-height: 1.4em;
 }
 
 #wrap, .toc, .promo, .feature-banner-text {
@@ -225,13 +216,13 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
+  font-weight: 400;
 }
 
 h1 {font-size: 25px;}
-h2 {font-size: 22px; } h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
 
 #feature {
   min-height: 400px;
@@ -292,10 +283,10 @@ h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
 }
 
 hr {
-	border:0;
-	color: #DEDEDE;
-	background: #DEDEDE;
-	height: 1px;
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
   margin-bottom:2em;
   margin-top:2em;
 }
@@ -307,8 +298,8 @@ hr .section {
 }
 
 strong {
-  font-weight: normal;
-  color: #000000;
+  font-weight: 700;
+  color: #222;
 }
 
 pre {
@@ -370,7 +361,7 @@ pre.code {font-size:12px; font-weight:normal}
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:steelblue; text-decoration: none; font-weight:300;}
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
 a:hover {color: blue; text-decoration:underline;}
 
 #postmeta {
@@ -561,7 +552,7 @@ iframe {display:block;}
 
 <p>Download the installer the from the <a href="http://www.wampserver.com/en/">WAMP site</a>. Choose the appropriate installer for your platform. </p>
 
-<p><img src="/img/wordpress/choose-installer-wamp.png" alt="WAMP installer" />
+<p><img src="/img/wordpress/choose-installer-wamp.png" alt="WAMP installer" /><br />
 &lt;div id='lst'&gt;WAMP Installer&lt;/div&gt;</p>
 
 <p>I wish I could be more precise in the details here but the issue is I don’t know what kind of Windows installation you have. It is simply your responsibility to know that detail. You can find out easily though, simply access System Properties from the Windows control panel, then you can ascertain which kind of Windows you have installed.Choose the 64-bit version if you are using 64-bit Windows. </p>
@@ -570,7 +561,7 @@ iframe {display:block;}
 
 <p>Double click the the installer. By default, WAMP installer will put your files in <em>C:\wamp</em> – for Windows XP users, this is not generally a problem, but for Windows 7 or 8 users, it could be a problem because folders outside the Users folder generally needs an elevated privilege before you can access it. If you don’t mind running things as Administrator, then go ahead, install in C:\wamp, otherwise, change the installation folder to *C:\Users\yourname\wamp*. After the installer has finished, WAMP should be sitting in your System Tray.</p>
 
-<p><img src="/img/wordpress/wamp-system-tray.png" alt="System Tray" />
+<p><img src="/img/wordpress/wamp-system-tray.png" alt="System Tray" /><br />
 &lt;div id='lst'&gt;WAMP in the System tray&lt;/div&gt;</p>
 
 <p>The WAMP icon will change color in the course of usage. Initially, it will be red. That means the services (Apache and MySQL) are not running. It turns into green when both Apache and MySQL have already been started and are running without problems. Green is color you are looking for.</p>
@@ -579,14 +570,14 @@ iframe {display:block;}
 
 <p>Hover your mouse on the system tray, right on top of WAMP icon. Click it to reveal the menu options. You will find options to start, stop and restart services.</p>
 
-<p><img src="/img/wordpress/wamp-start.png" alt="Starting WAMP" />
+<p><img src="/img/wordpress/wamp-start.png" alt="Starting WAMP" /><br />
 &lt;div id='lst'&gt;Starting WAMP&lt;/div&gt;</p>
 
 <p>You will not see anything happen (yet) when you start WAMP. They are services after all and not desktop applications. Starting the services only means that the Apache Web Server is now ready to respond to HTTP request (usually browser request) and MySQL database is now ready to respond to SQL commands.</p>
 
 <p>Launch a browser session (Chrome or Firefox if you have them, if you don’t , get them. IE has some quirks with the WAMP admin panel)</p>
 
-<p><img src="/img/wordpress/wamp-opening-screen.png" alt="WAMP Opening Screen" />
+<p><img src="/img/wordpress/wamp-opening-screen.png" alt="WAMP Opening Screen" /><br />
 &lt;div id='lst'&gt;WAMP opening screen&lt;/div&gt;</p>
 
 <p>When you see the opening screen, that means your WAMP server is working properly.</p>
