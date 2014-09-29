@@ -277,17 +277,12 @@ if ( foo == "Hello" ) {
 }
 {% endhighlight %}
 
-In the above code samples, we only want to know if the value currently
-held by the variable x is more than 50. We are not concerned about the
-actual value of x, it may be a really large number, it could be 51 or it
-could even be 50. Is x greater than 50 or is it not. Is y less than 100
+In the above code samples, we only want to know if the value currently held by the variable x is more than 50. We are not concerned about the actual value of x, it may be a really large number, it could be 51 or it could even be 50. Is x greater than 50 or is it not. Is y less than 100
 or is it not. Those are the only things we care about.
 
 ### 2.2 else and else if
 
-Now that we know how to execute a block when a condition is true. What
-happens when it isn't true? Well, we know that program control will skip
-the block and continue on.
+Now that we know how to execute a block when a condition is true. What happens when it isn't true? Well, we know that program control will skip the block and continue on.
 
 If you want something else to happen when the condition evaluates to
 true, you can specify that also by using the optional **else** clause.
