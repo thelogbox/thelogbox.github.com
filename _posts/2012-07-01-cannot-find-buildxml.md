@@ -15,38 +15,20 @@ tags:
 ---
 
 
-After running ant debug install, an error happens.
+## What does the error mean
 
-<pre class="codeblock"></code>
-BUILD FAILED
-/Users/ted/workarea/android-training/practice
-/helloworld/    build.xml:83: Cannot find /Users/ted/
-progtools/android-sdk-macos/tools/ant/build.xml
-imported from /Users/ted/workarea/android-training/
-practice/helloworld/build.xml
+It's a compilation error. The Android SDK refuses to compile the app because, literally, it cannot find **build.xml**. It may seem a bit tricky because if you look inside your android project, you will find a build.xml file. That is not the same xml file that the error is telling you about. The build.xml inside your project is actually importing another build.xml file. And it is looking for it in the **SDK.DIR/tools/ant** directory. That's the one it's saying it can't find. 
 
-Total time: 0 seconds
-</pre>
+The **sdk.dir** is a variable which points to the folder location where you installed the Android sdk. This is also known as the **ANDROID\_HOME** folder. Usually, you don't need to mess around with this variable because it would have been set for you. So how did you get here? Lots of reasons but one thing is for certain. The sdk.dir variable is improperly set. It's not pointing to a valid folder where the Android sdk is installed. 
 
-This is a build script problem. What the error tells us is that, it cannot find **build.xml**. How can that be? The android SDK tools actually setup up everything for us, the ant build script is one of the artefacts created when you start a new android project.
-There could be lots of reasons, but this particular error happened to me because I was using two machines for program development. And that I forgot to include the **local.properties** in the .gitignore file. So the settings and properties on one machine spilled
-over to the other development machine.
+## How to Fix
 
-If you inspect the build.xml in your android project folder, you will find out that it is actually importing another **build.xml**, a generic one. This generic build.xml is located at **SDK.DIR/tools/build.xml**. SDK.DIR is the folder where you installed the
-Android SDK when you downloaded it.
+Open the **local.properties** file in an editor. This file is on the root folder of your Android project so you should be able to find it without difficulty. Check the value of the sdk.dir, it should point to the actual folder where you installed the Android development kit. If it's not, fix it. Make it point to the right folder. 
 
-The following example downloads and installs the android SDK
+Try the compilation again. It should work by now.
 
-<pre class="codeblock"></code>
-mkdir ~/progtools
-cd progtools
-wget http://dl.google.com/android/android-sdk-linux.tgz
-tar -xzvf android-sdk-linux.tgz
-</pre>
+## Prevention
 
-This will create a folder named **~/progtools/android-sdk-linux/**. This is the SDK.DIR
-
-To fix this error, you need to make sure that the value of **SDK.DIR** inside the local.properties file is pointing to the correct location. The local.properties file is located on the top level folder of your android project.
-
+Did you notice the commented section of the local.properties file? It said "this file must not be checked into version control systems as it contains information specific to your local configuration etc". Follow that advice. Include the local.properties on the .gitignore file, if you are using git. If you are using another VCS, follow the method of your VCS on how to exclude certain files from being checked in.
 
 
