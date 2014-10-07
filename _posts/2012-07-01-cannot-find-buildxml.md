@@ -31,4 +31,6 @@ Try the compilation again. It should work by now.
 
 Did you notice the commented section of the local.properties file? It said "this file must not be checked into version control systems as it contains information specific to your local configuration etc". Follow that advice. Include the local.properties on the .gitignore file, if you are using git. If you are using another VCS, follow the method of your VCS on how to exclude certain files from being checked in.
 
-
+<div class="video-container">
+<iframe src="//player.vimeo.com/video/108198684" width="500" height="359" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+</div>

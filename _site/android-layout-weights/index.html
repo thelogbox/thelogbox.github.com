@@ -111,7 +111,7 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   */
-  border-top: 1px solid #2d2d2d;
+  border-top: 1px solid #ccc;
   
 }
 
@@ -167,7 +167,7 @@ article, #archives {
   -webkit-border-radius: 10px;
   -moz-border-radius:10px;                                                    border-radius: 10; */
 /*  background: #dcdcff; */
-  border-top: 1px solid #2d2d2d;
+  border-top: 1px solid #ccc;
 }
 
 /*
@@ -470,18 +470,75 @@ aside {
   text-rendering: optimizeLegibility;
 }
 
+/*
 iframe {display:block;}
+*/
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@media (min-width: 650px) {
+  
+  #wrap, .toc, .promo, .feature-banner-text {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 750px) {
+  
+  #wrap, .toc, .promo, .feature-banner-text {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 850px) {
+  
+  #wrap, .toc, .promo, .feature-banner-text {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 @media (min-width: 960px) {
+  
+  #wrap, .toc, .promo, .feature-banner-text {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1020px) {
+
   body {
     font-size: 1em;
   }
+  /*
   article, #archives { 
     column-count:2;
     -moz-column-count:2;
     -webkit-column-count:2 
   }
-
+ */
   code {font-size: 1.3em;}
   .feature-banner-text {font-size: 3em;}
   
@@ -489,7 +546,24 @@ iframe {display:block;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
-    
+
+  .toc {
+    width: 20%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 0;
+    border-top:0px solid white;
+    border-left: 1px solid #ccc;
+  }
+  article {
+    float:left;
+    width: 75%;
+  }  
+  #wrap, .feature-banner-text {
+    width:96%;
+  }
 }
 
 </style>
@@ -497,10 +571,10 @@ iframe {display:block;}
   </head>
   <body>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Using Layout Weights
-        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+       <div class='feature-banner'>
+         <div class='feature-banner-text'>
+           Using Layout Weights
+           <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -526,14 +600,12 @@ iframe {display:block;}
   })();
 </script>
 
-      </div>
-    </div>
+         </div>
+       </div>
 
     <div id="wrap">
-        
      <article itemscope itemtype="http://schema.org/Article" >
      <header>          
-      <!--<div id="articletitle">Using Layout Weights</div> -->
     </header>
     
 		  <div id="post">
