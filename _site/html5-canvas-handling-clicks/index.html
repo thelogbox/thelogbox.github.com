@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -582,10 +613,14 @@ iframe {display:block;}
   </head>
   <body>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Handling Clicks
-        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Handling Clicks
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -611,14 +646,8 @@ iframe {display:block;}
   })();
 </script>
 
+        </div>
       </div>
-    </div>
-
-    <div id="wrap">
-        
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <!--<div id="articletitle">Handling Clicks</div> -->
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -627,84 +656,88 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>To capture click events on the canvas, you will need to attach an event handler on the canvas itself, not the context. Since the canvas element is just like any other DOM element, attaching a click event to it is very straightforward. It can be done in any number of ways, the simplest is probably</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">window.onload = function() {
   
-  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
-  <span class="c1">// SOME CODES</span>
+  var canvas = document.getElementById('mycanvas');
+  // SOME CODES
   
-  <span class="nx">canvas</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// CLICK CODES</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+  canvas.onclick = function() {
+    // CLICK CODES
+  }
+}</code></pre>
+</div>
 
 <p>The following code sample demonstrates how to trap the click event inside the canvas. It also showcases some capabilities of the canvas which makes the example a bit interesting.</p>
 
 <p><a href="http://jsfiddle.net/tedhagos/wNxpG/1/embedded/result/" class="button">See the Demo</a></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
 
-<span class="nt">&lt;head&gt;</span>
-	<span class="nt">&lt;style&gt;</span>
-	<span class="nf">#mycanvas</span> <span class="p">{</span>
-		<span class="k">margin</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
-		<span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#CACACA</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="nf">#watch</span> <span class="p">{</span>
-		<span class="k">margin</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
-		<span class="k">font-size</span><span class="o">:</span><span class="m">130%</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="nt">&lt;/style&gt;</span>
+&lt;head&gt;
+	&lt;style&gt;
+	#mycanvas {
+		margin:10px;
+		border: 2px solid #CACACA;
+	}
+	#watch {
+		margin:20px;
+		font-size:130%;
+	}
+	&lt;/style&gt;
 	
-	<span class="nt">&lt;script&gt;</span>
+	&lt;script&gt;
 	
-	<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	window.onload = function(){
 		
-		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
-		<span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
-		<span class="kd">var</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">);</span>
+		var c = document.getElementById('mycanvas');
+		var context = c.getContext(&quot;2d&quot;);
+		var watch = document.getElementById('watch');
 		
-		<span class="kd">var</span> <span class="nx">mousex</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">mousey</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">mousepos</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">mouseoffset</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+		var mousex;
+		var mousey;
+		var mousepos;
+		var mouseoffset = 20;
 		
-		<span class="nx">c</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		c.onclick = function() {
 			
-			<span class="nx">mousex</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
-			<span class="nx">mousey</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+			mousex = event.clientX;
+			mousey = event.clientY;
 			
-			<span class="nx">mousepos</span> <span class="o">=</span> <span class="s2">&quot;X : &quot;</span> <span class="o">+</span> <span class="nx">mousex</span> <span class="o">+</span> <span class="s2">&quot; | Y :&quot;</span> <span class="o">+</span> <span class="nx">mousey</span><span class="p">;</span>
-			<span class="nx">watch</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">mousepos</span><span class="p">;</span>
-			<span class="nx">draw</span><span class="p">(</span><span class="nx">mousex</span><span class="p">,</span><span class="nx">mousey</span><span class="p">);</span>
-		<span class="p">}</span>
+			mousepos = &quot;X : &quot; + mousex + &quot; | Y :&quot; + mousey;
+			watch.innerHTML = mousepos;
+			draw(mousex,mousey);
+		}
 		
-		<span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+		function draw(x,y) {
 
-      <span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
-      <span class="kd">var</span> <span class="nx">G</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
-      <span class="kd">var</span> <span class="nx">B</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
-      <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;rgb(&quot;</span> <span class="o">+</span> <span class="nx">R</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">G</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">B</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
+      var R = Math.floor(Math.random() * 255);
+      var G = Math.floor(Math.random() * 255);
+      var B = Math.floor(Math.random() * 255);
+      var color = &quot;rgb(&quot; + R + &quot;,&quot; + G + &quot;,&quot; + B + &quot;)&quot;;
       
-      <span class="kd">var</span> <span class="nx">dim</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span><span class="p">;</span>
+      var dim = Math.random() * 50;
       
-      <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-			<span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">mouseoffset</span><span class="p">,</span><span class="nx">y</span><span class="o">-</span><span class="nx">mouseoffset</span><span class="p">,</span><span class="nx">dim</span><span class="p">,</span><span class="nx">dim</span><span class="p">);</span>
-		<span class="p">}</span>		
-	<span class="p">}</span>
-	<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
+      context.fillStyle = color;
+			context.fillRect(x-mouseoffset,y-mouseoffset,dim,dim);
+		}		
+	}
+	&lt;/script&gt;
+&lt;/head&gt;
 
-<span class="nt">&lt;body&gt;</span>
-	<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&#39;mycanvas&#39;</span> <span class="na">width=</span><span class="s">&#39;400&#39;</span> <span class="na">height=</span><span class="s">&#39;300&#39;</span><span class="nt">&gt;</span>
+&lt;body&gt;
+	&lt;canvas id='mycanvas' width='400' height='300'&gt;
 		Time to get a new browser
-	<span class="nt">&lt;/canvas&gt;</span>
-	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;watch&#39;</span><span class="nt">&gt;</span>
+	&lt;/canvas&gt;
+	&lt;div id='watch'&gt;
 		X: Y:
-	<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+	&lt;/div&gt;
+&lt;/body&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The current location of mouse is given by <strong>event.clientX &amp; event.clientY</strong>. The sample code uses the current location of the mouse to draw the <em>X &amp; Y</em> of the rectangle. The <em>offset</em> variable was used simply to reposition the top-left of the rectangle in order to coincide with tip of the mouse cursor.</p>
 

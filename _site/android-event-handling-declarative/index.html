@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -577,10 +608,15 @@ iframe {display:block;}
   </head>
   <body>
 
-       <div class='feature-banner'>
-         <div class='feature-banner-text'>
-           Declarative Event Handling
-           <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+
+    <div id="wrap">
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Declarative Event Handling
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -606,12 +642,8 @@ iframe {display:block;}
   })();
 </script>
 
-         </div>
-       </div>
-
-    <div id="wrap">
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
+      </div>
+    </div>             
     </header>
     
 		  <div id="post">
@@ -630,58 +662,62 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
 
 <p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
-<span class="nt">&lt;TextView</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
-    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:text=</span><span class="s">&quot;Hello World, TestToast&quot;</span>
-    <span class="nt">/&gt;</span>
+<div>
+  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
+&lt;TextView
+    android:layout_width=&quot;fill_parent&quot; 
+    android:layout_height=&quot;wrap_content&quot; 
+    android:text=&quot;Hello World, TestToast&quot;
+    /&gt;
     
-<span class="nt">&lt;Button</span>
-	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-	<span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
-	<span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
-<span class="nt">/&gt;</span>
+&lt;Button
+	android:layout_width=&quot;fill_parent&quot;
+	android:layout_height=&quot;fill_parent&quot;
+	android:text=&quot;Click me okay&quot;
+	android:onClick=&quot;showMe&quot;
+/&gt;
 
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+&lt;/LinearLayout&gt;</code></pre>
+</div>
 
 <p>You will need to implement a method called “showMe()” inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>. </p>
 
 <p>Next, add the <em>showMe()</em> method to the Activity class. </p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+<div>
+  <pre><code class="java">package com.thelogbox;
 
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Toast;
+import android.content.Context;
+import android.view.View;
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestToast</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+public class TestToast extends Activity {
 
-<span class="cm">/** Called when the activity is first created. */</span>
+/** Called when the activity is first created. */
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
-    <span class="o">}</span>
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
 
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
-		<span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
-		<span class="kt">int</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">;</span>
-		<span class="n">Toast</span> <span class="n">notification</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="n">msg</span><span class="o">,</span><span class="n">duration</span><span class="o">);</span>
-		<span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-	<span class="o">}</span>
+	public void showMe(View v) {
+		Context ctx = getApplicationContext();
+		String msg = &quot;Hello World&quot;;
+		int duration = Toast.LENGTH_SHORT;
+		Toast notification = Toast.makeText(ctx,msg,duration);
+		notification.show();
+	}
 
-<span class="o">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <div id="lst">/src/com/thelogbox/TestToast.java.</div>
 
@@ -705,16 +741,36 @@ ant debug install
         </div>					
 		  </div>
       
-      <div id="leanpubbook">        
-                
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
-        <div class="vspacer"></div>
+      
+      
+     <!-- 
+      <div id="leanpubbook">        
+        
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail" /> 
+      
+        <div style="top:50%; float:right; text-align:center;">
         Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
-        
       </div>
+      </div>
+    -->
+      <table bgcolor="#d6d6d6" cellpadding="10">
+        <tr>
+          <td width="25%">
+            <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 
+          </td>
+          <td width="75%">
+            Ted is writing an android book for beginners. It's a work in progress.
+            <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+            can read it (free) online</a> over at LeanPub.
+          </td>
+        </tr>
+      </table>
+      
+      
 		</article>
     
     

@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -633,32 +664,36 @@ iframe {display:block;}
 
 <p>helloName(“X”) -&gt; “Hello X!”</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
+<div>
+  <pre><code class="java">class One {
 
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
-	<span class="o">}</span>
+	public static void main(String[] args) {
+		hello(&quot;John&quot;);
+	}
 	
-	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
-		<span class="c1">//Write your code here</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+	private static void hello(String var){
+		//Write your code here
+	}
+}</code></pre>
+</div>
 
 <p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., “Hello” and “World” returns “HelloWorld”</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Two.java </span>
-<span class="c1">//Item # 2 Java Programming Workbook</span>
+<div>
+  <pre><code class="java">//Two.java 
+//Item # 2 Java Programming Workbook
 
-<span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
+class Two {
 
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">bang</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
-	<span class="o">}</span>
+	public static void main(String[] args) {
+		bang(&quot;Hello&quot;, &quot;World&quot;);
+	}
 	
-	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
-		<span class="c1">//Write your code here</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+	private static void bang(String a, String b){
+		//Write your code here
+	}
+}</code></pre>
+</div>
 
 <p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns “Hello World” with a space in between.</p>
 
@@ -679,19 +714,21 @@ Java”</p>
 
 <p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Three.java </span>
-<span class="c1">//Item # 3 Java Programming Workbook</span>
+<div>
+  <pre><code class="java">//Three.java 
+//Item # 3 Java Programming Workbook
 
-<span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
+class Three {
 
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">printmult</span><span class="o">();</span>
-	<span class="o">}</span>
+	public static void main(String[] args) {
+		printmult();
+	}
 	
-	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
-		<span class="c1">//write your code here	</span>
-	<span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+	private static void printmult(){
+		//write your code here	
+	}
+}</code></pre>
+</div>
 
 <p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
 
@@ -788,15 +825,17 @@ Java”</p>
 
 <p>What will happen if you try to compile and run the following code</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
-	<span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">amethod</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
-	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<div>
+  <pre><code class="java">public class MyClass {
+    public static void main(String arguments[]) {
+	amethod(arguments);
+    }
+    public void amethod(String[] arguments) {
+	System.out.println(arguments);
+	System.out.println(arguments[1]);
+    }
+}</code></pre>
+</div>
 
 <ol>
   <li>error Can’t make static reference to void amethod. </li>
@@ -823,11 +862,13 @@ class MyClass{}</p>
 
 <p>3)</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*This is a comment */</span>
+<div>
+  <pre><code class="java">/*This is a comment */
 
-<span class="kn">package</span> <span class="n">MyPackage</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
-<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span></code></pre></div>
+package MyPackage;
+import java.awt.*;
+class MyClass{}</code></pre>
+</div>
 
 <p><strong>Question 4)</strong></p>
 
@@ -845,12 +886,14 @@ class MyClass{}</p>
 
 <p>What will happen when you compile and run the following code? </p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
- <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
- <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[]){</span>
- <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
- <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<div>
+  <pre><code class="java">public class MyClass{
+ static int i;
+ public static void main(String argv[]){
+ System.out.println(i);
+ }
+}</code></pre>
+</div>
 
 <ol>
   <li>Error Variable i may not have been initialized </li>

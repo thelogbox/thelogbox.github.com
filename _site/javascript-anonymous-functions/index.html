@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -582,10 +613,14 @@ iframe {display:block;}
   </head>
   <body>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Anonymous Functions
-        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Anonymous Functions
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -611,14 +646,8 @@ iframe {display:block;}
   })();
 </script>
 
+        </div>
       </div>
-    </div>
-
-    <div id="wrap">
-        
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <!--<div id="articletitle">Anonymous Functions</div> -->
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -629,17 +658,19 @@ iframe {display:block;}
 
 <p>Functions in JavaScript has some twists that may seem weird at first (depending on where you are coming from). The dynamic characteristic of the language presents a lot of possibilites—and some suprises too. Take a look at the following code</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+<div>
+  <pre><code class="javascript">function foo() {
+	return 10;
+}
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span> 	<span class="c1">//nothing surprising here, it will return 10</span>
+console.log(foo()); 	//nothing surprising here, it will return 10
 
-<span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span> 	<span class="c1">//This is allowed in JS, because it is not strongly typed</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> 		<span class="c1">//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function</span>
-						<span class="c1">//before</span>
+foo = &quot;Hello World&quot;; 	//This is allowed in JS, because it is not strongly typed
+console.log(foo); 		//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function
+						//before
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span>		<span class="c1">//this one will throw an error, because foo is no longer a function</span></code></pre></div>
+console.log(foo());		//this one will throw an error, because foo is no longer a function</code></pre>
+</div>
 
 <p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
 

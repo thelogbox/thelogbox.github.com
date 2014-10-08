@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -582,10 +613,14 @@ iframe {display:block;}
   </head>
   <body>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Installing a Print Server
-        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Installing a Print Server
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -611,14 +646,8 @@ iframe {display:block;}
   })();
 </script>
 
+        </div>
       </div>
-    </div>
-
-    <div id="wrap">
-        
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <!--<div id="articletitle">Installing a Print Server</div> -->
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">
@@ -647,7 +676,8 @@ $ sudo echo "" &gt; cupsd.conf
 
 <p>Second line above makes a copy of the original cupsd.conf and the third line wipes out the textual content of <em>cupsd.conf</em>. After that we can edit cupsd.conf with minimal fuss. The new <em>cupsd.conf</em> looks like the following</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">LogLevel debug
+<div>
+  <pre><code class="xml">LogLevel debug
 SystemGroup lpadmin
 #Allow remote access
 Port 631
@@ -658,16 +688,16 @@ BrowseOrder allow,deny
 BrowseAddress @LOCAL
 
 #DefaultAuthType Basic
-<span class="nt">&lt;Location</span> <span class="nt">/&gt;</span>
+&lt;Location /&gt;
   Allow localhost
   Allow 192.168.0.*
   Allow all
   #Allow shared printing and remote administration...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span>
+&lt;/Location&gt;
 
-<span class="nt">&lt;Location</span> <span class="err">/admin</span><span class="nt">&gt;</span>
+&lt;Location /admin&gt;
   Allow 192.168.0.*
   Encryption Required
   Allow all
@@ -675,9 +705,9 @@ BrowseAddress @LOCAL
   #Allow remote administration...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span>
+&lt;/Location&gt;
     
-<span class="nt">&lt;Location</span> <span class="err">/admin/conf</span><span class="nt">&gt;</span>
+&lt;Location /admin/conf&gt;
   Allow 192.168.0.*
   #AuthType Default
   #Require user @SYSTEM
@@ -685,7 +715,8 @@ BrowseAddress @LOCAL
   #Allow remote access to the configuration files...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span></code></pre></div>
+&lt;/Location&gt;</code></pre>
+</div>
 
 <p>Obviously not a very tight and secure CUPS configuration. You can harden it later when you know more about the configuration. For now, this will happily function as a basic, albeit, insecure print server. </p>
 

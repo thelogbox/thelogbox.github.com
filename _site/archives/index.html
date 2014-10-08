@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -897,21 +928,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-php">Introduction to PHP</a></h2>
+	<h2><a href="/wordPress/wordpress-php">Introduction to PHP</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-php" class='archivestitle'>
+  <a href="/wordPress/wordpress-php" class='archivestitle'>
     11.04.13
     Introduction to PHP
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	To follow the exercises in this chapter, you will need WAMP up and running. You will also need to put the practice file on the DOCUMENT ROOT of Apache. In...
   </p>
@@ -919,21 +950,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-installation">Installation and Configuration</a></h2>
+	<h2><a href="/wordPress/wordpress-installation">Installation and Configuration</a></h2>
 	<div class='content-meta'>
 		November 04, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-installation" class='archivestitle'>
+  <a href="/wordPress/wordpress-installation" class='archivestitle'>
     11.04.13
     Installation and Configuration
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance. The process involves downloading the...
   </p>
@@ -961,21 +992,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-tools">Tools for Development</a></h2>
+	<h2><a href="/wordPress/wordpress-tools">Tools for Development</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-tools" class='archivestitle'>
+  <a href="/wordPress/wordpress-tools" class='archivestitle'>
     11.03.13
     Tools for Development
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	Writing HTML, JavaScript and CSS doesn’t require much. You can get by with the tools you probably already have — an HTML5 compliant browser, a programmer’s editor or any text...
   </p>
@@ -1005,21 +1036,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-setup">Setup</a></h2>
+	<h2><a href="/wordPress/wordpress-setup">Setup</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-setup" class='archivestitle'>
+  <a href="/wordPress/wordpress-setup" class='archivestitle'>
     11.03.13
     Setup
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	WordPress needs a web server capable of running PHP and a MySQL database. The more popular choice for the web server is Apache, although many others will suffice just as...
   </p>
@@ -1027,21 +1058,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/wordpress/wordpress-html">Introduction to HTML</a></h2>
+	<h2><a href="/wordPress/wordpress-html">Introduction to HTML</a></h2>
 	<div class='content-meta'>
 		November 03, 2013
 	</div>
   -->   
     
-  <a href="/wordpress/wordpress-html" class='archivestitle'>
+  <a href="/wordPress/wordpress-html" class='archivestitle'>
     11.03.13
     Introduction to HTML
   </a>
   
   <p class='archives'>
-  <!--<b>[wordpress]</b> -->
+  <!--<b>[wordPress]</b> -->
   
-    <b><u>wordpress</u></b>
+    <b><u>wordPress</u></b>
   
 	I’m hoping and dangerously assuming that you have some knowledge of HTML or at least have a passing appreciation of it — at least what it looks like and what...
   </p>
@@ -1644,21 +1675,21 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
+	<h2><a href="/Android/lg-optimus-enable-debugging">LG optimus, prepare for development</a></h2>
 	<div class='content-meta'>
 		December 05, 2012
 	</div>
   -->   
     
-  <a href="/android/lg-optimus-enable-debugging" class='archivestitle'>
+  <a href="/Android/lg-optimus-enable-debugging" class='archivestitle'>
     12.05.12
     LG optimus, prepare for development
   </a>
   
   <p class='archives'>
-  <!--<b>[android]</b> -->
+  <!--<b>[Android]</b> -->
   
-    <b><u>android</u></b>
+    <b><u>Android</u></b>
   
 	Go to settings Then connections Tap on the USB connection Choose Charge only Go back to the Settings screen Enable USB Debugging. You need to do this while the device...
   </p>
@@ -2947,21 +2978,21 @@ Android Programming Bibliography
 	   
 	
   <!--
-	<h2><a href="/java/java-beginning-to-program">Beginning to Program Java</a></h2>
+	<h2><a href="/Java/java-beginning-to-program">Beginning to Program Java</a></h2>
 	<div class='content-meta'>
 		November 11, 2011
 	</div>
   -->   
     
-  <a href="/java/java-beginning-to-program" class='archivestitle'>
+  <a href="/Java/java-beginning-to-program" class='archivestitle'>
     11.11.11
     Beginning to Program Java
   </a>
   
   <p class='archives'>
-  <!--<b>[java]</b> -->
+  <!--<b>[Java]</b> -->
   
-    <b><u>java</u></b>
+    <b><u>Java</u></b>
   
 	CONTENT HAS MOVED
 

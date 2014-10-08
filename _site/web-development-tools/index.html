@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -666,28 +697,32 @@ iframe {display:block;}
 
 <p>Install using ruby gems — <code class="codeblock">gem install sass</code></p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span>
+<div>
+  <pre><code class="css">#main {
+  width: 80%;
+  height: 23px;
 
-  <span class="n">ul</span> <span class="err">{</span> <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
-  <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
-    <span class="n">a</span> <span class="err">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-  <span class="err">}</span>
-<span class="err">}</span></code></pre></div>
+  ul { list-style-type: none; }
+  li {
+    float: left;
+    a { font-weight: bold; }
+  }
+}</code></pre>
+</div>
 
 <p>When processed using the <strong>saas</strong> command, it will emit the following;</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span> <span class="p">}</span>
-  <span class="nf">#main</span> <span class="nt">ul</span> <span class="p">{</span>
-    <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
-  <span class="nf">#main</span> <span class="nt">li</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
-    <span class="nf">#main</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
-      <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
+<div>
+  <pre><code class="css">#main {
+  width: 80%;
+  height: 23px; }
+  #main ul {
+    list-style-type: none; }
+  #main li {
+    float: left; }
+    #main li a {
+      font-weight: bold; }</code></pre>
+</div>
 
 <p>The <strong>saas</strong> command line tool has a <strong>–watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
 
@@ -741,24 +776,26 @@ $ gem install thin
 
 <p>You actually don’t need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># quick (but not dirty) and simple</span>
-<span class="c1"># restful web endpoint</span>
+<div>
+  <pre><code class="ruby"># quick (but not dirty) and simple
+# restful web endpoint
 
-<span class="c1"># this app will listen on http://localhost:4567</span>
+# this app will listen on http://localhost:4567
 
-<span class="c1"># filename: first.rb </span>
-<span class="c1"># how to run : $ ruby first.rb </span>
+# filename: first.rb 
+# how to run : $ ruby first.rb 
 
-<span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
 
-<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-    <span class="s2">&quot;return something&quot;</span>
-<span class="k">end</span>
+get '/' do
+    &quot;return something&quot;
+end
 
-<span class="n">get</span> <span class="s1">&#39;/somethingelse&#39;</span> <span class="k">do</span>
-    <span class="s2">&quot;return something else&quot;</span>
-<span class="k">end</span></code></pre></div>
+get '/somethingelse' do
+    &quot;return something else&quot;
+end</code></pre>
+</div>
 
 <p><em>http://localhost:4567</em> displays “return something”; <em>http://localhost:4567/somethingelse</em> displays “return something else” in the browser.</p>
 
@@ -772,74 +809,78 @@ $ gem install thin
 
 <p>The simplest node program from the (NodeJS website)</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// server.js</span>
+<div>
+  <pre><code class="javascript">// server.js
 
-<span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
-<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">});</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World\n&#39;</span><span class="p">);</span>
-<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:1337/&#39;</span><span class="p">);</span></code></pre></div>
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');</code></pre>
+</div>
 
 <p>Run the code using <code class="codeblock">node server.js</code>. Get a browser and open <em>http://localhost:1337</em>. You can already use this to mock REST endpoints, just replace the string inside res.end(‘Hello World’);</p>
 
 <p>A more involved node server code sample is below</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
+<div>
+  <pre><code class="javascript">var http = require('http');
+var path = require('path');
+var fs = require('fs');
+var url = require('url');
 
-<span class="kd">var</span> <span class="nx">pages</span> <span class="o">=</span> <span class="p">{</span>
-	<span class="s1">&#39;&#39;</span><span class="o">:</span> <span class="s2">&quot;Landing page&quot;</span><span class="p">,</span>
-	<span class="nx">about</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
-	<span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;Yeah Foo&quot;</span><span class="p">,</span>
-	<span class="nx">goo</span><span class="o">:</span> <span class="s2">&quot;Yeah Goo&quot;</span><span class="p">,</span>
-	<span class="nx">xoo</span><span class="o">:</span> <span class="nx">callxoo</span><span class="p">()</span>
-<span class="p">};</span>
+var pages = {
+	'': &quot;Landing page&quot;,
+	about: 'About',
+	foo: &quot;Yeah Foo&quot;,
+	goo: &quot;Yeah Goo&quot;,
+	xoo: callxoo()
+};
 
-<span class="kd">function</span> <span class="nx">callxoo</span><span class="p">(){</span>
-	<span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="nx">empname</span><span class="o">:</span> <span class="s2">&quot;Ted Hagos&quot;</span><span class="p">,</span>
-		<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;tedhagos@gmail.com&quot;</span>
-	<span class="p">};</span>
-	<span class="c1">// I cannot return the bare JS object because</span>
-	<span class="c1">// the HTTP object of node will throw an error.</span>
-	<span class="c1">// First type argument must be a string or buffer</span>
-	<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">retval</span><span class="p">);</span>
+function callxoo(){
+	var retval = {
+		empname: &quot;Ted Hagos&quot;,
+		email: &quot;tedhagos@gmail.com&quot;
+	};
+	// I cannot return the bare JS object because
+	// the HTTP object of node will throw an error.
+	// First type argument must be a string or buffer
+	return JSON.stringify(retval);
 	
-<span class="p">}</span>
+}
 
-<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span>
-	<span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+http.createServer(
+	function(request,response){
 		
-		<span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nb">decodeURI</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">));</span>
-		<span class="kd">var</span> <span class="nx">thedata</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		var lookup = path.basename(decodeURI(request.url));
+		var thedata = null;
+		var temp = null;
 		
-		<span class="c1">// Check first if we are looking for an HTML file</span>
-		<span class="nx">fs</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
-			<span class="k">if</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
-				<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">woops</span><span class="p">,</span> <span class="nx">filecontent</span><span class="p">){</span>
-					<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">woops</span><span class="p">)</span> <span class="p">{</span>
-						<span class="c1">//console.log(filecontent);</span>
-						<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
-						<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">filecontent</span><span class="p">);</span>
-					<span class="p">}</span>
-				<span class="p">});</span>				
-			<span class="p">}</span>
-			<span class="k">else</span> <span class="p">{</span>
-				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside the else&quot;</span><span class="p">);</span>
-			<span class="p">}</span>
-		<span class="p">});</span>
+		// Check first if we are looking for an HTML file
+		fs.exists(lookup, function(exists){
+			if(exists){
+				fs.readFile(lookup, 'utf-8', function(woops, filecontent){
+					if(!woops) {
+						//console.log(filecontent);
+						response.writeHead(200, {'Content-Type': 'text/html'});
+						response.end(filecontent);
+					}
+				});				
+			}
+			else {
+				console.log(&quot;inside the else&quot;);
+			}
+		});
 				
-		<span class="k">if</span> <span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span>
-			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside pages&quot;</span><span class="p">);</span>
-			<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
-			<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]);</span>
-		<span class="p">}</span>						
-	<span class="p">}</span>
-<span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span></code></pre></div>
+		if (pages[lookup] != undefined){
+			console.log(&quot;inside pages&quot;);
+			response.writeHead(200, {'Content-Type': 'text/html'});
+			response.end(pages[lookup]);
+		}						
+	}
+).listen(8080);</code></pre>
+</div>
 
 <p>This will listen on <em>locahost:8080</em>, if you want to change the port of the webserver, just replace the port number, it’s the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>
 

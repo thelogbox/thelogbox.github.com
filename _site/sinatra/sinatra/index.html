@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -633,14 +664,16 @@ iframe {display:block;}
   <li>Make sure it’s running, do the HelloWorld app </li>
 </ol>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># helloworld.rb</span>
+<div>
+  <pre><code class="ruby"># helloworld.rb
 
-<span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
 
-<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-	<span class="s2">&quot;Hello World&quot;</span>
-<span class="k">end</span></code></pre></div>
+get '/' do
+	&quot;Hello World&quot;
+end</code></pre>
+</div>
 
 <p>Run the web program using <code class="codeblock">ruby helloworld.rb</code>. Open a web browser, if you can you see “Hello World” on http://localhost:4567, then Sinatra is up and running and you did not make a mess of the sample code </p>
 
@@ -648,18 +681,20 @@ iframe {display:block;}
 
 <p>It doesn’t hurt to enclose the Sinatra routes in classes</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># helloworld.rb</span>
+<div>
+  <pre><code class="ruby"># helloworld.rb
 
-<span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
 
-<span class="k">class</span> <span class="nc">First</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span>
-	<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-   		<span class="s2">&quot;Hello World&quot;</span>
-	<span class="k">end</span>
-<span class="k">end</span>
+class First &lt; Sinatra::Base
+	get '/' do
+   		&quot;Hello World&quot;
+	end
+end
 
-<span class="no">First</span><span class="o">.</span><span class="n">run!</span></code></pre></div>
+First.run!</code></pre>
+</div>
 
 <p>run it again using <code class="codeblock">ruby helloworld.rb</code>, you may need to stop the currently running web server install on the terminal (CTRL-C)</p>
 
@@ -667,11 +702,13 @@ iframe {display:block;}
 
 <p>Create a config.ru file</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config.ru</span>
+<div>
+  <pre><code class="ruby"># config.ru
 
-<span class="nb">require</span> <span class="s1">&#39;helloworld&#39;</span>
+require 'helloworld'
 
-<span class="no">First</span><span class="o">.</span><span class="n">run!</span></code></pre></div>
+First.run!</code></pre>
+</div>
 
 <p><em>First.new</em>  would have worked as well. Creating a new instance of a <em>Sinatra::Base</em> class will also run the web app</p>
 
@@ -679,48 +716,52 @@ iframe {display:block;}
 
 <h2 id="routes">Routes</h2>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+<div>
+  <pre><code class="ruby">require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
+class Route &lt; Sinatra::Base 
 
-	<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Landing page&quot;</span>
-	<span class="k">end</span>
+	get '/' do
+		&quot;Landing page&quot;
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/client&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Client page&quot;</span>
-	<span class="k">end</span>
+	get '/client' do
+		&quot;Client page&quot;
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Contact page&quot;</span>
-	<span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+	get '/contact' do
+		&quot;Contact page&quot;
+	end
+end</code></pre>
+</div>
 
 <p><strong>get</strong> is a method call, its not a method definition, this is one of the reasons why Sinatra is DSL (Domain Specific Language), its domain is RESTful web apps</p>
 
 <h2 id="querystring-parameters">4.1 QueryString parameters</h2>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+<div>
+  <pre><code class="ruby">require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
+class Route &lt; Sinatra::Base 
 
-	<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Landing page&quot;</span>
-	<span class="k">end</span>
+	get '/' do
+		&quot;Landing page&quot;
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/client/:clientname&#39;</span> <span class="k">do</span>
+	get '/client/:clientname' do
 	
-		<span class="n">param</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:clientname</span><span class="o">]</span>
-		<span class="s2">&quot;You searched for </span><span class="si">#{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
+		param = params[:clientname]
+		&quot;You searched for #{param}&quot;
 
-	<span class="k">end</span>
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Contact page&quot;</span>
-	<span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+	get '/contact' do
+		&quot;Contact page&quot;
+	end
+end</code></pre>
+</div>
 
 <p>QueryString parameters can be accessed using the <strong>params</strong> array, make sure that querystring arguments is a ruby symbol. The get/client call has two lines inside it, but only the last line (which is a string) will be returned by the HTTP request</p>
 
@@ -728,32 +769,34 @@ iframe {display:block;}
 
 <p>Make the trailing slash optional in QueryString by adding <strong>/?</strong> in the get method</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra/reloader&#39;</span> <span class="k">if</span> <span class="n">development?</span>
+<div>
+  <pre><code class="ruby">require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
+require 'sinatra/reloader' if development?
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
+class Route &lt; Sinatra::Base 
 
-	<span class="n">configure</span> <span class="ss">:development</span> <span class="k">do</span>
-		<span class="n">register</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Reloader</span>
-	<span class="k">end</span>
+	configure :development do
+		register Sinatra::Reloader
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Landing page&quot;</span>
-	<span class="k">end</span>
+	get '/' do
+		&quot;Landing page&quot;
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/client/:clientname/?&#39;</span> <span class="k">do</span>
+	get '/client/:clientname/?' do
 	
-		<span class="n">param</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:clientname</span><span class="o">]</span>
-		<span class="s2">&quot;You searched for </span><span class="si">#{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
+		param = params[:clientname]
+		&quot;You searched for #{param}&quot;
 
-	<span class="k">end</span>
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Contact page&quot;</span>
-	<span class="k">end</span>
+	get '/contact' do
+		&quot;Contact page&quot;
+	end
 
-<span class="k">end</span></code></pre></div>
+end</code></pre>
+</div>
 
 <h2 id="hot-reloading">HOT RELOADING</h2>
 
@@ -761,34 +804,36 @@ iframe {display:block;}
 
 <p>Before you can use the Sinatra::Reloader, you need to get the gem first. <strong>gem install sintra-contrib</strong></p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;sinatra/reloader&#39;</span> <span class="k">if</span> <span class="n">development?</span>
+<div>
+  <pre><code class="ruby">require 'rubygems' if RUBY_VERSION &lt; '1.9'
+require 'sinatra'
+require 'sinatra/reloader' if development?
 
-<span class="k">class</span> <span class="nc">Route</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span> 
+class Route &lt; Sinatra::Base 
 
-	<span class="n">configure</span> <span class="ss">:development</span> <span class="k">do</span>
-		<span class="n">register</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Reloader</span>
-	<span class="k">end</span>
+	configure :development do
+		register Sinatra::Reloader
+	end
 
-	<span class="c1"># APP methods</span>
+	# APP methods
 
-	<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Landing page&quot;</span>
-	<span class="k">end</span>
+	get '/' do
+		&quot;Landing page&quot;
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/client/:clientname&#39;</span> <span class="k">do</span>
+	get '/client/:clientname' do
 	
-		<span class="n">param</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:clientname</span><span class="o">]</span>
-		<span class="s2">&quot;You searched for </span><span class="si">#{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
+		param = params[:clientname]
+		&quot;You searched for #{param}&quot;
 
-	<span class="k">end</span>
+	end
 
-	<span class="n">get</span> <span class="s1">&#39;/contact&#39;</span> <span class="k">do</span>
-		<span class="s2">&quot;Contact page&quot;</span>
-	<span class="k">end</span>
+	get '/contact' do
+		&quot;Contact page&quot;
+	end
 
-<span class="k">end</span></code></pre></div>
+end</code></pre>
+</div>
 
 <p>Just <em>require</em> the sinatra/reloader and register it inside your app, like the code above. Now, there is no need to restart the web server when changes occur in the source file. Use this only for development, not in production. There are other ways to achieve hot-reloading, go to the <a href="http://www.sinatrarb.com/faq.html">Sinatra FAQ</a></p>
 

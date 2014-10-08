@@ -11,18 +11,16 @@
   </head>
   <body>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        {{ page.title }}
-        {% include postmeta.html %}
-      </div>
-    </div>
-
     <div id="wrap">
         
      <article itemscope itemtype="http://schema.org/Article" >
      <header>          
-      <!--<div id="articletitle">{{ page.title }}</div> -->
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          {{ page.title }}
+          {% include postmeta.html %}
+        </div>
+      </div>
     </header>
     <!--
     <article itemscope itemtype="http://schema.org/Article">

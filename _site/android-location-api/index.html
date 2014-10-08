@@ -70,21 +70,21 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #373737;
+  /*color: #373737; */
+  color: #2d2d2d;
   background: #f6f6f6;
   line-height: 1.4em;
 }
 
-#wrap, .toc, .promo, .feature-banner-text {
+#wrap, .toc, .promo {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .feature-banner-text {
-  /*color: #2c2c2c;*/
   color:#222;
-  font-size:65px;
+  font-size:45px;
   font-weight:300;
   line-height:135%;
 }
@@ -109,17 +109,16 @@ body {
 	margin: 0 auto;
 }
 
+/*
 #leanpubbook {
-/*  background: #f5d2a4; */
-  padding: 20px; 
+  background: #d6d6d6;
+  padding: 20px;
   text-align:center;
-/*  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  */
-  border-top: 1px solid #ccc;
-  
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
 }
+*/
 
 /*
 #leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
@@ -132,7 +131,7 @@ body {
 
 #articletitle {
 	font-size: 28px;
-	font-weight: bold;
+	font-weight: 400;
   text-align: left;
   line-height: 1.4em;
   /*color: #292929; */
@@ -168,12 +167,7 @@ article, #archives {
   column-count:3;
   -moz-column-count:3; /* Firefox */
   -webkit-column-count:3; /* Safari and Chrome */
-  
-  /*
-  -webkit-border-radius: 10px;
-  -moz-border-radius:10px;                                                    border-radius: 10; */
-/*  background: #dcdcff; */
-  border-top: 1px solid #ccc;
+  background:#e9e9e9;
 }
 
 /*
@@ -201,7 +195,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 strong {font-weight:400;}
@@ -219,7 +213,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-title {
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1em;
   color: #2F2F2F;
   text-align: center;
@@ -239,10 +233,8 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
 }
 
 .feature-banner{
-  /* color: #adadad; */
   display:block;
   font-size: 20px;
-/*  background: #F0F0F0; */
   padding-top: 3px;
   padding-bottom: 3px;
   line-height:1.5em;
@@ -486,6 +478,8 @@ iframe {display:block;}
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .video-container iframe,  
 .video-container object,  
@@ -499,8 +493,8 @@ iframe {display:block;}
 
 @media (min-width: 650px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 95%;
+  #wrap, .toc, .promo {
+    width: 99%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,28 +502,60 @@ iframe {display:block;}
 
 @media (min-width: 750px) {
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 90%;
+  #wrap, .toc, .promo {
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 85%;
+  #wrap, .toc, .promo {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media (min-width: 960px) {
+
+  body {
+    font-size: 1em;
+  }
   
-  #wrap, .toc, .promo, .feature-banner-text {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 3em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 25%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+  }
+  article {
+    float:left;
+    width: 72%;
+  }  
+  #wrap {
+    width:96%;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
   }
 }
 
@@ -551,24 +577,29 @@ iframe {display:block;}
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
   h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:normal;}
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
-    width: 20%;
+    width: 25%;
     float:right;
     column-count:1;
     -moz-column-count:1; /* Firefox */
     -webkit-column-count:1; /* Safari and Chrome */
-    padding: 0;
-    border-top:0px solid white;
-    border-left: 1px solid #ccc;
+    padding: 10px;
+    border: 0;
   }
   article {
     float:left;
-    width: 75%;
+    width: 72%;
   }  
-  #wrap, .feature-banner-text {
+  #wrap {
     width:96%;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
   }
 }
 
@@ -577,10 +608,15 @@ iframe {display:block;}
   </head>
   <body>
 
-       <div class='feature-banner'>
-         <div class='feature-banner-text'>
-           Location API
-           <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+
+    <div id="wrap">
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Location API
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
@@ -606,12 +642,8 @@ iframe {display:block;}
   })();
 </script>
 
-         </div>
-       </div>
-
-    <div id="wrap">
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
+      </div>
+    </div>             
     </header>
     
 		  <div id="post">
@@ -648,131 +680,133 @@ iframe {display:block;}
 
 <h1 id="sample-code">SAMPLE CODE</h1>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
+<div>
+  <pre><code class="java">/*
 
-<span class="cm"> BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
-<span class="cm"> All rights reserved.</span>
+ BSD License: Copyright (c) 2009-2012 Ted Hagos
+ All rights reserved.
 
-<span class="cm"> License text: http://thelogbox.com/source-docs/software-license.txt</span>
+ License text: http://thelogbox.com/source-docs/software-license.txt
 
-<span class="cm">*/</span>
+*/
 
-<span class="c1">// GPSView.java</span>
+// GPSView.java
 
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+package com.thelogbox;
 
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.LocationManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.LocationListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.Location</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.Criteria</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.Geocoder</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.location.Address</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.content.Context;
+import android.view.View;
+import android.view.View.OnClickListener;
+import java.util.List;
+import android.location.LocationManager;
+import android.location.LocationListener;
+import android.location.Location;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Address;
+import android.util.Log;
 
-<span class="kd">class</span> <span class="nc">GPSView</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span><span class="o">,</span> <span class="n">LocationListener</span> <span class="o">{</span>
+class GPSView extends LinearLayout implements OnClickListener, LocationListener {
 
-  <span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">TextView</span> <span class="n">tv</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">LocationManager</span> <span class="n">locm</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">Location</span> <span class="n">loc</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">Geocoder</span> <span class="n">geo</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">List</span> <span class="n">address</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="n">Address</span> <span class="n">addr</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  Context ctx = null;
+  TextView tv = null;
+  String TAG = null;
+  LocationManager locm = null;
+  Location loc = null;
+  Geocoder geo = null;
+  List address = null;
+  Address addr = null;
 
-  <span class="kd">public</span> <span class="nf">GPSView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextView</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">;</span>
-    <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+  public GPSView(Context ctx) {
+    super(ctx);
+    tv = new TextView(ctx);
+    this.ctx = ctx;
+    TAG = getClass().getName();
 
-    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    setOnClickListener(this);
 
-    <span class="n">addView</span><span class="o">(</span><span class="n">tv</span><span class="o">);</span>
-  <span class="o">}</span>
+    addView(tv);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+  public void onClick(View v) {
 
-    <span class="n">locm</span> <span class="o">=</span> <span class="o">(</span><span class="n">LocationManager</span><span class="o">)</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">ctx</span><span class="o">.</span><span class="na">LOCATION_SERVICE</span><span class="o">);</span>
-    <span class="n">loc</span> <span class="o">=</span> <span class="n">locm</span><span class="o">.</span><span class="na">getLastKnownLocation</span><span class="o">(</span><span class="n">locm</span><span class="o">.</span><span class="na">getBestProvider</span><span class="o">(</span><span class="k">new</span> <span class="nf">Criteria</span><span class="o">(),</span><span class="kc">false</span><span class="o">));</span>
-    <span class="n">geo</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Geocoder</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    locm = (LocationManager) ctx.getSystemService(ctx.LOCATION_SERVICE);
+    loc = locm.getLastKnownLocation(locm.getBestProvider(new Criteria(),false));
+    geo = new Geocoder(ctx);
 
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Got Location&quot;</span><span class="o">);</span>
-    <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    Log.v(TAG, &quot;Got Location&quot;);
+    String msg = tv.getText().toString();
 
-    <span class="k">if</span> <span class="o">(</span><span class="n">loc</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    if (loc != null) {
 
-      <span class="kt">double</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="na">getLongitude</span><span class="o">();</span>
-      <span class="kt">double</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="na">getLatitude</span><span class="o">();</span>
-      <span class="k">try</span> <span class="o">{</span>
-        <span class="n">address</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="na">getFromLocation</span><span class="o">(</span><span class="n">lat</span><span class="o">,</span> <span class="n">lon</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-      <span class="o">}</span>
-      <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-      <span class="o">}</span>
-      <span class="n">addr</span> <span class="o">=</span> <span class="n">address</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      double lon = loc.getLongitude();
+      double lat = loc.getLatitude();
+      try {
+        address = geo.getFromLocation(lat, lon, 1);
+      }
+      catch(Exception e){
+        Log.v(TAG, e.getMessage());
+      }
+      addr = address.get(0);
 
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;got Lat and Lon and geocode&quot;</span><span class="o">);</span>
+      Log.v(TAG, &quot;got Lat and Lon and geocode&quot;);
 
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;\n&quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;LAT: &quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">lat</span><span class="o">);</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot; | LON: &quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">lon</span><span class="o">);</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot; | Country:  &quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getCountryName</span><span class="o">();</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;, &quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getLocality</span><span class="o">();</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;, &quot;</span><span class="o">;</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="n">addr</span><span class="o">.</span><span class="na">getPostalCode</span><span class="o">();</span>
-      <span class="n">msg</span> <span class="o">+=</span> <span class="s">&quot;| &quot;</span><span class="o">;</span>
+      msg += &quot;\n&quot;;
+      msg += &quot;LAT: &quot;;
+      msg += String.valueOf(lat);
+      msg += &quot; | LON: &quot;;
+      msg += String.valueOf(lon);
+      msg += &quot; | Country:  &quot;;
+      msg += addr.getCountryName();
+      msg += &quot;, &quot;;
+      msg += addr.getLocality();
+      msg += &quot;, &quot;;
+      msg += addr.getPostalCode();
+      msg += &quot;| &quot;;
 
-      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">addr</span><span class="o">.</span><span class="na">getMaxAddressLineIndex</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-        <span class="n">msg</span> <span class="o">+=</span>  <span class="n">addr</span><span class="o">.</span><span class="na">getAddressLine</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="o">;</span>
-      <span class="o">}</span>
+      for (int i = 0; i &lt; addr.getMaxAddressLineIndex(); i++) {
+        msg +=  addr.getAddressLine(i) + &quot; &quot;;
+      }
 
-      <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">else</span> <span class="o">{</span>
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;No location&quot;</span><span class="o">);</span>
-      <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;No Location&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
+      tv.setText(msg);
+    }
+    else {
+      Log.v(TAG, &quot;No location&quot;);
+      tv.setText(&quot;No Location&quot;);
+    }
+  }
   
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onLocationChanged</span><span class="o">(</span><span class="n">Location</span> <span class="n">location</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;location changed&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  public void onLocationChanged(Location location) {
+    Log.v(TAG, &quot;location changed&quot;);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStatusChanged</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">,</span> <span class="kt">int</span> <span class="n">status</span><span class="o">,</span> <span class="n">Bundle</span> <span class="n">bundle</span><span class="o">){</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;status changed&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  public void onStatusChanged(String provider, int status, Bundle bundle){
+    Log.v(TAG, &quot;status changed&quot;);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProviderEnabled</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">provider</span> <span class="o">+</span> <span class="s">&quot; is enabled&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  public void onProviderEnabled(String provider) {
+    Log.v(TAG, provider + &quot; is enabled&quot;);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProviderDisabled</span><span class="o">(</span><span class="n">String</span> <span class="n">provider</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">provider</span> <span class="o">+</span> <span class="s">&quot;is disabled&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  public void onProviderDisabled(String provider) {
+    Log.v(TAG, provider + &quot;is disabled&quot;);
+  }
 
-<span class="o">}</span>
+}
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleGPS</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+public class SimpleGPS extends Activity {
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">GPSView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(new GPSView(this));
+    }
+}</code></pre>
+</div>
 
 <h1 id="code-walk-through">CODE WALK THROUGH</h1>
 
@@ -813,16 +847,36 @@ iframe {display:block;}
         </div>					
 		  </div>
       
-      <div id="leanpubbook">        
-                
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail"/> 
       
-        <div class="vspacer"></div>
+      
+      
+     <!-- 
+      <div id="leanpubbook">        
+        
+                
+        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail" /> 
+      
+        <div style="top:50%; float:right; text-align:center;">
         Ted is writing an android book for beginners. It's a work in progress.
         <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
         can read it (free) online</a> over at LeanPub.
-        
       </div>
+      </div>
+    -->
+      <table bgcolor="#d6d6d6" cellpadding="10">
+        <tr>
+          <td width="25%">
+            <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 
+          </td>
+          <td width="75%">
+            Ted is writing an android book for beginners. It's a work in progress.
+            <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
+            can read it (free) online</a> over at LeanPub.
+          </td>
+        </tr>
+      </table>
+      
+      
 		</article>
     
     
