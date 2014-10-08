@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -621,88 +627,84 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>To capture click events on the canvas, you will need to attach an event handler on the canvas itself, not the context. Since the canvas element is just like any other DOM element, attaching a click event to it is very straightforward. It can be done in any number of ways, the simplest is probably</p>
 
-<div>
-  <pre><code class="javascript">window.onload = function() {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
-  var canvas = document.getElementById('mycanvas');
-  // SOME CODES
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
+  <span class="c1">// SOME CODES</span>
   
-  canvas.onclick = function() {
-    // CLICK CODES
-  }
-}</code></pre>
-</div>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// CLICK CODES</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p>The following code sample demonstrates how to trap the click event inside the canvas. It also showcases some capabilities of the canvas which makes the example a bit interesting.</p>
 
 <p><a href="http://jsfiddle.net/tedhagos/wNxpG/1/embedded/result/" class="button">See the Demo</a></p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
 
-&lt;head&gt;
-	&lt;style&gt;
-	#mycanvas {
-		margin:10px;
-		border: 2px solid #CACACA;
-	}
-	#watch {
-		margin:20px;
-		font-size:130%;
-	}
-	&lt;/style&gt;
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;style&gt;</span>
+	<span class="nf">#mycanvas</span> <span class="p">{</span>
+		<span class="k">margin</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span>
+		<span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#CACACA</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nf">#watch</span> <span class="p">{</span>
+		<span class="k">margin</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span>
+		<span class="k">font-size</span><span class="o">:</span><span class="m">130%</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nt">&lt;/style&gt;</span>
 	
-	&lt;script&gt;
+	<span class="nt">&lt;script&gt;</span>
 	
-	window.onload = function(){
+	<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
 		
-		var c = document.getElementById('mycanvas');
-		var context = c.getContext(&quot;2d&quot;);
-		var watch = document.getElementById('watch');
+		<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">);</span>
 		
-		var mousex;
-		var mousey;
-		var mousepos;
-		var mouseoffset = 20;
+		<span class="kd">var</span> <span class="nx">mousex</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">mousey</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">mousepos</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">mouseoffset</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 		
-		c.onclick = function() {
+		<span class="nx">c</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 			
-			mousex = event.clientX;
-			mousey = event.clientY;
+			<span class="nx">mousex</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+			<span class="nx">mousey</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
 			
-			mousepos = &quot;X : &quot; + mousex + &quot; | Y :&quot; + mousey;
-			watch.innerHTML = mousepos;
-			draw(mousex,mousey);
-		}
+			<span class="nx">mousepos</span> <span class="o">=</span> <span class="s2">&quot;X : &quot;</span> <span class="o">+</span> <span class="nx">mousex</span> <span class="o">+</span> <span class="s2">&quot; | Y :&quot;</span> <span class="o">+</span> <span class="nx">mousey</span><span class="p">;</span>
+			<span class="nx">watch</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">mousepos</span><span class="p">;</span>
+			<span class="nx">draw</span><span class="p">(</span><span class="nx">mousex</span><span class="p">,</span><span class="nx">mousey</span><span class="p">);</span>
+		<span class="p">}</span>
 		
-		function draw(x,y) {
+		<span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
 
-      var R = Math.floor(Math.random() * 255);
-      var G = Math.floor(Math.random() * 255);
-      var B = Math.floor(Math.random() * 255);
-      var color = &quot;rgb(&quot; + R + &quot;,&quot; + G + &quot;,&quot; + B + &quot;)&quot;;
+      <span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">G</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">B</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;rgb(&quot;</span> <span class="o">+</span> <span class="nx">R</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">G</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">B</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">;</span>
       
-      var dim = Math.random() * 50;
+      <span class="kd">var</span> <span class="nx">dim</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span><span class="p">;</span>
       
-      context.fillStyle = color;
-			context.fillRect(x-mouseoffset,y-mouseoffset,dim,dim);
-		}		
-	}
-	&lt;/script&gt;
-&lt;/head&gt;
+      <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+			<span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">mouseoffset</span><span class="p">,</span><span class="nx">y</span><span class="o">-</span><span class="nx">mouseoffset</span><span class="p">,</span><span class="nx">dim</span><span class="p">,</span><span class="nx">dim</span><span class="p">);</span>
+		<span class="p">}</span>		
+	<span class="p">}</span>
+	<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 
-&lt;body&gt;
-	&lt;canvas id='mycanvas' width='400' height='300'&gt;
+<span class="nt">&lt;body&gt;</span>
+	<span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&#39;mycanvas&#39;</span> <span class="na">width=</span><span class="s">&#39;400&#39;</span> <span class="na">height=</span><span class="s">&#39;300&#39;</span><span class="nt">&gt;</span>
 		Time to get a new browser
-	&lt;/canvas&gt;
-	&lt;div id='watch'&gt;
+	<span class="nt">&lt;/canvas&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;watch&#39;</span><span class="nt">&gt;</span>
 		X: Y:
-	&lt;/div&gt;
-&lt;/body&gt;
+	<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
 
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>The current location of mouse is given by <strong>event.clientX &amp; event.clientY</strong>. The sample code uses the current location of the mouse to draw the <em>X &amp; Y</em> of the rectangle. The <em>offset</em> variable was used simply to reposition the top-left of the rectangle in order to coincide with tip of the mouse cursor.</p>
 

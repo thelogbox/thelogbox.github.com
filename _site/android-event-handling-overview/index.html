@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -622,14 +628,12 @@ iframe {display:block;}
 
 <p>Once you already have a project, work on the <em>main.xml</em>. This file was generated when you created the project. Add a Button view in the main.xml file </p>
 
-<div>
-  <pre><code class="xml">&lt;Button
-  android:layout_width=&quot;fill_parent&quot;
-  android:layout_height=&quot;fill_parent&quot;
-  android:text=&quot;Click me okay&quot;
-  android:onClick=&quot;showMe&quot;
-/&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;Button</span>
+  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
+  <span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
+<span class="nt">/&gt;</span></code></pre></div>
 
 <div id="lst">/res/layout/main.xml</div>
 
@@ -637,15 +641,13 @@ iframe {display:block;}
 
 <p>To implement the <strong>showMe</strong> callback, you need to add a method inside the Activity class — the one associated with <em>main.xml</em> where the Button is defined. This method has to be <em>void</em> and must accept a <em>View</em> object as a parameter.</p>
 
-<div>
-  <pre><code class="java">class MyActivity extends Activity {
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
   
-  public void showMe(View view) {
-    // your code for the click
-    // event here
-  }
-}</code></pre>
-</div>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// your code for the click</span>
+    <span class="c1">// event here</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <div id="lst">/src/com/thelogbox/MyActivity.java</div>
 
@@ -671,58 +673,54 @@ iframe {display:block;}
 
 <p>To handle a click event, you need to create a listener object (View.OnClickListener) then register the widget of interest (a Button probably) to the listener. This is how the Android runtime will know that when a click happens to the Button, the runtime needs to invoke  the <strong>public void onClick()</strong> method.</p>
 
-<div>
-  <pre><code class="java">import android.view.View.OnClickListener;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
 
-class MyActivity extends Activity {
+<span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
 
-  // other setup codes here 
+  <span class="c1">// other setup codes here </span>
 
-  @Override
-  public void onCreate(Bundle sinstance) {
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">sinstance</span><span class="o">)</span> <span class="o">{</span>
     
-    super.onCreate(sinstance);
-    button = new Button(getApplicationContext()); 
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">sinstance</span><span class="o">);</span>
+    <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span> 
   
-    OnClickListener listener = new OnClickListener(){
+    <span class="n">OnClickListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">OnClickListener</span><span class="o">(){</span>
   
-      public void(View view) {
+      <span class="kd">public</span> <span class="nf">void</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
         
-        // your code for click here
+        <span class="c1">// your code for click here</span>
   
-      }
-    } 
-    button.setOnClickListener(listener);
-  }
-}</code></pre>
-</div>
+      <span class="o">}</span>
+    <span class="o">}</span> 
+    <span class="n">button</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p>The example code above is not the only way to create listener. You can implement the <em>Listener</em> on the Activity as well, it may be more efficient that way because you can avoid the performance hit of the extra class loading which was caused by the inner class implementation.</p>
 
 <p>The samples above should get you started on event programming, but let’s take on another sample, this time, the long-click event.</p>
 
-<div>
-  <pre><code class="java">/*
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
 
-HOW TO HANDLE THE LONG CLICK
+<span class="cm">HOW TO HANDLE THE LONG CLICK</span>
 
-*/
+<span class="cm">*/</span>
 
-import android.view.View.OnLongClickListener;
+<span class="kn">import</span> <span class="nn">android.view.View.OnLongClickListener</span><span class="o">;</span>
 
-class MyActivity extends Activity implements OnLongClickListener {
-  public void onCreate(Bundle b) {
-    super.onCreate(b);
-    button = new Button(getApplicationContext());
-    button.setOnLongClickListener(this);
-  }
+<span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">OnLongClickListener</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+    <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
+    <span class="n">button</span><span class="o">.</span><span class="na">setOnLongClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="o">}</span>
 
-  public boolean onLongClick(View v) {
-    // your code when user long clicks
-    return true;
-  }
-}</code></pre>
-</div>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onLongClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// your code when user long clicks</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p>The long click <em>Listener’s</em> method is not identical to the void signature of the <em>click</em> event. It requires that you return a boolean value so Android runtime knows if the long click has already been handled (consumed) or not. Read and study the definitions of the events on the API documentation carefully. </p>
 

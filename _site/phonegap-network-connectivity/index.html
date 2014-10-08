@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -639,75 +645,73 @@ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-networ
 
 <p>We won’t be needing anything other the <em>index.html</em> file. As usual, I’ve deleted the default html file created by phonegap.</p>
 
-<div>
-  <pre><code class="html">&lt;!doctype html&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 
-&lt;html lang=en&gt;
-&lt;body&gt;
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">en</span><span class="nt">&gt;</span>
+<span class="nt">&lt;body&gt;</span>
 
-  &lt;h1&gt;Network exercise&lt;/h1&gt;
-  &lt;div id=&quot;watch&quot;&gt;
-  &lt;/div&gt;
+  <span class="nt">&lt;h1&gt;</span>Network exercise<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;watch&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
-  &lt;script type=&quot;text/javascript&quot; src=&quot;phonegap.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;phonegap.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
     
-  window.onload = function() {
-    log(&quot;window onload&quot;);
-  }  
+  <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;window onload&quot;</span><span class="p">);</span>
+  <span class="p">}</span>  
     
-  document.addEventListener(&quot;deviceready&quot;, function(){
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;deviceready&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
     
-    log(&quot;Device is ready&quot;);
+    <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Device is ready&quot;</span><span class="p">);</span>
     
-    // log(&quot;Connection is : &quot; + navigator.connection.type);
+    <span class="c1">// log(&quot;Connection is : &quot; + navigator.connection.type);</span>
     
-    var networkstate = navigator.connection.type;
-    log(&quot;CONNECTION [raw] : &quot; + networkstate);
-    log(&quot;Connection constant test : &quot; + Connection.UNKNOWN);
+    <span class="kd">var</span> <span class="nx">networkstate</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span>
+    <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;CONNECTION [raw] : &quot;</span> <span class="o">+</span> <span class="nx">networkstate</span><span class="p">);</span>
+    <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connection constant test : &quot;</span> <span class="o">+</span> <span class="nx">Connection</span><span class="p">.</span><span class="nx">UNKNOWN</span><span class="p">);</span>
     
-    var states = new Array();
+    <span class="kd">var</span> <span class="nx">states</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
     
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">UNKNOWN</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;Unknown connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">ETHERNET</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ethernet connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">WIFI</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;WiFi connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">CELL_2G</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;Cell 2G connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">CELL_3G</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;Cell 3G connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">CELL_4G</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;Cell 4G connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">CELL</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;Cell generic connection&#39;</span><span class="p">;</span>
+    <span class="nx">states</span><span class="p">[</span><span class="nx">Connection</span><span class="p">.</span><span class="nx">NONE</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;No network connection&#39;</span><span class="p">;</span>
     
-    log(&quot;CONNECTION : &quot; + states[networkstate]);
+    <span class="nx">log</span><span class="p">(</span><span class="s2">&quot;CONNECTION : &quot;</span> <span class="o">+</span> <span class="nx">states</span><span class="p">[</span><span class="nx">networkstate</span><span class="p">]);</span>
     
-  },false);
+  <span class="p">},</span><span class="kc">false</span><span class="p">);</span>
   
-  function log(message){
-    var out = document.getElementById(&quot;watch&quot;);
-    var temp = out.innerHTML;
-    temp += message + &quot;&lt;br/&gt;&quot;;
-    out.innerHTML = temp;
-  }
+  <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+    <span class="nx">temp</span> <span class="o">+=</span> <span class="nx">message</span> <span class="o">+</span> <span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
+    <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
+  <span class="p">}</span>
   
-  &lt;/script&gt;
+  <span class="nt">&lt;/script&gt;</span>
 
-  &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
   
-  * {
-    font-family: Arial;
-  }
-  body {background: #FBFBFB;border: 1px solid #F1F1F1;}
+  <span class="o">*</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">Arial</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">body</span> <span class="p">{</span><span class="k">background</span><span class="o">:</span> <span class="m">#FBFBFB</span><span class="p">;</span><span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#F1F1F1</span><span class="p">;}</span>
   
-  #watch {
-    border: 2px solid #CACACA;
-    font-size: 20px;
-    background: #F1F1F1;
-    padding: 5px;
-  }
-  &lt;/style&gt;
+  <span class="nf">#watch</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#CACACA</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#F1F1F1</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
 
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p><strong>Compile, build and run your app.</strong></p>
 

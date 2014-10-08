@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -642,13 +648,7 @@ How to hunt down applications via their port numbers</p>
 
 <p>Anyway, the basic idea is to use the netstat command so that we can list all the applications that are either accepting or sending network traffic, and we’d like to list their port numbers and their process IDs too. Then, when we find the port number we are looking for, we will list all the running processes and make the match using the process ID – then we’ll know who the culprit is.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></p>
 
 <p><em>-a</em> means list all active connections and their ports. -o means include their process IDs. -n means display the port numbers numerically.</p>
 
@@ -660,13 +660,7 @@ TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 560
 
 </pre>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></p>
 
 <p><em>tasklist</em> is another Windows command line utility which shows you a list of all active processes, again I’d feed it to the findstr utility via the pipe operator, and voila – Skype is the culprit.</p>
 

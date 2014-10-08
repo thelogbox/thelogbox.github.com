@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -623,19 +629,17 @@ iframe {display:block;}
 
 <p>Functions in JavaScript has some twists that may seem weird at first (depending on where you are coming from). The dynamic characteristic of the language presents a lot of possibilites—and some suprises too. Take a look at the following code</p>
 
-<div>
-  <pre><code class="javascript">function foo() {
-	return 10;
-}
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
 
-console.log(foo()); 	//nothing surprising here, it will return 10
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span> 	<span class="c1">//nothing surprising here, it will return 10</span>
 
-foo = &quot;Hello World&quot;; 	//This is allowed in JS, because it is not strongly typed
-console.log(foo); 		//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function
-						//before
+<span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span> 	<span class="c1">//This is allowed in JS, because it is not strongly typed</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> 		<span class="c1">//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function</span>
+						<span class="c1">//before</span>
 
-console.log(foo());		//this one will throw an error, because foo is no longer a function</code></pre>
-</div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span>		<span class="c1">//this one will throw an error, because foo is no longer a function</span></code></pre></div>
 
 <p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
 

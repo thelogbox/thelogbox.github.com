@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -627,16 +633,14 @@ iframe {display:block;}
 
 <h1 id="basic-structure">Basic structure</h1>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt; 
-&lt;html&gt;
-  &lt;head&gt; 
-  &lt;/head&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span> 
+  <span class="nt">&lt;/head&gt;</span>
 
-  &lt;body&gt;
-  &lt;/body&gt; 
-&lt;/html&gt;</code></pre>
-</div>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span> 
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>The &lt;html&gt; element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head&gt;</strong> and the <strong>&lt;body&gt;</strong> elements.</p>
 
@@ -703,22 +707,20 @@ iframe {display:block;}
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt; 
-&lt;html&gt;
-  &lt;head&gt; 
-  &lt;/head&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span> 
+  <span class="nt">&lt;/head&gt;</span>
 
-  &lt;body&gt;
-    &lt;h1&gt;Hello World&lt;/h1&gt;
-    &lt;p&gt;
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
     The quick brown fox
-    &lt;/p&gt;
-    &lt;strong&gt;jumped&lt;/strong&gt; over the head of the
-    &lt;em&gt;lazy dog&lt;/em&gt; near the river bank
-  &lt;/body&gt; 
-&lt;/html&gt;</code></pre>
-</div>
+    <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
+    <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
+  <span class="nt">&lt;/body&gt;</span> 
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
 

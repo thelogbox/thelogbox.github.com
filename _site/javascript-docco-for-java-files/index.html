@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -645,30 +651,28 @@ iframe {display:block;}
 
 <p>The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the <code>.java</code> entry to the languages object literal.</p>
 
-<div>
-  <pre><code class="javascript">languages = {
-    '.coffee': {
-      name: 'coffee-script',
-      symbol: '#'
-    },
-    '.js': {
-      name: 'javascript',
-      symbol: '//'
-    },
-    '.rb': {
-      name: 'ruby',
-      symbol: '#'
-    },
-    '.py': {
-      name: 'python',
-      symbol: '#'
-    },
-	'.java': {
-		name: 'java',
-		symbol: '//'
-	}
-  };</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">languages</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;.coffee&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coffee-script&#39;</span><span class="p">,</span>
+      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;.js&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;javascript&#39;</span><span class="p">,</span>
+      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;.rb&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
+      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;.py&#39;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
+      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
+    <span class="p">},</span>
+	<span class="s1">&#39;.java&#39;</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;java&#39;</span><span class="p">,</span>
+		<span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
+	<span class="p">}</span>
+  <span class="p">};</span></code></pre></div>
 
 <p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.</p>
 

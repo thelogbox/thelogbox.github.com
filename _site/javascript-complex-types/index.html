@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -641,16 +647,14 @@ iframe {display:block;}
 
 <p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON — short for JavaScript Object Notation.</p>
 
-<div>
-  <pre><code class="javascript">var obj = {} // this one constructs an empty object
-var pt 	= {x:0, y:0} // an object with simple data types as members
-var person = {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// this one constructs an empty object</span>
+<span class="kd">var</span> <span class="nx">pt</span> 	<span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
 
-	name: &quot;John Doe&quot;,
-	email: &quot;johndoe@somewhere.com&quot;,
+	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+	<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@somewhere.com&quot;</span><span class="p">,</span>
 
-} // an object that has two members, both of which are Strings</code></pre>
-</div>
+<span class="p">}</span> <span class="c1">// an object that has two members, both of which are Strings</span></code></pre></div>
 
 <p>When you use object literals to initialize objects, don’t forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member–using the dot notation–and assigning them values</p>
 

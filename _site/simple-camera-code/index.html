@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -623,111 +629,109 @@ iframe {display:block;}
 
 <h2 id="code-sample">CODE SAMPLE</h2>
 
-<div>
-  <pre><code class="java">package com.thelogbox;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.content.Context;
-import android.widget.LinearLayout;
-import android.hardware.Camera;
-import android.hardware.Camera.ShutterCallback;
-import android.hardware.Camera.PictureCallback;
-import android.view.SurfaceView;
-import android.util.Log;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-import android.os.Handler;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.hardware.Camera</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.hardware.Camera.ShutterCallback</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.hardware.Camera.PictureCallback</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.SurfaceView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Handler</span><span class="o">;</span>
 
 
-class VSimpleCamera extends LinearLayout implements OnClickListener {
+<span class="kd">class</span> <span class="nc">VSimpleCamera</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span> <span class="o">{</span>
 
-  private String TAG = null;
-  private SurfaceView surfaceview = null;
-  private Camera camera = null;
-  private FileOutputStream out = null;
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">SurfaceView</span> <span class="n">surfaceview</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">Camera</span> <span class="n">camera</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">FileOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-  public VSimpleCamera(Context ctx){
-    super(ctx);
+  <span class="kd">public</span> <span class="nf">VSimpleCamera</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">){</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
     
-    TAG = getClass().getName();
-    surfaceview = new SurfaceView(ctx);
-    camera = Camera.open();
+    <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+    <span class="n">surfaceview</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SurfaceView</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
 
-    setOnClickListener(this);
+    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 
 
-    Handler handler = new Handler();
-    handler.postDelayed(new Runnable(){
-      public void run() {
-        Log.v(TAG, &quot;Runnable is running&quot;);
+    <span class="n">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Handler</span><span class="o">();</span>
+    <span class="n">handler</span><span class="o">.</span><span class="na">postDelayed</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">(){</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Runnable is running&quot;</span><span class="o">);</span>
 
-        //You can put the camera hooba jub here
+        <span class="c1">//You can put the camera hooba jub here</span>
         
-      }
-    }, 3000);
+      <span class="o">}</span>
+    <span class="o">},</span> <span class="mi">3000</span><span class="o">);</span>
 
-  }
+  <span class="o">}</span>
 
-  public void onClick(View v){
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
 
-    boolean cameratest = (camera == null);
-    Log.v(TAG, &quot;Clicked&quot;);
+    <span class="kt">boolean</span> <span class="n">cameratest</span> <span class="o">=</span> <span class="o">(</span><span class="n">camera</span> <span class="o">==</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Clicked&quot;</span><span class="o">);</span>
   
-    try {
-      camera.setPreviewDisplay(surfaceview.getHolder());
-      camera.startPreview();
-      camera.takePicture(shutterCallBack, rawCallBack, jpgCallBack);
-    }
-    catch(Exception e){
-      Log.v(TAG, &quot;Exception &quot; + e.toString());
-    }
-  }
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">camera</span><span class="o">.</span><span class="na">setPreviewDisplay</span><span class="o">(</span><span class="n">surfaceview</span><span class="o">.</span><span class="na">getHolder</span><span class="o">());</span>
+      <span class="n">camera</span><span class="o">.</span><span class="na">startPreview</span><span class="o">();</span>
+      <span class="n">camera</span><span class="o">.</span><span class="na">takePicture</span><span class="o">(</span><span class="n">shutterCallBack</span><span class="o">,</span> <span class="n">rawCallBack</span><span class="o">,</span> <span class="n">jpgCallBack</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Exception &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-  ShutterCallback shutterCallBack = new ShutterCallback() {
-    public void onShutter() {
-      Log.v(TAG, &quot;shutter call&quot;);
-    }
-  };
+  <span class="n">ShutterCallback</span> <span class="n">shutterCallBack</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ShutterCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onShutter</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;shutter call&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">};</span>
 
-  PictureCallback rawCallBack = new PictureCallback() {
-    public void onPictureTaken(byte[] data, Camera cam){
-      Log.v(TAG, &quot;raw Call back&quot;);
-    }
-  };
+  <span class="n">PictureCallback</span> <span class="n">rawCallBack</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">PictureCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPictureTaken</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">cam</span><span class="o">){</span>
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;raw Call back&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">};</span>
 
-  PictureCallback jpgCallBack = new PictureCallback() {
-    public void onPictureTaken(byte[] data, Camera cam){
+  <span class="n">PictureCallback</span> <span class="n">jpgCallBack</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">PictureCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPictureTaken</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">cam</span><span class="o">){</span>
 
-        try {
-          out = new FileOutputStream(String.format(&quot;/sdcard/%d.jpg&quot;, System.currentTimeMillis()));
-          out.write(data);
-        }
-        catch(FileNotFoundException fe) {
-          Log.v(TAG, fe.getMessage());
-        }
-        catch(IOException ioe) {
-          Log.v(TAG,ioe.getMessage());
-        }
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">FileOutputStream</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;/sdcard/%d.jpg&quot;</span><span class="o">,</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()));</span>
+          <span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">catch</span><span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">fe</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">fe</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span><span class="n">ioe</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
 
-      Log.v(TAG, &quot;jpg Call Back&quot;);
-    }
-  };
+      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;jpg Call Back&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">};</span>
 
-}
+<span class="o">}</span>
 
-public class SimpleCamera extends Activity {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleCamera</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(new VSimpleCamera(this));
-    }
-}</code></pre>
-</div>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">VSimpleCamera</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <div id="lst">SimpleCamera.java</div>
 

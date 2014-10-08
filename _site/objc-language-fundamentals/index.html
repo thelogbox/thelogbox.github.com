@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -645,18 +651,16 @@ iframe {display:block;}
 
 <p>Type the contents of the following code</p>
 
-<div>
-  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-int main (int argc, const char* argv[]) {
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
 	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	NSLog (@ &quot;Hello World\n&quot;);
+	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	<span class="n">NSLog</span> <span class="p">(@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 	
-	[pool drain];
-	return 0;
-}</code></pre>
-</div>
+	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
 <p>Compiling this code requires the <em>gcc</em> toolchain. If you already have set it up using XCode, you can compile the code on the terminal using <code class="codeblock">$ gcc -framework Foundation Hello.m -o Hello</code></p>
 

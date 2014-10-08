@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -641,8 +647,7 @@ $ sudo echo "" &gt; cupsd.conf
 
 <p>Second line above makes a copy of the original cupsd.conf and the third line wipes out the textual content of <em>cupsd.conf</em>. After that we can edit cupsd.conf with minimal fuss. The new <em>cupsd.conf</em> looks like the following</p>
 
-<div>
-  <pre><code class="xml">LogLevel debug
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">LogLevel debug
 SystemGroup lpadmin
 #Allow remote access
 Port 631
@@ -653,16 +658,16 @@ BrowseOrder allow,deny
 BrowseAddress @LOCAL
 
 #DefaultAuthType Basic
-&lt;Location /&gt;
+<span class="nt">&lt;Location</span> <span class="nt">/&gt;</span>
   Allow localhost
   Allow 192.168.0.*
   Allow all
   #Allow shared printing and remote administration...
   Order allow,deny
   Allow all
-&lt;/Location&gt;
+<span class="nt">&lt;/Location&gt;</span>
 
-&lt;Location /admin&gt;
+<span class="nt">&lt;Location</span> <span class="err">/admin</span><span class="nt">&gt;</span>
   Allow 192.168.0.*
   Encryption Required
   Allow all
@@ -670,9 +675,9 @@ BrowseAddress @LOCAL
   #Allow remote administration...
   Order allow,deny
   Allow all
-&lt;/Location&gt;
+<span class="nt">&lt;/Location&gt;</span>
     
-&lt;Location /admin/conf&gt;
+<span class="nt">&lt;Location</span> <span class="err">/admin/conf</span><span class="nt">&gt;</span>
   Allow 192.168.0.*
   #AuthType Default
   #Require user @SYSTEM
@@ -680,8 +685,7 @@ BrowseAddress @LOCAL
   #Allow remote access to the configuration files...
   Order allow,deny
   Allow all
-&lt;/Location&gt;</code></pre>
-</div>
+<span class="nt">&lt;/Location&gt;</span></code></pre></div>
 
 <p>Obviously not a very tight and secure CUPS configuration. You can harden it later when you know more about the configuration. For now, this will happily function as a basic, albeit, insecure print server. </p>
 

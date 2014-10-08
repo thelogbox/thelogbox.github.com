@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -710,15 +716,13 @@ it out, then press <strong>enter</strong>. Each time you press the enter key, it
 tells the Console that you want to evaluate something. Try out some of
 these expressions.</p>
 
-<div>
-  <pre><code class="javascript">&gt; 1 + 1;
-&gt; alert(&quot;Hello JavaScript&quot;);
-&gt; prompt(&quot;What is your name&quot;);
-&gt; var x = 100;
-&gt; console.log(x);
-&gt; var myname = prompt(&quot;What is your name&quot;);
-&gt; console.log(myname);</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="o">&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello JavaScript&quot;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;What is your name&quot;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="o">&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">myname</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;What is your name&quot;</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myname</span><span class="p">);</span></code></pre></div>
 
 <p>Did you notice that each line was punctuated with a semi-colon? That’s
 part of the language. JavaScript statements should finish with a

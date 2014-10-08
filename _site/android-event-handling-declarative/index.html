@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -624,62 +630,58 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
 
 <p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:orientation=&quot;vertical&quot;
-    android:layout_width=&quot;fill_parent&quot;
-    android:layout_height=&quot;fill_parent&quot;
-    &gt;
-&lt;TextView
-    android:layout_width=&quot;fill_parent&quot; 
-    android:layout_height=&quot;wrap_content&quot; 
-    android:text=&quot;Hello World, TestToast&quot;
-    /&gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="nt">&gt;</span>
+<span class="nt">&lt;TextView</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    <span class="na">android:text=</span><span class="s">&quot;Hello World, TestToast&quot;</span>
+    <span class="nt">/&gt;</span>
     
-&lt;Button
-	android:layout_width=&quot;fill_parent&quot;
-	android:layout_height=&quot;fill_parent&quot;
-	android:text=&quot;Click me okay&quot;
-	android:onClick=&quot;showMe&quot;
-/&gt;
+<span class="nt">&lt;Button</span>
+	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
+	<span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
+<span class="nt">/&gt;</span>
 
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <p>You will need to implement a method called “showMe()” inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>. </p>
 
 <p>Next, add the <em>showMe()</em> method to the Activity class. </p>
 
-<div>
-  <pre><code class="java">package com.thelogbox;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Toast;
-import android.content.Context;
-import android.view.View;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
 
-public class TestToast extends Activity {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestToast</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
 
-/** Called when the activity is first created. */
+<span class="cm">/** Called when the activity is first created. */</span>
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
 
-	public void showMe(View v) {
-		Context ctx = getApplicationContext();
-		String msg = &quot;Hello World&quot;;
-		int duration = Toast.LENGTH_SHORT;
-		Toast notification = Toast.makeText(ctx,msg,duration);
-		notification.show();
-	}
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
+		<span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">;</span>
+		<span class="n">Toast</span> <span class="n">notification</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="n">msg</span><span class="o">,</span><span class="n">duration</span><span class="o">);</span>
+		<span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+	<span class="o">}</span>
 
-}</code></pre>
-</div>
+<span class="o">}</span></code></pre></div>
 
 <div id="lst">/src/com/thelogbox/TestToast.java.</div>
 

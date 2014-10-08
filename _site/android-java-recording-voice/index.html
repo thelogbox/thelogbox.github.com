@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -635,143 +641,139 @@ iframe {display:block;}
 
 <p>The source for this exercise is below. There is no main.xml because the UI was built programatically, instead of declaratively</p>
 
-<div>
-  <pre><code class="java">package com.thelogbox;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Environment;
-import android.widget.LinearLayout;
-import android.widget.Button;
-import android.content.Context;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.media.MediaRecorder;
-import android.media.MediaPlayer;
-import java.io.IOException;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Environment</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Button</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.media.MediaRecorder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.media.MediaPlayer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 
 
-public class Recorder extends Activity {
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(new RView(this));
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Recorder</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+    <span class="cm">/** Called when the activity is first created. */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">RView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-class RView extends LinearLayout implements OnClickListener {
+<span class="kd">class</span> <span class="nc">RView</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span> <span class="o">{</span>
 
-	Button btnstart = null;
-	Button btnstop = null;
-	MediaPlayer mp = null;
-	MediaRecorder mr = null;
-	String filename = null;
+	<span class="n">Button</span> <span class="n">btnstart</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="n">Button</span> <span class="n">btnstop</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="n">MediaPlayer</span> <span class="n">mp</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="n">MediaRecorder</span> <span class="n">mr</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-	RView(Context ctx) {
-		super(ctx);
+	<span class="n">RView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
 
-		filename = Environment.getExternalStorageDirectory().getAbsolutePath();
-		filename += &quot;/test.3gp&quot;;
+		<span class="n">filename</span> <span class="o">=</span> <span class="n">Environment</span><span class="o">.</span><span class="na">getExternalStorageDirectory</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">();</span>
+		<span class="n">filename</span> <span class="o">+=</span> <span class="s">&quot;/test.3gp&quot;</span><span class="o">;</span>
 
-		mr = new MediaRecorder();
-		mp = new MediaPlayer();
+		<span class="n">mr</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MediaRecorder</span><span class="o">();</span>
+		<span class="n">mp</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MediaPlayer</span><span class="o">();</span>
 
-		btnstart = new Button(ctx);
-		btnstop = new Button(ctx);
+		<span class="n">btnstart</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+		<span class="n">btnstop</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Button</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
 
-		btnstart.setText(&quot;start&quot;);
-		btnstop.setText(&quot;stop&quot;);
+		<span class="n">btnstart</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">);</span>
+		<span class="n">btnstop</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;stop&quot;</span><span class="o">);</span>
 
-		btnstart.setOnClickListener(this);
-		btnstop.setOnClickListener(this);
+		<span class="n">btnstart</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+		<span class="n">btnstop</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 
-		btnstart.setId(1);
-		btnstop.setId(2);
+		<span class="n">btnstart</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+		<span class="n">btnstop</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
 
-		setOrientation(LinearLayout.VERTICAL);
+		<span class="n">setOrientation</span><span class="o">(</span><span class="n">LinearLayout</span><span class="o">.</span><span class="na">VERTICAL</span><span class="o">);</span>
 
-		addView(btnstart);
-		addView(btnstop);
+		<span class="n">addView</span><span class="o">(</span><span class="n">btnstart</span><span class="o">);</span>
+		<span class="n">addView</span><span class="o">(</span><span class="n">btnstop</span><span class="o">);</span>
 
-	}
+	<span class="o">}</span>
 
-	public void onClick(View view){
-		if(view.getId() == 1) {
-			// START BUTTON
-			btnstart.setText(&quot;Holding ...&quot;);
-			btnstop.setClickable(true);
-			btnstart.setClickable(false);
-			startRec();
-		}
-		else if(view.getId() == 2) {
-			// STOP BUTTON
-			btnstart.setClickable(true);
-			btnstart.setText(&quot;start&quot;);
-			btnstop.setClickable(false);
-			stopRec();
-		}
-	}
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getId</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// START BUTTON</span>
+			<span class="n">btnstart</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;Holding ...&quot;</span><span class="o">);</span>
+			<span class="n">btnstop</span><span class="o">.</span><span class="na">setClickable</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+			<span class="n">btnstart</span><span class="o">.</span><span class="na">setClickable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+			<span class="n">startRec</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getId</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// STOP BUTTON</span>
+			<span class="n">btnstart</span><span class="o">.</span><span class="na">setClickable</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+			<span class="n">btnstart</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;start&quot;</span><span class="o">);</span>
+			<span class="n">btnstop</span><span class="o">.</span><span class="na">setClickable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+			<span class="n">stopRec</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
 
-	void startRec() {
-		mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-		mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-		mr.setOutputFile(filename);
-		mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+	<span class="kt">void</span> <span class="nf">startRec</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">setAudioSource</span><span class="o">(</span><span class="n">MediaRecorder</span><span class="o">.</span><span class="na">AudioSource</span><span class="o">.</span><span class="na">MIC</span><span class="o">);</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">setOutputFormat</span><span class="o">(</span><span class="n">MediaRecorder</span><span class="o">.</span><span class="na">OutputFormat</span><span class="o">.</span><span class="na">THREE_GPP</span><span class="o">);</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">setOutputFile</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">setAudioEncoder</span><span class="o">(</span><span class="n">MediaRecorder</span><span class="o">.</span><span class="na">AudioEncoder</span><span class="o">.</span><span class="na">AMR_NB</span><span class="o">);</span>
 
-		try {
-			mr.prepare();
-		}
-		catch(IOException ioe){
-			// Some Logcat here
-		}
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">mr</span><span class="o">.</span><span class="na">prepare</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">){</span>
+			<span class="c1">// Some Logcat here</span>
+		<span class="o">}</span>
 
-		mr.start();
-	}
+		<span class="n">mr</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+	<span class="o">}</span>
 
-	void stopRec() {
-		mr.stop();
-		mr.release();
+	<span class="kt">void</span> <span class="nf">stopRec</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span>
+		<span class="n">mr</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
 
-		try {
-			mp.setDataSource(filename);
-			mp.prepare();
-		}
-		catch(IOException ioe) {
-			// some Logcat here
-		}
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">mp</span><span class="o">.</span><span class="na">setDataSource</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+			<span class="n">mp</span><span class="o">.</span><span class="na">prepare</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// some Logcat here</span>
+		<span class="o">}</span>
 
-		mp.start();
+		<span class="n">mp</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 
-	}
+	<span class="o">}</span>
 
-}</code></pre>
-</div>
+<span class="o">}</span></code></pre></div>
 
 <h2 class="section">PERMISSIONS</h2>
 
 <p>The code above will already compile (and run). If you do the first testing, it will run for a while but will immediately crash when you press the <em>Start</em> button. The <em>MediaRecorder</em> will not initialize properly and hence will hit an <em>IllegalStateException</em> when you start invoking the MediaRecorder methods. The Android runtime needs to allow your application to capture and record audio. App permissions are declared on the <em>AndroidManifest.xml</em> file, you will need to add the entry <em>&lt;uses-permission android:name=”android.permission.RECORD_AUDIO” /&gt;</em> to the manifest. Make sure also that you add the permissions entry out the &lt;application …/&gt; node. Here is the full entry of the <em>AndroidManifest.xml</em> for this exercise.</p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-      package=&quot;com.thelogbox&quot;
-      android:versionCode=&quot;1&quot;
-      android:versionName=&quot;1.0&quot;&gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+      <span class="na">package=</span><span class="s">&quot;com.thelogbox&quot;</span>
+      <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span>
+      <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
 
-    &lt;uses-permission android:name=&quot;android.permission.RECORD_AUDIO&quot; /&gt;
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.RECORD_AUDIO&quot;</span> <span class="nt">/&gt;</span>
 
-    &lt;application android:label=&quot;@string/app_name&quot; &gt;
-        &lt;activity android:name=&quot;Recorder&quot;
-                  android:label=&quot;@string/app_name&quot;&gt;
-            &lt;intent-filter&gt;
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-            &lt;/intent-filter&gt;
-        &lt;/activity&gt;
-    &lt;/application&gt;
-&lt;/manifest&gt;</code></pre>
-</div>
+    <span class="nt">&lt;application</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;Recorder&quot;</span>
+                  <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;intent-filter&gt;</span>
+                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/intent-filter&gt;</span>
+        <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span></code></pre></div>
 
 
         </div>					

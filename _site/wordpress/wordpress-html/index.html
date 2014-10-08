@@ -24,6 +24,10 @@
 
 -->
 
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -46,8 +50,10 @@
 
 		<style>
 
+/*
 @import
 url(http://fonts.googleapis.com/css?family=Roboto:300,400|Anonymous+Pro:400,700);
+*/
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,7 +65,7 @@ em {
 
 body {
   font-size:16px;   
-  font-family: 'Roboto','Lato';
+  font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
@@ -308,7 +314,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -639,14 +645,12 @@ iframe {display:block;}
 
 <p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window’s context menu, then choose a program editor to open the html file. Edit it and write the following</p>
 
-<div>
-  <pre><code class="html">&lt;!doctype html&gt;
-&lt;html&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
 
-  &lt;h1&gt;Hello&lt;/h1&gt;
+  <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
 
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <div id="lst">first.html</div>
 
@@ -666,12 +670,10 @@ iframe {display:block;}
 
 <p>The fundamental structure of an html document is as follows</p>
 
-<div>
-  <pre><code class="html">&lt;!doctype html&gt;
-&lt;html&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
 
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <div id="lst">basic structure</div>
 
@@ -681,17 +683,15 @@ iframe {display:block;}
 
 <p>There some more structural issues that we need to get out of the way before we can take a look at the presentation semantics of HTML. A more complete structure for an HTML doc looks like the following</p>
 
-<div>
-  <pre><code class="html">&lt;!doctypehtml&gt;
-&lt;html&gt;
-  &lt;head&gt; &lt;title&gt;First&lt;/title&gt;
-  &lt;/head&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctypehtml&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span> <span class="nt">&lt;title&gt;</span>First<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
   
-  &lt;body&gt;
-    &lt;h1&gt;Hello&lt;/h1&gt; 
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span> 
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <div id="lst">HTML doc structure</div>
 
