@@ -13,6 +13,10 @@ tags:
 
 ---
 
+<aside>
+This document is no longer maintained. Go to <a href="/android/android-what-you-need-to-know-before">What you need to know before diving into Android</a>
+</aside>
+
 A list of things you need get a handle on before diving into Android programming.
 
 - *Inheritance*. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that you create an Activity class &mdash; that means you will create a class that inherits from android.app.Activity. You must be very familiar with the rules and characteristics of Java Inheritance. Java uses both *interface* and *class* inheritance. You need to understand both

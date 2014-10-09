@@ -35,15 +35,15 @@
 
 <link 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="keywords" content="utility ,ddms">
+<meta name="keywords" content="">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="Screen shoot like a geek" />
+<meta name="description" content="" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    Screen Shooting | theLogBox
+    CLI Project creation | theLogBox
   
 </title>
 
@@ -615,19 +615,19 @@ iframe {display:block;}
      <header>
     <div class='feature-banner'>
       <div class='feature-banner-text'>
-        Screen Shooting
+        CLI Project creation
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
   <div style="text-decoration: overline; color: inherited">
-  file: #utility  #ddms
+  file: #
   </div> 
   last updated:  <br/>
   -->
 
   By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-<!--  April 11, 2012 <p/> -->
+<!--  October 09, 2014 <p/> -->
     
 <!--
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
@@ -648,17 +648,32 @@ iframe {display:block;}
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <ol>
-  <li>You need the JDK (Java Development Toolkit). The Android development environment depends on Java, that is why you need this. Take note that you need the JDK not the JRE (Java Runtime Environment). If you install the JDK though, you would also have installed the JRE</li>
-  <li>You need to the <em>Android SDK</em>. It can be downloaded installed on your PC. I assume you are and android</li>
-  <li>Launch the <em>ddms</em> – <em>$ ddms</em> or <em>c:\&gt;ddms&gt;</em>. The path to the <strong>android</strong> executable has to be included in your PATH variable. If you forgot how to setup the Android dev environment, the <a href="http://developer.android.com/sdk/installing.html">notes are on Official Android developer site</a>. You do not need to follow all the steps in there, you only need to complete up until step No. 2.</li>
-  <li>Enable USB debugging on the Android device, before you connect it to the PC (or Mac, or Linux). This is usually done by accessing <em>Settings–&gt;Applications–&gt;Development</em>, there is a check box beside “Enable USB debugging”. Connect the Android device to your PC via a USB cable</li>
-  <li>The connected device should now be visible within the DDMS window. Select it (just mouse click on it)</li>
-  <li>Press CTRL-a on your keyboard</li>
-</ol>
+		    <p>You need a bunch of files to build a project. XML files are used for both configuration and defining screens. Images and other resources like video and audio may also need to be included, depending on the kind of project you are building. Last and most importantly will be the Java source files where you will write the program logic. All of these things come together inside an Android project. </p>
 
-<p>This technique of screen shooting is not for the everyday Android User — not even for the power user. This technique is for Devs. You would use this technique because the captured image is captured on a PC. If you will do screenshooting using an App, you need to take care of the file transfer between the device and the PC.</p>
+<p>The SDK includes executable tools and utilities that you can use to create and manage android projects. If you properly installed the SDK and included the folders <strong>tools</strong> and <strong>platform-tools</strong> to your system path, you can start an Android project using the <strong>android create project</strong> command.  </p>
 
+<pre><code>android create project --target 8
+                       --path Hello
+                       --package com.thelogbox
+                       --activity Main
+</code></pre>
+
+<p>The command is meant to be ran on a terminal window like xterm, Terminal.app or cmd.exe. You will type them in one continuous line, not like how you see it here. They are written on 4 lines for formatting purposes only. You need to pass the four options shown above as a minimum in order to create a project, they don’t have to be in the order you see them here but they all need to be there.</p>
+
+<p>The <strong>–target</strong> option tells the tool what Android version will your app run on. It expects an integer argument. The number 8 in our example means we are targetting the Froyo version of Android. The number stands for an API level.</p>
+
+<p>The <strong>–path</strong> option dictates the name of the folder where all your programming assets e.g. source, xml and images will be located. In our example, we would like to create a folder named “Hello”. This is where we will store all the things we need to build the project.</p>
+
+<p>The <strong>–package</strong> option is what Android will use to organize the Java source file. If you are familiar with Java packages, it is exactly what this option means. The package name will also be used if you decide to sell your applications to market places like Google Play or Amazon. It becomes your namespace. The package name is usually the name of your website in reverse notation.</p>
+
+<p>The <strong>–activity</strong> option instructs the tool to automatically create a class that extends the Activity class of the Android framework </p>
+
+<h1 id="errors-you-might-have-encountered">Errors you might have encountered</h1>
+
+<ul>
+  <li><strong>Command not found or Bad command or file name</strong>. The command <strong>android</strong> cannot be found within the places where your shell looks for executable file. Either you have not included the folders <strong>tools</strong> and <strong>platform-tools</strong> of the Android SDK into your system path. Either that or you made some spelling mistakes when you included them in the path.</li>
+  <li><strong>Android create project command won’t complete</strong>. This is most likely a spelling error when typing the commands as shown earlier. Take care that you use a double dash when specifying the option. There is no space between the double dash and the option. Take note that there is a space between the option and the argument</li>
+</ul>
 
         </div>					
 		  </div>

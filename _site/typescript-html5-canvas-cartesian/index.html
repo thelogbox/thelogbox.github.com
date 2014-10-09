@@ -666,28 +666,26 @@ iframe {display:block;}
 
 <h2 id="create-the-html-part-filename--line-drawhtml">1. Create the HTML part (filename = line-draw.html)</h2>
 
-<div>
-  <pre><code class="javascript">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
 		
 		
-		&lt;title&gt;&lt;/title&gt;
+		<span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;</span><span class="err">/title&gt;</span>
 		
-	&lt;/head&gt;
-	&lt;body&gt;
-	&lt;noscript&gt;This demo will not work if JavaScript is disabled in your browser. 
-		Please enable JavaScript in your browser then load this page again. 
-		Thanks
-	&lt;/noscript&gt;
-	&lt;script src=&quot;MathE.js&quot;&gt;&lt;/script&gt;
-	&lt;div id=&quot;output&quot;&gt;&lt;/div&gt;
-	&lt;canvas id=&quot;default-canvas&quot;&gt;
-	Your browser is not capable of displaying HTML5 canvas components		
-	&lt;/canvas&gt;
-	&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+	<span class="o">&lt;</span><span class="err">/head&gt;</span>
+	<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nx">noscript</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">demo</span> <span class="nx">will</span> <span class="nx">not</span> <span class="nx">work</span> <span class="k">if</span> <span class="nx">JavaScript</span> <span class="nx">is</span> <span class="nx">disabled</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span><span class="p">.</span> 
+		<span class="nx">Please</span> <span class="nx">enable</span> <span class="nx">JavaScript</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">browser</span> <span class="nx">then</span> <span class="nx">load</span> <span class="k">this</span> <span class="nx">page</span> <span class="nx">again</span><span class="p">.</span> 
+		<span class="nx">Thanks</span>
+	<span class="o">&lt;</span><span class="err">/noscript&gt;</span>
+	<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;MathE.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+	<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+	<span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;default-canvas&quot;</span><span class="o">&gt;</span>
+	<span class="nx">Your</span> <span class="nx">browser</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">capable</span> <span class="nx">of</span> <span class="nx">displaying</span> <span class="nx">HTML5</span> <span class="nx">canvas</span> <span class="nx">components</span>		
+	<span class="o">&lt;</span><span class="err">/canvas&gt;</span>
+	<span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span></code></pre></div>
 
 <p>The default-canvas html element is not important to the actual code, it is just a quick and dirty way to check if the browser being used does not support the canvas element, you could use Modernizr.JS for a more proper way of checking for HTML5 capability of the browser. The NOSCRIPT tag is also a quick and dirty way of detecting if JavaScript is disabled in the browser—I just don’t see how this can kind of exercise can degrade gracefully if JavaScript is diabled, so its an all or nothing deal; No JavaScript, no demo.</p>
 
@@ -695,379 +693,377 @@ iframe {display:block;}
 
 <p>Create a TypeScript source file on the same directory as <em>line-draw.html</em>, for the exercise, I named it <em>MathE.ts</em>, this will later emit a file called <em>MathE.js</em> which is the <strong>src</strong> of our script tag on the HTML file </p>
 
-<div>
-  <pre><code class="javascript">// filename : MathE.js 
-// An example of using HTML5 canvas to do primitive lines on a cartesian plane.
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename : MathE.js </span>
+<span class="c1">// An example of using HTML5 canvas to do primitive lines on a cartesian plane.</span>
 
 
-class Paper {
+<span class="kr">class</span> <span class="nx">Paper</span> <span class="p">{</span>
 
-  private isDirty = false;
-  private clickcount = 0;
-  private cartesian: Cartesian;
-  private vertices: Vertices;
-  private canv: any;
-  private ctx: any;
-  private lines: Lines;
-  private line: Line = {
-    x1: 0,
-    y1: 0,
-    x2: 0,
-    y2: 0,
-    pname1: &quot;&quot;,
-    pname2: &quot;&quot;
-  };
-
-  private output: any = null;
-
-  constructor() {
-
-    // setup the canvas
-    this.canv = &lt; HTMLCanvasElement &gt; document.createElement(&quot;canvas&quot;);
-    this.canv.width = 600;
-    this.canv.height = 600
-    this.canv.style.border = &quot;1px solid gray&quot;;
-
-    // BEGIN events
-    // this gave me a problem, when I am using idiomatic JS to assign 
-    // a function to onclick, there are weird problems, the number is resulting
-    // to isNan, I should investigate why TypeScript is behaving this way.
-    // I had to use the arrow functions for closures
-
-    this.canv.onmousedown = () = &gt; {
-      this.canvClick();
-    };
-    this.canv.onmousemove = () = &gt; {
-      this.canvMouseMove();
-    }
-
-    // END events
-
-    document.body.appendChild(this.canv);
-
-    this.ctx = this.canv.getContext(&quot;2d&quot;);
-    this.cartesian = new Cartesian(this.ctx, this.canv);
-    this.vertices = new Vertices();
-    this.lines = new Lines();
-
-    this.output = &lt; HTMLElement &gt; document.createElement(&quot;div&quot;);
-    this.output.setAttribute('id', &quot;output&quot;);
-
-    //this.output.style.border = &quot;1px solid #fafafa&quot;;
-    //this.output.style.padding = &quot;15px&quot;;
-    //this.output.style.font-size = &quot;11px&quot;;
-    document.body.appendChild(this.output);
-
-    this.output.innerHTML = &quot;READY&quot;;
-    //this.output = &lt;HTMLElement&gt;document.getElementById('output');
-    //this.output.innerHTML = &quot;I am ready&quot;;
-
-
+  <span class="kr">private</span> <span class="nx">isDirty</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">clickcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">cartesian</span><span class="o">:</span> <span class="nx">Cartesian</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">vertices</span><span class="o">:</span> <span class="nx">Vertices</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">canv</span><span class="o">:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">ctx</span><span class="o">:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">lines</span><span class="o">:</span> <span class="nx">Lines</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">line</span><span class="o">:</span> <span class="nx">Line</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">y1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">x2</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">y2</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">pname1</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nx">pname2</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">};</span>
+
+  <span class="kr">private</span> <span class="nx">output</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// setup the canvas</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span> <span class="o">=</span> <span class="o">&lt;</span> <span class="nx">HTMLCanvasElement</span> <span class="o">&gt;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">600</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s2">&quot;1px solid gray&quot;</span><span class="p">;</span>
+
+    <span class="c1">// BEGIN events</span>
+    <span class="c1">// this gave me a problem, when I am using idiomatic JS to assign </span>
+    <span class="c1">// a function to onclick, there are weird problems, the number is resulting</span>
+    <span class="c1">// to isNan, I should investigate why TypeScript is behaving this way.</span>
+    <span class="c1">// I had to use the arrow functions for closures</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">onmousedown</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=</span> <span class="o">&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">canvClick</span><span class="p">();</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=</span> <span class="o">&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">canvMouseMove</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// END events</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cartesian</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cartesian</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vertices</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">lines</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Lines</span><span class="p">();</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">output</span> <span class="o">=</span> <span class="o">&lt;</span> <span class="nx">HTMLElement</span> <span class="o">&gt;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">);</span>
+
+    <span class="c1">//this.output.style.border = &quot;1px solid #fafafa&quot;;</span>
+    <span class="c1">//this.output.style.padding = &quot;15px&quot;;</span>
+    <span class="c1">//this.output.style.font-size = &quot;11px&quot;;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;READY&quot;</span><span class="p">;</span>
+    <span class="c1">//this.output = &lt;HTMLElement&gt;document.getElementById(&#39;output&#39;);</span>
+    <span class="c1">//this.output.innerHTML = &quot;I am ready&quot;;</span>
+
+
 
-  }
+  <span class="p">}</span>
 
-  private clearPaper(): void {
-    this.ctx.clearRect(0, 0, this.ctx.width, this.ctx.height);
-    this.cartesian.drawX();
-    this.cartesian.drawY();
-    this.output.innerHTML = &quot;READY&quot;;
-  }
+  <span class="kr">private</span> <span class="nx">clearPaper</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cartesian</span><span class="p">.</span><span class="nx">drawX</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cartesian</span><span class="p">.</span><span class="nx">drawY</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;READY&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  private canvMouseMove() {
+  <span class="kr">private</span> <span class="nx">canvMouseMove</span><span class="p">()</span> <span class="p">{</span>
 
-    if (this.isDirty) {
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isDirty</span><span class="p">)</span> <span class="p">{</span>
 
-      this.redraw();
+      <span class="k">this</span><span class="p">.</span><span class="nx">redraw</span><span class="p">();</span>
 
-      this.ctx.beginPath();
-      this.ctx.moveTo(this.line.x1, this.line.y1);
-      this.ctx.lineTo(event.clientX, event.clientY);
-      //this.ctx.closePath();
-      this.ctx.stroke();
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">);</span>
+      <span class="c1">//this.ctx.closePath();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
 
-      //this.redraw();           
-      //this.output.innerHTML = &quot;MouseMove&quot;;
-    }
-  }
+      <span class="c1">//this.redraw();           </span>
+      <span class="c1">//this.output.innerHTML = &quot;MouseMove&quot;;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
 
-  private canvClick(): void {
+  <span class="kr">private</span> <span class="nx">canvClick</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
 
-    switch (this.clickcount) {
-      case 0:
-        this.line.x1 = event.clientX;
-        this.line.y1 = event.clientY;
-        this.line.pname1 = this.vertices.getNext();
-        this.markPoint();
+    <span class="k">switch</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">clickcount</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">pname1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">getNext</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">markPoint</span><span class="p">();</span>
 
-        this.clickcount++;
-        this.isDirty = true;
-        break;
-      case 1:
-        this.isDirty = false;
+        <span class="k">this</span><span class="p">.</span><span class="nx">clickcount</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">isDirty</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">isDirty</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-        this.line.x2 = event.clientX;
-        this.line.y2 = event.clientY;
-        this.line.pname2 = this.vertices.getNext();
-        this.lines.addLine(this.line);
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x2</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y2</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">pname2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">vertices</span><span class="p">.</span><span class="nx">getNext</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">addLine</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">);</span>
 
-        this.line = {
-          x1: 0,
-          y1: 0,
-          x2: 0,
-          y2: 0,
-          pname1: &quot;&quot;,
-          pname2: &quot;&quot;
-        };
+        <span class="k">this</span><span class="p">.</span><span class="nx">line</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">x1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">y1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">x2</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">y2</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">pname1</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="nx">pname2</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">};</span>
 
-        this.redraw();
+        <span class="k">this</span><span class="p">.</span><span class="nx">redraw</span><span class="p">();</span>
 
-        this.markPoint();
-        this.clickcount = 0;
+        <span class="k">this</span><span class="p">.</span><span class="nx">markPoint</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">clickcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-        break;
-      default:
-        break;
-        //I don't know what to do with this one
-    }
-  }
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+        <span class="c1">//I don&#39;t know what to do with this one</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  private markPoint(): void {
+  <span class="kr">private</span> <span class="nx">markPoint</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
 
-    var tempstyle: any = this.ctx.fillStyle;
-    this.ctx.fillStyle = &quot;blue&quot;;
+    <span class="kd">var</span> <span class="nx">tempstyle</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
 
-    if (this.isDirty) {
-      this.ctx.fillText(this.line.pname2, this.line.x2 + 10, this.line.y2 + 10);
-      this.ctx.fillRect(this.line.x2, this.line.y2, 5, 5);
-    } else {
-      this.ctx.fillText(this.line.pname1, this.line.x1 + 10, this.line.y1 + 10);
-      this.ctx.fillRect(this.line.x1, this.line.y1, 5, 5);
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isDirty</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">pname2</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x2</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">pname1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    this.ctx.fillStyle = tempstyle;
-  }
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">tempstyle</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  private redraw(): void {
+  <span class="kr">private</span> <span class="nx">redraw</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
 
-    var tempStrokeStyle: any = this.ctx.strokeStyle;
-    var tempFillStyle: any = this.ctx.fillStyle;
-    var tempLineWidth: any = this.ctx.lineWidth;
+    <span class="kd">var</span> <span class="nx">tempStrokeStyle</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">tempFillStyle</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">tempLineWidth</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span><span class="p">;</span>
 
-    this.ctx.strokeStyle = &quot;gray&quot;;
-    this.ctx.fillStyle = &quot;blue&quot;;
-    this.ctx.lineWidth = 0.5;
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-    this.ctx.clearRect(0, 0, this.canv.width, this.canv.width);
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canv</span><span class="p">.</span><span class="nx">width</span><span class="p">);</span>
 
-    var deleteme: any = null;
-    var arrlength = this.lines.length();
+    <span class="kd">var</span> <span class="nx">deleteme</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">arrlength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
 
-    this.lines.currpos = 0;
+    <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">currpos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    for (var i = 0; i &lt; arrlength; i++) {
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrlength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-      var templine = this.lines.getNext();
+      <span class="kd">var</span> <span class="nx">templine</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">getNext</span><span class="p">();</span>
 
-      this.ctx.fillText(templine.pname1, templine.x1 + 10, templine.y1 + 10);
-      this.ctx.fillText(templine.pname2, templine.x2 + 10, templine.y2 + 10);
-      this.ctx.fillRect(templine.x1, templine.y1, 5, 5);
-      this.ctx.fillRect(templine.x2, templine.y2, 5, 5);
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">pname1</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">pname2</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">x2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">x2</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 
-      this.ctx.beginPath();
-      this.ctx.moveTo(templine.x1, templine.y1);
-      this.ctx.lineTo(templine.x2, templine.y2);
-      this.ctx.closePath();
-      this.ctx.stroke();
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y1</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">templine</span><span class="p">.</span><span class="nx">x2</span><span class="p">,</span> <span class="nx">templine</span><span class="p">.</span><span class="nx">y2</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
 
-    }
+    <span class="p">}</span>
 
 
-    // temporary code, because the mousemove erases the first vertex drawn
-    this.ctx.fillText(this.line.pname1, this.line.x1 + 10, this.line.y1 + 10);
-    this.ctx.fillRect(this.line.x1, this.line.y1, 5, 5);
-    // end temporary code
-
-    this.ctx.strokeStyle = tempStrokeStyle;
-    this.ctx.fillStyle = tempFillStyle;
-    this.ctx.lineWidth = tempLineWidth;
+    <span class="c1">// temporary code, because the mousemove erases the first vertex drawn</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">pname1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="c1">// end temporary code</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">tempStrokeStyle</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">tempFillStyle</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">tempLineWidth</span><span class="p">;</span>
 
-    this.cartesian.drawX();
-    this.cartesian.drawY();
-
-    this.output.innerHTML = this.lines.toString();
-
-  }
-}
-
-// Vertices class
-// A simple stack of vertex names
-// currently, it is only from A - Z
-
-class Vertices {
-
-  private varr = new Array();
-  private currpos = 0;
-
-  constructor() {
-    for (var i = 65; i &lt;= 90; i++) {
-      this.varr.push(String.fromCharCode(i));
-    }
-  }
-
-  printAll() {
-    for (var i = 0; i &lt; this.varr.length; i++) {
-      console.log(this.varr[i]);
-    }
-  }
-
-  // get the next available vertex name
-
-  getNext() {
-    var retval = this.varr[this.currpos];
-    this.currpos++;
-    return retval;
-  }
-}
-
-
-class Cartesian {
-
-  private context;
-  private canvas;
-
-  public cartesian_unit: number = 40; // 40 pixels per cartesian unit
-  ax_tick_count: number;
-  ay_tick_count: number;
-
-  constructor(cx: any, c: any) {
-    this.context = cx;
-    this.canvas = c;
-
-    this.ax_tick_count = Math.round(c.width / this.cartesian_unit);
-    this.ay_tick_count = Math.round(c.height / this.cartesian_unit);
-
-    this.drawX();
-    this.drawY();
-  }
-
-  // this is not working as expected ;
-  public static getCartesianUnits(): number {
-    return this.cartesian_unit;
-  }
-
-  public drawX(): void {
-
-    var cx: any = this.context;
-    var c: any = this.canvas;
-    var tickcount: number = c.width / this.cartesian_unit;
-    var y_coord: number = this.cartesian_unit * Math.round(tickcount / 2) //c.height /2;
-    var x_coord: number = 0;
-    var counter: number = Math.round(tickcount / 2) * (-1);
-
-    //cx.beginPath();
-    //cx.moveTo(0,c.height/2);
-    //cx.lineTo(c.width, c.height/2);
-    //cx.stroke();
-
-    // draw the tick marks
-
-    for (var i = 0; i &lt;= tickcount; i++) {
-      cx.beginPath();
-      if (counter == 0) {
-        cx.moveTo(0, y_coord);
-        cx.lineTo(c.width, y_coord);
-      } else {
-        cx.moveTo(x_coord, y_coord);
-        cx.lineTo(x_coord, y_coord + 5);
-      }
-      cx.closePath();
-      cx.stroke();
-      if (counter != 0) cx.fillText(counter, x_coord - 5, y_coord + 15);
-      counter++;
-      x_coord += this.cartesian_unit;
-    }
-  }
-
-  public drawY(): void {
-
-    var cx: any = this.context;
-    var c: any = this.canvas;
-    var tickcount: number = Math.round(c.height / this.cartesian_unit);
-    var x_coord: number = this.cartesian_unit * Math.round(tickcount / 2); //c.width/2;
-    var y_coord: number = 0;
-    var counter: number = Math.round(tickcount / 2) * -1;
-
-    // draw the tick marks
-
-    for (var i = 0; i &lt; tickcount; i++) {
-      cx.beginPath();
-      if (counter == 0) {
-        cx.moveTo(x_coord, 0);
-        cx.lineTo(x_coord, c.height);
-      } else {
-        cx.moveTo(x_coord, y_coord);
-        cx.lineTo(x_coord + 5, y_coord);
-      }
-      cx.closePath();
-      cx.stroke();
-      if (counter != 0) cx.fillText(counter * -1, x_coord - 15, y_coord + 5);
-      counter++;
-      y_coord += this.cartesian_unit;
-    }
-  }
-}
-
-
-interface Line {
-
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-  pname1: string;
-  pname2: string;
-
-}
-
-class Lines {
-
-  CU = 40; // cartesian units, this needs to be refactored
-
-  linearr = new Array();
-  currpos = 0;
-
-  addLine(line: Line) {
-    this.linearr.push(line);
-  }
-
-  public getNext(): Line {
-    var retval = this.linearr[this.currpos];
-    this.currpos++;
-    return retval;
-  }
-
-  public length() {
-    return this.linearr.length;
-  }
-
-  public toString(): string {
-
-    var temp = &quot;&quot;;
-
-    for (var i = 0; i &lt; this.linearr.length; i++) {
-      var x = this.linearr[i];
-      temp += x.pname1 + x.pname2 + &quot; : &quot;;
-      temp += x.x1 / this.CU + &quot; , &quot; + x.y1 / this.CU + &quot; | &quot; + x.x2 / this.CU + &quot; , &quot;;
-      temp += x.y2 / this.CU + &quot;&lt;br/&gt;&quot;;
-    }
-    return temp;
-  }
-
-}
-
-var paper = new Paper();</code></pre>
-</div>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cartesian</span><span class="p">.</span><span class="nx">drawX</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">cartesian</span><span class="p">.</span><span class="nx">drawY</span><span class="p">();</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Vertices class</span>
+<span class="c1">// A simple stack of vertex names</span>
+<span class="c1">// currently, it is only from A - Z</span>
+
+<span class="kr">class</span> <span class="nx">Vertices</span> <span class="p">{</span>
+
+  <span class="kr">private</span> <span class="nx">varr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+  <span class="kr">private</span> <span class="nx">currpos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">varr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">printAll</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">varr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">varr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// get the next available vertex name</span>
+
+  <span class="nx">getNext</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">varr</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currpos</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currpos</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">retval</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kr">class</span> <span class="nx">Cartesian</span> <span class="p">{</span>
+
+  <span class="kr">private</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">canvas</span><span class="p">;</span>
+
+  <span class="kr">public</span> <span class="nx">cartesian_unit</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="c1">// 40 pixels per cartesian unit</span>
+  <span class="nx">ax_tick_count</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nx">ay_tick_count</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">cx</span><span class="o">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="nx">cx</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">ax_tick_count</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ay_tick_count</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">drawX</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">drawY</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// this is not working as expected ;</span>
+  <span class="kr">public</span> <span class="kr">static</span> <span class="nx">getCartesianUnits</span><span class="p">()</span><span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">drawX</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">cx</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">c</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">tickcount</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">y_coord</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">tickcount</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">//c.height /2;</span>
+    <span class="kd">var</span> <span class="nx">x_coord</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">counter</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">tickcount</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">//cx.beginPath();</span>
+    <span class="c1">//cx.moveTo(0,c.height/2);</span>
+    <span class="c1">//cx.lineTo(c.width, c.height/2);</span>
+    <span class="c1">//cx.stroke();</span>
+
+    <span class="c1">// draw the tick marks</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">tickcount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y_coord</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">y_coord</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x_coord</span><span class="p">,</span> <span class="nx">y_coord</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x_coord</span><span class="p">,</span> <span class="nx">y_coord</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">cx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">counter</span><span class="p">,</span> <span class="nx">x_coord</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">y_coord</span> <span class="o">+</span> <span class="mi">15</span><span class="p">);</span>
+      <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">x_coord</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">drawY</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">cx</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">c</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">tickcount</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">x_coord</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">tickcount</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">//c.width/2;</span>
+    <span class="kd">var</span> <span class="nx">y_coord</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">counter</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">tickcount</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// draw the tick marks</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">tickcount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x_coord</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x_coord</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x_coord</span><span class="p">,</span> <span class="nx">y_coord</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x_coord</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">y_coord</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+      <span class="nx">cx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">cx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">counter</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">x_coord</span> <span class="o">-</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">y_coord</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+      <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">y_coord</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">cartesian_unit</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kr">interface</span> <span class="nx">Line</span> <span class="p">{</span>
+
+  <span class="nx">x1</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nx">y1</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nx">x2</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nx">y2</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nx">pname1</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nx">pname2</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Lines</span> <span class="p">{</span>
+
+  <span class="nx">CU</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="c1">// cartesian units, this needs to be refactored</span>
+
+  <span class="nx">linearr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+  <span class="nx">currpos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">addLine</span><span class="p">(</span><span class="nx">line</span><span class="o">:</span> <span class="nx">Line</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">linearr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">line</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">getNext</span><span class="p">()</span><span class="o">:</span> <span class="nx">Line</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">linearr</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currpos</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currpos</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">retval</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">length</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">linearr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">toString</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">linearr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">linearr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">temp</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">pname1</span> <span class="o">+</span> <span class="nx">x</span><span class="p">.</span><span class="nx">pname2</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span><span class="p">;</span>
+      <span class="nx">temp</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x1</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">CU</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">.</span><span class="nx">y1</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">CU</span> <span class="o">+</span> <span class="s2">&quot; | &quot;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">.</span><span class="nx">x2</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">CU</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span><span class="p">;</span>
+      <span class="nx">temp</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">y2</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">CU</span> <span class="o">+</span> <span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">temp</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">paper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Paper</span><span class="p">();</span></code></pre></div>
 
 <p>Compile the TypeScript source; <strong>$ tsc -c MathE.ts</strong>. The -c flag is there so that even the comments in the TypeScript source file will be emitted in resulting JavaScript file. </p>
 

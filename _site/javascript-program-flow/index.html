@@ -664,68 +664,62 @@ iframe {display:block;}
 
 <p>Branching statements allows you to side step some statements when some conditions are true; <em>if-else</em> statement is one way to branch. When the expression inside the <em>if()</em> construct yields true, the statement inside the if block is executed. </p>
 
-<div>
-  <pre><code class="java">var i = 10;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
-if (i == 20) {
-	console.log(&quot;true&quot;);
-}
-else {
-	console.log(&quot;nah!&quot;);
-} 
+<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;nah!&quot;</span><span class="o">);</span>
+<span class="o">}</span> 
 
-// RETURNS nah!</code></pre>
-</div>
+<span class="c1">// RETURNS nah!</span></code></pre></div>
 
 <p>Be careful when writing your comparisson operator. Here’s a slightly modified version of the code above</p>
 
-<div>
-  <pre><code class="javascript">var i = 10;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
-if (i = 20) {
-	console.log(&quot;true&quot;);
-}
-else {
-	console.log(&quot;nah!&quot;);
-} 
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;nah!&quot;</span><span class="p">);</span>
+<span class="p">}</span> 
 
-// RETURNS true</code></pre>
-</div>
+<span class="c1">// RETURNS true</span></code></pre></div>
 
 <p>Can you spot the difference? The expression inside the if() construct is improperly written as an assignment rather than a test for equality–but JavaScript went to evaluate it anyway. Be careful with this one because this mistake is so easy to make. The reason this returned <strong>true</strong> is because an arithmetic assignment operation returns the zero value, and if you use a number where a boolean expression is expected, the number is convered to the <em>true</em> value. </p>
 
 <p><em>Switch statement</em> is another way of branching. It is a bit more concise than the if-else statement, it allows for a different kind of construction. </p>
 
-<div>
-  <pre><code class="javascript">var s = &quot;hello&quot;;
-var ret;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
 
-switch (s) {
+<span class="k">switch</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
 
-	case &quot;he&quot;:
-		ret = &quot;he&quot;;
-		break;
-	case 1:
-		ret = 1;
-		break;
-	case true:
-		ret = &quot;true&quot;;
-		break;
-	case &quot;Hello&quot;.toLowerCase():
-		ret = &quot;Hello&quot;;
-		break;
-	default:
-		ret = &quot;nothing&quot;;
-}
+	<span class="k">case</span> <span class="s2">&quot;he&quot;</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;he&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="kc">true</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">case</span> <span class="s2">&quot;Hello&quot;</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+		<span class="k">break</span><span class="p">;</span>
+	<span class="k">default</span><span class="o">:</span>
+		<span class="nx">ret</span> <span class="o">=</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-console.log(ret);
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ret</span><span class="p">);</span>
 
-/*
+<span class="cm">/*</span>
 
-RETURNS &quot;Hello&quot;
+<span class="cm">RETURNS &quot;Hello&quot;</span>
 
-*/</code></pre>
-</div>
+<span class="cm">*/</span></code></pre></div>
 
 <p>The values listed in <em>case</em> statements can be Strings, booleans or numbers (a bit of a relief if you are coming the Java language where the case is restricted to integer values). Always add the <em>break</em> keyword inside the case statement lest you will have unintended consequences–without the break keyword, the program will overflow to the remaining statements of the <em>switch construct</em> even if a match has already been found. </p>
 
@@ -735,107 +729,95 @@ RETURNS &quot;Hello&quot;
 
 <p>The <em>while</em> statement is a looping mechanism. It requires a boolean value (or an expression that yields a boolean value) inside the <strong>while()</strong> construct. The statements inside the while block will be executed repeatedly as long as the expression inside while() is true. When the expression is no longer true, the loop terminates. </p>
 
-<div>
-  <pre><code class="javascript">var timetoexit = false;
-var counter = 0;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-while (!timetoexit) {
-	console.log(&quot;counter = &quot; + counter);
-	if (counter++ == 10) timetoexit = true;
-}</code></pre>
-</div>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">timetoexit</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;counter = &quot;</span> <span class="o">+</span> <span class="nx">counter</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
 <p>You can use the <strong>break</strong> keyword to break out of loops, like this</p>
 
-<div>
-  <pre><code class="java">var timetoexit = false;
-var counter = 0;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-while (!timetoexit) {
-	console.log(&quot;counter = &quot; + counter);
-	if (counter++ == 10) break;
-}</code></pre>
-</div>
+<span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">counter</span><span class="o">++</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span></code></pre></div>
 
 <p>The break keyword causes the program flow to ignore all the statements (if there are any) immediately following the <em>break</em> keyword and fall right outside the end of the while block where the program flow will resume.  </p>
 
 <p>Another keyword related to loop structures is the <strong>continue</strong> keyword. It causes program flow to jump also</p>
 
-<div>
-  <pre><code class="java">var timetoexit = false;
-var counter = 0;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-while (!timetoexit) {
+<span class="k">while</span> <span class="o">(!</span><span class="n">timetoexit</span><span class="o">)</span> <span class="o">{</span>
 
-	console.log(&quot;counter = &quot; + counter);
-	if (++counter == 10) {
-		timetoexit = true;
-		continue;	
-	}
-	console.log(&quot;*&quot;);
-}</code></pre>
-</div>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;counter = &quot;</span> <span class="o">+</span> <span class="n">counter</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(++</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">timetoexit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">continue</span><span class="o">;</span>	
+	<span class="o">}</span>
+	<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div>
 
 <p>Unlike <em>break</em> though, <strong>continue</strong> causes program flow to ignore all the remaining statements until the end of the while block and jump right away to the beginning of the while loop—forcing the condition to get re-evaluated; this is the reason why our last asterisk never got printed. </p>
 
 <p>The <em>for</em> statement is another looping mechanism. The for loop like the while loop allows you to iterate and perform a group of statements over and over again. </p>
 
-<div>
-  <pre><code class="javascript">for ([where to begin] ; [where to stop] ; [step]) {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">([</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">begin</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">where</span> <span class="nx">to</span> <span class="nx">stop</span><span class="p">]</span> <span class="p">;</span> <span class="p">[</span><span class="nx">step</span><span class="p">])</span> <span class="p">{</span>
 
-}</code></pre>
-</div>
+<span class="p">}</span></code></pre></div>
 
 <div id="lst">Canonical Form</div>
 
 <p>A key concept in using the for loop is the counter (the step). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the step value is incremented. The incremented step value is then compared to the ending value, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block.</p>
 
-<div>
-  <pre><code class="javascript">for (i = 1 ; i &lt; 10 ; i++) {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-	console.log(i);
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 
-}</code></pre>
-</div>
+<span class="p">}</span></code></pre></div>
 
 <p>The code sample above defines the starting point at 1 (i = 1), it will stop the loop execution when <em>i &lt; 10</em>.  Each time the <em>for</em> loop is evaluated, the i variable will be incremented by 1 (i++).</p>
 
 <p>Here is a another sample of the for loop.</p>
 
-<div>
-  <pre><code class="javascript">var util = require('util')
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">)</span>
 
-var i = 1;
-var j = 1;
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-for (i = 1 ; i &lt; 10; i++) {
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-    for (j =1 ; j &lt; 10; j++) {
+    <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span><span class="mi">1</span> <span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 
-        util.print(i * j + &quot;\t&quot;);
+        <span class="nx">util</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">i</span> <span class="o">*</span> <span class="nx">j</span> <span class="o">+</span> <span class="s2">&quot;\t&quot;</span><span class="p">);</span>
 
-    }
+    <span class="p">}</span>
 
-    util.print(&quot;\n&quot;);
-}
+    <span class="nx">util</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-/*
+<span class="cm">/*</span>
 
-RESULT
+<span class="cm">RESULT</span>
 
-1   2   3   4   5   6   7   8   9   
-2   4   6   8   10  12  14  16  18  
-3   6   9   12  15  18  21  24  27  
-4   8   12  16  20  24  28  32  36  
-5   10  15  20  25  30  35  40  45  
-6   12  18  24  30  36  42  48  54  
-7   14  21  28  35  42  49  56  63  
-8   16  24  32  40  48  56  64  72  
-9   18  27  36  45  54  63  72  81
+<span class="cm">1   2   3   4   5   6   7   8   9   </span>
+<span class="cm">2   4   6   8   10  12  14  16  18  </span>
+<span class="cm">3   6   9   12  15  18  21  24  27  </span>
+<span class="cm">4   8   12  16  20  24  28  32  36  </span>
+<span class="cm">5   10  15  20  25  30  35  40  45  </span>
+<span class="cm">6   12  18  24  30  36  42  48  54  </span>
+<span class="cm">7   14  21  28  35  42  49  56  63  </span>
+<span class="cm">8   16  24  32  40  48  56  64  72  </span>
+<span class="cm">9   18  27  36  45  54  63  72  81</span>
 
-*/</code></pre>
-</div>
+<span class="cm">*/</span></code></pre></div>
 
 <p>This code requires the node.js library <em>util</em>. We can’t use the STDIO (console.log) here because it automatically adds a CRLF (carriage return-line feed) while <em>util.print()</em> library does not. Node.JS has many libraries for convenient use, you just need to do the <em>require(libname)</em> statement if you want to use it. </p>
 

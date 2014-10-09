@@ -667,36 +667,34 @@ iframe {display:block;}
 
 <p>Next, add some UI elements and some event methods. Edit the <strong>/res/layout/main.xml</strong> and follow the code sample</p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-  android:orientation=&quot;vertical&quot;
-  android:layout_width=&quot;fill_parent&quot;
-  android:layout_height=&quot;fill_parent&quot;
-  &gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+  <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="nt">&gt;</span>
 
-  &lt;ScrollView
-    android:layout_width=&quot;fill_parent&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:layout_weight=&quot;9&quot;&gt;
+  <span class="nt">&lt;ScrollView</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+    <span class="na">android:layout_weight=</span><span class="s">&quot;9&quot;</span><span class="nt">&gt;</span>
 
-     &lt;TextView  
-      android:layout_width=&quot;fill_parent&quot; 
-      android:layout_height=&quot;wrap_content&quot;
-	  android:id=&quot;@+id/displaytext&quot; 
-      android:text=&quot;Hello World, LifeCycle&quot;
-      /&gt;
-  &lt;/ScrollView&gt;
+     <span class="nt">&lt;TextView</span>  
+      <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+      <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+	  <span class="na">android:id=</span><span class="s">&quot;@+id/displaytext&quot;</span> 
+      <span class="na">android:text=</span><span class="s">&quot;Hello World, LifeCycle&quot;</span>
+      <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ScrollView&gt;</span>
 
-    &lt;Button
-	  android:layout_width=&quot;fill_parent&quot;
-	  android:layout_height=&quot;wrap_content&quot;
-	  android:layout_weight=&quot;0&quot;
-	  android:text=&quot;Click me&quot;
-	  android:onClick=&quot;btnClick&quot;	
-	/&gt;
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+    <span class="nt">&lt;Button</span>
+	  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+	  <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+	  <span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	  <span class="na">android:text=</span><span class="s">&quot;Click me&quot;</span>
+	  <span class="na">android:onClick=</span><span class="s">&quot;btnClick&quot;</span>	
+	<span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <p>The TextView will be used to provide some sort of proxy to STDOUT of our little app. While we will use logcat to view the call-backs, we will also print it out on the screen of the device. The TextView is wrapped inside a ScrollView because we will append  new messages on top of older messages, it will spill over the height of the viewport. </p>
 
@@ -704,74 +702,72 @@ iframe {display:block;}
 
 <p>You will need to override some call back functions in the main Activity class. Go the file <strong>src/com/thelogbox/LifeCycle.java</strong> and follow the sample code</p>
 
-<div>
-  <pre><code class="java">package com.thelogbox;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import android.view.View;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
 
-public class LifeCycle extends Activity {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LifeCycle</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
 	
-    private final String TAG = getClass().getName();
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
 	
-    TextView tview;
+    <span class="n">TextView</span> <span class="n">tview</span><span class="o">;</span>
 	
 	
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    <span class="cm">/** Called when the activity is first created. */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
 				
-		System.out.println(&quot;HELLO THERE&quot;);
-		Log.v(TAG, &quot;inside onCreate&quot;);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;HELLO THERE&quot;</span><span class="o">);</span>
+		<span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;inside onCreate&quot;</span><span class="o">);</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
 	
-	@Override
-	public void onStart() {
-		tview = (TextView) findViewById(R.id.displaytext);
-		super.onStart();
-		log(&quot;inside onStart&quot;);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">tview</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">displaytext</span><span class="o">);</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;inside onStart&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		log(&quot;inside onResume&quot;);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;inside onResume&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		log(&quot;inside onPause&quot;);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;inside onPause&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	@Override
-	protected void onStop() {
-		super.onStop();
-		log(&quot;inside onStop&quot;);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;inside onStop&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		log(&quot;inside onDestroy&quot;);
-	}
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;inside onDestroy&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	private void log(String message) {		
-		String temp = (String) tview.getText();
-		Log.v(TAG, message);
-		tview.setText(temp +  &quot;\n&quot; + message);
-	}
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">log</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>		
+		<span class="n">String</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">tview</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+		<span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+		<span class="n">tview</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">temp</span> <span class="o">+</span>  <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">message</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	public void btnClick(View v){
-		log(&quot;Button was clicked&quot;);
-	}
-}</code></pre>
-</div>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">btnClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
+		<span class="n">log</span><span class="o">(</span><span class="s">&quot;Button was clicked&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <h1 id="test">Test</h1>
 
@@ -825,10 +821,17 @@ public class LifeCycle extends Activity {
       <ul>
         
       <li><a href="/android/android-key-concepts"><b>Key Concepts</b></a></li>
-      <li><a href="/android-how-much-java-do-you-need">Theoretical Minimum</a></li>
+      <li><a href="/android/android-what-you-need-to-know-before">What you need to know</a></li>
       <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
       <li><a href="/android-virtual-device">Virtual Device</a></li>
-      <li><a href="/android-physical-device">Physical Device</a></li>      
+      <li><a href="/android-physical-device">Physical Device</a></li>
+      <li>
+      <b>Project Creation</b>
+        <ul style="margin:5px; padding:5px">
+          <li><a href="/android/android-create-project-cli">Command Line using the SDK</a></li>
+          <li><a href="#">Using Android Studio</a></li>
+        </ul>
+      </li>
       <li><a href="/android-getting-started">Getting Started</a></li>
       <li><a href="/android-activity">Activity and the UI</a></li>
       <li><a href="/android-linear-layout">Linear Layout</a></li>

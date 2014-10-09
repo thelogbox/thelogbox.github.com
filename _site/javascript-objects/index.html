@@ -656,62 +656,56 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>A few things we need to remember (or know for the first time) about objects. <em>Objects in JS are reference types</em>, they are not value types, you can declare as many reference variables pointing to the exact same object</p>
 
-<div>
-  <pre><code class="javascript">//filename: multiref.js
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//filename: multiref.js</span>
 
-var obj1 = {
-	name: &quot;firstobject&quot;
-}
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;firstobject&quot;</span>
+<span class="p">}</span>
 
-var obj2 = obj1; // both obj1 and obj2 reference var is pointing to the same object
-console.log(obj2.name); //exact same property as obj1
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">;</span> <span class="c1">// both obj1 and obj2 reference var is pointing to the same object</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//exact same property as obj1</span>
 
-obj2.anothername = &quot;still first object&quot;;
-console.log(obj1.anothername); //obj1 should have &quot;anothername&quot; as well, because 
-							   //object 2 is pointing to the same object 
-							   //being referenced by obj1</code></pre>
-</div>
+<span class="nx">obj2</span><span class="p">.</span><span class="nx">anothername</span> <span class="o">=</span> <span class="s2">&quot;still first object&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">anothername</span><span class="p">);</span> <span class="c1">//obj1 should have &quot;anothername&quot; as well, because </span>
+							   <span class="c1">//object 2 is pointing to the same object </span>
+							   <span class="c1">//being referenced by obj1</span></code></pre></div>
 
 <p><em>2. Some object’s structure can be modified (mutable)</em>.  An array is actually an object, it is a good example of an object that is mutable. Mutability means that as you modify the content or structure of the object, it does not spawn or create newer objects. It modifies the original object that was created. </p>
 
 <p><em>3. And then, some objects cannot be modified (immutable)</em>.  The String objects that you create are such examples of immutable objects in JS. To add this list, Numbers and Booleans (when wrapped) are also immutable. What this means is that if you apply transformations to immutable objects, they will not modify the original object that was created. The transformation will cause the object to create a new object. </p>
 
-<div>
-  <pre><code class="javascript">var assert = require('assert');
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 
-var s = &quot;A String&quot;;
-var stemp = s;	//s and stemp points to &quot;A String&quot;
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;A String&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">stemp</span> <span class="o">=</span> <span class="nx">s</span><span class="p">;</span>	<span class="c1">//s and stemp points to &quot;A String&quot;</span>
 
-assert(stemp == s, &quot;checking is s is equal to stemp&quot;); // result is ok
+<span class="nx">assert</span><span class="p">(</span><span class="nx">stemp</span> <span class="o">==</span> <span class="nx">s</span><span class="p">,</span> <span class="s2">&quot;checking is s is equal to stemp&quot;</span><span class="p">);</span> <span class="c1">// result is ok</span>
 
-s = s + &quot;Hello World&quot;;
+<span class="nx">s</span> <span class="o">=</span> <span class="nx">s</span> <span class="o">+</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
 
-assert(stemp == s, &quot;checking is s is equal to stemp&quot;); // result not ok</code></pre>
-</div>
+<span class="nx">assert</span><span class="p">(</span><span class="nx">stemp</span> <span class="o">==</span> <span class="nx">s</span><span class="p">,</span> <span class="s2">&quot;checking is s is equal to stemp&quot;</span><span class="p">);</span> <span class="c1">// result not ok</span></code></pre></div>
 
 <p>If Strings are mutable, then the second assert would not have failed. The references “s” and “stemp” are simply no longer pointing to the same object. Any transformation that you apply on an immutable object will cause the creation of a new object, the original content plus any transformation you applied will now be contained inside the new object. By the way, <strong>assert</strong> works pretty much like a test for truth or falsity, but it behaves violently. When the expression inside the assert (the asserted value) does not evaluate to true, your code will fail with a pretty ugly run-time error. Defensive programmers use this to test their codes mercilessly, better that the code fails during development time, rather than the code failing in front of hte users. </p>
 
 <p><em>4. Pass by Reference</em></p>
 
-<div>
-  <pre><code class="javascript">function Base() {
-	this.prop1 = &quot;Property 1&quot;
-}
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Base</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">prop1</span> <span class="o">=</span> <span class="s2">&quot;Property 1&quot;</span>
+<span class="p">}</span>
 
-var a = new Base();		// Property 1
-console.log(a.prop1);
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Base</span><span class="p">();</span>		<span class="c1">// Property 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">prop1</span><span class="p">);</span>
 
-paramPass(a);
-console.log(a.prop1);	// Altered prop1
+<span class="nx">paramPass</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">prop1</span><span class="p">);</span>	<span class="c1">// Altered prop1</span>
 
 
-function paramPass(arg) {
-	arg.prop1 = &quot;Altered prop1&quot;;
-	console.log(&quot;While inside ParamPass : Base.prop1 = &quot; + arg.prop1 );
-	// this outputs Altered prop1
-	return 0;
-}</code></pre>
-</div>
+<span class="kd">function</span> <span class="nx">paramPass</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">arg</span><span class="p">.</span><span class="nx">prop1</span> <span class="o">=</span> <span class="s2">&quot;Altered prop1&quot;</span><span class="p">;</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;While inside ParamPass : Base.prop1 = &quot;</span> <span class="o">+</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">prop1</span> <span class="p">);</span>
+	<span class="c1">// this outputs Altered prop1</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
 <p>When you pass object references to functions as parameters, whatever changes you make to the object (that was passed) will endure even after the function goes out of execution scope.</p>
 

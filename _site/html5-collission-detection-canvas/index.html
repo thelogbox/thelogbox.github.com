@@ -656,52 +656,50 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>Collission detection inside the canvas needs to be managed by you. Everytime you update the location of any object, you will need to provide the programming logic to check if any of your canvas objects is colliding with any other object or if it is colliding with the bounds of the canvas.</p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;	
-	&lt;script&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>	
+	<span class="nt">&lt;script&gt;</span>
 	
-  var c = null;
-  var cx = null;
-  var box = null;
+  <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   
-  window.onload = function() {
+  <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     
-    c = document.getElementById('mycanvas');
-    cx = c.getContext('2d');
-    box = new Box();
+    <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
+    <span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+    <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
     
-    update();
+    <span class="nx">update</span><span class="p">();</span>
     
-    function update() {
+    <span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
             
-      if((box.y + box.height) &lt; c.height) {
-        cx.clearRect(0,0,c.width, c.height);
-        cx.fillRect(box.x, box.y, box.width, box.height);
-        box.y = box.y + box.speed;
-      }
-      setTimeout(update,50);
-    }
-  }
+      <span class="k">if</span><span class="p">((</span><span class="nx">box</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">box</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">box</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">box</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">box</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">update</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  function Box() {
-    this.x = 0;
-    this.y = 0;
-    this.width = 50;
-    this.height = 50;
-    this.speed = 5;
-  }
-	&lt;/script&gt;
-&lt;/head&gt;
+  <span class="kd">function</span> <span class="nx">Box</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="p">}</span>
+	<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 
-&lt;body&gt;
-  &lt;canvas id='mycanvas' height='400' width='500'&gt;
-  &lt;/canvas&gt;
-&lt;/body&gt;
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&#39;mycanvas&#39;</span> <span class="na">height=</span><span class="s">&#39;400&#39;</span> <span class="na">width=</span><span class="s">&#39;500&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/canvas&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
 
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>This code sample basically moves the box object along the <em>y-axis</em>. Notice that prior to the <em>clear-update-redraw</em> operation, the bounds of the box is checked against the height of the canvas. If the box’s current <em>y-location</em> plus the height of the box is less than the value of the canvas’ height, the animation continues, if not, then no action is taken. This gives the appearance that the box stops at the bottom of the canvas.</p>
 
@@ -709,60 +707,58 @@ iframe {display:block;}
 
 <p>You could make the codes a bit more modular if you move the programming logic of the collission detection away from the drawing logic.</p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;	
-	&lt;script&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>	
+	<span class="nt">&lt;script&gt;</span>
 	
-  var c = null;
-  var cx = null;
-  var box = null;
+  <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   
-  window.onload = function() {
+  <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     
-    c = document.getElementById('mycanvas');
-    cx = c.getContext('2d');
-    box = new Box();
+    <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mycanvas&#39;</span><span class="p">);</span>
+    <span class="nx">cx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+    <span class="nx">box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
     
-    update();
+    <span class="nx">update</span><span class="p">();</span>
     
-    function update() {
-      if(!isInCollission(box)) {
-        cx.clearRect(0,0,c.width, c.height);
-        cx.fillRect(box.x, box.y, box.width, box.height);
-        box.y += box.speed;
-        setTimeout(update,50);
-      }
-    }
-  }
+    <span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">isInCollission</span><span class="p">(</span><span class="nx">box</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">cx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">box</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">box</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">box</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">update</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  function isInCollission(box) {
-    if((box.x + box.width) &lt; c.width &amp;  
-       (box.y + box.height) &lt; c.height) {
-         return false;
-       }
-    else {
-      return true;
-    }
-  }
+  <span class="kd">function</span> <span class="nx">isInCollission</span><span class="p">(</span><span class="nx">box</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">((</span><span class="nx">box</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">box</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">&amp;</span>  
+       <span class="p">(</span><span class="nx">box</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">box</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+       <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  function Box() {
-    this.x = 0;
-    this.y = 0;
-    this.width = 50;
-    this.height = 50;
-    this.speed = 5;
-  }
-	&lt;/script&gt;
-&lt;/head&gt;
+  <span class="kd">function</span> <span class="nx">Box</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="p">}</span>
+	<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 
-&lt;body&gt;
-  &lt;canvas id='mycanvas' height='400' width='500'&gt;
-  &lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&#39;mycanvas&#39;</span> <span class="na">height=</span><span class="s">&#39;400&#39;</span> <span class="na">width=</span><span class="s">&#39;500&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/canvas&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <p>The function <strong>isInCollission()</strong> takes a parameter (a box parameter) and checks if either the bottom or the right side of the box is in contact with either the right boundary or the floor of the canvas — of course you make it more robust by including codes that checks for collission on ceiling or the left side of the canvas, but that is left to you as an exercise.</p>
 

@@ -35,15 +35,15 @@
 
 <link 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="keywords" content="utility ,ddms">
+<meta name="keywords" content="">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="Screen shoot like a geek" />
+<meta name="description" content="" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    Screen Shooting | theLogBox
+    What you need to know before diving into Android | theLogBox
   
 </title>
 
@@ -615,19 +615,19 @@ iframe {display:block;}
      <header>
     <div class='feature-banner'>
       <div class='feature-banner-text'>
-        Screen Shooting
+        What you need to know before diving into Android
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
   <!--
   <div style="text-decoration: overline; color: inherited">
-  file: #utility  #ddms
+  file: #
   </div> 
   last updated:  <br/>
   -->
 
   By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-<!--  April 11, 2012 <p/> -->
+<!--  October 09, 2014 <p/> -->
     
 <!--
   <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
@@ -648,17 +648,41 @@ iframe {display:block;}
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <ol>
-  <li>You need the JDK (Java Development Toolkit). The Android development environment depends on Java, that is why you need this. Take note that you need the JDK not the JRE (Java Runtime Environment). If you install the JDK though, you would also have installed the JRE</li>
-  <li>You need to the <em>Android SDK</em>. It can be downloaded installed on your PC. I assume you are and android</li>
-  <li>Launch the <em>ddms</em> – <em>$ ddms</em> or <em>c:\&gt;ddms&gt;</em>. The path to the <strong>android</strong> executable has to be included in your PATH variable. If you forgot how to setup the Android dev environment, the <a href="http://developer.android.com/sdk/installing.html">notes are on Official Android developer site</a>. You do not need to follow all the steps in there, you only need to complete up until step No. 2.</li>
-  <li>Enable USB debugging on the Android device, before you connect it to the PC (or Mac, or Linux). This is usually done by accessing <em>Settings–&gt;Applications–&gt;Development</em>, there is a check box beside “Enable USB debugging”. Connect the Android device to your PC via a USB cable</li>
-  <li>The connected device should now be visible within the DDMS window. Select it (just mouse click on it)</li>
-  <li>Press CTRL-a on your keyboard</li>
-</ol>
+		    <p>Before diving into Android programming, there are a couple of skills you might want to look at. It is possible to simply jump into programming, build some basic screens by copying example codes from the internet or from other programmers. But you cannot go to the deep end. When you find yourself neckdeep in the not-so-trivial parts of Android programming and you feel stuck, that’s probably because you haven’t covered some bases.</p>
 
-<p>This technique of screen shooting is not for the everyday Android User — not even for the power user. This technique is for Devs. You would use this technique because the captured image is captured on a PC. If you will do screenshooting using an App, you need to take care of the file transfer between the device and the PC.</p>
+<p>The ideal set of skills to bring into Android development includes experience in AWT/Swing, JDBC, Collections, Network and Thread programming and a couple of others. But not many people will have this. For one reason, AWT and Swing went out of favor a long time ago. Most Java programmers right now have experience on web development but not desktop. </p>
 
+<h2 id="object-oriented-concepts">1. Object Oriented Concepts</h2>
+
+<p>The Android framework uses OOP heavily. You need to be comfortable with the idiomatic use of things like class/interface inheritance, polymorphism etc. Even the humble Hello World application in most Android textbooks involves the use inheritance. </p>
+
+<h2 id="java-fundamentals">2. Java fundamentals</h2>
+
+<p>You will need to be familiar with programming fundamentals in Java. Even if Android uses a different VM to run the apps, the language used for native apps development is Java. The more familiarity you have with basic programming concepts in Java, the better. You should at least know the concept of variables, constants, branching and looping, packaging and scope visibility, basic I/O and file persistence.</p>
+
+<h2 id="java-collections">3. Java Collections</h2>
+
+<p>Beyond simple variables, you will need some skills to handle collections of data. A basic familiarity with rudimentary data structures like arrays, maps and sets will be essential.</p>
+
+<h2 id="java-event-model">4. Java Event model</h2>
+
+<p>Android applications are heavy on user interaction. For the most basic applications, you might be able to get away by simply knowing how to put the click handler on XML file. But for other gestures like long clicks, swipe etc, you will need to write Java codes to handle the event. The Java event model uses listeners and callbacks quite a lot.</p>
+
+<h2 id="xml">5. XML</h2>
+
+<p>A passing familiarity wih XML structures and validation rules should take you quite far in Android programming. You don’t need to work much with XML programmatically. Your usual need for XML will arise when you define layouts and when configuring permissions for the app. If you have coded HTML before without using WYSIWYG tools, you should be fine.</p>
+
+<h2 id="sql">6. SQL</h2>
+
+<p>Some, if not most, of the applications you will make will need to store data. Some data might be simple and can be stored either via the preferences or the SD card. But some might need the facility of a relational database. The Android runtime includes the SQLite database. You will talk to it using the Structured Query Language. SQL is not a difficult language, its quite enjoyable to learn actually because of its declarative nature. It is almost English like.</p>
+
+<h2 id="build-tools">7. Build tools</h2>
+
+<p>An Android project is a compilation of various files e.g. XML, image resources, compiled byte codes, source codes etc. Getting all these resources to stick and work together cannot be done by hand, well actually it can be, but it will not be practical. That is why even the barebones SDK requires the use Apache Ant to help in compiling, building and deploying your applications. </p>
+
+<h2 id="command-line-experience">8. Command line experience</h2>
+
+<p>Even if you plan to use a full blown IDE like Eclipse, Android Studio or NetBeans, its not a bad idea to invest some time getting some skills on the command line. They might take a while longer to learn than their GUI counterparts but the effort will pay off. When you run into some problems on the IDE, your CLI skills might save you. You don’t need to be a ninja on the terminal, you can get by with some basics e.g. creating and deleting files, moving around directories, invoking ant scripts, using adb etc.</p>
 
         </div>					
 		  </div>
