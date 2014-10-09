@@ -84,9 +84,10 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-size:45px;
+  font-size:50px;
   font-weight:300;
   line-height:135%;
+  letter-spacing: -1.5px;
 }
 
 .toc, .promo {
@@ -204,6 +205,8 @@ h1 {font-size: 25px;}
 h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
 
 #feature {
   min-height: 400px;
@@ -356,6 +359,7 @@ a:hover {color: blue; text-decoration:underline;}
   font-size: 14px;
   line-height:100%;
   margin-left: 10px;
+  letter-spacing: normal;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -491,6 +495,8 @@ iframe {display:block;}
 	height: 100%;
 }
 
+.toc ul { color: royalblue;}
+
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
@@ -522,14 +528,14 @@ iframe {display:block;}
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 860px) {
 
   body {
     font-size: 1em;
   }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -572,7 +578,7 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -593,7 +599,7 @@ iframe {display:block;}
     width: 72%;
   }  
   #wrap {
-    width:96%;
+    width:900px;
   }
   
   .toc ul {
@@ -662,14 +668,16 @@ iframe {display:block;}
 
 <h1 id="basic-structure">Basic structure</h1>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> 
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt; 
+  &lt;/head&gt;
 
-  <span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+  &lt;body&gt;
+  &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The &lt;html&gt; element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head&gt;</strong> and the <strong>&lt;body&gt;</strong> elements.</p>
 
@@ -736,20 +744,22 @@ iframe {display:block;}
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> 
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt; 
+  &lt;/head&gt;
 
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;p&gt;</span>
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;
     The quick brown fox
-    <span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
-    <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
-  <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+    &lt;/p&gt;
+    &lt;strong&gt;jumped&lt;/strong&gt; over the head of the
+    &lt;em&gt;lazy dog&lt;/em&gt; near the river bank
+  &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
 

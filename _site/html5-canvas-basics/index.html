@@ -84,9 +84,10 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-size:45px;
+  font-size:50px;
   font-weight:300;
   line-height:135%;
+  letter-spacing: -1.5px;
 }
 
 .toc, .promo {
@@ -204,6 +205,8 @@ h1 {font-size: 25px;}
 h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
 
 #feature {
   min-height: 400px;
@@ -356,6 +359,7 @@ a:hover {color: blue; text-decoration:underline;}
   font-size: 14px;
   line-height:100%;
   margin-left: 10px;
+  letter-spacing: normal;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -491,6 +495,8 @@ iframe {display:block;}
 	height: 100%;
 }
 
+.toc ul { color: royalblue;}
+
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
@@ -522,14 +528,14 @@ iframe {display:block;}
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 860px) {
 
   body {
     font-size: 1em;
   }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -572,7 +578,7 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -593,7 +599,7 @@ iframe {display:block;}
     width: 72%;
   }  
   #wrap {
-    width:96%;
+    width:900px;
   }
   
   .toc ul {
@@ -660,18 +666,20 @@ iframe {display:block;}
 
 <p>The canvas element is declared as a child of the <em>body</em> tag, like this</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> 
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt; 
+  &lt;/head&gt;
 
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;canvas</span> <span class="na">ID=</span><span class="s">&quot;thecanvas&quot;</span> <span class="na">WIDTH=</span><span class="s">&quot;300&quot;</span> <span class="na">HEIGHT=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
+  &lt;body&gt;
+    &lt;canvas ID=&quot;thecanvas&quot; WIDTH=&quot;300&quot; HEIGHT=&quot;300&quot;&gt;
     If you can see this message, your browser does not
     support the HTML5 canvas. Get a new browser    
-    <span class="nt">&lt;/canvas&gt;</span>
-  <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+    &lt;/canvas&gt;
+  &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>If your browser is quite antiquated and not up to standards, you will see the warning message in between the canvas element’s start and end tags.</p>
 
@@ -681,12 +689,14 @@ iframe {display:block;}
 
 <p>You need to get to the <strong>2d</strong> context, that is the drawing surface, not the canvas DOM element. The context can be obtained by calling the <em>getContext()</em> method of canvas element.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">window.onload = function() {
 
-  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvasname&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+  var canvas = document.getElementById('canvasname');
+  var context = canvas.getContext('2d');
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <h2 id="primitive-drawings">Primitive drawings</h2>
 
@@ -702,43 +712,47 @@ iframe {display:block;}
 
 <p>Drawing lines is a bit different, you will need to make some extra calls on the context for positioning the line and then finally drawing the line.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">window.onload = function() {
 
-  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvasname&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+  var canvas = document.getElementById('canvasname');
+  var context = canvas.getContext('2d');
 
-  <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+  context.beginPath();
+  context.moveTo(10,10);
+  context.lineTo(10,100);
+  context.closePath();
+  context.stroke();
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>Before you can start drawing into a path, you will need to call the <strong>beginPath()</strong> method, note that this this is used not only for drawing lines but for others shapes as well like arcs, beziers and quadratic curves. The example above starts the line drawing at 10,10 and and ends at 10,100 — it will draw a vertical line.</p>
 
 <h3 id="circles">Circles</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">window.onload = function() {
 
-  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvasname&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+  var canvas = document.getElementById('canvasname');
+  var context = canvas.getContext('2d');
 
-  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">beginAngle</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">endAngle</span> <span class="o">=</span> <span class="mi">360</span>
-  <span class="kd">var</span> <span class="nx">clockwise</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  var x = 50;
+  var y = 50;
+  var r = 30;
+  var beginAngle = 0;
+  var endAngle = 360
+  var clockwise = false;
 
-  <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+  context.beginPath();
   
-  <span class="nx">context</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">beginAngle</span><span class="p">,</span><span class="nx">endAngle</span><span class="p">,</span><span class="nx">clockwise</span><span class="p">);</span>
+  context.arc(x,y,r,beginAngle,endAngle,clockwise);
   
-  <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-  <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+  context.closePath();
+  context.stroke();
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>There is no drawing primitive for drawing a complete circle, you would have to do that by drawing arcs. Try to experiment by making the <strong>endAngle</strong> less than 360 degrees.</p>
 
@@ -746,16 +760,18 @@ iframe {display:block;}
 
 <p>You can simply overwrite the canvas with a call to <em>fillRect</em>, that will write over it or you can call <strong>context.clearRect(top,left,height,width)</strong> </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">window.onload = function() {
 
-  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvasname&#39;</span><span class="p">);</span>
-  <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+  var canvas = document.getElementById('canvasname');
+  var context = canvas.getContext('2d');
 
-  <span class="c1">// CANVAS OPERATIONS</span>
+  // CANVAS OPERATIONS
   
-  <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+  context.clearRect(0,0,canvas.width, canvas.height);
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>You have to clear the canvas starting from the top-left, which is 0,0, then specify the width and height of the canvas. You can get the dimensions of canvas using the canvas DOM element, the height and width are properties of the DOM element.</p>
 

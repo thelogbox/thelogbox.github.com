@@ -84,9 +84,10 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-size:45px;
+  font-size:50px;
   font-weight:300;
   line-height:135%;
+  letter-spacing: -1.5px;
 }
 
 .toc, .promo {
@@ -204,6 +205,8 @@ h1 {font-size: 25px;}
 h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
 
 #feature {
   min-height: 400px;
@@ -356,6 +359,7 @@ a:hover {color: blue; text-decoration:underline;}
   font-size: 14px;
   line-height:100%;
   margin-left: 10px;
+  letter-spacing: normal;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -491,6 +495,8 @@ iframe {display:block;}
 	height: 100%;
 }
 
+.toc ul { color: royalblue;}
+
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
@@ -522,14 +528,14 @@ iframe {display:block;}
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 860px) {
 
   body {
     font-size: 1em;
   }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -572,7 +578,7 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -593,7 +599,7 @@ iframe {display:block;}
     width: 72%;
   }  
   #wrap {
-    width:96%;
+    width:900px;
   }
   
   .toc ul {
@@ -656,17 +662,19 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*</span>
-<span class="cm">File name: hello.js</span>
-<span class="cm">The hello world program in JavaScript</span>
-<span class="cm">*/</span>
+<div>
+  <pre><code class="javascript">/*
+File name: hello.js
+The hello world program in JavaScript
+*/
 
-<span class="nx">foo</span><span class="p">();</span>
+foo();
 
-<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;Hello World\n&quot;</span><span class="p">;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+function foo() {
+  var s = &quot;Hello World\n&quot;;
+  console.log(s);
+}</code></pre>
+</div>
 
 <p>If you installed node.js (and I hope you did) you can run try this out on the command line using <strong>$ node hello.js</strong> </p>
 
@@ -678,10 +686,12 @@ iframe {display:block;}
 
 <p>The <em>console.log()</em> command is the STDIO library of Node.JS (although some browsers include this as part of their JavaScript runtime). This command routes the output to stderr and stdout (the command line screen) </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">parameters</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// statements</span>
-  <span class="p">[</span><span class="k">return</span> <span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="p">}</span></code></pre></div>
+<div>
+  <pre><code class="javascript">function &lt;name&gt; (&lt;parameters) {
+  // statements
+  [return &lt;value&gt;]
+}</code></pre>
+</div>
 
 <div id="lst">Canonical Form</div>
 
@@ -695,13 +705,15 @@ iframe {display:block;}
 
 <p>Be careful how you write your curly braces, JavaScript’s defaults might produce unexpected results, see the following code.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">function goo() {
 
-  <span class="k">return</span>
-  <span class="p">{</span>	<span class="c1">// this line is unreachable</span>
-    <span class="nx">objprop</span><span class="o">:</span> <span class="s2">&quot;Some obj property&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+  return
+  {	// this line is unreachable
+    objprop: &quot;Some obj property&quot;;
+  }
+}</code></pre>
+</div>
 
 <p>The statement will be unreachable because JavaScript would have inserted a semi-colon right after the <strong>return</strong> statement. The object literal is unreachable as a return value.</p>
 

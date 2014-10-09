@@ -84,9 +84,10 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-size:45px;
+  font-size:50px;
   font-weight:300;
   line-height:135%;
+  letter-spacing: -1.5px;
 }
 
 .toc, .promo {
@@ -204,6 +205,8 @@ h1 {font-size: 25px;}
 h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
 
 #feature {
   min-height: 400px;
@@ -356,6 +359,7 @@ a:hover {color: blue; text-decoration:underline;}
   font-size: 14px;
   line-height:100%;
   margin-left: 10px;
+  letter-spacing: normal;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -491,6 +495,8 @@ iframe {display:block;}
 	height: 100%;
 }
 
+.toc ul { color: royalblue;}
+
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
@@ -522,14 +528,14 @@ iframe {display:block;}
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 860px) {
 
   body {
     font-size: 1em;
   }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -572,7 +578,7 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -593,7 +599,7 @@ iframe {display:block;}
     width: 72%;
   }  
   #wrap {
-    width:96%;
+    width:900px;
   }
   
   .toc ul {
@@ -674,12 +680,14 @@ iframe {display:block;}
 
 <p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window’s context menu, then choose a program editor to open the html file. Edit it and write the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-  <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+  &lt;h1&gt;Hello&lt;/h1&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">first.html</div>
 
@@ -699,10 +707,12 @@ iframe {display:block;}
 
 <p>The fundamental structure of an html document is as follows</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">basic structure</div>
 
@@ -712,15 +722,17 @@ iframe {display:block;}
 
 <p>There some more structural issues that we need to get out of the way before we can take a look at the presentation semantics of HTML. A more complete structure for an HTML doc looks like the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctypehtml&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> <span class="nt">&lt;title&gt;</span>First<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctypehtml&gt;
+&lt;html&gt;
+  &lt;head&gt; &lt;title&gt;First&lt;/title&gt;
+  &lt;/head&gt;
   
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span> 
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+  &lt;body&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt; 
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">HTML doc structure</div>
 

@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: CLI Project creation
+title: Android Project Creation CLI
 author: Ted Hagos
 
 tags:
@@ -34,3 +34,8 @@ The **&#x2013;activity** option instructs the tool to automatically create a cla
 
 -   **Command not found or Bad command or file name**. The command **android** cannot be found within the places where your shell looks for executable file. Either you have not included the folders **tools** and **platform-tools** of the Android SDK into your system path. Either that or you made some spelling mistakes when you included them in the path.
 -   **Android create project command won't complete**. This is most likely a spelling error when typing the commands as shown earlier. Take care that you use a double dash when specifying the option. There is no space between the double dash and the option. Take note that there is a space between the option and the argument
+
+
+<div class="video-container">
+<iframe width="420" height="315" src="//www.youtube.com/embed/r2oPAHUY1MY" frameborder="0" modestbranding="0" showinfo="0" vq="hd720" rel="0" allowfullscreen></iframe>
+</div>

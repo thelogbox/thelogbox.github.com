@@ -84,9 +84,10 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-size:45px;
+  font-size:50px;
   font-weight:300;
   line-height:135%;
+  letter-spacing: -1.5px;
 }
 
 .toc, .promo {
@@ -204,6 +205,8 @@ h1 {font-size: 25px;}
 h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
 h3 {font-size: 18px; }
 h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
 
 #feature {
   min-height: 400px;
@@ -356,6 +359,7 @@ a:hover {color: blue; text-decoration:underline;}
   font-size: 14px;
   line-height:100%;
   margin-left: 10px;
+  letter-spacing: normal;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -491,6 +495,8 @@ iframe {display:block;}
 	height: 100%;
 }
 
+.toc ul { color: royalblue;}
+
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
@@ -522,14 +528,14 @@ iframe {display:block;}
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 860px) {
 
   body {
     font-size: 1em;
   }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -572,7 +578,7 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 3em;}
+  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -593,7 +599,7 @@ iframe {display:block;}
     width: 72%;
   }  
   #wrap {
-    width:96%;
+    width:900px;
   }
   
   .toc ul {
@@ -680,28 +686,30 @@ iframe {display:block;}
 
 <p>The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the <code>.java</code> entry to the languages object literal.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">languages</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;.coffee&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coffee-script&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.js&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;javascript&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.rb&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;.py&#39;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-      <span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;#&#39;</span>
-    <span class="p">},</span>
-	<span class="s1">&#39;.java&#39;</span><span class="o">:</span> <span class="p">{</span>
-		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;java&#39;</span><span class="p">,</span>
-		<span class="nx">symbol</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span>
-	<span class="p">}</span>
-  <span class="p">};</span></code></pre></div>
+<div>
+  <pre><code class="javascript">languages = {
+    '.coffee': {
+      name: 'coffee-script',
+      symbol: '#'
+    },
+    '.js': {
+      name: 'javascript',
+      symbol: '//'
+    },
+    '.rb': {
+      name: 'ruby',
+      symbol: '#'
+    },
+    '.py': {
+      name: 'python',
+      symbol: '#'
+    },
+	'.java': {
+		name: 'java',
+		symbol: '//'
+	}
+  };</code></pre>
+</div>
 
 <p>This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.</p>
 
