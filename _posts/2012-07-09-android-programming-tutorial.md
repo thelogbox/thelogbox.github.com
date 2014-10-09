@@ -13,6 +13,10 @@ tags:
 
 ---
 
+<aside>
+  This content has been rewritten. The title of the document is now <a href="/android/android-key-concepts">Key Concepts</a>
+</aside>
+
 Andy Rubin led a small startup team sometime in 2003. They were building a software that could power a smart phone. Google took notice of it and acquired Android Inc. The first attempts of Android were not very impressive but phone manufacturers took notice and jumped into the bandwagon.
 
 Shortly thereafer, 200,000 android devices were being activated on a daily basis (at the time of writing, over half million android devices are activated each day). The small-ish mobile phone software began to make waves.
