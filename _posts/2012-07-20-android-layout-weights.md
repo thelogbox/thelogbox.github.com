@@ -14,6 +14,9 @@ tags:
 ---
 
 
+<aside>
+This document has been rewritten and will no longer be updated. The new document is found <a href="/android/layout-weights">here</a>
+</aside>
 
 Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that's just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.  
 
