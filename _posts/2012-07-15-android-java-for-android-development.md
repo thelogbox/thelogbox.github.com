@@ -17,5 +17,5 @@ tags:
 
 This content has moved. You can view it using the link below
 <p/>
-    <a href="/android-how-much-java-do-you-need" class='button'>How Much Java Do You Need<a>
+    <a href="/android/android-what-you-need-to-know-before" class='button'>What you need to know before diving into Android<a>
   </div>  

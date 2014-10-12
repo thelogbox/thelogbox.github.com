@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: mac
 
 title: Programming for the Mac
 

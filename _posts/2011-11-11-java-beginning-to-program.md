@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: java
 
 title: Beginning to Program Java
 
@@ -16,6 +16,5 @@ categories:
 ---
 
 
-# CONTENT HAS MOVED
 
-This is now at [Java Beginnning to Program](/java-tutorial/)
+Head over to [Java Beginnning to Program](/java-tutorial/)

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: java
 
 title: Free eBook 
 

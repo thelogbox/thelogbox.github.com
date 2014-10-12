@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: mac
 
 title: How to Install MySQL on OSX
 

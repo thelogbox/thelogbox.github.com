@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: java
 
 title: Workbook on Programming Concepts
 

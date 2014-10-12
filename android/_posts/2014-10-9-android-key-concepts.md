@@ -166,12 +166,12 @@ BroadcastReceivers typically don't have user interfaces. But you can create noti
 
 This is one of the most important parts of an Android app. The manifest is an XML file that needs be on the root folder of the application project. Every project needs one, and there can only be one per project. It needs to be named **AndroidManifest.xml**. The manifest declares lots of things like:
 
--the name of the application
--what kinds of components does the app have. Does it have Activities, what are their names. Does it listen to broadcast etc
--what kinds of things can it do with the mobile device? Can it access the network. The internet. Will it use the camera. Will it record a GPS location
--can other applications interact with this applcation. If so, what kinds of permission should these other applications have
--does this application use any external libraries (usually jar files that other people wrote)
--what versions of Android will this application run on. Will it run on Froyo (API level 8)
+- the name of the application
+- what kinds of components does the app have. Does it have Activities, what are their names. Does it listen to broadcast etc
+- what kinds of things can it do with the mobile device? Can it access the network. The internet. Will it use the camera. Will it record a GPS location
+- can other applications interact with this applcation. If so, what kinds of permission should these other applications have
+- does this application use any external libraries (usually jar files that other people wrote)
+- what versions of Android will this application run on. Will it run on Froyo (API level 8)
 
 The Android manifest file is usually created by default when you start a new project. But it only provides some minimum declaration. Beyond the basic HelloWorld apps, you will need to learn how to work and manage the manifest file.
 

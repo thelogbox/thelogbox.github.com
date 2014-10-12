@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: mac
 
 title: Objective C Language Fundamentals
 

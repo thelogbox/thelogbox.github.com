@@ -5,13 +5,74 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-10-10T22:47:52+08:00</updated>
+ <updated>2014-10-12T22:01:50+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Project Structure</title>
+   <link href="http://thelogbox.com/android/android-project-structure"/>
+   <updated>2014-10-12T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/android/android-project-structure</id>
+   <content type="html">&lt;p&gt;An Android project is required to build a single app. A project is a
+simple folder that contains a collection of XML, Java source, images,
+property and optional audio or video files. It has a very specific
+structure that stays the same for all android projects.&lt;/p&gt;
+
+&lt;p&gt;The commands and utilities inside the Android SDK expects this structure
+and is optimized to work with it. If you deviate from this structure,
+you will have grief. It is not wise to build this project structure
+unaided by tools. At the very least, you should use the &lt;strong&gt;android create
+project&lt;/strong&gt; utility included in the SDK.&lt;/p&gt;
+
+&lt;p&gt;Popular IDEs like Eclipse, NetBeans and Android Studio have wizard
+driven ways of creating an android project. But no matter what you use
+to create such a project, the structure of the files and folders is
+pretty uniform.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/android-project-structure.png&quot; alt=&quot;android-project-structure.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The one on the left is a project created using just the SDK. The picture
+on the right was created using the Android App Studio, a full blown IDE
+for Android development. While the Android Studio project appears to
+have more files, the basic structure of the two projects remains very
+consistent.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;src&lt;/strong&gt; a folder that contains the Java source files. All your program logic
+  will be written on these files. If you want to do something when a
+  user clicks a Button, starts you application or suspends an
+  application, you will write them on the source files. And these
+  source files will be stored here&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;res&lt;/strong&gt; a folder that contains other folders like “res”, “values” and some
+  images. The folder names that says “drawable” contains images that
+  your application may use&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;bin&lt;/strong&gt; When you compile the project, this is where the binary or executable
+  files will be stored&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;libs&lt;/strong&gt; Sometimes you will need to use codes that other developers built.
+  These third party libraries should be located on this folder&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;layout&lt;/strong&gt; Android favors the declarative way of defining user interfaces. The
+  screens you will create can be built using XML files. This is the
+  folder where XML screen files are stored&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;values&lt;/strong&gt; Hard coding string values is a dangerous practice. The idiomatic way
+  of defining strings for labels, buttons etc is to store them in
+  resource bundles. These resource bundles are nothing more than XML
+  files. You will store the resource bundles in this folder&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;AndroidManifest.xml&lt;/strong&gt; Every project needs one manifest file. This file is important. It
+  declares the things that are inside your application like how many
+  screens it have, what their names are. It also affects the things
+  your application can do. It declares whether your application can
+  use the network, the local storage or the camera for example&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;local.properties&lt;/strong&gt; This file contains build configuration information e.g. the location
+  of the Android SDK in your system&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Layout Weights</title>
@@ -336,12 +397,14 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;This is one of the most important parts of an Android app. The manifest is an XML file that needs be on the root folder of the application project. Every project needs one, and there can only be one per project. It needs to be named &lt;strong&gt;AndroidManifest.xml&lt;/strong&gt;. The manifest declares lots of things like:&lt;/p&gt;
 
-&lt;p&gt;-the name of the application
--what kinds of components does the app have. Does it have Activities, what are their names. Does it listen to broadcast etc
--what kinds of things can it do with the mobile device? Can it access the network. The internet. Will it use the camera. Will it record a GPS location
--can other applications interact with this applcation. If so, what kinds of permission should these other applications have
--does this application use any external libraries (usually jar files that other people wrote)
--what versions of Android will this application run on. Will it run on Froyo (API level 8)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;the name of the application&lt;/li&gt;
+  &lt;li&gt;what kinds of components does the app have. Does it have Activities, what are their names. Does it listen to broadcast etc&lt;/li&gt;
+  &lt;li&gt;what kinds of things can it do with the mobile device? Can it access the network. The internet. Will it use the camera. Will it record a GPS location&lt;/li&gt;
+  &lt;li&gt;can other applications interact with this applcation. If so, what kinds of permission should these other applications have&lt;/li&gt;
+  &lt;li&gt;does this application use any external libraries (usually jar files that other people wrote)&lt;/li&gt;
+  &lt;li&gt;what versions of Android will this application run on. Will it run on Froyo (API level 8)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The Android manifest file is usually created by default when you start a new project. But it only provides some minimum declaration. Beyond the basic HelloWorld apps, you will need to learn how to work and manage the manifest file.&lt;/p&gt;
 
@@ -11407,7 +11470,11 @@ if(a.equals(b)) {
    <link href="http://thelogbox.com/android-layout-weights"/>
    <updated>2012-07-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-layout-weights</id>
-   <content type="html">&lt;p&gt;Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that’s just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.  &lt;/p&gt;
+   <content type="html">&lt;aside&gt;
+This document has been rewritten and will no longer be updated. The new document is found &lt;a href=&quot;/android/layout-weights&quot;&gt;here&lt;/a&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;Learning to layout vertically and horizontally are basic skills in UI programming. They are effective and good enough, but that’s just the thing, they are just good enough. If you want to show a bit of finesse, you need to do something beyond the basics.  &lt;/p&gt;
 
 &lt;p&gt;Linear layouts will do exactly what the name implies. It will layout the Views linearly. What it will not do is resize the Views to take advantage of free space.  If you do not manage free space in your layout, the design will not appear tight, and a bit, well, amateurish. &lt;/p&gt;
 
@@ -11630,7 +11697,7 @@ ant debug install
 
 This content has moved. You can view it using the link below
 &lt;p /&gt;
-    &lt;a href=&quot;/android-how-much-java-do-you-need&quot; class=&quot;button&quot;&gt;How Much Java Do You Need&lt;a&gt;
+    &lt;a href=&quot;/android/android-what-you-need-to-know-before&quot; class=&quot;button&quot;&gt;What you need to know before diving into Android&lt;a&gt;
     
 &lt;/a&gt;&lt;/a&gt;&lt;/div&gt;
 </content>
@@ -14098,9 +14165,7 @@ statement n;&lt;/code&gt;&lt;/pre&gt;
    <link href="http://thelogbox.com/Java/java-beginning-to-program"/>
    <updated>2011-11-11T00:00:00+08:00</updated>
    <id>http://thelogbox.com/Java/java-beginning-to-program</id>
-   <content type="html">&lt;h1 id=&quot;content-has-moved&quot;&gt;CONTENT HAS MOVED&lt;/h1&gt;
-
-&lt;p&gt;This is now at &lt;a href=&quot;/java-tutorial/&quot;&gt;Java Beginnning to Program&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;Head over to &lt;a href=&quot;/java-tutorial/&quot;&gt;Java Beginnning to Program&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -14664,18 +14729,18 @@ $ sudo mount servername:/mnt/badass ~/mymount
  </entry>
  
  <entry>
-   <title>How to Install KYOCERA KM 1820 on OSX</title>
+   <title>Kyocera KM1820 on OSX</title>
    <link href="http://thelogbox.com/install-kyocera-km1820-osx"/>
    <updated>2009-04-10T00:00:00+08:00</updated>
    <id>http://thelogbox.com/install-kyocera-km1820-osx</id>
-   <content type="html">&lt;h2 id=&quot;to-connect-osx-to-a-kyocera-km-1820-you-will-need-the-following&quot;&gt;To connect OSX to a Kyocera KM-1820, you will need the following.&lt;/h2&gt;
+   <content type="html">&lt;h2 id=&quot;what-you-need&quot;&gt;What you need&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The KPDL driver of Kyocera, you can download it at &lt;a href=&quot;http://www.kyoceramita.co.uk/index/products/download_centre.false.driver.FS1118MFP._.EN.html#&quot;&gt;kyocera&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;StuffIt expander, you can download it at &lt;a href=&quot;http://www.StuffIt.com&quot;&gt;stuffit&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;if-the-kyocera-printer-is-a-networked-printer&quot;&gt;If the Kyocera printer is a networked printer&lt;/h2&gt;
+&lt;h2 id=&quot;network-printing&quot;&gt;Network printing&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Download the StuffIt expander, double-click the DMG installer and follow the prompts – you can copy the StuffIt application file into your usual “Applications” folder for easy access in the future.&lt;/li&gt;

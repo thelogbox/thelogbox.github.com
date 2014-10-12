@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: javascript
 
 title: JavaScript Toolchain
 
