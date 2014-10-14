@@ -1,7 +1,7 @@
 ---
 
 layout: androidtutorial
-title: What you need to know before diving into Android
+title: What you need to know 
 author: Ted Hagos
 description:
 tags:
