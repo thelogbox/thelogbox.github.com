@@ -196,7 +196,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 strong, b {font-weight:400;}
@@ -671,27 +671,25 @@ iframe {display:block;}
 
 <p>Go to the project folder. Go to the <em>src</em> directory and drill down to the java source file, you will see the default source code that the Android <em>create project</em> command generated.</p>
 
-<div>
-  <pre><code class="java">// source file: src/com/thelogbox/HelloWorld.java
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// source file: src/com/thelogbox/HelloWorld.java</span>
 
-package com.thelogbox;
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Toast;
-import android.content.Context;
-import android.view.View;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
 
-public class HelloWorld extends Activity {
-  /** Called when the activity is first created. */
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+  <span class="cm">/** Called when the activity is first created. */</span>
     
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-      setContentView(R.layout.main);
-  }
-}</code></pre>
-</div>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+      <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <div id="lst">/src/com/thelogbox/HelloWorld.java</div>
 
@@ -701,20 +699,18 @@ public class HelloWorld extends Activity {
 
 <p><em>R.layout.main</em> maps to main.xml which can be found on the folder <em>res/layout/main.xml</em>.</p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-  android:orientation=&quot;vertical&quot;
-  android:layout_width=&quot;fill_parent&quot;
-  android:layout_height=&quot;fill_parent&quot;
-  &gt;
-&lt;TextView  
-  android:layout_width=&quot;fill_parent&quot; 
-  android:layout_height=&quot;wrap_content&quot; 
-  android:text=&quot;Hello World&quot;
-  /&gt;    
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+  <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="nt">&gt;</span>
+<span class="nt">&lt;TextView</span>  
+  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+  <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+  <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
+  <span class="nt">/&gt;</span>    
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <div id="lst">/res/layout/main.xml</div>
 
@@ -728,25 +724,23 @@ public class HelloWorld extends Activity {
 
 <p>We will add another <em>View component</em> to our screen, an Editable Text. Go back to the editor and insert another view inside the LinearLayout main node. </p>
 
-<div>
-  <pre><code class="xml">&lt;!-- main.xml --&gt;&gt;
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-  android:orientation=&quot;vertical&quot;
-  android:layout_width=&quot;fill_parent&quot;
-  android:layout_height=&quot;fill_parent&quot;
-  &gt;
-	&lt;TextView  
-    android:layout_width=&quot;fill_parent&quot; 
-    android:layout_height=&quot;wrap_content&quot; 
-    android:text=&quot;Hello World&quot;
-    /&gt;
-	&lt;EditText
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-	/&gt;
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- main.xml --&gt;</span>&gt;
+<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+  <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+  <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+  <span class="nt">&gt;</span>
+	<span class="nt">&lt;TextView</span>  
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
+    <span class="nt">/&gt;</span>
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+	<span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <p><em>EditText</em> is an editable text component that is very similar to javax.swing.JTextField. The android platform knows how to handle the EditText. Once this view has focus, the on-screen keyboard will pop so that the user can begin input. You do not need to handle the popping of the keyboard, it will be done for you automatically.</p>
 

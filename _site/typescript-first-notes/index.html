@@ -196,7 +196,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 strong, b {font-weight:400;}
@@ -721,39 +721,36 @@ If you are using TextMate in OSX, it won't know how to handle .ts files, so when
 
 The "Hello World" test
 
-<div>
-  <pre><code class="javascript">// filename: Hello.ts
 
-function Hello(args) {
-    console.log(&quot;Hello &quot; + args);
-    return 0;
-}
-Hello(&quot;John&quot;);</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename: Hello.ts</span>
+
+<span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 Compile it using **tsc Hello.ts**, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.
 
-<div>
-  <pre><code class="javascript">function Hello(args) {
-    console.log(&quot;Hello &quot; + args);
-    return 0;
-}
-Hello(&quot;John&quot;);</code></pre>
-</div>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 You can run the resulting **.js** code either via *node Hello.js* or ***js Hello.js** if you have it setup on your machine.
 
 To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this
 
-<div>
-  <pre><code class="javascript">function Hello(args: string) : number {
-	console.log(&quot;Hello &quot; + args);
-}
 
-Hello(&quot;John&quot;);</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
 
 
 If you try **tsc Hello.ts** again, you will get and error like *Function declared a non-void return type, but has no return expression*. The reason for that is because we added a type-checking information on both the *args* variable and the our function itself. **args : string** means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime. 
@@ -766,95 +763,94 @@ If you try **tsc Hello.ts** again, you will get and error like *Function declare
 
 Trying out the class and interface facilities of TypeScript
 
-<div>
-  <pre><code class="javascript">//BoxSample.ts
 
-interface IBox {
-	
-	x : number;
-	y : number;
-	height : number;
-	width : number;
-	
-}
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//BoxSample.ts</span>
 
-class Box {
+<span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
 	
-	public x: number;
-	public y: number;
-	public height: number;
-	public width: number;
+	<span class="nx">x</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">width</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
 	
-	public setDim(obj: IBox){
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Box</span> <span class="p">{</span>
+	
+	<span class="kr">public</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="kr">public</span> <span class="nx">setDim</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">IBox</span><span class="p">){</span>
 		
-		this.x = obj.x;
-		this.y = obj.y;
-		this.height = obj.height;
-		this.width = obj.width;
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
 	
-	}	
-}
+	<span class="p">}</span>	
+<span class="p">}</span>
 
-var b = new Box();
-var a = new Box();
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
 
-a.setDim({x:0,y:0,width:10, height:10});
-b.setDim({x:1,y:1,width:10, height:10});
+<span class="nx">a</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">});</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">});</span>
 
-console.log(b.constructor);
-console.log(typeof b);
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span><span class="p">);</span>
 
-console.log(b.x);
-console.log(b.y);
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
 
-console.log(a.x);
-console.log(a.y);
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
 
-/*
+<span class="cm">/*</span>
 
-compile using;
+<span class="cm">compile using;</span>
 
-	tsc BoxSample.ts
+<span class="cm">	tsc BoxSample.ts</span>
 
-outputs;
+<span class="cm">outputs;</span>
 
-	BoxSample.js
+<span class="cm">	BoxSample.js</span>
 
-*/
+<span class="cm">*/</span>
 
-//BoxSample.js
+<span class="c1">//BoxSample.js</span>
 
-var Box = (function () {
-    function Box() { }
-    Box.prototype.setDim = function (obj) {
-        this.x = obj.x;
-        this.y = obj.y;
-        this.height = obj.height;
-        this.width = obj.width;
-    };
-    return Box;
-})();
-var b = new Box();
-var a = new Box();
-a.setDim({
-    x: 0,
-    y: 0,
-    width: 10,
-    height: 10
-});
-b.setDim({
-    x: 1,
-    y: 1,
-    width: 10,
-    height: 10
-});
-console.log(b.constructor);
-console.log(typeof b);
-console.log(b.x);
-console.log(b.y);
-console.log(a.x);
-console.log(a.y);</code></pre>
-</div>
+<span class="kd">var</span> <span class="nx">Box</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Box</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setDim</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">Box</span><span class="p">;</span>
+<span class="p">})();</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span></code></pre></div>
 
 
 The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;
@@ -863,59 +859,57 @@ The TypeScript version does look a lot cleaner, looks like it really has potenti
 
 **2.** There is an **implements** keyword supported for class constructs, so I could have written the example as
 
-<div>
-  <pre><code class="javascript">interface IBox {
-	// …
-}
 
-class Box implements {
-	// class body
-}</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
+	<span class="c1">// …</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Box</span> <span class="kr">implements</span> <span class="p">{</span>
+	<span class="c1">// class body</span>
+<span class="p">}</span></code></pre></div>
 
 
 It doesn't seem like I needed it though (note to self =&gt; read the spec over and over again to find out why). 
 
 ## INHERITANCE AND POLYMORPHISM
 
-<div>
-  <pre><code class="javascript">class Shape {
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
 	
-	mname: string = &quot;default name&quot;;
+	<span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
 		
-	getName() {
-		return name;
-	}
+	<span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	setName(val : string) {
-		this.mname = val;
-	}
+	<span class="nx">setName</span><span class="p">(</span><span class="nx">val</span> <span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">mname</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+	<span class="p">}</span>
 	
-	draw() {
-		console.log(&quot;drawing Shape&quot;);
-	}
+	<span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;drawing Shape&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-}
+<span class="p">}</span>
 
-class Circle : Shape {
+<span class="kr">class</span> <span class="nx">Circle</span> <span class="o">:</span> <span class="nx">Shape</span> <span class="p">{</span>
 	
-	draw(){
-		console.log(&quot;Drawing Circle&quot;);
-	}
+	<span class="nx">draw</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Drawing Circle&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
 
-var a = new Shape();
-var b = new Circle();
-b.setName(&quot;the circle&quot;);
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Shape</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s2">&quot;the circle&quot;</span><span class="p">);</span>
 
-console.log(a.mname);
-console.log(b.mname);
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
 
-a.draw();
-b.draw();</code></pre>
-</div>
+<span class="nx">a</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span></code></pre></div>
 
 
 Inheritance works as expected, no big surprises. TypeScript uses the **extends** keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the *extends** keyword with a colon (pretty much like in CSharp), it seems to have the same effect as **extends** too&mdash;but better stick with *extends*, that is what the lang spec specifies for inheritance anyway.
@@ -928,83 +922,81 @@ Override works as expected also, just redefine the method on the the derived cla
 
 **super** refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected. 
 
-<div>
-  <pre><code class="javascript">class Base {
-	
-	foo(){
-		console.log(&quot;base::foo&quot;);
-	}
-	
-	constructor(){
-		console.log(&quot;base::ctor&quot;);
-	}
-	
-}
 
-class Derived extends Base {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
 	
-	foo(){
-		super.foo();
-		console.log(&quot;derived::foo&quot;);
-	}
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-	constructor(){
-		super();
-		console.log(&quot;derived::ctor&quot;);
-	}	
-}
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
 
-var a = new Derived();
-a.foo();</code></pre>
-</div>
+<span class="kr">class</span> <span class="nx">Derived</span> <span class="kr">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+	
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span></code></pre></div>
 
 
 ## OPTIONAL ARGUMENTS TO FUNCTIONS
 
 Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1 
 
-<div>
-  <pre><code class="javascript">class Square {
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
 	
-	pname: string;
-	pcolor: string;
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 	
-	constructor(mname? :string , mcolor? : string){
-		if(!mname) { this.pname = &quot;empty&quot;;}
-		else {
-			this.pname = mname;
-		}
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span><span class="o">?</span> <span class="o">:</span><span class="nx">string</span> <span class="p">,</span> <span class="nx">mcolor</span><span class="o">?</span> <span class="o">:</span> <span class="nx">string</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mname</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="p">}</span>
 		
-		if(!mcolor) {this.pcolor = &quot;empty&quot;;}
-		else {
-			this.pcolor = mcolor;
-		}
-	}
-}
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mcolor</span><span class="p">)</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-class Circle {
+<span class="kr">class</span> <span class="nx">Circle</span> <span class="p">{</span>
 
-	pname: string;
-	pcolor: string;
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 
-	constructor(mname = &quot;def name&quot; , mcolor = &quot;black&quot;){
-		this.pname = mname;
-		this.pcolor = mcolor;
-	}
-}
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span> <span class="o">=</span> <span class="s2">&quot;def name&quot;</span> <span class="p">,</span> <span class="nx">mcolor</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">){</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-var c = new Circle();
-console.log(c.pcolor);
-console.log(c.pname);
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
 
-var s = new Square();
-console.log(s.pcolor);
-console.log(s.pname);
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
 
-var s2 = new Square(&quot;new square&quot;,&quot;red&quot;);
-console.log(s2.pcolor);
-console.log(s2.pname);</code></pre>
-</div>
+<span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="s2">&quot;new square&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span></code></pre></div>
 
 
 
@@ -1012,50 +1004,49 @@ console.log(s2.pname);</code></pre>
 
 Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)
 
-<div>
-  <pre><code class="javascript">class Line {
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
 
 	
-	x: number;
-	y: number;
+	<span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
 	
-	width: number;
-	height: number;
+	<span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
 	
-	/*
-	
-	this does not work, if you vary the number of arguments on the overload
-	declarations, it throws a compile error
+	<span class="cm">/*</span>
+<span class="cm">	</span>
+<span class="cm">	this does not work, if you vary the number of arguments on the overload</span>
+<span class="cm">	declarations, it throws a compile error</span>
 
-	constructor();
-	constructor(x:number, y:number);
+<span class="cm">	constructor();</span>
+<span class="cm">	constructor(x:number, y:number);</span>
+<span class="cm">	</span>
+<span class="cm">	*/</span>
+
+
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">dim</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">y</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">width</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">height</span><span class="o">:</span><span class="nx">number</span><span class="p">;}){</span>
 	
-	*/
-
-
-	constructor(dim: {x:number; y:number; width:number; height:number;}){
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
 	
-		this.x = dim.x;
-		this.y = dim.y;
-		this.width = dim.width;
-		this.height = dim.width;
+	<span class="p">}</span>
 	
-	}
-	
-	/*
+	<span class="cm">/*</span>
 
-	The overloaded forms of foo() is accepted because I only varied the type of x.		
+<span class="cm">	The overloaded forms of foo() is accepted because I only varied the type of x.		</span>
 
-	*/
+<span class="cm">	*/</span>
 
-	foo(x:number);
-	foo(x:string);
-	foo(x:any){
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">string</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">any</span><span class="p">){</span>
 		
-	}
+	<span class="p">}</span>
 		
-}</code></pre>
-</div>
+<span class="p">}</span></code></pre></div>
 
 
 You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.
@@ -1065,18 +1056,17 @@ You can have multiple declarations of method, but only one of them can have an i
 
 This looks purely like syntactic sugar, but just the same, note it. The **() =&gt; {}** notation was added so that you don't have to say **function() {}** &mdash; this reminds me of CoffeeScript though. 
 
-<div>
-  <pre><code class="javascript">var box = {
-	
-	mname: &quot;Hello Box&quot;,
-	goo: () =&gt; {
-		console.log(&quot;Hello Goo&quot;);
-	}
-	
-}
 
-box.goo();</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+	
+	<span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
+	<span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello Goo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+
+<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span></code></pre></div>
 
 
 

@@ -196,7 +196,7 @@ h1, h2, h3 {
   padding-left: 0px;
   padding-top: 20px;
   text-rendering: optimizeLegibility;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 strong, b {font-weight:400;}
@@ -660,44 +660,42 @@ iframe {display:block;}
 
 <p>To deal with this challenge, you can wrap an <em>EditText</em> inside a <em>ScrollView</em> component. The ScrollView will act as a viewport to textual content of the EditText. </p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:orientation=&quot;vertical&quot;
-    android:layout_width=&quot;fill_parent&quot;
-    android:layout_height=&quot;fill_parent&quot;
-    &gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="nt">&gt;</span>
 
-	&lt;EditText
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:id=&quot;@+id/todoedit&quot;
-		android:layout_weight=&quot;0&quot;
-	/&gt;
+	<span class="nt">&lt;EditText</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/todoedit&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+	<span class="nt">/&gt;</span>
 
-	&lt;ScrollView
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:layout_weight=&quot;10&quot;
-	&gt;
+	<span class="nt">&lt;ScrollView</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;10&quot;</span>
+	<span class="nt">&gt;</span>
 
-		&lt;TextView  
-    		android:layout_width=&quot;fill_parent&quot; 
-    		android:layout_height=&quot;wrap_content&quot; 
-    		android:text=&quot;I have nothing&quot;
-			android:id=&quot;@+id/tododisplay&quot;
-    	/&gt;
-	&lt;/ScrollView&gt;
-	&lt;Button
-		android:layout_width=&quot;fill_parent&quot;
-		android:layout_height=&quot;wrap_content&quot;
-		android:text=&quot;Add item&quot;
-		android:id=&quot;@+id/btnadd&quot;
-		android:onClick=&quot;recAdd&quot;
-		android:layout_weight=&quot;0&quot;
-/&gt;
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+		<span class="nt">&lt;TextView</span>  
+    		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    		<span class="na">android:text=</span><span class="s">&quot;I have nothing&quot;</span>
+			<span class="na">android:id=</span><span class="s">&quot;@+id/tododisplay&quot;</span>
+    	<span class="nt">/&gt;</span>
+	<span class="nt">&lt;/ScrollView&gt;</span>
+	<span class="nt">&lt;Button</span>
+		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+		<span class="na">android:text=</span><span class="s">&quot;Add item&quot;</span>
+		<span class="na">android:id=</span><span class="s">&quot;@+id/btnadd&quot;</span>
+		<span class="na">android:onClick=</span><span class="s">&quot;recAdd&quot;</span>
+		<span class="na">android:layout_weight=</span><span class="s">&quot;0&quot;</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <div id="lst">/res/layout/main.xml</div>
 
