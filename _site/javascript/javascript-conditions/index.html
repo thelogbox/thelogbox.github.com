@@ -64,14 +64,14 @@ em {
 }
 
 body {
-  font-size:16px;   
+  font-size:17px;   
   font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
-  /*color: #373737; */
-  color: #2d2d2d;
+  color: #535353;
+  /*color: #2d2d2d;*/
   background: #f6f6f6;
   line-height: 1.4em;
 }
@@ -360,6 +360,7 @@ a:hover {color: blue; text-decoration:underline;}
   line-height:100%;
   margin-left: 10px;
   letter-spacing: normal;
+  display: none;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -552,10 +553,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left: 2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:96%;
@@ -570,7 +572,7 @@ iframe {display:block;}
 @media (min-width: 1020px) {
 
   body {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   /*
   article, #archives { 
@@ -582,9 +584,9 @@ iframe {display:block;}
   code {font-size: 1.3em;}
   .feature-banner-text {font-size: 2em;}
   
-  h1 {font-size: 1.7em;}
-  h2 {font-size: 1.5em; }
-  h3 {font-size: 1.3em; }
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
@@ -595,10 +597,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left:2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:900px;
@@ -702,30 +705,32 @@ expressions. You will also use them when defining or calling functions.
 The sample code below shows situations where you might use or see the
 parens</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// CONDITIONS</span>
+<div>
+  <pre><code class="java">// CONDITIONS
 
-<span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;a is greater than b&quot;</span><span class="o">);</span>
-<span class="o">}</span> 
+if (a &gt; b) {
+  console.log(&quot;a is greater than b&quot;);
+} 
 
-<span class="c1">// LOOPS</span>
+// LOOPS
 
-<span class="k">while</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
-<span class="o">}</span>
+while (a &gt; b) {
+  console.log(a);
+}
 
-<span class="c1">// FUNCTIONS</span>
+// FUNCTIONS
 
-<span class="n">function</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&quot;I am fooing&quot;</span><span class="o">);</span>
-<span class="o">}</span>
+function foo() {
+  console.log(&quot;I am fooing&quot;);
+}
 
-<span class="n">foo</span><span class="o">();</span>
+foo();
 
 
-<span class="n">var</span> <span class="n">colors</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;red&quot;</span><span class="o">,</span><span class="s">&quot;gold&quot;</span><span class="o">,</span><span class="s">&quot;green&quot;</span><span class="o">];</span>
-<span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-<span class="n">consoloe</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">x</span><span class="o">);</span></code></pre></div>
+var colors = [&quot;red&quot;,&quot;gold&quot;,&quot;green&quot;];
+var x = colors[1];
+consoloe.log(x);</code></pre>
+</div>
 
 <p>There are times when some expressions are written inside the parens and
 other times there aren’t any. It depends on what you are trying to do.
@@ -774,12 +779,14 @@ though.</p>
 
 <p>A very common use of blocks for grouping statements is shown below:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">actual_hrs_worked</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">var</span> <span class="n">overtime</span> <span class="o">=</span> <span class="n">actual_hrs_worked</span> <span class="o">-</span> <span class="mi">80</span><span class="o">;</span>
-  <span class="n">var</span> <span class="n">overtime_pay</span> <span class="o">=</span> <span class="n">overtime</span> <span class="o">*</span> <span class="n">hourly_rate</span> <span class="o">*</span> <span class="mf">1.3</span><span class="o">;</span>
-  <span class="n">var</span> <span class="n">base_pay</span> <span class="o">=</span> <span class="n">hourly_rate</span> <span class="o">*</span> <span class="mi">80</span><span class="o">;</span> 
-  <span class="n">var</span> <span class="n">gross_pay</span> <span class="o">=</span> <span class="n">base_pay</span> <span class="o">+</span> <span class="n">overtime_pay</span><span class="o">;</span>
-<span class="o">}</span></code></pre></div>
+<div>
+  <pre><code class="java">if (actual_hrs_worked &gt; 80) {
+  var overtime = actual_hrs_worked - 80;
+  var overtime_pay = overtime * hourly_rate * 1.3;
+  var base_pay = hourly_rate * 80; 
+  var gross_pay = base_pay + overtime_pay;
+}</code></pre>
+</div>
 
 <p>Even if the example code is contrived, it is easy to see and discover
 the intent of the programmer. When the number of actual hours worked is
@@ -800,19 +807,21 @@ brace to define blocks. JavaScript is such a language.</p>
 years. It continues to do so these days. We will not discuss the merits
 or pros and cons of these arguments.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// C Style braces</span>
-<span class="c1">// Known also as Kernighan and Ritchie or K &amp; R</span>
+<div>
+  <pre><code class="java">// C Style braces
+// Known also as Kernighan and Ritchie or K &amp; R
 
-<span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-  <span class="c1">// statements</span>
-<span class="o">}</span>
+if (a &gt; b) {
+  // statements
+}
 
-<span class="c1">// C++ style</span>
+// C++ style
 
-<span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> 
-<span class="o">{</span>
-  <span class="c1">// statements</span>
-<span class="o">}</span></code></pre></div>
+if (a &gt; b) 
+{
+  // statements
+}</code></pre>
+</div>
 
 <p>K &amp; R places the opening brace on the same line as the header and the
 closing brace is flushed to left. When using the C++ style, the opening
@@ -843,10 +852,12 @@ details and mechanics of array creation and management here. But let us
 look at some short code samples that shows how brackets might look like
 in our program</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">var</span> <span class="n">colors</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;red&quot;</span><span class="o">,</span><span class="s">&quot;gold&quot;</span><span class="o">,</span><span class="s">&quot;green&quot;</span><span class="o">];</span>
-<span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-<span class="n">colors</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="o">;</span>
-<span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">x</span><span class="o">);</span></code></pre></div>
+<div>
+  <pre><code class="java">var colors = [&quot;red&quot;,&quot;gold&quot;,&quot;green&quot;];
+var x = colors[1];
+colors[2] = &quot;black&quot;;
+console.log(x);</code></pre>
+</div>
 
 <p>The first line of code used the brackets to define an array of colors.
 You might have noticed that the brackets on that line were at right hand
@@ -873,9 +884,11 @@ to route program logic.</p>
 
 <p>The basic form of the if statement is as follows:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
- <span class="c1">// statement to execute</span>
-<span class="o">}</span></code></pre></div>
+<div>
+  <pre><code class="java">if (condition) {
+ // statement to execute
+}</code></pre>
+</div>
 
 <p>The statement requires an expression that resolves to either true or
 false. We need to write this boolean expression inside the parens.
@@ -896,17 +909,19 @@ the block and continue our program.</p>
 or falseness of the expression. Nothing more. Were not checking for any
 values whatsoever.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="o">)</span> <span class="o">{</span>
+<div>
+  <pre><code class="java">if ( x &gt; 50) {
 
-<span class="o">}</span>
+}
 
-<span class="k">if</span> <span class="o">(</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">)</span> <span class="o">{</span>
+if ( y &lt; 100) {
 
-<span class="o">}</span>
+}
 
-<span class="k">if</span> <span class="o">(</span> <span class="n">foo</span> <span class="o">==</span> <span class="s">&quot;Hello&quot;</span> <span class="o">)</span> <span class="o">{</span>
+if ( foo == &quot;Hello&quot; ) {
 
-<span class="o">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>In the above code samples, we only want to know if the value currently held by the variable x is more than 50. We are not concerned about the actual value of x, it may be a really large number, it could be 51 or it could even be 50. Is x greater than 50 or is it not. Is y less than 100
 or is it not. Those are the only things we care about.</p>

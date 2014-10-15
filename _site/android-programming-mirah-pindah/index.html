@@ -64,14 +64,14 @@ em {
 }
 
 body {
-  font-size:16px;   
+  font-size:17px;   
   font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
-  /*color: #373737; */
-  color: #2d2d2d;
+  color: #535353;
+  /*color: #2d2d2d;*/
   background: #f6f6f6;
   line-height: 1.4em;
 }
@@ -360,6 +360,7 @@ a:hover {color: blue; text-decoration:underline;}
   line-height:100%;
   margin-left: 10px;
   letter-spacing: normal;
+  display: none;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -552,10 +553,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left: 2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:96%;
@@ -570,7 +572,7 @@ iframe {display:block;}
 @media (min-width: 1020px) {
 
   body {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   /*
   article, #archives { 
@@ -582,9 +584,9 @@ iframe {display:block;}
   code {font-size: 1.3em;}
   .feature-banner-text {font-size: 2em;}
   
-  h1 {font-size: 1.7em;}
-  h2 {font-size: 1.5em; }
-  h3 {font-size: 1.3em; }
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
@@ -595,10 +597,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left:2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:900px;
@@ -684,180 +687,188 @@ iframe {display:block;}
   <li><strong>pindah</strong> generated a rake file, so use it <strong>rake debug install</strong>; use the debug option of rake so you won’t have to deal with signing the .apk before you can test the code</li>
 </ol>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
+<div>
+  <pre><code class="ruby">package com.thelogbox
 
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">Activity</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">Bundle</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">Toast</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">Context</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">LinearLayout</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">Button</span>
+import android.app.Activity
+import android.os.Bundle
+import android.widget.Toast
+import android.content.Context
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.Button
 
 
-<span class="k">class</span> <span class="nc">ToastView</span> <span class="o">&lt;</span> <span class="no">LinearLayout</span>
+class ToastView &lt; LinearLayout
     
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="ss">ctx</span><span class="p">:</span><span class="no">Context</span><span class="p">)</span>
-    <span class="k">super</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+  def initialize(ctx:Context)
+    super(ctx)
     
-    <span class="vi">@ctx</span> <span class="o">=</span> <span class="n">ctx</span>
-    <span class="vi">@button</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">ctx</span> 
+    @ctx = ctx
+    @button = Button.new ctx 
     
-    <span class="vi">@button</span><span class="o">.</span><span class="n">setText</span> <span class="s2">&quot;Toast me!&quot;</span>
-    <span class="vi">@button</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-      <span class="n">notification</span> <span class="o">=</span> <span class="no">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="no">ToastCode</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="s2">&quot;Yo&quot;</span><span class="p">,</span> <span class="no">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span>
-      <span class="n">notification</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">end</span>
+    @button.setText &quot;Toast me!&quot;
+    @button.setOnClickListener do |x|
+      notification = Toast.makeText(ToastCode.ctx, &quot;Yo&quot;, Toast.LENGTH_SHORT)
+      notification.show()
+    end
        
-    <span class="n">setOrientation</span><span class="p">(</span><span class="no">LinearLayout</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
-    <span class="n">addView</span><span class="p">(</span><span class="vi">@button</span><span class="p">)</span>
-  <span class="k">end</span>
+    setOrientation(LinearLayout.VERTICAL)
+    addView(@button)
+  end
     
-<span class="k">end</span>
+end
 
-<span class="k">class</span> <span class="nc">ToastCode</span> <span class="o">&lt;</span> <span class="no">Activity</span>
+class ToastCode &lt; Activity
 
-  <span class="k">def</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-    <span class="k">super</span> <span class="n">state</span>    
-    <span class="vi">@view</span> <span class="o">=</span> <span class="no">ToastView</span><span class="o">.</span><span class="n">new</span> <span class="nb">self</span>
-    <span class="vc">@@ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="p">()</span>
+  def onCreate(state)
+    super state    
+    @view = ToastView.new self
+    @@ctx = getApplicationContext()
     
-    <span class="n">setContentView</span> <span class="vi">@view</span>
-  <span class="k">end</span>
+    setContentView @view
+  end
   
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">ctx</span>
-    <span class="vc">@@ctx</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></div>
+  def self.ctx
+    @@ctx
+  end
+end</code></pre>
+</div>
 
 <p>The generated <strong>R.layout.main</strong> is completely ignored by this code, the UI is defined entirely in this single source file. The LinearLayout class is a descendant of android.view.View, which means you set the content view of an Activity class to an instance of a custom LinearLayout, hence the class <strong>ToastCode</strong> extending the LinearLayout class.</p>
 
 <p>To handle the onClick of the button, usually you will need an <strong>OnClickListener</strong>
 object. This is usually accomplished using an anonymous class. In the sample code, the callback function was achieved using a code block</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># ANONYMOUS METHOD</span>
+<div>
+  <pre><code class="ruby"># ANONYMOUS METHOD
 
-<span class="vi">@button</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">context</span>
-<span class="vi">@button</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-  <span class="c1"># code here ...</span>
-<span class="k">end</span></code></pre></div>
+@button = Button.new context
+@button.setOnClickListener do |x|
+  # code here ...
+end</code></pre>
+</div>
 
 <p>This is good if the code you need to write during click events are short. If the functionality gets a bit more involved, setting up proper <em>OnClickListener</em> objects might be a cleaner approach</p>
 
 <p>To setup OnClickListeners, just implement the View.OnClickListener interface in the View class (LinearLayout is subclass of View)</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># handling click event using OnClickListener</span>
+<div>
+  <pre><code class="ruby"># handling click event using OnClickListener
 
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">Context</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">LinearLayout</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">Button</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">ViewGroup</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span><span class="o">.</span><span class="n">OnClickListener</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">LinearLayout</span><span class="o">.</span><span class="n">LayoutParams</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span><span class="o">.</span><span class="n">OnClickListener</span>
+import android.view.View
+import android.content.Context
+import android.widget.LinearLayout
+import android.widget.Button
+import android.view.ViewGroup
+import android.view.View.OnClickListener
+import android.widget.LinearLayout.LayoutParams
+import android.view.View.OnClickListener
 
 
-<span class="k">class</span> <span class="nc">ToastView</span> <span class="o">&lt;</span> <span class="no">LinearLayout</span>
-  <span class="n">implements</span> <span class="no">OnClickListener</span>
+class ToastView &lt; LinearLayout
+  implements OnClickListener
   
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="ss">ctx</span><span class="p">:</span><span class="no">Context</span><span class="p">)</span>
-    <span class="k">super</span> <span class="n">ctx</span>
+  def initialize(ctx:Context)
+    super ctx
     
-    <span class="vi">@btnsave</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">ctx</span>       
-    <span class="vi">@btnsave</span><span class="o">.</span><span class="n">setLayoutParams</span> <span class="n">getLayoutParams</span>    
-    <span class="vi">@btnsave</span><span class="o">.</span><span class="n">setText</span> <span class="s2">&quot;Save&quot;</span>    
-    <span class="vi">@btnsave</span><span class="o">.</span><span class="n">setOnClickListener</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    @btnsave = Button.new ctx       
+    @btnsave.setLayoutParams getLayoutParams    
+    @btnsave.setText &quot;Save&quot;    
+    @btnsave.setOnClickListener(self)
     
-    <span class="c1"># ADD the widgets to the MainView</span>
+    # ADD the widgets to the MainView
     
-    <span class="n">addView</span> <span class="vi">@btnsave</span>
-    <span class="n">setOrientation</span> <span class="no">LinearLayout</span><span class="o">.</span><span class="n">VERTICAL</span>    
-  <span class="k">end</span>
+    addView @btnsave
+    setOrientation LinearLayout.VERTICAL    
+  end
   
-  <span class="k">def</span> <span class="nf">getLayoutParams</span><span class="ss">:LayoutParams</span>
-    <span class="n">width</span> <span class="o">=</span> <span class="no">ViewGroup</span><span class="o">.</span><span class="n">LayoutParams</span><span class="o">.</span><span class="n">FILL_PARENT</span>
-    <span class="n">height</span> <span class="o">=</span> <span class="no">ViewGroup</span><span class="o">.</span><span class="n">LayoutParams</span><span class="o">.</span><span class="n">WRAP_CONTENT</span>    
-    <span class="no">LayoutParams</span><span class="o">.</span><span class="n">new</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span>
-  <span class="k">end</span>
+  def getLayoutParams:LayoutParams
+    width = ViewGroup.LayoutParams.FILL_PARENT
+    height = ViewGroup.LayoutParams.WRAP_CONTENT    
+    LayoutParams.new width, height
+  end
   
-  <span class="k">def</span> <span class="nf">onClick</span><span class="p">(</span><span class="ss">view</span><span class="p">:</span><span class="no">View</span><span class="p">)</span>
-    <span class="c1"># ... code when button is clicked</span>
-  <span class="k">end</span>
+  def onClick(view:View)
+    # ... code when button is clicked
+  end
     
-<span class="k">end</span></code></pre></div>
+end</code></pre>
+</div>
 
 <h1 id="detecting-event-source">DETECTING EVENT SOURCE</h1>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">thelogbox</span>
+<div>
+  <pre><code class="ruby">package com.thelogbox
 
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">Activity</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">LinearLayout</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">Button</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">Context</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">View</span><span class="o">.</span><span class="n">OnClickListener</span>
-<span class="n">import</span> <span class="n">android</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">Toast</span>
+import android.app.Activity
+import android.widget.LinearLayout
+import android.widget.Button
+import android.content.Context
+import android.view.View
+import android.view.View.OnClickListener
+import android.widget.Toast
 
-<span class="k">class</span> <span class="nc">ButtonsView</span> <span class="o">&lt;</span> <span class="no">LinearLayout</span>
-  <span class="n">implements</span> <span class="no">OnClickListener</span>
+class ButtonsView &lt; LinearLayout
+  implements OnClickListener
   
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="ss">ctx</span><span class="p">:</span><span class="no">Context</span><span class="p">)</span>
-    <span class="k">super</span> <span class="n">ctx</span>
+  def initialize(ctx:Context)
+    super ctx
     
-    <span class="vi">@one</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">ctx</span>
-    <span class="vi">@two</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">ctx</span>
-    <span class="vi">@three</span> <span class="o">=</span> <span class="no">Button</span><span class="o">.</span><span class="n">new</span> <span class="n">ctx</span>
+    @one = Button.new ctx
+    @two = Button.new ctx
+    @three = Button.new ctx
     
-    <span class="vi">@one</span><span class="o">.</span><span class="n">setText</span> <span class="s2">&quot;One&quot;</span>
-    <span class="vi">@two</span><span class="o">.</span><span class="n">setText</span> <span class="s2">&quot;Two&quot;</span>
-    <span class="vi">@three</span><span class="o">.</span><span class="n">setText</span> <span class="s2">&quot;Three&quot;</span>
+    @one.setText &quot;One&quot;
+    @two.setText &quot;Two&quot;
+    @three.setText &quot;Three&quot;
     
-    <span class="c1"># need to set the Id  of each Button obj because this is</span>
-    <span class="c1"># is what we will use to determine which of them was clicked</span>
+    # need to set the Id  of each Button obj because this is
+    # is what we will use to determine which of them was clicked
     
-    <span class="vi">@one</span><span class="o">.</span><span class="n">setId</span> <span class="mi">1</span>
-    <span class="vi">@two</span><span class="o">.</span><span class="n">setId</span> <span class="mi">2</span>
-    <span class="vi">@three</span><span class="o">.</span><span class="n">setId</span> <span class="mi">3</span>
+    @one.setId 1
+    @two.setId 2
+    @three.setId 3
     
-    <span class="vi">@one</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="nb">self</span>
-    <span class="vi">@two</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="nb">self</span>
-    <span class="vi">@three</span><span class="o">.</span><span class="n">setOnClickListener</span> <span class="nb">self</span>
+    @one.setOnClickListener self
+    @two.setOnClickListener self
+    @three.setOnClickListener self
 
-    <span class="n">addView</span><span class="p">(</span><span class="vi">@one</span><span class="p">)</span>
-    <span class="n">addView</span><span class="p">(</span><span class="vi">@two</span><span class="p">)</span>
-    <span class="n">addView</span><span class="p">(</span><span class="vi">@three</span><span class="p">)</span>
+    addView(@one)
+    addView(@two)
+    addView(@three)
     
-    <span class="n">setOrientation</span> <span class="no">LinearLayout</span><span class="o">.</span><span class="n">VERTICAL</span>
+    setOrientation LinearLayout.VERTICAL
 
-  <span class="k">end</span>
+  end
   
-  <span class="k">def</span> <span class="nf">onClick</span><span class="p">(</span><span class="ss">v</span><span class="p">:</span><span class="no">View</span><span class="p">)</span>
+  def onClick(v:View)
     
-    <span class="c1"># v.getId will return an integer. If you defined the view declaratively, the AAPT</span>
-    <span class="c1"># (android asset packaging tool) would have kicked in and generated an R.layout.xxx</span>
-    <span class="c1"># java class, we could use that id to determine which button was clicked.</span>
-    <span class="c1"># But since the view was done programmatically, the aapt did not kick in, hence</span>
-    <span class="c1"># we need to define our own ids for each button</span>
+    # v.getId will return an integer. If you defined the view declaratively, the AAPT
+    # (android asset packaging tool) would have kicked in and generated an R.layout.xxx
+    # java class, we could use that id to determine which button was clicked.
+    # But since the view was done programmatically, the aapt did not kick in, hence
+    # we need to define our own ids for each button
     
-    <span class="n">toast</span> <span class="o">=</span> <span class="no">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="no">Buttons</span><span class="o">.</span><span class="n">getAppContext</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">v</span><span class="o">.</span><span class="n">getId</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="no">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span>
-    <span class="n">toast</span><span class="o">.</span><span class="n">show</span>
-  <span class="k">end</span>
+    toast = Toast.makeText(Buttons.getAppContext,&quot;#{v.getId}&quot;, Toast.LENGTH_SHORT)
+    toast.show
+  end
   
-<span class="k">end</span>
+end
 
-<span class="k">class</span> <span class="nc">Buttons</span> <span class="o">&lt;</span> <span class="no">Activity</span>
-  <span class="k">def</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-    <span class="k">super</span> <span class="n">state</span>
-    <span class="vc">@@ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span>
-    <span class="n">setContentView</span> <span class="no">ButtonsView</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
-  <span class="k">end</span>
+class Buttons &lt; Activity
+  def onCreate(state)
+    super state
+    @@ctx = getApplicationContext
+    setContentView ButtonsView.new(self)
+  end
   
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">getAppContext</span>
-    <span class="vc">@@ctx</span>
-  <span class="k">end</span>
+  def self.getAppContext
+    @@ctx
+  end
   
-<span class="k">end</span></code></pre></div>
+end</code></pre>
+</div>
 
 
         </div>					

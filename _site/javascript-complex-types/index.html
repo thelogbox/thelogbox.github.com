@@ -64,14 +64,14 @@ em {
 }
 
 body {
-  font-size:16px;   
+  font-size:17px;   
   font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
-  /*color: #373737; */
-  color: #2d2d2d;
+  color: #535353;
+  /*color: #2d2d2d;*/
   background: #f6f6f6;
   line-height: 1.4em;
 }
@@ -360,6 +360,7 @@ a:hover {color: blue; text-decoration:underline;}
   line-height:100%;
   margin-left: 10px;
   letter-spacing: normal;
+  display: none;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -552,10 +553,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left: 2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:96%;
@@ -570,7 +572,7 @@ iframe {display:block;}
 @media (min-width: 1020px) {
 
   body {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   /*
   article, #archives { 
@@ -582,9 +584,9 @@ iframe {display:block;}
   code {font-size: 1.3em;}
   .feature-banner-text {font-size: 2em;}
   
-  h1 {font-size: 1.7em;}
-  h2 {font-size: 1.5em; }
-  h3 {font-size: 1.3em; }
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
@@ -595,10 +597,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left:2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:900px;
@@ -684,14 +687,16 @@ iframe {display:block;}
 
 <p>Object literals have very simple construction. The code sample below illustrates how to use <em>object literals</em> in your code. Object literals are also known as JSON — short for JavaScript Object Notation.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// this one constructs an empty object</span>
-<span class="kd">var</span> <span class="nx">pt</span> 	<span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">}</span> <span class="c1">// an object with simple data types as members</span>
-<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">var obj = {} // this one constructs an empty object
+var pt 	= {x:0, y:0} // an object with simple data types as members
+var person = {
 
-	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
-	<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@somewhere.com&quot;</span><span class="p">,</span>
+	name: &quot;John Doe&quot;,
+	email: &quot;johndoe@somewhere.com&quot;,
 
-<span class="p">}</span> <span class="c1">// an object that has two members, both of which are Strings</span></code></pre></div>
+} // an object that has two members, both of which are Strings</code></pre>
+</div>
 
 <p>When you use object literals to initialize objects, don’t forget to separate the pairs using comma. You can add properties (the key-value pair) to objects by simply declaring the member–using the dot notation–and assigning them values</p>
 

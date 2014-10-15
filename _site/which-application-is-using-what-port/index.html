@@ -64,14 +64,14 @@ em {
 }
 
 body {
-  font-size:16px;   
+  font-size:17px;   
   font-family: 'nimbus-sans','Lato';
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
-  /*color: #373737; */
-  color: #2d2d2d;
+  color: #535353;
+  /*color: #2d2d2d;*/
   background: #f6f6f6;
   line-height: 1.4em;
 }
@@ -360,6 +360,7 @@ a:hover {color: blue; text-decoration:underline;}
   line-height:100%;
   margin-left: 10px;
   letter-spacing: normal;
+  display: none;
 }
 #postmeta a:link, #postmeta a:visited {color: #000;}
 
@@ -552,10 +553,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left: 2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:96%;
@@ -570,7 +572,7 @@ iframe {display:block;}
 @media (min-width: 1020px) {
 
   body {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   /*
   article, #archives { 
@@ -582,9 +584,9 @@ iframe {display:block;}
   code {font-size: 1.3em;}
   .feature-banner-text {font-size: 2em;}
   
-  h1 {font-size: 1.7em;}
-  h2 {font-size: 1.5em; }
-  h3 {font-size: 1.3em; }
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
   .toc {
@@ -595,10 +597,11 @@ iframe {display:block;}
     -webkit-column-count:1; /* Safari and Chrome */
     padding: 10px;
     border: 0;
+    margin-left:2%;
   }
   article {
     float:left;
-    width: 72%;
+    width: 70%;
   }  
   #wrap {
     width:900px;
@@ -687,7 +690,13 @@ How to hunt down applications via their port numbers</p>
 
 <p>Anyway, the basic idea is to use the netstat command so that we can list all the applications that are either accepting or sending network traffic, and we’d like to list their port numbers and their process IDs too. Then, when we find the port number we are looking for, we will list all the running processes and make the match using the process ID – then we’ll know who the culprit is.</p>
 
-<p>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></p>
+<table>
+  <tbody>
+    <tr>
+      <td>Let’s say that we are looking for port 80 – IIS, Apache and other web servers listen in port 80, so when you are having problems starting Apache, this technique will be useful. The command to use is <code class="codeblock">netstat -aon | findstr 0.0:80</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p><em>-a</em> means list all active connections and their ports. -o means include their process IDs. -n means display the port numbers numerically.</p>
 
@@ -699,7 +708,13 @@ TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 560
 
 </pre>
 
-<p>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></p>
+<table>
+  <tbody>
+    <tr>
+      <td>Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the <em>Process Manager</em> window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p><em>tasklist</em> is another Windows command line utility which shows you a list of all active processes, again I’d feed it to the findstr utility via the pipe operator, and voila – Skype is the culprit.</p>
 
