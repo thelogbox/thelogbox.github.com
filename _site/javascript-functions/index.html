@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -676,17 +683,19 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>A JavaScript function is named code-block. A code block is a group of statements tucked inside a pair of opening and ending curly brace. </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*</span>
-<span class="cm">File name: hello.js</span>
-<span class="cm">The hello world program in JavaScript</span>
-<span class="cm">*/</span>
+<div>
+  <pre><code class="javascript">/*
+File name: hello.js
+The hello world program in JavaScript
+*/
 
-<span class="nx">foo</span><span class="p">();</span>
+foo();
 
-<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;Hello World\n&quot;</span><span class="p">;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+function foo() {
+  var s = &quot;Hello World\n&quot;;
+  console.log(s);
+}</code></pre>
+</div>
 
 <p>If you installed node.js (and I hope you did) you can run try this out on the command line using <strong>$ node hello.js</strong> </p>
 
@@ -698,10 +707,12 @@ iframe {display:block;}
 
 <p>The <em>console.log()</em> command is the STDIO library of Node.JS (although some browsers include this as part of their JavaScript runtime). This command routes the output to stderr and stdout (the command line screen) </p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">parameters</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// statements</span>
-  <span class="p">[</span><span class="k">return</span> <span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="p">}</span></code></pre></div>
+<div>
+  <pre><code class="javascript">function &lt;name&gt; (&lt;parameters) {
+  // statements
+  [return &lt;value&gt;]
+}</code></pre>
+</div>
 
 <div id="lst">Canonical Form</div>
 
@@ -715,13 +726,15 @@ iframe {display:block;}
 
 <p>Be careful how you write your curly braces, JavaScript’s defaults might produce unexpected results, see the following code.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">goo</span><span class="p">()</span> <span class="p">{</span>
+<div>
+  <pre><code class="javascript">function goo() {
 
-  <span class="k">return</span>
-  <span class="p">{</span>	<span class="c1">// this line is unreachable</span>
-    <span class="nx">objprop</span><span class="o">:</span> <span class="s2">&quot;Some obj property&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+  return
+  {	// this line is unreachable
+    objprop: &quot;Some obj property&quot;;
+  }
+}</code></pre>
+</div>
 
 <p>The statement will be unreachable because JavaScript would have inserted a semi-colon right after the <strong>return</strong> statement. The object literal is unreachable as a return value.</p>
 

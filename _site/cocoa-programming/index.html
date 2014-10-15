@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -731,35 +738,39 @@ iframe {display:block;}
 
 <p><em>Objective C</em> is a superset of C, all valid <em>C</em> codes are valid in Objective C. Test your environment. </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;stdio.h&gt;</span>
-<span class="cp">#import &lt;stdlib.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;stdio.h&gt;
+#import &lt;stdlib.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 	
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+	printf(&quot;Hello World\n&quot;);
+	return EXIT_SUCCESS;
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">// 	gcc Hello.c</span>
-<span class="c1">// output</span>
-<span class="c1">//	a.out</span></code></pre></div>
+// compile:
+// 	gcc Hello.c
+// output
+//	a.out</code></pre>
+</div>
 
 <p>Environment testing with <em>Foundation Framework</em> </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &lt;stdlib.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
+#import &lt;stdlib.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+int main (int argc, const char* argv[]) {
 	
-	<span class="n">NSLog</span> <span class="p">(@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+	NSLog (@ &quot;Hello World\n&quot;);
+	return EXIT_SUCCESS;
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">//	gcc -framework Foundation Hello.m -o Hello.out</span></code></pre></div>
+// compile:
+//	gcc -framework Foundation Hello.m -o Hello.out</code></pre>
+</div>
 
 <p>You need to tell gcc that you will use the Foundation framework using the -framework flag, lest the Foundation headers won’t be resolved by the compiler.</p>
 
@@ -767,22 +778,24 @@ iframe {display:block;}
 
 <p>The next set of codes is a simple Cocoa test</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &lt;Appkit/Appkit.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
+#import &lt;Appkit/Appkit.h&gt;
 
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">NSApplication</span> <span class="n">sharedApplication</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	[NSApplication sharedApplication];
 
-	<span class="n">NSRunAlertPanel</span><span class="p">(@</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="p">@</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span> <span class="p">@</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">,</span> <span class="nb">nil</span><span class="p">);</span>
+	NSRunAlertPanel(@ &quot;One&quot;, @ &quot;Two&quot;, @ &quot;Three&quot;, nil, nil);
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-<span class="p">}</span>
+	[pool drain];
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">//	clang -framework Cocoa Hello.m</span></code></pre></div>
+// compile:
+//	clang -framework Cocoa Hello.m</code></pre>
+</div>
 
 <p>You can use <em>clang</em> in place of <em>gcc</em>, it is another front end to LLVM (Low Level Virtual Machine) which Objective C uses. The AppKit was <em>#include</em>(d) because of the use of  NSRunAlertPanel.</p>
 
@@ -794,42 +807,46 @@ iframe {display:block;}
 
 <p>There is another type in Objective C called <strong>id</strong>, but its discussion is deferred to later sections.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">100.00</span><span class="p">;</span>
-	<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">100e+2</span><span class="p">;</span>
-	<span class="kt">char</span> <span class="n">d</span> <span class="o">=</span> <span class="sc">&#39;g&#39;</span><span class="p">;</span>
-	<span class="kt">BOOL</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	int a = 100;
+	float b = 100.00;
+	double c = 100e+2;
+	char d = 'g';
+	BOOL e = true;
 
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Integer a = %i&quot;</span> <span class="p">,</span> <span class="n">a</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Float b = %f&quot;</span> <span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Double c = %e&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Double c = %g&quot;</span> <span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Char d = %c&quot;</span> <span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;BOOL e = %d&quot;</span> <span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+	NSLog(@ &quot;Integer a = %i&quot; , a);
+	NSLog(@ &quot;Float b = %f&quot; , b);
+	NSLog(@ &quot;Double c = %e&quot; , c);
+	NSLog(@ &quot;Double c = %g&quot; , c);
+	NSLog(@ &quot;Char d = %c&quot; , d);
+	NSLog(@ &quot;BOOL e = %d&quot; , e);
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[pool drain];
 
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+	return 0;
+}</code></pre>
+</div>
 
 <p><strong>NSLog</strong> takes format specifiers like fprintf. The reference page for <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html">String format specifiers are here</a></p>
 
 <p>You can use <strong>c99</strong> bool instead of BOOL. You need to keep in mind though that Cocoa and the other Frameworks uses BOOL instead of bool—peeking into Foundation/objc.h, you can find the definition of BOOL.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">typedef</span> <span class="kt">signed</span> <span class="kt">char</span>     <span class="kt">BOOL</span><span class="p">;</span> 
-<span class="c1">// BOOL is explicitly signed so @encode(BOOL) == &quot;c&quot; rather than &quot;C&quot; </span>
-<span class="c1">// even if -funsigned-char is used.</span>
-<span class="cp">#define OBJC_BOOL_DEFINED</span>
+<div>
+  <pre><code class="objective-c">typedef signed char     BOOL; 
+// BOOL is explicitly signed so @encode(BOOL) == &quot;c&quot; rather than &quot;C&quot; 
+// even if -funsigned-char is used.
+#define OBJC_BOOL_DEFINED
 
 
-<span class="cp">#define YES             (BOOL)1</span>
-<span class="cp">#define NO              (BOOL)0</span></code></pre></div>
+#define YES             (BOOL)1
+#define NO              (BOOL)0</code></pre>
+</div>
 
 <p>Be prudent, use BOOL to future proof your code a little bit, in case Apple decides to change the implementation (not likely, but who knows).</p>
 
@@ -839,42 +856,44 @@ iframe {display:block;}
 
 <h3 id="a-person-class-example">A Person class example</h3>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.h</span>
+<div>
+  <pre><code class="objective-c">// filename: Person.h
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">Person</span>: <span class="bp">NSObject</span> <span class="p">{</span>
+@interface Person: NSObject {
 
-	<span class="kt">int</span> <span class="n">theint</span><span class="p">;</span>
+	int theint;
 
-<span class="p">}</span>
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> 	<span class="nf">getInt</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> 	<span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> 	<span class="nf">foo</span><span class="p">;</span> 
+- (int) 	getInt;
+- (void) 	setInt: (int) var;
+- (void) 	foo; 
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">// filename: Person.m</span>
+// filename: Person.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &quot;Person.h&quot;</span>
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Person.h&quot;
 
-<span class="k">@implementation</span> <span class="nc">Person</span>
+@implementation Person
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">theint</span><span class="p">;</span>
-<span class="p">}</span>
+- (int) getInt {
+	return theint;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
-	<span class="n">theint</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
-<span class="p">}</span>
+- (void) setInt: (int) var {
+	theint = var;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) foo {
+	NSLog(@ &quot;Word&quot;);
+}
 
-<span class="k">@end</span></code></pre></div>
+@end</code></pre>
+</div>
 
 <p>The <em>@interface</em> section declares member variables and member methods. The member method only contains the method signature (return type, method name and argument).</p>
 
@@ -886,49 +905,51 @@ iframe {display:block;}
 
 <p>You cannot compile the code yet, it will complain because an entry point to the program has not been defined. You need to define a <em>main()</em> function to test this code. The main() function can be in a different implementation source file, but it is not a requirement.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.m</span>
+<div>
+  <pre><code class="objective-c">// filename: Person.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &quot;Person.h&quot;</span>
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Person.h&quot;
 
-<span class="k">@implementation</span> <span class="nc">Person</span>
+@implementation Person
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nf">getInt</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">theint</span><span class="p">;</span>
-<span class="p">}</span>
+- (int) getInt {
+	return theint;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInt:</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
-	<span class="n">theint</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
-<span class="p">}</span>
+- (void) setInt: (int) var {
+	theint = var;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Word&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) foo {
+	NSLog(@ &quot;Word&quot;);
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">/////////////////////////////////////////////////////</span>
+/////////////////////////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="c1">// Setup a garbage collected pool</span>
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	// Setup a garbage collected pool
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="n">Person</span> <span class="o">*</span> <span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Person</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">person</span> <span class="nl">setInt</span><span class="p">:</span> <span class="mi">100</span><span class="p">];</span>
-	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span> <span class="n">getInt</span><span class="p">];</span>
+	Person * person = [[Person alloc] init];
+	[person setInt: 100];
+	int x = [person getInt];
 
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="p">);</span>
-	<span class="c1">// To do the printf in NSLog</span>
-	<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Value of getInt = %i &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+	printf(&quot;%d \n&quot;, x );
+	// To do the printf in NSLog
+	NSLog(@&quot;Value of getInt = %i &quot;, x);
 
-	<span class="p">[</span><span class="n">person</span> <span class="n">foo</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[person foo];
+	[pool drain];
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">//	clang -framework Foundation Person.m</span></code></pre></div>
+// compile:
+//	clang -framework Foundation Person.m</code></pre>
+</div>
 
 <p>The person object could have been created using the <em>new</em> message [Person new] —  <strong>new</strong> is not a keyword in Objective C, it is a method of the NSObject which actually calls allo, then init. The Person class in the example is inheriting from NSObject, which means it has everything that NSObject has, including the  <em>new</em> method.</p>
 
@@ -942,169 +963,175 @@ iframe {display:block;}
 
 <p>Getting and setting values of member vars of an object is a very common programming practice, it is a necessary technique in creating value objects.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Person.h</span>
+<div>
+  <pre><code class="objective-c">// filename: Person.h
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
 
-<span class="k">@interface</span> <span class="nc">Person</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+@interface Person : NSObject {
 
-	<span class="bp">NSString</span> <span class="o">*</span> <span class="n">name</span><span class="p">;</span>
-	<span class="bp">NSString</span> <span class="o">*</span> <span class="n">email</span><span class="p">;</span>
+	NSString * name;
+	NSString * email;
 
-<span class="p">}</span>
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setName:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEmail:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span>  <span class="nv">var</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getEmail</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getName</span><span class="p">;</span>
+- (void) setName: (NSString *)  var;
+- (void) setEmail: (NSString *)  var;
+- (NSString *) getEmail;
+- (NSString *) getName;
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">// filename: Person.m</span>
+// filename: Person.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &quot;Person.h&quot;</span>
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Person.h&quot;
 
-<span class="k">@implementation</span> <span class="nc">Person</span>
+@implementation Person
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setName:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
-	<span class="n">name</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
-<span class="p">}</span>
+- (void) setName: (NSString *) var {
+	name = var;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setEmail:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
-	<span class="n">email</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
-<span class="p">}</span>
+- (void) setEmail: (NSString *) var {
+	email = var;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getName</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">name</span><span class="p">;</span>
-<span class="p">}</span>
+- (NSString *) getName {
+	return name;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getEmail</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">email</span><span class="p">;</span>
-<span class="p">}</span>
+- (NSString *) getEmail {
+	return email;
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">/////////////////////////////////////////////</span>
+/////////////////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="n">Person</span> <span class="o">*</span> <span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Person</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	Person * person = [[Person alloc] init];
 
-	<span class="p">[</span><span class="n">person</span> <span class="nl">setName</span><span class="p">:</span> <span class="p">@</span> <span class="s">&quot;Ted&quot;</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">person</span> <span class="nl">setEmail</span><span class="p">:</span> <span class="p">@</span> <span class="s">&quot;tedhagos@gmail.com&quot;</span><span class="p">];</span>
+	[person setName: @ &quot;Ted&quot;];
+	[person setEmail: @ &quot;tedhagos@gmail.com&quot;];
 
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getEmail</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">person</span> <span class="n">getName</span><span class="p">]);</span>
+	NSLog(@ &quot;%@&quot;, [person getEmail]);
+	NSLog(@ &quot;%@&quot;, [person getName]);
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[pool drain];
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile: clang -framework Foundation Person.m</span></code></pre></div>
+// compile: clang -framework Foundation Person.m</code></pre>
+</div>
 
 <h1 id="properties">Properties</h1>
 
 <p>You do not need to write individual getters and setters methods for member vars. Objective C as the @property and @synthesize to do that automatically</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: Prop.h</span>
+<div>
+  <pre><code class="objective-c">// filename: Prop.h
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">Prop</span> : <span class="bp">NSObject</span> <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">one</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">two</span><span class="p">;</span>
-<span class="p">}</span>
+@interface Prop : NSObject {
+	int one;
+	int two;
+}
 
-<span class="k">@property</span>  <span class="kt">int</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">;</span>
+@property  int one, two;
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span><span class="p">;</span>
+- (void) printem;
+- (void) divideem;
+- (void) multiplyem;
+- (void) addem;
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">// filename Prop.m</span>
+// filename Prop.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &quot;Prop.h&quot;</span>
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Prop.h&quot;
 
-<span class="k">@implementation</span> <span class="nc">Prop</span>
+@implementation Prop
 
-<span class="k">@synthesize</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">;</span>
+@synthesize one, two;
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printem</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One is %i and Two is %i&quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) printem {
+	NSLog(@ &quot;One is %i and Two is %i&quot;, one, two);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">divideem</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i / %i = %f &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span><span class="o">/</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">two</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) divideem {
+	NSLog(@ &quot;%i / %i = %f &quot;, one, two, one/(float)two);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">multiplyem</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i * %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">*</span> <span class="n">two</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) multiplyem {
+	NSLog(@ &quot;%i * %i = %i &quot;, one, two, one * two);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addem</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;%i + %i = %i &quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">,</span> <span class="n">one</span> <span class="o">+</span>  <span class="n">two</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) addem {
+	NSLog(@ &quot;%i + %i = %i &quot;, one, two, one +  two);
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">/////////////////////////////////////////////////</span>
+/////////////////////////////////////////////////
 
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="n">Prop</span> <span class="o">*</span> <span class="n">prop</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Prop</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">prop</span> <span class="nl">setOne</span><span class="p">:</span> <span class="mi">1</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo</span><span class="p">:</span> <span class="mi">2</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	Prop * prop = [[Prop alloc] init];
+	[prop setOne: 1];
+	[prop setTwo: 2];
 
-	<span class="p">[</span><span class="n">prop</span> <span class="n">divideem</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">prop</span> <span class="n">addem</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">prop</span> <span class="n">printem</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">prop</span> <span class="n">multiplyem</span><span class="p">];</span>
+	[prop divideem];
+	[prop addem];
+	[prop printem];
+	[prop multiplyem];
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[pool drain];
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>@property is declared on the interface declaration and @synthesize on the implementation portion. In the example code above, the member vars <em>one &amp; two</em> were synthesized. Accessor methods were automatically generated for these vars. </p>
 
 <p>The accessor method which was generated for our member vars one &amp; two are the following;</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cm">/*</span>
+<div>
+  <pre><code class="objective-c">/*
 
-<span class="cm">The acccessor to get the member var is exactly the same name as</span>
-<span class="cm">the member var.</span>
+The acccessor to get the member var is exactly the same name as
+the member var.
 
-<span class="cm">In Objective C 2.0, the dot notation was allowed to access properties of </span>
-<span class="cm">an object, hence we could have written prop.one instead of [prop one]. Note </span>
-<span class="cm">though that you are not resolving the name of member val literally (Java and</span>
-<span class="cm">C# programmers, take note), you are in fact sending a -one or -two message </span>
-<span class="cm">to the object named prop. It is not a direct access to the value of the member</span>
-<span class="cm">vars</span>
+In Objective C 2.0, the dot notation was allowed to access properties of 
+an object, hence we could have written prop.one instead of [prop one]. Note 
+though that you are not resolving the name of member val literally (Java and
+C# programmers, take note), you are in fact sending a -one or -two message 
+to the object named prop. It is not a direct access to the value of the member
+vars
 
-<span class="cm">*/</span>
+*/
 
-<span class="p">[</span><span class="n">prop</span> <span class="n">one</span><span class="p">];</span>
-<span class="p">[</span><span class="n">prop</span> <span class="n">two</span><span class="p">];</span>
+[prop one];
+[prop two];
 
-<span class="cm">/*</span>
+/*
 
-<span class="cm">To set the value of the member var the general the convention is to </span>
-<span class="cm">	1. Capitalize the first letter of the member var</span>
-<span class="cm">	2. prepend the word &quot;set&quot; to the upper-cased member var</span>
+To set the value of the member var the general the convention is to 
+	1. Capitalize the first letter of the member var
+	2. prepend the word &quot;set&quot; to the upper-cased member var
 
-<span class="cm">*/</span>
+*/
 
 
-<span class="p">[</span><span class="n">prop</span> <span class="nl">setOne</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span>
-<span class="p">[</span><span class="n">prop</span> <span class="nl">setTwo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">];</span></code></pre></div>
+[prop setOne: &lt;value&gt;];
+[prop setTwo: &lt;value&gt;];</code></pre>
+</div>
 
 <h1 id="constructors">Constructors</h1>
 
@@ -1112,76 +1139,78 @@ iframe {display:block;}
 
 <p>On the other hand, each object, before they are created, are sent the messages <em>alloc</em> then <em>init</em>. It’s probably not a good idea to fool around with <em>alloc</em> but it is a very common practice to override <em>init</em> and perform initialization codes. </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="nl">filename</span><span class="p">:</span> <span class="n">Obj</span><span class="p">.</span><span class="n">h</span>
+<div>
+  <pre><code class="objective-c">filename: Obj.h
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+@interface Obj : NSObject {
 
-	<span class="bp">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
+	NSString * objname;
 
-<span class="p">}</span>
+}
 
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span> <span class="n">objname</span><span class="p">;</span>
+@property (nonatomic, retain) NSString * objname;
 
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span><span class="p">;</span>
++ (void) foo;
+- (void) goo;
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">// filename: Obj.m</span>
+// filename: Obj.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &quot;Obj.h&quot;</span>
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Obj.h&quot;
 
 
-<span class="k">@implementation</span> <span class="nc">Obj</span> 
-<span class="k">@synthesize</span> <span class="n">objname</span><span class="p">;</span>
+@implementation Obj 
+@synthesize objname;
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+- (id) init {
 
-	<span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+	self = [super init];
 
-	<span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;In the CTOR of Obj&quot;</span><span class="p">);</span>
-	<span class="p">}</span>
+	if (self) {
+		NSLog(@&quot;In the CTOR of Obj&quot;);
+	}
 
-	<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
+	return self;
+}
 
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
++ (void) foo {
 
-	<span class="c1">// NSLog(@ &quot;Class method foo printing %@ &quot;, objname);</span>
-	<span class="c1">// Cannot do this, Class methods cannot access instance</span>
-	<span class="c1">// members</span>
+	// NSLog(@ &quot;Class method foo printing %@ &quot;, objname);
+	// Cannot do this, Class methods cannot access instance
+	// members
 	
-	<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Class method foo&quot;</span><span class="p">);</span>
+	NSLog(@&quot;Class method foo&quot;);
 
-<span class="p">}</span>
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">goo</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Instance method goo printing %@&quot;</span><span class="p">,</span> <span class="n">objname</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) goo {
+	NSLog(@ &quot;Instance method goo printing %@&quot;, objname);
+}
 
-<span class="k">@end</span>
+@end
 
 
-<span class="c1">///////////////////////////////////</span>
+///////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="n">Obj</span> <span class="o">*</span> <span class="n">obj</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">obj</span> <span class="nl">setObjname</span><span class="p">:</span> <span class="s">@&quot;The object name&quot;</span><span class="p">];</span>
-	<span class="n">NSLog</span><span class="p">(</span> <span class="p">@</span> <span class="s">&quot;%@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span> <span class="n">objname</span><span class="p">]);</span>
+	Obj * obj = [[[Obj alloc] init] autorelease];
+	[obj setObjname: @&quot;The object name&quot;];
+	NSLog( @ &quot;%@&quot;, [obj objname]);
 
-	<span class="p">[</span><span class="n">Obj</span> <span class="n">foo</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">obj</span> <span class="n">goo</span><span class="p">];</span>
+	[Obj foo];
+	[obj goo];
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[pool drain];
 
-<span class="p">}</span></code></pre></div>
+}</code></pre>
+</div>
 
 <p>The <strong>self</strong> is conceptually equivalent to <strong>this</strong> in Java, it is a reference to one’s instance. In our example, self was assigned the value returned by a call to the <em>init</em> of its parent object. It is a good idea to call the superclass’ init to ensure that proper initialization is also happenning up the object graph.</p>
 
@@ -1189,49 +1218,51 @@ iframe {display:block;}
 
 <p>A simple use of the <em>self</em> keyword. The following code is an adaptation of the Leaf.java source by Bruce Eckel, it was used as an example demonsrating the use of the <em>this</em> keyword. The <a href="http://www.cs.hut.fi/Docs/Eckel/TIJ3ed/code/c04/Leaf.java">Java source can be found here</a>.</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">Leaf</span> : <span class="bp">NSObject</span><span class="p">{}</span>
+@interface Leaf : NSObject{}
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">getLeaf</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span><span class="p">;</span>
-<span class="k">@end</span>
+-(id) getLeaf;
+-(void) printStats;
+@end
 
 
-<span class="k">@implementation</span> <span class="nc">Leaf</span>
+@implementation Leaf
 
-<span class="k">static</span> <span class="kt">int</span> <span class="n">instance_counter</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">leaf_counter</span><span class="p">;</span>
+static int instance_counter;
+static int leaf_counter;
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
-	<span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
-	<span class="n">instance_counter</span><span class="o">++</span><span class="p">;</span>
-	<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
+-(id) init {
+	[super init];
+	instance_counter++;
+	return self;
+}
 
-<span class="p">-(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">getLeaf</span> <span class="p">{</span>
-	<span class="n">leaf_counter</span><span class="o">++</span><span class="p">;</span>
-	<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
+-(id) getLeaf {
+	leaf_counter++;
+	return self;
+}
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">printStats</span> <span class="p">{</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;instance counter : %i&quot;</span> <span class="p">,</span> <span class="n">instance_counter</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;leaf counter : %i&quot;</span> <span class="p">,</span> <span class="n">leaf_counter</span><span class="p">);</span>
-<span class="p">}</span>
+-(void) printStats {
+	NSLog(@ &quot;instance counter : %i&quot; , instance_counter);
+	NSLog(@ &quot;leaf counter : %i&quot; , leaf_counter);
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">////////////////////////////////////////////////////</span>
+////////////////////////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="n">Leaf</span> <span class="o">*</span> <span class="n">leaf</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Leaf</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-	<span class="p">[[[</span><span class="n">leaf</span> <span class="n">getLeaf</span><span class="p">]</span> <span class="n">getLeaf</span><span class="p">]</span> <span class="n">printStats</span><span class="p">];</span> 
+	Leaf * leaf = [[[Leaf alloc] init] autorelease];
+	[[[leaf getLeaf] getLeaf] printStats]; 
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-<span class="p">}</span></code></pre></div>
+	[pool drain];
+}</code></pre>
+</div>
 
 <h1 id="instance-members-and-class-members">Instance members and class members</h1>
 
@@ -1239,172 +1270,176 @@ iframe {display:block;}
 
 <p>Vars that are declared within @interface are unique to each instance (object), while vars declared within @implementation is global to all instance — hence, equivalent of static members in Java. There is a keyword <em>static</em> in Objective C but it refers to a storage class, it is not semantically equivalent to the <em>static</em> keyword in Java or C#. </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: instancecount.m</span>
+<div>
+  <pre><code class="objective-c">// filename: instancecount.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">InstanceCount</span> : <span class="bp">NSObject</span> <span class="p">{</span>
+@interface InstanceCount : NSObject {
 
-	<span class="c1">// You cannot declare a static type here, only in the</span>
-	<span class="c1">// implementation source. Otherwise you will get the error</span>
-	<span class="c1">// error: typename does allow storage class to be specified</span>
+	// You cannot declare a static type here, only in the
+	// implementation source. Otherwise you will get the error
+	// error: typename does allow storage class to be specified
 
-	<span class="c1">// Besides, the static keyword in ObjC does not have the</span>
-	<span class="c1">// same semantic meaning as the one in Java or C#</span>
+	// Besides, the static keyword in ObjC does not have the
+	// same semantic meaning as the one in Java or C#
 
-	<span class="c1">// A static variable in ObjC refers to a storage class, it is</span>
-	<span class="c1">// a variable that does not lose its value even after the</span>
-	<span class="c1">// block that defined it goes out of scope</span>
+	// A static variable in ObjC refers to a storage class, it is
+	// a variable that does not lose its value even after the
+	// block that defined it goes out of scope
 
-	<span class="kt">int</span> <span class="n">counterInterface</span><span class="p">;</span>
+	int counterInterface;
 
-<span class="p">}</span>
-<span class="k">@end</span>
+}
+@end
 
 
-<span class="k">@implementation</span> <span class="nc">InstanceCount</span>
+@implementation InstanceCount
 
-<span class="kt">int</span> <span class="n">counterImplementation</span><span class="p">;</span>
+int counterImplementation;
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
+- (id) init {
 
-	<span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+	self = [super init];
 	
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;counterInterface = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterInterface</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;counterImplementation = %i&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">counterImplementation</span><span class="p">);</span>
-	<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
+	NSLog(@ &quot;counterInterface = %i&quot;, ++counterInterface);
+	NSLog(@ &quot;counterImplementation = %i&quot;, ++counterImplementation);
+	return self;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">foo</span> <span class="p">{</span>
-	<span class="c1">//But you cannot access it here if you declared counter to be a </span>
-	<span class="c1">//a local variable inside the constructor.</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Foo: counterInterface = %i&quot;</span><span class="p">,</span> <span class="n">counterInterface</span><span class="p">);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Foo: counterImplementation = %i&quot;</span><span class="p">,</span> <span class="n">counterImplementation</span><span class="p">);</span>
-<span class="p">}</span>
+- (void) foo {
+	//But you cannot access it here if you declared counter to be a 
+	//a local variable inside the constructor.
+	NSLog(@ &quot;Foo: counterInterface = %i&quot;, counterInterface);
+	NSLog(@ &quot;Foo: counterImplementation = %i&quot;, counterImplementation);
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">////////////////////////////////////////////</span>
+////////////////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="k">@autoreleasepool</span> <span class="p">{</span>
+	@autoreleasepool {
 
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj3</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj4</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj5</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-		<span class="n">InstanceCount</span> <span class="o">*</span> <span class="n">obj6</span> <span class="o">=</span> <span class="p">[[</span><span class="n">InstanceCount</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+		InstanceCount * obj1 = [[InstanceCount alloc] init];
+		InstanceCount * obj2 = [[InstanceCount alloc] init];
+		InstanceCount * obj3 = [[InstanceCount alloc] init];
+		InstanceCount * obj4 = [[InstanceCount alloc] init];
+		InstanceCount * obj5 = [[InstanceCount alloc] init];
+		InstanceCount * obj6 = [[InstanceCount alloc] init];
 
-		<span class="p">[</span><span class="n">obj6</span> <span class="n">foo</span><span class="p">];</span>
+		[obj6 foo];
 	
-	<span class="p">}</span>
-<span class="p">}</span>
+	}
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">// 	clang -framework Foundation instancecount.m</span>
+// compile:
+// 	clang -framework Foundation instancecount.m
 
-<span class="cm">/* OUTPUT</span>
+/* OUTPUT
 
-<span class="cm">2012-11-18 22:52:30.332 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.333 a.out[6614:707] counterImplementation = 1</span>
-<span class="cm">2012-11-18 22:52:30.334 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.334 a.out[6614:707] counterImplementation = 2</span>
-<span class="cm">2012-11-18 22:52:30.335 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.335 a.out[6614:707] counterImplementation = 3</span>
-<span class="cm">2012-11-18 22:52:30.335 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.336 a.out[6614:707] counterImplementation = 4</span>
-<span class="cm">2012-11-18 22:52:30.336 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.337 a.out[6614:707] counterImplementation = 5</span>
-<span class="cm">2012-11-18 22:52:30.337 a.out[6614:707] counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.338 a.out[6614:707] counterImplementation = 6</span>
-<span class="cm">2012-11-18 22:52:30.338 a.out[6614:707] Foo: counterInterface = 1</span>
-<span class="cm">2012-11-18 22:52:30.339 a.out[6614:707] Foo: counterImplementation = 6</span>
+2012-11-18 22:52:30.332 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.333 a.out[6614:707] counterImplementation = 1
+2012-11-18 22:52:30.334 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.334 a.out[6614:707] counterImplementation = 2
+2012-11-18 22:52:30.335 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.335 a.out[6614:707] counterImplementation = 3
+2012-11-18 22:52:30.335 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.336 a.out[6614:707] counterImplementation = 4
+2012-11-18 22:52:30.336 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.337 a.out[6614:707] counterImplementation = 5
+2012-11-18 22:52:30.337 a.out[6614:707] counterInterface = 1
+2012-11-18 22:52:30.338 a.out[6614:707] counterImplementation = 6
+2012-11-18 22:52:30.338 a.out[6614:707] Foo: counterInterface = 1
+2012-11-18 22:52:30.339 a.out[6614:707] Foo: counterImplementation = 6
 
-<span class="cm">*/</span></code></pre></div>
+*/</code></pre>
+</div>
 
 <p>Another example </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: instance.m</span>
+<div>
+  <pre><code class="objective-c">// filename: instance.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@interface</span> <span class="nc">Obj</span> : <span class="bp">NSObject</span> <span class="p">{</span>
-	<span class="bp">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span> <span class="n">color</span><span class="p">;</span>
-<span class="k">@end</span>
+@interface Obj : NSObject {
+	NSString * color;
+}
+@property (nonatomic, retain) NSString * color;
+@end
 
-<span class="k">@implementation</span> <span class="nc">Obj</span>
-<span class="k">@synthesize</span> <span class="n">color</span><span class="p">;</span>
+@implementation Obj
+@synthesize color;
 
-<span class="bp">NSString</span> <span class="o">*</span> <span class="n">shape</span><span class="p">;</span>
+NSString * shape;
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">init</span> <span class="p">{</span>
-	<span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+- (id) init {
+	[super init];
 
-	<span class="n">color</span> <span class="o">=</span> <span class="p">@</span> <span class="s">&quot;Black&quot;</span><span class="p">;</span>
-	<span class="n">shape</span> <span class="o">=</span> <span class="p">@</span> <span class="s">&quot;No shape&quot;</span><span class="p">;</span>
+	color = @ &quot;Black&quot;;
+	shape = @ &quot;No shape&quot;;
 
-	<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
+	return self;
+}
 
-<span class="p">-(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getShape</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">shape</span><span class="p">;</span>
-<span class="p">}</span>
+-(NSString *) getShape {
+	return shape;
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setShape:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">var</span> <span class="p">{</span>
-	<span class="n">shape</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
-<span class="p">}</span>
+- (void) setShape: (NSString *) var {
+	shape = var;
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">/////////////////////////////////</span>
+/////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="n">Obj</span> <span class="o">*</span> <span class="n">one</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-	<span class="n">Obj</span> <span class="o">*</span> <span class="n">two</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Obj</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
+	Obj * one = [[[Obj alloc] init] autorelease];
+	Obj * two = [[[Obj alloc] init] autorelease];
 
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
+	NSLog(@ &quot;One color = %@&quot;, [one color]);
+	NSLog(@ &quot;Two color = %@&quot;, [two color]);
+	NSLog(@ &quot;One shape = %@&quot;, [one getShape]);
+	NSLog(@ &quot;Two shape = %@&quot;, [two getShape]);
 
-	<span class="p">[</span><span class="n">two</span> <span class="nl">setColor</span><span class="p">:</span> <span class="s">@&quot;Red&quot;</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">two</span> <span class="nl">setShape</span><span class="p">:</span> <span class="s">@&quot;Circle&quot;</span><span class="p">];</span>
+	[two setColor: @&quot;Red&quot;];
+	[two setShape: @&quot;Circle&quot;];
 
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">color</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two color = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">color</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;One shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">one</span> <span class="n">getShape</span><span class="p">]);</span>
-	<span class="n">NSLog</span><span class="p">(@</span> <span class="s">&quot;Two shape = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">two</span> <span class="n">getShape</span><span class="p">]);</span>
+	NSLog(@ &quot;One color = %@&quot;, [one color]);
+	NSLog(@ &quot;Two color = %@&quot;, [two color]);
+	NSLog(@ &quot;One shape = %@&quot;, [one getShape]);
+	NSLog(@ &quot;Two shape = %@&quot;, [two getShape]);
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+	[pool drain];
 
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	return 0;
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">//	instance.m</span>
+// compile:
+//	instance.m
 
-<span class="cm">/* OUTPUT</span>
+/* OUTPUT
 
-<span class="cm">2012-11-18 23:05:24.540 a.out[6662:707] One color = Black</span>
-<span class="cm">2012-11-18 23:05:24.542 a.out[6662:707] Two color = Black</span>
-<span class="cm">2012-11-18 23:05:24.542 a.out[6662:707] One shape = No shape</span>
-<span class="cm">2012-11-18 23:05:24.542 a.out[6662:707] Two shape = No shape</span>
-<span class="cm">2012-11-18 23:05:24.543 a.out[6662:707] One color = Black</span>
-<span class="cm">2012-11-18 23:05:24.543 a.out[6662:707] Two color = Red</span>
-<span class="cm">2012-11-18 23:05:24.543 a.out[6662:707] One shape = Circle</span>
-<span class="cm">2012-11-18 23:05:24.544 a.out[6662:707] Two shape = Circle</span>
+2012-11-18 23:05:24.540 a.out[6662:707] One color = Black
+2012-11-18 23:05:24.542 a.out[6662:707] Two color = Black
+2012-11-18 23:05:24.542 a.out[6662:707] One shape = No shape
+2012-11-18 23:05:24.542 a.out[6662:707] Two shape = No shape
+2012-11-18 23:05:24.543 a.out[6662:707] One color = Black
+2012-11-18 23:05:24.543 a.out[6662:707] Two color = Red
+2012-11-18 23:05:24.543 a.out[6662:707] One shape = Circle
+2012-11-18 23:05:24.544 a.out[6662:707] Two shape = Circle
 
-<span class="cm">*/</span></code></pre></div>
+*/</code></pre>
+</div>
 
 <p>Changing the value of the <em>color</em> member var in object two affected only the color value of object two, it did not have any effect on the color value of object one because the color member var was defined within the @interface. Each instance have their own copy of the color variable.</p>
 
@@ -1416,69 +1451,71 @@ iframe {display:block;}
 
 <p>One thing to note though is that a protocol is not a type. You may not declare an object having the name of a protocol as a type &amp;,dash; you may however declare that an instance of an object <em>is conforming</em> to a specific protocol. </p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// filename: poly.m</span>
+<div>
+  <pre><code class="objective-c">// filename: poly.m
 
-<span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+#import &lt;Foundation/Foundation.h&gt;
 
-<span class="k">@protocol</span> <span class="nc">Printing</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span><span class="p">;</span>
-<span class="k">@end</span>
+@protocol Printing
+-(void) print;
+-(void) clean;
+@end
 
-<span class="k">@protocol</span> <span class="nc">Faxing</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span><span class="p">;</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span><span class="p">;</span>
-<span class="k">@end</span>
+@protocol Faxing
+-(void) print;
+-(void) fax;
+@end
 
-<span class="k">@interface</span> <span class="nc">Multi</span> : <span class="bp">NSObject</span> <span class="o">&lt;</span><span class="n">Printing</span><span class="p">,</span> <span class="n">Faxing</span><span class="o">&gt;</span> <span class="p">{</span>
+@interface Multi : NSObject &lt;Printing, Faxing&gt; {
 
-<span class="p">}</span>
-<span class="k">@end</span>
+}
+@end
 
-<span class="k">@implementation</span> <span class="nc">Multi</span>
+@implementation Multi
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">print</span> <span class="p">{</span>
+-(void) print {
 
-<span class="p">}</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fax</span> <span class="p">{</span>
+}
+-(void) fax {
 
-<span class="p">}</span>
+}
 
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">clean</span> <span class="p">{</span>
+-(void) clean {
 
-<span class="p">}</span>
+}
 
-<span class="k">@end</span>
+@end
 
-<span class="c1">/////////////////////////////////////////////////</span>
+/////////////////////////////////////////////////
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+int main() {
 
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	<span class="n">Multi</span> <span class="o">*</span> <span class="n">multi</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Multi</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span> <span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">multi</span> <span class="n">print</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">multi</span> <span class="n">fax</span><span class="p">];</span>
+	Multi * multi = [[[Multi alloc] init ] autorelease];
+	[multi print];
+	[multi fax];
 
-	<span class="cm">/*</span>
-<span class="cm">	</span>
-<span class="cm">		Here, we declare the what variable as type id, but that it</span>
-<span class="cm">		needs to conform the Printing protocol. Well, the actual object</span>
-<span class="cm">		is a Multi type, which of course conforms to the protocol Printing</span>
-<span class="cm">		among other things.</span>
+	/*
+	
+		Here, we declare the what variable as type id, but that it
+		needs to conform the Printing protocol. Well, the actual object
+		is a Multi type, which of course conforms to the protocol Printing
+		among other things.
 
-<span class="cm">	*/</span>
+	*/
 
-	<span class="kt">id</span> <span class="o">&lt;</span><span class="n">Printing</span><span class="o">&gt;</span> <span class="n">what</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">Multi</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-	<span class="p">[</span><span class="n">what</span> <span class="n">print</span><span class="p">];</span>
+	id &lt;Printing&gt; what = [[[Multi alloc] init] autorelease];
+	[what print];
 
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	[pool drain];
+	return 0;
 
-<span class="p">}</span>
+}
 
-<span class="c1">// compile:</span>
-<span class="c1">// 	clang -framework Foundation poly.m</span></code></pre></div>
+// compile:
+// 	clang -framework Foundation poly.m</code></pre>
+</div>
 
 <p>A class may declare that it conforms to more than one protocol. Protocol conformance in a class is denoted by enclosing the protocol names inside the angle brackets as part of the @interface declaration.</p>
 

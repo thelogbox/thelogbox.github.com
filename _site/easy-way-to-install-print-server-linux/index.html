@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -696,7 +703,8 @@ $ sudo echo "" &gt; cupsd.conf
 
 <p>Second line above makes a copy of the original cupsd.conf and the third line wipes out the textual content of <em>cupsd.conf</em>. After that we can edit cupsd.conf with minimal fuss. The new <em>cupsd.conf</em> looks like the following</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">LogLevel debug
+<div>
+  <pre><code class="xml">LogLevel debug
 SystemGroup lpadmin
 #Allow remote access
 Port 631
@@ -707,16 +715,16 @@ BrowseOrder allow,deny
 BrowseAddress @LOCAL
 
 #DefaultAuthType Basic
-<span class="nt">&lt;Location</span> <span class="nt">/&gt;</span>
+&lt;Location /&gt;
   Allow localhost
   Allow 192.168.0.*
   Allow all
   #Allow shared printing and remote administration...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span>
+&lt;/Location&gt;
 
-<span class="nt">&lt;Location</span> <span class="err">/admin</span><span class="nt">&gt;</span>
+&lt;Location /admin&gt;
   Allow 192.168.0.*
   Encryption Required
   Allow all
@@ -724,9 +732,9 @@ BrowseAddress @LOCAL
   #Allow remote administration...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span>
+&lt;/Location&gt;
     
-<span class="nt">&lt;Location</span> <span class="err">/admin/conf</span><span class="nt">&gt;</span>
+&lt;Location /admin/conf&gt;
   Allow 192.168.0.*
   #AuthType Default
   #Require user @SYSTEM
@@ -734,7 +742,8 @@ BrowseAddress @LOCAL
   #Allow remote access to the configuration files...
   Order allow,deny
   Allow all
-<span class="nt">&lt;/Location&gt;</span></code></pre></div>
+&lt;/Location&gt;</code></pre>
+</div>
 
 <p>Obviously not a very tight and secure CUPS configuration. You can harden it later when you know more about the configuration. For now, this will happily function as a basic, albeit, insecure print server. </p>
 

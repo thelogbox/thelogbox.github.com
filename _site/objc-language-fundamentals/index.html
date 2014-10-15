@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -702,16 +709,18 @@ iframe {display:block;}
 
 <p>Type the contents of the following code</p>
 
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div>
+  <pre><code class="objective-c">#import &lt;Foundation/Foundation.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+int main (int argc, const char* argv[]) {
 	
-	<span class="bp">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-	<span class="n">NSLog</span> <span class="p">(@</span> <span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	NSLog (@ &quot;Hello World\n&quot;);
 	
-	<span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+	[pool drain];
+	return 0;
+}</code></pre>
+</div>
 
 <p>Compiling this code requires the <em>gcc</em> toolchain. If you already have set it up using XCode, you can compile the code on the terminal using <code class="codeblock">$ gcc -framework Foundation Hello.m -o Hello</code></p>
 

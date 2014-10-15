@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -694,12 +701,14 @@ iframe {display:block;}
 
 <p>Create a file and name it <em>first.html</em>. Launch a program editor to open first.html for editing. Do not double click first.html. Double clicking will open the file for viewing. Most likely it will launch your default browser and view the file. That is not what we want to do right now. You may right-click on the file to open Window’s context menu, then choose a program editor to open the html file. Edit it and write the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-  <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+  &lt;h1&gt;Hello&lt;/h1&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">first.html</div>
 
@@ -719,10 +728,12 @@ iframe {display:block;}
 
 <p>The fundamental structure of an html document is as follows</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">basic structure</div>
 
@@ -732,15 +743,17 @@ iframe {display:block;}
 
 <p>There some more structural issues that we need to get out of the way before we can take a look at the presentation semantics of HTML. A more complete structure for an HTML doc looks like the following</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctypehtml&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> <span class="nt">&lt;title&gt;</span>First<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!doctypehtml&gt;
+&lt;html&gt;
+  &lt;head&gt; &lt;title&gt;First&lt;/title&gt;
+  &lt;/head&gt;
   
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span> 
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+  &lt;body&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt; 
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 
 <div id="lst">HTML doc structure</div>
 

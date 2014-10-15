@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -682,14 +689,16 @@ iframe {display:block;}
 
 <h1 id="basic-structure">Basic structure</h1>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> 
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt; 
+  &lt;/head&gt;
 
-  <span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+  &lt;body&gt;
+  &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>The &lt;html&gt; element is the outermost element in a document, there can only be one pair of this element inside an HTML source file. There are two elements that can be nested inside the html tag, the <strong>&lt;head&gt;</strong> and the <strong>&lt;body&gt;</strong> elements.</p>
 
@@ -756,20 +765,22 @@ iframe {display:block;}
 
 <p>Create a simple HTML file, like the one below. Name it first.html</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span> 
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span> 
-  <span class="nt">&lt;/head&gt;</span>
+<div>
+  <pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html&gt;
+  &lt;head&gt; 
+  &lt;/head&gt;
 
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;p&gt;</span>
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;
     The quick brown fox
-    <span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;strong&gt;</span>jumped<span class="nt">&lt;/strong&gt;</span> over the head of the
-    <span class="nt">&lt;em&gt;</span>lazy dog<span class="nt">&lt;/em&gt;</span> near the river bank
-  <span class="nt">&lt;/body&gt;</span> 
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+    &lt;/p&gt;
+    &lt;strong&gt;jumped&lt;/strong&gt; over the head of the
+    &lt;em&gt;lazy dog&lt;/em&gt; near the river bank
+  &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+</div>
 
 <p>Open the file in your browser. You can simple double click the file in Explorer (Windows) or Finder (OSX). The <em>.html</em> extension will usually open the file in the default browser.</p>
 

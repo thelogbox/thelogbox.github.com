@@ -68,9 +68,11 @@ body {
   margin:0;
   padding:0;
   border:0;
-  color: #535353;
-  /*color: #2d2d2d;*/
-  background: #f6f6f6;
+  color: #2c2c2c;
+  /*color: #2d2d2d;
+  background: #f6f6f6; */ 
+  background:#eff3f9;
+  /*background: #f4f6fa; */
   line-height: 1.4em;
 }
 
@@ -104,6 +106,11 @@ body {
 }
 
 .vspacer {height:20px;}
+
+table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #wrap {
 	margin: 0 auto;
@@ -674,24 +681,26 @@ iframe {display:block;}
 
 <p>You can still write <code class="codeblock">System.out.println</code> in your code but it won’t show up on the Android screen. The target of <em>println</em> is the stdout, hence it will show up on your <em>android debugger session (adb)</em> and not the Android device or emulator. Also, instead of using <em>println</em>, use the <strong>Log</strong> class instead if you need to insert some debugging info on your app.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// HOW TO USE THE LOG CLASS</span>
+<div>
+  <pre><code class="java">// HOW TO USE THE LOG CLASS
 
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+import android.util.Log;
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAndroidApp</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+public class MyAndroidApp extends Activity {
     
-  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+  private final String TAG = getClass().getName();
     
-    <span class="o">....</span>
+    ....
     
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someCallBack</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;string to log&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+    public void someCallBack() {
+      Log.v(TAG, &quot;string to log&quot;);
+    }
     
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;string to log&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+    public void someMethod() {
+      Log.v(TAG, &quot;string to log&quot;);
+    }
+}</code></pre>
+</div>
 
 <p>On a terminal window, run <code class="codeblock">adb logcat</code>. The logcat utility supports a couple of flags. Here’s how you might use them</p>
 
@@ -703,72 +712,74 @@ iframe {display:block;}
 
 <p>Okay. Now lets try them on using the  <em>callbacks</em> of the Activity class.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// CALL BACKS OF THE ACTIVITY CLASS</span>
+<div>
+  <pre><code class="java">// CALL BACKS OF THE ACTIVITY CLASS
 
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
+package com.thelogbox;
 
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 
-<span class="kd">class</span> <span class="nc">LCycleView</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span> <span class="o">{</span>
+class LCycleView extends LinearLayout implements View.OnClickListener {
   
-  <span class="n">LCycleView</span><span class="o">(</span><span class="n">Context</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
-    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-  <span class="o">}</span>
+  LCycleView(Context ctx) {
+    super(ctx);
+    setOnClickListener(this);
+  }
 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Clicked&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+  public void onClick(View view) {
+    System.out.println(&quot;Clicked&quot;);
+  }
+}
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LCycle</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-    <span class="cm">/** Called when the activity is first created. */</span>
+public class LCycle extends Activity {
+    /** Called when the activity is first created. */
     
-  <span class="n">String</span> <span class="n">TAG</span> <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">();</span>
+  String TAG = getClass().getName();
   
-  <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">LCycleView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onCreate&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+  @Override
+    public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(new LCycleView(this));
+    Log.v(TAG, &quot;onCreate&quot;);
+    }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;onResume&quot;</span><span class="o">);</span>
-  <span class="o">}</span>    
+  @Override
+  public void onResume() {
+    super.onResume();
+    Log.v(TAG, &quot;onResume&quot;);
+  }    
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onRestart</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onRestart</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Restart&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onRestart() {
+    super.onRestart();
+    Log.v(TAG, &quot;Restart&quot;);
+  }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Paused&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onPause() {
+    super.onPause();
+    Log.v(TAG, &quot;Paused&quot;);
+  }
   
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Stoppped&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
+  @Override
+  public void onStop() {
+    super.onStop();
+    Log.v(TAG, &quot;Stoppped&quot;);
+  }
   
-  <span class="nd">@Override</span> 
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">(){</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-    <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">&quot;Destroy&quot;</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+  @Override 
+  public void onDestroy(){
+    super.onDestroy();
+    Log.v(TAG, &quot;Destroy&quot;);
+  }
+}</code></pre>
+</div>
 
 <p>The above code is one of the few examples an Android developer might spike while beginning to explore Android programming. After reading all about lifecycle of the Activity class, of course you want to know when the events will actually be fired. </p>
 
