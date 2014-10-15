@@ -1,4 +1,54 @@
-<style>
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="hack ,mpd">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Music Player Daemon in Linux. Don't throw away that old notebook" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    Wireless Linux Music Player | theLogBox
+  
+</title>
+
+
+		<style>
 
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
@@ -574,3 +624,141 @@ iframe {display:block;}
 }
 
 </style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Wireless Linux Music Player
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #hack  #mpd
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  April 06, 2010 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>This project will let you control a music player daemon running on a Linux box. The Linux box (headphone jack) will be connected into a stereo receiver (input) — It’s an over engineered music player. But if you don’t have anything better to do with an old notebook, this might save it from the junk yard.</p>
+
+<p>For this project, I used 1) an old notebook with WiFi still working 2) an old stereo receiver with 3.5mm stereo jack input </p>
+
+<h2 id="installation-and-configuration">Installation and Configuration</h2>
+
+<ol>
+  <li>Get the <strong>MPD</strong> (Music Player Daemon) – <em>$ sudo apt-get install mpd mpc</em></li>
+  <li>Edit the configuration file – <em>$ sudo nano /etc/mpd.conf</em>.</li>
+  <li>Find the entry on the conf file where you are supposed to point to where you music files are</li>
+  <li>Press <em>CTRL-o</em> then <em>CTRL-x</em> when you are done making the changes (that is how to save files in nano</li>
+  <li>Restart the Music Player Daemon – <em>$ sudo /etc/init.d/mpd restart</em></li>
+  <li>Create the database for the first time to add all songs to the playlist – <em>$ sudo mpd –create-db</em> then <em>$ sudo mpd add l</em></li>
+  <li>Install MPD clients on your other computers. At the time I wrote this, I used <strong>ncmpc</strong>. Lots of things has changed since then, Wikia.com has a list of <a href="http://mpd.wikia.com./wiki/Clients">MPD clients</a></li>
+</ol>
+
+
+        </div>
+							
+		  </div>    
+		</article>
+    
+    <div class="toc">
+      <ul>
+      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
+      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
+      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
+      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
+      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
+      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
+      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
+      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
+      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
+      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
+      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
+    </ul>
+    </div>    
+    
+    <div class="promo">
+   
+    </div>       
+    </div>  <!--  div wrap -->
+
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

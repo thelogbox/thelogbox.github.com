@@ -1,4 +1,54 @@
-<style>
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="anonymous ,function ,callback">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Understanding anonymous functions in JavaScript" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    Anonymous Functions | theLogBox
+  
+</title>
+
+
+		<style>
 
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
@@ -574,3 +624,163 @@ iframe {display:block;}
 }
 
 </style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Anonymous Functions
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #anonymous  #function  #callback
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  November 05, 2013 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>We have already taken a look at functions earlier. At first glance, functions in Javascript does not seem too special. Like in any other language, we used it to contain a bunch of statements and gave it a name. This name, when we call them at a later time, will execute the set of commands inside its block. We use the function simply as an encapsulation unit for a sequence of statements.</p>
+
+<p>Functions in JavaScript has some twists that may seem weird at first (depending on where you are coming from). The dynamic characteristic of the language presents a lot of possibilites—and some suprises too. Take a look at the following code</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span> 	<span class="c1">//nothing surprising here, it will return 10</span>
+
+<span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span> 	<span class="c1">//This is allowed in JS, because it is not strongly typed</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> 		<span class="c1">//This will now output &quot;Hello World&quot;. It has already forgotten that it was a function</span>
+						<span class="c1">//before</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">());</span>		<span class="c1">//this one will throw an error, because foo is no longer a function</span></code></pre></div>
+
+<p>JavaScript function names are not that different from ordinary variables. You can assign them values, just like how you would an ordinary variable. Similarly, you can assign functions to variables; like this</p>
+
+<pre class="codeblock">
+
+var foo = function() {
+	return 10;
+}
+
+console.log(foo()); //returns 10
+
+</pre>
+
+<p>It may seem that you don’t have a need for anymous functions at the moment. Admittedly, the code example above does a poor job hinting at it’s utility value. Anonymous functions will become increasingly important when you start using them for call backs e.g. during event driven programming on the browser, using third party libraries like JQuery or server side programming with NodeJS</p>
+
+<hr />
+
+<p>This is another way to create a function. Notice that the function on the right hand side of the equal sign does not have a name. Notice also that we can assign it to a regular variable named “foo” then invoked <strong>foo()</strong>. What we have just done was create an anonymous function and assigned it to variable <em>foo</em>. It is called an anonymous function, for obvious reasons, it does not have a name. There are other ways to create functions in JS, but we will stop here because we don’t have any further use for another way to create a function, what we have is quite enough for now.</p>
+
+        </div>
+							
+		  </div>  
+		</article>
+    
+    <div class="toc">
+      <ul>
+       <li><a href="/javascript/javascript-introduction/">Introduction</a></li>
+      <li><a href="/javascript-core-environment-setup">Tools</a></li>
+      <li><a href="/javascript-code-structure">Code Structure</a></li>
+      <li><a href="/javascript/javascript-conditions">Conditions</a></li>
+      <li><a href="/javascript-data-types">Typing</a></li>
+      <li><a href="/javascript-functions">Functions</a></li>
+      <li><a href="/javascript-keywords">Keywords</a></li>
+      <li><a href="/javascript-program-flow">Program Flow</a></li>
+      <li><a href="/javascript-complex-types">Complex Types</a></li>
+      <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
+      <li><a href="/javascript-objects">Objects</a></li>
+      <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
+      <li><a href="/javascript-inheritance">Inheritance</a></li>
+      <li><a href="/javascript-guessing-game">Guessing Game</a></li>
+    </ul>
+    </div>
+    
+    <div class="promo">
+ 
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

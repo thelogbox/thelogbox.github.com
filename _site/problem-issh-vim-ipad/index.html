@@ -1,4 +1,54 @@
-<style>
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="ssh ,terminal">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Why I don't like using iSSH on iOS" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    iSSH and Vim | theLogBox
+  
+</title>
+
+
+		<style>
 
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
@@ -574,3 +624,157 @@ iframe {display:block;}
 }
 
 </style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          iSSH and Vim
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #ssh  #terminal
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  April 11, 2012 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.</p>
+
+<h2 id="issues-with-issh">Issues with iSSH</h2>
+
+<p>I could not get 256 colors to work. A quick research — by that I mean quick Googling — I found some instructions to set the 256 color on the Advanced settings and/or to set the <em>term</em> variable equal to <em>term-256color</em>.  Which I did. But still could not get it to work. The <em>Prompt</em> app though worked out of the box, I did not have to fiddle with anything</p>
+
+<p>Vim’s screen was wobbling when editing. The wobbling I think is being caused by Vim doing a little bit if intellisense on matching braces, quotes and parentheses. I think it was also being caused by the status line jittering. </p>
+
+<p><img class="shadow" src="/img/issh-1.jpg" /></p>
+
+<p>Later, after inspecting my <em>.vimrc</em> on the target machine, I found out that I had a <code class="codeblock">:set columns=100</code>. This was causing the wobbling and the display of weird characters  in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)</p>
+
+<p><img class="shadow" src="/img/issh-2.jpg" /></p>
+
+<p>The CTRL key doesn’t work, I actually still don’t know how to make it work. Yes, I have enabled Options Mapping. </p>
+
+<p>This is a deal killer, Vim uses this alot when switching   between split windows (C-w w). Tmux uses this a lot more. This is enough reason why I chose Prompt, the CTRL key works out-of-the-box</p>
+
+<h2 id="prompt">Prompt</h2>
+
+<p>Prompt is another SSH client on the iPad. It is less capable in terms of bells and whistles, but it does have everything I need and none of the problems I have with iSSH. I don’t use the iPad to VNC or to connect via Remote Desktop Connection anyway. I just needed it for SSH</p>
+
+<ol>
+  <li>the CTRL keys work out of the box, using a bluetooth keyboard. I could not get it to work on iSSH. Despite trying a lot of acrobatics on the settings — Yes. I did try enable Options Mapping. No joy!</li>
+  <li>Prompt appeared a bit faster too</li>
+</ol>
+
+<p>If not for the the CTRL keys not working out of the box on iSSH, it would have been a better fit for my use, because;</p>
+
+<ul>
+  <li>The size of the screen can configured via a slider control. This was not available on Prompt. You could choose the size of the font (but not the screen font itself)</li>
+  <li>It was more intuitive if you need another SSH session, just press the plus sign (+) on the top portion of the screen</li>
+  <li>It had lot more controls than Prompt.  </li>
+</ul>
+
+<p>I bought the two apps anyway. It seems though, I find my self using the Prompt more than I use iSSH</p>
+
+
+        </div>
+							
+		  </div>
+		</article>
+    
+    <div class="toc">
+    <ul>
+      <li><a href="/mac-mini-microphone-hack">Mac Mini Mic Hack</a></li>
+      <li><a href="/mac-python-virtual-environment">Python Virtual Environment</a></li>
+      <li><a href="/problem-issh-vim-ipad">iSSH and Prompt</a></li>
+      <li><a href="/install-kyocera-km1820-osx">Hook up a Kyocera 1820 printer</a></li>
+      <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
+      <li><a href="/installing-mysql-osx">MySQL on OSX</a></li>
+    </ul>
+    </div>    
+    
+    <div class="promo">
+  
+    </div>       
+    </div>  <!--  div wrap -->
+
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

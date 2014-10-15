@@ -1,0 +1,839 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="reserved ,keywords ,javascript">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="JavaScript keywords. You cannot use them for function names, variable names" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    JavaScript Reserved Words | theLogBox
+  
+</title>
+
+
+		<style>
+
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+em {
+  font-style:normal;
+  font-weight: 400;
+  color: brown;
+}
+
+body {
+  font-size:17px;   
+  font-family: 'nimbus-sans','Lato';
+  font-weight: 300;
+  margin:0;
+  padding:0;
+  border:0;
+  color: #535353;
+  /*color: #2d2d2d;*/
+  background: #f6f6f6;
+  line-height: 1.4em;
+}
+
+#wrap, .toc, .promo {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-banner-text {
+  color:#222;
+  font-family: 'PT Sans';
+  font-size:50px;
+  font-weight:700;
+  line-height:135%;
+  letter-spacing: -1.3px;
+}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
+}
+
+.tutorial-writeup {
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  text-transform: uppercase;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/*
+#leanpubbook {
+  background: #d6d6d6;
+  padding: 20px;
+/ text-align:center;
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
+}
+*/
+
+/*
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+*/
+
+/* FOR THE article block */
+
+#articletitle {
+	font-size: 28px;
+	font-weight: 400;
+  text-align: left;
+  line-height: 1.4em;
+  /*color: #292929; */
+  margin-top: 0;
+  padding-top: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article, #archives {
+  /*
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2 
+  */
+}
+
+.toc {
+  text-align:left;  
+  margin-top: 30px;
+  padding: 20px;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+  /*background:#e9e9e9;*/
+}
+
+.toc, .toc a:link {
+  font-family: 'Open Sans Condensed';
+}
+
+.toc b, .toc strong {font-weight: 700;}
+
+/*
+
+ol, ul {padding-left:20px;}
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  counter-increment: mycounter;
+  font-style: normal;
+  left: -2em;
+}
+
+*/
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
+
+
+h1, h2, h3 {
+  font-family: 'PT Sans';
+  font-weight: 700;
+  color: #6d6d6d;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+strong, b {font-weight:400;}
+
+h1 {font-size: 25px;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-weight: 400;
+  font-size: 1em;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  display:block;
+  font-size: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  line-height:1.5em;
+  margin-bottom:40px;
+  margin-top:40px;
+  text-align: left;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+pre {
+  font-size: 11px;
+  padding: 10px;
+  font-weight: normal;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
+  margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+  
+/*  background: #dcdcff; */
+/*  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #2d2d2d;
+*/
+  
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #eee; 
+  margin 1.2em;
+  white-space:pre-wrap;
+  overflow:auto;
+}
+
+
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+pre.code {
+  font-weight:400;
+  overflow: visible;
+  padding-top: 1.2em;
+}
+
+
+.codeblock, p.code {
+  font-weight:700;
+  font-size: .9em;
+  font-family: 'Anonymous Pro';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1.1em;
+    font-weight:700;
+    /*background: #e8ebef;*/
+    /*background: #dcdcFF; */ 
+    color: #000000;
+    /*line-height:120%; */
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
+a:hover {color: blue; text-decoration:underline;}
+
+#postmeta {
+  padding-top:0;
+  padding-bottom:0; 
+  font-weight:normal; 
+  font-size: 14px;
+  line-height:100%;
+  margin-left: 10px;
+  letter-spacing: normal;
+  display: none;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
+
+footer {
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  /*border-top: 1px solid #dedede;*/
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 75%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+    margin: 8px auto;
+  }
+  img.thumbnail {
+    float:left;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 1px solid #CACACA;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar h4 {
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+iframe {display:block;}
+*/
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.toc ul { color: royalblue;}
+
+
+
+@media (min-width: 650px) {
+  
+  #wrap, .toc, .promo {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 750px) {
+  
+  #wrap, .toc, .promo {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  #wrap, .toc, .promo {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 860px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left: 3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:96%;
+  }
+
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
+    line-height: 1.5em;
+  }
+}
+
+@media (min-width: 1020px) {
+
+  body {
+    font-size: 1em;
+  }
+  /*
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+ */
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left:3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:950px;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+}
+
+</style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          JavaScript Reserved Words
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #reserved  #keywords  #javascript
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  November 05, 2013 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <ul>
+  <li>
+    <p><strong>break:</strong> to get out of loops. Use it (sparingly) inside for or while loops. Used also inside switch statements to prevent cascading of flow. <em>see also</em> switch, for, while, continue</p>
+  </li>
+  <li>
+    <p><strong>case:</strong> used from within a switch statement. It works as an expression matcher. When an it matches, program flow is routed on that specific case label <em>see also</em> switch</p>
+  </li>
+  <li>
+    <p><strong>catch:</strong> part of a try-catch-finally exception handling mechanism. When an exception is thrown, the actual exception can be matched to a number of catch blocks. If the exception matches, the program flow is transferred to that catch block <em>see also</em> try, finally</p>
+  </li>
+  <li>
+    <p><strong>continue:</strong> similar to the break statement. It is used inside loops. The difference is that, in the case of the label, it does immediately get out of the loop. It forces program flow to the beginning of the loop to allow evaluation of the loop condition; the break keyword does not do that, break just gets out of the loop. <em>see also</em> break, for, while</p>
+  </li>
+  <li>
+    <p><strong>debugger:</strong> invokes any available debugging functionality, if any is available. There isn’t any clear examples I’ve see alson on this one though. Even Mozilla Developer Network lacks concrete examples</p>
+  </li>
+  <li>
+    <p><strong>default:</strong> used as part of a switch statement. After a series of case labels has been evaluated, if none of them matches the expression, the statements under the default label will be executed. <em>see also</em> switch, case</p>
+  </li>
+  <li>
+    <p><strong>delete:</strong> this is an operator. You will use it to delete defined properties on an object</p>
+  </li>
+  <li>
+    <p><strong>do:</strong> a variation of the while loop. This is slightly different from a while loop because it executes the statements inside the loop block <em>at least once</em>. <em>see also</em> while</p>
+  </li>
+  <li>
+    <p><strong>else:</strong> an optional block used hand in hand with the if block. In a situation where in the expression on the if statement evaluates to false, an else block can be provided</p>
+  </li>
+  <li>
+    <p><strong>else if:</strong> <em>see also</em> if, else</p>
+  </li>
+  <li>
+    <p><strong>finally:</strong> part of a try-catch-finally block. Statements inside the finally block are executed regardless of whether an exception occurred or not</p>
+  </li>
+  <li>
+    <p><strong>for:</strong> creates a loop. It usually has 3 parameters inside it 1) beginning value 2) condition when to terminate and 3) step, whether increment or decrement. These 3 parameters are optional. They are separated by semi colon. <em>see also</em> while, do</p>
+  </li>
+  <li>
+    <p><strong>function:</strong> keyword to declare a function block in JS</p>
+  </li>
+  <li>
+    <p><strong>if:</strong> a branching keyword. It executes a statement or a block of statement if the condition evaluates to true</p>
+  </li>
+  <li>
+    <p><strong>in:</strong> used as an iterator. It can step through a number of enumerated properties</p>
+  </li>
+  <li>
+    <p><strong>instanceof:</strong> this is an operator. Use it to test whether an object is a descendant (is kind of) another object</p>
+  </li>
+  <li>
+    <p><strong>new:</strong> this is an operator. The new keyword is used to create an instance of an object. It calls a constructor function</p>
+  </li>
+  <li>
+    <p><strong>return:</strong> It specifies the value of what is to be returned from a function. <em>see also</em> function</p>
+  </li>
+  <li>
+    <p><strong>switch:</strong> A branching mechanism. Similar to IF but it uses CASE labels instead of blocks . <em>see also</em> if, case</p>
+  </li>
+  <li>
+    <p><strong>this:</strong> Used in OOP constructions. Generally, the this keyword refers to instance of oneself, but it behaves differently in JS than in other languages like Java or C# . MDN has more information on this <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/this">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/this</a></p>
+  </li>
+  <li>
+    <p><strong>throw:</strong> To programmatically raise an Exception. To manually trigger an abnormal runtime condition. <em>see also</em> try, catch, finally</p>
+  </li>
+  <li>
+    <p><strong>try:</strong> Used for handling exceptions or abnormal runtime conditions. It alters program flow during cases of abnormal runtime conditions. Statements inside the try are the ones that can potentially trigger an exception. <em>see also</em> catch, finally</p>
+  </li>
+  <li>
+    <p><strong>typeof:</strong> This is an operator. It returns a string indicating the type of the given operand</p>
+  </li>
+  <li>
+    <p><strong>var:</strong> keyword to declare a variable. If you don’t use var for declaration, the variable becomes part of the global scope</p>
+  </li>
+  <li>
+    <p><strong>void:</strong> This is an operator. If you are coming from a statically typed language, don’t mistake this for a type. JavaScript has dynamic typing, so you won’t use void in there. It evaluates an expression, then it returns undefined.</p>
+  </li>
+  <li>
+    <p><strong>while:</strong> similar to the <em>do</em> loop, but the while loop places the condition before body of while block will be evaluated, unlike the do loop where the condition is evaluated at the end of loop block. In the case of the while loop, it is possible not to even go through the statements of the block if the condition evaluates to false on the first pass</p>
+  </li>
+  <li>
+    <p><strong>with:</strong> Extends the scope chain for a statement. MDN however, does not recommend the use of the with keyword</p>
+  </li>
+</ul>
+
+<p>These <a href="http://quizlet.com/_hqgq6">Flash Cards</a> are on Quizlet.com. You can use it as a study resource</p>
+
+
+        </div>
+							
+		  </div>  
+		</article>
+    
+    <div class="toc">
+      <ul>
+       <li><a href="/javascript/javascript-introduction/">Introduction</a></li>
+      <li><a href="/javascript-core-environment-setup">Tools</a></li>
+      <li><a href="/javascript-code-structure">Code Structure</a></li>
+      <li><a href="/javascript/javascript-conditions">Conditions</a></li>
+      <li><a href="/javascript-data-types">Typing</a></li>
+      <li><a href="/javascript-functions">Functions</a></li>
+      <li><a href="/javascript-keywords">Keywords</a></li>
+      <li><a href="/javascript-program-flow">Program Flow</a></li>
+      <li><a href="/javascript-complex-types">Complex Types</a></li>
+      <li><a href="/javascript-anonymous-functions">Anonymous Functions</a></li>
+      <li><a href="/javascript-objects">Objects</a></li>
+      <li><a href="/javascript-objects-functions">Objects and Functions</a></li>
+      <li><a href="/javascript-inheritance">Inheritance</a></li>
+      <li><a href="/javascript-guessing-game">Guessing Game</a></li>
+    </ul>
+    </div>
+    
+    <div class="promo">
+ 
+    </div>    
+    
+
+    </div>  <!--  div wrap -->
+    
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

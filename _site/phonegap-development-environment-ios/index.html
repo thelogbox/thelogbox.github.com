@@ -1,4 +1,54 @@
-<style>
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="iOS ,Setup">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    iOS Setup | theLogBox
+  
+</title>
+
+
+		<style>
 
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
@@ -574,3 +624,181 @@ iframe {display:block;}
 }
 
 </style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          iOS Setup
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #iOS  #Setup
+  </div> 
+  last updated: 2013-11-11 <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  October 20, 2013 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>You need a Mac. The Apple® tools needed to build iOS applications runs only on Apple® hardware, lest you violate their TOS. Specifically, to build iOS apps using PhoneGap 3.0, you need an Intel based Mac and at least OSX 10.7 (Lion).</p>
+
+<p>The second thing you need is XCode®, at least version 4.5. Since OSX 10.7, XCode is no longer bundled on the installation DVD, you need to get it from the App Store. </p>
+
+<p>Once you have procured XCode, there is one more tiny thing to do. Download  the <strong>Command Line Tools</strong>. To do that, launch XCode, go to <em>Preferences</em> then click the <em>Downloads</em> tab. </p>
+
+<p><img src="/img/phonegap/xcode-pref.png" alt="XCode Preferences" />
+&lt;div id='lst'&gt;XCode Preferences&lt;/div&gt;</p>
+
+<p>Download the Command Line Tools. That will take a while. The size of the Command Line tools is quite hefty. Once the download is finished, launch the Terminal.app so we can quickly test if the tools are working. Run <code class="codeblock">clang --version</code> or <code class="codeblock">gcc --version</code>. If you did not get a <em>command not found</em> error, chances are the tools are working.</p>
+
+<p>Now the XCode part is over, move on to the PhoneGap tool chain. </p>
+
+<h1 id="tool-chain">Tool Chain</h1>
+
+<p><strong>Node Package Manager</strong>. You need the node packager manager to proceed. You can download it at the <a href="http://nodejs.org">NodeJS site</a>. Another way of getting <strong>npm</strong> is either via <a href="http://brew.sh">HomeBrew</a> or <a href="http://macports.org">MacPorts</a>, I personally use BREW. It is a good idea to setup the BREW package manager because you will use it to get other tools that we need for PhoneGap.</p>
+
+<p>When you are done with the npm installation, you can get the PhoneGap installers.</p>
+
+<pre class="codeblock">
+$ npm install -g phonegap
+$ npm install -g cordova
+</pre>
+
+<h1 id="quick-test">Quick Test</h1>
+
+<pre class="codeblock">
+
+$ mkdir ~/workarea
+$ cd ~/workarea
+$ phonegap create first
+$ cd first
+$ phonegap build ios
+$ open platforms/ios/first
+
+[phonegap] detecting iOS SDK environment...
+[phonegap] using the local environment
+[phonegap] adding the iOS platform...
+[phonegap] compiling iOS...
+[phonegap] successfully compiled iOS app
+
+$ open platforms/ios/HelloWorld.xcodeproj
+
+</pre>
+
+<p>After that last command, XCode will launch and open the ios project generated by PhoneGap.</p>
+
+<p><img src="/img/phonegap/xcode-helloworld.png" alt="iOS HelloWorld" />
+&lt;div id='lst'&gt;iOS HelloWorld&lt;/div&gt;</p>
+
+
+        </div>
+							
+		  </div>    
+		</article>
+    
+    <div class="toc">
+      <ul>
+      <li><a href="/mobile-app-development-phonegap">Introduction</a></li>
+      <li><a href="/phonegap-development-environment-ios">iOS Setup</a></li>
+      <li><a href="/phonegap-development-environment-android">Android Setup</a></li>
+      <li><a href="/phonegap-getting-started">Getting Started</a></li>
+      <li><a href="#">Basic Web Site App</a></li>
+      <li><a href="#">Hybrid Apps</a></li>
+      <li><a href="#">Prettyfing the UI</a></li>
+      <li><a href="/phonegap-database-programming">Database Programming</a></li>
+      <li><a href="/phonegap-network-connectivity">Network Connectivity</a></li>
+      <li><a href="#">Device Ready</a></li>
+      <li><a href="#">Detecting the Menu Button</a></li>
+      <li><a href="#">GEO Location</a></li>
+      <li><a href="#">Basic Game Programming</a></li>
+      <li><a href="#">Getting to the App Stores</a></li>
+      <li><a href="#">The iOS 7 Look and Feel</a></li>
+      <li><a href="#">Single Page Apps</a></li>
+    </ul>
+    </div>    
+
+    <div class="promo">
+  
+    </div>       
+
+    </div>  <!--  div wrap -->
+
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

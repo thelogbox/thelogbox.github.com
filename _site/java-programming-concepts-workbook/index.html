@@ -1,0 +1,1006 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="Exercises">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Exercise problems for the beginning Java programmer" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    Workbook on Programming Concepts | theLogBox
+  
+</title>
+
+
+		<style>
+
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+em {
+  font-style:normal;
+  font-weight: 400;
+  color: brown;
+}
+
+body {
+  font-size:17px;   
+  font-family: 'nimbus-sans','Lato';
+  font-weight: 300;
+  margin:0;
+  padding:0;
+  border:0;
+  color: #535353;
+  /*color: #2d2d2d;*/
+  background: #f6f6f6;
+  line-height: 1.4em;
+}
+
+#wrap, .toc, .promo {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-banner-text {
+  color:#222;
+  font-family: 'PT Sans';
+  font-size:50px;
+  font-weight:700;
+  line-height:135%;
+  letter-spacing: -1.3px;
+}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
+}
+
+.tutorial-writeup {
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  text-transform: uppercase;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/*
+#leanpubbook {
+  background: #d6d6d6;
+  padding: 20px;
+/ text-align:center;
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
+}
+*/
+
+/*
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+*/
+
+/* FOR THE article block */
+
+#articletitle {
+	font-size: 28px;
+	font-weight: 400;
+  text-align: left;
+  line-height: 1.4em;
+  /*color: #292929; */
+  margin-top: 0;
+  padding-top: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article, #archives {
+  /*
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2 
+  */
+}
+
+.toc {
+  text-align:left;  
+  margin-top: 30px;
+  padding: 20px;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+  /*background:#e9e9e9;*/
+}
+
+.toc, .toc a:link {
+  font-family: 'Open Sans Condensed';
+}
+
+.toc b, .toc strong {font-weight: 700;}
+
+/*
+
+ol, ul {padding-left:20px;}
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  counter-increment: mycounter;
+  font-style: normal;
+  left: -2em;
+}
+
+*/
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
+
+
+h1, h2, h3 {
+  font-family: 'PT Sans';
+  font-weight: 700;
+  color: #6d6d6d;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+strong, b {font-weight:400;}
+
+h1 {font-size: 25px;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-weight: 400;
+  font-size: 1em;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  display:block;
+  font-size: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  line-height:1.5em;
+  margin-bottom:40px;
+  margin-top:40px;
+  text-align: left;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+pre {
+  font-size: 11px;
+  padding: 10px;
+  font-weight: normal;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
+  margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+  
+/*  background: #dcdcff; */
+/*  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #2d2d2d;
+*/
+  
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #eee; 
+  margin 1.2em;
+  white-space:pre-wrap;
+  overflow:auto;
+}
+
+
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+pre.code {
+  font-weight:400;
+  overflow: visible;
+  padding-top: 1.2em;
+}
+
+
+.codeblock, p.code {
+  font-weight:700;
+  font-size: .9em;
+  font-family: 'Anonymous Pro';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1.1em;
+    font-weight:700;
+    /*background: #e8ebef;*/
+    /*background: #dcdcFF; */ 
+    color: #000000;
+    /*line-height:120%; */
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
+a:hover {color: blue; text-decoration:underline;}
+
+#postmeta {
+  padding-top:0;
+  padding-bottom:0; 
+  font-weight:normal; 
+  font-size: 14px;
+  line-height:100%;
+  margin-left: 10px;
+  letter-spacing: normal;
+  display: none;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
+
+footer {
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  /*border-top: 1px solid #dedede;*/
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 75%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+    margin: 8px auto;
+  }
+  img.thumbnail {
+    float:left;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 1px solid #CACACA;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar h4 {
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+iframe {display:block;}
+*/
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.toc ul { color: royalblue;}
+
+
+
+@media (min-width: 650px) {
+  
+  #wrap, .toc, .promo {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 750px) {
+  
+  #wrap, .toc, .promo {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  #wrap, .toc, .promo {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 860px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left: 3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:96%;
+  }
+
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
+    line-height: 1.5em;
+  }
+}
+
+@media (min-width: 1020px) {
+
+  body {
+    font-size: 1em;
+  }
+  /*
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+ */
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left:3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:950px;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+}
+
+</style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+        
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          Workbook on Programming Concepts
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #Exercises
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  July 06, 2012 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <h2 id="part-1-machine-problems">Part 1. Machine problems</h2>
+
+<p><strong>Problem 1.</strong> Given a String name, e.g. “John”, return a greeting of the form “Hello Bob!”. </p>
+
+<p>helloName(“John”) -&gt; “Hello Bob!”</p>
+
+<p>helloName(“Alice”) -&gt; “Hello Alice!”</p>
+
+<p>helloName(“X”) -&gt; “Hello X!”</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., “Hello” and “World” returns “HelloWorld”</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Two.java </span>
+<span class="c1">//Item # 2 Java Programming Workbook</span>
+
+<span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">bang</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns “Hello World” with a space in between.</p>
+
+<p><strong>Problem 2.2</strong> Make some modifications to Two.java such that it returns </p>
+
+<p>“Hello
+Java”</p>
+
+<p>Insert a CRLF (Carriage Return Linefeed) after the String “Hello”</p>
+
+<p><strong>Problem 2.3</strong> Still following the principle of item 2 above, given two strings, a and b, return the result of putting them together in the order abba, e.g. “Hi” and “Bye” returns “HiByeByeHi”. </p>
+
+<p>bang(“Hi”, “Bye”) -&gt; “HiByeByeHi”</p>
+
+<p>bang(“Yo”, “Alice”) -&gt; “YoAliceAliceYo”</p>
+
+<p>bang(“x”, “y”) -&gt; “xyyx”</p>
+
+<p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Three.java </span>
+<span class="c1">//Item # 3 Java Programming Workbook</span>
+
+<span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">printmult</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
+		<span class="c1">//write your code here	</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
+
+<p><strong>Problem 4.</strong> Find the GCD (greatest common factor) of 15 and 12 using Euclid’s algorithm. You need to research this one. There is no need to provide a skeleton code because you can write the entire solution inside <em>public static void main()</em></p>
+
+<p><strong>Problem 4.1</strong>  Do this program in GUI using javax.swing. Use TextFields to input the number. Use a button to start the calculation. Use the JDialog to output the result</p>
+
+<p><strong>Problem 5.</strong> Consider a string, return a string where for every letter in the original, the letter will be printed twice </p>
+
+<p>twice(“The”) -&gt; “TThhee”</p>
+
+<p>twice(“AAbb”) -&gt; “AAAAbbbb”</p>
+
+<p>twice(“Hi-There”) -&gt; “HHii–TThheerree”</p>
+
+<p><strong>Problem 6.</strong> Create a function that will take a String and prints out the String in reverse. e.g. “Hello” –&gt; outputs “olleH”</p>
+
+<p><strong>Problem 6.1.</strong> Now, check to see if the String is a palindrome. A palindrome is a word(s) which is spelled exactly the same whether read backwards or forward. If it is palindome, output should be e.g. “madamimadam is a palindrome” </p>
+
+<p><strong>Problem 6.2</strong> Create this function using javax.swing, create a textfield for the user to input the string and a button. When the button is pressed, run your algorithm. Use the JDialog to output the results</p>
+
+<p><strong>Problem 7.</strong> Write a program that counts from 1..10,000. Process each number. If the number is even, print out if it is even. e.g. “2 is even”, “3 is odd”</p>
+
+<p><strong>Problem 7.2</strong> Find the sum of all even numbers below 5,000, print it out</p>
+
+<p><strong>Problem 7.3</strong> Revise the program, if the number is a multiple of 3, print out “Crunch”, if it is a multiple of 5, print out “Bang”. If the number if both a multiple of 3 and 5, print out “!#”</p>
+
+<p><strong>Problem 7.4</strong> Revise the program, as the program is counting from 1..10,000; check to see if the number is a palindrome, if it is, print it out, if not, ignore it</p>
+
+<p><strong>Problem 7.5</strong> continuing from 7.4, find the sum of all palindromic numbers  in the series 1..10,000</p>
+
+<p><strong>Problem 7.6</strong> Revise the program. Now, add all the numbers below 1000, that are multiples of 3 or 5. Print out the sum</p>
+
+<p><strong>Problem 8.</strong> Write a program that will print out the following;</p>
+
+<pre class="codeblock">
+
+*
+* *
+* * *
+* * * *
+* * * * * 
+* * * * * * 
+*  * * * * * *
+
+</pre>
+
+<p>Use either a for loop or a while loop</p>
+
+<p><strong>Problem 9.</strong> Write a program that will print out the following;</p>
+
+<pre class="codeblock">
+
+ 1 
+ 1 1 
+ 1 2 1 
+ 1 3 3 1 
+ 1 4 6 4 1 
+ 1 5 10 10 5 1 
+ 1 6 15 20 15 6 1 
+ 1 7 21 35 35 21 7 1 
+
+</pre>
+
+<p><strong>Problem 10.</strong> Create a function that takes in two java.util.Date parameters, return the difference in terms of number of days </p>
+
+<p><strong>Problem 11.</strong> Create a database driven GUI application (todo list) that keeps the following data points;</p>
+
+<ul>
+  <li>todo item (string)</li>
+  <li>date created (date)</li>
+  <li>status (string) </li>
+</ul>
+
+<p>The application should also be able to display the list of all todo items in a separate window.</p>
+
+<h2 id="part-2-self-check-questions">Part 2. Self check questions</h2>
+
+<p><strong>Question 1)</strong></p>
+
+<p>Which of the following lines will compile without warning or error.</p>
+
+<p>1) float f=1.3; </p>
+
+<p>2) char c=”a”; </p>
+
+<p>3) byte b=257; </p>
+
+<p>4) boolean b=null; </p>
+
+<p>5) int i=10; </p>
+
+<p><strong>Question 2)</strong></p>
+
+<p>What will happen if you try to compile and run the following code</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
+	<span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">amethod</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>error Can’t make static reference to void amethod. </li>
+  <li>error method main not correct </li>
+  <li>error array must include parameter </li>
+  <li>amethod must be declared with String</li>
+</ol>
+
+<p><strong>Question 3)</strong></p>
+
+<p>Which of the following will compile without error</p>
+
+<p>1)</p>
+
+<p>import java.awt.*;
+package Mypackage;
+class Myclass {}</p>
+
+<p>2)</p>
+
+<p>package MyPackage;
+import java.awt.*;
+class MyClass{}</p>
+
+<p>3)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*This is a comment */</span>
+
+<span class="kn">package</span> <span class="n">MyPackage</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span></code></pre></div>
+
+<p><strong>Question 4)</strong></p>
+
+<p>Which of the following are keywords or reserved words in Java?</p>
+
+<ol>
+  <li>if </li>
+  <li>then </li>
+  <li>goto </li>
+  <li>while </li>
+  <li>case</li>
+</ol>
+
+<p><strong>Question 5)</strong></p>
+
+<p>What will happen when you compile and run the following code? </p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
+ <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[]){</span>
+ <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>Error Variable i may not have been initialized </li>
+  <li>null </li>
+  <li>1 </li>
+  <li>0</li>
+</ol>
+
+<p><strong>Question 6.</strong></p>
+
+<p>What is the difference between a constructor and a method</p>
+
+<p><strong>Question 7.</strong></p>
+
+<p>What are access modifiers in Java?</p>
+
+<p><strong>Question 8.</strong></p>
+
+<p>What is the difference between method overloading and method overriding</p>
+
+<p><strong>Question 9.</strong></p>
+
+<p>What is the difference betwen abstract class and interface </p>
+
+<p><strong>Question 10.</strong></p>
+
+<p>What is the difference between a non-static variable and a static variable?</p>
+
+        </div>
+							
+		  </div>
+      
+		</article>
+    
+    <div class="toc">
+      <!--
+      <iframe width="200" height="320" src="https://leanpub.com/javalessons/embed" frameborder="0" allowtransparency="true"></iframe>
+      -->
+      Core Java  
+      <ul>
+      <li><a href="/java-introduction">Introduction</a></li>
+      <li><a href="/java-coding-process">Coding Process</a></li>
+      <li><a href="#">Key Concepts</a></li>
+      <li><a href="#">Data Types</a></li>
+      <li><a href="#">Program Flow</a></li>
+      <li><a href="#">Reference Type</a></li>
+      <li><a href="#">Type System</a></li>
+      <li><a href="#">Object Oriented Programming</a></li>
+      <li><a href="#">Data Structures</a></li>
+    </ul>
+    </div>    
+    
+    <div class="promo">
+ 
+    </div>   
+    </div>  <!--  div wrap -->
+
+		<footer>
+<!--
+<a href="/android-programming-tutorial">Android</a> &nbsp;
+<a href="/java-introduction">Java</a> &nbsp;
+<a href="/working-with-html5">HTML5</a> &nbsp;
+<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
+<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
+-->
+
+<div style="text-align:center;">
+  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+</div>
+</footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>

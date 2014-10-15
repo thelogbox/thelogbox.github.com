@@ -1,0 +1,1150 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<!--
+<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+-->
+
+<script src="//use.typekit.net/mvn1usv.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
+
+<meta charset="utf-8">
+
+<link 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="keywords" content="Language ,Microsoft ,Emitter">
+<meta name="author" content="Ted Hagos">
+<meta name="description" content="Short programming notes on the Microsoft TypeScript language" />
+
+<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
+
+<title>
+  
+    TypeScript | theLogBox
+  
+</title>
+
+
+		<style>
+
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+
+#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
+
+em {
+  font-style:normal;
+  font-weight: 400;
+  color: brown;
+}
+
+body {
+  font-size:17px;   
+  font-family: 'nimbus-sans','Lato';
+  font-weight: 300;
+  margin:0;
+  padding:0;
+  border:0;
+  color: #535353;
+  /*color: #2d2d2d;*/
+  background: #f6f6f6;
+  line-height: 1.4em;
+}
+
+#wrap, .toc, .promo {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-banner-text {
+  color:#222;
+  font-family: 'PT Sans';
+  font-size:50px;
+  font-weight:700;
+  line-height:135%;
+  letter-spacing: -1.3px;
+}
+
+.toc, .promo {
+  margin:0;padding:0;border:0;
+}
+
+.tutorial-writeup {
+  text-align: left;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  color: #555555;
+  background: inherit;
+  text-transform: uppercase;
+}
+
+.vspacer {height:20px;}
+
+#wrap {
+	margin: 0 auto;
+}
+
+/*
+#leanpubbook {
+  background: #d6d6d6;
+  padding: 20px;
+/ text-align:center;
+  margin-top: 20px;
+  position: relative; 
+  height: 200px; 
+}
+*/
+
+/*
+#leanpubbook, #leanpubbook.a:link, #leanpubbook.a:visited {
+  font-family: 'Rokkitt';
+  font-size:21px;
+}
+*/
+
+/* FOR THE article block */
+
+#articletitle {
+	font-size: 28px;
+	font-weight: 400;
+  text-align: left;
+  line-height: 1.4em;
+  /*color: #292929; */
+  margin-top: 0;
+  padding-top: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.content-meta {
+	font-style: normal;
+  margin-top: 5px;
+	margin-bottom:20px;
+  text-align: left;
+}
+
+article, #archives {
+  /*
+  padding-left:5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2 
+  */
+}
+
+.toc {
+  text-align:left;  
+  margin-top: 30px;
+  padding: 20px;
+  column-count:3;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+  /*background:#e9e9e9;*/
+}
+
+.toc, .toc a:link {
+  font-family: 'Open Sans Condensed';
+}
+
+.toc b, .toc strong {font-weight: 700;}
+
+/*
+
+ol, ul {padding-left:20px;}
+ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
+ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
+ol > li:before {
+  position: absolute;
+  content: counter(mycounter, decimal-leading-zero) ".";
+  counter-increment: mycounter;
+  font-style: normal;
+  left: -2em;
+}
+
+*/
+
+/* .toc a:link, .toc a:visited {color: blue;}
+.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
+.toc ul {padding-left: 0;} */
+
+
+h1, h2, h3 {
+  font-family: 'PT Sans';
+  font-weight: 700;
+  color: #6d6d6d;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+strong, b {font-weight:400;}
+
+h1 {font-size: 25px;}
+h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
+h3 {font-size: 18px; }
+h4 {margin-bottom: 0px; padding-bottom: 0px;}
+
+
+
+#feature {
+  min-height: 400px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom: 1px dashed #CACACA;
+}
+
+.feature-title {
+  font-weight: 400;
+  font-size: 1em;
+  color: #2F2F2F;
+  text-align: center;
+  padding-top:40px;
+  padding-bottom:40px;
+  line-height:1.3em;
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.feature-article {
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.5em; 
+  width: 80%;
+  margin: 0 auto; 
+}
+
+.feature-banner{
+  display:block;
+  font-size: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  line-height:1.5em;
+  margin-bottom:40px;
+  margin-top:40px;
+  text-align: left;
+}
+
+#feature-button {
+  text-align:center;
+  margin: 20px;
+}
+
+
+#disqus_thread {
+  clear: both;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#discussions {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 2px solid #DEDEDE;
+}
+
+hr {
+  border:0;
+  color: #DEDEDE;
+  background: #DEDEDE;
+  height: 1px;
+  margin-bottom:2em;
+  margin-top:2em;
+}
+
+hr .section {
+  background: #61781a;
+  color: #61781a;
+  border: 1px solid #DEDEDE;
+}
+
+pre {
+  font-size: 11px;
+  padding: 10px;
+  font-weight: normal;
+  /*
+  border-bottom: 2px solid #F0F2E7;
+  border-top: 2px solid #F0F2E7;
+  */
+  
+  margin-bottom:2em;
+  margin-top:2em;
+  white-space: pre-wrap;
+  
+/*  background: #dcdcff; */
+/*  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 2px solid #2d2d2d;
+*/
+  
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #eee; 
+  margin 1.2em;
+  white-space:pre-wrap;
+  overflow:auto;
+}
+
+
+code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+pre.code {
+  font-weight:400;
+  overflow: visible;
+  padding-top: 1.2em;
+}
+
+
+.codeblock, p.code {
+  font-weight:700;
+  font-size: .9em;
+  font-family: 'Anonymous Pro';
+  color: #000000;
+  padding:0px;
+  margin: 0px;
+  border: 0px;  
+}
+
+  pre.codeblock {
+    padding: 1.1em;
+    font-weight:700;
+    /*background: #e8ebef;*/
+    /*background: #dcdcFF; */ 
+    color: #000000;
+    /*line-height:120%; */
+}
+
+#lst {
+  color: #B30000;
+	font-style:normal;
+	font-size: 15px;
+	margin-top:0px;
+  margin-bottom: 15px;
+	padding-top:0px;
+	padding-bottom:10px;
+  text-align:center;
+}
+
+/* color of a:link previously #3a5d9f */
+
+a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
+a:hover {color: blue; text-decoration:underline;}
+
+#postmeta {
+  padding-top:0;
+  padding-bottom:0; 
+  font-weight:normal; 
+  font-size: 14px;
+  line-height:100%;
+  margin-left: 10px;
+  letter-spacing: normal;
+  display: none;
+}
+#postmeta a:link, #postmeta a:visited {color: #000;}
+
+footer {
+  color: #414141;
+	font-style:normal;
+  clear:both;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 2em;
+  text-align: center;
+  /*border-top: 1px solid #dedede;*/
+}
+
+img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  width: 75%;
+}
+  img.shadow {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  } 
+  img.small {
+    width: 65%;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+
+  }
+  img.default {
+    width: inherit;
+    margin: 8px auto;
+  }
+  img.thumbnail {
+    float:left;
+    width: 20%; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    -moz-box-shadow: -5px 0 35px 10px #888;
+    -webkit-box-shadow: -5px 0 35px 10px #888;
+    box-shadow: -5px 0 35px 10px #888;
+  }
+
+aside {
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 1px solid #CACACA;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  display: inline;
+/*  background: #800000; */
+/*  background: #3a5d9f; */
+  padding-top: 5px;
+  padding-bottom:5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  border: 1px solid #CACACA;
+
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  text-transform:uppercase;
+  text-decoration:none;
+  color: #555555;
+}
+
+.button:link, .button:visited {color: #555555;}
+.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
+
+/* overrides extra padding on button elements 
+   in Firefox */
+.button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#training-sidebar {
+  float:right;
+  margin-right: 30px;
+  padding: 20px;
+  border: 1px solid #CACACA;
+  width: 30%;
+  margin-left: 20px;
+}
+
+#training-sidebar h4 {
+  color: #CC0000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+iframe {display:block;}
+*/
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.toc ul { color: royalblue;}
+
+
+
+@media (min-width: 650px) {
+  
+  #wrap, .toc, .promo {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 750px) {
+  
+  #wrap, .toc, .promo {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 850px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  #wrap, .toc, .promo {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 860px) {
+
+  body {
+    font-size: 1em;
+  }
+  
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.7em;}
+  h2 {font-size: 1.5em; }
+  h3 {font-size: 1.3em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left: 3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:96%;
+  }
+
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
+    line-height: 1.5em;
+  }
+}
+
+@media (min-width: 1020px) {
+
+  body {
+    font-size: 1em;
+  }
+  /*
+  article, #archives { 
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2 
+  }
+ */
+  code {font-size: 1.3em;}
+  .feature-banner-text {font-size: 2em;}
+  
+  h1 {font-size: 1.8em;}
+  h2 {font-size: 1.6em; }
+  h3 {font-size: 1.4em; }
+  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
+
+  .toc {
+    width: 24%;
+    float:right;
+    column-count:1;
+    -moz-column-count:1; /* Firefox */
+    -webkit-column-count:1; /* Safari and Chrome */
+    padding: 10px;
+    border: 0;
+    margin-left:3%;
+  }
+  article {
+    float:left;
+    width: 70%;
+  }  
+  #wrap {
+    width:950px;
+  }
+  
+  .toc ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+}
+
+</style>
+
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>    
+    
+
+    <div id="wrap">     
+    <article itemscope itemtype="http://schema.org/Article" class="notoc">
+     <header>     
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        TypeScript
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<div id="postmeta">
+  <!--
+  <div style="text-decoration: overline; color: inherited">
+  file: #Language  #Microsoft  #Emitter
+  </div> 
+  last updated:  <br/>
+  -->
+
+  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
+<!--  October 03, 2012 <p/> -->
+    
+<!--
+  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
+  -->
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+      </div>
+    </div>      
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    <p>Official website is at <a href="http://www.typescriptlang.org">TypeScriptLang.org</a>. The language was borne out of Microsoft. It looks a lot like JavaScript, because it is a superset of JavaScript;  This means all existing, valid and native JavaScript codes are already valid TypeScript codes. </p>
+
+<h1 id="info">INFO</h1>
+
+<ol>
+  <li>licensed under Apache 2.0</li>
+  <li>Anders Hejlsberg is responsible for it. He gave us C#, before that he wrote Pascal compilers which got him hitched with Borland (Turbo Pascal) </li>
+  <li>typescript an be installed in lots of ways - via <strong>npm -g install typescript</strong>, or as a Visual Studio plugin. You can also get the source via <strong>git clone https://git01.codeplex.com/typescript</strong> </li>
+  <li>the anguage specification (currently v .08) is only 97 pages (in PDF). There is no excuse not to read it </li>
+</ol>
+
+<h1 id="workflow">WORKFLOW</h1>
+
+<ol>
+  <li>Create a source file with a <em>.ts</em> file extension</li>
+  <li>Compile the .ts file using <em>tsc</em> (typescript compiler)</li>
+  <li>Use the emitted JavaScript code any which way you need</li>
+  <li>Go through your testing motions</li>
+  <li>Rinse, repeat </li>
+</ol>
+
+<h1 id="setup">SETUP</h1>
+
+<p>Get the compiler, either via npm (Node Package Manager) or Visual Studio Plugin or via sourcecode</p>
+
+<p>Make sure your environment is setup properly. Try out the <strong>tsc</strong> command on a terminal window (cmd.exe in Windows, Terminal.app in OSX or xterm, gnome-terminal on Linux); you should get something like this;</p>
+
+<pre class="codeblock">
+
+$ tsc
+Syntax:   tsc [options] [file ..]
+
+Examples: tsc hello.ts
+          tsc --out foo.js foo.ts
+          tsc @args.txt
+
+Options:
+  -c, --comments  Emit comments to output
+  --declarations  Generates corresponding .d.ts file
+  -e, --exec      Execute the script after compilation
+  -h, --help      Print this message
+  --module KIND   Specify module code generation: "commonjs" (default) or "amd"
+  --nolib         Do not include a default lib.d.ts with global declarations
+  --out FILE      Concatenate and emit output to single file
+  --target VER    Specify ECMAScript target version: "ES3" (default), or "ES5"
+  -w, --watch     Watch output files
+  @<file>         Insert command line options and files from a file.
+
+
+
+
+Try out the **greeter.ts** sample in [typelang.org/tutorial](http://www.typescriptlang.org/Tutorial/) 
+
+If you are using TextMate in OSX, it won't know how to handle .ts files, so when you see the "Recommended Grammars" dialog box, just use JavaScript.  
+
+***
+
+The "Hello World" test
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// filename: Hello.ts</span>
+
+<span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+
+
+Compile it using **tsc Hello.ts**, it will emit exactly the same code in JavaScript. It's supposed to happen because TypeScript is a superset of JavaScript. A (valid) existing JavaScript code should compile cleanly using TypeScript compiler.
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+
+
+You can run the resulting **.js** code either via *node Hello.js* or ***js Hello.js** if you have it setup on your machine.
+
+To test the syntactic sugar, add a bit of type checking, modify Hello.ts like this
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="o">:</span> <span class="nx">number</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">Hello</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">);</span></code></pre></div>
+
+
+If you try **tsc Hello.ts** again, you will get and error like *Function declared a non-void return type, but has no return expression*. The reason for that is because we added a type-checking information on both the *args* variable and the our function itself. **args : string** means that args needs to be a string and that function Hello should return a number. The type checking is done on compile time, not runtime. 
+
+
+# CODING NOTES
+
+
+## CLASS CONSTRUCTION
+
+Trying out the class and interface facilities of TypeScript
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//BoxSample.ts</span>
+
+<span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
+	
+	<span class="nx">x</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">width</span> <span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Box</span> <span class="p">{</span>
+	
+	<span class="kr">public</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="kr">public</span> <span class="nx">setDim</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">IBox</span><span class="p">){</span>
+		
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+	
+	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">});</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">10</span><span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">compile using;</span>
+
+<span class="cm">	tsc BoxSample.ts</span>
+
+<span class="cm">outputs;</span>
+
+<span class="cm">	BoxSample.js</span>
+
+<span class="cm">*/</span>
+
+<span class="c1">//BoxSample.js</span>
+
+<span class="kd">var</span> <span class="nx">Box</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Box</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="nx">Box</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setDim</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">Box</span><span class="p">;</span>
+<span class="p">})();</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Box</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setDim</span><span class="p">({</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">constructor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span></code></pre></div>
+
+
+The TypeScript version does look a lot cleaner, looks like it really has potential. Just a bunch of things to remember initially;
+
+**1.** TS adds static type checking, so the general form is **variable name [ : type ]**. It seems I can use **string, bool and number** for static type checking. In the language spec of TypeScript, there was also a mention of the **any** type, which can stand for either *bool, string, number and undefined**. If I use the **any** type though, I lose the static type checking that TS performs, I probably should not do it, since I like type checking. 
+
+**2.** There is an **implements** keyword supported for class constructs, so I could have written the example as
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">interface</span> <span class="nx">IBox</span> <span class="p">{</span>
+	<span class="c1">// …</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Box</span> <span class="kr">implements</span> <span class="p">{</span>
+	<span class="c1">// class body</span>
+<span class="p">}</span></code></pre></div>
+
+
+It doesn't seem like I needed it though (note to self =&gt; read the spec over and over again to find out why). 
+
+## INHERITANCE AND POLYMORPHISM
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+	
+	<span class="nx">mname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;default name&quot;</span><span class="p">;</span>
+		
+	<span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="nx">setName</span><span class="p">(</span><span class="nx">val</span> <span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">mname</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;drawing Shape&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Circle</span> <span class="o">:</span> <span class="nx">Shape</span> <span class="p">{</span>
+	
+	<span class="nx">draw</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Drawing Circle&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Shape</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s2">&quot;the circle&quot;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">mname</span><span class="p">);</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span></code></pre></div>
+
+
+Inheritance works as expected, no big surprises. TypeScript uses the **extends** keyword to denote both class and interface inheritance. One thing I noticed though is that if you replace the *extends** keyword with a colon (pretty much like in CSharp), it seems to have the same effect as **extends** too&mdash;but better stick with *extends*, that is what the lang spec specifies for inheritance anyway.
+
+The rule is pretty basic on inheritance. Everything that on the base class that is defined to have **public** access is automatically inherited on the derived class. That is why the *Circle* type has a **setName() and getName()** method, they were inherited from *Shape*.  
+
+Override works as expected also, just redefine the method on the the derived class and the method becomes polymorphic 
+
+## SUPER
+
+**super** refers to an instance of the super class or the parent class. Old hands of Java, CSharp, C++ should not be surprised, the super behaves as expected. 
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Base</span> <span class="p">{</span>
+	
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;base::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Derived</span> <span class="kr">extends</span> <span class="nx">Base</span> <span class="p">{</span>
+	
+	<span class="nx">foo</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::foo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="nx">constructor</span><span class="p">(){</span>
+		<span class="kr">super</span><span class="p">();</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;derived::ctor&quot;</span><span class="p">);</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Derived</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">foo</span><span class="p">();</span></code></pre></div>
+
+
+## OPTIONAL ARGUMENTS TO FUNCTIONS
+
+Two ways to do optional parameters/arguments. 1) You can add a question mark right after the argument name, or 2) you can provide a default value for the argument. The constructor of class Square below uses method #2 and class Circle uses method #1 
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Square</span> <span class="p">{</span>
+	
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span><span class="o">?</span> <span class="o">:</span><span class="nx">string</span> <span class="p">,</span> <span class="nx">mcolor</span><span class="o">?</span> <span class="o">:</span> <span class="nx">string</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mname</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mcolor</span><span class="p">)</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="s2">&quot;empty&quot;</span><span class="p">;}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Circle</span> <span class="p">{</span>
+
+	<span class="nx">pname</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+	<span class="nx">pcolor</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">mname</span> <span class="o">=</span> <span class="s2">&quot;def name&quot;</span> <span class="p">,</span> <span class="nx">mcolor</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">){</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pname</span> <span class="o">=</span> <span class="nx">mname</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">pcolor</span> <span class="o">=</span> <span class="nx">mcolor</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="s2">&quot;new square&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pcolor</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s2</span><span class="p">.</span><span class="nx">pname</span><span class="p">);</span></code></pre></div>
+
+
+
+## Overloading
+
+Don't get too excited yet about overloading, it's not like C# or Java (yet, I hope)
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Line</span> <span class="p">{</span>
+
+	
+	<span class="nx">x</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">y</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="nx">width</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	<span class="nx">height</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+	
+	<span class="cm">/*</span>
+<span class="cm">	</span>
+<span class="cm">	this does not work, if you vary the number of arguments on the overload</span>
+<span class="cm">	declarations, it throws a compile error</span>
+
+<span class="cm">	constructor();</span>
+<span class="cm">	constructor(x:number, y:number);</span>
+<span class="cm">	</span>
+<span class="cm">	*/</span>
+
+
+	<span class="nx">constructor</span><span class="p">(</span><span class="nx">dim</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">y</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">width</span><span class="o">:</span><span class="nx">number</span><span class="p">;</span> <span class="nx">height</span><span class="o">:</span><span class="nx">number</span><span class="p">;}){</span>
+	
+		<span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+	
+	<span class="p">}</span>
+	
+	<span class="cm">/*</span>
+
+<span class="cm">	The overloaded forms of foo() is accepted because I only varied the type of x.		</span>
+
+<span class="cm">	*/</span>
+
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">number</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">string</span><span class="p">);</span>
+	<span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="nx">any</span><span class="p">){</span>
+		
+	<span class="p">}</span>
+		
+<span class="p">}</span></code></pre></div>
+
+
+You can have multiple declarations of method, but only one of them can have an implmentation. Also, you cannot vary the number of arguments in the method.
+
+
+## ARROW EXPRESSIONS
+
+This looks purely like syntactic sugar, but just the same, note it. The **() =&gt; {}** notation was added so that you don't have to say **function() {}** &mdash; this reminds me of CoffeeScript though. 
+
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="p">{</span>
+	
+	<span class="nx">mname</span><span class="o">:</span> <span class="s2">&quot;Hello Box&quot;</span><span class="p">,</span>
+	<span class="nx">goo</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello Goo&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+<span class="p">}</span>
+
+<span class="nx">box</span><span class="p">.</span><span class="nx">goo</span><span class="p">();</span></code></pre></div>
+
+
+
+
+1. TS looks usable if you want to add some OO organization to your code; CoffeeScript will do that for you too, so it comes down to a choice whether you like the Ruby syntax or JavaScript 
+2. TS is not a replacement for JavaScript. You need to know JavaScript first before you can move conveniently in TypeScript &mdash; after all, TypeScript is a superset of JavaScript
+3. You need a basic understanding of classical OO (Object Oriented) concepts before you can use the class abstractions of TypeScript. C#, Java and C++ programmers should be right at home
+4. Classical JavaScript and TypeScript syntax can be mashup-ed, it's up to you &mdash; but I found it confusing, I think this is where coding practices and conventions can help a lot
+5. Type checking is a relief, I like that a lot &mdash; this is probably due to my experience bias (statically typed languages) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</file></pre>
+
+        </div>
+							
+		  </div>
+		</article>
+  
+  </div> <!-- WRAP --> 
+    <footer></footer>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38198657-1']);
+  _gaq.push(['_setDomainName', 'thelogbox.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <!-- Start of StatCounter Code for Default Guide -->
+	
+  <script type="text/javascript">
+  var sc_project=7827488; 
+  var sc_invisible=1; 
+  var sc_security="069357c9"; 
+  </script>
+  <script type="text/javascript"
+      src="http://www.statcounter.com/counter/counter.js"></script>
+  <noscript><div class="statcounter"><a title="customizable
+      counter" href="http://statcounter.com/free-hit-counter/"
+      target="_blank"><img class="statcounter"
+      src="http://c.statcounter.com/7827488/0/069357c9/1/"
+      alt="customizable counter"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+  </body>
+</html>
