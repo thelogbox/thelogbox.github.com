@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -693,87 +682,85 @@ iframe {display:block;}
 
 <h3 id="code">Code</h3>
 
-<div>
-  <pre><code class="java">/*
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*</span>
 
-BSD License: Copyright (c) 2009-2012 Ted Hagos
-All rights reserved.
+<span class="cm">BSD License: Copyright (c) 2009-2012 Ted Hagos</span>
+<span class="cm">All rights reserved.</span>
 
-License text: http://thelogbox.com/source-docs/software-license.txt
+<span class="cm">License text: http://thelogbox.com/source-docs/software-license.txt</span>
 
-filename: ConnTest.java
+<span class="cm">filename: ConnTest.java</span>
 
-*/
+<span class="cm">*/</span>
 
-package com.thelogbox;
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.content.Context;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View.OnClickListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.net.ConnectivityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.net.NetworkInfo</span><span class="o">;</span>
 
-class ViewConnnTest extends LinearLayout implements OnClickListener {
+<span class="kd">class</span> <span class="nc">ViewConnnTest</span> <span class="kd">extends</span> <span class="n">LinearLayout</span> <span class="kd">implements</span> <span class="n">OnClickListener</span> <span class="o">{</span>
 
-  Context context = null;
-  TextView tv = null;
-  ConnectivityManager connman = null;
-  NetworkInfo netinfo = null;
+  <span class="n">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">TextView</span> <span class="n">tv</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">ConnectivityManager</span> <span class="n">connman</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="n">NetworkInfo</span> <span class="n">netinfo</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-  public ViewConnnTest(Context context) {
+  <span class="kd">public</span> <span class="nf">ViewConnnTest</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
 
-    super(context);
-    this.context = context;
-    tv = new TextView(context);
-    addView(tv);
-    setOnClickListener(this);
+    <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextView</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="n">addView</span><span class="o">(</span><span class="n">tv</span><span class="o">);</span>
+    <span class="n">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 
-  }
+  <span class="o">}</span>
 
-  public void onClick(View v){
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
 
-    StringBuilder sb = new StringBuilder();
-    connman = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-    netinfo = connman.getActiveNetworkInfo(); 
+    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">();</span>
+    <span class="n">connman</span> <span class="o">=</span> <span class="o">(</span><span class="n">ConnectivityManager</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">CONNECTIVITY_SERVICE</span><span class="o">);</span>
+    <span class="n">netinfo</span> <span class="o">=</span> <span class="n">connman</span><span class="o">.</span><span class="na">getActiveNetworkInfo</span><span class="o">();</span> 
 
-    switch(netinfo.getType()) {
-      case ConnectivityManager.TYPE_MOBILE:
-        sb.append(&quot;\nMobile data OK.&quot;);
-        break;
-      case ConnectivityManager.TYPE_WIFI:
-        sb.append(&quot;\nWIFI OK.&quot;);
-        break;
-      case ConnectivityManager.TYPE_WIMAX:
-        sb.append(&quot;\nWIMAX OK.&quot;);
-        break;
-      case ConnectivityManager.TYPE_ETHERNET:
-        sb.append(&quot;\nOn Ethernet.&quot;);
-        break;
-      case ConnectivityManager.TYPE_BLUETOOTH:
-        sb.append(&quot;\nBluetooth OK.&quot;);
-        break;
-      default:
-        sb.append(&quot;\nNot connected. Not OK.&quot;);
-    }
-    sb.append(&quot;\nState= &quot;); 
-    sb.append(netinfo.getState().toString());
+    <span class="k">switch</span><span class="o">(</span><span class="n">netinfo</span><span class="o">.</span><span class="na">getType</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_MOBILE</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nMobile data OK.&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_WIFI</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nWIFI OK.&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_WIMAX</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nWIMAX OK.&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_ETHERNET</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nOn Ethernet.&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="k">case</span> <span class="n">ConnectivityManager</span><span class="o">.</span><span class="na">TYPE_BLUETOOTH</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nBluetooth OK.&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nNot connected. Not OK.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\nState= &quot;</span><span class="o">);</span> 
+    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">netinfo</span><span class="o">.</span><span class="na">getState</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
 
-    tv.setText(sb.toString());
-  }
-}
+    <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 
-public class ConnTest extends Activity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(new ViewConnnTest(this));
-    }
-}</code></pre>
-</div>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConnTest</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="k">new</span> <span class="nf">ViewConnnTest</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
         </div>					
 		  </div>
@@ -794,7 +781,7 @@ public class ConnTest extends Activity {
       </div>
       </div>
     -->
-      <table bgcolor="#d6d6d6" cellpadding="10">
+      <table bgcolor="#f1f1f1" cellpadding="10">
         <tr>
           <td width="25%">
             <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 

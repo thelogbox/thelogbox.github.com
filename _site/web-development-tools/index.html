@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -724,32 +713,28 @@ iframe {display:block;}
 
 <p>Install using ruby gems — <code class="codeblock">gem install sass</code></p>
 
-<div>
-  <pre><code class="css">#main {
-  width: 80%;
-  height: 23px;
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span>
 
-  ul { list-style-type: none; }
-  li {
-    float: left;
-    a { font-weight: bold; }
-  }
-}</code></pre>
-</div>
+  <span class="n">ul</span> <span class="err">{</span> <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">li</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="n">a</span> <span class="err">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
+  <span class="err">}</span>
+<span class="err">}</span></code></pre></div>
 
 <p>When processed using the <strong>saas</strong> command, it will emit the following;</p>
 
-<div>
-  <pre><code class="css">#main {
-  width: 80%;
-  height: 23px; }
-  #main ul {
-    list-style-type: none; }
-  #main li {
-    float: left; }
-    #main li a {
-      font-weight: bold; }</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">80%</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nf">#main</span> <span class="nt">ul</span> <span class="p">{</span>
+    <span class="k">list-style-type</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nf">#main</span> <span class="nt">li</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nf">#main</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+      <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 <p>The <strong>saas</strong> command line tool has a <strong>–watch</strong> option, it runs continuosly and watches the scss that you created, everytime you change the scss file, it will automatically emit the resulting CSS file</p>
 
@@ -803,26 +788,24 @@ $ gem install thin
 
 <p>You actually don’t need thin, but might as well install, it seems to be the favored setup of programmers using Sinatra. You will need to install sinatra-contrib if you will use the hot-reloading of Sinatra (and you will really need to hot-reload, lest you want to be very proficient pressing CTRL-C to stop the server then start it all over again)</p>
 
-<div>
-  <pre><code class="ruby"># quick (but not dirty) and simple
-# restful web endpoint
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># quick (but not dirty) and simple</span>
+<span class="c1"># restful web endpoint</span>
 
-# this app will listen on http://localhost:4567
+<span class="c1"># this app will listen on http://localhost:4567</span>
 
-# filename: first.rb 
-# how to run : $ ruby first.rb 
+<span class="c1"># filename: first.rb </span>
+<span class="c1"># how to run : $ ruby first.rb </span>
 
-require 'rubygems' if RUBY_VERSION &lt; '1.9'
-require 'sinatra'
+<span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span> <span class="k">if</span> <span class="no">RUBY_VERSION</span> <span class="o">&lt;</span> <span class="s1">&#39;1.9&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
 
-get '/' do
-    &quot;return something&quot;
-end
+<span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+    <span class="s2">&quot;return something&quot;</span>
+<span class="k">end</span>
 
-get '/somethingelse' do
-    &quot;return something else&quot;
-end</code></pre>
-</div>
+<span class="n">get</span> <span class="s1">&#39;/somethingelse&#39;</span> <span class="k">do</span>
+    <span class="s2">&quot;return something else&quot;</span>
+<span class="k">end</span></code></pre></div>
 
 <p><em>http://localhost:4567</em> displays “return something”; <em>http://localhost:4567/somethingelse</em> displays “return something else” in the browser.</p>
 
@@ -836,78 +819,74 @@ end</code></pre>
 
 <p>The simplest node program from the (NodeJS website)</p>
 
-<div>
-  <pre><code class="javascript">// server.js
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// server.js</span>
 
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:1337/');</code></pre>
-</div>
+<span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">});</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World\n&#39;</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://127.0.0.1:1337/&#39;</span><span class="p">);</span></code></pre></div>
 
 <p>Run the code using <code class="codeblock">node server.js</code>. Get a browser and open <em>http://localhost:1337</em>. You can already use this to mock REST endpoints, just replace the string inside res.end(‘Hello World’);</p>
 
 <p>A more involved node server code sample is below</p>
 
-<div>
-  <pre><code class="javascript">var http = require('http');
-var path = require('path');
-var fs = require('fs');
-var url = require('url');
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
 
-var pages = {
-	'': &quot;Landing page&quot;,
-	about: 'About',
-	foo: &quot;Yeah Foo&quot;,
-	goo: &quot;Yeah Goo&quot;,
-	xoo: callxoo()
-};
+<span class="kd">var</span> <span class="nx">pages</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s1">&#39;&#39;</span><span class="o">:</span> <span class="s2">&quot;Landing page&quot;</span><span class="p">,</span>
+	<span class="nx">about</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
+	<span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;Yeah Foo&quot;</span><span class="p">,</span>
+	<span class="nx">goo</span><span class="o">:</span> <span class="s2">&quot;Yeah Goo&quot;</span><span class="p">,</span>
+	<span class="nx">xoo</span><span class="o">:</span> <span class="nx">callxoo</span><span class="p">()</span>
+<span class="p">};</span>
 
-function callxoo(){
-	var retval = {
-		empname: &quot;Ted Hagos&quot;,
-		email: &quot;tedhagos@gmail.com&quot;
-	};
-	// I cannot return the bare JS object because
-	// the HTTP object of node will throw an error.
-	// First type argument must be a string or buffer
-	return JSON.stringify(retval);
+<span class="kd">function</span> <span class="nx">callxoo</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">retval</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">empname</span><span class="o">:</span> <span class="s2">&quot;Ted Hagos&quot;</span><span class="p">,</span>
+		<span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;tedhagos@gmail.com&quot;</span>
+	<span class="p">};</span>
+	<span class="c1">// I cannot return the bare JS object because</span>
+	<span class="c1">// the HTTP object of node will throw an error.</span>
+	<span class="c1">// First type argument must be a string or buffer</span>
+	<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">retval</span><span class="p">);</span>
 	
-}
+<span class="p">}</span>
 
-http.createServer(
-	function(request,response){
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span>
+	<span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
 		
-		var lookup = path.basename(decodeURI(request.url));
-		var thedata = null;
-		var temp = null;
+		<span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nb">decodeURI</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">));</span>
+		<span class="kd">var</span> <span class="nx">thedata</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 		
-		// Check first if we are looking for an HTML file
-		fs.exists(lookup, function(exists){
-			if(exists){
-				fs.readFile(lookup, 'utf-8', function(woops, filecontent){
-					if(!woops) {
-						//console.log(filecontent);
-						response.writeHead(200, {'Content-Type': 'text/html'});
-						response.end(filecontent);
-					}
-				});				
-			}
-			else {
-				console.log(&quot;inside the else&quot;);
-			}
-		});
+		<span class="c1">// Check first if we are looking for an HTML file</span>
+		<span class="nx">fs</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">exists</span><span class="p">){</span>
+				<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">lookup</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">woops</span><span class="p">,</span> <span class="nx">filecontent</span><span class="p">){</span>
+					<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">woops</span><span class="p">)</span> <span class="p">{</span>
+						<span class="c1">//console.log(filecontent);</span>
+						<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+						<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">filecontent</span><span class="p">);</span>
+					<span class="p">}</span>
+				<span class="p">});</span>				
+			<span class="p">}</span>
+			<span class="k">else</span> <span class="p">{</span>
+				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside the else&quot;</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">});</span>
 				
-		if (pages[lookup] != undefined){
-			console.log(&quot;inside pages&quot;);
-			response.writeHead(200, {'Content-Type': 'text/html'});
-			response.end(pages[lookup]);
-		}						
-	}
-).listen(8080);</code></pre>
-</div>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">){</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;inside pages&quot;</span><span class="p">);</span>
+			<span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html&#39;</span><span class="p">});</span>
+			<span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">pages</span><span class="p">[</span><span class="nx">lookup</span><span class="p">]);</span>
+		<span class="p">}</span>						
+	<span class="p">}</span>
+<span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span></code></pre></div>
 
 <p>This will listen on <em>locahost:8080</em>, if you want to change the port of the webserver, just replace the port number, it’s the line .<strong>listen(8080)</strong>, remember not to pick port numbers lower than 1024, they are privileged ports.</p>
 

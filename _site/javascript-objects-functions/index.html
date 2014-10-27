@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -685,142 +674,134 @@ iframe {display:block;}
 
 <p>You can put any type of member inside an object. A member could be any data type in JS, simple data or complex data—which means you can put another object inside another object. This is the part we need to make a leap on our JS knowledge. <strong>Functions</strong> in JS are objects as well, that’s right. Which means, we can put functions inside objects, and when functions are inside objects, they become methods of the objects. </p>
 
-<div>
-  <pre><code class="javascript">// file: obj3.js
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// file: obj3.js</span>
 
-var employee =  {
+<span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
 	
-	name: &quot;Ted&quot;, 
-	work: function() {
-		console.log(this.name + &quot; is working&quot;)
-	}
-}
+	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Ted&quot;</span><span class="p">,</span> 
+	<span class="nx">work</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-employee.work();</code></pre>
-</div>
+<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span></code></pre></div>
 
 <p>The preceding code sample is straightforward, it is a simple creation of an object using object literals. The second property though, used an anonymous function which was assigned to the property named “work”. When we invoked the <em>work()</em> property as function—as we should, because it is a function, it then executed whatever was defined inside the function block.  </p>
 
 <p>If we need another object, we need to repeat whatever we did on the first employee object, like so;</p>
 
-<div>
-  <pre><code class="javascript">var employee =  {
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span>  <span class="p">{</span>
 	
-	name: &quot;Ted&quot;, 
-	work: function() {
-		console.log(this.name + &quot; is working&quot;)
-	}
-}
+	<span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Ted&quot;</span><span class="p">,</span> 
+	<span class="nx">work</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-employee.work();
+<span class="nx">employee</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
 
-var rommel = {};
-rommel.name = &quot;Rommel&quot;;
-rommel.work = function() {
-	console.log(this.name + &quot; is working&quot;);
-}
+<span class="kd">var</span> <span class="nx">rommel</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Rommel&quot;</span><span class="p">;</span>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-rommel.work();</code></pre>
-</div>
+<span class="nx">rommel</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span></code></pre></div>
 
 <p>While this is perfectly legal to do, the idiom used in creating the <em>rommel</em> object is bit bitter to the taste, surely, there has to be a way to achieve some sort <em>Object factory</em> idiom in JS. The code is too malleable (it could be a good thing though). It seems that following this idiom, one can pretty much add properties as you go along. I am sure there is a class of problems where this kind of flexibility and malleability is desired, probably necessary even. Coming from a language that supported classical OOP (like Java), it can send some chill on the spine knowing that I could easily change properties of my object anywhere in the code. Fortunately, JS is very orthogonal language—there are lots of ways of achieving same results, so let’s look for something more palatable for classical OO programmers.</p>
 
-<div>
-  <pre><code class="javascript">// Employee object: Template
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Employee object: Template</span>
 
-function Employee(name,id, dept) {
-	this.name = name;
-	this.id = id;
-	this.dept = dept;	
+<span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dept</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="nx">dept</span><span class="p">;</span>	
 
-	this.work = function () {
-		console.log(this.name + &quot; is working&quot;)
-	}
+	<span class="k">this</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+	<span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-// Company object: Template
+<span class="c1">// Company object: Template</span>
 
-function Company() {
-	this.employees = [];
+<span class="kd">function</span> <span class="nx">Company</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">employees</span> <span class="o">=</span> <span class="p">[];</span>
 	
-	this.recruit = function(employee) {
-		this.employees.push(employee);
-	}
+	<span class="k">this</span><span class="p">.</span><span class="nx">recruit</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">employee</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+	<span class="p">}</span>
 	
-	this.listEmployees = function() {
-		arrlength = this.employees.length;
-		for (i = 0; i &lt; arrlength; i++) {
-			console.log(this.employees[i]);
-		}
-	}	
-}
+	<span class="k">this</span><span class="p">.</span><span class="nx">listEmployees</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">arrlength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrlength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>	
+<span class="p">}</span>
 
 
-var ted = new Employee(&quot;Ted H&quot;, 39, &quot;swd&quot; );
-var kit = new Employee(&quot;Kit A&quot;, 31, &quot;swd&quot;);
-var pepper = new Employee(&quot;Pepper F&quot;, 2, &quot;admin&quot;);
+<span class="kd">var</span> <span class="nx">ted</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Ted H&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Kit A&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pepper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Pepper F&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">);</span>
 
-var rd = new Company();
+<span class="kd">var</span> <span class="nx">rd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
 
 
-rd.recruit(ted);
-rd.recruit(kit);
-rd.recruit(pepper);
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">ted</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
 
-rd.listEmployees();</code></pre>
-</div>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span></code></pre></div>
 
 <p>The preceding code feels a bit firmer than the one before it. This code used the function as some sort of constructor (actually, it is called exactly that, a function constructor). JavaScript does not have class mechanisms like Java or C++. Code reuse is not achieved by class extensions, but rather by Object extensions. By the way, this last code we just did sure looks a lot like the class mechanism, if you could just get over the fact that it said <strong>function</strong> rather than <em>class</em>. </p>
 
 <p>There a couple of things we need to talk about in this code, specifically they keyword <strong>this</strong>, but before we go there, let’s look at another code, it is exactly the <em>Employee</em> and <em>Company</em> constructor code also, but with a bit of modification. </p>
 
-<div>
-  <pre><code class="javascript">// Company.js
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Company.js</span>
 
-// Employee object: Template
+<span class="c1">// Employee object: Template</span>
 
-function Employee(name,id, dept) {
-	this.name = name;
-	this.id = id;
-	this.dept = dept;	
-}
+<span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dept</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">dept</span> <span class="o">=</span> <span class="nx">dept</span><span class="p">;</span>	
+<span class="p">}</span>
 
-Employee.prototype.work = function () {
-	console.log(this.name + &quot; is working&quot;)
-}
-
-
-// Company object: Template
-
-function Company() {
-	this.employees = [];
-}
-
-Company.prototype.recruit = function(employee) {
-	this.employees.push(employee);
-}
-
-Company.prototype.listEmployees = function() {
-	arrlength = this.employees.length;
-	for (i = 0; i &lt; arrlength; i++) {
-		console.log(this.employees[i]);
-	}
-}
-
-var ted = new Employee(&quot;Ted H&quot;, 39, &quot;swd&quot; );
-var kit = new Employee(&quot;Kit A&quot;, 31, &quot;swd&quot;);
-var pepper = new Employee(&quot;Pepper F&quot;, 2, &quot;admin&quot;);
-
-var rd = new Company();
+<span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">work</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot; is working&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 
 
-rd.recruit(ted);
-rd.recruit(kit);
-rd.recruit(pepper);
+<span class="c1">// Company object: Template</span>
 
-rd.listEmployees();</code></pre>
-</div>
+<span class="kd">function</span> <span class="nx">Company</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">employees</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="nx">Company</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">recruit</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">employee</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">Company</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">listEmployees</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">arrlength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arrlength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">employees</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ted</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Ted H&quot;</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Kit A&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;swd&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pepper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s2">&quot;Pepper F&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Company</span><span class="p">();</span>
+
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">ted</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">kit</span><span class="p">);</span>
+<span class="nx">rd</span><span class="p">.</span><span class="nx">recruit</span><span class="p">(</span><span class="nx">pepper</span><span class="p">);</span>
+
+<span class="nx">rd</span><span class="p">.</span><span class="nx">listEmployees</span><span class="p">();</span></code></pre></div>
 
         </div>
 							

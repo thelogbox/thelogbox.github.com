@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -716,43 +705,41 @@ phonegap create db --name "DbCodes" --id com.thelogbox
 
 <p>Go to the <em>WWW</em> folder and edit <em>index.html</em> so it looks like our sample code. </p>
 
-<div>
-  <pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=utf-8 /&gt;
-&lt;script&gt;
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">utf-8</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script&gt;</span>
 
-var out = null;
+<span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
-window.onload = function(){
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   
-	console.log(&quot;onload&quot;);
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;onload&quot;</span><span class="p">);</span>
   
-  var dbname = &quot;tasks&quot;;
-  var dbversion = &quot;1.0&quot;;
-  var dbdisplayname = &quot;TasksDatabase&quot;;
-  var dbsize = 1024 * 1024;
+  <span class="kd">var</span> <span class="nx">dbname</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbversion</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbdisplayname</span> <span class="o">=</span> <span class="s2">&quot;TasksDatabase&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbsize</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
   
-  var db = openDatabase(dbname, dbversion, dbdisplayname, dbsize);
+  <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">openDatabase</span><span class="p">(</span><span class="nx">dbname</span><span class="p">,</span> <span class="nx">dbversion</span><span class="p">,</span> <span class="nx">dbdisplayname</span><span class="p">,</span> <span class="nx">dbsize</span><span class="p">);</span>
   
-  if(db) {
-   console.log(&quot;WebSQL API use is okay&quot;); 
-  }
-  else {
-    console.log(&quot;WebSQL API is not supported&quot;);
-  }
-};
+  <span class="k">if</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;WebSQL API use is okay&quot;</span><span class="p">);</span> 
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;WebSQL API is not supported&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 
-&lt;/script&gt;
+<span class="nt">&lt;/script&gt;</span>
 
-&lt;title&gt;theLogBox Code Sample&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Database&lt;/h1&gt;  
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
+<span class="nt">&lt;title&gt;</span>theLogBox Code Sample<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Database<span class="nt">&lt;/h1&gt;</span>  
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
 
 <div id="lst">index.html</div>
 
@@ -792,39 +779,37 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
 
 <p>You will notice that all of our codes are sequential. The codes to create the database is immediately followed by the table creation, which in turn is immediately followed by some commands that insert data into the table. In practice, this is rarely the case. The routine to create the database and the table will most likely be confined to a special routine that is executed only once. The routine to insert records into the table will most likely be written in a call back function that corresponds to a user-triggered action e.g. a button click. I have written the following example in a rather simplistic and unrealistic way to improve clarity of the code and so that we won’t get bogged down by detailed minutiae of event-handling.</p>
 
-<div>
-  <pre><code class="javascript">window.onload = function(){
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   
-  out = document.getElementById('output');
+  <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">);</span>
 
-	console.log(&quot;onload&quot;);
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;onload&quot;</span><span class="p">);</span>
   
-  var dbname = &quot;tasks&quot;;
-  var dbversion = &quot;1.0&quot;;
-  var dbdisplayname = &quot;TasksDatabase&quot;;
-  var dbsize = 1024 * 1024;
+  <span class="kd">var</span> <span class="nx">dbname</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbversion</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbdisplayname</span> <span class="o">=</span> <span class="s2">&quot;TasksDatabase&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">dbsize</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
   
-  var db = openDatabase(dbname, dbversion, dbdisplayname, dbsize);
+  <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">openDatabase</span><span class="p">(</span><span class="nx">dbname</span><span class="p">,</span> <span class="nx">dbversion</span><span class="p">,</span> <span class="nx">dbdisplayname</span><span class="p">,</span> <span class="nx">dbsize</span><span class="p">);</span>
   
-  db.transaction(createTable,createErr,createOkay);
+  <span class="nx">db</span><span class="p">.</span><span class="nx">transaction</span><span class="p">(</span><span class="nx">createTable</span><span class="p">,</span><span class="nx">createErr</span><span class="p">,</span><span class="nx">createOkay</span><span class="p">);</span>
   
-  function createTable(tx){
-    tx.executeSql(&quot;CREATE TABLE IF NOT EXISTS TODO (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT UNIQUE)&quot;);
-    tx.executeSql(&quot;INSERT INTO TODO(item) VALUES(?)&quot;, [&quot;Brush your teeth&quot;]);
-    tx.executeSql(&quot;INSERT INTO TODO(item) VALUES(?)&quot;, [&quot;Eat Vegetables&quot;]);
-    tx.executeSql(&quot;INSERT INTO TODO(item) VALUES('Brush your teeth again')&quot;);
-  }
+  <span class="kd">function</span> <span class="nx">createTable</span><span class="p">(</span><span class="nx">tx</span><span class="p">){</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE IF NOT EXISTS TODO (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT UNIQUE)&quot;</span><span class="p">);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Brush your teeth&quot;</span><span class="p">]);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Eat Vegetables&quot;</span><span class="p">]);</span>
+    <span class="nx">tx</span><span class="p">.</span><span class="nx">executeSql</span><span class="p">(</span><span class="s2">&quot;INSERT INTO TODO(item) VALUES(&#39;Brush your teeth again&#39;)&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
   
-  function createErr(err){
-    console.log(&quot;Err # : &quot; + err.code);
-    console.log(&quot;Err : &quot; + err.message);
-  }
+  <span class="kd">function</span> <span class="nx">createErr</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Err # : &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Err : &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
   
-  function createOkay(){
-    console.log(&quot;Creation succeeded&quot;);
-  }
-};</code></pre>
-</div>
+  <span class="kd">function</span> <span class="nx">createOkay</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Creation succeeded&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span></code></pre></div>
 
 <p>You will use the <em>transaction()</em> function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the <em>executeSql()</em> function which in turn contains the actual SQL commands.</p>
 

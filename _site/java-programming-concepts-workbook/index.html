@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -691,36 +680,32 @@ iframe {display:block;}
 
 <p>helloName(“X”) -&gt; “Hello X!”</p>
 
-<div>
-  <pre><code class="java">class One {
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">One</span> <span class="o">{</span>
 
-	public static void main(String[] args) {
-		hello(&quot;John&quot;);
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">hello</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	private static void hello(String var){
-		//Write your code here
-	}
-}</code></pre>
-</div>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(</span><span class="n">String</span> <span class="n">var</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 2.</strong> Given two strings, a and b, return the result of concatenating them. e.g., “Hello” and “World” returns “HelloWorld”</p>
 
-<div>
-  <pre><code class="java">//Two.java 
-//Item # 2 Java Programming Workbook
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Two.java </span>
+<span class="c1">//Item # 2 Java Programming Workbook</span>
 
-class Two {
+<span class="kd">class</span> <span class="nc">Two</span> <span class="o">{</span>
 
-	public static void main(String[] args) {
-		bang(&quot;Hello&quot;, &quot;World&quot;);
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">bang</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
+	<span class="o">}</span>
 	
-	private static void bang(String a, String b){
-		//Write your code here
-	}
-}</code></pre>
-</div>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bang</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">){</span>
+		<span class="c1">//Write your code here</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 2.1</strong> Make some modifications to Two.java such that it returns “Hello World” with a space in between.</p>
 
@@ -741,21 +726,19 @@ Java”</p>
 
 <p><strong>Problem 3.</strong> Print out the multiplication table (5 columns and 5 rows)</p>
 
-<div>
-  <pre><code class="java">//Three.java 
-//Item # 3 Java Programming Workbook
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Three.java </span>
+<span class="c1">//Item # 3 Java Programming Workbook</span>
 
-class Three {
+<span class="kd">class</span> <span class="nc">Three</span> <span class="o">{</span>
 
-	public static void main(String[] args) {
-		printmult();
-	}
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">printmult</span><span class="o">();</span>
+	<span class="o">}</span>
 	
-	private static void printmult(){
-		//write your code here	
-	}
-}</code></pre>
-</div>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printmult</span><span class="o">(){</span>
+		<span class="c1">//write your code here	</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <p><strong>Problem 3.1</strong> Modify Three.java such that you can pass two integers are parameters <em>printmult(int row, int col)</em> to make the size of the multiplication table dynamic.</p>
 
@@ -852,17 +835,15 @@ class Three {
 
 <p>What will happen if you try to compile and run the following code</p>
 
-<div>
-  <pre><code class="java">public class MyClass {
-    public static void main(String arguments[]) {
-	amethod(arguments);
-    }
-    public void amethod(String[] arguments) {
-	System.out.println(arguments);
-	System.out.println(arguments[1]);
-    }
-}</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">arguments</span><span class="o">[])</span> <span class="o">{</span>
+	<span class="n">amethod</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">amethod</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <ol>
   <li>error Can’t make static reference to void amethod. </li>
@@ -889,13 +870,11 @@ class MyClass{}</p>
 
 <p>3)</p>
 
-<div>
-  <pre><code class="java">/*This is a comment */
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/*This is a comment */</span>
 
-package MyPackage;
-import java.awt.*;
-class MyClass{}</code></pre>
-</div>
+<span class="kn">package</span> <span class="n">MyPackage</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{}</span></code></pre></div>
 
 <p><strong>Question 4)</strong></p>
 
@@ -913,14 +892,12 @@ class MyClass{}</code></pre>
 
 <p>What will happen when you compile and run the following code? </p>
 
-<div>
-  <pre><code class="java">public class MyClass{
- static int i;
- public static void main(String argv[]){
- System.out.println(i);
- }
-}</code></pre>
-</div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span><span class="o">{</span>
+ <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[]){</span>
+ <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 <ol>
   <li>Error Variable i may not have been initialized </li>

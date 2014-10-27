@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -689,62 +678,58 @@ $ android create project --path hellotoast --package com.thelogbox --activity Te
 
 <p>Our new Android project named <em>hellotoast</em> would have created an XML file, it is located at <em>/res/layout/main.xml</em>. We will add a button widget to it and use the onClick attribute to define a rudimentary event handler.</p>
 
-<div>
-  <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:orientation=&quot;vertical&quot;
-    android:layout_width=&quot;fill_parent&quot;
-    android:layout_height=&quot;fill_parent&quot;
-    &gt;
-&lt;TextView
-    android:layout_width=&quot;fill_parent&quot; 
-    android:layout_height=&quot;wrap_content&quot; 
-    android:text=&quot;Hello World, TestToast&quot;
-    /&gt;
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+    <span class="nt">&gt;</span>
+<span class="nt">&lt;TextView</span>
+    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span> 
+    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
+    <span class="na">android:text=</span><span class="s">&quot;Hello World, TestToast&quot;</span>
+    <span class="nt">/&gt;</span>
     
-&lt;Button
-	android:layout_width=&quot;fill_parent&quot;
-	android:layout_height=&quot;fill_parent&quot;
-	android:text=&quot;Click me okay&quot;
-	android:onClick=&quot;showMe&quot;
-/&gt;
+<span class="nt">&lt;Button</span>
+	<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+	<span class="na">android:text=</span><span class="s">&quot;Click me okay&quot;</span>
+	<span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
+<span class="nt">/&gt;</span>
 
-&lt;/LinearLayout&gt;</code></pre>
-</div>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
 
 <p>You will need to implement a method called “showMe()” inside the <em>TestToast</em> activity of the project. The <em>TestToast</em> activity references the <em>.main.xml</em> as the <em>View</em>. </p>
 
 <p>Next, add the <em>showMe()</em> method to the Activity class. </p>
 
-<div>
-  <pre><code class="java">package com.thelogbox;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">;</span>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Toast;
-import android.content.Context;
-import android.view.View;
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
 
-public class TestToast extends Activity {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestToast</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
 
-/** Called when the activity is first created. */
+<span class="cm">/** Called when the activity is first created. */</span>
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
 
-	public void showMe(View v) {
-		Context ctx = getApplicationContext();
-		String msg = &quot;Hello World&quot;;
-		int duration = Toast.LENGTH_SHORT;
-		Toast notification = Toast.makeText(ctx,msg,duration);
-		notification.show();
-	}
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMe</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
+		<span class="n">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">;</span>
+		<span class="n">Toast</span> <span class="n">notification</span> <span class="o">=</span> <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span><span class="n">msg</span><span class="o">,</span><span class="n">duration</span><span class="o">);</span>
+		<span class="n">notification</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+	<span class="o">}</span>
 
-}</code></pre>
-</div>
+<span class="o">}</span></code></pre></div>
 
 <div id="lst">/src/com/thelogbox/TestToast.java.</div>
 
@@ -784,7 +769,7 @@ ant debug install
       </div>
       </div>
     -->
-      <table bgcolor="#d6d6d6" cellpadding="10">
+      <table bgcolor="#f1f1f1" cellpadding="10">
         <tr>
           <td width="25%">
             <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 

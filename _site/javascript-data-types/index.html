@@ -22,12 +22,10 @@
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
--->
-
 <script src="//use.typekit.net/mvn1usv.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
-
+-->
 
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
 
@@ -51,7 +49,7 @@
 		<style>
 
 
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -63,15 +61,15 @@ em {
 
 body {
   font-size:17px;   
-  font-family: 'nimbus-sans','Lato';
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
   color: #2c2c2c;
   /*color: #2d2d2d;
-  background: #f6f6f6; */ 
-  background:#eff3f9;
+  background: #f6f6f6;  
+  background:#eff3f9; */
   /*background: #f4f6fa; */
   line-height: 1.4em;
 }
@@ -84,9 +82,9 @@ body {
 
 .feature-banner-text {
   color:#222;
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-size:50px;
-  font-weight:700;
+/*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
 }
@@ -204,7 +202,7 @@ ol > li:before {
 
 
 h1, h2, h3 {
-  font-family: 'PT Sans';
+/*  font-family: 'PT Sans'; */
   font-weight: 700;
   color: #6d6d6d;
   margin-left: 0px;
@@ -323,7 +321,7 @@ pre {
 }
 
 
-code {font-size: 1.2em; font-family: 'anonymous-pro'; color: #191919;}
+code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
 pre.code {
   font-weight:400;
   overflow: visible;
@@ -363,8 +361,8 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color:royalblue; text-decoration: none; font-weight:300;}
-a:hover {color: blue; text-decoration:underline;}
+a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
+a:hover {color:darkturquoise; text-decoration:underline;}
 
 #postmeta {
   padding-top:0;
@@ -510,7 +508,7 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: royalblue;}
+.toc ul { color: #008385;}
 
 
 
@@ -546,13 +544,8 @@ iframe {display:block;}
 }
 
 @media (min-width: 860px) {
-
-  body {
-    font-size: 1em;
-  }
   
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.7em;}
   h2 {font-size: 1.5em; }
@@ -587,9 +580,6 @@ iframe {display:block;}
 
 @media (min-width: 1020px) {
 
-  body {
-    font-size: 1em;
-  }
   /*
   article, #archives { 
     column-count:2;
@@ -598,7 +588,6 @@ iframe {display:block;}
   }
  */
   code {font-size: 1.3em;}
-  .feature-banner-text {font-size: 2em;}
   
   h1 {font-size: 1.8em;}
   h2 {font-size: 1.6em; }
@@ -711,64 +700,62 @@ iframe {display:block;}
 
 <p>You will usually bother with data types when you are either declaring variables or returning something from functions. If you need to see for your eyes how the JS runtime really treats this variable, this small code snippet should help</p>
 
-<div>
-  <pre><code class="javascript">/*
-A small test on how JS treats types
-*/
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*</span>
+<span class="cm">A small test on how JS treats types</span>
+<span class="cm">*/</span>
 
-var s = &quot;hello&quot;;
-var int = 1;
-var float = 1.0;
-var boolean = true;
-var vnull = null;
-var vundefined = undefined;
-var obj = new Object();
-var arr = new Array();
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">vnull</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">vundefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
 
-function x() {
-	return 1;
-}
+<span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 
-function y() {
-	return
-}
+<span class="kd">function</span> <span class="nx">y</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span>
+<span class="p">}</span>
 
-function z() {
+<span class="kd">function</span> <span class="nx">z</span><span class="p">()</span> <span class="p">{</span>
 	
-}
+<span class="p">}</span>
 
-// Let's see the typeof results
+<span class="c1">// Let&#39;s see the typeof results</span>
 
-console.log(&quot;s &quot; + typeof(s));
-console.log(&quot;int &quot; + typeof(int));
-console.log(&quot;float &quot; + typeof(float));
-console.log(&quot;boolean &quot; + typeof(boolean));
-console.log(&quot;vnull &quot; + typeof(vnull));
-console.log(&quot;vundefined &quot; + typeof(vundefined));
-console.log(&quot;obj &quot; + typeof(obj));
-console.log(&quot;arr &quot; + typeof(arr));
-console.log(&quot;function x &quot; + typeof(x()));
-console.log(&quot;function y &quot; + typeof(y()));
-console.log(&quot;function z &quot; + typeof(z()));
-console.log(&quot;wildcard &quot; + typeof(wildcard));
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;s &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">s</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;int &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">int</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;float &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">float</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;boolean &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="kr">boolean</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;vnull &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">vnull</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;vundefined &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">vundefined</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;obj &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">obj</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;arr &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function x &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">x</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function y &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">y</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;function z &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">z</span><span class="p">()));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;wildcard &quot;</span> <span class="o">+</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">));</span>
 
-/*
-RETURNS:
+<span class="cm">/*</span>
+<span class="cm">RETURNS:</span>
 
-s string
-int number
-float number
-boolean boolean
-vnull object
-vundefined undefined
-obj object
-arr object
-function x number
-function y undefined
-function z undefined
-wildcard undefined
-*/</code></pre>
-</div>
+<span class="cm">s string</span>
+<span class="cm">int number</span>
+<span class="cm">float number</span>
+<span class="cm">boolean boolean</span>
+<span class="cm">vnull object</span>
+<span class="cm">vundefined undefined</span>
+<span class="cm">obj object</span>
+<span class="cm">arr object</span>
+<span class="cm">function x number</span>
+<span class="cm">function y undefined</span>
+<span class="cm">function z undefined</span>
+<span class="cm">wildcard undefined</span>
+<span class="cm">*/</span></code></pre></div>
 
 <div id="lst">VAR types</div>
 
