@@ -5,13 +5,166 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-10-27T14:59:32+08:00</updated>
+ <updated>2014-11-04T12:46:10+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Audience</title>
+   <link href="http://thelogbox.com/csharp/who-should-read"/>
+   <updated>2014-11-01T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/csharp/who-should-read</id>
+   <content type="html">&lt;p&gt;I wrote this for Steph. Hopefully, she will have a genuine interest in programming and that she may find this note as a useful learning resource as she goes through her college programming subjects, I know that this term, it is C#, hence, these notes. If you happen to find this note on the world wild web, you are probably one of my daughter’s classmate, groupmate or one of my former students, whoever you maybe, I hope you find this note useful. I wrote it to guide beginning programmers on their first few steps towards a very long journey in software development.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introduction</title>
+   <link href="http://thelogbox.com/csharp/introduction"/>
+   <updated>2014-11-01T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/csharp/introduction</id>
+   <content type="html">&lt;p&gt;Programs are the stuff that you run on your computer; or tablets or phones—you probably know them better as apps. There are lots of things that you need in order to build an app, but the biggest and probably the most important thing you need is knowledge of a programming language.&lt;/p&gt;
+
+&lt;p&gt;A program is just a bunch of executable statements arranged in a specific order. Some statements execute right after another statement; some execute repeatedly while some conditions are true (or not), and then some statements are executed only when conditions are true.&lt;/p&gt;
+
+&lt;p&gt;The subject of this field guide is C# (pronounced see sharp) It is intended to be a simple, modern, general-purpose, object-oriented programming language. Its development team was led by Anders Hejlsberg. The most recent version is C# 5.0, which was released on August 15, 2012. 1.&lt;/p&gt;
+
+&lt;p&gt;There are other things to say about this language, such as it is statically typed, supports class-based OOP, strongly typed and has support for both functional style and imperative type programming, but they won’t make sense right now. You need to know some basics about the language before any of these fancy vocabulary will make sense to you, so I will try to explain what they mean along the way. What maybe important to realize right now are the facts that C# is a high-level language and that it is compiled.&lt;/p&gt;
+
+&lt;p&gt;To speak loosely, computers can only run low-level instructions (sometimes they are also called machine instructions or assembly instructions). Low level languages are more difficult to write, that is why they are also more difficult to change. A high-level program on the other hand is written in an almost-English-like language. They are easier to learn and write (re-write).&lt;/p&gt;
+
+&lt;p&gt;A program written in a high level language will not be readily understood by a machine though, they need to be translated. There are two ways to translate high level languages. One is by compilation and the other is by interpretation. An interpreter is also computer program, it does what it says—it interprets a high-level program to machine language. It does so by reading a the high-level source file one line at the time, and executes them also one line at a time.&lt;/p&gt;
+
+&lt;p&gt;A compiler (which is also another computer program) reads a high level source code in its entirety and translates it in one fell swoop, then you can run the program.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello World</title>
+   <link href="http://thelogbox.com/csharp/hello-world"/>
+   <updated>2014-11-01T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/csharp/hello-world</id>
+   <content type="html">&lt;p&gt;Beginning programmers get their feet wet on a new language by writing the hello world program. It is a useless program because it provides no measurable utility value except that it allows you to learn the flow and the steps of how to write the simplest code.&lt;/p&gt;
+
+&lt;p&gt;C# is a simple language but it is not the simplest. Our program will contain some items that may not make sense to you immediately because they require and understanding of other more advanced concepts e.g. classes and namespaces. The complexity cannot be helped even in the simplest program because C# is an object oriented language. You cannot write anything outside a class, even the lowly instruction of printing “Hello World” to the screen.&lt;/p&gt;
+
+&lt;p&gt;Create a folder where you will store all your practice source files. Create a file and name it “Hello.cs”. Once the file is created, we can type the contents of our program.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;filename: Hello.cs&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;author: Ted&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;date: &lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;	
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The C# compiler is accessible via the command line. You may notice however, that simply launching cmd.exe and typing &lt;strong&gt;csc&lt;/strong&gt; will yield an error instead of letting us compile our program. &lt;/p&gt;
+
+&lt;p&gt;If the framework SDK has been properly setup, the installer would have created a script named &lt;strong&gt;vcvars32.bat&lt;/strong&gt; which contains commands that will include the framework SDK’s binaries to the system path. You need launch vcvars32.bat first before attempting any compilation on the command line. The installer would also have created a menu shortcut for vcvars32.bat, find that on the Windows menu and launch it. &lt;/p&gt;
+
+&lt;p&gt;Launching vcvars32 will also launch a cmd terminal window. You will use that window to compile and run our program&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;ath&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;o&lt;span class=&quot;se&quot;&gt;\y&lt;/span&gt;our&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;roject&lt;span class=&quot;se&quot;&gt;\f&lt;/span&gt;older
+C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt; csc Hello.cs
+C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt; Hello.exe&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-mono&quot;&gt;Using mono&lt;/h2&gt;
+
+&lt;p&gt;On Linux and OSX, if you have installed the mono development kit and mono development runtime, you will use the &lt;strong&gt;mcs&lt;/strong&gt; command to compile and the &lt;strong&gt;mono&lt;/strong&gt; command to run our program.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /path/to/your/project/folder
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mcs Hello.cs
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mono Hello.exe&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You cannot simply type “Hello.exe”, .NET programs needs a runtime environment to execute, that is why you need to run mono first before you can run Hello.exe. This runtime is called the CLR (Common Language Runtime). I will tackle this subject, but not now.&lt;/p&gt;
+
+&lt;p&gt;On a windows machine, you did not need to invoke the .NET runtime, you simply typed Hello.exe and it runs just fine.Why?–because recent versions of Windows actually includes the .NET runtime already, and if it is intelligent enough to invoke the .NET runtime when it needs to. &lt;/p&gt;
+
+&lt;h1 id=&quot;walk-through-of-the-hello-program&quot;&gt;Walk through of the Hello program&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;using System&lt;/strong&gt; - The “using” keyword allows you to use the Types defined in the &lt;em&gt;System&lt;/em&gt; namespace. When .NET was released, it came not only with the languages, it also came with lots of built-in Types that you can use immediately. There will be a discussion of Types way down the road, but for now, just settle for the explanation that if we did not use the System namespace, instead of writing &lt;strong&gt;Console.WriteLine()&lt;/strong&gt; we needed to write &lt;strong&gt;System.Console.WriteLine()&lt;/strong&gt;.  &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;class Hello {}&lt;/strong&gt; - CSharp is very object oriented, you cannot write anything meaningful outside of a class construct. Unlike C++, where you can still program in a procedural way and only optionally use the OOP constructs, CSharp forces you to use the class constructs—even for a trivial program like the Hello program; &lt;strong&gt;class&lt;/strong&gt; is a keyword (reserved word) which denotes that what follows is a name of class you are trying to define.  The pair of curly braces is the body of the class. You can write lots of things inside the class’ body, although for now, we just wrote &lt;em&gt;main()&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;public static int Main()&lt;/strong&gt; - this is called a method, some people may refer to it as a function, they will be right also but in OO languages, generally functions are referred to as methods–I will tell you why later, but not now. Main() is a very special method, all console applications (like our Hello program) is expected to have the Main() method because this is the entry point of the program. When you invoke the program, the .NET runtime will look for method, and if you did not define it—I mean exactly as it is written in the sample code, nothing will happen when you run your program. So make sure you type it exactly as it appeared in the sample code&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Console.WriteLine()&lt;/strong&gt; - Console is a built-in type under the System namespace, it does lots of things and it has lots of methods. One of the method is WriteLine(). What WriteLine does is to send a string data straight to the stdout (standard out, which means your screen). &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Semi colon&lt;/strong&gt; - You will notice that all statements in CSharp are terminated using a semi colon, this is important because the semi colon will tell the compiler that you are finished with a statement. It signals the end of a programming statement pretty much as a period signals the end of a sentence in the English language. &lt;/p&gt;
+
+&lt;p&gt;CSharp is a case-sensitive language, &lt;strong&gt;main()&lt;/strong&gt; is not the same as &lt;strong&gt;Main()&lt;/strong&gt;, so type carefully.&lt;/p&gt;
+
+&lt;h2 id=&quot;vocabulary&quot;&gt;Vocabulary&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Source code&lt;/strong&gt; - sometimes called source file. It is a text file where you write CSharp statements.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;High level language&lt;/strong&gt; - a computer programming language undertandable by mere mortals, it looks a lot like the English language, but a computer programming language, unlike English does not contain ambiguities. Each statement you write in a programming language has very precise meaning—strive to know them well&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Compiler&lt;/strong&gt; - a computer program that takes in a source file as an input, processes it (parsing) then translates it to a format understandable by machines (machine code). CSharp comes with &lt;strong&gt;csc&lt;/strong&gt; on Windows and &lt;strong&gt;msc&lt;/strong&gt; on mono platform (which can run on platforms other than Windows)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Main()&lt;/strong&gt; - a special function in CSharp, if you will write console applications, you need to be very acquainted with the format of Main(). Whenever you invoke a compiled .NET CLI (command line interface) program, .NET will always look for &lt;strong&gt;public static int Main()&lt;/strong&gt;. This is the entry point of your app&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CLR&lt;/strong&gt; - The common language runtime is a rich environment which abstracts a lot of what the Operating System can do for your programs. The CLR can open files, network connections, database connections etc. There are things also that a CLR can do for you that the Operating System cannot—the OS cannot do automatic garbage collection for your app, the CLR can; but let’s leave the garbage collection for another discussion&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Environment</title>
+   <link href="http://thelogbox.com/csharp/environment"/>
+   <updated>2014-11-01T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/csharp/environment</id>
+   <content type="html">&lt;p&gt;The .NET framework includes a large collection of libraries and a runtime environment. The FCL or Framework Class Library consist of a large class library allows us a developer to do lots of things like create a Windows Desktop application, build a web page, write a custom control. The library also allows a program written in a language other than C# to be used from within a C# program and vice versa. This language interoperability if part of the FCL.&lt;/p&gt;
+
+&lt;p&gt;.NET programs are meant to run on a virtual machine called the CLR which is short Common Language Runtime. The virtual machine runtime provides some services that the operating system cannot provide e.g. garbage collection. &lt;/p&gt;
+
+&lt;p&gt;A short list of things included in the .NET framework is found below&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Common Language Runtime (CLR)&lt;/li&gt;
+  &lt;li&gt;The .Net Framework Class Library&lt;/li&gt;
+  &lt;li&gt;Common Language Specification&lt;/li&gt;
+  &lt;li&gt;Common Type System&lt;/li&gt;
+  &lt;li&gt;Metadata and Assemblies&lt;/li&gt;
+  &lt;li&gt;Windows Forms&lt;/li&gt;
+  &lt;li&gt;ASP.Net and ASP.Net AJAX&lt;/li&gt;
+  &lt;li&gt;ADO.Net&lt;/li&gt;
+  &lt;li&gt;Windows Workflow Foundation (WF)&lt;/li&gt;
+  &lt;li&gt;Windows Presentation Foundation&lt;/li&gt;
+  &lt;li&gt;Windows Communication Foundation (WCF)&lt;/li&gt;
+  &lt;li&gt;LINQ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+
+&lt;p&gt;The best tool for writing C# applications is Visual Studio. You need to pay for it, it is not free. But you can get alternative tools to start developing C# apps. You can download &lt;strong&gt;Express for Web&lt;/strong&gt;, &lt;strong&gt;Express for Windows&lt;/strong&gt; and &lt;strong&gt;Express for Windows Desktop&lt;/strong&gt;. You can read about the detailed descriptions of these tools from the &lt;a href=&quot;http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx&quot;&gt;Visual Studio download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;command-line-tools&quot;&gt;Command Line Tools&lt;/h2&gt;
+
+&lt;p&gt;If you download any edition of the Visual Studio Express, either for Web, Windows or Windows Desktop, it will already include the .NET framework SD. The SDK contains tools and binaries that will allow you compile C# programs from the command line. Alternatively, the .NET framework SDK can also be downloaded without downloading Visual Studio.  You can download the framework SDK from the &lt;a href=&quot;http://msdn.microsoft.com/en-us/vstudio/aa496123.aspx&quot;&gt;MSDN download site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The framework SDK is applicable to Windows users, if you are on Linux or OSX, you can use &lt;strong&gt;mono&lt;/strong&gt; which can you download from the &lt;a href=&quot;http://www.mono-project.com/download/&quot;&gt;mono project site&lt;/a&gt;. You will need to install both the mono runtime environment (MRE) and the mono development kit (MDK).&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mono Development Environment</title>
+   <link href="http://thelogbox.com/csharp/mono-development"/>
+   <updated>2014-10-29T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/csharp/mono-development</id>
+   <content type="html">
+</content>
+ </entry>
  
  <entry>
    <title>Project Structure</title>
@@ -7252,612 +7405,739 @@ This looks purely like syntactic sugar, but just the same, note it. The **() =&a
  </entry>
  
  <entry>
-   <title>C# Programming Notes</title>
+   <title>C# Fundamentals</title>
    <link href="http://thelogbox.com/csharp-programming-notes"/>
    <updated>2012-09-23T00:00:00+08:00</updated>
    <id>http://thelogbox.com/csharp-programming-notes</id>
-   <content type="html">&lt;h1 id=&quot;who-should-read-this&quot;&gt;0. Who should read this&lt;/h1&gt;
+   <content type="html">&lt;h2 id=&quot;variables&quot;&gt;1 Variables&lt;/h2&gt;
 
-&lt;p&gt;I wrote this note for Steph. Hopefully, she will have a genuine interest in programming and that she may find this note as a useful learning resource as she goes through her college programming subjects—I know that this term, it is C#, hence, this guide. If you happen to find this note on the world wild web, you are probably one of my daughter’s classmate, groupmate or one of my former students—whoever you maybe, I hope you find this note useful. I wrote it to guide beginning programmers on their first few steps towards a very long journey in software development.&lt;/p&gt;
+&lt;p&gt;Think of variables as if they are shoe boxes. You can put things inside a shoe box like a ball or paper etc. The box functions basically as a storage mechanism. And variables are exactly like that. They store things inside them so you can get them out for later use.  &lt;/p&gt;
 
-&lt;h1 id=&quot;of-programs-and-programming-languages&quot;&gt;1. Of programs and programming languages&lt;/h1&gt;
+&lt;p&gt;At one time you can put a red ball on the shoe box. You can take it out at a later time and probably put something new, perhaps a green ball. But it has to be a ball. It can’t be anything else, you can’t put a pen to a box that previously held a ball. The technical reason for this constraint is called strict typing. If defined a variable to be of a specific type, it can only hold that type and nothing else.&lt;/p&gt;
 
-&lt;p&gt;Programs are the stuff that you run on your computer; or tablets or phones—you probably know them better as &lt;strong&gt;apps&lt;/strong&gt;. There are lots of things that you need in order to build an app, but the biggest and probably the most important thing you need is knowledge of a programming language.&lt;/p&gt;
+&lt;p&gt;C# variables are created by specifying the &lt;strong&gt;type&lt;/strong&gt; of data you want it to hold, giving the variable a &lt;strong&gt;name&lt;/strong&gt; and optionally setting it to an initial value. &lt;/p&gt;
 
-&lt;p&gt;A program is just a bunch of executable statements arranged in a specific order. Some statements execute right after another statement; some execute repeatedly while some conditions are true (or not), and then some statements are executed only when conditions are true. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int x = 10;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The subject of this field guide is C# (pronounced see sharp) It is intended to be a simple, modern, general-purpose, object-oriented programming language.[6] Its development team is led by Anders Hejlsberg. The most recent version is C# 5.0, which was released on August 15, 2012. &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;The code sample above has all the elements for a proper definition of a variable. The type is &lt;strong&gt;int&lt;/strong&gt;, the name of the variable is &lt;strong&gt;x&lt;/strong&gt; and we gave it an initial value of &lt;strong&gt;10&lt;/strong&gt;. The int word has a special meaning in C#. It is a keyword or a reserved word. I did not make that up. The name &lt;strong&gt;x&lt;/strong&gt; is made up. It could have been any other word like thisvar or thisnumber or mynumber. We can freely choose names for our variables. There are some simple rules we need to follow when naming variables, which we will discuss later.&lt;/p&gt;
 
-&lt;p&gt;There are other things to say about this language, such as it is statically typed, supports class-based OOP, strongly typed and has support for both functional style and imperative type programming, but they won’t make sense right now. You need to know some basics about the language before any of these fancy vocabulary will make sense to you, so I will try to explain what they mean along the way. What maybe important to realize right now are the facts that C# is a high-level language and that it is compiled.&lt;/p&gt;
+&lt;h3 id=&quot;basic-data-types&quot;&gt;1.1 Basic Data Types&lt;/h3&gt;
 
-&lt;p&gt;To speak loosely, computers can only run low-level instructions (sometimes they are also called machine instructions or assembly instructions). Low level languages are more difficult to write, that is why they are also more difficult to change. A high-level program on the other hand is written in an almost-English-like language. They are easier to learn and write (re-write).   &lt;/p&gt;
+&lt;p&gt;You can work with a variety of data in C#. You can work with numbers, booleans and words or &lt;strong&gt;Strings&lt;/strong&gt; just to name a few. The following table lists the available types of data in C#&lt;/p&gt;
 
-&lt;p&gt;A program written in a high level language will not be readily understood by a machine though, they need to be translated. There are two ways to translate high level languages. One is by &lt;em&gt;compilation&lt;/em&gt; and the other is by &lt;em&gt;interpretation&lt;/em&gt;. An interpreter is also computer program, it does what it says—it interprets a high-level program to machine language. It does so by reading a the high-level source file one line at the time, and executes them also one line at a time.&lt;/p&gt;
+&lt;table border=&quot;2&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; rules=&quot;groups&quot; frame=&quot;hsides&quot;&gt;
 
-&lt;p&gt;A compiler (which is also another computer program) reads a high level source code in its entirety and translates it in one fell swoop, then you can run the program. &lt;/p&gt;
 
-&lt;h2 id=&quot;things-you-need-before-you-can-start-programming&quot;&gt;Things you need before you can start programming&lt;/h2&gt;
+&lt;colgroup&gt;
+&lt;col class=&quot;left&quot; /&gt;
+
+&lt;col class=&quot;left&quot; /&gt;
+
+&lt;col class=&quot;left&quot; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th scope=&quot;col&quot; class=&quot;left&quot;&gt;Type&lt;/th&gt;
+&lt;th scope=&quot;col&quot; class=&quot;left&quot;&gt;Description&lt;/th&gt;
+&lt;th scope=&quot;col&quot; class=&quot;left&quot;&gt;Range of values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;bool&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;Truthyness&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;true or false&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;byte&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;8 bit unsigned integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;0 to 255&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;char&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;16 bit Unicode character&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;U +0000 to U + FFFF&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;decimal&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;128 bit precise decimal value&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;double&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;64 bit double precision float point type&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;float&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;32 bit single precision float point type&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;int&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;32 bit signed integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;long&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;64 bit signed integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;sbyte&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;8 bit signed integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;short&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;16 bit signed integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;uint&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;32 bit unsigned integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;ulong&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;64 bit unsigned integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;ushort&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;16 bit unsigned integer&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The code snippet below shows how to declare variables of these types&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bool a = true;
+byte b = 1;
+char c = &#39;a&#39;;
+decimal d = 1.0m;
+double e = 1.0;
+float f = 1.0f;
+int g = 1;
+long h = 1;
+sbyte i = 1;
+short j = 1;
+uint k = 1;
+ulong l = 1;
+ushort m = 1;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Most of code sample above looks straightforward except for the declarations of &lt;strong&gt;decimal&lt;/strong&gt; and &lt;strong&gt;float&lt;/strong&gt;. The literal value “1.0” is actually a &lt;strong&gt;double&lt;/strong&gt; literal hence you cannot assign a double value to a float variable because the float type is a smaller container than a double type. You will lose some data and .NET will prevent you from making silly mistakes like that. It will throw you an error if you try to assign a double value to a float variable. Hence, we needed to suffix our literal value with &lt;strong&gt;f&lt;/strong&gt;, which means float. Does this mean we can assign a float value to a variable of type double? Yes.  &lt;/p&gt;
+
+&lt;p&gt;If float is smaller than a double and double is smaller than decimal, then we should be able to assign a double value to a variable of type decimal. Not quite. It is quite convenient to remember the heuristics that a small fish can be eaten by a bigger fish which can be eaten by a yet bigger fish, but unfortunately this does not always hold true, generally it does but not always. When working with values of different data types, the final arbitter is the language specification. Numeric conversions or type coercions are are predefined by C#. &lt;strong&gt;This is way to deep to discuss here. Need to keep it simple&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Explicit conversions: &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/yht2cx7b.aspx&quot;&gt;http://msdn.microsoft.com/en-us/library/yht2cx7b.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Implicit conversions: &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/y5b434w4%28v=vs.80%29.aspx&quot;&gt;http://msdn.microsoft.com/en-us/library/y5b434w4%28v=vs.80%29.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;strict-and-static-typing&quot;&gt;1.2 Strict and Static Typing&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;modern PC running a Windows OS&lt;/li&gt;
-  &lt;li&gt;a recent version of the .NET Framework SDK (Software Development Kit). This will suffice for learning purposes, but when actual .NET programmers rarely (actually, never) use just the SDK alone. They use a proper development tool like Visual Studio&lt;/li&gt;
-  &lt;li&gt;a good and proper program editor. If you went the Visual Studio route, then it already includes a program editor&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;TODO Additional notes&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;dynamic type&lt;/li&gt;
+      &lt;li&gt;String type and the @ literal&lt;/li&gt;
+      &lt;li&gt;and pointer types&lt;/li&gt;
+      &lt;li&gt;sizeof&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;.NET is not exclusive for Windows, it runs on Linuxes, UNIXes and OSXes too. That is why alternatively, you can also write C# programs those other platforms I mentioned, you just need to install &lt;a href=&quot;http://www.go-mono.com/mono-downloads/download.html&quot;&gt;mono framework and SDK&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;variable-naming-rules&quot;&gt;1.3 Variable naming rules&lt;/h3&gt;
 
-&lt;h2 id=&quot;first-program&quot;&gt;First program&lt;/h2&gt;
+&lt;p&gt;When naming your variables, just keep the following in mind. Do not:
+1.  Start the name with a number
+2.  Include special characters or the white space
+3.  Use a word that is special or reserved&lt;/p&gt;
 
-&lt;p&gt;Get a feel of how C# programs are written by writing the age-old “Hello World”. There are some things–lots actually–that you won’t understand at first. That’s ok. The goal of the exercise is just to get a feel on writing, compiling and running a C# program.  &lt;/p&gt;
+&lt;p&gt;You can use the underscore or the the @ symbol as the first letter of the variable name.&lt;/p&gt;
 
-&lt;p&gt;You won’t be using Visual Studio for this one. In fact, you won’t be using Visual Studio for the rest of this guide. Learn the language first, not the tool. When you are good with the language, the tool will not be able to distract you anymore. &lt;/p&gt;
+&lt;h3 id=&quot;keywords&quot;&gt;1.4 Keywords&lt;/h3&gt;
 
-&lt;p&gt;Create a folder where you will store all your practice source files. Create a file and name it “Hello.cs”. In OSX you can do this on the Terminal.app&lt;/p&gt;
+&lt;p&gt;You don’t have to memorize this right now, but in time maybe you will. For now, just don’t use any of these when naming your variables&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;table border=&quot;2&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; rules=&quot;groups&quot; frame=&quot;hsides&quot;&gt;
 
-$ cd ~/
-$ mkdir csharp
-$ cd csharp
-$ touch Hello.cs
-$ mate Hello.cs
 
-&lt;/pre&gt;
+&lt;colgroup&gt;
+&lt;col class=&quot;left&quot; /&gt;
 
-&lt;p&gt;The last command is not a standard OSX command, it invokes the TextMate editor (if you have it). If you don’t have the TextMate editor, you can use any other programming editor (vim perhaps or smultron)&lt;/p&gt;
+&lt;col class=&quot;left&quot; /&gt;
 
-&lt;p&gt;Type the following code inside the editor&lt;/p&gt;
+&lt;col class=&quot;left&quot; /&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;col class=&quot;left&quot; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;abstract&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;as&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;base&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;bool&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;span class=&quot;cm&quot;&gt;filename: Hello.cs&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;author: Ted&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;date: &lt;/span&gt;
 
-&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;break&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;byte&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;case&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;catch&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;	
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;char&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;checked&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;class&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;const&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;You need the C Sharp Compiler (csc) to build this. If the Framework SDK has been properly setup on your Windows machine, you will have a short-cut to a batch file called &lt;strong&gt;VCVARS32.BAT&lt;/strong&gt; somewhere on the windows menu–&amp;gt;Microsoft Visual Studio…&lt;/p&gt;
 
-&lt;p&gt;On other platforms using &lt;strong&gt;mono&lt;/strong&gt;, you will the &lt;strong&gt;mcs&lt;/strong&gt; command to compile our example.&lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;continue&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;decimal&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;default&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;delegate&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
 
-# On UNIXes, Linuxes and OSXes
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;do&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;double&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;else&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;enum&lt;/td&gt;
+&lt;/tr&gt;
 
-$ cd /path/to/your/project/folder
-$ mcs Hello.cs
-$ mono Hello.exe
 
-&lt;/pre&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;event&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;explicit&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;extern&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;You cannot simply type “Hello.exe”, .NET programs needs a runtime environment to execute, that is why you need to run mono first before you can run Hello.exe. This runtime is called the CLR (Common Language Runtime). I will tackle this subject, but not now.&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;finally&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;fixed&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;float&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;for&lt;/td&gt;
+&lt;/tr&gt;
 
-# On Windows
 
-C:\&amp;gt; cd \path\to\your\project\folder
-C:\&amp;gt; csc Hello.cs
-C:\&amp;gt; Hello.exe 
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;foreach&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;goto&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;if&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;implicit&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;/pre&gt;
 
-&lt;p&gt;On a windows machine, you did not need to invoke the .NET runtime, you simply typed Hello.exe and it runs just fine.Why?–because recent versions of Windows actually includes the .NET runtime already, and if it is intelligent enough to invoke the .NET runtime when it needs to. &lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;in&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;in(generic modifier&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;int&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;interface&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;h2 id=&quot;walk-through-of-the-hello-program&quot;&gt;Walk through of the Hello program&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;using System;&lt;/strong&gt; - The &lt;em&gt;using** keyword allows you to use the Types defined in the *System&lt;/em&gt; namespace. When .NET was released, it came not only with the languages, it also came with lots of built-in Types that you can use immediately. There will be a discussion of Types way down the road, but for now, just settle for the explanation that if we did not use the System namespace, instead of writing &lt;strong&gt;Console.WriteLine()&lt;/strong&gt; we needed to write &lt;strong&gt;System.Console.WriteLine()&lt;/strong&gt;.  &lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;internal&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;is&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;lock&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;long&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;&lt;strong&gt;class Hello {}&lt;/strong&gt; - CSharp is very object oriented, you cannot write anything meaningful outside of a class construct. Unlike C++, where you can still program in a procedural way and only optionally use the OOP constructs, CSharp forces you to use the class constructs—even for a trivial program like the Hello program; &lt;strong&gt;class&lt;/strong&gt; is a keyword (reserved word) which denotes that what follows is a name of class you are trying to define.  The pair of curly braces is the body of the class. You can write lots of things inside the class’ body, although for now, we just wrote &lt;em&gt;main()&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;public static int Main()&lt;/strong&gt; - this is called a method, some people may refer to it as a function, they will be right also but in OO languages, generally functions are referred to as methods–I will tell you why later, but not now. Main() is a very special method, all console applications (like our Hello program) is expected to have the Main() method because this is the entry point of the program. When you invoke the program, the .NET runtime will look for method, and if you did not define it—I mean exactly as it is written in the sample code, nothing will happen when you run your program. So make sure you type it exactly as it appeared in the sample code&lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;namespace&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;new&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;null&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;object&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;&lt;strong&gt;Console.WriteLine()&lt;/strong&gt; - Console is a built-in type under the System namespace, it does lots of things and it has lots of methods. One of the method is WriteLine(). What WriteLine does is to send a string data straight to the stdout (standard out, which means your screen). &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Semi colon&lt;/strong&gt; - You will notice that all statements in CSharp are terminated using a semi colon, this is important because the semi colon will tell the compiler that you are finished with a statement. It signals the end of a programming statement pretty much as a period signals the end of a sentence in the English language. &lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;operator&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;out&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;out (generic modifier)&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;override&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;CSharp is a case-sensitive language, &lt;strong&gt;main()&lt;/strong&gt; is not the same as &lt;strong&gt;Main()&lt;/strong&gt;, so type carefully.&lt;/p&gt;
 
-&lt;h2 id=&quot;word-power&quot;&gt;Word power&lt;/h2&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;params&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;private&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;protected&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;public&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Source code&lt;/strong&gt; - sometimes called source file. It is a text file where you write CSharp statements.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;High level language&lt;/strong&gt; - a computer programming language undertandable by mere mortals, it looks a lot like the English language, but a computer programming language, unlike English does not contain ambiguities. Each statement you write in a programming language has very precise meaning—strive to know them well&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Compiler&lt;/strong&gt; - a computer program that takes in a source file as an input, processes it (parsing) then translates it to a format understandable by machines (machine code). CSharp comes with &lt;strong&gt;csc&lt;/strong&gt; on Windows and &lt;strong&gt;msc&lt;/strong&gt; on mono platform (which can run on platforms other than Windows)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Main()&lt;/strong&gt; - a special function in CSharp, if you will write console applications, you need to be very acquainted with the format of Main(). Whenever you invoke a compiled .NET CLI (command line interface) program, .NET will always look for &lt;strong&gt;public static int Main()&lt;/strong&gt;. This is the entry point of your app&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CLR&lt;/strong&gt; - The common language runtime is a rich environment which abstracts a lot of what the Operating System can do for your programs. The CLR can open files, network connections, database connections etc. There are things also that a CLR can do for you that the Operating System cannot—the OS cannot do automatic garbage collection for your app, the CLR can; but let’s leave GC (garbage collection) for another discussion.  &lt;/li&gt;
-&lt;/ol&gt;
 
-&lt;h1 id=&quot;variables-and-data-types&quot;&gt;2. Variables and Data types&lt;/h1&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;readonly&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;ref&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;return&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;sbyte&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;Think of a variable as a shoebox or a desk drawer–actually, just a shoebox, it is easier to explain the concept that way. You can put things inside a shoe box like a ball, paper, etc. The box is used basically as a storage. Program variables work that way too, they function as a storage. One time you can put a red-colored ball into the shoebox, then another time you can take the red ball out and replace it with say, a green ball. &lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;sealed&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;short&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;sizeof&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;stackalloc&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vars&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// prints 1&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// prints 2&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;In the above sample code, we defined a variable called &lt;strong&gt;“a”&lt;/strong&gt;, then we assigned the whole number 1 into it. At a later time, we assigned a different value to &lt;strong&gt;a&lt;/strong&gt;, then printed it again. This is a typical programming use of variables. You may assign them intially some value, then change that value later on. &lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;static&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;string&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;struct&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;switch&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;Let’s mess around with the sample code a little bit and try to break it deliberately. See if you can spot the difference.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;this&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;throw&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;true&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;try&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vars&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;If you try to compile this source, you would have encountered your first &lt;strong&gt;compiler error&lt;/strong&gt;. You probably got a message like this;&lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;typeof&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;uint&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;ulong&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;unchecked&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre clas=&quot;codeblock&quot;&gt;
 
-Vars.cs(10,19): error CS0029: Cannot implicitly convert type `string&#39; to `int&#39;
-Compilation failed: 1 error(s), 0 warnings
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;unsafe&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;ushort&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;using&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;virtual&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;/pre&gt;
 
-&lt;p&gt;The reason you are getting this error is because of the statement &lt;strong&gt;a = “2”;&lt;/strong&gt; You are no longer assigning the integer 2 to the variable “a”. You are trying to assign a String to “a”—and that is not allowed in CSharp. Going back to shoebox example, when you put a red ball into the box, you can change the contents of the box at a later time provided that you put a ball, it could be a green ball or black ball, a tennis ball or pingpong ball—as long as it is ball. When variable &lt;strong&gt;a&lt;/strong&gt; was defined in the program, it was defined to be an &lt;strong&gt;int&lt;/strong&gt;, it is meant to store integers (numbers that you use for counting things, they don’t have decimal parts). You can replace the contents of variable &lt;strong&gt;a&lt;/strong&gt; as long as you replace it with another integer. &lt;/p&gt;
+&lt;tr&gt;
+&lt;td class=&quot;left&quot;&gt;void&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;volatile&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;while&lt;/td&gt;
+&lt;td class=&quot;left&quot;&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;This characterisc of CSharp is called &lt;strong&gt;strong typing&lt;/strong&gt;, it means that when you declare a variable using a specific type, you cannot change the type of the variable anymore. The fact that you need to tell the compiler what kind or type a variable should be is because CSharp is &lt;strong&gt;statically typed&lt;/strong&gt; also. Static typing is a pretty deep subject, and you might not be ready for it (just yet). You need to attend a couple more subjects and read a lot more books, but basically here is what it looks like;&lt;/p&gt;
+&lt;p&gt;The list of keywords are maintained at this page &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/x53a06bb.aspx&quot;&gt;http://msdn.microsoft.com/en-us/library/x53a06bb.aspx&lt;/a&gt;. Microsoft’s MSDN team does a decent job of keeping these pages updated.&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;h2 id=&quot;constants&quot;&gt;2 Constants&lt;/h2&gt;
 
-# Static and Strong typing
+&lt;p&gt;Constants are placeholders, pretty much like variables, but once you define a constant, you cannot change their values at a later time. &lt;/p&gt;
 
-int a = 1; 	// Strongly typed languages like C, C++, C# and Java 
-a = 1024;  	// not a problem, 1024 is still an int
-a = 1.0;   	// problem, 1.0 is not an integer, strong typing kicks in
-a = &quot;1&quot;;   	// problem, &quot;1&quot; is not an integer, its a String
+&lt;p&gt;To declare a constant, use the &lt;strong&gt;const&lt;/strong&gt; keyword&lt;/p&gt;
 
+&lt;pre&gt;&lt;code&gt;const double PI = 3.14159;
+&lt;/code&gt;&lt;/pre&gt;
 
-# Weak and dynamic typing 
+&lt;h3 id=&quot;literals&quot;&gt;2.1 Literals&lt;/h3&gt;
 
-a = 1		// Languages like ruby, python and JavaScript are weakly and dynamically typed
-a = &quot;1&quot;		// not a problem 
+&lt;p&gt;Literals are fixed values which do not change. In that way, they seem a lot like constants&lt;/p&gt;
 
-a = function() {return &quot;Hello&quot;}; // a little too weird for now, but this is possible in JavaScript
+&lt;h2 id=&quot;data-types&quot;&gt;3 Data Types&lt;/h2&gt;
 
-&lt;/pre&gt;
+&lt;h2 id=&quot;operators&quot;&gt;4 Operators&lt;/h2&gt;
 
-&lt;p&gt;Okay, now you know CSharp is strongly typed and statically typed. The Typing system of CSharp (or any programming language for that matter) is just a clever way of classifying the stuff that programs can work on (that means create and manipulate, variables, remember?). It begs the question now, how many kinds of stuff are there? Here they are;&lt;/p&gt;
+&lt;h2 id=&quot;control-flow&quot;&gt;5 Control Flow&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;bool&lt;/strong&gt; - true or false values&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;byte&lt;/strong&gt; - whole numbers or counting numbers like the &lt;strong&gt;int&lt;/strong&gt; you saw before, but these are way smaller. This is an 8 bit value. The smallest value is zero and highest value is 255&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;char&lt;/strong&gt;  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;decimal&lt;/strong&gt; - It’s quite self-explanatory and obvious what this type is for. Use it for numbers that have decimal parts. There are other types like this, namely the float and the double. Decimal is a 128-bit type, they are far more accurate than a float but it can contain smaller values than a double. Programmers dealing with financial and monetary calculations use this because of its accuracy&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;double&lt;/strong&gt; - numbers with decimal parts, its accuracy is limited compared to the &lt;strong&gt;decimal type&lt;/strong&gt; but it can contain a larger number&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;enum&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;float&lt;/strong&gt; - like a double, only it can contain a smaller number and it is less precise (7 digit precision only, compared to the double which is 16 digits accurage, or the decimal which is 29 digits accurate)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;int&lt;/strong&gt; - whole numbers, values range is -2,147,483,648 to 2,147,483,647. Its a 32 bit type&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;long&lt;/strong&gt; - whole numbers also, this is a 64 bit value. Can contain –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;sbyte&lt;/strong&gt; - like the byte, but this is signed, which means it does not start from zero, it starts from -128 and goes up to 127&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;short&lt;/strong&gt; - bigger than an int, contains -32,768 to 32,767. Its a 16 bit type&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;struct&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;uint&lt;/strong&gt; - like an int, but this is unsigned, which means it starts from 0 and goes up to 4,294,967,295&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ulong&lt;/strong&gt; - like a long, but unsigned. It starts from 0 and goes up to 18,446,744,073,709,551,615&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ushort&lt;/strong&gt; - like a short, but unsigned. It start from 0 and goes up to 0 to 65,535&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Beyond the most basic programs, you will need more control in taming program flow. Non trivial programs require program flows that are beyond mere sequencing of statements. Sometimes we need to repeat some statements and sometimes we need to side step or avoid some statements. &lt;/p&gt;
 
-&lt;p&gt;The number of bits assigned to a data type is what determines the higher-bound and lower-bound values (at least for integral types like short, byte, int, long etc). The general idea is this;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Lower range is = 2^(n-1) where n is equal to the number of bits&lt;/li&gt;
-  &lt;li&gt;Higher range is = 2^(n-1) - 1 where n is equal to the number of bits&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There are types I did not define, that’s because it will mess up your learning for now, you will not need them in the near future, so a discussion of what they mean right now will be of very little value, but very high in clutter (mind clutter, that is)&lt;/p&gt;
-
-&lt;p&gt;Also, the 15 types listed above, is not complete. These are called &lt;strong&gt;Value Types&lt;/strong&gt; in CSharp—there is another kind called &lt;strong&gt;Reference Types&lt;/strong&gt; but we will hold off on that, you are not yet ready for that until the discussion on OOP (Object Oriented Programming)—however, we cannot put off even a small discussion of the &lt;strong&gt;String&lt;/strong&gt; data type. String is not a value type like ints, shorts, or bytes. String is a Reference Type. Without going too deep on Reference vs Value Type discussion, here are some basic things you need to use the String type.&lt;/p&gt;
-
-&lt;h1 id=&quot;flow-of-control&quot;&gt;3. Flow of control&lt;/h1&gt;
-
-&lt;p&gt;By far, we have only written programs that are executed one statement or one instruction after another. Non trivial applications usually require program flows that are more sophisticated than merely sequencing (executing commands one after another). CSharp provides quite a few mechanisms that will allow you to control program flow. &lt;/p&gt;
-
-&lt;h2 id=&quot;what-the--means----compound-statements&quot;&gt;What the {} means – compound statements&lt;/h2&gt;
+&lt;h3 id=&quot;compound-statements&quot;&gt;5.1 Compound statements&lt;/h3&gt;
 
 &lt;p&gt;Whenever you see a pair of curly braces, you will usually find a group of statements inside them. That is precisely their purpose, to group statements.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;   &lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;   Statements inside a block are executed in a linear fashion, top to bottom.&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;   &lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;   */&lt;/span&gt;
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;{
+  /*
+    Statements inside a block are executed in linear fashion.
+    Start from the first statement on the top, and work
+    your way down until there are no more statements
+    to execute
+  */
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as &lt;strong&gt;if, while, for etc&lt;/strong&gt;.  &lt;/p&gt;
+&lt;p&gt;A compound statement is a statement itself, you can use it whenever you can use a statement. Although you will usually see compound statements alongside flow-control keywords such as if, while, for etc.&lt;/p&gt;
 
-&lt;h2 id=&quot;if&quot;&gt;If&lt;/h2&gt;
+&lt;h3 id=&quot;if-statement&quot;&gt;5.2 If statement&lt;/h3&gt;
 
-&lt;p&gt;This is used if you need to branch or you want to decide whether a statement (or a group of statements) should be executed, based on some condition&lt;/p&gt;
+&lt;p&gt;Use the &lt;strong&gt;if&lt;/strong&gt; statement when you need to execute a group of statements if a certain condition is met. This is useful in side stepping some statements in response to a certain condition that is happening in your program. The general form of the &lt;strong&gt;if&lt;/strong&gt; statement is as follows.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// execute these statements&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// ...   &lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;if (condition) {
+  // statment to execute
+  // if the condition is true
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The &lt;strong&gt;if&lt;/strong&gt; statement actually includes some optional forms, like the &lt;strong&gt;else if and else&lt;/strong&gt; branches. The complete form of the &lt;strong&gt;if&lt;/strong&gt; statement is as follows;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;condition&lt;/strong&gt; part on the code above comes in the form of equivalence expression, equality or inequality tests. Just like the ones you encountered in basic Aritmetic.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;a &amp;gt; 50
+b == 10
+c &amp;lt; 0
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;another&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;h4 id=&quot;else-and-else-if&quot;&gt;5.2.1  Else and Else If&lt;/h4&gt;
 
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;another&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-   
+&lt;p&gt;The if statement actually includes some optional forms, like the else if and else branches. The complete form of the if statement is as follows;&lt;/p&gt;
 
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// statement&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;another&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// statement&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;another&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// statement&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition_n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// statement  &lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// statement  &lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition_n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;You can write as many else ifs as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first if block will be performed and then the if block is exited. The other conditions stated on else ifs and else will not be executed.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On the other hand, if the condition stated on the first if is not true, the program flow will trickle down to the else ifs and will test each condition specified in them. If one of the conditions evaluates to true, then that else if block will be executed.&lt;/p&gt;
 
-&lt;p&gt;You can write as many &lt;strong&gt;else ifs&lt;/strong&gt; as you need. The way this works is that, the first condition will be tested (the first if condition), if that is true, the statements inside the first &lt;strong&gt;if&lt;/strong&gt; block will be performed and then the if block is exited. The other conditions stated on &lt;strong&gt;else ifs and else&lt;/strong&gt; will not be executed.&lt;/p&gt;
+&lt;p&gt;If none of the conditions on the if and else ifs return true, then the group of statements inside the else branch will be executed. If you did not have an else block, then none of the statements will be executed if none of the specified conditions evaluates to true.&lt;/p&gt;
 
-&lt;p&gt;On the other hand, if the condition stated on the first &lt;strong&gt;if&lt;/strong&gt; is not true, the program flow will trickle down to the else ifs and will test each condition specified in them. If one of the conditions evaluates to true, then that else if block will be executed. &lt;/p&gt;
-
-&lt;p&gt;If none of the conditions on the &lt;strong&gt;if and else ifs&lt;/strong&gt; return true, then the group of statements inside the &lt;strong&gt;else&lt;/strong&gt; branch will be executed. If you did not have an else block, then none of the statements will be executed if none of the specified conditions evaluates to true. &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Two&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One Hundred and One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Clueless&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;    using System;
+    
+    class If {
+      public static void Main(){
+       int a = 101;
+       if(a == 1){
+         Console.WriteLine(&quot;One&quot;);
+       }
+       else if(a == 2){
+         Console.WriteLine(&quot;Two&quot;);
+       }
+       else if(a == 101){
+         Console.WriteLine(&quot;One Hundred and One&quot;);
+       }
+       else {
+         Console.WriteLine(&quot;Clueless&quot;);
+       }
+      }
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;In this example, “One hundred and One” will be printed.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;    using System;
+    
+    class If {
+      public static void Main(){
+        int a = 101;
+        if(a == 1){
+          Console.WriteLine(&quot;One&quot;);
+        }
+        else if(a == 2){
+          Console.WriteLine(&quot;Two&quot;);
+        }
+        else {
+          Console.WriteLine(&quot;Clueless&quot;);
+        }
+      }
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Two&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Clueless&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The code snippet above will print “Clueless” because there are no conditions that evaluate to true.&lt;/p&gt;
 
-&lt;p&gt;In this example, “Clueless” will be printed because there are no conditions that evaluates to true&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    using System;
+    
+    class If {
+      
+      public static void Main(){
+        
+        int a = 101;
+        
+        if(a == 1){
+          Console.WriteLine(&quot;One&quot;);
+        }
+        else if(a == 2){
+          Console.WriteLine(&quot;Two&quot;);
+        }
+      }
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;The code snippet above will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no else branch.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Two&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;switch-statement&quot;&gt;5.3 Switch statement&lt;/h3&gt;
 
-&lt;p&gt;In this example, the program will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no &lt;strong&gt;else&lt;/strong&gt; branch&lt;/p&gt;
+&lt;p&gt;The switch statement is another branching mechanism. It passes control though each case statement inside the switch block. The case statement expects a constant value, so you cannot do something like case == 1. See the example code for more info.&lt;/p&gt;
 
-&lt;h2 id=&quot;switch&quot;&gt;Switch&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;p&gt;The &lt;strong&gt;switch&lt;/strong&gt; statement is another branching mechanism. It passes control though each &lt;em&gt;case&lt;/em&gt; statement inside the switch block. The &lt;strong&gt;case&lt;/strong&gt; statement expects a constant value, so you cannot do something like &lt;strong&gt;case == 1&lt;/strong&gt;. See the example code for more info.&lt;/p&gt;
+class Switch {  
+  public static void Main(){
+    int a = 3;
+    switch(a){
+      case 1:
+        Console.WriteLine(&quot;One&quot;);
+        break;
+      case 2:
+        Console.WriteLine(&quot;Two&quot;);
+        break;
+      case 3:
+        Console.WriteLine(&quot;Three&quot;);
+        break;
+      default:
+        Console.WriteLine(&quot;Default&quot;);
+        break;
+    } 
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;Why is there a break statement inside each case–because withou the break statement, the flow of control will cascade to the next case or default statement–that is not what you want. As a matter of exercise, try removing the break on the case statements and see what happens.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Two&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Three&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;	
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The switch can also handle string arguments, not only integers.&lt;/p&gt;
 
-&lt;p&gt;Why is there a &lt;strong&gt;break&lt;/strong&gt; statement inside each &lt;strong&gt;case&lt;/strong&gt;–because withou the break statement, the flow of control will cascade to the next &lt;strong&gt;case&lt;/strong&gt; or &lt;strong&gt;default&lt;/strong&gt; statement–that is not what you want. As a matter of exercise, try removing the &lt;strong&gt;break&lt;/strong&gt; on the case statements and see what happens. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;p&gt;The &lt;strong&gt;switch&lt;/strong&gt; can also handle string arguments, not only integers.&lt;/p&gt;
+class Switch {
+  public static void Main(){    
+    string a = &quot;1&quot;;
+    
+    switch(a){
+      case &quot;1&quot;:
+        Console.WriteLine(&quot;One&quot;);
+        break;
+      case &quot;2&quot;:
+        Console.WriteLine(&quot;Two&quot;);
+        break;
+      case &quot;3&quot;:
+        Console.WriteLine(&quot;Three&quot;);
+        break;
+      default:
+        Console.WriteLine(&quot;Default&quot;);
+        break;
+    } 
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;h3 id=&quot;while-statement&quot;&gt;5.4 While statement&lt;/h3&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;One&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Two&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Three&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;	
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A looping mechanism. Use this if you would like to perform a group of statements repeatedly. General format is while(expression) statement – if you need to execute more than one statmeent, use the curly braces to group the statements.&lt;/p&gt;
 
-&lt;h2 id=&quot;while&quot;&gt;While&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;p&gt;A looping mechanism. Use this if you would like to perform a group of statements repeatedly. General format is &lt;strong&gt;while(expression) statement&lt;/strong&gt; – if you need to execute more than one statmeent, use the curly braces to group the statements. Example;&lt;/p&gt;
+class While {
+  
+  public static void Main(){
+    
+    int a = 0;
+    
+    while(a &amp;lt; 10){
+      Console.WriteLine(&quot;Value of a = &quot; + a++);
+    }
+    
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;The expression a++ is syntactically equivalent to a = a + 1, it simply adds one to current value of &lt;strong&gt;a&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;While&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		
-		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Value of a = &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;for-statement&quot;&gt;5.5 For statement&lt;/h3&gt;
 
-&lt;p&gt;The expression &lt;strong&gt;a++&lt;/strong&gt; is syntactically equivalent to &lt;strong&gt;a = a + 1&lt;/strong&gt;, it simply adds one to current value of a;&lt;/p&gt;
+&lt;p&gt;The for loop is doing what the while loop is doing as well, it executes a group of statement repeatedly. The format of the for loop is a bit more involved though. The for loop has three (optional) arguments inside it. The arguments, if you provide it, changes the behavior of the for loop.&lt;/p&gt;
 
-&lt;h2 id=&quot;for&quot;&gt;For&lt;/h2&gt;
+&lt;p&gt;Let’s rewrite the while loop example using the for loop.&lt;/p&gt;
 
-&lt;p&gt;The &lt;strong&gt;for&lt;/strong&gt; loop is doing what the &lt;strong&gt;while&lt;/strong&gt; loop is doing as well, it executes a group of statement repeatedly. The format of the for loop is a bit more involved though. The for loop has three (optional) arguments inside it. The arguments, if you provide it, changes the behavior of the for loop. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;p&gt;Let’s rewrite the &lt;strong&gt;while loop&lt;/strong&gt; example using the for loop.&lt;/p&gt;
+class ForLoop {
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  public static void Main(){
+    for(int a = 0; a &amp;lt; 10 ; a++){
+      Console.WriteLine(&quot;Value of a = &quot; + a);
+    }   
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ForLoop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++){&lt;/span&gt;
-			
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Value of a = &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;		
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Take a closer look at the form of the &lt;em&gt;for-loop&lt;/em&gt;, it is actually like this; &lt;strong&gt;for(initializer ; condition ; iterator) statement&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Take a closer look at the form of the for-loop, it is actually like this; for(initializer ; condition ; iterator) statement.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;initializer&lt;/strong&gt; - sets the initial value of a counter, in our sample, this counter is the variable &lt;strong&gt;a&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;initializer&lt;/strong&gt; - sets the initial value of a counter, in our sample, this counter is the variable a&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;condition&lt;/strong&gt; - you have to stop somewhere, other wise you will have a loop that doesn’t terminate. This is an expresion that evaluates to a boolean value. While this expression evaluates to true, the statement inside the body for-loop will keep on executing. When this expression evaluates to false, the loop terminates.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;iterator&lt;/strong&gt; - this expression defines what happens after each iteration of the loop, this is typically used to either increment or decrement a counter variable, but you can get creative with it&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The *initializer and iterator** arguments of the for-loop takes more than one value, you just need to separate them with commas. As a beginning programmer though, you probably would have a less easy time making sense of convoluted codes like that, but just to show what else you can do with for-loops, take a look at the following code.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;initializer&lt;/strong&gt; and &lt;strong&gt;iterator&lt;/strong&gt; arguments of the for loop takes more than one value, you just need to separate them with commas. As a beginning programmer though, you probably would have a less easy time making sense of convoluted codes like that, but just to show what else you can do with for-loops, take a look at the following code.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ForLoop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+class ForLoop {
+  public static void Main(){
+    for(int a = 0, b = 10; a &amp;lt; 10 ; a++, b--, foo()){
+      Console.WriteLine(&quot;Value of a, b = &quot; + a + &quot; , &quot; + b);
+      }   
+    }
+  
+  static void foo(){
+    Console.WriteLine(&quot;Foo&quot;);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+&lt;p&gt;In this sample code, two variables (a and b) were initialized. Variable a was set to 0 and variable b was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable a is incremented by 1 and variable b is decremented by 1—not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.&lt;/p&gt;
 
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;--,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
-			
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Value of a, b = &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; , &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;		
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Foo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;In this sample code, two variables (a and b) were initialized. Variable &lt;strong&gt;a&lt;/strong&gt; was set to 0 and variable &lt;strong&gt;b&lt;/strong&gt; was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable &lt;strong&gt;a&lt;/strong&gt; is incremented by 1 and variable &lt;strong&gt;b&lt;/strong&gt; is decremented by 1—not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.  &lt;/p&gt;
-
-&lt;h2 id=&quot;nesting-control-structures&quot;&gt;Nesting control structures&lt;/h2&gt;
+&lt;h3 id=&quot;nesting&quot;&gt;5.6 Nesting&lt;/h3&gt;
 
 &lt;p&gt;You can write loops inside other loops, ifs inside other ifs, switches inside ifs or whatever combination you can imagine (or need). Here is an example of a for-loop nested inside a for-loop.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ForLoop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+class ForLoop {
 
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  public static void Main(){
 
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++){&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++){&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;values of i and j are {0} {1}&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;		
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    for(int i = 1; i &amp;lt;= 5; i++){
+      for(int j = 1; j &amp;lt;= 5; j++){
+        Console.WriteLine(&quot;values of i and j are {0} {1}&quot;, i,j);
+      }
+    }   
+  }
+    
+}
 
-&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+/*
 
-&lt;span class=&quot;cm&quot;&gt;the above code produces the output&lt;/span&gt;
+the above code produces the output
 
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 1 1&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 1 2&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 1 3&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 1 4&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 1 5&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 2 1&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 2 2&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 2 3&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 2 4&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 2 5&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 3 1&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 3 2&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 3 3&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 3 4&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 3 5&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 4 1&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 4 2&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 4 3&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 4 4&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 4 5&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 5 1&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 5 2&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 5 3&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 5 4&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;values of i and j are 5 5&lt;/span&gt;
+values of i and j are 1 1
+values of i and j are 1 2
+values of i and j are 1 3
+values of i and j are 1 4
+values of i and j are 1 5
+values of i and j are 2 1
+values of i and j are 2 2
+values of i and j are 2 3
+values of i and j are 2 4
+values of i and j are 2 5
+values of i and j are 3 1
+values of i and j are 3 2
+values of i and j are 3 3
+values of i and j are 3 4
+values of i and j are 3 5
+values of i and j are 4 1
+values of i and j are 4 2
+values of i and j are 4 3
+values of i and j are 4 4
+values of i and j are 4 5
+values of i and j are 5 1
+values of i and j are 5 2
+values of i and j are 5 3
+values of i and j are 5 4
+values of i and j are 5 5
 
-&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+*/
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The outer loop counts from 1 to 5 using the iterator (variable) &lt;strong&gt;i&lt;/strong&gt;, the inner loop counts from 1 to 5 also. This kind of program produces what you might call a &lt;strong&gt;cartesian product&lt;/strong&gt;. Notice how the variable &lt;strong&gt;i&lt;/strong&gt; is printed 5 times–i is printed for each iteration of &lt;strong&gt;j&lt;/strong&gt;. That is the reason why you have 25 rows of output; i iterates up to 5 and j iterates up to 5 also (5 * 5 = 25).  &lt;/p&gt;
+&lt;p&gt;The outer loop counts from 1 to 5 using the iterator (variable) i, the inner loop counts from 1 to 5 also. This kind of program produces what you might call a cartesian product. Notice how the variable i is printed 5 times–i is printed for each iteration of j. That is the reason why you have 25 rows of output; i iterates up to 5 and j iterates up to 5 also (5 * 5 = 25).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTE :&lt;/strong&gt; - The curly braces inside the string is called a formatter, it is somewhat similar to the &lt;strong&gt;sprintf&lt;/strong&gt; of the C language—but you haven’t coded in C, which means you will need some more explanation and examples;&lt;/p&gt;
+&lt;p&gt;NOTE : - The curly braces inside the string is called a formatter, it is somewhat similar to the sprintf of the C language—but you haven’t coded in C, which means you will need some more explanation and examples;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;int a = 10;
+int b = 20;
 
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;The value of a is {0}&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// the actual value of the variable a will be substituted to {0}&lt;/span&gt;
+Console.WriteLine(&quot;The value of a is {0}&quot;, a);
+// the actual value of the variable a will be substituted to {0}
 
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;a is {0} and b is {1}&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//value of a will be substituted to {0}, and value of b will be subsituted to {1}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//0 corresponds to the first actual number right after the string, and 1 to next, so on&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// and so forth. 0 and 1 are actually positional values of the arguments that follow&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// string&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Console.WriteLine(&quot;a is {0} and b is {1}&quot;,a,b);
+//value of a will be substituted to {0}, and value of b will be subsituted to {1}
+//0 corresponds to the first actual number right after the string, and 1 to next, so on
+// and so forth. 0 and 1 are actually positional values of the arguments that follow
+// string
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You can genearate the multiplication table using nested loops, like this;&lt;/p&gt;
+&lt;p&gt;You can generate the multiplication table using nested loops, like the code snippet below&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;using System;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ForLoop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+class ForLoop {
 
-	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  public static void Main(){
 
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++){&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++){&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;\t&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;		
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    for(int i = 1; i &amp;lt;= 5; i++){
+      for(int j = 1; j &amp;lt;= 5; j++){
+        Console.Write(i * j + &quot;\t&quot;);
+      }
+      Console.WriteLine();
+    }   
+  }
+    
+}
 
-&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+/*
 
-&lt;span class=&quot;cm&quot;&gt;1	2	3	4	5	&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;2	4	6	8	10	&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;3	6	9	12	15	&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;4	8	12	16	20	&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;5	10	15	20	25&lt;/span&gt;
+1 2 3 4 5 
+2 4 6 8 10  
+3 6 9 12  15  
+4 8 12  16  20  
+5 10  15  20  25
 
-&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+*/
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The &lt;strong&gt;\t&lt;/strong&gt; is to simply add a tab in between the numbers. I used &lt;em&gt;Console.Write&lt;/em&gt; so that the line won’t add a carriage return/line feed after every number. I need the CRLF at the end of the row (that is the reason why there is an empty WriteLine outside the inner loop)&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;\t&lt;/strong&gt; escape sequence is to simply add a tab in between the numbers. I used Console.Write so that the line won’t add a carriage return/line feed after every number. I needed the CRLF at the end of the row, that is the reason why there is an empty WriteLine outside the inner loop.&lt;/p&gt;
 
-&lt;!--
-
-# 2. Program structure
-# 3. Variables and Data types
-# 4. Looping
-# 5. Branching
-# 6. Basic input output
-
---&gt;
-
-&lt;h1 id=&quot;bibliography&quot;&gt;Bibliography&lt;/h1&gt;
+&lt;h2 id=&quot;bibliography&quot;&gt;Bibliography&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Title: Inside C#. Author: Tom Archer, Publisher: Microsoft Press 2001&lt;/li&gt;
   &lt;li&gt;Title: Real World Functional Programming with examples in F# and C#. Authors: Thomas Petricek with John Skeet, Publisher: Manning Publications 2010&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h2&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;http://en.wikipedia.org/wiki/C_Sharp_(programming_language) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 </content>
  </entry>
  

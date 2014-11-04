@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}  
+  </head>
+  <body>
+    <div id="wrap">
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        {{ page.title }}
+        {% include postmeta.html %}
+      </div>
+    </div>             
+    </header>
+    
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>					
+		  </div>      
+		</article>
+    
+    <div class="toc"> 
+      <ul>
+        <li><a href="/csharp/who-should-read">Audience</a></li>
+        <li><a href="/csharp/introduction">Introduction to programming</a></li>
+        <li><a href="/csharp/environment">Environment</a></li>
+        <li><a href="/csharp/hello-world">Hello World</a></li>
+        <li><a href="/csharp-programming-notes">Fundamentals</a></li>
+        
+      </ul>
+    </div>    
+    
+    </div>  <!--  div wrap -->
+    <footer>{% include footer.html %}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>
