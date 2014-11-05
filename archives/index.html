@@ -12,6 +12,11 @@ categories:
 
 <div id="wrap">
 
+    <div class='feature-banner'>
+      <div class='feature-banner-text'>
+        Archives
+      </div>
+    </div> 
 
 <div id="archives" class="content">
   
@@ -35,7 +40,7 @@ categories:
   {% if post.categories.size > 0 %}
     <b><u>{{post.categories | join: '  ,' }}</u></b>
   {% endif %}
-	{{ post.content | strip_html |truncatewords: 30 }}
+	{{ post.content | strip_html |truncatewords: 50 }}
   </p>
 
 	{% endfor %}
