@@ -1,5 +1,5 @@
 ---
-layout: java
+layout: javascript
 
 title: RD JS Workshop.072012
 
