@@ -19,17 +19,26 @@ categories:
     </div> 
 
 <div id="archives" class="content">
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">&laquo; Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next &raquo;</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
   
   
-	{% for post in site.posts %}   
-	
-  <!--
-	<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-	<div class='content-meta'>
-		{{ post.date | date: "%B %d, %Y" }}
-	</div>
-  -->   
-    
+
+{% for post in paginator.posts %}
+
   <a href="{{ post.url }}" class='archivestitle'>
     {{ post.date | date: "%m.%d.%y" }}
     {{ post.title }}
@@ -40,11 +49,26 @@ categories:
   {% if post.categories.size > 0 %}
     <b><u>{{post.categories | join: '  ,' }}</u></b>
   {% endif %}
-	{{ post.content | strip_html |truncatewords: 50 }}
+  {{ post.content | strip_html |truncatewords: 60 }}
   </p>
 
-	{% endfor %}
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">&laquo; Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next &raquo;</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
 </div>
+
 </div> <!-- wrap -->
 <footer>{% include footer.html%}</footer>
 {% include ga.html %}

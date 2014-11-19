@@ -1,0 +1,46 @@
+
+<h2 id="stand-alone-server">Stand alone server</h2>
+
+<p>The Liberty Profile runtime  can be downloaded as a <strong>jar</strong> file. If you plan to build Web Services or use JMS or perhaps use a MongoDB backend for your applications, you also need to download the Liberty Profile Extended Content, which is also packaged as a jar file. The Liberty Profile Runtime and the Extended Content jar files can be downloaded at <a href="https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/">developer.ibm.com site</a>. Once you click the download link for the runtime and the extended content jars, you will be asked to accept the license agreement. If you agree, the download process will begin.</p>
+
+<p>Choose an appropriate directory where you want to install the Liberty Profile runtime. It is best to install the Liberty runtime in a directory where you will not need any admnistrator or root privileges. For purposes of development, it is suggested to install the runtime on your home directory. The table below shows the user directories, depending on what OS you are using.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>DIRECTORY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Windows</td>
+      <td>C:\Users\yourUsername</td>
+    </tr>
+    <tr>
+      <td>OSX</td>
+      <td>/Users/yourUsername</td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>/home/yourUsername</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Copy the jar files somewhere in your user directory and run them.</p>
+
+<pre><code>
+java -jar wlp-developers-runtime-8.5.5.3.jar
+
+</code></pre>
+
+<p>The installer is text based. It will ask you to accept the license agreement. Type <strong>x</strong> when prompted to skip reading the license agreement, or you may read it if you want to. Follow the prompts and accept the agreement. You may have to type <strong>1</strong> to signify that you accept the agreement. Finally, it will ask where you want to install the wlp, short for WebSphere Liberty Profile, the default directory is the current directory. Just press <strong>RET</strong> to accept the default.</p>
+
+<p>If you need the Extended Content runtime, run the installer</p>
+
+<pre><code>jar -jar wlp-developers-extended-8.5.5.3.jar
+</code></pre>
+
+<p>Same steps will apply when you intalled wlp, as described above. Just accept the default location so that it installs on the same folder as the runtime.</p>
+

@@ -5,13 +5,67 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-07T13:42:02+08:00</updated>
+ <updated>2014-11-20T00:29:12+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Install Liberty Profile Stand Alone</title>
+   <link href="http://thelogbox.com/websphere/install-liberty-profile-stand-alone"/>
+   <updated>2014-11-13T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/websphere/install-liberty-profile-stand-alone</id>
+   <content type="html">
+&lt;h2 id=&quot;stand-alone-server&quot;&gt;Stand alone server&lt;/h2&gt;
+
+&lt;p&gt;The Liberty Profile runtime  can be downloaded as a &lt;strong&gt;jar&lt;/strong&gt; file. If you plan to build Web Services or use JMS or perhaps use a MongoDB backend for your applications, you also need to download the Liberty Profile Extended Content, which is also packaged as a jar file. The Liberty Profile Runtime and the Extended Content jar files can be downloaded at &lt;a href=&quot;https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/&quot;&gt;developer.ibm.com site&lt;/a&gt;. Once you click the download link for the runtime and the extended content jars, you will be asked to accept the license agreement. If you agree, the download process will begin.&lt;/p&gt;
+
+&lt;p&gt;Choose an appropriate directory where you want to install the Liberty Profile runtime. It is best to install the Liberty runtime in a directory where you will not need any admnistrator or root privileges. For purposes of development, it is suggested to install the runtime on your home directory. The table below shows the user directories, depending on what OS you are using.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;DIRECTORY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Windows&lt;/td&gt;
+      &lt;td&gt;C:\Users\yourUsername&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OSX&lt;/td&gt;
+      &lt;td&gt;/Users/yourUsername&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Linux&lt;/td&gt;
+      &lt;td&gt;/home/yourUsername&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Copy the jar files somewhere in your user directory and run them.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+java -jar wlp-developers-runtime-8.5.5.3.jar
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The installer is text based. It will ask you to accept the license agreement. Type &lt;strong&gt;x&lt;/strong&gt; when prompted to skip reading the license agreement, or you may read it if you want to. Follow the prompts and accept the agreement. You may have to type &lt;strong&gt;1&lt;/strong&gt; to signify that you accept the agreement. Finally, it will ask where you want to install the wlp, short for WebSphere Liberty Profile, the default directory is the current directory. Just press &lt;strong&gt;RET&lt;/strong&gt; to accept the default.&lt;/p&gt;
+
+&lt;p&gt;If you need the Extended Content runtime, run the installer&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jar -jar wlp-developers-extended-8.5.5.3.jar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Same steps will apply when you intalled wlp, as described above. Just accept the default location so that it installs on the same folder as the runtime.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Audience</title>
