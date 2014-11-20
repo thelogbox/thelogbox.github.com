@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-20T14:39:06+08:00</updated>
+ <updated>2014-11-20T23:21:08+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -14,55 +14,80 @@
 
  
  <entry>
-   <title>Install Liberty Profile Stand Alone</title>
+   <title>Creating Servers</title>
+   <link href="http://thelogbox.com/websphere/server-creation"/>
+   <updated>2014-11-20T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/websphere/server-creation</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Liberty Profile Installation</title>
    <link href="http://thelogbox.com/websphere/install-liberty-profile-stand-alone"/>
    <updated>2014-11-13T00:00:00+08:00</updated>
    <id>http://thelogbox.com/websphere/install-liberty-profile-stand-alone</id>
-   <content type="html">
-&lt;h2 id=&quot;stand-alone-server&quot;&gt;Stand alone server&lt;/h2&gt;
+   <content type="html">&lt;p&gt;There are three ways to run the Liberty profile. First is to install it using the IBM Installation Manager. But this means you will have to install the base binaries of a WebSphere Application Server then install the Liberty profile. If your intention is to get acquainted with a true blue WAS installation, this might be the way to go. The Liberty profile has high fidelity with the WAS full profile as far as developers are concerned but it still not the full profile. &lt;/p&gt;
 
-&lt;p&gt;The Liberty Profile runtime  can be downloaded as a &lt;strong&gt;jar&lt;/strong&gt; file. If you plan to build Web Services or use JMS or perhaps use a MongoDB backend for your applications, you also need to download the Liberty Profile Extended Content, which is also packaged as a jar file. The Liberty Profile Runtime and the Extended Content jar files can be downloaded at &lt;a href=&quot;https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/&quot;&gt;developer.ibm.com site&lt;/a&gt;. Once you click the download link for the runtime and the extended content jars, you will be asked to accept the license agreement. If you agree, the download process will begin.&lt;/p&gt;
+&lt;p&gt;If you choose to run the Liberty profile using the IBMIM, You will need your IBM id. If your work is on the admin or DevOps side of things, this is probably the ideal setup for you. &lt;/p&gt;
 
-&lt;p&gt;Choose an appropriate directory where you want to install the Liberty Profile runtime. It is best to install the Liberty runtime in a directory where you will not need any admnistrator or root privileges. For purposes of development, it is suggested to install the runtime on your home directory. The table below shows the user directories, depending on what OS you are using.&lt;/p&gt;
+&lt;p&gt;The other two ways to run the Liberty Profile does not require the IBM Installation Manager. We simply need to grab a couple of jar files from the WAS Dev site and run the installation using the jar files. &lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;DIRECTORY&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Windows&lt;/td&gt;
-      &lt;td&gt;C:\Users\yourUsername&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;OSX&lt;/td&gt;
-      &lt;td&gt;/Users/yourUsername&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Linux&lt;/td&gt;
-      &lt;td&gt;/home/yourUsername&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;The Liberty profile can be ran and administered as a stand alone application using command line scripts that comes with it. It can also be integrated within an Eclipse IDE.&lt;/p&gt;
 
-&lt;p&gt;Copy the jar files somewhere in your user directory and run them.&lt;/p&gt;
+&lt;h2 id=&quot;command-line-installation&quot;&gt;1 Command Line Installation&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;
-java -jar wlp-developers-runtime-8.5.5.3.jar
+&lt;p&gt;Grab the jar files from &lt;a href=&quot;https://developer.ibm.com/wasdev/&quot;&gt;WAS Dev site&lt;/a&gt;. You can choose to download either the Beta or the GA (General Availability) release. Once you have downloaded the jar files, run the installer.&lt;/p&gt;
 
+&lt;p&gt;The &lt;strong&gt;runtime&lt;/strong&gt; can be installed using the command below&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java -jar wlp-beta-runtime-2014.11.0.0.jar
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The installer is text based. It will ask you to accept the license agreement. Type &lt;strong&gt;x&lt;/strong&gt; when prompted to skip reading the license agreement, or you may read it if you want to. Follow the prompts and accept the agreement. You may have to type &lt;strong&gt;1&lt;/strong&gt; to signify that you accept the agreement. Finally, it will ask where you want to install the wlp, short for WebSphere Liberty Profile, the default directory is the current directory. Just press &lt;strong&gt;RET&lt;/strong&gt; to accept the default.&lt;/p&gt;
+&lt;p&gt;This archive install will prompt you to read the license, accept it and it will also prompt you where you would like to store the runtime files. The default location is the current directory.&lt;/p&gt;
 
-&lt;p&gt;If you need the Extended Content runtime, run the installer&lt;/p&gt;
+&lt;p&gt;If you need to develop applications that will use &lt;strong&gt;Web Services, JMS, JCA, WebRTC or MongoDB&lt;/strong&gt;, you will need the extended runtime. That is a separate jar file.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;jar -jar wlp-developers-extended-8.5.5.3.jar
+&lt;pre&gt;&lt;code&gt;java -jar wlp-beta-extended-2014.11.0.0.jar
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Same steps will apply when you intalled wlp, as described above. Just accept the default location so that it installs on the same folder as the runtime.&lt;/p&gt;
+&lt;p&gt;Same process as when you installed the runtime,it will prompt you for the license acceptance and location where to store the files. &lt;/p&gt;
+
+&lt;p&gt;The third jar file is for administration. At the time of writing, the admin is not very useful and quite limited in capability. It simply starts, stops and restarts the runtime. Those are things that are easy enough to do on the command line. But install it anyway if you would like to see it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java -jar wlp-beta-admin-2014.11.0.0.jar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;installation-directory&quot;&gt;1.1 Installation Directory&lt;/h3&gt;
+
+&lt;p&gt;You will need Administrative privileges when running and maintaining the Liberty profile runtime. It is best to install it where you have read/write/execute privileges and this folder is usually your home folder. &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Windows&lt;/strong&gt; - This is usually somewhere in C:\Users\yourname\&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linux&lt;/strong&gt; - ~/ or /home/yourname&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;OSX&lt;/strong&gt; - ~/ or /Users/yourname&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;eclipse-installation&quot;&gt;2 Eclipse Installation&lt;/h2&gt;
+
+&lt;p&gt;The procedure for installing WAS Liberty Profile in Eclipse couldn’t be simpler. The steps for installation is outlined below. For the purpose of this exercise, the Eclipse edition used is &lt;strong&gt;JEE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Launch Eclipse&lt;/li&gt;
+  &lt;li&gt;Launch a web browser. Navigate to the &lt;a href=&quot;https://developer.ibm.com/wasdev/&quot;&gt;WAS Dev site&lt;/a&gt;. Choose either the &lt;strong&gt;GA&lt;/strong&gt; or the &lt;strong&gt;Beta&lt;/strong&gt; release. Either way, there is an option for &lt;strong&gt;online&lt;/strong&gt; installation. Look for an icon with a mouse pointer overlapping the Eclipse logo &lt;/li&gt;
+  &lt;li&gt;From the web page, drag and drop the Eclipse logo to any part of an open Eclipse window, the one you launched in step &lt;strong&gt;1&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Accept the license and follow the prompts&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Alternatively, you can also do the following steps to install in Eclipse&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Launch Eclipse&lt;/li&gt;
+  &lt;li&gt;From the &lt;strong&gt;Help&lt;/strong&gt; menu, choose &lt;strong&gt;Eclipse Market Place&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;On the &lt;strong&gt;Find&lt;/strong&gt; text box, type &lt;strong&gt;WebSphere&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Liberty Profile can be installed for Eclipse Luna and Kepler. Find the entry that says &lt;strong&gt;IBM WebSphere Application Server Liberty Profile for Luna&lt;/strong&gt;. Or Kepler if that is the Eclipse version you have&lt;/li&gt;
+  &lt;li&gt;Accept the license and follow the prompts&lt;/li&gt;
+&lt;/ol&gt;
 
 </content>
  </entry>

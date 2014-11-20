@@ -1,34 +1,86 @@
+---
+layout: websphere
+
+title: Liberty Profile Installation
+
+description: 
+
+excerpt: 
+
+author: Ted Hagos
+
+lastupdate: 
 
 
-## Stand alone server
+tags:
 
-The Liberty Profile runtime  can be downloaded as a **jar** file. If you plan to build Web Services or use JMS or perhaps use a MongoDB backend for your applications, you also need to download the Liberty Profile Extended Content, which is also packaged as a jar file. The Liberty Profile Runtime and the Extended Content jar files can be downloaded at [developer.ibm.com site](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/). Once you click the download link for the runtime and the extended content jars, you will be asked to accept the license agreement. If you agree, the download process will begin.
 
-Choose an appropriate directory where you want to install the Liberty Profile runtime. It is best to install the Liberty runtime in a directory where you will not need any admnistrator or root privileges. For purposes of development, it is suggested to install the runtime on your home directory. The table below shows the user directories, depending on what OS you are using.
+categories:
 
-|         | DIRECTORY             |
-|-------------------------------- |
-| Windows | C:\Users\yourUsername |
-| OSX     | /Users/yourUsername   |
-| Linux   | /home/yourUsername    |
+---
 
-Copy the jar files somewhere in your user directory and run them.
+There are three ways to run the Liberty profile. First is to install it using the IBM Installation Manager. But this means you will have to install the base binaries of a WebSphere Application Server then install the Liberty profile. If your intention is to get acquainted with a true blue WAS installation, this might be the way to go. The Liberty profile has high fidelity with the WAS full profile as far as developers are concerned but it still not the full profile. 
+
+If you choose to run the Liberty profile using the IBMIM, You will need your IBM id. If your work is on the admin or DevOps side of things, this is probably the ideal setup for you. 
+
+The other two ways to run the Liberty Profile does not require the IBM Installation Manager. We simply need to grab a couple of jar files from the WAS Dev site and run the installation using the jar files. 
+
+The Liberty profile can be ran and administered as a stand alone application using command line scripts that comes with it. It can also be integrated within an Eclipse IDE.
+
+## 1 Command Line Installation
+
+Grab the jar files from [WAS Dev site](https://developer.ibm.com/wasdev/). You can choose to download either the Beta or the GA (General Availability) release. Once you have downloaded the jar files, run the installer.
+
+The **runtime** can be installed using the command below
 
 ~~~
-
-java -jar wlp-developers-runtime-8.5.5.3.jar
-
+java -jar wlp-beta-runtime-2014.11.0.0.jar
 ~~~
 
-The installer is text based. It will ask you to accept the license agreement. Type **x** when prompted to skip reading the license agreement, or you may read it if you want to. Follow the prompts and accept the agreement. You may have to type **1** to signify that you accept the agreement. Finally, it will ask where you want to install the wlp, short for WebSphere Liberty Profile, the default directory is the current directory. Just press **RET** to accept the default.
+This archive install will prompt you to read the license, accept it and it will also prompt you where you would like to store the runtime files. The default location is the current directory.
 
-If you need the Extended Content runtime, run the installer
+If you need to develop applications that will use **Web Services, JMS, JCA, WebRTC or MongoDB**, you will need the extended runtime. That is a separate jar file.
 
 ~~~
-jar -jar wlp-developers-extended-8.5.5.3.jar
+java -jar wlp-beta-extended-2014.11.0.0.jar
 ~~~
 
-Same steps will apply when you intalled wlp, as described above. Just accept the default location so that it installs on the same folder as the runtime.
+Same process as when you installed the runtime,it will prompt you for the license acceptance and location where to store the files. 
+
+The third jar file is for administration. At the time of writing, the admin is not very useful and quite limited in capability. It simply starts, stops and restarts the runtime. Those are things that are easy enough to do on the command line. But install it anyway if you would like to see it.
+
+~~~
+java -jar wlp-beta-admin-2014.11.0.0.jar
+~~~
+
+### 1.1 Installation Directory
+
+You will need Administrative privileges when running and maintaining the Liberty profile runtime. It is best to install it where you have read/write/execute privileges and this folder is usually your home folder. 
+
+1. **Windows** - This is usually somewhere in C:\Users\yourname\
+2. **Linux** - ~/ or /home/yourname
+3. **OSX** - ~/ or /Users/yourname
+
+
+## 2 Eclipse Installation
+
+The procedure for installing WAS Liberty Profile in Eclipse couldn't be simpler. The steps for installation is outlined below. For the purpose of this exercise, the Eclipse edition used is **JEE**
+
+1. Launch Eclipse
+2. Launch a web browser. Navigate to the [WAS Dev site](https://developer.ibm.com/wasdev/). Choose either the **GA** or the **Beta** release. Either way, there is an option for **online** installation. Look for an icon with a mouse pointer overlapping the Eclipse logo 
+3. From the web page, drag and drop the Eclipse logo to any part of an open Eclipse window, the one you launched in step **1**
+4. Accept the license and follow the prompts
+
+
+Alternatively, you can also do the following steps to install in Eclipse
+
+1. Launch Eclipse
+2. From the **Help** menu, choose **Eclipse Market Place**
+3. On the **Find** text box, type **WebSphere**
+4. Liberty Profile can be installed for Eclipse Luna and Kepler. Find the entry that says **IBM WebSphere Application Server Liberty Profile for Luna**. Or Kepler if that is the Eclipse version you have
+5. Accept the license and follow the prompts
+
+
 
 
 

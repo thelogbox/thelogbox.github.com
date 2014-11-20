@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		{% include head.html %}
+		{% include nostyle.html %}
+    
+    <!--
+		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
+    -->
+  
+  </head>
+  <body>
+
+    <div id="wrap">
+      <div class="running-head">
+      /websphere
+     </div>
+       
+     <article itemscope itemtype="http://schema.org/Article" >
+     <header>          
+      <div class='feature-banner'>
+        <div class='feature-banner-text'>
+          {{ page.title }}
+          {% include postmeta.html %}
+        </div>
+      </div>
+    </header>
+    <!--
+    <article itemscope itemtype="http://schema.org/Article">
+    -->
+		  <div id="post">
+        <div itemprop='articleBody'>
+		    {{ content }}
+        </div>
+							
+		  </div>
+          <div class="postinfo">
+            Posted on {{ page.date | date: "%B %d, %Y" }} &nbsp; by: {{ page.author }}  
+          </div> 
+		</article>
+    
+    <div class="toc">
+      <!--
+      <iframe width="200" height="320" src="https://leanpub.com/javalessons/embed" frameborder="0" allowtransparency="true"></iframe>
+      -->
+        
+      <ul>
+      <li><a href="#">Introduction</a></li>
+      <li><a href="/websphere/install-liberty-profile-stand-alone">Liberty Profile installation</a></li>
+      <li><a href="/websphere/server-creation">Creating Servers</a></li>
+      <li><a href="#">JSP Deployment</a></li>
+      <li><a href="#">Servlet Deployment</a></li>
+      <li><a href="#">JDBC</a></li>
+      <li><a href="#">EJB Deployment</a></li>
+      <li><a href="#">Working with a Message Driven Bean</a></li>
+      <li><a href="#">Tuning</a></li>
+    </ul>
+    </div>    
+ 
+    {% include disqus.html %} 
+    </div>  <!--  div wrap -->
+
+		<footer>{% include footer.html %}</footer>
+    {% include ga.html%}
+    {% include statcounter.html %}
+  </body>
+</html>

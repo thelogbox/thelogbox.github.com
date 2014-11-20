@@ -109,6 +109,7 @@ table {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+th, td {text-align: left;}
 
 #wrap {
 	margin: 0 auto;
@@ -147,8 +148,16 @@ table {
   /*background:#e9e9e9;*/
 }
 
-.toc, .toc a:link {
+
+.toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
+  /* color: #008385; */
+  color: #2c2c2c; 
+  text-decoration: none; 
+  font-weight:300;}
+.toc a:hover {
+  color:brown; 
+  text-decoration:underline;
 }
 
 .toc b, .toc strong {font-weight: bold;}
@@ -333,8 +342,16 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
-a:hover {color:darkturquoise; text-decoration:underline;}
+a:link, a:visited {
+  /*color: #008385;*/
+  color: brown; 
+  text-decoration: underline; 
+  font-weight:300;}
+
+a:hover {
+  color: #000; 
+  text-decoration:underline;
+}
 
 #postmeta {
   padding-top:0;
@@ -601,11 +618,12 @@ iframe {display:block;}
   margin-top: 50px;
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
 }
+/*
 .pagination a:link, .pagination a:visited {
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
   color: steelblue;
 }
-
+*/
 .running-head {
   font-size: 1.2em;
   color: #CCC;
@@ -613,6 +631,11 @@ iframe {display:block;}
   margin-top:30px;
 }
 
+.postinfo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #ccc;
+}
 </style>
 
     <!--
@@ -639,15 +662,15 @@ iframe {display:block;}
 	   
 	
   <!--
-	<h2><a href="/websphere/install-liberty-profile-stand-alone">Install Liberty Profile Stand Alone</a></h2>
+	<h2><a href="/websphere/server-creation">Creating Servers</a></h2>
 	<div class='content-meta'>
-		November 13, 2014
+		November 20, 2014
 	</div>
   -->   
     
-  <a href="/websphere/install-liberty-profile-stand-alone" class='archivestitle'>
-    11.13.14
-    Install Liberty Profile Stand Alone
+  <a href="/websphere/server-creation" class='archivestitle'>
+    11.20.14
+    Creating Servers
   </a>
   
   <p class='archives'>
@@ -655,7 +678,30 @@ iframe {display:block;}
   
     <b><u>websphere</u></b>
   
-	Stand alone server The Liberty Profile runtime can be downloaded as a jar file. If you plan to build Web Services or use JMS or perhaps use a MongoDB backend for your applications, you also need to download the Liberty Profile Extended Content, which is also packaged as a jar...
+	
+
+  </p>
+
+	   
+	
+  <!--
+	<h2><a href="/websphere/install-liberty-profile-stand-alone">Liberty Profile Installation</a></h2>
+	<div class='content-meta'>
+		November 13, 2014
+	</div>
+  -->   
+    
+  <a href="/websphere/install-liberty-profile-stand-alone" class='archivestitle'>
+    11.13.14
+    Liberty Profile Installation
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[websphere]</b> -->
+  
+    <b><u>websphere</u></b>
+  
+	There are three ways to run the Liberty profile. First is to install it using the IBM Installation Manager. But this means you will have to install the base binaries of a WebSphere Application Server then install the Liberty profile. If your intention is to get acquainted with a true...
   </p>
 
 	   

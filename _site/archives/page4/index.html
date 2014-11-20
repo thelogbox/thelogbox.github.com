@@ -109,6 +109,7 @@ table {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+th, td {text-align: left;}
 
 #wrap {
 	margin: 0 auto;
@@ -147,8 +148,16 @@ table {
   /*background:#e9e9e9;*/
 }
 
-.toc, .toc a:link {
+
+.toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
+  /* color: #008385; */
+  color: #2c2c2c; 
+  text-decoration: none; 
+  font-weight:300;}
+.toc a:hover {
+  color:brown; 
+  text-decoration:underline;
 }
 
 .toc b, .toc strong {font-weight: bold;}
@@ -333,8 +342,16 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
-a:hover {color:darkturquoise; text-decoration:underline;}
+a:link, a:visited {
+  /*color: #008385;*/
+  color: brown; 
+  text-decoration: underline; 
+  font-weight:300;}
+
+a:hover {
+  color: #000; 
+  text-decoration:underline;
+}
 
 #postmeta {
   padding-top:0;
@@ -601,11 +618,12 @@ iframe {display:block;}
   margin-top: 50px;
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
 }
+/*
 .pagination a:link, .pagination a:visited {
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
   color: steelblue;
 }
-
+*/
 .running-head {
   font-size: 1.2em;
   color: #CCC;
@@ -613,6 +631,11 @@ iframe {display:block;}
   margin-top:30px;
 }
 
+.postinfo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #ccc;
+}
 </style>
 
     <!--
@@ -647,6 +670,19 @@ iframe {display:block;}
 </div>
   
   
+
+
+
+  <a href="/android-check-connectivity" class='archivestitle'>
+    12.16.12
+    Check for Network Connectivity
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[]</b> -->
+  
+  Finding out the state of connectivity of an Android device is a fundamental technique. You need to know which type of connectivity the device has before you perform any activity that requires data transfer. You may encounter situations where you want to send data e.g. picture files, maps or any other sizeable data through the wire, only when WIFI connectivity...
+  </p>
 
 
 
@@ -932,21 +968,6 @@ This content has moved. You can view it using the link below
   <!--<b>[]</b> -->
   
   HAML FOR TEMPLATING Can be used stand alone or integrated into frameworks like Sinatra, Rails etc. It can be downloaded form the Haml Site or simply via rubygem—gem install haml. If you use it stand alone, it is an HTML generator, if you use within a framework, it can be a filter or a template / filename: first.haml / forward...
-  </p>
-
-
-
-  <a href="/sinatra/sinatra" class='archivestitle'>
-    10.12.12
-    Sinatra
-  </a>
-  
-  <p class='archives'>
-  <!--<b>[sinatra]</b> -->
-  
-    <b><u>sinatra</u></b>
-  
-  GET UP AND RUNNING Switch your ruby version Install Sinatra sudo gem install sinatra. While you are it, install the thin package as well sudo gem install thin. Sinatra apps will run without thin Make sure it’s running, do the HelloWorld app # helloworld.rb require &#39;rubygems&#39; if RUBY_VERSION &lt; &#39;1.9&#39; require &#39;sinatra&#39; get &#39;/&#39; do &quot;Hello World&quot; end Run the...
   </p>
 
 

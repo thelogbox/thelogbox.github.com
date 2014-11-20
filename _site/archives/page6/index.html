@@ -109,6 +109,7 @@ table {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+th, td {text-align: left;}
 
 #wrap {
 	margin: 0 auto;
@@ -147,8 +148,16 @@ table {
   /*background:#e9e9e9;*/
 }
 
-.toc, .toc a:link {
+
+.toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
+  /* color: #008385; */
+  color: #2c2c2c; 
+  text-decoration: none; 
+  font-weight:300;}
+.toc a:hover {
+  color:brown; 
+  text-decoration:underline;
 }
 
 .toc b, .toc strong {font-weight: bold;}
@@ -333,8 +342,16 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {/*color: #1d1de2;*/ color: #008385; text-decoration: none; font-weight:300;}
-a:hover {color:darkturquoise; text-decoration:underline;}
+a:link, a:visited {
+  /*color: #008385;*/
+  color: brown; 
+  text-decoration: underline; 
+  font-weight:300;}
+
+a:hover {
+  color: #000; 
+  text-decoration:underline;
+}
 
 #postmeta {
   padding-top:0;
@@ -601,11 +618,12 @@ iframe {display:block;}
   margin-top: 50px;
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
 }
+/*
 .pagination a:link, .pagination a:visited {
   font-family: Tahoma, Helvetica, 'Arial', sans-serif;
   color: steelblue;
 }
-
+*/
 .running-head {
   font-size: 1.2em;
   color: #CCC;
@@ -613,6 +631,11 @@ iframe {display:block;}
   margin-top:30px;
 }
 
+.postinfo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #ccc;
+}
 </style>
 
     <!--
@@ -647,6 +670,19 @@ iframe {display:block;}
 </div>
   
   
+
+
+
+  <a href="/android-activity" class='archivestitle'>
+    07.15.12
+    Activity and the UI
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[]</b> -->
+  
+  A great number of mobile applications will need a user interface. Not all apps need a UI, but most do. In Android Programming, User Interfaces are built using a couple of files, usually a java source file with an associated XML file. The java source file used, most commonly is class that inherits androd.app.Activity. You don’t need to worry these...
+  </p>
 
 
 
@@ -920,19 +956,6 @@ This content has been rewritten. I encourage you to read the more updated materi
   <!--<b>[]</b> -->
   
   You can rip YouTube videos from the command line in Linux and OSX. There could be ways to do this in Windows via Cygwin, but I did not try that. In Debian Linux, or any other distribution that uses the apt or aptitude package manager, you can get the youtube-dl program by pulling them from the repositories. Run the following...
-  </p>
-
-
-
-  <a href="/screen-shooting-android" class='archivestitle'>
-    04.11.12
-    Screen Shooting
-  </a>
-  
-  <p class='archives'>
-  <!--<b>[]</b> -->
-  
-  You need the JDK (Java Development Toolkit). The Android development environment depends on Java, that is why you need this. Take note that you need the JDK not the JRE (Java Runtime Environment). If you install the JDK though, you would also have installed the JRE You need to the Android SDK. It can be downloaded installed on your PC....
   </p>
 
 
