@@ -35,13 +35,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <meta name="keywords" content="MySQL ,Database">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="Simple steps to get MySQL working on a Mac" />
+<meta name="description" content="Simple steps to get MySQL working on a Mac, Yosemite, Mountain Lion, Lion, Snow Leopard, Leopard" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    How to Install MySQL on OSX | theLogBox
+    Install MySQL on OSX | theLogBox
   
 </title>
 
@@ -631,7 +631,7 @@ iframe {display:block;}
      <header>          
       <div class='feature-banner'>
         <div class='feature-banner-text'>
-          How to Install MySQL on OSX
+          Install MySQL on OSX
           <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
@@ -666,39 +666,37 @@ iframe {display:block;}
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This was done on Leopard, Snow Leopard, Lion and Mountain Lion</p>
+		    <p>MySQL Installations on OSX Leopard, Snow Leopard, Lion and Mountain Lion have been pretty straightforward using the packaged installed from the <a href="http://dev.mysql.com/downloads/">MySQL developer website</a>. All you need to do is to download the package, run the package and the start the MySQL server using the tools provided on <strong>System Preferences</strong>. </p>
 
-<h2 id="motivation">Motivation</h2>
+<p>In OSX 10.10, the packaged installer of MySQL is with a slight hiccup. Yosemite will report that the installation has failed. It will show you a window stating that it was not able to complete the installation. But in fact, it got installed. The hiccup might be fixed in the future. For now, just go to the Mac System Preferences, find the MySQL menu and start it.</p>
 
-<ol>
-  <li>Install a mysql-server for development purposes on OSX Lion</li>
-  <li>Use the include mysql CLI (Command Line Interface), specifically mysql client</li>
-</ol>
+<p>If you have <strong>HomeBrew</strong> in your system, you can also install mysql that way.</p>
 
-<h2 id="possible-routes">Possible routes</h2>
+<pre><code>brew install mysql*
+</code></pre>
 
-<ol>
-  <li>Using BREW – <em>$ sudo brew install mysql</em></li>
-  <li>Using MacPorts – <em>sudo port install mysql</em></li>
-  <li>Download from  <a href="http://dev.mysql.com/downloads/">MySQL developer website</a></li>
-</ol>
+<p>If what you have is <strong>MacPorts</strong></p>
 
-<p>I went with No. 3 above. Installation went smoothly, except that the MySQL CLI was not included in the path, I had to manually add it to the PATH variable.</p>
+<pre><code>sudo port install mysql*
+</code></pre>
 
-<pre class="codeblock">
+<p>In most occassions, these installers will create a symlink of the <strong>mysql</strong> command in the usual search paths of OSX. Just in case the symlinks were not created, you can include the mysql tools to your system path. Edit <strong>~/.bash_profile</strong> or <strong>~/.profile</strong> and add the following entries</p>
 
-	$ vi ~/.bash_rc
-	… some entries in the .bash_rc
-	… export PATH=PATH$:/usr/local/mysql/bin:.
+<pre><code>export PATH=PATH$:/usr/local/mysql/bin:.
+</code></pre>
 
-</pre>
+<p>Close the terminal window and re-open it so that the new entries in bash_profile or profile will be read and properly exported to your shell environment.</p>
 
-<h2 id="to-use-mysql-on-osx">To use MySQL on OSX</h2>
+<h2 id="using-mysql">Using MySQL</h2>
 
-<ol>
-  <li>The server is not started by default. There is a utility in the <em>System Preferences</em> under the entry <em>Others</em> right at the bottom part of the screen. Use it to start and stop MySQL server</li>
-  <li>To communicate with MySQL, use the CLI client — <code class="codeblock">$ mysql -u root -p</code></li>
-</ol>
+<p>The server is not started by default. There is a utility in the <strong>System Preferences</strong> right at the bottom part of the screen. Use it to start and stop MySQL server </p>
+
+<p>From a terminal window, use the command</p>
+
+<pre><code>mysql -u root -p
+</code></pre>
+
+<p>Press <strong>RET</strong>. The default installation of MySQL has a blank password for the root user.</p>
 
 
         </div>
@@ -713,7 +711,7 @@ iframe {display:block;}
       <li><a href="/problem-issh-vim-ipad">iSSH and Prompt</a></li>
       <li><a href="/install-kyocera-km1820-osx">Hook up a Kyocera 1820 printer</a></li>
       <li><a href="/connect-mac-osx-to-cups-printer">Connect OSX to CUPS print server</a></li>
-      <li><a href="/installing-mysql-osx">MySQL on OSX</a></li>
+      <li><a href="/installing-mysql-osx-lion">MySQL on OSX</a></li>
     </ul>
     </div>    
     

@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-20T11:42:16+08:00</updated>
+ <updated>2014-11-20T12:36:50+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -14117,43 +14117,41 @@ while(condition) {
  </entry>
  
  <entry>
-   <title>How to Install MySQL on OSX</title>
+   <title>Install MySQL on OSX</title>
    <link href="http://thelogbox.com/installing-mysql-osx-lion"/>
    <updated>2011-10-11T00:00:00+08:00</updated>
    <id>http://thelogbox.com/installing-mysql-osx-lion</id>
-   <content type="html">&lt;p&gt;This was done on Leopard, Snow Leopard, Lion and Mountain Lion&lt;/p&gt;
+   <content type="html">&lt;p&gt;MySQL Installations on OSX Leopard, Snow Leopard, Lion and Mountain Lion have been pretty straightforward using the packaged installed from the &lt;a href=&quot;http://dev.mysql.com/downloads/&quot;&gt;MySQL developer website&lt;/a&gt;. All you need to do is to download the package, run the package and the start the MySQL server using the tools provided on &lt;strong&gt;System Preferences&lt;/strong&gt;. &lt;/p&gt;
 
-&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In OSX 10.10, the packaged installer of MySQL is with a slight hiccup. Yosemite will report that the installation has failed. It will show you a window stating that it was not able to complete the installation. But in fact, it got installed. The hiccup might be fixed in the future. For now, just go to the Mac System Preferences, find the MySQL menu and start it.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Install a mysql-server for development purposes on OSX Lion&lt;/li&gt;
-  &lt;li&gt;Use the include mysql CLI (Command Line Interface), specifically mysql client&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;If you have &lt;strong&gt;HomeBrew&lt;/strong&gt; in your system, you can also install mysql that way.&lt;/p&gt;
 
-&lt;h2 id=&quot;possible-routes&quot;&gt;Possible routes&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;brew install mysql*
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Using BREW – &lt;em&gt;$ sudo brew install mysql&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Using MacPorts – &lt;em&gt;sudo port install mysql&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Download from  &lt;a href=&quot;http://dev.mysql.com/downloads/&quot;&gt;MySQL developer website&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;If what you have is &lt;strong&gt;MacPorts&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I went with No. 3 above. Installation went smoothly, except that the MySQL CLI was not included in the path, I had to manually add it to the PATH variable.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo port install mysql*
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;p&gt;In most occassions, these installers will create a symlink of the &lt;strong&gt;mysql&lt;/strong&gt; command in the usual search paths of OSX. Just in case the symlinks were not created, you can include the mysql tools to your system path. Edit &lt;strong&gt;~/.bash_profile&lt;/strong&gt; or &lt;strong&gt;~/.profile&lt;/strong&gt; and add the following entries&lt;/p&gt;
 
-	$ vi ~/.bash_rc
-	… some entries in the .bash_rc
-	… export PATH=PATH$:/usr/local/mysql/bin:.
+&lt;pre&gt;&lt;code&gt;export PATH=PATH$:/usr/local/mysql/bin:.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;/pre&gt;
+&lt;p&gt;Close the terminal window and re-open it so that the new entries in bash_profile or profile will be read and properly exported to your shell environment.&lt;/p&gt;
 
-&lt;h2 id=&quot;to-use-mysql-on-osx&quot;&gt;To use MySQL on OSX&lt;/h2&gt;
+&lt;h2 id=&quot;using-mysql&quot;&gt;Using MySQL&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;The server is not started by default. There is a utility in the &lt;em&gt;System Preferences&lt;/em&gt; under the entry &lt;em&gt;Others&lt;/em&gt; right at the bottom part of the screen. Use it to start and stop MySQL server&lt;/li&gt;
-  &lt;li&gt;To communicate with MySQL, use the CLI client — &lt;code class=&quot;codeblock&quot;&gt;$ mysql -u root -p&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;The server is not started by default. There is a utility in the &lt;strong&gt;System Preferences&lt;/strong&gt; right at the bottom part of the screen. Use it to start and stop MySQL server &lt;/p&gt;
+
+&lt;p&gt;From a terminal window, use the command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press &lt;strong&gt;RET&lt;/strong&gt;. The default installation of MySQL has a blank password for the root user.&lt;/p&gt;
 
 </content>
  </entry>
