@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-20T12:38:37+08:00</updated>
+ <updated>2014-11-20T14:39:06+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -13072,32 +13072,38 @@ class MyClass{}&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Rip YouTube Vids</title>
+   <title>How to rip YouTube videos</title>
    <link href="http://thelogbox.com/rip-youtube-videos-linux-osx"/>
    <updated>2012-04-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/rip-youtube-videos-linux-osx</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;youtube-dl&lt;/strong&gt; is a command line tool to rip youtube videos. Works on OSX and Linux. There could be a way to make this work on Windows but I did not try that.&lt;/p&gt;
+   <content type="html">&lt;p&gt;You can rip YouTube videos from the command line in Linux and OSX. There could be ways to do this in Windows via Cygwin, but I did not try that. &lt;/p&gt;
 
-&lt;p&gt;In Linux you can pretty much just get it from the repositories.&lt;/p&gt;
+&lt;p&gt;In Debian Linux, or any other distribution that uses the &lt;strong&gt;apt&lt;/strong&gt; or &lt;strong&gt;aptitude&lt;/strong&gt; package manager, you can get the &lt;strong&gt;youtube-dl&lt;/strong&gt; program by pulling them from the repositories. Run the following command on a terminal window&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo apt-get install ffmpeg lame youtube-dl&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install ffmpeg lame youtube-dl
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;In OSX you can get it either via brew, macports or fink. I used brew.&lt;/p&gt;
+&lt;p&gt;For OSX users, if you are using &lt;strong&gt;HomeBrew&lt;/strong&gt;, you can get youtube-dl by running the commands&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;brew install youtube-dl&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install youtube-dl
+brew install ffmpeg
+brew install lame
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;brew install ffmpeg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;brew install lame&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;youtube-dl http://&amp;lt;youtubevideoaddress&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;The downloaded file could be have &lt;strong&gt;.webm&lt;/strong&gt; extension, you can convert it to &lt;strong&gt;wav&lt;/strong&gt; using the command&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Find the url of the youtube video you want to rip&lt;/li&gt;
-  &lt;li&gt;use youtube-dl to rip the content – &lt;code&gt;youtube-dl http://YoutubeVideo Address&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;The downloaded file is a .webm file, transform it to wav — &lt;code&gt;ffmpeg -i &amp;lt;DownloadedFileName.webm&amp;gt; &amp;lt;TargetFileName.wav&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;If .wav is okay for you, you can stop now. If you want to transform further to MP3 format use the lame utility – &lt;code&gt;lame &amp;lt;FileName.wav&amp;gt; &amp;lt;FileName.mp3&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;ffmpeg -i &amp;lt;DownloadedFileName.webm&amp;gt; &amp;lt;TargetFileName.wav&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can convert the resulting wav file to mp3 format with the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lame &amp;lt;FileName.wav&amp;gt; &amp;lt;FileName.mp3&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 </content>
  </entry>
@@ -13167,92 +13173,82 @@ class MyClass{}&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Send-Receive SMS message via USB modem</title>
+   <title>Send and Receive SMS message using USB modem</title>
    <link href="http://thelogbox.com/send-receive-sms-messages-usb-modem-linux"/>
    <updated>2012-04-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/send-receive-sms-messages-usb-modem-linux</id>
-   <content type="html">&lt;div id=&quot;feature-button&quot;&gt;
-The Linux guide on how to setup Gnokii for sending and receiving SMS message has moved to 
-&lt;p /&gt;
+   <content type="html">&lt;p&gt;This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven’t tested that but I can see no reason why it should not work.&lt;/p&gt;
 
-&lt;a href=&quot;http://tedhagos.com/linux/UsbModemLinux-SMS.html&quot;&gt;tedhagos.com/UsbModemLinux-SMS&lt;/a&gt;   
-&lt;p /&gt;
+&lt;p&gt;First, we need to pull some software from the repositories. We will need &lt;strong&gt;gnokii-smsd-mysql&lt;/strong&gt; and the &lt;strong&gt;mysql-server&lt;/strong&gt;. &lt;/p&gt;
 
-The original guide was left here for quick references only. This guide will no longer be updated here
-&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install mysql-server
+sudo apt-get install gnokii-smsd-mysql
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;Connect the USB modem to PC and find out which port it is using. We will need some info about the modem. We will use that later in our configuration.&lt;/p&gt;
 
-&lt;h1 id=&quot;what-you-need&quot;&gt;What you need&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;A Linux PC. Debian was used but I got to test it on Crunchbang as well, worked out fine. It should work fairly well on the Debian derivatives e.g. Ubuntu, Xubuntu, Mint etc&lt;/li&gt;
-  &lt;li&gt;A USB modem. A post paid plan was used for the project, but a USB stick on pre-paid should work just as well&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
-
-&lt;p&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;sudo apt-get install mysql-server&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;sudo apt-get install gnokii-smsd-mysql&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;config&quot;&gt;Config&lt;/h1&gt;
-
-&lt;p&gt;Connect the USB modem to PC and find out which port it is using&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo lsusb&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo lsusb
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Another command to use could be&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo dmesg | grep USB&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo dmesg | grep USB
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;What you are looking for is the device name for the modem. Usually, the modem is at &lt;code&gt;/dev/tty0&lt;/code&gt;, but just to be sure, run either lsusb or the dmesg command as stated above. Remember the device name because you will need it when you edit &lt;code&gt;~/.config/gnokii/config&lt;/code&gt; — that is the configuration file for gnokii. &lt;/p&gt;
+&lt;p&gt;What you are looking for is the &lt;strong&gt;device name&lt;/strong&gt; for the modem. Usually the modem is at &lt;strong&gt;/dev/tty0&lt;/strong&gt; but just to be sure, run either the &lt;strong&gt;lsusb&lt;/strong&gt; command or the &lt;strong&gt;dmesg&lt;/strong&gt; command as shown above. Take note of the device name. We will need that when we edit the configuration file for gnokii.&lt;/p&gt;
 
-&lt;p&gt;On some Debian derivatives like Crunchbang, the gnokii config file was not created during the installation . If that is the case, just create the config file manually.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo mkdir -p ~/.config/gnokii&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;sudo touch ~/.config/gnokii/config&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Edit the &lt;strong&gt;config&lt;/strong&gt; file. Set the port number and model to their appropriate values&lt;/p&gt;
+&lt;p&gt;The configuration file for gnokii is at &lt;strong&gt;~/.config/gnokii/config&lt;/strong&gt;. Edit the file and set the port number and the device model to their appropriate values. They should look something like this&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;port=/dev/tty0
 model=AT
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;There might a default value for the model property, it could be 6510. That value corresponds to a Nokia phone. But we are not using a Nokia phone, we are using a USB modem, so set the model value to &lt;strong&gt;AT&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We need to set the value of the &lt;strong&gt;model&lt;/strong&gt; attribute to AT because we will use a USB modem. The default value of the model attribute in some configuration file is &lt;strong&gt;6510&lt;/strong&gt;, which is a phone. That is not the correct value for our project.&lt;/p&gt;
 
-&lt;p&gt;Once done with the configuration, just do a quick test so that we know things are working out fine. Gnokii has a command that can quickly tell us if we are doing things correctly.&lt;/p&gt;
+&lt;p&gt;Just in case the gnokii configuration file was not created during the installation, you can simply create the config file manually and set the port/model attributes to their proper values.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo gnokii --identify&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo mkdir -p ~/.config/gnokii
+sudo touch ~/.config/gnokii/config
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It should give us some diagnostics and a quick peek if we did something wrong on the configuration file.&lt;/p&gt;
+&lt;p&gt;After you have saved the configuration file, do a quick test so we can know if we missed something.&lt;/p&gt;
 
-&lt;h1 id=&quot;database-backend&quot;&gt;Database backend&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;sudo gnokii --identify
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the command succeeds, it will give some diagnostics. If there are errors, revisit your steps above.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-the-database&quot;&gt;Setting the Database&lt;/h2&gt;
 
 &lt;p&gt;The gnokii-smsd-msyql package contains the SQL scripts necessary to create the table structure, but the database itself still needs to be manually prepared. &lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;mysql -u root -p&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;mysql&amp;gt; create database smsgw;&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;mysql&amp;gt; use smsgw;&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;mysql&amp;gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql -u root -p
+mysql&amp;gt; create database smsgw;
+mysql&amp;gt; use smsgw;
+mysql&amp;gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&quot;sending-and-receiving-sms&quot;&gt;Sending and Receiving SMS&lt;/h1&gt;
+&lt;h2 id=&quot;sending-and-receiving-sms&quot;&gt;Sending and Receiving SMS&lt;/h2&gt;
 
-&lt;p&gt;First, the daemon smsgw daemon process needs to run. Get another terminal window and run the daemon process from there&lt;/p&gt;
+&lt;p&gt;Run &lt;strong&gt;smsgw&lt;/strong&gt; daemon process &lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo smsd -u root -p smsgw -c localhost -m mysql&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo smsd -u root -p smsgw -c localhost -m mysql
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To send an SMS message, the command is&lt;/p&gt;
+&lt;p&gt;To send an SMS message, run the command&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;echo &quot;Test message | gnokii --sendsmsd +MobileNumber&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &quot;Test message | gnokii --sendsmsd &amp;lt;+mobilenumber&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;+MobileNumber is structured as &lt;span class=&quot;underline&quot;&gt;(country code) phone number&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;+mobilenumber is structured as &lt;strong&gt;(country code) phone number&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;If you send an SMS message to the number of the USB modem, all incoming messages are stored in the &lt;strong&gt;inbox&lt;/strong&gt; table of the database&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;mysql -u root -p&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;mysql&amp;gt; use smsgw;&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;mysql&amp;gt; select * from inbox;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mysql -u root -p
+mysql&amp;gt; use smsgw;
+mysql&amp;gt; select * from inbox;
+&lt;/code&gt;&lt;/pre&gt;
 
 </content>
  </entry>
