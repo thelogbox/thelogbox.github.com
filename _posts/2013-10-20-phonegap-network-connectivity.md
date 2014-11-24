@@ -18,28 +18,41 @@ tags:
 
 ---
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not &mdash; there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don't always pull updates if the connection is less than wifi. 
 
-To detect what kind of connectivity the device has, you need to use *navigator.connection.type* object. You will need to include the *phonegap.js* script in your code.
+To detect what kind of connectivity the device has, you need to use **navigator.connection.type** object. You will need to include the **phonegap.js** script in your code.
 
-The connection.type object requires a plugin installation. You will have to pull some files from the Apache.org repositories.
+The **connection.type** object requires a plugin installation. You will have to pull some files from the Apache.org repositories.
 
-***
 
-Create a new project named *network* and then pull the necessary plugins.
 
-<pre class="codeblock">
+Create a new project. For the purpose of this exercise, the project name will be **network**.
 
-phonegap create network --name "NetworkTest" --id com.thelogbox.network
 
-cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git
+~~~
+$ phonegap create network --name "NetworkTest" --id com.thelogbox.network
+~~~
 
-</pre>
+Next, we will get the necessary plugins.
 
-We won't be needing anything other the *index.html* file. As usual, I've deleted the default html file created by phonegap.
+~~~
+$ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git
+~~~
 
-{% highlight html %}
 
+We won't be needing anything other the **index.html** file. I have deleted the default html file created by phonegap and replaced it with the one below.
+
+~~~
 <!doctype html>
 
 <html lang=en>
@@ -108,30 +121,43 @@ We won't be needing anything other the *index.html* file. As usual, I've deleted
 </body>
 </html>
 
-{% endhighlight %}
+~~~
 
-**Compile, build and run your app.**
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-<pre class='codeblock'>
+The following command will build and run your app
 
-phonegap build ios
+~~~
+$ phonegap build ios
+$ open platforms/ios/NetworkTest.xcodeproj
+~~~
 
-open platforms/ios/NetworkTest.xcodeproj
+That last command will launch **XCode**. You can then run your app within XCode.
 
-# run the simulator from within ios
+To run the android emulator, use the following command
 
-</pre>
-<div id='lst'>iOS build and test</div>
-
-<pre class='codeblock'>
-
+~~~
 phonegap run android
-
-</pre>
-<div id='lst'>Android build and test</div>
-
+~~~
 
 
 <img src='/img/phonegap/network-screen.png' class='small' />
-<div id='lst'>Network ConnectivityTest</div>
 
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>

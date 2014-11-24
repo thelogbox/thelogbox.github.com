@@ -28,7 +28,15 @@ You can spare your self the experimentation and reading this guide if you just b
 4. Power the voice recorder. Put in record mode (you can press the pause button so that it actually doesn't record, we just need the mic)
 5. Test it. I tested mine by using it in a skype call. In fact, that was the only reason I needed a microphone for the Mac Mini
 
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 
 

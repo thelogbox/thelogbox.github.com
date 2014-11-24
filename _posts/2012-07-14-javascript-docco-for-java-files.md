@@ -14,6 +14,16 @@ tags:
 
 ---
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won't work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are [Jocco](https://github.com/Krilivye/Jocco) and [Marginalia (for Clojure)](http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/).
 
 The solution on this page is a hack. It is not a port of Docco for Java the way Jocco or Marginalia is. There, you've been warned.
@@ -64,6 +74,16 @@ The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the s
 	}
   };
 {% endhighlight %}
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.
 

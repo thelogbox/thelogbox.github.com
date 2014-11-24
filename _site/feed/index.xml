@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-25T00:01:49+08:00</updated>
+ <updated>2014-11-25T01:02:47+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -2936,117 +2936,132 @@ $ axel -n 10 http://wordpress.org/latest.zip
    <link href="http://thelogbox.com/phonegap-network-connectivity"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/phonegap-network-connectivity</id>
-   <content type="html">&lt;p&gt;Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not — there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don’t always pull updates if the connection is less than wifi. &lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;To detect what kind of connectivity the device has, you need to use &lt;em&gt;navigator.connection.type&lt;/em&gt; object. You will need to include the &lt;em&gt;phonegap.js&lt;/em&gt; script in your code.&lt;/p&gt;
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;The connection.type object requires a plugin installation. You will have to pull some files from the Apache.org repositories.&lt;/p&gt;
+&lt;p&gt;Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not — there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don’t always pull updates if the connection is less than wifi. &lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;To detect what kind of connectivity the device has, you need to use &lt;strong&gt;navigator.connection.type&lt;/strong&gt; object. You will need to include the &lt;strong&gt;phonegap.js&lt;/strong&gt; script in your code.&lt;/p&gt;
 
-&lt;p&gt;Create a new project named &lt;em&gt;network&lt;/em&gt; and then pull the necessary plugins.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;connection.type&lt;/strong&gt; object requires a plugin installation. You will have to pull some files from the Apache.org repositories.&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;p&gt;Create a new project. For the purpose of this exercise, the project name will be &lt;strong&gt;network&lt;/strong&gt;.&lt;/p&gt;
 
-phonegap create network --name &quot;NetworkTest&quot; --id com.thelogbox.network
+&lt;pre&gt;&lt;code&gt;$ phonegap create network --name &quot;NetworkTest&quot; --id com.thelogbox.network
+&lt;/code&gt;&lt;/pre&gt;
 
-cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git
+&lt;p&gt;Next, we will get the necessary plugins.&lt;/p&gt;
 
-&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We won’t be needing anything other the &lt;em&gt;index.html&lt;/em&gt; file. As usual, I’ve deleted the default html file created by phonegap.&lt;/p&gt;
+&lt;p&gt;We won’t be needing anything other the &lt;strong&gt;index.html&lt;/strong&gt; file. I have deleted the default html file created by phonegap and replaced it with the one below.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&amp;lt;html lang=en&amp;gt;
+&amp;lt;body&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Network exercise&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;watch&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &amp;lt;h1&amp;gt;Network exercise&amp;lt;/h1&amp;gt;
+  &amp;lt;div id=&quot;watch&quot;&amp;gt;
+  &amp;lt;/div&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;phonegap.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &amp;lt;script type=&quot;text/javascript&quot; src=&quot;phonegap.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&amp;gt;
     
-  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;window onload&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+  window.onload = function() {
+    log(&quot;window onload&quot;);
+  }  
     
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;deviceready&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  document.addEventListener(&quot;deviceready&quot;, function(){
     
-    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Device is ready&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    log(&quot;Device is ready&quot;);
     
-    &lt;span class=&quot;c1&quot;&gt;// log(&amp;quot;Connection is : &amp;quot; + navigator.connection.type);&lt;/span&gt;
+    // log(&quot;Connection is : &quot; + navigator.connection.type);
     
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;CONNECTION [raw] : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Connection constant test : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;UNKNOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    var networkstate = navigator.connection.type;
+    log(&quot;CONNECTION [raw] : &quot; + networkstate);
+    log(&quot;Connection constant test : &quot; + Connection.UNKNOWN);
     
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    var states = new Array();
     
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;UNKNOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Unknown connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ETHERNET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Ethernet connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;WIFI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;WiFi connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_2G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 2G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_3G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 3G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL_4G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell 4G connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CELL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Cell generic connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NONE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;No network connection&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    states[Connection.UNKNOWN]  = &#39;Unknown connection&#39;;
+    states[Connection.ETHERNET] = &#39;Ethernet connection&#39;;
+    states[Connection.WIFI]     = &#39;WiFi connection&#39;;
+    states[Connection.CELL_2G]  = &#39;Cell 2G connection&#39;;
+    states[Connection.CELL_3G]  = &#39;Cell 3G connection&#39;;
+    states[Connection.CELL_4G]  = &#39;Cell 4G connection&#39;;
+    states[Connection.CELL]     = &#39;Cell generic connection&#39;;
+    states[Connection.NONE]     = &#39;No network connection&#39;;
     
-    &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;CONNECTION : &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;states&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;networkstate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    log(&quot;CONNECTION : &quot; + states[networkstate]);
     
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  },false);
   
-  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;watch&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;br/&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  function log(message){
+    var out = document.getElementById(&quot;watch&quot;);
+    var temp = out.innerHTML;
+    temp += message + &quot;&amp;lt;br/&amp;gt;&quot;;
+    out.innerHTML = temp;
+  }
   
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &amp;lt;/script&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;style &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;media=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &amp;lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&amp;gt;
   
-  &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Arial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#FBFBFB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F1F1F1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+  * {
+    font-family: Arial;
+  }
+  body {background: #FBFBFB;border: 1px solid #F1F1F1;}
   
-  &lt;span class=&quot;nf&quot;&gt;#watch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACACA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F1F1F1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+  #watch {
+    border: 2px solid #CACACA;
+    font-size: 20px;
+    background: #F1F1F1;
+    padding: 5px;
+  }
+  &amp;lt;/style&amp;gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
 
-&lt;p&gt;&lt;strong&gt;Compile, build and run your app.&lt;/strong&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
 
-phonegap build ios
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
-open platforms/ios/NetworkTest.xcodeproj
+&lt;p&gt;The following command will build and run your app&lt;/p&gt;
 
-# run the simulator from within ios
+&lt;pre&gt;&lt;code&gt;$ phonegap build ios
+$ open platforms/ios/NetworkTest.xcodeproj
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;/pre&gt;
-&lt;div id=&quot;lst&quot;&gt;iOS build and test&lt;/div&gt;
+&lt;p&gt;That last command will launch &lt;strong&gt;XCode&lt;/strong&gt;. You can then run your app within XCode.&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;p&gt;To run the android emulator, use the following command&lt;/p&gt;
 
-phonegap run android
+&lt;pre&gt;&lt;code&gt;phonegap run android
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;/pre&gt;
-&lt;div id=&quot;lst&quot;&gt;Android build and test&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/img/phonegap/network-screen.png&quot; class=&quot;small&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/phonegap/network-screen.png&quot; class=&quot;small&quot; /&gt;
-&amp;lt;div id=&#39;lst&#39;&amp;gt;Network ConnectivityTest&amp;lt;/div&amp;gt;&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
 
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -3360,7 +3375,15 @@ $ cd platforms
    <link href="http://thelogbox.com/phonegap-database-programming"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/phonegap-database-programming</id>
-   <content type="html">&lt;p&gt;There are two ways to persist data on PhoneGap. One is to use &lt;em&gt;local storage&lt;/em&gt; and the other, &lt;em&gt;WebSQL&lt;/em&gt;. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  &lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;There are two ways to persist data on PhoneGap. One is to use &lt;em&gt;local storage&lt;/em&gt; and the other, &lt;em&gt;WebSQL&lt;/em&gt;. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  &lt;/p&gt;
 
 &lt;p&gt;The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that’s why SQL programming is almost a baseline capability for developers.&lt;/p&gt;
 
@@ -3459,6 +3482,14 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
 
 &lt;p&gt;&lt;img src=&quot;/img/phonegap/database-creation-resources.png&quot; alt=&quot;Database Creation&quot; /&gt;&lt;/p&gt;
 
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
 &lt;p&gt;Under &lt;em&gt;WebSQL&lt;/em&gt; you can see that there is a newly created &lt;em&gt;tasks&lt;/em&gt; database. This means our code ran as expected. &lt;/p&gt;
 
 &lt;p&gt;You can try to refresh the page or run the JavaScript code over and over, but it won’t create another &lt;em&gt;tasks&lt;/em&gt; database — if that was you were expecting. The &lt;code&gt;openDatabase&lt;/code&gt; command only creates a database file (&lt;em&gt;tasks.db&lt;/em&gt;, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The &lt;code&gt;openDatabase()&lt;/code&gt; function is used both to create a not yet existing database file and to open an existing one.&lt;/p&gt;
@@ -3502,6 +3533,14 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You will use the &lt;em&gt;transaction()&lt;/em&gt; function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the &lt;em&gt;executeSql()&lt;/em&gt; function which in turn contains the actual SQL commands.&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an &lt;em&gt;error&lt;/em&gt; object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.&lt;/p&gt;
 
@@ -7542,7 +7581,15 @@ This looks purely like syntactic sugar, but just the same, note it. The **() =&a
    <link href="http://thelogbox.com/csharp-programming-notes"/>
    <updated>2012-09-23T00:00:00+08:00</updated>
    <id>http://thelogbox.com/csharp-programming-notes</id>
-   <content type="html">&lt;h2 id=&quot;variables&quot;&gt;1 Variables&lt;/h2&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;variables&quot;&gt;1 Variables&lt;/h2&gt;
 
 &lt;p&gt;Think of variables as if they are shoe boxes. You can put things inside a shoe box like a ball or paper etc. The box functions basically as a storage mechanism. And variables are exactly like that. They store things inside them so you can get them out for later use.  &lt;/p&gt;
 
@@ -7669,6 +7716,14 @@ This looks purely like syntactic sugar, but just the same, note it. The **() =&a
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;The code snippet below shows how to declare variables of these types&lt;/p&gt;
 
@@ -8042,6 +8097,11 @@ c &amp;lt; 0
 
 &lt;p&gt;The code snippet above will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no else branch.&lt;/p&gt;
 
+&lt;p&gt;&lt;!-- Begin BidVertiser code --&gt;
+&lt;script language=&quot;JavaScript1.1&quot; src=&quot;http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&amp;amp;bid=1589518&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;a href=&quot;http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm&quot;&gt;xml search&lt;/a&gt;&lt;/noscript&gt;
+&lt;!-- End BidVertiser code --&gt;
+
 &lt;h3 id=&quot;switch-statement&quot;&gt;5.3 Switch statement&lt;/h3&gt;
 
 &lt;p&gt;The switch statement is another branching mechanism. It passes control though each case statement inside the switch block. The case statement expects a constant value, so you cannot do something like case == 1. See the example code for more info.&lt;/p&gt;
@@ -8163,6 +8223,14 @@ class ForLoop {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;In this sample code, two variables (a and b) were initialized. Variable a was set to 0 and variable b was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable a is incremented by 1 and variable b is decremented by 1—not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;nesting&quot;&gt;5.6 Nesting&lt;/h3&gt;
 
@@ -8541,7 +8609,15 @@ Pry indents better than irb, it also colorizes the code too. Color and indentati
    <link href="http://thelogbox.com/android-install-sdk-windows"/>
    <updated>2012-08-18T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-install-sdk-windows</id>
-   <content type="html">&lt;p&gt;This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.&lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.&lt;/p&gt;
 
 &lt;p&gt;I’m assuming further that these tools are properly resolvable from any terminal window. That means the executable files are already part of the system path.&lt;/p&gt;
 
@@ -8551,49 +8627,62 @@ Pry indents better than irb, it also colorizes the code too. Color and indentati
 
 &lt;p&gt;If that is still not clear enough, you can look at the &lt;a href=&quot;https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing&quot;&gt;setup instructions I wrote for my students here&lt;/a&gt;&lt;/p&gt;
 
-&lt;hr class=&quot;section&quot; /&gt;
+&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt; the installer from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;DOWNLOAD THE INSTALLER&lt;/strong&gt; from &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK from android.developer.com&lt;/a&gt;. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Unzip&lt;/strong&gt; the downloaded file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;GET THE ZIPPED FILE&lt;/strong&gt;. Unzip the file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;C:\User\yourname\ 
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
-C:\User\yourname\ 
-&lt;/pre&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;Try to remember the full path of the directory where you unzipped the Android SDK, this will be the ANDROID_HOME&lt;/p&gt;
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;GET A TERMINAL WINDOW&lt;/strong&gt;, launch cmd.exe. Go to the ANDROID-HOME/tools directory, then run the &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt; executable. This will launch the Android SDK Manager. &lt;/p&gt;
+&lt;p&gt;Try to remember the full path of the directory where you unzipped the Android SDK, from hereon forward, we will refer to that directory as &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Get a terminal window&lt;/strong&gt;, launch cmd.exe. Go to the &lt;strong&gt;ANDROID-HOME&lt;/strong&gt;/tools directory, then run the &lt;strong&gt;android&lt;/strong&gt; command. This will launch the Android SDK Manager windows. &lt;/p&gt;
 
 &lt;p&gt;The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won’t be much. Choose the API levels that you would like to install in your machine.&lt;/p&gt;
 
 &lt;p&gt;Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete. &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;MODIFY THE SYSTEM PATH&lt;/strong&gt;. Include the &lt;em&gt;android tools&lt;/em&gt; and &lt;em&gt;platform tools&lt;/em&gt; in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are &lt;strong&gt;ANDROID-HOME/tools&lt;/strong&gt; and &lt;strong&gt;ANDROID-HOME/platform-tools&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update your system path&lt;/strong&gt;. Include the &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;/android tools and &lt;strong&gt;ANDROID_HOME&lt;/strong&gt;/platform-tools folders in the system path. You will need it if you want to work with android using the command line.&lt;/p&gt;
 
 &lt;p&gt;There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt; 
-SET ANDROID_HOME=c:\&amp;gt;path\where\you\installed\android\
-  
+&lt;pre&gt;&lt;code&gt;SET ANDROID_HOME=c:\&amp;gt;path\where\you\installed\android\
 SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.&lt;/p&gt;
 
 &lt;p&gt;If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box. &lt;/p&gt;
 
-&lt;p&gt;First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;em&gt;Environment variables&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;First, open Control Panel, go to System Properties, then Advanced System Settings then click the button &lt;strong&gt;Environment variables&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/windows-environment-variables.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;If you have local admin rights on the machine, click the &lt;strong&gt;New&lt;/strong&gt; button on &lt;strong&gt;System variables&lt;/strong&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;em&gt;PATH&lt;/em&gt;, then click the &lt;em&gt;Edit&lt;/em&gt; button. Go to the last character of the existing entry, then add &lt;code class=&quot;codeblock&quot;&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.&lt;/code&gt;&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have local admin rights on the machine, click the &lt;strong&gt;New&lt;/strong&gt; button on &lt;strong&gt;System variables&lt;/strong&gt; section. On the variable name, type &lt;em&gt;ANDROID_HOME&lt;/em&gt;. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find &lt;strong&gt;PATH&lt;/strong&gt;, then click the &lt;strong&gt;Edit&lt;/strong&gt; button. Go to the last character of the existing entry, then append the following&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type “android”, it should launch the SDK manager&lt;/p&gt;
 
 &lt;p&gt;Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Next »&lt;/strong&gt; &lt;a href=&quot;/android-virtual-device&quot;&gt;Virtual Device&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -11864,7 +11953,15 @@ This content has moved. You can view it using the link below
    <link href="http://thelogbox.com/javascript-docco-for-java-files"/>
    <updated>2012-07-14T00:00:00+08:00</updated>
    <id>http://thelogbox.com/javascript-docco-for-java-files</id>
-   <content type="html">&lt;p&gt;Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won’t work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are &lt;a href=&quot;https://github.com/Krilivye/Jocco&quot;&gt;Jocco&lt;/a&gt; and &lt;a href=&quot;http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/&quot;&gt;Marginalia (for Clojure)&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Docco is a quick-and-dirty, hundred-line-long, literate-programming-style documentation generator. It produces HTML that displays your comments alongside your code. It can be used to generate documentation for JavaScript, CoffeeScript, Python and Ruby. But it won’t work for Java source files. There are ports of this script so that it can work with other languages, including Java, some prominent projects are &lt;a href=&quot;https://github.com/Krilivye/Jocco&quot;&gt;Jocco&lt;/a&gt; and &lt;a href=&quot;http://blog.fogus.me/2011/01/05/the-marginalia-manifesto/&quot;&gt;Marginalia (for Clojure)&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The solution on this page is a hack. It is not a port of Docco for Java the way Jocco or Marginalia is. There, you’ve been warned.&lt;/p&gt;
 
@@ -11912,6 +12009,14 @@ This content has moved. You can view it using the link below
 		&lt;span class=&quot;nx&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;//&amp;#39;&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.&lt;/p&gt;
 
@@ -12827,215 +12932,258 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/android-database-programming-basics"/>
    <updated>2012-06-22T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-database-programming-basics</id>
-   <content type="html">&lt;p&gt;While there exist a class of applications that do not use databases, they are few. It’s almost an automatic expectation that a programmer knows how to deal with databases. &lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;While there exist a class of applications that do not use databases, they are few. It’s almost an automatic expectation that a programmer knows how to deal with databases. &lt;/p&gt;
 
 &lt;p&gt;We will use the built-in database of Android, &lt;strong&gt;SQLite&lt;/strong&gt;. To use this database, we simply need to declare it in our &lt;em&gt;import&lt;/em&gt; statements. This db is baked right into Android. There are no third party installs necessary.&lt;/p&gt;
 
 &lt;p&gt;If your background in Java database programming is JDBC or Hibernate or something else, there is a slight adjustment you need to make. You won’t be able to use JDBC in Android. There is no JDBC in here. Don’t worry too much. The SQLite API is not terribly difficult. It won’t take you an afternoon to learn the basics.&lt;/p&gt;
 
-&lt;h1 id=&quot;our-goals&quot;&gt;OUR GOALS&lt;/h1&gt;
+&lt;h2 id=&quot;goals&quot;&gt;1. Goals&lt;/h2&gt;
 
-&lt;p&gt;To Display a simple form to the user. Let him type anything he wants on a free-form editable UI widget &lt;em&gt;(an EditText)&lt;/em&gt;.  &lt;/p&gt;
+&lt;p&gt;To Display a simple form to the user. Let him type anything he wants on a free-form editable UI widget, an EditText View. &lt;/p&gt;
 
-&lt;p&gt;To Get the runtime value of the &lt;em&gt;EditText&lt;/em&gt; and insert it as a record in the database. Afterwhich, read the whole table and display the contents in scrollable, non-editable widget &lt;em&gt;(TextView)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To Get the runtime value of the EditText and insert it as a record in the database. Afterwhich, read the whole table and display the contents in scrollable, non-editable widget, a &lt;strong&gt;TextView&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;concepts&quot;&gt;CONCEPTS&lt;/h1&gt;
+&lt;h2 id=&quot;basic-concepts&quot;&gt;2. Basic Concepts&lt;/h2&gt;
 
-&lt;p&gt;The class &lt;em&gt;SQLiteOpenHelper&lt;/em&gt; is the middle-man that stands between your application logic and the database. You will use this to &lt;em&gt;create and upgrade a database&lt;/em&gt;. You will also use it to get a handle on a readable database and writable database — think of it as a replacement of the Connection object in JDBC.  &lt;/p&gt;
+&lt;p&gt;The class &lt;strong&gt;SQLiteOpenHelper&lt;/strong&gt; is the middle-man that stands between your application logic and the database. You will use this to create and upgrade a database. You will also use it to get a handle on a readable and writable database. Think of it as a replacement of the Connection object in JDBC. &lt;/p&gt;
 
-&lt;p&gt;Another class used in this example is the &lt;em&gt;SQLiteDatabase&lt;/em&gt;. Think of it as the equivalent of the Statement object in JDBC. When you need to perform raw SQL statements, this is the class to use. &lt;/p&gt;
+&lt;p&gt;Another class used in this example is the &lt;strong&gt;SQLiteDatabase&lt;/strong&gt;. Think of it as the equivalent of the Statement object in JDBC. When you need to perform raw SQL statements, this is the class to use. &lt;/p&gt;
 
-&lt;p&gt;Once we have created the database using &lt;em&gt;SQLiteOpenHelper&lt;/em&gt; and captured some info from the UI, we need to deal with data retrieval. We need to find a way to get a handle on a readable database, pass a query to it, get the result of the query and save it somewhere else. The &lt;em&gt;Cursor&lt;/em&gt; object is what we will use to store the results of the query. In JDBC you might remember this as the &lt;em&gt;ResultSet&lt;/em&gt; object.  &lt;/p&gt;
+&lt;p&gt;Once we have created the database using &lt;strong&gt;SQLiteOpenHelper&lt;/strong&gt; and captured some info from the UI, we need to deal with data retrieval. We need to find a way to get a handle on a readable database, pass a query to it, get the result of the query and save it somewhere else. The &lt;strong&gt;Cursor&lt;/strong&gt; object is what we will use to store the results of the query. In JDBC you might remember this as the &lt;strong&gt;ResultSet&lt;/strong&gt; object. &lt;/p&gt;
 
-&lt;p&gt;Once we have a &lt;em&gt;Cursor&lt;/em&gt;, we can simply iterate through it to process the contents of the database. &lt;/p&gt;
+&lt;p&gt;Once we have a Cursor, we can simply iterate through it to process the contents of the database. &lt;/p&gt;
 
-&lt;h1 id=&quot;how-to-do-it&quot;&gt;HOW TO DO IT&lt;/h1&gt;
+&lt;h2 id=&quot;how-to&quot;&gt;3. How to&lt;/h2&gt;
 
 &lt;p&gt;Create a new android project for this exercise. Add the appropriate View elements like TextView, EditText and Button.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;$ android create project --target 15 --activity DbSample --path dbsample  --package com.thelogbox&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ android create project --target 15 --activity DbSample --path dbsample  --package com.thelogbox
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;vertical&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;p&gt;To build a basic UI for our project, we can use the following code inside our &lt;strong&gt;project_folder/res/layout/main.xml&lt;/strong&gt;&lt;/p&gt;
 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;EditText&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/todoedit&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
 
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;ScrollView&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;10&amp;quot;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;  
-    		&lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt; 
-    		&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; 
-    		&lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I have nothing&amp;quot;&lt;/span&gt;
-			&lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/tododisplay&amp;quot;&lt;/span&gt;
-    	&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ScrollView&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Add item&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/btnadd&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:onClick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;recAdd&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_weight=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &amp;gt;
 
-&lt;div id=&quot;lst&quot;&gt;main.xml generated by the project&lt;/div&gt;
+  &amp;lt;EditText
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:id=&quot;@+id/todoedit&quot;
+    android:layout_weight=&quot;0&quot;
+  /&amp;gt;
 
-&lt;p&gt;The &lt;em&gt;TextView&lt;/em&gt; component is embedded in a &lt;em&gt;ScrollView&lt;/em&gt; component so we can scroll through the contents of the TextView. The ScrollView acts like a viewport. We also used the &lt;em&gt;weight&lt;/em&gt; property of the layout so our viewport is given the biggest portion of the screen. See the note on &lt;a href=&quot;/android-layout-weights&quot;&gt;how to use weights to maximize screen space&lt;/a&gt;&lt;/p&gt;
+  &amp;lt;ScrollView
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_weight=&quot;10&quot;
+  &amp;gt;
 
-&lt;p&gt;The &lt;em&gt;Button’s&lt;/em&gt; onClick property is a method called &lt;code class=&quot;codeblock&quot;&gt;recAdd&lt;/code&gt; which we need to implement inside on the Activity class. &lt;/p&gt;
+    &amp;lt;TextView  
+        android:layout_width=&quot;fill_parent&quot; 
+        android:layout_height=&quot;wrap_content&quot; 
+        android:text=&quot;I have nothing&quot;
+      android:id=&quot;@+id/tododisplay&quot;
+      /&amp;gt;
+  &amp;lt;/ScrollView&amp;gt;
+  &amp;lt;Button
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;Add item&quot;
+    android:id=&quot;@+id/btnadd&quot;
+    android:onClick=&quot;recAdd&quot;
+    android:layout_weight=&quot;0&quot;
+/&amp;gt;
+&amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;sqliteopenhelper-class&quot;&gt;SQLiteOpenHelper class&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;TextView&lt;/strong&gt; component is embedded in a &lt;strong&gt;ScrollView&lt;/strong&gt; component so we can scroll through the contents of the TextView. The ScrollView acts like a viewport. We also used the &lt;strong&gt;weight&lt;/strong&gt; property of the layout so our viewport is given the biggest portion of the screen. See the note on &lt;a href=&quot;/android-layout-weights&quot;&gt;how to use weights to maximize screen space&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Create a class that extends the &lt;code class=&quot;codeblock&quot;&gt;SQLiteOpenHelper&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Button’s&lt;/strong&gt; onClick property is a method called &lt;strong&gt;recAdd()&lt;/strong&gt; which we need to implement inside on the Activity class. &lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SQLiteOpenHelper .java&lt;/span&gt;
+&lt;h3 id=&quot;the-sqlliteopenhelper-class&quot;&gt;3.1 The SQLLiteOpenHelper Class&lt;/h3&gt;
 
-&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thelogbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;Create a class that extends SQLiteOpenHelper&lt;/p&gt;
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;provider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;BaseColumns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.content.Context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.database.sqlite.SQLiteDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.database.sqlite.SQLiteOpenHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;// SQLiteOpenHelper .java
+
+package com.thelogbox;
+
+import static android.provider.BaseColumns._ID;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DbHelper&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SQLiteOpenHelper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+public class DbHelper extends SQLiteOpenHelper {
 
-	&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqlcreate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;CREATE TABLE todo( &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  String sqlcreate = &quot;CREATE TABLE todo( &quot; + _ID  + &quot; INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);&quot;;
 
 
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DbHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tododb.db&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SQLiteDatabase&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;execSQL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqlcreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onUpgrade&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SQLiteDatabase&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oldversion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newversion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;execSQL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;DROP TABLE IF EXISTS tododb.db&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-	
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  public DbHelper(Context ctx) {
+    super(ctx,&quot;tododb.db&quot;,null, 1);
+  }
+  
+  @Override
+  public void onCreate(SQLiteDatabase db) {
+    db.execSQL(sqlcreate);
+  }
+  
+  @Override
+  public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
+    db.execSQL(&quot;DROP TABLE IF EXISTS tododb.db&quot;);
+    onCreate(db);
+  }
+  
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;You need to do &lt;strong&gt;3 things&lt;/strong&gt; at a minimum when defining a SQLiteOpenHelper.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;First&lt;/strong&gt;. Define a public constructor that accepts a Context object.  This context is the context of the &lt;em&gt;Activity&lt;/em&gt; class where you will instantiate the Helper class. Call the super constructor so that you don’t break the chain. The first parameter to super constructor is the &lt;em&gt;context object&lt;/em&gt; — you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed &lt;em&gt;null&lt;/em&gt; to it. &lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Define a public constructor&lt;/strong&gt; that accepts a Context object.  This context is the context of the &lt;em&gt;Activity&lt;/em&gt; class where you will instantiate the Helper class. Call the super constructor so that you don’t break the chain. The first parameter to super constructor is the &lt;em&gt;context object&lt;/em&gt; — you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed &lt;em&gt;null&lt;/em&gt; to it. &lt;/p&gt;
 
 &lt;p&gt;The last parameter is an integer value which stands for the database version. I placed one (1) because it is my first version of this database. When you revise the schema of the database, increase this value by one so that the &lt;em&gt;onUpgrade()&lt;/em&gt; method kicks in—it will perform some sort of an ALTER database command in your behalf.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Second&lt;/strong&gt;, override the onCreate() method. This is where you can execute DDL (SQL Data Definition) commands against the database. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Override the onCreate()&lt;/strong&gt; method. This is where you can execute DDL (SQL Data Definition) commands against the database. &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Third&lt;/strong&gt;, Override the onUpgrade() method, even if you won’t need it yet. You won’t be able to compile unless you override this method&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Override the onUpgrade()&lt;/strong&gt; method, even if you won’t need it yet. You won’t be able to compile unless you override this method&lt;/p&gt;
 
-&lt;h2 id=&quot;the-activity-class&quot;&gt;THE ACTIVITY CLASS&lt;/h2&gt;
+&lt;h3 id=&quot;the-activity-class&quot;&gt;3.2 The Activity Class&lt;/h3&gt;
 
-&lt;p&gt;We will use an instance of  &lt;code class=&quot;codeblock&quot;&gt;SQLiteOpenHelper&lt;/code&gt; for reading and writing to the database&lt;/p&gt;
+&lt;p&gt;We will use an instance of SQLiteOpenHelper class for reading and writing to the database&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Activity .java}&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;// Activity .java}
 
-&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thelogbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+package com.thelogbox;
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.app.Activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.content.Context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.thelogbox.DbHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.content.ContentValues&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.database.sqlite.SQLiteDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.database.Cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.widget.TextView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.widget.EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DbSample&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.content.Context; 
+import com.thelogbox.DbHelper;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+import android.widget.TextView;
+import android.widget.EditText;
 
 
-	&lt;span class=&quot;n&quot;&gt;DbHelper&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;SQLiteDatabase&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbwrite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;SQLiteDatabase&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	
-	&lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	
+public class DbSample extends Activity {
 
-   &lt;span class=&quot;cm&quot;&gt;/** Called when the activity is first created. */&lt;/span&gt;
-   &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    		
-    	&lt;span class=&quot;n&quot;&gt;dh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DbHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;dbwrite&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getWritableDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;dbread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getReadableDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    	
-		&lt;span class=&quot;c1&quot;&gt;// you cannot put the findViewById here, it causes errors&lt;/span&gt;
-    	
-		&lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  DbHelper dh;
+  SQLiteDatabase dbwrite;
+  SQLiteDatabase dbread;
+  
+  EditText input;
+  TextView output;
+  
+
+   /** Called when the activity is first created. */
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+        
+      dh = new DbHelper(getApplicationContext());
+      dbwrite = dh.getWritableDatabase();
+      dbread = dh.getReadableDatabase();
+      
+    // you cannot put the findViewById here, it causes errors
+      
+    super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+    }
     
     
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;recAdd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    public void recAdd(View v) {
 
-    	&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;todoedit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tododisplay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemtoadd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;		
-		
-		&lt;span class=&quot;n&quot;&gt;ContentValues&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ContentValues&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;item&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemtoadd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;dbwrite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insertOrThrow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temptext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-		
-		&lt;span class=&quot;c1&quot;&gt;//Write the dbExtraction routine here&lt;/span&gt;
-		
-		&lt;span class=&quot;c1&quot;&gt;//temptext = temptext + &amp;quot;\n&amp;quot;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getTodos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-		
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      input = (EditText) findViewById(R.id.todoedit);
+      output = (TextView) findViewById(R.id.tododisplay);
     
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getTodos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    	
-    	&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;item&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;Cursor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dbread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;item&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    	&lt;span class=&quot;n&quot;&gt;startManagingCursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    	
-    	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;moveToNext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    		&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    		&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    String itemtoadd = input.getText().toString();    
+    
+    ContentValues cv = new ContentValues();
+    cv.put(&quot;item&quot;, itemtoadd);
+    dbwrite.insertOrThrow(&quot;todo&quot;,null,cv);
+    
+    String temptext = (String) output.getText();
+    
+    //Write the dbExtraction routine here
+    
+    //temptext = temptext + &quot;\n&quot;;
+    output.setText(getTodos());
+    
+    }
+    
+    private String getTodos() {
+      
+      String cols[] = {&quot;item&quot;};
+      StringBuilder sb = new StringBuilder(&quot;&quot;);
+      Cursor cursor = dbread.query(&quot;todo&quot;,cols,null,null,null,null,&quot;item&quot;);
+      startManagingCursor(cursor);
+      
+      while(cursor.moveToNext()) {
+        sb.append(cursor.getString(0));
+        sb.append(&quot;\n&quot;);
+      }
+      return sb.toString();
+    }
+}
 
-&lt;p&gt;&lt;em&gt;DBSample&lt;/em&gt; is a regular &lt;em&gt;Activity&lt;/em&gt; class. It’s bad coding practice to embed the database logic in the UI, but were just starting out to learn about databases in Android, we will let it pass for now. If we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;DBSample&lt;/strong&gt; is a regular Activity class. It’s bad coding practice to embed the database logic in the UI, but were just starting out to learn about databases in Android, we will let it pass for now. If we partition this app properly and use the nice design patterns, we will have more code to deal with (and to understand).&lt;/p&gt;
 
 &lt;p&gt;We instantiated the DbHelper class so that we can create the database during our first run of this app. We also used the DbHelper to create 2 SQLiteDatabase objects, one for reading (dbread) and another for writing (dbwrite). &lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;codeblock&quot;&gt;recAdd&lt;/code&gt; method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively. &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;recAdd()&lt;/strong&gt; method starts out by getting the object references to the EditText and TextView components, todoedit and tododisplay respectively. &lt;/p&gt;
 
-&lt;p&gt;Once we extracted whatever the user typed inside the EditText via &lt;code class=&quot;codeblock&quot;&gt;getText()&lt;/code&gt; method, we stored it inside &lt;em&gt;itemtoadd&lt;/em&gt; String variable. &lt;/p&gt;
+&lt;p&gt;Once we extracted whatever the user typed inside the EditText via &lt;strong&gt;getText()&lt;/strong&gt; method, we stored it inside the &lt;strong&gt;itemtoadd&lt;/strong&gt; String variable. &lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;codeblock&quot;&gt;ContentValues&lt;/code&gt; object is some sort of a Dictionary data structure (key value pair), this data structure is required by the &lt;em&gt;insert&lt;/em&gt; method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don’t have to use the &lt;code class=&quot;codeblock&quot;&gt;insertOrThrow&lt;/code&gt; method if you don’t want to, you can insert a record to the database using raw SQL. If you pass an &lt;em&gt;INSERT INTO todo …&lt;/em&gt; inside an &lt;code class=&quot;codeblock&quot;&gt;execSQL&lt;/code&gt; method, that will do the job just as well.  &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;ContentValues&lt;/strong&gt; object is some sort of a Dictionary data structure (key value pair), this data structure is required by the &lt;strong&gt;insert()&lt;/strong&gt; method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don’t have to use the &lt;strong&gt;insertOrThrow()&lt;/strong&gt;&amp;lt; method if you don’t want to, you can insert a record to the database using raw SQL. If you pass an INSERT SQL command inside the &lt;strong&gt;execSQL()&lt;/strong&gt; method, that will do the job just as well.&lt;/p&gt;
 
-&lt;p&gt;Compile and Test the project — &lt;code class=&quot;codeblock&quot;&gt;ant debug install&lt;/code&gt;. The &lt;em&gt;codeonCreate()&lt;/em&gt; method of DbHelper should kick in the first time your app issues a db related command. &lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Compile and Test the project&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ant debug install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;codeonCreate()&lt;/strong&gt;* method of DbHelper should kick in the first time your app issues a db related command. &lt;/p&gt;
+
 </content>
  </entry>
  
@@ -13224,7 +13372,15 @@ brew install lame
    <link href="http://thelogbox.com/problem-issh-vim-ipad"/>
    <updated>2012-04-11T00:00:00+08:00</updated>
    <id>http://thelogbox.com/problem-issh-vim-ipad</id>
-   <content type="html">&lt;p&gt;I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.&lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;I needed to login to a linux machine using an iPad. Preferably, I should also be able to use a screen multiplexer for editing source files and for other stuff. This is the reason I bought iSSH, then eventually Prompt.&lt;/p&gt;
 
 &lt;h2 id=&quot;issues-with-issh&quot;&gt;Issues with iSSH&lt;/h2&gt;
 
@@ -13237,6 +13393,14 @@ brew install lame
 &lt;p&gt;Later, after inspecting my &lt;em&gt;.vimrc&lt;/em&gt; on the target machine, I found out that I had a &lt;code class=&quot;codeblock&quot;&gt;:set columns=100&lt;/code&gt;. This was causing the wobbling and the display of weird characters  in iSSH. My iSSH screen settings was not wide enough to accomodate 100 columns as set in my .vimrc. I did not want to change my .vimrc hence, I just enlarged my screen size in iSSH (how to do to this)&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/img/issh-2.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;The CTRL key doesn’t work, I actually still don’t know how to make it work. Yes, I have enabled Options Mapping. &lt;/p&gt;
 
@@ -14755,7 +14919,15 @@ $ sudo mount servername:/mnt/badass ~/mymount
    <link href="http://thelogbox.com/install-kyocera-km1820-osx"/>
    <updated>2009-04-10T00:00:00+08:00</updated>
    <id>http://thelogbox.com/install-kyocera-km1820-osx</id>
-   <content type="html">&lt;h2 id=&quot;what-you-need&quot;&gt;What you need&lt;/h2&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-you-need&quot;&gt;What you need&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The KPDL driver of Kyocera, you can download it at &lt;a href=&quot;http://www.kyoceramita.co.uk/index/products/download_centre.false.driver.FS1118MFP._.EN.html#&quot;&gt;kyocera&lt;/a&gt;&lt;/li&gt;
@@ -14808,7 +14980,15 @@ $ sudo mount servername:/mnt/badass ~/mymount
    <link href="http://thelogbox.com/install-clp315-on-linux-print-server"/>
    <updated>2009-04-07T00:00:00+08:00</updated>
    <id>http://thelogbox.com/install-clp315-on-linux-print-server</id>
-   <content type="html">&lt;p&gt;These steps will install the Samsung CLP 315 on a headless Linux Server. &lt;/p&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;These steps will install the Samsung CLP 315 on a headless Linux Server. &lt;/p&gt;
 
 &lt;p&gt;You will need a properly configured CUPS server before proceeding. If you haven’t configured a printer server yet, &lt;a href=&quot;/easy-way-to-install-print-server-linux&quot;&gt;read this one first&lt;/a&gt; then come back. You will also need an internet connection for this one. There are some files to download.&lt;/p&gt;
 
@@ -14825,15 +15005,22 @@ $ sudo mount servername:/mnt/badass ~/mymount
 
 &lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;/h2&gt;
 
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
 &lt;p&gt;Copy the rastertosamsungsplc ppd file to the &lt;em&gt;/usr/lib/cups/filter&lt;/em&gt; folder &lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
-$ cd /path/to/where/rastertosamsungsplc-is/
+&lt;pre&gt;&lt;code&gt;$ cd /path/to/where/rastertosamsungsplc-is/
 $ cp rastertosamsungsplc /usr/lib/cups/filterrastertosamsungsplc
 $ sudo /etc/init.d/cupsd restart
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type &lt;em&gt;http://NameOfPrintServer:631&lt;/em&gt;. Click &lt;em&gt;Administration –&amp;gt; Add Printer&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type &lt;strong&gt;http://NameOfPrintServer:631&lt;/strong&gt;. Click &lt;strong&gt;Administration&lt;/strong&gt; → &lt;strong&gt;Add Printer&lt;/strong&gt; &lt;/p&gt;
 </content>
  </entry>
  
@@ -14879,6 +15066,14 @@ $ sudo /etc/init.d/cupsd restart
   &lt;li&gt;Power the voice recorder. Put in record mode (you can press the pause button so that it actually doesn’t record, we just need the mic)&lt;/li&gt;
   &lt;li&gt;Test it. I tested mine by using it in a skype call. In fact, that was the only reason I needed a microphone for the Mac Mini&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 </content>
  </entry>

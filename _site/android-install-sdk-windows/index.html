@@ -700,7 +700,15 @@ iframe {display:block;}
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.</p>
+		    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- 468pxby60banner -->
+<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+
+<p>This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.</p>
 
 <p>I’m assuming further that these tools are properly resolvable from any terminal window. That means the executable files are already part of the system path.</p>
 
@@ -710,49 +718,62 @@ iframe {display:block;}
 
 <p>If that is still not clear enough, you can look at the <a href="https://docs.google.com/document/d/1AS8OoJJnRIIyEvi8lG6I8iF0PEt1-UolvQGtVevrJg4/edit?usp=sharing">setup instructions I wrote for my students here</a></p>
 
-<hr class="section" />
+<p><strong>Download</strong> the installer from <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files</p>
 
-<p><strong>DOWNLOAD THE INSTALLER</strong> from <a href="http://developer.android.com/sdk/index.html">Android SDK from android.developer.com</a>. Choose your platform. The Windows platform offers two options, a zipped file and an .EXE file (which is recommended). If you know where the EXE installer will place the Android executables, go ahead and get the EXE version. If you want to control the location of the Android files</p>
+<p><strong>Unzip</strong> the downloaded file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside </p>
 
-<p><strong>GET THE ZIPPED FILE</strong>. Unzip the file to a user directory (so that you will not need elevated privileges to use the executable files). The user directories are usually inside </p>
+<pre><code>C:\User\yourname\ 
+</code></pre>
 
-<pre class="codeblock">
-C:\User\yourname\ 
-</pre>
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<p>Try to remember the full path of the directory where you unzipped the Android SDK, this will be the ANDROID_HOME</p>
+<!-- 468pxby60banner -->
+<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
 
-<p><strong>GET A TERMINAL WINDOW</strong>, launch cmd.exe. Go to the ANDROID-HOME/tools directory, then run the <code class="codeblock">android</code> executable. This will launch the Android SDK Manager. </p>
+<p>Try to remember the full path of the directory where you unzipped the Android SDK, from hereon forward, we will refer to that directory as <strong>ANDROID_HOME</strong></p>
+
+<p><strong>Get a terminal window</strong>, launch cmd.exe. Go to the <strong>ANDROID-HOME</strong>/tools directory, then run the <strong>android</strong> command. This will launch the Android SDK Manager windows. </p>
 
 <p>The SDK manager needs an internet connection. It connects to the android.developer.com website and checks which SDK levels are installed in your machine. Naturally, if you have installed the SDK just now, there won’t be much. Choose the API levels that you would like to install in your machine.</p>
 
 <p>Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API level. If you want to install the Froyo SDK, for example, then check the box next to API level 8 (Android version 2.2). If you have really fast internet connection and you are not sure which API to check, check them all. This will take some time to complete. </p>
 
-<p><strong>MODIFY THE SYSTEM PATH</strong>. Include the <em>android tools</em> and <em>platform tools</em> in the executable path. You will need it if you want to work with android using the command line. The two folders of interest are <strong>ANDROID-HOME/tools</strong> and <strong>ANDROID-HOME/platform-tools</strong></p>
+<p><strong>Update your system path</strong>. Include the <strong>ANDROID_HOME</strong>/android tools and <strong>ANDROID_HOME</strong>/platform-tools folders in the system path. You will need it if you want to work with android using the command line.</p>
 
 <p>There are two ways to set the PATH in Windows. The first method is via the command line (cmd.exe).</p>
 
-<pre class="codeblock"> 
-SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
-  
+<pre><code>SET ANDROID_HOME=c:\&gt;path\where\you\installed\android\
 SET PATH=%PATH%;%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
-</pre>
+</code></pre>
 
 <p>You will run these commands each time you will open a new terminal window. Those settings are not remembered by the shell.</p>
 
 <p>If you want to permanently set the PATH to android tools, you need to do it in the System Properties dialog box. </p>
 
-<p>First, open Control Panel, go to System Properties, then Advanced System Settings then click the button <em>Environment variables</em></p>
+<p>First, open Control Panel, go to System Properties, then Advanced System Settings then click the button <strong>Environment variables</strong></p>
 
 <p><img class="shadow" src="/img/windows-environment-variables.png" /></p>
 
-<p>If you have local admin rights on the machine, click the <strong>New</strong> button on <strong>System variables</strong> section. On the variable name, type <em>ANDROID_HOME</em>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <em>PATH</em>, then click the <em>Edit</em> button. Go to the last character of the existing entry, then add <code class="codeblock">%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.</code></p>
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- 468pxby60banner -->
+<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+
+<p>If you have local admin rights on the machine, click the <strong>New</strong> button on <strong>System variables</strong> section. On the variable name, type <em>ANDROID_HOME</em>. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find <strong>PATH</strong>, then click the <strong>Edit</strong> button. Go to the last character of the existing entry, then append the following</p>
+
+<pre><code>%ANDROID_HOME%\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;.
+</code></pre>
 
 <p>Close the dialog window. To test if all the PATH is working as expected, get another cmd.exe window, then type “android”, it should launch the SDK manager</p>
 
 <p>Before you can deploy and test your apps, you need to setup either an android physical device or virtual device.</p>
 
-<p><strong>Next »</strong> <a href="/android-virtual-device">Virtual Device</a></p>
 
         </div>					
 		  </div>

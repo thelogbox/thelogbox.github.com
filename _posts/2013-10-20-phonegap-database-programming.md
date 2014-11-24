@@ -14,6 +14,17 @@ tags:
 
 ---
 
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 There are two ways to persist data on PhoneGap. One is to use *local storage* and the other, *WebSQL*. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  
 
 The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that's why SQL programming is almost a baseline capability for developers.
@@ -119,6 +130,18 @@ Now click the *Resources* tab. You should see something like this.
 
 ![Database Creation](/img/phonegap/database-creation-resources.png)
 
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
 Under *WebSQL* you can see that there is a newly created *tasks* database. This means our code ran as expected. 
 
 You can try to refresh the page or run the JavaScript code over and over, but it won't create another *tasks* database &mdash; if that was you were expecting. The `openDatabase` command only creates a database file (*tasks.db*, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The `openDatabase()` function is used both to create a not yet existing database file and to open an existing one.
@@ -167,6 +190,16 @@ window.onload = function(){
 {% endhighlight %}
 
 You will use the *transaction()* function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the *executeSql()* function which in turn contains the actual SQL commands.
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an *error* object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.
 

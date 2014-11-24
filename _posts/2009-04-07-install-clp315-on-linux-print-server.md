@@ -13,6 +13,16 @@ tags:
 
 ---
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 These steps will install the Samsung CLP 315 on a headless Linux Server. 
 
 You will need a properly configured CUPS server before proceeding. If you haven't configured a printer server yet, [read this one first](/easy-way-to-install-print-server-linux) then come back. You will also need an internet connection for this one. There are some files to download.
@@ -28,12 +38,22 @@ You will need a properly configured CUPS server before proceeding. If you haven'
 
 ## Configuration
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 Copy the rastertosamsungsplc ppd file to the */usr/lib/cups/filter* folder 
 
-<pre class="codeblock">
+~~~~
 $ cd /path/to/where/rastertosamsungsplc-is/
 $ cp rastertosamsungsplc /usr/lib/cups/filterrastertosamsungsplc
 $ sudo /etc/init.d/cupsd restart
-</pre>
+~~~~
 
-At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type *http://NameOfPrintServer:631*. Click *Administration --> Add Printer* 
+At this point, you can now start adding the CLP 315 as one of the printers to your CUPS server. Open a browser window (anywhere in your network) and type **http://NameOfPrintServer:631**. Click **Administration** &rarr; **Add Printer** 
