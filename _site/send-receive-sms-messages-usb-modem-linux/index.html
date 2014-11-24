@@ -81,12 +81,13 @@ body {
 }
 
 .feature-banner-text {
-  color:#222;
 /*  font-family: 'PT Sans'; */
   font-size:50px;
 /*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
+  /*color: #222; */
+  color: #676767;
 }
 
 .toc, .promo {
@@ -151,12 +152,13 @@ th, td {text-align: left;}
 
 .toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
-  /* color: #008385; */
-  color: #2c2c2c; 
+  /* color: #008385; 
+  color: #2c2c2c; */
+  color: #667CA3;
   text-decoration: none; 
   font-weight:300;}
 .toc a:hover {
-  color:brown; 
+  color:#000; 
   text-decoration:underline;
 }
 
@@ -343,8 +345,9 @@ pre.code {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {
-  /*color: #008385;*/
-  color: brown; 
+  /*color: #008385; 
+  color: brown; */
+  color: #667CA3;
   text-decoration: underline; 
   font-weight:300;}
 
@@ -497,14 +500,14 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: #008385;}
+.toc ul { color: #667CA3;}
 
 
 
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
-    width: 99%;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -526,7 +529,7 @@ iframe {display:block;}
   }
   
   #wrap, .toc, .promo {
-    width: 95%;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -576,6 +579,8 @@ iframe {display:block;}
     -webkit-column-count:2 
   }
  */
+
+ /*
   code {font-size: 1.3em;}
   
   h1 {font-size: 1.8em;}
@@ -583,6 +588,7 @@ iframe {display:block;}
   h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
+  */
   .toc {
     width: 24%;
     float:right;
@@ -630,6 +636,12 @@ iframe {display:block;}
   font-weight:normal;
   margin-top:30px;
 }
+  .running-head a:link, .running-head a:visited {
+    color: #ccc;
+  }
+  .running-head a:hover {
+    color: #000;
+  }
 
 .postinfo {
   margin-top: 30px;
@@ -648,7 +660,7 @@ iframe {display:block;}
 
     <div id="wrap">
       <div class="running-head">
-      /linux
+      <a href="/">theLogBox.com</a>/linux
      </div>
 
      <article itemscope itemtype="http://schema.org/Article" >
@@ -690,7 +702,12 @@ iframe {display:block;}
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <p>This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven’t tested that but I can see no reason why it should not work.</p>
+		    <p><!-- Begin BidVertiser code -->
+<script language="JavaScript1.1" src="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&amp;bid=1589518" type="text/javascript"></script></p>
+<noscript><a href="http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm">xml search</a></noscript>
+<!-- End BidVertiser code -->
+
+<p>This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven’t tested that but I can see no reason why it should not work.</p>
 
 <p>First, we need to pull some software from the repositories. We will need <strong>gnokii-smsd-mysql</strong> and the <strong>mysql-server</strong>. </p>
 
@@ -741,6 +758,14 @@ mysql&gt; create database smsgw;
 mysql&gt; use smsgw;
 mysql&gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 </code></pre>
+
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- 468pxby60banner -->
+<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
 
 <h2 id="sending-and-receiving-sms">Sending and Receiving SMS</h2>
 
@@ -817,7 +842,7 @@ mysql&gt; select * from inbox;
 -->
 
 <div style="text-align:center;">
-  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+  <a href="/index.html">/home</a> &nbsp; <a href="/search">/search</a>
 </div>
 </footer>
     <script type="text/javascript">

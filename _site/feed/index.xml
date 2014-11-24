@@ -5,13 +5,67 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-20T23:21:08+08:00</updated>
+ <updated>2014-11-25T00:01:49+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Server Creation in Eclipse</title>
+   <link href="http://thelogbox.com/websphere/server-creation-eclipse"/>
+   <updated>2014-11-21T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/websphere/server-creation-eclipse</id>
+   <content type="html">&lt;p&gt;Launch Eclipse. On the menu, click  &lt;strong&gt;File &amp;gt; Other&lt;/strong&gt;. This will take you to the selection wizard. Choose &lt;strong&gt;Server&lt;/strong&gt;. Note, do not choose the Liberty Profile configuration option. That is not what we need&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Define a new server. Choose &lt;strong&gt;WebSphere Application Server Liberty Profile&lt;/strong&gt;. You need to provide the &lt;strong&gt;Server’s hostname&lt;/strong&gt; and a &lt;strong&gt;Server name&lt;/strong&gt;. These have reasonable defaults anyway but you can change them if you like. &lt;/p&gt;
+
+&lt;p&gt;The Server’s hostname defaults to &lt;strong&gt;localhost&lt;/strong&gt;, that is because most of the time, you will run the Liberty profile server on the same machine where you are running Eclipse. If you will test the Liberty profile serve from machine other than where you are running Eclipse, change the Server’s hostname to a machine IP address or to a hostname that is resolvable within your local area network.&lt;/p&gt;
+
+&lt;p&gt;The Server name is just a label so you can easily identify it within Eclipse. Put what you want in it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Set the &lt;strong&gt;Runtime Environment&lt;/strong&gt;. It will ask you to give a name for Server again, this is essentially the same Server name in the dialog window, just acccept the default name.&lt;/p&gt;
+
+&lt;p&gt;There are two options for the Runtime Environment. You can either download a Runtime Environment or use one that you have already installed. We have already installed a Runtime Environment when we did the &lt;strong&gt;Command Line installation&lt;/strong&gt; in the previous section.&lt;/p&gt;
+
+&lt;p&gt;If you choose to download a runtime, Eclipse will make a connection to the WAS Dev site and pull the runtime and extended jar files for the Liberty Profile. &lt;/p&gt;
+
+&lt;p&gt;We will choose not to download the Runtime at this time. We will use our previously downloaded jar files for the Liberty profile runtime. Click &lt;strong&gt;Browse&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click the &lt;strong&gt;Browse&lt;/strong&gt; button again.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The file you need is &lt;strong&gt;wlp-developers-runtime-XX.XX.jar&lt;/strong&gt;. This was downloaded previously from the &lt;a href=&quot;https://developer.ibm.com/wasdev/&quot;&gt;WAS Dev site&lt;/a&gt;. Choose the file then click the &lt;strong&gt;Open&lt;/strong&gt; button&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice the button on lower part of the screen that says &lt;strong&gt;Add Archive …&lt;/strong&gt;. Click that and choose the &lt;strong&gt;wlp-extended-XX.XX.jar&lt;/strong&gt; we have downloaded earlier. &lt;/p&gt;
+
+&lt;p&gt;You can choose the add-ons at this point. You can come back later to choose other add-ones so don’t worry about your choices now. Click the &lt;strong&gt;Next&lt;/strong&gt; button to proceed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally you will choose the installation folder for the runtime environment. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/wlp-define-server-9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click &lt;strong&gt;Finish&lt;/strong&gt;&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Creating Servers</title>
@@ -12733,7 +12787,15 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;h2 id=&quot;what-does-the-error-mean&quot;&gt;What does the error mean&lt;/h2&gt;
+   <content type="html">&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-does-the-error-mean&quot;&gt;What does the error mean&lt;/h2&gt;
 
 &lt;p&gt;It’s a compilation error. The Android SDK refuses to compile the app because, literally, it cannot find &lt;strong&gt;build.xml&lt;/strong&gt;. It may seem a bit tricky because if you look inside your android project, you will find a build.xml file. That is not the same xml file that the error is telling you about. The build.xml inside your project is actually importing another build.xml file. And it is looking for it in the &lt;strong&gt;SDK.DIR/tools/ant&lt;/strong&gt; directory. That’s the one it’s saying it can’t find. &lt;/p&gt;
 
@@ -12748,6 +12810,11 @@ class MyClass{}&lt;/p&gt;
 &lt;h2 id=&quot;prevention&quot;&gt;Prevention&lt;/h2&gt;
 
 &lt;p&gt;Did you notice the commented section of the local.properties file? It said “this file must not be checked into version control systems as it contains information specific to your local configuration etc”. Follow that advice. Include the local.properties on the .gitignore file, if you are using git. If you are using another VCS, follow the method of your VCS on how to exclude certain files from being checked in.&lt;/p&gt;
+
+&lt;p&gt;&lt;!-- Begin BidVertiser code --&gt;
+&lt;script language=&quot;JavaScript1.1&quot; src=&quot;http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&amp;amp;bid=1589518&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;a href=&quot;http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm&quot;&gt;xml search&lt;/a&gt;&lt;/noscript&gt;
+&lt;!-- End BidVertiser code --&gt;
 
 &lt;div class=&quot;video-container&quot;&gt;
 &lt;iframe src=&quot;//player.vimeo.com/video/108198684?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;500&quot; height=&quot;359&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
@@ -13202,7 +13269,12 @@ brew install lame
    <link href="http://thelogbox.com/send-receive-sms-messages-usb-modem-linux"/>
    <updated>2012-04-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/send-receive-sms-messages-usb-modem-linux</id>
-   <content type="html">&lt;p&gt;This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven’t tested that but I can see no reason why it should not work.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;!-- Begin BidVertiser code --&gt;
+&lt;script language=&quot;JavaScript1.1&quot; src=&quot;http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&amp;amp;bid=1589518&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;a href=&quot;http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm&quot;&gt;xml search&lt;/a&gt;&lt;/noscript&gt;
+&lt;!-- End BidVertiser code --&gt;
+
+&lt;p&gt;This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven’t tested that but I can see no reason why it should not work.&lt;/p&gt;
 
 &lt;p&gt;First, we need to pull some software from the repositories. We will need &lt;strong&gt;gnokii-smsd-mysql&lt;/strong&gt; and the &lt;strong&gt;mysql-server&lt;/strong&gt;. &lt;/p&gt;
 
@@ -13254,6 +13326,14 @@ mysql&amp;gt; use smsgw;
 mysql&amp;gt; \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;sending-and-receiving-sms&quot;&gt;Sending and Receiving SMS&lt;/h2&gt;
 
 &lt;p&gt;Run &lt;strong&gt;smsgw&lt;/strong&gt; daemon process &lt;/p&gt;
@@ -13283,7 +13363,12 @@ mysql&amp;gt; select * from inbox;
    <link href="http://thelogbox.com/what-port-am-i-using"/>
    <updated>2012-04-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/what-port-am-i-using</id>
-   <content type="html">&lt;p&gt;After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be &lt;strong&gt;Address already in use..&lt;/strong&gt;, &lt;strong&gt;Bind Exception&lt;/strong&gt;, &lt;strong&gt;Port 80 already in use&lt;/strong&gt; and other things that sounds like those. &lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;!-- Begin BidVertiser code --&gt;
+&lt;script language=&quot;JavaScript1.1&quot; src=&quot;http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&amp;amp;bid=1589518&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;a href=&quot;http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm&quot;&gt;xml search&lt;/a&gt;&lt;/noscript&gt;
+&lt;!-- End BidVertiser code --&gt;
+
+&lt;p&gt;After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be &lt;strong&gt;Address already in use..&lt;/strong&gt;, &lt;strong&gt;Bind Exception&lt;/strong&gt;, &lt;strong&gt;Port 80 already in use&lt;/strong&gt; and other things that sounds like those. &lt;/p&gt;
 
 &lt;p&gt;Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache’s port, you probably don’t need to read this guide. You already know what you are doing.&lt;/p&gt;
 
@@ -13304,6 +13389,14 @@ c:\&amp;gt;netstat -aon | findstr 0.0:80
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The line above is an example of what you could get after running the netstat command, &lt;strong&gt;560&lt;/strong&gt; is the process id of the application currently bound on port 80.  &lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 468pxby60banner --&gt;
+&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:inline-block;width:468px;height:60px&quot; data-ad-client=&quot;ca-pub-4627957463175380&quot; data-ad-slot=&quot;5760679882&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;To find out who is application 560, type the command &lt;/p&gt;
 

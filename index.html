@@ -1,55 +1,139 @@
----
-layout: layout
-title:  Tech Learning
----
-<!--
-<div class='feature-banner'>
-  BUILD TECH SKILLS. NOW. QUICKLY. EFFECTIVELY.
-</div>
--->
-<style>
-#outer {height:500px;}
-  .hcenter {
-  	height: 400px;
-  	position: relative;
-  	top: 50%;
-  	transform: translateY(-50%);
-    text-align:center;
-  }
-</style>
-
-<div id="outer">
-<div class="hcenter" >
-    
-    Tutorials &rarr; &nbsp;
-    <a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp; | &nbsp;
-    <a href="/android/android-key-concepts">Android</a> &nbsp; | &nbsp;
-    <a href="/javascript/javascript-introduction/">JavaScript</a> &nbsp; | &nbsp;
-    <a href="/html5-what-you-will-need">HTML5</a> &nbsp; | &nbsp;
-    <a href="">Java</a>  &nbsp; | &nbsp;
-    <a href="">JEE</a></p>
-
-    Inquire about a training &rarr; 
-    <a href="http://bit.ly/tlb-inquiry-form">(Inquiry Form)</a><p/>
-    <a href="/archives">Archives</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
   
-</div>
-</div>
+  <title>theLogBox - Tech Learning</title>
+  
+  <style>
+  
+  body, html {margin:0;padding:0;}
+  
+    body  { padding:100px 0; margin:0 auto; font-family: Georgia, Palatino, Times New Roman, sans-serif; }
+    #nav{
+      width: 100%;
+      list-style:none;
+      margin:0;
+      padding:0;
+      text-align:center;
+      background: #f1f1f1;
+    }
+    #nav li{
+      position:relative;
+      display:inline;
+      background: #f1f1f1;
+    }
+    #nav a{
+      display:inline-block;
+      padding:10px;
+    }
+    #nav ul{
+      position:absolute;
+      /*top:100%; Uncommenting this makes the dropdowns work in IE7 but looks a little worse in all other browsers. Your call. */
+      left:-9999px;
+      margin:0;
+      padding:0;
+      text-align:left;
+    }
+    #nav ul li{
+      display:block;
+    }
+    #nav li:hover ul{
+      left:0;
+    }
+    #nav li:hover a{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    #nav li:hover ul a{
+      text-decoration:none;
+      background:none;
+    }
+    #nav li:hover ul a:hover{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    #nav ul a{
+      white-space:nowrap;
+      display:block;
+      border-bottom:0px solid #ccc;
+    }
+    a{
+      color:#000;
+      text-decoration:none;
+      font-weight:normal;
+    }
+    a:hover{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    
+    .headline {
+      text-align:center;
+      font-family: 'Palatino','Helvetica Neue', Lucida Grande, Tahome, Arial;
+      font-weight: normal;
+      color: #dedede;
+      
+    }
+  </style>
+  
+</head>
 
-{% include ga.html %}
-{% include statcounter.html %}
+<body>
+  
+  <h1 class=headline>theLogBox.com</h1>
+  <ul id="nav">
+    <li><a href="/">/Tutorials</a>
+      <ul>
+        <li><a href="/android/android-key-concepts">Android</a></li>
+        <li><a href="#">Core Java</a></li>
+        <li><a href="#">Java EE</a></li>
+        <li><a href="/websphere/install-liberty-profile-stand-alone/">WebSphere</a></li>
+        <li><a href="/javascript/javascript-introduction/">JavaScript</a></li>
+        <li><a href="/html5-what-you-will-need">HTML5</a></li>
+        <li><a href="/mobile-app-development-phonegap"">PhoneGap</a></li>
+        <li><a href="#">Linux</a></li>
+        <li><a href="#">Mac</a></li>
+        <li><a href="#">WordPress</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/about/">/Trainings</a>
+      <ul>
+        <li><a href="#">Android Programming</a></li>
+        <li><a href="#">Java Enterprise Edition</a></li>
+        <li><a href="#">WebSphere for Developers</a></li>
+        <li><a href="#">JavaScript and HTML5 Canvas</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/portfolio/">/Books</a>
+      <ul>
+        <li><a href="#">Minimum Android Programming</a></li>
+        <li><a href="#">Java Lessons</a></li>
+        <li><a href="#">Liberty Profile QuickStart</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/portfolio/">/About</a>
+      <ul>
+        <li><a href="#">About theLogBox</a></li>
+        <li><a href="#">About Ted</a></li>
+      </ul>
+    </li>
+    <li><a href="/archives/">Contact us</a></li>
+  </ul>
+  
 
-<!--
-
-<hr/>
-
-<div id="feature">
-  <div class='feature-title'>
-    Server Side JS with NODE
-  </div>
-  <div class='feature-article'>
-    This 
-  </div>
-</div>
-
--->
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-1856861-4");
+    pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+</body>
+</html>

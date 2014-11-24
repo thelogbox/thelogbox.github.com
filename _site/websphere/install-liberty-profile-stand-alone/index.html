@@ -81,12 +81,13 @@ body {
 }
 
 .feature-banner-text {
-  color:#222;
 /*  font-family: 'PT Sans'; */
   font-size:50px;
 /*  font-weight:700; */
   line-height:135%;
   letter-spacing: -1.3px;
+  /*color: #222; */
+  color: #676767;
 }
 
 .toc, .promo {
@@ -151,12 +152,13 @@ th, td {text-align: left;}
 
 .toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
-  /* color: #008385; */
-  color: #2c2c2c; 
+  /* color: #008385; 
+  color: #2c2c2c; */
+  color: #667CA3;
   text-decoration: none; 
   font-weight:300;}
 .toc a:hover {
-  color:brown; 
+  color:#000; 
   text-decoration:underline;
 }
 
@@ -343,8 +345,9 @@ pre.code {
 /* color of a:link previously #3a5d9f */
 
 a:link, a:visited {
-  /*color: #008385;*/
-  color: brown; 
+  /*color: #008385; 
+  color: brown; */
+  color: #667CA3;
   text-decoration: underline; 
   font-weight:300;}
 
@@ -497,14 +500,14 @@ iframe {display:block;}
 	height: 100%;
 }
 
-.toc ul { color: #008385;}
+.toc ul { color: #667CA3;}
 
 
 
 @media (min-width: 650px) {
   
   #wrap, .toc, .promo {
-    width: 99%;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -526,7 +529,7 @@ iframe {display:block;}
   }
   
   #wrap, .toc, .promo {
-    width: 95%;
+    width: 97%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -576,6 +579,8 @@ iframe {display:block;}
     -webkit-column-count:2 
   }
  */
+
+ /*
   code {font-size: 1.3em;}
   
   h1 {font-size: 1.8em;}
@@ -583,6 +588,7 @@ iframe {display:block;}
   h3 {font-size: 1.4em; }
   h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
 
+  */
   .toc {
     width: 24%;
     float:right;
@@ -630,6 +636,12 @@ iframe {display:block;}
   font-weight:normal;
   margin-top:30px;
 }
+  .running-head a:link, .running-head a:visited {
+    color: #ccc;
+  }
+  .running-head a:hover {
+    color: #000;
+  }
 
 .postinfo {
   margin-top: 30px;
@@ -648,7 +660,7 @@ iframe {display:block;}
 
     <div id="wrap">
       <div class="running-head">
-      /websphere
+      <a href="/">theLogBox.com</a>/websphere
      </div>
        
      <article itemscope itemtype="http://schema.org/Article" >
@@ -769,7 +781,11 @@ iframe {display:block;}
       <ul>
       <li><a href="#">Introduction</a></li>
       <li><a href="/websphere/install-liberty-profile-stand-alone">Liberty Profile installation</a></li>
-      <li><a href="/websphere/server-creation">Creating Servers</a></li>
+      <li><a href="/websphere/server-creation"><b>Creating Servers</b></a></li>
+        <ul style="margin-left:5px; padding-left:5px">
+          <li><a href="#">Server Creation Command Line</a></li>
+          <li><a href="/websphere/server-creation-eclipse">Server Creation in Eclipse</a></li>
+        </ul>
       <li><a href="#">JSP Deployment</a></li>
       <li><a href="#">Servlet Deployment</a></li>
       <li><a href="#">JDBC</a></li>
@@ -808,7 +824,7 @@ iframe {display:block;}
 -->
 
 <div style="text-align:center;">
-  <a href="/index.html">Copyright&nbsp; &copy; 2004-2013 Ted Hagos</a>
+  <a href="/index.html">/home</a> &nbsp; <a href="/search">/search</a>
 </div>
 </footer>
     <script type="text/javascript">

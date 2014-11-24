@@ -15,6 +15,14 @@ author: Ted Hagos
 
 ---
 
+
+
+ <!-- Begin BidVertiser code -->
+<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&bid=1589518" type="text/javascript"></SCRIPT>
+<noscript><a href="http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm">xml search</a></noscript>
+<!-- End BidVertiser code --> 
+
+
 This mini project was done on a Debian 5 Linux. It was tested on CrunchBang as well and it worked out fine. A USB modem with a post paid plan was used, but a stick with pre paid plan should as well, I think. I haven't tested that but I can see no reason why it should not work.
 
 First, we need to pull some software from the repositories. We will need **gnokii-smsd-mysql** and the **mysql-server**. 
@@ -24,6 +32,7 @@ sudo apt-get update
 sudo apt-get install mysql-server
 sudo apt-get install gnokii-smsd-mysql
 ~~~~
+
 
 Connect the USB modem to PC and find out which port it is using. We will need some info about the modem. We will use that later in our configuration.
 
@@ -75,6 +84,16 @@ mysql> create database smsgw;
 mysql> use smsgw;
 mysql> \. /usr/share/doc/gnokii-smsd-mysql/sms.tables.mysql.sql;
 ~~~
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 468pxby60banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-4627957463175380"
+     data-ad-slot="5760679882"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## Sending and Receiving SMS
 
