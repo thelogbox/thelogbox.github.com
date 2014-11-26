@@ -700,15 +700,7 @@ iframe {display:block;}
     
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
-
-<p>While there exist a class of applications that do not use databases, they are few. It’s almost an automatic expectation that a programmer knows how to deal with databases. </p>
+		    <p>While there exist a class of applications that do not use databases, they are few. It’s almost an automatic expectation that a programmer knows how to deal with databases. </p>
 
 <p>We will use the built-in database of Android, <strong>SQLite</strong>. To use this database, we simply need to declare it in our <em>import</em> statements. This db is baked right into Android. There are no third party installs necessary.</p>
 
@@ -738,14 +730,6 @@ iframe {display:block;}
 </code></pre>
 
 <p>To build a basic UI for our project, we can use the following code inside our <strong>project_folder/res/layout/main.xml</strong></p>
-
-<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
 
 <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -827,14 +811,6 @@ public class DbHelper extends SQLiteOpenHelper {
 </code></pre>
 
 <p>You need to do <strong>3 things</strong> at a minimum when defining a SQLiteOpenHelper.</p>
-
-<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
 
 <p><strong>1. Define a public constructor</strong> that accepts a Context object.  This context is the context of the <em>Activity</em> class where you will instantiate the Helper class. Call the super constructor so that you don’t break the chain. The first parameter to super constructor is the <em>context object</em> — you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed <em>null</em> to it. </p>
 
@@ -937,14 +913,6 @@ public class DbSample extends Activity {
 
 <p>The <strong>ContentValues</strong> object is some sort of a Dictionary data structure (key value pair), this data structure is required by the <strong>insert()</strong> method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don’t have to use the <strong>insertOrThrow()</strong>&lt; method if you don’t want to, you can insert a record to the database using raw SQL. If you pass an INSERT SQL command inside the <strong>execSQL()</strong> method, that will do the job just as well.</p>
 
-<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
-
 <p>Compile and Test the project</p>
 
 <pre><code>ant debug install
@@ -1040,7 +1008,23 @@ public class DbSample extends Activity {
     </ul>
     
     </div>    
-    
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
     </div>  <!--  div wrap -->
     <footer>
 <!--

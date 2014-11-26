@@ -27,28 +27,26 @@ Each version or platform of Android (Froyo, Gingerbread etc) is a numbered API l
 
 In OSX, you can add the following entries in th *~/.bash_profile*
 
-<pre class='codeblock'>
 
+~~~
 export ANDROID_HOME=/path/to/android-sdk
 export PATH=$PATH:$ANDROID_HOME/tools:.
 export PATH=$PATH:$ANDROID_HOME/platform-tools:.
-  
-</pre>
+~~~
 
 
 In Linux, add the following lines to *~/.bashrc*, if you are using bash
 
-<pre class='codeblock'>
 
+~~~
 export ANDROID_HOME=/path/to/android-sdk
 export PATH=$PATH:$ANDROID_HOME/tools:.
 export PATH=$PATH:$ANDROID_HOME/platform-tools:.
-
-</pre>
-
+~~~
 
 
-Close the terminal, then launch it again in order to reflect the changes we made to the PATH variable. Try to type <span  class="boxed">android</span> from the command line. If it launches the android SDK manager, then you have set the android paths correctly.
+
+Close the terminal, then launch it again in order to reflect the changes we made to the PATH variable. Try to type **android** from the command line. If it launches the android SDK manager, then you have set the android paths correctly.
 
 If you are using Eclipse, see the steps on [how to configure android for eclipse](/android-install-eclipse-plugin/)
 

@@ -17,7 +17,6 @@ If you will use a physical device for testing, you need to do a few things. Befo
 On your device, go to *Settings* &rarr; *Applications* &rarr; *Development*. You need to *enable USB debugging*
 
 <img class="small" src="/img/usb-debugging.png"/>
-<div id='lst'>Fig 3: Enable USB Debugging in your Phone</div>
 
 You can now connect the device to the development machine. The screenshot above was done on a Samsung Galaxy Tab, your device may vary.
 

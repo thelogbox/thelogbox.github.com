@@ -14,12 +14,6 @@ tags:
 ---
 
 
- <!-- Begin BidVertiser code -->
-<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&bid=1589518" type="text/javascript"></SCRIPT>
-<noscript><a href="http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm">xml search</a></noscript>
-<!-- End BidVertiser code --> 
-
-
 After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be **Address already in use..**, **Bind Exception**, **Port 80 already in use** and other things that sounds like those. 
 
 Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache's port, you probably don't need to read this guide. You already know what you are doing.
@@ -41,17 +35,6 @@ The next steps is to find the PID (Process ID) of the application currently runn
 </code></pre>
 
 The line above is an example of what you could get after running the netstat command, **560** is the process id of the application currently bound on port 80.  
-
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 To find out who is application 560, type the command 

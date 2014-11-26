@@ -704,9 +704,8 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>The key command we need is </p>
 
-<pre class="codeblock">
-$ sudo mysqldump -u UserName -p --all-databases &gt; /path/to/file.backup 
-</pre>
+<pre><code>$ sudo mysqldump -u UserName -p --all-databases &gt; /path/to/file.backup 
+</code></pre>
 
 <p>The <em>–all-databases</em> flag will back up everything inside of the MySQL instance. If you don’t want to backup everything, specify the database name(s) instead of backing up everything.</p>
 
@@ -714,15 +713,12 @@ $ sudo mysqldump -u UserName -p --all-databases &gt; /path/to/file.backup
 
 <h2 id="how-to-restore">How to Restore</h2>
 
-<pre class="codeblock">
-  
-$ mysql -u UserName -p
+<pre><code>$ mysql -u UserName -p
 
 mysql &gt; create database name_of_name_database
 mysql &gt; use name_of_new_database
 mysql &gt; .\file.backup
-    
-</pre>
+</code></pre>
 
 <p>Some extra things you can do to make this a bit more robust.</p>
 

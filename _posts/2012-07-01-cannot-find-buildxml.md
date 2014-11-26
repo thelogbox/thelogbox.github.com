@@ -14,15 +14,6 @@ tags:
 
 ---
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ## What does the error mean
 
@@ -41,11 +32,4 @@ Try the compilation again. It should work by now.
 Did you notice the commented section of the local.properties file? It said "this file must not be checked into version control systems as it contains information specific to your local configuration etc". Follow that advice. Include the local.properties on the .gitignore file, if you are using git. If you are using another VCS, follow the method of your VCS on how to exclude certain files from being checked in.
 
 
- <!-- Begin BidVertiser code -->
-<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&bid=1589518" type="text/javascript"></SCRIPT>
-<noscript><a href="http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm">xml search</a></noscript>
-<!-- End BidVertiser code --> 
 
-<div class="video-container">
-<iframe src="//player.vimeo.com/video/108198684?title=0&amp;byline=0&amp;portrait=0" width="500" height="359" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>

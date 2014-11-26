@@ -46,15 +46,13 @@ Let's say that we are looking for port 80 -- IIS, Apache and other web servers l
 
 The pipe symbol  means, that instead of the result of netstat being displayed on the screen, feed it's result to the findstr process -- we are looking specifically for the line which has 0.0:80 -- you actually don't need findstr, but I don't want to scroll down and hunt down manually which app is using port 80. You might see something like this.
 
-<pre class='codeblock'>
-  
+~~~
 TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 560
+~~~
 
-</pre>
+Now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the **Process Manager** window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command **tasklist | findstr 560**
 
-Aha! now we know that process 560 is using port 80 (that last column right there, is the process ID), you could press CTRL-ALT-DEL now to show the *Process Manager* window, and manually look up which app has the process ID 560. You can also do that on the cmd line using the command <code class="codeblock">tasklist | findstr 560</code>
-
-*tasklist* is another Windows command line utility which shows you a list of all active processes, again I'd feed it to the findstr utility via the pipe operator, and voila -- Skype is the culprit.
+***tasklist*** is another Windows command line utility which shows you a list of all active processes, again I'd feed it to the findstr utility via the pipe operator, and voila -- Skype is the culprit.
 
 Skype actually doesn't have to use port 80, it can use other port numbers, but for some reason it just does. To free up port 80, you need to shutdown Skype and give your webserver a chance to grab port 80, then start Skype all over again so it can choose which port it will bind to.
 

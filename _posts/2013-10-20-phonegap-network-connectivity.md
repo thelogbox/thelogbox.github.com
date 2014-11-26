@@ -18,15 +18,7 @@ tags:
 
 ---
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 
 Your ability to detect network connectivity will be valuable. There are lots of use cases where you need to do something that depends on the device being connected or not &mdash; there are even times if you need to discriminate further whether the device wifi connected, 3g or LTE connected e.g. iOS devices don't always pull updates if the connection is less than wifi. 
 
@@ -123,15 +115,7 @@ We won't be needing anything other the **index.html** file. I have deleted the d
 
 ~~~
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 
 The following command will build and run your app
 
@@ -152,12 +136,4 @@ phonegap run android
 <img src='/img/phonegap/network-screen.png' class='small' />
 
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+

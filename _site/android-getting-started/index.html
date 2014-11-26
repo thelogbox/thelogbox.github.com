@@ -712,22 +712,16 @@ iframe {display:block;}
 
 <p>We need to create a project. An Android project is a collection of files which are structured and nested in a very specific way so that the build tools can work with them properly. This is the reason why it is not advisable to build the structure by hand, manually. Use the SDK tools.</p>
 
-<pre class="codeblock">
-
-mkdir workarea
-
+<pre><code>mkdir workarea
 cd workarea
-
 android create project --target 8 path first --activity First --package com.thelogbox 
+</code></pre>
 
-</pre>
-
-<p>If the Android SDK tools were properly installed, that last command should complete without problems and it would have created a folder named <em>first</em> on the current directory. If you get an error such as <em>Bad command or filename</em> or <em>command not found</em> or something to that effect, that is your just OS telling you that the <code class="codeblock">android</code> executable is not properly setup. Check your installation and configuration. See if the <em>android tools</em> and <em>android platform tools</em> are in your <em>SYSTEM PATH</em>.</p>
+<p>If the Android SDK tools were properly installed, that last command should complete without problems and it would have created a folder named <em>first</em> on the current directory. If you get an error such as <em>Bad command or filename</em> or <em>command not found</em> or something to that effect, that is your just OS telling you that the <strong>android</strong> executable is not properly setup. Check your installation and configuration. See if the <em>android tools</em> and <em>android platform tools</em> are in your <em>SYSTEM PATH</em>.</p>
 
 <p>The folder structure of an android project is shown below</p>
 
-<p><img class="default" src="/img/android-project-structure.png" />
-&lt;div id='lst'&gt;Folder Structure of an Android project&lt;/div&gt;</p>
+<p><img class="default" src="/img/android-project-structure.png" /></p>
 
 <h1 id="how-to-create-a-project">How to create a project</h1>
 
@@ -843,7 +837,23 @@ If you want to see all the possible targets, you can type <code class="codeblock
     </ul>
     
     </div>    
-    
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
     </div>  <!--  div wrap -->
     <footer>
 <!--

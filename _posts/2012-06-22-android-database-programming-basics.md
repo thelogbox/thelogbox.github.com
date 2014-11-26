@@ -15,16 +15,6 @@ tags:
 
 ---
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 While there exist a class of applications that do not use databases, they are few. It's almost an automatic expectation that a programmer knows how to deal with databases. 
 
 We will use the built-in database of Android, **SQLite**. To use this database, we simply need to declare it in our *import* statements. This db is baked right into Android. There are no third party installs necessary.
@@ -56,16 +46,6 @@ $ android create project --target 15 --activity DbSample --path dbsample  --pack
 ~~~
 
 To build a basic UI for our project, we can use the following code inside our **project_folder/res/layout/main.xml**
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -149,16 +129,6 @@ public class DbHelper extends SQLiteOpenHelper {
 ~~~
 
 You need to do **3 things** at a minimum when defining a SQLiteOpenHelper.
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 **1. Define a public constructor** that accepts a Context object.  This context is the context of the *Activity* class where you will instantiate the Helper class. Call the super constructor so that you don't break the chain. The first parameter to super constructor is the *context object* &mdash; you know this already, next parameter is the name of database you want to create; third parameter is a cursor factory, you can ignore this for now, that is why I passed *null* to it. 
 
@@ -263,15 +233,6 @@ Once we extracted whatever the user typed inside the EditText via **getText()** 
 
 The **ContentValues** object is some sort of a Dictionary data structure (key value pair), this data structure is required by the **insert()** method of the SQLiteDatabase object, that is why we used it to wrap the string data we got from the EditText. You don't have to use the **insertOrThrow()**< method if you don't want to, you can insert a record to the database using raw SQL. If you pass an INSERT SQL command inside the **execSQL()** method, that will do the job just as well.
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 Compile and Test the project
 

@@ -701,15 +701,7 @@ iframe {display:block;}
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
-
-<p>There are two ways to persist data on PhoneGap. One is to use <em>local storage</em> and the other, <em>WebSQL</em>. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  </p>
+		    <p>There are two ways to persist data on PhoneGap. One is to use <em>local storage</em> and the other, <em>WebSQL</em>. Local Storage involves using a data structure that is similar to a dictionary. It has two columns. First column contains the key and the other has the value.  </p>
 
 <p>The other way to persist data is to use the WebSQL API. This is probably the techmique that most developers would use for providing database functionality in a PhoneGap platform because it is also the more popular. Most programmers have been taught/schooled in database programming using relational databases, that’s why SQL programming is almost a baseline capability for developers.</p>
 
@@ -808,14 +800,6 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
 
 <p><img src="/img/phonegap/database-creation-resources.png" alt="Database Creation" /></p>
 
-<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
-
 <p>Under <em>WebSQL</em> you can see that there is a newly created <em>tasks</em> database. This means our code ran as expected. </p>
 
 <p>You can try to refresh the page or run the JavaScript code over and over, but it won’t create another <em>tasks</em> database — if that was you were expecting. The <code>openDatabase</code> command only creates a database file (<em>tasks.db</em>, in our case) if that file does not exist yet. If the specififed database name does exist, the openDatabase function will simply return an object handle to the database so you can start using it. The <code>openDatabase()</code> function is used both to create a not yet existing database file and to open an existing one.</p>
@@ -860,14 +844,6 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
 
 <p>You will use the <em>transaction()</em> function if you want to issue commands to the database. The transaction function takes three parameters and all of them are callbacks. The first parameter is the name of a function that will be executed. This first callback usually contains the series of SQL commands you would like to execute. A database transaction context is passed along as a parameter to this function. You will use that transaction context to invoke the <em>executeSql()</em> function which in turn contains the actual SQL commands.</p>
 
-<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 468pxby60banner -->
-<p><ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-4627957463175380" data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script></p>
-
 <p>The second parameter is a callback which will only be invoked if an error will be encountered while executing your SQL commands. If and when this second callback is invoked, an <em>error</em> object is passed along to the function as parameter. You can use this error object to debug and troubleshoot your code.</p>
 
 <p>The third parameter is called back after all the SQL commands have been executed and no errors have been encountered.</p>
@@ -902,7 +878,23 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
     <div class="promo">
   
     </div>       
+     <!-- DISQUS javascript -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
 
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+      
+<!-- END Disqus-->
     </div>  <!--  div wrap -->
 
 		<footer>

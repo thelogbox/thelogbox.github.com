@@ -13,15 +13,6 @@ tags:
 
 ---
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 This chapter will guide you through the setup process of an Android development environment.  There are a few things that you must have before you proceed any further. I am assuming that you already have setup JDK 1.5 or 1.6 and Apache Ant.
 
@@ -41,15 +32,7 @@ If that is still not clear enough, you can look at the [setup instructions I wro
 C:\User\yourname\ 
 ~~~
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 
 Try to remember the full path of the directory where you unzipped the Android SDK, from hereon forward, we will refer to that directory as **ANDROID_HOME**
 
@@ -76,15 +59,6 @@ First, open Control Panel, go to System Properties, then Advanced System Setting
 
 <img class="shadow" src="/img/windows-environment-variables.png">
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 If you have local admin rights on the machine, click the **New** button on **System variables** section. On the variable name, type *ANDROID_HOME*. On the value textbox, type the full path where you installed the Android SDK. Close the dialog box. Next, scroll down the values on System variables, try to find **PATH**, then click the **Edit** button. Go to the last character of the existing entry, then append the following

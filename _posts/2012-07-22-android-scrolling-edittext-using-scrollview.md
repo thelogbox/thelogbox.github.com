@@ -17,8 +17,8 @@ There will be times when you will need to display multiple lines of text that wi
 
 To deal with this challenge, you can wrap an *EditText* inside a *ScrollView* component. The ScrollView will act as a viewport to textual content of the EditText. 
 
-{% highlight xml %}
 
+~~~
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -55,9 +55,6 @@ To deal with this challenge, you can wrap an *EditText* inside a *ScrollView* co
 		android:layout_weight="0"
 />
 </LinearLayout>
-
-{% endhighlight %}
-
-<div id='lst'>/res/layout/main.xml</div>
+~~~
 
 There is no need to mess around with the Activity class. The scrolling functionality is accomplished on main.xml file

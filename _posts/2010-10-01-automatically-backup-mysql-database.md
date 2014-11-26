@@ -15,9 +15,9 @@ tags:
 
 The key command we need is 
 
-<pre class='codeblock'>
+~~~
 $ sudo mysqldump -u UserName -p --all-databases > /path/to/file.backup 
-</pre>
+~~~
 
 The *--all-databases* flag will back up everything inside of the MySQL instance. If you don't want to backup everything, specify the database name(s) instead of backing up everything.
 
@@ -25,15 +25,13 @@ The result of *mysqldump* is a series of SQL commands that contains both the str
 
 ## How to Restore
 
-<pre class='codeblock'>
-  
+~~~ 
 $ mysql -u UserName -p
 
 mysql > create database name_of_name_database
 mysql > use name_of_new_database
 mysql > .\file.backup
-    
-</pre>
+~~~
 
 Some extra things you can do to make this a bit more robust.
 

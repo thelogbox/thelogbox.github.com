@@ -27,7 +27,7 @@ Invoking *phonegap* from cmd line displays its usage.
 
 
 ![The phonegap gap command](/img/phonegap/phonegap-cli.png)
-<div id='lst'>phonegap command</div>
+
 
 As you can see, there are lots of things we can do with it. We can create, build and install mobile app projects using this command. In this chapter, we will create our first project using the PhoneGap CLI. We won't do anything with it just yet, we simply want to sample the feel of the  workflow and get acquainted with the process of creating, testing and building PhoneGap projects. Before the chapter is done, we would have created, built and tested a sample project in either an iOS simulator or an Android emulator.
 

@@ -22,38 +22,38 @@ tags:
 ---
 
 
-<pre class="codeblock">
+~~~
 $ brew install python
-</pre>
+~~~
 
 Yes, I know OSX comes with Python pre-installed, but this formula for python comes with pip and setuptools. 
 
 Just to make sure pip and setuptools are up to date, do this also
 
-<pre class="codeblock">
+~~~
 $ sudo pip install --upgrade setuptools
-</pre>
+~~~
 
 ## Virtual Environment Setup
 
-<pre class="codeblock">
+~~~
 $ sudo pip install virtualenv
 $ sudo pip install virtualenvwrapper
 $ mkdir ~/pythonenvs
 $ echo "WORKON_HOME=~/pythonenvs" >> ~/.bash_profile
 $ source /usr/local/virtualenvwrapper.sh   
-</pre>
+~~~
 
 Quit and re-open the terminal for the changes to take effect &mdash; or just launch another terminal window and work there.
 
 ## Usage 
 
-<pre class="codeblock">
+~~~
 $ mkvirtualenv gae
 $ mkvirtualenv standard
 $ workon gae
 $ workon standard
-</pre>
+~~~
 
 ## Another Usage
 

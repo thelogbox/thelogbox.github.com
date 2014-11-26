@@ -13,23 +13,13 @@ tags:
 
 ---
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
-## What you need
+To setup the Kyocera KM1820 on the Mac, you will need the following.
 
 1. The KPDL driver of Kyocera, you can download it at [kyocera](http://www.kyoceramita.co.uk/index/products/download_centre.false.driver.FS1118MFP._.EN.html#)
 2. StuffIt expander, you can download it at [stuffit](http://www.StuffIt.com)
 
-
-## Network printing
+To do network printing, please follow the steps outlined below.
 
 1. Download the StuffIt expander, double-click the DMG installer and follow the prompts -- you can copy the StuffIt application file into your usual "Applications" folder for easy access in the future.
 2. Download the Kyocera KM-1820 driver, the file could be an HTX file, OSX would know what to do with it, it will simply expand the HTX file. As as result of the expansion, it may produce the "Archive.sitx" file--this is where you will use the StuffIt expander. Double Archive.sitx, it will produce a PKG file (Kyocera OS X v1.1), just double click the PKG file.

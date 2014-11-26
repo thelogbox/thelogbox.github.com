@@ -15,16 +15,6 @@ tags:
 ---
 
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ## 1 Variables
 
 Think of variables as if they are shoe boxes. You can put things inside a shoe box like a ball or paper etc. The box functions basically as a storage mechanism. And variables are exactly like that. They store things inside them so you can get them out for later use.  
@@ -644,16 +634,6 @@ The **initializer** and **iterator** arguments of the for loop takes more than o
     }
 
 In this sample code, two variables (a and b) were initialized. Variable a was set to 0 and variable b was set to 10, they are just separated by commas (not semi colon). In the iterator part of the loop, variable a is incremented by 1 and variable b is decremented by 1—not only that, you can also insert function calls in the iterator section, just like what we did in this sample code. Each time the for-loop iterates, function foo() is called.
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ### 5.6 Nesting
 

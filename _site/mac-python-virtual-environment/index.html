@@ -701,38 +701,34 @@ iframe {display:block;}
     -->
 		  <div id="post">
         <div itemprop='articleBody'>
-		    <pre class="codeblock">
-$ brew install python
-</pre>
+		    <pre><code>$ brew install python
+</code></pre>
 
 <p>Yes, I know OSX comes with Python pre-installed, but this formula for python comes with pip and setuptools. </p>
 
 <p>Just to make sure pip and setuptools are up to date, do this also</p>
 
-<pre class="codeblock">
-$ sudo pip install --upgrade setuptools
-</pre>
+<pre><code>$ sudo pip install --upgrade setuptools
+</code></pre>
 
 <h2 id="virtual-environment-setup">Virtual Environment Setup</h2>
 
-<pre class="codeblock">
-$ sudo pip install virtualenv
+<pre><code>$ sudo pip install virtualenv
 $ sudo pip install virtualenvwrapper
 $ mkdir ~/pythonenvs
 $ echo "WORKON_HOME=~/pythonenvs" &gt;&gt; ~/.bash_profile
 $ source /usr/local/virtualenvwrapper.sh   
-</pre>
+</code></pre>
 
 <p>Quit and re-open the terminal for the changes to take effect — or just launch another terminal window and work there.</p>
 
 <h2 id="usage">Usage</h2>
 
-<pre class="codeblock">
-$ mkvirtualenv gae
+<pre><code>$ mkvirtualenv gae
 $ mkvirtualenv standard
 $ workon gae
 $ workon standard
-</pre>
+</code></pre>
 
 <h2 id="another-usage">Another Usage</h2>
 

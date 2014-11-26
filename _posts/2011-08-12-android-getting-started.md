@@ -27,22 +27,17 @@ The Hello World in Android is way more involved than simply creating a basic cla
 
 We need to create a project. An Android project is a collection of files which are structured and nested in a very specific way so that the build tools can work with them properly. This is the reason why it is not advisable to build the structure by hand, manually. Use the SDK tools.
 
-<pre class="codeblock">
-
+~~~
 mkdir workarea
-
 cd workarea
-
 android create project --target 8 path first --activity First --package com.thelogbox 
+~~~
 
-</pre>
-
-If the Android SDK tools were properly installed, that last command should complete without problems and it would have created a folder named *first* on the current directory. If you get an error such as *Bad command or filename* or *command not found* or something to that effect, that is your just OS telling you that the <code class="codeblock">android</code> executable is not properly setup. Check your installation and configuration. See if the *android tools* and *android platform tools* are in your *SYSTEM PATH*.
+If the Android SDK tools were properly installed, that last command should complete without problems and it would have created a folder named *first* on the current directory. If you get an error such as *Bad command or filename* or *command not found* or something to that effect, that is your just OS telling you that the **android** executable is not properly setup. Check your installation and configuration. See if the *android tools* and *android platform tools* are in your *SYSTEM PATH*.
 
 The folder structure of an android project is shown below
 
 <img class="default" src="/img/android-project-structure.png">
-<div id='lst'>Folder Structure of an Android project</div>
 
 # How to create a project
 
