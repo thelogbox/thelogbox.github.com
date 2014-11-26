@@ -156,13 +156,19 @@ th, td {text-align: left;}
   color: #2c2c2c; */
   color: #667CA3;
   text-decoration: none; 
-  font-weight:300;}
+  font-weight:300;
+  background: none;
+}
 .toc a:hover {
   color:#000; 
   text-decoration:underline;
 }
 
 .toc b, .toc strong {font-weight: bold;}
+.running-head a:link {
+  text-decoration: underline;
+  background:none;
+}
 
 /*
 
@@ -344,16 +350,19 @@ pre.code {
 
 /* color of a:link previously #3a5d9f */
 
-a:link, a:visited {
-  /*color: #008385; 
-  color: brown; */
-  color: #667CA3;
-  text-decoration: underline; 
-  font-weight:300;}
+a:link, a:visited { 
+  /*color: #667CA3; */
+  color: #2c2c2c; 
+  font-weight:300;
+  text-decoration: none; 
+  background: url(/img/underline.gif) repeat-x 100% 100%;
+  padding-bottom: 0;
+  white-space: nowrap;
+
+}
 
 a:hover {
   color: #000; 
-  text-decoration:underline;
 }
 
 #postmeta {
@@ -653,8 +662,6 @@ iframe {display:block;}
   </head>
   <body>
 
-
-
     <div id="wrap">
 
       <div class="running-head">
@@ -720,9 +727,7 @@ iframe {display:block;}
         </div>					
 		  </div>
       
-      
-      
-      
+            
      <!-- 
       <div id="leanpubbook">        
         
