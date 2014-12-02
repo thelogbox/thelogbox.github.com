@@ -41,7 +41,7 @@
 
 <title>
   
-    Signing an App | theLogBox
+    How to Sign an App | theLogBox
   
 </title>
 
@@ -672,7 +672,7 @@ iframe {display:block;}
      <header>
     <div class='feature-banner'>
       <div class='feature-banner-text'>
-        Signing an App
+        How to Sign an App
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <div id="postmeta">
@@ -707,50 +707,47 @@ iframe {display:block;}
         <div itemprop='articleBody'>
 		    <p>You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.</p>
 
-<h3 id="keytool">Keytool</h3>
+<p><strong>1. Generate a key</strong>. </p>
 
-<p>Check if you have keytool in your system path. Run the <code class="codeblock">keytool</code> command on a terminal window and you will soon find out if you have it or not. If you don’t have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path</p>
+<p>You will need a key to sign your app. This can be generated using the <strong>keytool</strong> command. The keytool is part the Java SDK. If <java_home>/bin folder is part of your system path, you should be able to invoke the keytool command from a terminal window</java_home></p>
 
-<h3 id="generate-the-key">Generate the key</h3>
+<p>To generate a key, run the following command from a terminal window</p>
 
-<pre class="codeblock">
+<pre><code>keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+</code></pre>
 
-$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+<p><strong>2. Use the jarsigner</strong></p>
 
-</pre>
+<pre><code>jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+</code></pre>
 
-<p>If you get the exception <strong>Keytool-error: java.io.IOException : Incorrect JAVA format</strong>, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner</p>
+<p>Substitute the actual name of your application in place of <strong>my_application</strong> above. The <strong>jarsigner</strong> prompts you to provide passwords for the keystore and key. It then modifies the apk in-place and signs it accordignly. Note that you can sign an APK multiple times with different keys.</p>
 
-<h3 id="jarsigner">Jarsigner</h3>
+<p>One thing to note is that as of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims, <strong>-sigalg</strong> and <strong>-digestalg</strong>, when you sign an APK.</p>
 
-<pre>
+<p><strong>3. Verify that your apk is signed</strong> </p>
 
-jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+<pre><code>jarsigner -verify my_signed.apk 
+</code></pre>
 
-</pre>
+<p>You can also use the command</p>
 
-<p>“my_application” should be the actual name of your application, as you created it during the <strong>android create project</strong> command</p>
+<pre><code>jarsigner -verify -verbose my_application.apk
+</code></pre>
 
-<p>The <strong>jarsigner</strong> prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.</p>
+<p>or this command</p>
 
-<p><em>Note:</em> As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.</p>
+<pre><code>jarsigner -verify -verbose -certs my_application.apk
+</code></pre>
 
-<h3 id="verify">Verify</h3>
+<p><strong>4. Align the package</strong></p>
 
-<p>Verify that your APK is signed — run <code class="codeblock">jarsigner -verify my_signed.apk </code> on the terminal window. </p>
-
-<p>You can also use the commands <code class="codeblock"> jarsigner -verify -verbose my_application.apk </code> or <code class="codeblock"> jarsigner -verify -verbose -certs my_application.apk </code></p>
-
-<h3 id="align-the-package">Align the package</h3>
-
-<p>Run <code class="codeblock">zipalign</code> on your apk file after you have signed the apk with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file.</p>
-
-<p>zipalign is part of Android SDK, so you should have it on your SYSTEM PATH.</p>
+<p>Use the <strong>zipalign</strong> command on your apk file after you have signed it with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file, zipalign is part of Android SDK, not the Java SDK.</p>
 
 <p>Ensuring the alignment at 4 byte boundaries has a positive effect on application performance when installed on a device.</p>
 
-<p><code class="codeblock">zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
-</code></p>
+<pre><code>zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
+</code></pre>
 
 <p>When aligned, the Android system is able to read files with mmap(), even if they contain binary data with alignment restrictions, rather than copying all of the data from the package. The benefit is a reduction in the amount of RAM consumed by the running application.</p>
 

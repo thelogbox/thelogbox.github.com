@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-11-27T11:52:01+08:00</updated>
+ <updated>2014-12-02T22:45:59+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -5379,56 +5379,53 @@ This document is no longer maintained. Go to &lt;a href=&quot;/android/android-w
  </entry>
  
  <entry>
-   <title>Signing an App</title>
+   <title>How to Sign an App</title>
    <link href="http://thelogbox.com/signing-an-android-app"/>
    <updated>2012-11-23T00:00:00+08:00</updated>
    <id>http://thelogbox.com/signing-an-android-app</id>
    <content type="html">&lt;p&gt;You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.&lt;/p&gt;
 
-&lt;h3 id=&quot;keytool&quot;&gt;Keytool&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. Generate a key&lt;/strong&gt;. &lt;/p&gt;
 
-&lt;p&gt;Check if you have keytool in your system path. Run the &lt;code class=&quot;codeblock&quot;&gt;keytool&lt;/code&gt; command on a terminal window and you will soon find out if you have it or not. If you don’t have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path&lt;/p&gt;
+&lt;p&gt;You will need a key to sign your app. This can be generated using the &lt;strong&gt;keytool&lt;/strong&gt; command. The keytool is part the Java SDK. If &lt;java_home&gt;/bin folder is part of your system path, you should be able to invoke the keytool command from a terminal window&lt;/java_home&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;generate-the-key&quot;&gt;Generate the key&lt;/h3&gt;
+&lt;p&gt;To generate a key, run the following command from a terminal window&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
+&lt;pre&gt;&lt;code&gt;keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+&lt;/code&gt;&lt;/pre&gt;
 
-$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+&lt;p&gt;&lt;strong&gt;2. Use the jarsigner&lt;/strong&gt;&lt;/p&gt;
 
-&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you get the exception &lt;strong&gt;Keytool-error: java.io.IOException : Incorrect JAVA format&lt;/strong&gt;, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner&lt;/p&gt;
+&lt;p&gt;Substitute the actual name of your application in place of &lt;strong&gt;my_application&lt;/strong&gt; above. The &lt;strong&gt;jarsigner&lt;/strong&gt; prompts you to provide passwords for the keystore and key. It then modifies the apk in-place and signs it accordignly. Note that you can sign an APK multiple times with different keys.&lt;/p&gt;
 
-&lt;h3 id=&quot;jarsigner&quot;&gt;Jarsigner&lt;/h3&gt;
+&lt;p&gt;One thing to note is that as of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims, &lt;strong&gt;-sigalg&lt;/strong&gt; and &lt;strong&gt;-digestalg&lt;/strong&gt;, when you sign an APK.&lt;/p&gt;
 
-&lt;pre&gt;
+&lt;p&gt;&lt;strong&gt;3. Verify that your apk is signed&lt;/strong&gt; &lt;/p&gt;
 
-jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+&lt;pre&gt;&lt;code&gt;jarsigner -verify my_signed.apk 
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;/pre&gt;
+&lt;p&gt;You can also use the command&lt;/p&gt;
 
-&lt;p&gt;“my_application” should be the actual name of your application, as you created it during the &lt;strong&gt;android create project&lt;/strong&gt; command&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jarsigner -verify -verbose my_application.apk
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The &lt;strong&gt;jarsigner&lt;/strong&gt; prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.&lt;/p&gt;
+&lt;p&gt;or this command&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jarsigner -verify -verbose -certs my_application.apk
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;verify&quot;&gt;Verify&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;4. Align the package&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Verify that your APK is signed — run &lt;code class=&quot;codeblock&quot;&gt;jarsigner -verify my_signed.apk &lt;/code&gt; on the terminal window. &lt;/p&gt;
-
-&lt;p&gt;You can also use the commands &lt;code class=&quot;codeblock&quot;&gt; jarsigner -verify -verbose my_application.apk &lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt; jarsigner -verify -verbose -certs my_application.apk &lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;align-the-package&quot;&gt;Align the package&lt;/h3&gt;
-
-&lt;p&gt;Run &lt;code class=&quot;codeblock&quot;&gt;zipalign&lt;/code&gt; on your apk file after you have signed the apk with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file.&lt;/p&gt;
-
-&lt;p&gt;zipalign is part of Android SDK, so you should have it on your SYSTEM PATH.&lt;/p&gt;
+&lt;p&gt;Use the &lt;strong&gt;zipalign&lt;/strong&gt; command on your apk file after you have signed it with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file, zipalign is part of Android SDK, not the Java SDK.&lt;/p&gt;
 
 &lt;p&gt;Ensuring the alignment at 4 byte boundaries has a positive effect on application performance when installed on a device.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;codeblock&quot;&gt;zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
-&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;When aligned, the Android system is able to read files with mmap(), even if they contain binary data with alignment restrictions, rather than copying all of the data from the package. The benefit is a reduction in the amount of RAM consumed by the running application.&lt;/p&gt;
 
@@ -12389,13 +12386,13 @@ This content has moved. If you click the button link below, it will take you to 
 
 &lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1118017110/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1118017110&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Beginning Android Application Development (Wrox Programmer to Programmer)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=1118017110&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - Good to read after the O’Reilly book. Looking back now, I think I should have read the O’Reilly book and this one side by side. There’s 500+ pages on this one. You need to be in front of your machine and ready to code when you are reading this—the examples are prescriptive and recipe type, rather than theoretical and conceptual&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0321741234/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0321741234&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;The Android Developer’s Cookbook: Building Applications with the Android SDK: Building Applications with the Android SDK (Developer’s Library)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=0321741234&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - When you are done with the O’Reilly and the Wrox books, you will probably dive into a test project. This recipe (aherm, cookbook) will be very handy. The book is organized according to tasks. It assumes you are already pretty handy at coding android building blocks, so don’t pick this up as a first book. Can you do without this? Yes, you can probably spend lots of time lurking into forums, asking questions on stackoverflow and emailing your friends about a specific problem–or you can just get this book, it will take you much less time&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0321741234/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0321741234&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;The Android Developer’s Cookbook: Building Applications with the Android SDK&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=0321741234&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - When you are done with the O’Reilly and the Wrox books, you will probably dive into a test project. This recipe (aherm, cookbook) will be very handy. The book is organized according to tasks. It assumes you are already pretty handy at coding android building blocks, so don’t pick this up as a first book. Can you do without this? Yes, you can probably spend lots of time lurking into forums, asking questions on stackoverflow and emailing your friends about a specific problem–or you can just get this book, it will take you much less time&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1430232439/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1430232439&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Practical Android Projects (Books for Professionals by Professionals)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=1430232439&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - So you’ve combed through the three books above, you’ve gone through developer.android.com/training and most probably attended a local workshop in android. Now you are eager to get clicking some more, gear up for a project that you can submit to Google Play for some bragging rights (or some extra cash, or both). Only, you are stumped and out of ideas on what to build, which is not surprising because at the time of this writing (8.Jul.2012) there is more than half-million apps written for android. Can you really think of an android app so unique that the other hundred-thousand developers haven’t thought of yet? If you need some ideas to kickstart your next-killer-app project, you might find some inspiration on this one&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1934356565/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1934356565&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Hello, Android: Introducing Google’s Mobile Development Platform (Pragmatic Programmers)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=1934356565&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - It was a pity that I picked this up late. This was the most enjoyable read–or maybe I enjoyed it because I already read the other four? I really can’t be sure now, but if you will take some unsolicited advise, I suggest you read the O’Reilly one first, then this. &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/1934356565/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1934356565&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Hello, Android&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=1934356565&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; - It was a pity that I picked this up late. This was the most enjoyable read–or maybe I enjoyed it because I already read the other four? I really can’t be sure now, but if you will take some unsolicited advise, I suggest you read the O’Reilly one first, then this. &lt;/p&gt;
 
-&lt;p&gt;If you want to look at a more extensive list, O’Reilly released the &lt;a href=&quot;http://www.amazon.com/gp/product/B005GMR9S8/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B005GMR9S8&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Android Development Bibliography&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=B005GMR9S8&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; for free. &lt;/p&gt;
+&lt;p&gt;If you want to look at a more extensive list, O’Reilly released the &lt;a href=&quot;http://www.amazon.com/gp/product/B005GMR9S8/ref=as_li_tf_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B005GMR9S8&amp;amp;linkCode=as2&amp;amp;tag=thelogboxcom-20&quot;&gt;Android Development Bibliography&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=thelogboxcom-20&amp;amp;l=as2&amp;amp;o=1&amp;amp;a=B005GMR9S8&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt; You can download this book for free from the Kindle store. By the way, the book does not contain any tutorials about Android. It simply lists an extensive collection of books about Android programming &lt;/p&gt;
 
 </content>
  </entry>

@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Signing an App
+title: How to Sign an App
 
 description: Detailed steps on how to generate a key, digitally sign and align your android project apk
 
@@ -16,51 +16,54 @@ tags:
 You have to sign your app before you can sell them and before other people can install them on their devices. Follow the steps below to sign your app.
 
 
-### Keytool
- 
-Check if you have keytool in your system path. Run the <code class="codeblock">keytool</code> command on a terminal window and you will soon find out if you have it or not. If you don't have it, troubleshoot your JDK installation. Most likely, the bin folder of JDK is not included in your system path
+**1. Generate a key**. 
 
-### Generate the key
+You will need a key to sign your app. This can be generated using the **keytool** command. The keytool is part the Java SDK. If <JAVA_HOME>/bin folder is part of your system path, you should be able to invoke the keytool command from a terminal window
 
-<pre class="codeblock">
+To generate a key, run the following command from a terminal window
 
-$ keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+~~~ 
+keytool -genkey -v -keystore thelogbox_key.keystore -alias thelogbox_key_alias -keyalg RSA -keysize 2048 -validity 10000
+~~~
 
-</pre>
+**2. Use the jarsigner**
 
-If you get the exception **Keytool-error: java.io.IOException : Incorrect JAVA format**, check if you have mistyped the command, or if  you have inadvertently added *dname** somewhere in there. Then, use the jarsigner
-
-
-### Jarsigner
-
-<pre></code>
-
+~~~
 jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+~~~
 
-</code></pre>
+Substitute the actual name of your application in place of **my_application** above. The **jarsigner** prompts you to provide passwords for the keystore and key. It then modifies the apk in-place and signs it accordignly. Note that you can sign an APK multiple times with different keys.
 
-"my_application" should be the actual name of your application, as you created it during the **android create project** command
+One thing to note is that as of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims, **-sigalg** and **-digestalg**, when you sign an APK.
 
-The **jarsigner** prompts you to provide passwords for the keystore and key. It then modifies the APK in-place, meaning the APK is now signed. Note that you can sign an APK multiple times with different keys.
 
-*Note:* As of JDK 7, the default signing algorithim has changed, requiring you to specify the signature and digest algorithims (-sigalg and -digestalg) when you sign an APK.
+**3. Verify that your apk is signed** 
 
-### Verify
+~~~
+jarsigner -verify my_signed.apk 
+~~~
 
-Verify that your APK is signed &mdash; run <code class="codeblock">jarsigner -verify my_signed.apk </code> on the terminal window. 
+You can also use the command
 
-You can also use the commands <code class="codeblock"> jarsigner -verify -verbose my_application.apk </code> or <code class="codeblock"> jarsigner -verify -verbose -certs my_application.apk </code>
+~~~
+jarsigner -verify -verbose my_application.apk
+~~~
 
-### Align the package 
+or this command
 
-Run <code class="codeblock">zipalign</code> on your apk file after you have signed the apk with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file.
+~~~
+jarsigner -verify -verbose -certs my_application.apk
+~~~
 
-zipalign is part of Android SDK, so you should have it on your SYSTEM PATH.
+**4. Align the package**
+
+Use the **zipalign** command on your apk file after you have signed it with your private key. This command ensures that all uncompressed data starts with a particular byte alignment relative to the start of the file, zipalign is part of Android SDK, not the Java SDK.
 
 Ensuring the alignment at 4 byte boundaries has a positive effect on application performance when installed on a device.
 
-<code class="codeblock">zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
-</code>
+~~~
+zipalign -v 4 your_project_name-unaligned.apk your_project_name.apk
+~~~
 
 When aligned, the Android system is able to read files with mmap(), even if they contain binary data with alignment restrictions, rather than copying all of the data from the package. The benefit is a reduction in the amount of RAM consumed by the running application.
 
