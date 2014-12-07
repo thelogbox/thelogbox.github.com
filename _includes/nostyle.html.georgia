@@ -1,54 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-		<!--
-<link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-
-<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+<style>
 
 
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-
-
-<script src="//use.typekit.net/mvn1usv.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
-<script src="//use.typekit.net/mvn1usv.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
--->
-
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/" />
-
-<meta charset="utf-8">
- 
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="keywords" content="">
-<meta name="author" content="Ted Hagos">
-<meta name="description" content="" />
-
-<meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
-
-<title>
-  
-    Environment | theLogBox
-  
-</title>
-
-
-		<style>
-
-
-@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700|Roboto:300,400,500,700|Open+Sans:300,400);
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700);
 
 #sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
 
@@ -59,13 +12,13 @@ em {
 }
 
 body {
-  font-size:15px;   
-  font-family:'Lucida Sans Unicode','Lucida Grande','Roboto';
+  font-size:16px;   
+  font-family: 'Georgia','Times New Roman','nimbus-sans','Lato', sans-serif;
   font-weight: 300;
   margin:0;
   padding:0;
   border:0;
-  color: #2c2c2c;
+  color: #5d5d5d;
   /*color: #2d2d2d;
   background: #f6f6f6;  
   background:#eff3f9; */
@@ -141,7 +94,6 @@ th, td {text-align: left;}
 
 .toc a:link, .toc a:visited {
   font-family: 'Open Sans Condensed';
-  font-size: 1.1em;
   /* color: #008385; 
   color: #2c2c2c; */
   color: #667CA3;
@@ -182,9 +134,8 @@ ol > li:before {
 
 h1, h2, h3 {
   
-  font-weight: 400;
-  /*color: #404040; */
-  color: #222;
+  font-weight: normal;
+  color: #404040;
   margin-left: 0px;
   padding-left: 0px;
   padding-top: 20px;
@@ -243,9 +194,7 @@ h4 {margin-bottom: 0px; padding-bottom: 0px;}
   line-height:135%;
   letter-spacing: -1.3px;
   /*color: #222; */
-  /* color: #676767; */
-  color: #5d5d5d;
-  font-weight: 300;
+  color: #676767;
 }
 
 
@@ -354,8 +303,7 @@ pre.code {
 
 a:link, a:visited { 
   /*color: #667CA3; */
-  /*color: #5d5d5d; */
-  color: #2c2c2c; 
+  color: #5d5d5d; 
   font-weight:300;
   text-decoration: none; 
   background: url(/img/underline.gif) repeat-x 100% 100%;
@@ -659,159 +607,3 @@ iframe {display:block;}
   color: #ccc;
 }
 </style>
-  
-  </head>
-  <body>
-    <div id="wrap">
-
-      <div class="running-head">
-      <a href="/">theLogBox.com</a>/csharp
-     </div>
-
-
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Environment
-        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-<div id="postmeta">
-  <!--
-  <div style="text-decoration: overline; color: inherited">
-  file: #
-  </div> 
-  last updated:  <br/>
-  -->
-
-  By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a> <br/>
-<!--  November 01, 2014 <p/> -->
-    
-<!--
-  <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/107317535953221277825" data-rel="author"></div>
-  -->
-</div>
-
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
-      </div>
-    </div>             
-    </header>
-    
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    <p>The .NET framework includes a large collection of libraries and a runtime environment. The FCL or Framework Class Library consist of a large class library allows us a developer to do lots of things like create a Windows Desktop application, build a web page, write a custom control. The library also allows a program written in a language other than C# to be used from within a C# program and vice versa. This language interoperability if part of the FCL.</p>
-
-<p>.NET programs are meant to run on a virtual machine called the CLR which is short Common Language Runtime. The virtual machine runtime provides some services that the operating system cannot provide e.g. garbage collection. </p>
-
-<p>A short list of things included in the .NET framework is found below</p>
-
-<ul>
-  <li>Common Language Runtime (CLR)</li>
-  <li>The .Net Framework Class Library</li>
-  <li>Common Language Specification</li>
-  <li>Common Type System</li>
-  <li>Metadata and Assemblies</li>
-  <li>Windows Forms</li>
-  <li>ASP.Net and ASP.Net AJAX</li>
-  <li>ADO.Net</li>
-  <li>Windows Workflow Foundation (WF)</li>
-  <li>Windows Presentation Foundation</li>
-  <li>Windows Communication Foundation (WCF)</li>
-  <li>LINQ</li>
-</ul>
-
-<h1 id="tools">Tools</h1>
-
-<p>The best tool for writing C# applications is Visual Studio. You need to pay for it, it is not free. But you can get alternative tools to start developing C# apps. You can download <strong>Express for Web</strong>, <strong>Express for Windows</strong> and <strong>Express for Windows Desktop</strong>. You can read about the detailed descriptions of these tools from the <a href="http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx">Visual Studio download page</a>.</p>
-
-<h2 id="command-line-tools">Command Line Tools</h2>
-
-<p>If you download any edition of the Visual Studio Express, either for Web, Windows or Windows Desktop, it will already include the .NET framework SD. The SDK contains tools and binaries that will allow you compile C# programs from the command line. Alternatively, the .NET framework SDK can also be downloaded without downloading Visual Studio.  You can download the framework SDK from the <a href="http://msdn.microsoft.com/en-us/vstudio/aa496123.aspx">MSDN download site</a>.</p>
-
-<p>The framework SDK is applicable to Windows users, if you are on Linux or OSX, you can use <strong>mono</strong> which can you download from the <a href="http://www.mono-project.com/download/">mono project site</a>. You will need to install both the mono runtime environment (MRE) and the mono development kit (MDK).</p>
-
-        </div>					
-		  </div>      
-		</article>
-    
-    <div class="toc"> 
-      <ul>
-        <li><a href="/csharp/who-should-read">Audience</a></li>
-        <li><a href="/csharp/introduction">Introduction to programming</a></li>
-        <li><a href="/csharp/environment">Environment</a></li>
-        <li><a href="/csharp/hello-world">Hello World</a></li>
-        <li><a href="/csharp-programming-notes">Fundamentals</a></li>
-        
-      </ul>
-    </div>    
-    
-     <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
-    </div>  <!--  div wrap -->
-    <footer>
-<!--
-<a href="/android-programming-tutorial">Android</a> &nbsp;
-<a href="/java-introduction">Java</a> &nbsp;
-<a href="/working-with-html5">HTML5</a> &nbsp;
-<a href="/mobile-app-development-phonegap">PhoneGap</a> &nbsp;
-<a href="/javascript-core-tutorial">JavaScript</a> &nbsp;
--->
-
-<div style="text-align:center;">
-  <a href="/index.html">/home</a> &nbsp; <a href="/search">/search</a>
-</div>
-</footer>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    <!-- Start of StatCounter Code for Default Guide -->
-	
-  <script type="text/javascript">
-  var sc_project=7827488; 
-  var sc_invisible=1; 
-  var sc_security="069357c9"; 
-  </script>
-  <script type="text/javascript"
-      src="http://www.statcounter.com/counter/counter.js"></script>
-  <noscript><div class="statcounter"><a title="customizable
-      counter" href="http://statcounter.com/free-hit-counter/"
-      target="_blank"><img class="statcounter"
-      src="http://c.statcounter.com/7827488/0/069357c9/1/"
-      alt="customizable counter"></a></div></noscript>
-  <!-- End of StatCounter Code for Default Guide -->
-  </body>
-</html>

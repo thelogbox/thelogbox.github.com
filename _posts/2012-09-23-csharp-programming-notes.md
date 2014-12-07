@@ -143,16 +143,6 @@ You can work with a variety of data in C#. You can work with numbers, booleans a
 </table>
 
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 The code snippet below shows how to declare variables of these types
 
     bool a = true;
@@ -514,11 +504,6 @@ The code snippet above will print "Clueless" because there are no conditions tha
     
 The code snippet above will not do anything. It will not print anything because none of the conditions evaluated to true, and there is no else branch.
 
-
- <!-- Begin BidVertiser code -->
-<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204592&bid=1589518" type="text/javascript"></SCRIPT>
-<noscript><a href="http://www.bidvertiser.com/bdv/BidVertiser/bdv_xml_feed.dbm">xml search</a></noscript>
-<!-- End BidVertiser code --> 
 
 ### 5.3 Switch statement
 
