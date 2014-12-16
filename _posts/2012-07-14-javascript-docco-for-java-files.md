@@ -1,7 +1,7 @@
 ---
 layout: javascript
 
-title: Docco For Java
+title: How to hack Docco for Java
 
 description: Really simple but inelegant hack to use Docco for Java source files. Produce literate programming style documentation for your Java programs
 
@@ -20,30 +20,38 @@ Docco is a quick-and-dirty, hundred-line-long, literate-programming-style docume
 
 The solution on this page is a hack. It is not a port of Docco for Java the way Jocco or Marginalia is. There, you've been warned.
 
-# The hack
 
-Get nodejs and the node package manager. Docco depends on this. It can be installed via brew or by downloading the binary installer from http://nodejs.org. The binary installer already includes npm.
+**1. Get nodejs** and the **node package manager**. 
 
-`brew install -g node`
+Docco depends those two. We can install these tools either by using **Homebrew** or by downloading the installation package of nodejs from http://nodejs.org
 
-`brew install -g npm`
+~~~
+$ brew install -g node
+$ brew install -g npm
+~~~
 
-Get Docco via npm
+**2. Get Docco** using the node package manager
 
-`sudo npm -g install docco`
+~~~
+$ sudo npm -g install docco
+~~~
 
-Intall pygments
+**3. Install pygments**
 
-`sudo easy_install pygmnets`
+~~~
+$ sudo easy_install pygments
+~~~
 
-Locate the docco script
+**4. Edit the docco script**
 
-`ls -l `which docco` `
 
-The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the script and add the `.java` entry to the languages object literal.
 
-{% highlight javascript %}
-  languages = {
+The script file of docco can be usually found at  /usr/local/lib/node_modules/docco/lib/docco.js folder. 
+
+Edit the script and add the **.java** entry to the languages object literal.
+
+~~~
+languages = {
     '.coffee': {
       name: 'coffee-script',
       symbol: '#'
@@ -60,24 +68,24 @@ The script is over at /usr/local/lib/node_modules/docco/lib/docco.js. Edit the s
       name: 'python',
       symbol: '#'
     },
-	'.java': {
-		name: 'java',
-		symbol: '//'
+    '.java': {
+    name: 'java',
+    symbol: '//'
 	}
   };
-{% endhighlight %}
+~~~
 
+The code snippet above can be found somewhere between line 90 to line 120 of docco.js. The **java** entry was added so docco can generate nice docs for Java source files. 
 
-
-This is somewhere between line 98 to line 120. Java was not there, it was added so docco generate nice docs for Java source files. Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.
+Remember to write your comments using the C++ style (//). Docco will not parse the comments using JavaDoc style or C style comment block.
 
 Using docco is very simple, run it against any supported file, for example
 
-`docco MyProgram.java`
+**5. Test it out**
 
-To learn more about Docco, head over it's [github page](http://jashkenas.github.com/docco/)
+    docco MyProgram.java`
 
-# References
+## References
 
 1. Jeremy Ashkenas, "Docco", http://jashkenas.github.io/docco
 

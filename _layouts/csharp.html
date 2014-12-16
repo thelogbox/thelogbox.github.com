@@ -1,34 +1,33 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-		{% include head.html %}
-		{% include nostyle.html %}  
+    {% include head.html %}
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" />  
   </head>
   <body>
-    <div id="wrap">
 
-      <div class="running-head">
-      <a href="/">theLogBox.com</a>/csharp
-     </div>
+    <mast><a href="/">theLogBox.com</a>/c#</mast>
 
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline>{{ page.title }}</headline>
+      <author>
+        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+      </author>
+      <dateCreated>
+        {{ page.date | date: "%B %d, %Y" }}
+      </dateCreated>
 
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        {{ page.title }}
-        {% include postmeta.html %}
-      </div>
-    </div>             
-    </header>
+      <articleBody itempprop="articleBody">
+        {{ content }} 
+      </articleBody>      
+    </article>
     
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    {{ content }}
-        </div>					
-		  </div>      
-		</article>
     
+    <toc>
+      <div align="center">
+      <h2>C# .NET Tutorials</h2>
+      </div> 
+
     <div class="toc"> 
       <ul>
         <li><a href="/csharp/who-should-read">Audience</a></li>
@@ -38,12 +37,13 @@
         <li><a href="/csharp-programming-notes">Fundamentals</a></li>
         
       </ul>
-    </div>    
-    
+    </div>  
+
+    </toc>    
     {% include disqus.html %}
-    </div>  <!--  div wrap -->
     <footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
 </html>
+

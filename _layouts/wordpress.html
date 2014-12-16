@@ -1,44 +1,33 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-		{% include head.html %}
-		{% include nostyle.html %}
-    
-    <!--
-		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
-    -->
-  
+    {% include head.html %}
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" />  
   </head>
   <body>
 
-    <div id="wrap">
-      
-     <div class="running-head">
-      <a href="/">theLogBox.com</a>/wordpress
-     </div>   
-     
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <div class='feature-banner'>
-        <div class='feature-banner-text'>
-          {{ page.title }}
-          {% include postmeta.html %}
-        </div>
-      </div>
-    </header>
-    <!--
-    <article itemscope itemtype="http://schema.org/Article">
-    -->
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    {{ content }}
-        </div>
-							
-		  </div>
-      
-		</article>
-    <div class="promo">
-    </div>
+    <mast><a href="/">theLogBox.com</a>/wordpress</mast>
+
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline>{{ page.title }}</headline>
+      <author>
+        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+      </author>
+      <dateCreated>
+        {{ page.date | date: "%B %d, %Y" }}
+      </dateCreated>
+
+      <articleBody itempprop="articleBody">
+        {{ content }} 
+      </articleBody>      
+    </article>
+    
+    
+    <toc>
+      <div align="center">
+      <h2>WordPress Tutorials</h2>
+      </div> 
+
     <div class="toc">
       <ul>
       <li><a href="/wordpress/wordpress-theoretical-minimum">Theoretical minimum</a></li>
@@ -55,15 +44,13 @@
       <li><a href="#">Templates</a></li>  
       <li><a href="#">Extending Wordpress</a></li>  
     </ul>
-    </div>    
-    
-    <div class="promo">
-    </div>   
-    {% include disqus.html %}
-    </div>  <!--  div wrap -->
+    </div> 
 
-		<footer>{% include footer.html %}</footer>
+    </toc>    
+    {% include disqus.html %}
+    <footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
 </html>
+

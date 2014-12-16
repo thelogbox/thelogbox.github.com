@@ -29,16 +29,6 @@ You will need a properly configured CUPS server before proceeding. If you haven'
 
 ## Configuration
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 468pxby60banner -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-4627957463175380"
-     data-ad-slot="5760679882"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 Copy the rastertosamsungsplc ppd file to the */usr/lib/cups/filter* folder 
 
 ~~~~

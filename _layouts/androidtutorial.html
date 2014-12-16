@@ -2,49 +2,27 @@
 <html>
   <head>
 		{% include head.html %}
-		{% include nostyle.html %}  
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" />  
   </head>
   <body>
 
-    <div id="wrap">
+    <mast><a href="/">theLogBox.com</a>/android</mast>
 
-      <div class="running-head">
-      <a href="/">theLogBox.com</a>/android
-     </div>
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline>{{ page.title }}</headline>
+      <author>
+        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+      </author>
+      <dateCreated>
+        {{ page.date | date: "%B %d, %Y" }}
+      </dateCreated>
 
-
-
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        {{ page.title }}
-        {% include postmeta.html %}
-      </div>
-    </div>             
-    </header>
-    
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    {{ content }}
-        </div>					
-		  </div>
+		  <articleBody itempprop="articleBody">
+		    {{ content }}	
+		  </articleBody>
       
-            
-     <!-- 
-      <div id="leanpubbook">        
-        
-                
-        <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" class="thumbnail" /> 
-      
-        <div style="top:50%; float:right; text-align:center;">
-        Ted is writing an android book for beginners. It's a work in progress.
-        <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
-        can read it (free) online</a> over at LeanPub.
-      </div>
-      </div>
-    -->
-      <table bgcolor="#f1f1f1" cellpadding="10">
+      <!--
+      <table bgcolor="#f1f1f1" cellpadding="10" id="book">
         <tr>
           <td width="25%">
             <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 
@@ -56,31 +34,26 @@
           </td>
         </tr>
       </table>
-      
+      -->
       
 		</article>
     
     
-    <div class="toc">
-      <!--
-      
-      <iframe width="150" height="300"src="https://leanpub.com/minimumandroidprogramming/embed" frameborder="0" allowtransparency="true" align="right" marginheight="15"></iframe>  
-      -->
-      
+    <toc>
+      <div align="center">
+      <h2>Android Programming Tutorials</h2>
+      </div> 
+    <div class="toc">      
       <ul>
-        
-      <li><a href="/android/android-key-concepts"><b>Key Concepts</b></a></li>
+      <li><a href="/android/android-key-concepts">Key Concepts in Android</a></li>
       <li><a href="/android/android-what-you-need-to-know-before">What you need to know</a></li>
       <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
       <li><a href="/android-virtual-device">Virtual Device</a></li>
       <li><a href="/android-physical-device">Physical Device</a></li>
-      <li>
-      <li><a href="/android/android-project-structure"><b>Project Creation</b></a></li>
-        <ul style="margin-left:5px; padding-left:5px">
-          <li><a href="/android/android-create-project-cli">Command Line using the SDK</a></li>
-          <li><a href="#">Using Android Studio</a></li>
-        </ul>
-      </li>
+      
+      <li><a href="/android/android-project-structure">Project Creation</a></li>
+      <li><a href="/android/android-create-project-cli">Create a Project using CLI</a></li>
+      <li><a href="#">Create a Project using Android Studio</a></li>
       <li><a href="/android-activity">Activity and the UI</a></li>
       <li><a href="/android-linear-layout">Linear Layout</a></li>
       <li><a href="/android/layout-weights">Layout Weights</a></li>
@@ -95,7 +68,7 @@
       <li><a href="/android-check-connectivity">Network Connectivity</a></li>
       <li><a href="/android-location-api">GEO Location</a></li>
       <li><a href="/simple-camera-code">Camera</a></li>
-      <li><a href="/android-java-recording-voice">Audio</a></li>
+      <li><a href="/android-java-recording-voice">How to use the Mic</a></li>
       <li><a href="/signing-an-android-app">Signing your App</a></li>
   
       <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
@@ -111,9 +84,9 @@
       <li><a href="/cannot-find-buildxml">Cannot find build.xml</a></li>
     </ul>
     
-    </div>    
+    </div>
+    </toc>    
     {% include disqus.html %}
-    </div>  <!--  div wrap -->
     <footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}

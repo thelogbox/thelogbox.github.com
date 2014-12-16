@@ -1,7 +1,7 @@
 ---
 layout: androidtutorial
 
-title: Using the Mic for Recording
+title: How to Use the Mic for Recording
 
 description: Really simple steps on how to program a voice capture application in Android
 
@@ -38,8 +38,8 @@ Audio playback follows a similar pattern;
 
 The source for this exercise is below. There is no main.xml because the UI was built programatically, instead of declaratively
 
+~~~
 
-{% highlight java %}
 package com.thelogbox;
 
 import android.app.Activity;
@@ -56,102 +56,100 @@ import java.io.IOException;
 
 
 public class Recorder extends Activity {
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(new RView(this));
-    }
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(new RView(this));
+  }
 }
 
 class RView extends LinearLayout implements OnClickListener {
 
-	Button btnstart = null;
-	Button btnstop = null;
-	MediaPlayer mp = null;
-	MediaRecorder mr = null;
-	String filename = null;
+  Button btnstart = null;
+  Button btnstop = null;
+  MediaPlayer mp = null;
+  MediaRecorder mr = null;
+  String filename = null;
 
-	RView(Context ctx) {
-		super(ctx);
+  RView(Context ctx) {
+    super(ctx);
 
-		filename = Environment.getExternalStorageDirectory().getAbsolutePath();
-		filename += "/test.3gp";
+    filename = Environment.getExternalStorageDirectory().getAbsolutePath();
+    filename += "/test.3gp";
 
-		mr = new MediaRecorder();
-		mp = new MediaPlayer();
+    mr = new MediaRecorder();
+    mp = new MediaPlayer();
 
-		btnstart = new Button(ctx);
-		btnstop = new Button(ctx);
+    btnstart = new Button(ctx);
+    btnstop = new Button(ctx);
 
-		btnstart.setText("start");
-		btnstop.setText("stop");
+    btnstart.setText("start");
+    btnstop.setText("stop");
 
-		btnstart.setOnClickListener(this);
-		btnstop.setOnClickListener(this);
+    btnstart.setOnClickListener(this);
+    btnstop.setOnClickListener(this);
 
-		btnstart.setId(1);
-		btnstop.setId(2);
+    btnstart.setId(1);
+    btnstop.setId(2);
 
-		setOrientation(LinearLayout.VERTICAL);
+    setOrientation(LinearLayout.VERTICAL);
 
-		addView(btnstart);
-		addView(btnstop);
+    addView(btnstart);
+    addView(btnstop);
 
-	}
+  }
 
-	public void onClick(View view){
-		if(view.getId() == 1) {
-			// START BUTTON
-			btnstart.setText("Holding ...");
-			btnstop.setClickable(true);
-			btnstart.setClickable(false);
-			startRec();
-		}
-		else if(view.getId() == 2) {
-			// STOP BUTTON
-			btnstart.setClickable(true);
-			btnstart.setText("start");
-			btnstop.setClickable(false);
-			stopRec();
-		}
-	}
+  public void onClick(View view){
+    if(view.getId() == 1) {
+      // START BUTTON
+      btnstart.setText("Holding ...");
+      btnstop.setClickable(true);
+      btnstart.setClickable(false);
+      startRec();
+    }
+    else if(view.getId() == 2) {
+      // STOP BUTTON
+      btnstart.setClickable(true);
+      btnstart.setText("start");
+      btnstop.setClickable(false);
+      stopRec();
+    }
+  }
 
-	void startRec() {
-		mr.setAudioSource(MediaRecorder.AudioSource.MIC);
-		mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-		mr.setOutputFile(filename);
-		mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+  void startRec() {
+   
+    mr.setAudioSource(MediaRecorder.AudioSource.MIC);
+    mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+    mr.setOutputFile(filename);
+    mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-		try {
-			mr.prepare();
-		}
-		catch(IOException ioe){
-			// Some Logcat here
-		}
+    try {
+     mr.prepare();
+    }
+    catch(IOException ioe){
+     // Some Logcat here
+    }
+    mr.start();
+  }
 
-		mr.start();
-	}
+  void stopRec() {
+    mr.stop();
+    mr.release();
 
-	void stopRec() {
-		mr.stop();
-		mr.release();
+    try {
+     mp.setDataSource(filename);
+     mp.prepare();
+   }
+   catch(IOException ioe) {
+     // some Logcat here
+   }
+   mp.start();
 
-		try {
-			mp.setDataSource(filename);
-			mp.prepare();
-		}
-		catch(IOException ioe) {
-			// some Logcat here
-		}
-
-		mp.start();
-
-	}
-
+  }
 }
 
-{% endhighlight %}
+~~~
 
 <h2 class="section">PERMISSIONS</h2>
 

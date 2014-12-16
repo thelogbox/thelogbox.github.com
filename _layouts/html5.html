@@ -1,42 +1,33 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-		{% include head.html %}
-		{% include nostyle.html %}
-    
-    <!--
-		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
-    -->
-  
+    {% include head.html %}
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" />  
   </head>
   <body>
 
-    <div id="wrap">
+    <mast><a href="/">theLogBox.com</a>/html5</mast>
 
-     <div class="running-head">
-      <a href="/">theLogBox.com</a>/html5
-     </div>   
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline>{{ page.title }}</headline>
+      <author>
+        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+      </author>
+      <dateCreated>
+        {{ page.date | date: "%B %d, %Y" }}
+      </dateCreated>
 
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <div class='feature-banner'>
-        <div class='feature-banner-text'>
-          {{ page.title }}
-          {% include postmeta.html %}
-        </div>
-      </div>
-    </header>
-    <!--
-    <article itemscope itemtype="http://schema.org/Article">
-    -->
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    {{ content }}
-        </div>
-							
-		  </div>
-		</article>
- 
+      <articleBody itempprop="articleBody">
+        {{ content }} 
+      </articleBody>      
+    </article>
+    
+    
+    <toc>
+      <div align="center">
+      <h2>HTML5 Tutorials</h2>
+      </div> 
+
     <div class="toc">
       <ul>
       <li><a href="/working-with-html5">Introduction</a></li>
@@ -50,15 +41,13 @@
       <li><a href="/html5-canvas-managing-complexity">Canvas - Managing Complexity</a></li>
       <li><a href="/html5-database-programming">Database Programming with WebSQL</a></li>
     </ul>
-    </div>    
-    
-    <div class="promo">
-  
-    </div>   
-    </div>  <!--  div wrap -->
-    
-		<footer>{% include footer.html %}</footer>
+    </div>  
+
+    </toc>    
+    {% include disqus.html %}
+    <footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
 </html>
+

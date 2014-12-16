@@ -1,24 +1,61 @@
 ---
-
-layout: layout
-
 title: Archives
-
-categories:
-- List
-
 ---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <title>archives:theLogBox</title>
+  <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
-<div id="wrap">
+  <style>
 
-    <div class='feature-banner'>
-      <div class='feature-banner-text'>
-        Archives
-      </div>
-    </div> 
+  mast, footer {
+    font-family: sans-serif;
+    color: #ccc;
+    display:block;
+    text-align: center;
+  }
 
-<div id="archives" class="content">
+  mast a, footer a {color: #ccc;} mast a:hover, footer a:hover {color: blue;}
+
+  .pagetitle {
+    font-family: 'Georgia', serif; font-size:4em; font-weight: normal; text-align:center;
+  }
+
+  body {
+    font-family: 'Times New Roman',serif;
+    font-size: 16px;
+    color: #222;
+  }
+
+  .title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.5em;
+  }
+  .category {
+    font-weight: bold;font-family: 'Palatino', serif; color: brown;
+  }
+  
+  a {color: #222; text-decoration:none;} a:hover {text-decoration: underline;}
+
+  .pagination {
+    display: block;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  </style>
+
+
+</head>
+<body>
+
+<mast><a href="/">thelogbox.com</a>/archives</mast>
+
+<h1 class="pagetitle">{{ page.title }}</h1>
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -39,7 +76,7 @@ categories:
 
 {% for post in paginator.posts %}
 
-  <a href="{{ post.url }}" class='archivestitle'>
+  <a href="{{ post.url }}" class='title'>
     {{ post.date | date: "%m.%d.%y" }}
     {{ post.title }}
   </a>
@@ -47,7 +84,7 @@ categories:
   <p class='archives'>
   <!--<b>[{{post.categories | join: '  ,' }}]</b> -->
   {% if post.categories.size > 0 %}
-    <b><u>{{post.categories | join: '  ,' }}</u></b>
+    <span class="category">{{post.categories | join: '  ,' }}</span>
   {% endif %}
   {{ post.content | strip_html |truncatewords: 60 }}
   </p>
@@ -69,8 +106,10 @@ categories:
   {% endif %}
 </div>
 
-</div> <!-- wrap -->
+
 <footer>{% include footer.html%}</footer>
 {% include ga.html %}
 {% include statcounter.html %}
+</body>
+</html>
 

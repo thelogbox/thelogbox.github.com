@@ -1,57 +1,39 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-		{% include head.html %}
-		{% include nostyle.html %}
-    
-    <!--
-		<link href="../css/style.min.css" rel="stylesheet" type="text/css" />
-    -->
-  
+    {% include head.html %}
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" />  
   </head>
   <body>
 
-    <div id="wrap">
-      <div class="running-head">
-      <a href="/">theLogBox.com</a>/websphere
-     </div>
-       
-     <article itemscope itemtype="http://schema.org/Article" >
-     <header>          
-      <div class='feature-banner'>
-        <div class='feature-banner-text'>
-          {{ page.title }}
-          {% include postmeta.html %}
-        </div>
-      </div>
-    </header>
-    <!--
-    <article itemscope itemtype="http://schema.org/Article">
-    -->
-		  <div id="post">
-        <div itemprop='articleBody'>
-		    {{ content }}
-        </div>
-							
-		  </div>
-          <div class="postinfo">
-            Posted on {{ page.date | date: "%B %d, %Y" }} &nbsp; by: {{ page.author }}  
-          </div> 
-		</article>
+    <mast><a href="/">theLogBox.com</a>/websphere</mast>
+
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline>{{ page.title }}</headline>
+      <author>
+        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+      </author>
+      <dateCreated>
+        {{ page.date | date: "%B %d, %Y" }}
+      </dateCreated>
+
+      <articleBody itempprop="articleBody">
+        {{ content }} 
+      </articleBody>      
+    </article>
     
-    <div class="toc">
-      <!--
-      <iframe width="200" height="320" src="https://leanpub.com/javalessons/embed" frameborder="0" allowtransparency="true"></iframe>
-      -->
-        
+    
+    <toc>
+      <div align="center">
+      <h2>WebSphereTutorials</h2>
+      </div> 
+
+    <div class="toc">        
       <ul>
       <li><a href="#">Introduction</a></li>
       <li><a href="/websphere/install-liberty-profile-stand-alone">Liberty Profile installation</a></li>
       <li><a href="/websphere/server-creation"><b>Creating Servers</b></a></li>
-        <ul style="margin-left:5px; padding-left:5px">
-          <li><a href="#">Server Creation Command Line</a></li>
-          <li><a href="/websphere/server-creation-eclipse">Server Creation in Eclipse</a></li>
-        </ul>
+      <li><a href="/websphere/server-creation-eclipse">Server Creation in Eclipse</a></li>
       <li><a href="#">JSP Deployment</a></li>
       <li><a href="#">Servlet Deployment</a></li>
       <li><a href="#">JDBC</a></li>
@@ -59,13 +41,13 @@
       <li><a href="#">Working with a Message Driven Bean</a></li>
       <li><a href="#">Tuning</a></li>
     </ul>
-    </div>    
- 
-    {% include disqus.html %} 
-    </div>  <!--  div wrap -->
+    </div>  
 
-		<footer>{% include footer.html %}</footer>
+    </toc>    
+    {% include disqus.html %}
+    <footer>{% include footer.html %}</footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>
 </html>
+
