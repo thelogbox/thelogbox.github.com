@@ -16,7 +16,9 @@
       <dateCreated>
         written on {{ page.date | date: "%B %d, %Y" }}
         {% if page.lastupdated %}
-          updated on {{ page.lastupdated | "%B %d, %Y"}}
+          <dateModified>
+            updated on {{ page.lastupdated | "%B %d, %Y"}}
+          </dateModified>
         {% endif %}
       </dateCreated>
 
@@ -87,6 +89,10 @@
       <li><a href="/cannot-find-buildxml">Cannot find build.xml</a></li>
     </ul>
     
+    <ul>
+      <li><a href="/android/archives.html"><b>Tutorial Archives</b></a></li>
+    </ul>
+
     </div>
     </toc>    
     {% include disqus.html %}

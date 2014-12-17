@@ -57,7 +57,12 @@
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
       <dateCreated>
-        November 04, 2013
+        written on November 04, 2013
+        
+          <dateModified>
+            updated on December 17, 2014
+          </dateModified>
+        
       </dateCreated>
 
       <articleBody itempprop="articleBody">
@@ -65,29 +70,30 @@
 
 <p>In HTML introduction chapter, we have already created a folder on the document root</p>
 
-<pre class="codeblock">
-C:\Users\yourname\wamp\www\practice
-</pre>
+<pre><code>C:\Users\yourname\wamp\www\practice
+</code></pre>
 
 <p>We will still use this folder to contain all of our practice files. Create a file and name it <em>hello.php</em></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
 Hello
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+&lt;/html&gt;
+</code></pre>
 
 <p>It’s not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html — a valid html document is also a valid php script. </p>
 
 <p>Let’s add some php statements in our file. Edit <em>hello.php</em> so it looks like the code example below</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;!doctype html&gt;</span>
-<span class="x">&lt;html&gt;</span>
-<span class="x">  &lt;h1&gt;Hello World&lt;/h1&gt;</span>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
 
-<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;This is outputed by PHP&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">   Today&#39;s date is</span>
-<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nx">DATE_RFC822</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;/html&gt;</span></code></pre></div>
+  &lt;?php echo "This is outputed by PHP"; ?&gt;
+   Today's date is
+  &lt;?php echo date(DATE_RFC822); ?&gt;
+&lt;/html&gt;
+</code></pre>
 
 <p>To test this code, you need to launch a browser session and go to <em>http://localhost/practice/</em>. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). </p>
 

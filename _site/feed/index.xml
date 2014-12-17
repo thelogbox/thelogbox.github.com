@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-12-17T17:37:40+08:00</updated>
+ <updated>2014-12-18T00:24:01+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -2422,29 +2422,30 @@ console.log(foo()); //returns 10
 
 &lt;p&gt;In HTML introduction chapter, we have already created a folder on the document root&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
-C:\Users\yourname\wamp\www\practice
-&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;C:\Users\yourname\wamp\www\practice
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We will still use this folder to contain all of our practice files. Create a file and name it &lt;em&gt;hello.php&lt;/em&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
 Hello
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;It’s not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html — a valid html document is also a valid php script. &lt;/p&gt;
 
 &lt;p&gt;Let’s add some php statements in our file. Edit &lt;em&gt;hello.php&lt;/em&gt; so it looks like the code example below&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;  &amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt;
 
-&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;This is outputed by PHP&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;   Today&amp;#39;s date is&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DATE_RFC822&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &amp;lt;?php echo &quot;This is outputed by PHP&quot;; ?&amp;gt;
+   Today&#39;s date is
+  &amp;lt;?php echo date(DATE_RFC822); ?&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;To test this code, you need to launch a browser session and go to &lt;em&gt;http://localhost/practice/&lt;/em&gt;. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). &lt;/p&gt;
 
@@ -2601,18 +2602,16 @@ Hello
 
 &lt;p&gt;Go to the &lt;em&gt;SQL&lt;/em&gt; tab and enter the following&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
-CREATE database wppractice;
+&lt;pre&gt;&lt;code&gt;CREATE database wppractice;
 
 GRANT ALL PRIVILEGES ON wppractice.* TO yourname@’localhost’ IDENTIFIED BY &#39;yourpassword&#39;;
 
 FLUSH privileges;
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Replace &lt;em&gt;yourname&lt;/em&gt; and &lt;em&gt;yourpassword&lt;/em&gt; with any value you like &amp;amp;mdash. Just a make a point to remember them because you will need them later.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/wordpress/phpmyadmin-sql.png&quot; alt=&quot;PHPMyAdmin SQL Page&quot; /&gt;
-&amp;lt;div id=&#39;lst&#39;&amp;gt;phpmyadmin SQL page&amp;lt;/div&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/wordpress/phpmyadmin-sql.png&quot; alt=&quot;PHPMyAdmin SQL Page&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Click the &lt;em&gt;GO&lt;/em&gt; button on the page. That will execute the three lines of SQL commands you typed up on the SQL editor. This is probably your first and last personal encounter with the MySQL database in WordPress unless you are doing something crazy, advanced or both with WordPress.&lt;/p&gt;
 
@@ -2622,9 +2621,7 @@ FLUSH privileges;
 
 &lt;p&gt;The core files contains a file named &lt;em&gt;wp-config-sample.php. Make a copy of that file and name it *wp-config.php&lt;/em&gt;. Open it up for editing — don’t double click it, your system might be configured to launch a browser instead of opening an editor. Right-click on it and choose an editing program e.g. notepad. You need to make some changes to its contents.&lt;/p&gt;
 
-&lt;pre class=&quot;codeblock&quot;&gt;
-
-// ** MySQL settings - You can get this info from your web host ** //
+&lt;pre&gt;&lt;code&gt;// ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define(&#39;DB_NAME&#39;, &#39;wppractice&#39;);
 
@@ -2642,8 +2639,7 @@ define(&#39;DB_CHARSET&#39;, &#39;utf8&#39;);
 
 /** The Database Collate type. Don&#39;t change this if in doubt. */
 define(&#39;DB_COLLATE&#39;, &#39;&#39;);
-
-&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This part will tell WordPress what database to use, which user has access to the database and what is the password of that user. This is why you needed to remember the username and password during the database creation time on the SQL editor of phpmyadmin. Replace &lt;em&gt;yourusername&lt;/em&gt; with the username you used when you created the database using phpmyadmin (the SQL part). Do the same with &lt;em&gt;yourpassword&lt;/em&gt;.&lt;/p&gt;
 
@@ -12200,22 +12196,23 @@ $ brew install -g npm
 
 &lt;p&gt;We can change the current  behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to &lt;strong&gt;horizontal&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;horizontal&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-   	&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;  
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; 
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; 
-    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;EditText&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fill_parent&amp;quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;horizontal&quot;
+    android:layout_width=&quot;fill_parent&quot;
+   	android:layout_height=&quot;fill_parent&quot;
+    &amp;gt;
+	&amp;lt;TextView  
+    android:layout_width=&quot;wrap_content&quot; 
+    android:layout_height=&quot;wrap_content&quot; 
+    android:text=&quot;Hello World&quot;
+    /&amp;gt;
+	&amp;lt;EditText
+		android:layout_width=&quot;fill_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+	/&amp;gt;
+&amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Save the project, compile, then run. Notice any difference?&lt;/p&gt;
 
@@ -12965,15 +12962,15 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;p&gt;This compilation error means the android sdk is looking for the build.xml file whic is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This compilation error means the android sdk is looking for the build.xml file which is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.&lt;/p&gt;
 
 &lt;h2 id=&quot;basic-concepts&quot;&gt;1 Basic Concepts&lt;/h2&gt;
 
 &lt;p&gt;When a project is created, one of the files generated by the bootstrap process is build.xml. The Apache Ant build tool will look for it on the top most folder of the project. This build file does not contain all the information it needs to compile and make a project. It references another build file which is found on &lt;strong&gt;sdk.dir/tools/ant/&lt;/strong&gt;build.xml. &lt;/p&gt;
 
-&lt;p&gt;The compiler will resolve the value of sdk.dir by looking it up inside the local.properties file, which is located on the top most folder of the project. sdk.dir needs to point to the directory where you installed the android software development kit. &lt;/p&gt;
+&lt;p&gt;The compiler will resolve the value of sdk.dir by looking it up inside the local.properties file, which, like the build.xml, is also located on the root folder of the project. &lt;strong&gt;sdk.dir&lt;/strong&gt; needs to point to the directory where you installed the android software development kit. &lt;/p&gt;
 
-&lt;p&gt;The code snippet below is the content of the local.properties file  for a sample project.&lt;/p&gt;
+&lt;p&gt;The code snippet below is the content of the local.properties file of a sample project.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# This file is automatically generated by Android Tools.
 # Do not modify this file -- YOUR CHANGES WILL BE ERASED!
@@ -12988,24 +12985,25 @@ class MyClass{}&lt;/p&gt;
 sdk.dir=/Users/ted/progtools/android-sdk-macosx
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The local.properties file, like the build.xml, is generated as part of project creation process. The value of the sdk.dir is inferred by the android tools, and it always gets it right. You do not need to mess around with local.properties. Usually.&lt;/p&gt;
+&lt;p&gt;The local.properties file is also generated as part of project creation process. The value of the sdk.dir inside the local.properties is inferred by the android tools, and it always gets it right. You do not need to mess around with local.properties. Usually.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-to-fix&quot;&gt;2 How to Fix&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;1. Open the local.properties file&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;This file is located on the root or top most folder of your android project. Inspect the contents of the file. Verify that the value of sdk.dir is really where you installed your android sdk. &lt;/p&gt;
+&lt;p&gt;Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;2. Fix the value of sdk.dir&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;You can try change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties. It says don’t mess around with it. Your changes will be overwritten. &lt;/p&gt;
+&lt;p&gt;You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don’t mess around with it. Your changes will be overwritten. &lt;/p&gt;
 
 &lt;p&gt;What we can do is to update the project in order to restore the value of sdk.dir. &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;cd ~/project_path
 android update project --path .
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There is a period at the end the command snippet above. It may not be visible on the screen but it is there.&lt;/p&gt;
+
+&lt;p&gt;There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;3. Inspect your .gitignore file&lt;/strong&gt;&lt;/p&gt;
 
@@ -13555,7 +13553,7 @@ mysql&amp;gt; select * from inbox;
    <link href="http://thelogbox.com/what-port-am-i-using"/>
    <updated>2012-04-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/what-port-am-i-using</id>
-   <content type="html">&lt;p&gt;This guide shows detailed steps on to find and terminate a specific network related process in Windows 8. The guide is also applicable to Windows 7, Vista or XP users. &lt;/p&gt;
+   <content type="html">&lt;p&gt;This guide shows detailed steps on how to find and terminate a specific network related process in Windows 8. The instructions here are also applicable for Windows 7, Vista or XP users. &lt;/p&gt;
 
 &lt;p&gt;The commands used are usually employed by server administrators. But developers, from time to time, encounter difficult situations related to network processes. It may not be apparent as a network related problem, and that is part of the difficulty.&lt;/p&gt;
 
@@ -15070,17 +15068,25 @@ $ sudo /etc/init.d/cupsd restart
    <id>http://thelogbox.com/mac-mini-microphone-hack</id>
    <content type="html">&lt;p&gt;The Mac Mini requires line level mic input. It needs to be powered. A mic that works on PC may not work on the mini.&lt;/p&gt;
 
-&lt;p&gt;You can spare your self the experimentation and reading this guide if you just buy the third party products designed for the mac mini e.g. iMic. If you have the time and the materials suggested here, go on and hack away.&lt;/p&gt;
+&lt;p&gt;You can spare your self the experimentation and reading this hack if you just buy the third party products designed for the mac mini e.g. iMic. If you have the time, the materials suggested here and the inclindation, go on and hack away.&lt;/p&gt;
 
-&lt;h2 class=&quot;section&quot;&gt;The Hack&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. Find an old voice recorder&lt;/strong&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Find an old voice recorder. There could be one (or two) gathering dust in that sealed box of yesteryear-gadgets. I found an old Sony TCM-150. Any recorder with a built-in microphone should do it.&lt;/li&gt;
-  &lt;li&gt;A 3.5mm stereo jack (mini jack) with both ends as male connectors. This can be easily procured at any audio supplies store or hardware supply store. I got mine from ACE hardware.&lt;/li&gt;
-  &lt;li&gt;Once you have procured the 2 items above. Connect the Mac Mini and the voice recorder using the stereo mini jack. You might want to check the batteries on that old voice recorder, I hope you did not forget to remove the batteries when you locked it away for keeping. If the dry cell batteries have leaked, the voice recorded may not be usable anymore.&lt;/li&gt;
-  &lt;li&gt;Power the voice recorder. Put in record mode (you can press the pause button so that it actually doesn’t record, we just need the mic)&lt;/li&gt;
-  &lt;li&gt;Test it. I tested mine by using it in a skype call. In fact, that was the only reason I needed a microphone for the Mac Mini&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;There could be one or more of these old gadgets gathering dust in that sealed box of yesteryear gadgets. I found an old Sony TCM-150. Any recorder with a built-in microphone should do it&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Get a 3.5mm stereo jack&lt;/strong&gt;, also called a mini jack, with both ends as male connectors. This can be easily procured at any audio supplies store or hardware supply store&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Connect the Mac Mini&lt;/strong&gt; and the voice recorder using the stereo mini jack &lt;/p&gt;
+
+&lt;p&gt;You might want to check the batteries on that old voice recorder, I hope you did not forget to remove the batteries when you locked it away for keeping. If the dry cell batteries have leaked, the voice recorded may not be usable anymore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Power the voice recorder&lt;/strong&gt; &lt;/p&gt;
+
+&lt;p&gt;Put in record mode (you can press the pause button so that it actually doesn’t record, we just need the mic)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Test it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I tested mine by using it in a skype call. In fact, that was the only reason I needed a microphone for the Mac Mini&lt;/p&gt;
 
 </content>
  </entry>

@@ -15,6 +15,7 @@ author: Ted Hagos
 categories:
 - wordPress
 
+lastupdated: December 17, 2014
 ---
 
 Presumably, you have completed the Apache, MySQL and PHP setup. This chapter walks through the steps on how to install and configure a WordPress instance.
@@ -36,18 +37,18 @@ Launch a browser session and go to *http://localhost* (assuming that you did not
 
 Go to the *SQL* tab and enter the following
 
-<pre class="codeblock">
+~~~
 CREATE database wppractice;
 
 GRANT ALL PRIVILEGES ON wppractice.* TO yourname@’localhost’ IDENTIFIED BY 'yourpassword';
 
 FLUSH privileges;
-</pre>
+~~~
 
 Replace *yourname* and *yourpassword* with any value you like &mdash. Just a make a point to remember them because you will need them later.
 
 ![PHPMyAdmin SQL Page](/img/wordpress/phpmyadmin-sql.png)
-<div id='lst'>phpmyadmin SQL page</div>
+
 
 Click the *GO* button on the page. That will execute the three lines of SQL commands you typed up on the SQL editor. This is probably your first and last personal encounter with the MySQL database in WordPress unless you are doing something crazy, advanced or both with WordPress.
 
@@ -58,8 +59,7 @@ Go to Wordpress folder you created, it should be in C:\Users\yourname\WAMP\wordp
 The core files contains a file named *wp-config-sample.php. Make a copy of that file and name it *wp-config.php*. Open it up for editing &mdash; don't double click it, your system might be configured to launch a browser instead of opening an editor. Right-click on it and choose an editing program e.g. notepad. You need to make some changes to its contents.
 
 
-<pre class="codeblock">
-
+~~~
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'wppractice');
@@ -78,8 +78,7 @@ define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
-
-</pre>
+~~~
 
 This part will tell WordPress what database to use, which user has access to the database and what is the password of that user. This is why you needed to remember the username and password during the database creation time on the SQL editor of phpmyadmin. Replace *yourusername* with the username you used when you created the database using phpmyadmin (the SQL part). Do the same with *yourpassword*.
 

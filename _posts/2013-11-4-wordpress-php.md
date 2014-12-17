@@ -15,6 +15,8 @@ author: Ted Hagos
 categories:
 - wordPress
 
+lastupdated: December 17, 2014
+
 ---
 
 
@@ -22,26 +24,25 @@ To follow the exercises in this chapter, you will need WAMP up and running. You 
 
 In HTML introduction chapter, we have already created a folder on the document root
 
-<pre class="codeblock">
+~~~
 C:\Users\yourname\wamp\www\practice
-</pre>
+~~~
 
 We will still use this folder to contain all of our practice files. Create a file and name it *hello.php*
 
-{% highlight html %}
 
+~~~
 <!doctype html>
 <html>
 Hello
 </html>
-
-{% endhighlight %}
+~~~
 
 It's not that much different from a regular html page. In fact, if not the php file extension, it is a lot like an ordinary html page. PHP behaves like this because it was designed to place very nicely with html &mdash; a valid html document is also a valid php script. 
 
 Let's add some php statements in our file. Edit *hello.php* so it looks like the code example below
 
-{% highlight php %}
+~~~
 <!doctype html>
 <html>
   <h1>Hello World</h1>
@@ -50,7 +51,7 @@ Let's add some php statements in our file. Edit *hello.php* so it looks like the
    Today's date is
   <?php echo date(DATE_RFC822); ?>
 </html>
-{% endhighlight %}
+~~~
 
 
 To test this code, you need to launch a browser session and go to *http://localhost/practice/*. You cannot simply double click the php file like you did with regular HTML files. PHP script is a server side technology not client side (like HTML, CSS, JavaScript). 

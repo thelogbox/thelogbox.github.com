@@ -20,8 +20,8 @@ We will work with project you created in the [last chapter](/android-activity). 
 
 We can change the current  behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to **horizontal**
 
-{% highlight xml %}
 
+~~~
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
@@ -38,8 +38,7 @@ We can change the current  behavior so that components inside the layout will fl
 		android:layout_height="wrap_content"
 	/>
 </LinearLayout>
-
-{% endhighlight %}
+~~~
 
 Save the project, compile, then run. Notice any difference?
 

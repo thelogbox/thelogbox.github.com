@@ -14,7 +14,12 @@
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
       <dateCreated>
-        {{ page.date | date: "%B %d, %Y" }}
+        written on {{ page.date | date: "%B %d, %Y" }}
+        {% if page.lastupdated %}
+          <dateModified>
+            updated on {{ page.lastupdated | "%B %d, %Y"}}
+          </dateModified>
+        {% endif %}
       </dateCreated>
 
       <articleBody itempprop="articleBody">

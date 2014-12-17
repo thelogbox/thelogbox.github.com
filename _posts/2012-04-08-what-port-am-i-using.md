@@ -11,9 +11,11 @@ tags:
 - network
 - admin
 
+lastupdated: December 17, 2014
+
 ---
 
-This guide shows detailed steps on to find and terminate a specific network related process in Windows 8. The guide is also applicable to Windows 7, Vista or XP users. 
+This guide shows detailed steps on how to find and terminate a specific network related process in Windows 8. The instructions here are also applicable for Windows 7, Vista or XP users. 
 
 The commands used are usually employed by server administrators. But developers, from time to time, encounter difficult situations related to network processes. It may not be apparent as a network related problem, and that is part of the difficulty.
 

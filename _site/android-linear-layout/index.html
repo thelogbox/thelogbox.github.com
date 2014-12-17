@@ -69,22 +69,23 @@
 
 <p>We can change the current  behavior so that components inside the layout will flow from left to right. Change the orientation of the layout to <strong>horizontal</strong></p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;horizontal&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-   	<span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="nt">&gt;</span>
-	<span class="nt">&lt;TextView</span>  
-    <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> 
-    <span class="na">android:text=</span><span class="s">&quot;Hello World&quot;</span>
-    <span class="nt">/&gt;</span>
-	<span class="nt">&lt;EditText</span>
-		<span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-		<span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-	<span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></div>
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+   	android:layout_height="fill_parent"
+    &gt;
+	&lt;TextView  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text="Hello World"
+    /&gt;
+	&lt;EditText
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
 
 <p>Save the project, compile, then run. Notice any difference?</p>
 
@@ -242,6 +243,10 @@
       <li><a href="/cannot-find-buildxml">Cannot find build.xml</a></li>
     </ul>
     
+    <ul>
+      <li><a href="/android/archives.html"><b>Tutorial Archives</b></a></li>
+    </ul>
+
     </div>
     </toc>    
      <!-- DISQUS javascript -->
