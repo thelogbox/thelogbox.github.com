@@ -34,13 +34,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="keywords" content="network ,admin">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="When IIS or Apache won't start, another is app is using port 80. Find out" />
+<meta name="description" content="When IIS or Apache won't start, another is app is using port 80. Find out which one" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    What Application is using Port 80 | theLogBox
+    What Application is Using Port 80 | theLogBox
   
 </title>
 
@@ -52,7 +52,7 @@
     <mast><a href="/">theLogBox.com</a></mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
-      <headline>What Application is using Port 80</headline>
+      <headline>What Application is Using Port 80</headline>
       <author>
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
@@ -61,38 +61,79 @@
       </dateCreated>
 
       <articleBody itempprop="articleBody">
-        <p>After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be <strong>Address already in use..</strong>, <strong>Bind Exception</strong>, <strong>Port 80 already in use</strong> and other things that sounds like those. </p>
+        <p>This guide shows detailed steps on to find and terminate a specific network related process in Windows 8. The guide is also applicable to Windows 7, Vista or XP users. </p>
 
-<p>Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache’s port, you probably don’t need to read this guide. You already know what you are doing.</p>
+<p>The commands used are usually employed by server administrators. But developers, from time to time, encounter difficult situations related to network processes. It may not be apparent as a network related problem, and that is part of the difficulty.</p>
 
-<p>All the commands we will use will be done on a terminal. You will need to open cmd.exe</p>
+<p>The most common use of these commands is resolve errors which may manifest themselves as one of the following, but not limited to</p>
 
-<pre><code>
-c:\&gt;netstat -aon | findstr 0.0:80
+<ol>
+  <li>Address already in use</li>
+  <li>BindException</li>
+  <li>Port 80 already in use</li>
+</ol>
+
+<p>For purposes of illustration and specificity of example, we will take on the following problem:</p>
+
+<p>We are trying to start a web server, it could be Apache, IIS or NGINX, it doesn’t matter what. We cannot successfully start the web server for one reason or another. The error message said “Address already in use”. </p>
+
+<h2 id="basic-concepts">1 Basic concepts</h2>
+
+<p>A network aware application, like a web server, need to bind itself to a socket. Think of a socket from the context of a <a href="http://en.wikipedia.org/wiki/Tin_can_telephone">tin can telephone</a>. The two cans are connected via a string which can transmit soundwaves from one endpoint to the other. The socket is one the cans and the network cable is the string. Instead of transmitting soundwaves like the string, we stream data packets from one socket to another. </p>
+
+<p>A socket needs two things before it can be opened. It needs the IP address of the machine where you will run the web server. The application can easily grab that IP address, so that is rarely a problem. The other thing it needs is a port number. Most web servers use port 80. When a webserver is started, it will attempt to latch itself into a socket using 80 as the port number. </p>
+
+<p>Some of the times, port 80 is also used by an application other than a webserver, skype for example. Only one application can use port number 80, or any port number for that matter, at any point in time. If an application like skype has already latched itself into port 80, no other application can use it until skype is terminated. This sets the stage for our troubleshooting exercise. We have used skype in here as an example of an app that prevents use from launching the web server. In reality, we do not know what application is using the port. So we need to find out. </p>
+
+<h2 id="steps">2 Steps</h2>
+
+<p><strong>1. Launch a terminal window</strong></p>
+
+<p>On Windows 7, press the Windows superkey on the keyboard. When the <strong>Start</strong> menu pops, type <strong>cmd</strong> inside the textbox labeled <strong>Run</strong> then press ENTER. </p>
+
+<p>On Windows 8, press the Windows superkey, type <strong>cmd</strong> then press ENTER. </p>
+
+<p><strong>2. List the network processes</strong></p>
+
+<p>List all the processes that are using network resources and filter the results. We are looking for a specific process that uses port number 80. Windows has the commands <strong>netstat</strong> and <strong>findstr</strong> which can do the job for us.</p>
+
+<pre><code>C:\&gt; netstat -aon | findstr 0.0:80
 </code></pre>
 
-<p>The first part of the command will list all active connections and their ports. The <strong>-o</strong> flag is important because it will tell you the process IDs of the applications running. The <strong>-n</strong> flag is to display the port numbers numerically (which is what we need).</p>
+<p>The two commands above are joined by the pipe operator. The netstat command will list all network related processes. Its output is used as an input to findstr. The resulting list is filtered such that only applications using port 80 will show up.</p>
 
-<p>The <strong>nestat</strong> command will list all of the currently running applications, which could be a lot. That is why we need to filter the results to limit the list to only the applications we are interested in. Only those application(s) that is running on port 80. </p>
+<p><strong>3. Find the application name of the app using port 80</strong></p>
 
-<p>The next steps is to find the PID (Process ID) of the application currently running on port 80. You won’t get the name of the application just yet.  </p>
+<p>The <strong>netstat</strong> command will not give us the name of the application that uses port 80. It will give us only its process id or pid. We need to use another command to find out the application name</p>
 
-<pre><code>
-*TCP0.0.0.0:80 0.0.0.0:0 LISTENING 560*
+<pre><code>C:\&gt; tasklist | findstr 560
 </code></pre>
 
-<p>The line above is an example of what you could get after running the netstat command, <strong>560</strong> is the process id of the application currently bound on port 80.  </p>
+<p>The number 560 above may not be applicable for you. In my machine, the pid of the offending app was 560, it may not be the same for you. </p>
 
-<p>To find out who is application 560, type the command </p>
+<p><strong>4. Kill the offending process</strong></p>
 
-<pre><code>
-tasklist | findstr 560
+<p>You can use the <strong>taskkill</strong> command to terminate the application</p>
+
+<pre><code>C:\&gt; taskkill /F /PID 560
 </code></pre>
 
-<p>After that command, it should give you the name of the application whose ID is <strong>560</strong> which is currently using port 80.  </p>
+<p>Alternatively, you can use GUI tools like the Windows <strong>Task Manager</strong>  to terminate running programs or a third-party tool like <strong>Process Explorer</strong> from SysInternals.</p>
 
-<p>If you need to free up port 80 so that Apache can run, you can kill the Skype application by using the Process Manager  then find the app and kill it. You can also terminate a process on the command line using <strong>taskkill /F /PID 560</strong></p>
+<h2 id="further-reading">3 Further reading</h2>
 
+<ol>
+  <li>The <strong>netstat</strong> command documentation can be found at the <a href="http://technet.microsoft.com/en-us/library/ff961504.aspx">Technet page for netstat</a></li>
+  <li>The <strong>tasklist</strong> command documentation can be found at <a href="http://technet.microsoft.com/en-us/library/cc732459.aspx">Technet page for tasklist</a></li>
+  <li>The <strong>taskkill</strong> command documentation can be found at the <a href="http://technet.microsoft.com/en-us/library/bb491009.aspx">Technet page for taskkill</a></li>
+  <li><strong>Port numbers</strong> and service name assignments can be found at the <a href="http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?&amp;page=2">IANA page</a></li>
+</ol>
+
+<h2 id="resources">4 Resources</h2>
+
+<ol>
+  <li><strong>ProcessExplorer</strong> - You can download ProcessExplorer from the <a href="http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx">SysInternals website</a></li>
+</ol>
  
       </articleBody>      
     </article>
@@ -114,7 +155,7 @@ tasklist | findstr 560
       <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
       
 <!-- END Disqus-->
-    <footer><a href="/index.html">/home</a> &nbsp; <a href="/search">/search</a>
+    <footer><a href="/index.html">Home</a> &nbsp; <a href="/search">Search</a>
 
 </footer>
     <script type="text/javascript">

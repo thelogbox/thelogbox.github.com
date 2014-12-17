@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-12-17T12:37:52+08:00</updated>
+ <updated>2014-12-17T17:17:43+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -11884,17 +11884,45 @@ ant debug install
  </entry>
  
  <entry>
-   <title>How Much Java is required for Android</title>
+   <title>How Much Java Do I need for Android Programming</title>
    <link href="http://thelogbox.com/android-java-for-android-development"/>
    <updated>2012-07-15T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-java-for-android-development</id>
-   <content type="html">&lt;div id=&quot;feature-button&quot;&gt;
+   <content type="html">&lt;p&gt;Before diving into Android programming, there are a couple of skills you might want to look at. It is possible to simply jump into programming, build some basic screens by copying example codes from the internet or from other programmers. But you cannot go to the deep end. When you find yourself neckdeep in the not-so-trivial parts of Android programming and you feel stuck, that’s probably because you haven’t covered some bases.&lt;/p&gt;
 
-This content has moved. You can view it using the link below
-&lt;p /&gt;
-    &lt;a href=&quot;/android/android-what-you-need-to-know-before&quot; class=&quot;button&quot;&gt;What you need to know before diving into Android&lt;a&gt;
-    
-&lt;/a&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;The ideal set of skills to bring into Android development includes experience in AWT/Swing, JDBC, Collections, Network and Thread programming and a couple of others. But not many people will have this. For one reason, AWT and Swing went out of favor a long time ago. Most Java programmers right now have experience on web development but not desktop. &lt;/p&gt;
+
+&lt;h2 id=&quot;object-oriented-concepts&quot;&gt;1. Object Oriented Concepts&lt;/h2&gt;
+
+&lt;p&gt;The Android framework uses OOP heavily. You need to be comfortable with the idiomatic use of things like class/interface inheritance, polymorphism etc. Even the humble Hello World application in most Android textbooks involves the use inheritance. &lt;/p&gt;
+
+&lt;h2 id=&quot;java-fundamentals&quot;&gt;2. Java fundamentals&lt;/h2&gt;
+
+&lt;p&gt;You will need to be familiar with programming fundamentals in Java. Even if Android uses a different VM to run the apps, the language used for native apps development is Java. The more familiarity you have with basic programming concepts in Java, the better. You should at least know the concept of variables, constants, branching and looping, packaging and scope visibility, basic I/O and file persistence.&lt;/p&gt;
+
+&lt;h2 id=&quot;java-collections&quot;&gt;3. Java Collections&lt;/h2&gt;
+
+&lt;p&gt;Beyond simple variables, you will need some skills to handle collections of data. A basic familiarity with rudimentary data structures like arrays, maps and sets will be essential.&lt;/p&gt;
+
+&lt;h2 id=&quot;java-event-model&quot;&gt;4. Java Event model&lt;/h2&gt;
+
+&lt;p&gt;Android applications are heavy on user interaction. For the most basic applications, you might be able to get away by simply knowing how to put the click handler on XML file. But for other gestures like long clicks, swipe etc, you will need to write Java codes to handle the event. The Java event model uses listeners and callbacks quite a lot.&lt;/p&gt;
+
+&lt;h2 id=&quot;xml&quot;&gt;5. XML&lt;/h2&gt;
+
+&lt;p&gt;A passing familiarity wih XML structures and validation rules should take you quite far in Android programming. You don’t need to work much with XML programmatically. Your usual need for XML will arise when you define layouts and when configuring permissions for the app. If you have coded HTML before without using WYSIWYG tools, you should be fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;sql&quot;&gt;6. SQL&lt;/h2&gt;
+
+&lt;p&gt;Some, if not most, of the applications you will make will need to store data. Some data might be simple and can be stored either via the preferences or the SD card. But some might need the facility of a relational database. The Android runtime includes the SQLite database. You will talk to it using the Structured Query Language. SQL is not a difficult language, its quite enjoyable to learn actually because of its declarative nature. It is almost English like.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-tools&quot;&gt;7. Build tools&lt;/h2&gt;
+
+&lt;p&gt;An Android project is a compilation of various files e.g. XML, image resources, compiled byte codes, source codes etc. Getting all these resources to stick and work together cannot be done by hand, well actually it can be, but it will not be practical. That is why even the barebones SDK requires the use Apache Ant to help in compiling, building and deploying your applications. &lt;/p&gt;
+
+&lt;h2 id=&quot;command-line-experience&quot;&gt;8. Command line experience&lt;/h2&gt;
+
+&lt;p&gt;Even if you plan to use a full blown IDE like Eclipse, Android Studio or NetBeans, its not a bad idea to invest some time getting some skills on the command line. They might take a while longer to learn than their GUI counterparts but the effort will pay off. When you run into some problems on the IDE, your CLI skills might save you. You don’t need to be a ninja on the terminal, you can get by with some basics e.g. creating and deleting files, moving around directories, invoking ant scripts, using adb etc.&lt;/p&gt;
 </content>
  </entry>
  
@@ -12933,25 +12961,57 @@ class MyClass{}&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Cannot Find build.xml</title>
+   <title>Cannot Find Build.Xml</title>
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;h2 id=&quot;what-does-the-error-mean&quot;&gt;What does the error mean&lt;/h2&gt;
+   <content type="html">&lt;p&gt;This compilation error means the android sdk is looking for the build.xml file whic is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.&lt;/p&gt;
 
-&lt;p&gt;It’s a compilation error. The Android SDK refuses to compile the app because, literally, it cannot find &lt;strong&gt;build.xml&lt;/strong&gt;. It may seem a bit tricky because if you look inside your android project, you will find a build.xml file. That is not the same xml file that the error is telling you about. The build.xml inside your project is actually importing another build.xml file. And it is looking for it in the &lt;strong&gt;SDK.DIR/tools/ant&lt;/strong&gt; directory. That’s the one it’s saying it can’t find. &lt;/p&gt;
+&lt;h2 id=&quot;basic-concepts&quot;&gt;1 Basic Concepts&lt;/h2&gt;
 
-&lt;p&gt;The &lt;strong&gt;sdk.dir&lt;/strong&gt; is a variable which points to the folder location where you installed the Android sdk. This is also known as the &lt;strong&gt;ANDROID_HOME&lt;/strong&gt; folder. Usually, you don’t need to mess around with this variable because it would have been set for you. So how did you get here? Lots of reasons but one thing is for certain. The sdk.dir variable is improperly set. It’s not pointing to a valid folder where the Android sdk is installed. &lt;/p&gt;
+&lt;p&gt;When a project is created, one of the files generated by the bootstrap process is build.xml. The Apache Ant build tool will look for it on the top most folder of the project. This build file does not contain all the information it needs to compile and make a project. It references another build file which is found on &lt;strong&gt;sdk.dir/tools/ant/&lt;/strong&gt;build.xml. &lt;/p&gt;
 
-&lt;h2 id=&quot;how-to-fix&quot;&gt;How to Fix&lt;/h2&gt;
+&lt;p&gt;The compiler will resolve the value of sdk.dir by looking it up inside the local.properties file, which is located on the top most folder of the project. sdk.dir needs to point to the directory where you installed the android software development kit. &lt;/p&gt;
 
-&lt;p&gt;Open the &lt;strong&gt;local.properties&lt;/strong&gt; file in an editor. This file is on the root folder of your Android project so you should be able to find it without difficulty. Check the value of the sdk.dir, it should point to the actual folder where you installed the Android development kit. If it’s not, fix it. Make it point to the right folder. &lt;/p&gt;
+&lt;p&gt;The code snippet below is the content of the local.properties file  for a sample project.&lt;/p&gt;
 
-&lt;p&gt;Try the compilation again. It should work by now.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# This file is automatically generated by Android Tools.
+# Do not modify this file -- YOUR CHANGES WILL BE ERASED!
+#
+# This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
 
-&lt;h2 id=&quot;prevention&quot;&gt;Prevention&lt;/h2&gt;
+# location of the SDK. This is only used by Ant
+# For customization when using a Version Control System, please read the
+# header note.
 
-&lt;p&gt;Did you notice the commented section of the local.properties file? It said “this file must not be checked into version control systems as it contains information specific to your local configuration etc”. Follow that advice. Include the local.properties on the .gitignore file, if you are using git. If you are using another VCS, follow the method of your VCS on how to exclude certain files from being checked in.&lt;/p&gt;
+sdk.dir=/Users/ted/progtools/android-sdk-macosx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The local.properties file, like the build.xml, is generated as part of project creation process. The value of the sdk.dir is inferred by the android tools, and it always gets it right. You do not need to mess around with local.properties. Usually.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-fix&quot;&gt;2 How to Fix&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Open the local.properties file&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This file is located on the root or top most folder of your android project. Inspect the contents of the file. Verify that the value of sdk.dir is really where you installed your android sdk. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Fix the value of sdk.dir&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can try change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties. It says don’t mess around with it. Your changes will be overwritten. &lt;/p&gt;
+
+&lt;p&gt;What we can do is to update the project in order to restore the value of sdk.dir. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/project_path
+android update project --path .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is a period at the end the command snippet above. It may not be visible on the screen but it is there.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Inspect your .gitignore file&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.&lt;/p&gt;
+
+&lt;p&gt;If you are using &lt;strong&gt;git&lt;/strong&gt;, add the local.properties file to the .gitignore file so the next time you push or pull from a repository, the local.properties will be ignored by git&lt;/p&gt;
 
 </content>
  </entry>
@@ -13491,42 +13551,83 @@ mysql&amp;gt; select * from inbox;
  </entry>
  
  <entry>
-   <title>What Application is using Port 80</title>
+   <title>What Application is Using Port 80</title>
    <link href="http://thelogbox.com/what-port-am-i-using"/>
    <updated>2012-04-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/what-port-am-i-using</id>
-   <content type="html">&lt;p&gt;After installing WAMP (Windows Apache MySQL PHP) or Apache only, the service cannot start properly because some (other) application is using it. The errors you might get could be &lt;strong&gt;Address already in use..&lt;/strong&gt;, &lt;strong&gt;Bind Exception&lt;/strong&gt;, &lt;strong&gt;Port 80 already in use&lt;/strong&gt; and other things that sounds like those. &lt;/p&gt;
+   <content type="html">&lt;p&gt;This guide shows detailed steps on to find and terminate a specific network related process in Windows 8. The guide is also applicable to Windows 7, Vista or XP users. &lt;/p&gt;
 
-&lt;p&gt;Typically, Apache needs port 80 to be free. That means no other application has latched itself to port 80. The Apache web server can be configured to user a port other than 80, but port 80 is the most typical setting. A user that has little or no background on installing web servers would probably oblivious to port settings, let alone how to change it. If you know how to configure Apache’s port, you probably don’t need to read this guide. You already know what you are doing.&lt;/p&gt;
+&lt;p&gt;The commands used are usually employed by server administrators. But developers, from time to time, encounter difficult situations related to network processes. It may not be apparent as a network related problem, and that is part of the difficulty.&lt;/p&gt;
 
-&lt;p&gt;All the commands we will use will be done on a terminal. You will need to open cmd.exe&lt;/p&gt;
+&lt;p&gt;The most common use of these commands is resolve errors which may manifest themselves as one of the following, but not limited to&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-c:\&amp;gt;netstat -aon | findstr 0.0:80
+&lt;ol&gt;
+  &lt;li&gt;Address already in use&lt;/li&gt;
+  &lt;li&gt;BindException&lt;/li&gt;
+  &lt;li&gt;Port 80 already in use&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For purposes of illustration and specificity of example, we will take on the following problem:&lt;/p&gt;
+
+&lt;p&gt;We are trying to start a web server, it could be Apache, IIS or NGINX, it doesn’t matter what. We cannot successfully start the web server for one reason or another. The error message said “Address already in use”. &lt;/p&gt;
+
+&lt;h2 id=&quot;basic-concepts&quot;&gt;1 Basic concepts&lt;/h2&gt;
+
+&lt;p&gt;A network aware application, like a web server, need to bind itself to a socket. Think of a socket from the context of a &lt;a href=&quot;http://en.wikipedia.org/wiki/Tin_can_telephone&quot;&gt;tin can telephone&lt;/a&gt;. The two cans are connected via a string which can transmit soundwaves from one endpoint to the other. The socket is one the cans and the network cable is the string. Instead of transmitting soundwaves like the string, we stream data packets from one socket to another. &lt;/p&gt;
+
+&lt;p&gt;A socket needs two things before it can be opened. It needs the IP address of the machine where you will run the web server. The application can easily grab that IP address, so that is rarely a problem. The other thing it needs is a port number. Most web servers use port 80. When a webserver is started, it will attempt to latch itself into a socket using 80 as the port number. &lt;/p&gt;
+
+&lt;p&gt;Some of the times, port 80 is also used by an application other than a webserver, skype for example. Only one application can use port number 80, or any port number for that matter, at any point in time. If an application like skype has already latched itself into port 80, no other application can use it until skype is terminated. This sets the stage for our troubleshooting exercise. We have used skype in here as an example of an app that prevents use from launching the web server. In reality, we do not know what application is using the port. So we need to find out. &lt;/p&gt;
+
+&lt;h2 id=&quot;steps&quot;&gt;2 Steps&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Launch a terminal window&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On Windows 7, press the Windows superkey on the keyboard. When the &lt;strong&gt;Start&lt;/strong&gt; menu pops, type &lt;strong&gt;cmd&lt;/strong&gt; inside the textbox labeled &lt;strong&gt;Run&lt;/strong&gt; then press ENTER. &lt;/p&gt;
+
+&lt;p&gt;On Windows 8, press the Windows superkey, type &lt;strong&gt;cmd&lt;/strong&gt; then press ENTER. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. List the network processes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;List all the processes that are using network resources and filter the results. We are looking for a specific process that uses port number 80. Windows has the commands &lt;strong&gt;netstat&lt;/strong&gt; and &lt;strong&gt;findstr&lt;/strong&gt; which can do the job for us.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;C:\&amp;gt; netstat -aon | findstr 0.0:80
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The first part of the command will list all active connections and their ports. The &lt;strong&gt;-o&lt;/strong&gt; flag is important because it will tell you the process IDs of the applications running. The &lt;strong&gt;-n&lt;/strong&gt; flag is to display the port numbers numerically (which is what we need).&lt;/p&gt;
+&lt;p&gt;The two commands above are joined by the pipe operator. The netstat command will list all network related processes. Its output is used as an input to findstr. The resulting list is filtered such that only applications using port 80 will show up.&lt;/p&gt;
 
-&lt;p&gt;The &lt;strong&gt;nestat&lt;/strong&gt; command will list all of the currently running applications, which could be a lot. That is why we need to filter the results to limit the list to only the applications we are interested in. Only those application(s) that is running on port 80. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Find the application name of the app using port 80&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The next steps is to find the PID (Process ID) of the application currently running on port 80. You won’t get the name of the application just yet.  &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;netstat&lt;/strong&gt; command will not give us the name of the application that uses port 80. It will give us only its process id or pid. We need to use another command to find out the application name&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-*TCP0.0.0.0:80 0.0.0.0:0 LISTENING 560*
+&lt;pre&gt;&lt;code&gt;C:\&amp;gt; tasklist | findstr 560
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The line above is an example of what you could get after running the netstat command, &lt;strong&gt;560&lt;/strong&gt; is the process id of the application currently bound on port 80.  &lt;/p&gt;
+&lt;p&gt;The number 560 above may not be applicable for you. In my machine, the pid of the offending app was 560, it may not be the same for you. &lt;/p&gt;
 
-&lt;p&gt;To find out who is application 560, type the command &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. Kill the offending process&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-tasklist | findstr 560
+&lt;p&gt;You can use the &lt;strong&gt;taskkill&lt;/strong&gt; command to terminate the application&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;C:\&amp;gt; taskkill /F /PID 560
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;After that command, it should give you the name of the application whose ID is &lt;strong&gt;560&lt;/strong&gt; which is currently using port 80.  &lt;/p&gt;
+&lt;p&gt;Alternatively, you can use GUI tools like the Windows &lt;strong&gt;Task Manager&lt;/strong&gt;  to terminate running programs or a third-party tool like &lt;strong&gt;Process Explorer&lt;/strong&gt; from SysInternals.&lt;/p&gt;
 
-&lt;p&gt;If you need to free up port 80 so that Apache can run, you can kill the Skype application by using the Process Manager  then find the app and kill it. You can also terminate a process on the command line using &lt;strong&gt;taskkill /F /PID 560&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;further-reading&quot;&gt;3 Further reading&lt;/h2&gt;
 
+&lt;ol&gt;
+  &lt;li&gt;The &lt;strong&gt;netstat&lt;/strong&gt; command documentation can be found at the &lt;a href=&quot;http://technet.microsoft.com/en-us/library/ff961504.aspx&quot;&gt;Technet page for netstat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;tasklist&lt;/strong&gt; command documentation can be found at &lt;a href=&quot;http://technet.microsoft.com/en-us/library/cc732459.aspx&quot;&gt;Technet page for tasklist&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;taskkill&lt;/strong&gt; command documentation can be found at the &lt;a href=&quot;http://technet.microsoft.com/en-us/library/bb491009.aspx&quot;&gt;Technet page for taskkill&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Port numbers&lt;/strong&gt; and service name assignments can be found at the &lt;a href=&quot;http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?&amp;amp;page=2&quot;&gt;IANA page&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;4 Resources&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;ProcessExplorer&lt;/strong&gt; - You can download ProcessExplorer from the &lt;a href=&quot;http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx&quot;&gt;SysInternals website&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </content>
  </entry>
  
