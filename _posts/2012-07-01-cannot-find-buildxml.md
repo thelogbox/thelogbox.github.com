@@ -12,6 +12,8 @@ tags:
 - Ant
 - XML
 
+lastupdated: December 17, 2014
+
 ---
 
 This compilation error means the android sdk is looking for the build.xml file whic is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.
