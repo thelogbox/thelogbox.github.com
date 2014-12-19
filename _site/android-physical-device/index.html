@@ -34,13 +34,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="keywords" content="Device">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="How to use a real Android device for mobile development" />
+<meta name="description" content="How to use a real Android device for mobile development. Samsung Galaxy and LG Optimus" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    Physical Device | theLogBox
+    Setting Up a Physical Device for Testing | theLogBox
   
 </title>
 
@@ -52,42 +52,56 @@
     <mast><a href="/">theLogBox.com</a>/android</mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
-      <headline>Physical Device</headline>
+      <headline>Setting Up a Physical Device for Testing</headline>
       <author>
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
       <dateCreated>
         written on August 12, 2011
         
+          <dateModified>
+            updated on December 18, 2014
+          </dateModified>
+        
       </dateCreated>
 
 		  <articleBody itempprop="articleBody">
-		    <p>If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device. </p>
+		    <p>The use of an actual android device during development and testing has many advantages over simply using an emulator or the avd. There are things you cannot test on the emulator like the accelerometer or testing the cellular data connection. Another big reason for using an actual device is that it gives you better appreciation of how the real app will look and feel. </p>
 
-<p>On your device, go to <em>Settings</em> → <em>Applications</em> → <em>Development</em>. You need to <em>enable USB debugging</em></p>
+<h2 id="samsung-galaxy-tab">1 Samsung Galaxy Tab</h2>
 
-<p><img class="small" src="/img/usb-debugging.png" /></p>
+<p>1.1 <strong>Disconnect the android device</strong> from the PC</p>
 
-<p>You can now connect the device to the development machine. The screenshot above was done on a Samsung Galaxy Tab, your device may vary.</p>
+<p>1.2 <strong>Go to Settings</strong> → Applications → Development</p>
 
-<hr />
+<p>1.3 <strong>Enable USB Debugging</strong>. This is usually a check box </p>
 
-<p><strong>LG Optimus</strong> </p>
+<p><a href="/img/usb-debugging.png">PIC: USB Dev Settings for Samsung Galaxy</a></p>
 
-<ol>
-  <li>Go to settings</li>
-  <li>Then connections</li>
-  <li>Tap on the <strong>USB connection</strong></li>
-  <li>Choose <strong>Charge only</strong></li>
-  <li>Go back to the Settings screen</li>
-  <li>Enable <strong>USB Debugging</strong>. You need to do this while the device is not yet connected to the PC (it will be greyed out if the device is connected when you do this)</li>
-</ol>
+<p>1.4 <strong>Connect the device to the PC</strong> to start development and testing</p>
 
-<p>Run a simple <code class="codeblock">adb</code> or <code class="codeblock">logcat</code>command on the terminal to see if it’s working. If it’s not, the terminal will say <em>waiting for device…</em></p>
+<h2 id="lg-optimus">2 LG Optimus</h2>
 
-<p><strong>NOTE</strong> for Windows users. You may need to download a USB driver software for your physical device before you can use it to test and deploy applications to it. OSX and Linux users does not have such concerns.</p>
+<p>On some android devices, the steps could be slightly different from the ones above. On an LG Optimus device for example, the steps are as follows.</p>
 
-<p><strong>Next »</strong> <a href="/android-getting-started">Get Started</a></p>
+<p>2.1 <strong>Go to Settings</strong> → Connection, then tap <strong>USB Connection</strong></p>
+
+<p>2.2 Choose <strong>Charge only</strong></p>
+
+<p>2.3 <strong>Go back</strong> to the Settings screen</p>
+
+<p>2.4 Enable <strong>USB Debugging</strong>. </p>
+
+<p>You need to do this while the device is disconnected from the PC otherwise, this option will be greyed out which means it is not possible to make any modification on the setting</p>
+
+<h2 id="testing">3 Testing</h2>
+
+<p>Once you have connected the device the PC, you can run a command on a terminal window to check if the device will be recognized by the android tool. </p>
+
+<pre><code>adb logcat
+</code></pre>
+
+<p>If the device is recognized by the android tools, a bunch of messages will hurriedly scroll through your terminal window. You can stop it by pressing <strong>CTRL C</strong>. If the device was not recognized, you will see a message saying “waiting for the device”.</p>
 	
 		  </articleBody>
       
@@ -118,9 +132,7 @@
       <li><a href="/android/android-key-concepts">Key Concepts in Android</a></li>
       <li><a href="/android/android-what-you-need-to-know-before">What you need to know</a></li>
       <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
-      <li><a href="/android-virtual-device">Virtual Device</a></li>
-      <li><a href="/android-physical-device">Physical Device</a></li>
-      
+      <li><a href="/android-virtual-device">Virtual Device</a></li>      
       <li><a href="/android/android-project-structure">Project Creation</a></li>
       <li><a href="/android/android-create-project-cli">Create a Project using CLI</a></li>
       <li><a href="#">Create a Project using Android Studio</a></li>
@@ -155,7 +167,7 @@
     </ul>
     
     <ul>
-      <li><a href="/android/archives.html"><b>Tutorial Archives</b></a></li>
+      <li><a href="/android/archives.html">See All Tutorials &#8594;</a></li>
     </ul>
 
     </div>

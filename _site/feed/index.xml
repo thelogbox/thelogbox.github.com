@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-12-18T00:24:01+08:00</updated>
+ <updated>2014-12-19T14:55:44+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -14489,62 +14489,120 @@ while(condition) {
  </entry>
  
  <entry>
-   <title>Virtual Device (avd)</title>
+   <title>Android Virtual Device</title>
    <link href="http://thelogbox.com/android-virtual-device"/>
    <updated>2011-08-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-virtual-device</id>
-   <content type="html">&lt;p&gt;You will need a runtime environment to complete your development setup. The SDK will allow you write and compile android programs. But to test them, you need a place where to deploy and test those programs. &lt;/p&gt;
+   <content type="html">&lt;p&gt;You can create an AVD for any android version provided that you have downloaded a system image for it. System images can be downloaded using the android sdk manager.&lt;/p&gt;
 
-&lt;p&gt;The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won’t be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don’t really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is &lt;strong&gt;speed&lt;/strong&gt;. The AVD is notoriously slow, it will slow down your development.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Check your available android images&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;configuration&quot;&gt;Configuration&lt;/h1&gt;
+&lt;p&gt;You can create an emulator for a specific android version only if you have downloaded a system image for it. You can list the available system images that are installed in your development machine by running the following command in a terminal window &lt;/p&gt;
 
-&lt;p&gt;The AVD can be configured from the Android SDK manager, so you will need to launch the SDK Manager first.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;android list targets
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;On a command line terminal, type &lt;code class=&quot;codeblock&quot;&gt;android&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Wait for the SDK manager window to appear, then go &lt;em&gt;Tools&lt;/em&gt; then &lt;em&gt;AVD&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;em&gt;New&lt;/em&gt; to create an AVD.The next screen will ask you a bunch of questions on the technical details of the AVD that want to create. Fill it up with what is applicable to you (screen resolutions, amount of RAM to dedicate etc)&lt;/li&gt;
-  &lt;li&gt;Launch the AVD when you are done&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;The &lt;strong&gt;list targets&lt;/strong&gt; command will output libraries and system images of all available android versions installed on your machine. Below is a snippet of what the command has outputted.&lt;/p&gt;
 
-&lt;p&gt;Use the AVD if you only don’t have access to a physical android device. The AVD is slow and quite limited for testing real world apps. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;id: 11 or &quot;android-19&quot;
+     Name: Android 4.4.2
+     Type: Platform
+     API level: 19
+     Revision: 4
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : default/armeabi-v7a, default/x86
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;Next »&lt;/strong&gt; &lt;a href=&quot;/android-physical-device&quot;&gt;Setting up a Physical Device&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The system image you are looking for is usually on the &lt;strong&gt;ABI&lt;/strong&gt; line. In the example snippet above, it means I have the libraries to develop an application for API level 19, the KitKat version and that I also have two system images for it, the armeabi-v7a and the x86. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Decide which version of android&lt;/strong&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.1 Create the AVD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;android create avd --name kitkat --target android-19 --abi default/x86
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command will create an emulator for android level 19. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–name&lt;/strong&gt; The name option is something that you choose. It will become the label of the emulator. I chose “kitkat” because it is descriptive, after all, we are creating an emulator for the KitKat version of android&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–target&lt;/strong&gt; This refers to the id of the android library as it is stored in your machine. You will get this from the output of the &lt;strong&gt;android list targets&lt;/strong&gt; command. In our example, the target is android-19 which is the KitKat version &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;–abi&lt;/strong&gt; This refers to the name of the system image. You will also get this from the output of &lt;strong&gt;android list targets&lt;/strong&gt; command. In our case, we chose to use the default/x86 which is an Intel image&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;create avd&lt;/strong&gt; command has a couple more options we can use, but we only used three of them here. You can pass other options that will affect things like skin and the amount of sd card storage. You can learn the other options of this command by typing &lt;strong&gt;android create avd&lt;/strong&gt; in a terminal window. That will display a help file.&lt;/p&gt;
+
+&lt;p&gt;If you need to create an emulator for another android version, just follow these steps all over again.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.2 Download System Images&lt;/strong&gt; if necessary&lt;/p&gt;
+
+&lt;p&gt;If you need additional android versions and system images, use the sdk manager to download them. Launch the android sdk manager. Chose the android version or API level you want to download. Mark it for installation &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/sdk-manager-system-image.png&quot; alt=&quot;PIC sdk manager&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click the “Install” button. You will need to accept the license agreements before you can continue to download.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Another Way to Create an Emulator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, we can also create an avd using graphical tool of the android sdk manager. Launch the sdk manager like you did before, click &lt;strong&gt;Tools&lt;/strong&gt; → &lt;strong&gt;Manage AVDs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/avd-creation.png&quot; alt=&quot;PIC manage avds&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Testing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We can test the emulator by launching it either from the terminal window or from the graphical avd tool&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;emulator -avd kitkat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;-avd&lt;/strong&gt; name is the value you specified as the &lt;strong&gt;–name&lt;/strong&gt; value when you created the emulator.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/avd-launched.png&quot; alt=&quot;PIC avd launched&quot; /&gt;&lt;/p&gt;
+
 </content>
  </entry>
  
  <entry>
-   <title>Physical Device</title>
+   <title>Setting Up a Physical Device for Testing</title>
    <link href="http://thelogbox.com/android-physical-device"/>
    <updated>2011-08-12T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-physical-device</id>
-   <content type="html">&lt;p&gt;If you will use a physical device for testing, you need to do a few things. Before you connect the device via a USB, check for some settings on the device. &lt;/p&gt;
+   <content type="html">&lt;p&gt;The use of an actual android device during development and testing has many advantages over simply using an emulator or the avd. There are things you cannot test on the emulator like the accelerometer or testing the cellular data connection. Another big reason for using an actual device is that it gives you better appreciation of how the real app will look and feel. &lt;/p&gt;
 
-&lt;p&gt;On your device, go to &lt;em&gt;Settings&lt;/em&gt; → &lt;em&gt;Applications&lt;/em&gt; → &lt;em&gt;Development&lt;/em&gt;. You need to &lt;em&gt;enable USB debugging&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;samsung-galaxy-tab&quot;&gt;1 Samsung Galaxy Tab&lt;/h2&gt;
 
-&lt;p&gt;&lt;img class=&quot;small&quot; src=&quot;/img/usb-debugging.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;1.1 &lt;strong&gt;Disconnect the android device&lt;/strong&gt; from the PC&lt;/p&gt;
 
-&lt;p&gt;You can now connect the device to the development machine. The screenshot above was done on a Samsung Galaxy Tab, your device may vary.&lt;/p&gt;
+&lt;p&gt;1.2 &lt;strong&gt;Go to Settings&lt;/strong&gt; → Applications → Development&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;1.3 &lt;strong&gt;Enable USB Debugging&lt;/strong&gt;. This is usually a check box &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;LG Optimus&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/img/usb-debugging.png&quot;&gt;PIC: USB Dev Settings for Samsung Galaxy&lt;/a&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Go to settings&lt;/li&gt;
-  &lt;li&gt;Then connections&lt;/li&gt;
-  &lt;li&gt;Tap on the &lt;strong&gt;USB connection&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Choose &lt;strong&gt;Charge only&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Go back to the Settings screen&lt;/li&gt;
-  &lt;li&gt;Enable &lt;strong&gt;USB Debugging&lt;/strong&gt;. You need to do this while the device is not yet connected to the PC (it will be greyed out if the device is connected when you do this)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;1.4 &lt;strong&gt;Connect the device to the PC&lt;/strong&gt; to start development and testing&lt;/p&gt;
 
-&lt;p&gt;Run a simple &lt;code class=&quot;codeblock&quot;&gt;adb&lt;/code&gt; or &lt;code class=&quot;codeblock&quot;&gt;logcat&lt;/code&gt;command on the terminal to see if it’s working. If it’s not, the terminal will say &lt;em&gt;waiting for device…&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;lg-optimus&quot;&gt;2 LG Optimus&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; for Windows users. You may need to download a USB driver software for your physical device before you can use it to test and deploy applications to it. OSX and Linux users does not have such concerns.&lt;/p&gt;
+&lt;p&gt;On some android devices, the steps could be slightly different from the ones above. On an LG Optimus device for example, the steps are as follows.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Next »&lt;/strong&gt; &lt;a href=&quot;/android-getting-started&quot;&gt;Get Started&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.1 &lt;strong&gt;Go to Settings&lt;/strong&gt; → Connection, then tap &lt;strong&gt;USB Connection&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2.2 Choose &lt;strong&gt;Charge only&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2.3 &lt;strong&gt;Go back&lt;/strong&gt; to the Settings screen&lt;/p&gt;
+
+&lt;p&gt;2.4 Enable &lt;strong&gt;USB Debugging&lt;/strong&gt;. &lt;/p&gt;
+
+&lt;p&gt;You need to do this while the device is disconnected from the PC otherwise, this option will be greyed out which means it is not possible to make any modification on the setting&lt;/p&gt;
+
+&lt;h2 id=&quot;testing&quot;&gt;3 Testing&lt;/h2&gt;
+
+&lt;p&gt;Once you have connected the device the PC, you can run a command on a terminal window to check if the device will be recognized by the android tool. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb logcat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the device is recognized by the android tools, a bunch of messages will hurriedly scroll through your terminal window. You can stop it by pressing &lt;strong&gt;CTRL C&lt;/strong&gt;. If the device was not recognized, you will see a message saying “waiting for the device”.&lt;/p&gt;
 </content>
  </entry>
  

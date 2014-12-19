@@ -1,30 +1,91 @@
 ---
 layout: androidtutorial
 
-title: Virtual Device (avd)
+title: Android Virtual Device
 
 description: Simple steps to setup an Android emulator for development
 
-excerpt: 
+lastupdated: December 18, 2014
 
 tags:
-- avd
+- android virtual device
 
 ---
 
-You will need a runtime environment to complete your development setup. The SDK will allow you write and compile android programs. But to test them, you need a place where to deploy and test those programs. 
 
-The AVD is used for testing Android Projects. It is an emulator that mimics a real mobile device. There are a few things of course that it won't be able to emulate e.g. the accelerometer, but for the most application testing needs, you can get by with the AVD until you can procure a proper physical device. I don't really need to tell you the advantages of using a physical device, if I really have to, then the single most distinct advantage is **speed**. The AVD is notoriously slow, it will slow down your development.
+You can create an AVD for any android version provided that you have downloaded a system image for it. System images can be downloaded using the android sdk manager.
 
-# Configuration
+**1. Check your available android images**
 
-The AVD can be configured from the Android SDK manager, so you will need to launch the SDK Manager first.
+You can create an emulator for a specific android version only if you have downloaded a system image for it. You can list the available system images that are installed in your development machine by running the following command in a terminal window 
 
-1. On a command line terminal, type <code class="codeblock">android</code>
-2. Wait for the SDK manager window to appear, then go *Tools* then *AVD*
-3. Click *New* to create an AVD.The next screen will ask you a bunch of questions on the technical details of the AVD that want to create. Fill it up with what is applicable to you (screen resolutions, amount of RAM to dedicate etc)
-4. Launch the AVD when you are done
+~~~
+android list targets
+~~~
 
-Use the AVD if you only don't have access to a physical android device. The AVD is slow and quite limited for testing real world apps. 
+The **list targets** command will output libraries and system images of all available android versions installed on your machine. Below is a snippet of what the command has outputted.
 
-**Next &raquo;** [Setting up a Physical Device](/android-physical-device)
+~~~
+id: 11 or "android-19"
+     Name: Android 4.4.2
+     Type: Platform
+     API level: 19
+     Revision: 4
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : default/armeabi-v7a, default/x86
+~~~
+
+The system image you are looking for is usually on the **ABI** line. In the example snippet above, it means I have the libraries to develop an application for API level 19, the KitKat version and that I also have two system images for it, the armeabi-v7a and the x86. 
+
+**2. Decide which version of android** 
+
+**2.1 Create the AVD**
+
+~~~
+android create avd --name kitkat --target android-19 --abi default/x86
+~~~
+
+This command will create an emulator for android level 19. 
+
+**--name** The name option is something that you choose. It will become the label of the emulator. I chose "kitkat" because it is descriptive, after all, we are creating an emulator for the KitKat version of android
+
+**--target** This refers to the id of the android library as it is stored in your machine. You will get this from the output of the **android list targets** command. In our example, the target is android-19 which is the KitKat version 
+
+**--abi** This refers to the name of the system image. You will also get this from the output of **android list targets** command. In our case, we chose to use the default/x86 which is an Intel image
+
+The **create avd** command has a couple more options we can use, but we only used three of them here. You can pass other options that will affect things like skin and the amount of sd card storage. You can learn the other options of this command by typing **android create avd** in a terminal window. That will display a help file.
+
+If you need to create an emulator for another android version, just follow these steps all over again.
+
+**2.2 Download System Images** if necessary
+
+If you need additional android versions and system images, use the sdk manager to download them. Launch the android sdk manager. Chose the android version or API level you want to download. Mark it for installation 
+
+![PIC sdk manager](/img/sdk-manager-system-image.png)
+
+Click the "Install" button. You will need to accept the license agreements before you can continue to download.
+
+**3. Another Way to Create an Emulator**
+
+Alternatively, we can also create an avd using graphical tool of the android sdk manager. Launch the sdk manager like you did before, click **Tools** &rarr; **Manage AVDs**
+
+
+![PIC manage avds](/img/avd-creation.png)
+
+
+
+**4. Testing**
+
+We can test the emulator by launching it either from the terminal window or from the graphical avd tool
+
+~~~
+emulator -avd kitkat
+~~~
+
+The **-avd** name is the value you specified as the **--name** value when you created the emulator.
+
+![PIC avd launched](/img/avd-launched.png)
+
+
+
+
