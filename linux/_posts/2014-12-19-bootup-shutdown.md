@@ -26,15 +26,17 @@ Most modern Linux systems are configured to start a gui login prompt, this could
 
 During the installation, you were asked to create a user. You filled up, at the very least, 3 text fields, your name, a **username** and a **password**. You may not need to type up the username in the login prompt but you need to enter your password. 
 
-![PIC login](images/login.png)
+![PIC login](../images/login.png)
 
 Linux stop you cold in your tracks if you don't enter the correct password. The username that you provided during the setup will always be in lowercase but the password is different thing. The password allows for a mix of lower case, uppercase letters and numbers. It is important that you remember your password exactly as you defined it during setup because it is case sensitive. **Password** is different from **password**. 
 
 After a successful login, you will now see a shiny graphical desktop interface, pretty much like what you would see on a Windows or a Mac system. You can launch applications, click things, surf the web, watch movies and send emails.
 
-![PIC desktop](images/desktop.png)
+![PIC desktop](../images/desktop.png)
 
 Shutting down is a lot easier than starting up. You can do this either by clicking the power button then select shutdown. Or you can press the keys **CTRL ALT DEL** simultaneously. 
+
+![PIC desktop](../images/logout.png)
 
 ## 1 Geek Version
 
