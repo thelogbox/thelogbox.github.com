@@ -34,13 +34,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="keywords" content="">
 <meta name="author" content="Ted Hagos">
-<meta name="description" content="Download YouTube videos like a geek" />
+<meta name="description" content="" />
 
 <meta name="google-site-verification" content="Dg--5pO3MqOZk7aJ4jMia-MpnfcGdJaGIkYBJIDSkWU" />
 
 <title>
   
-    How to rip YouTube videos | theLogBox
+    Canvas Basics | theLogBox
   
 </title>
 
@@ -49,80 +49,159 @@
   </head>
   <body>
 
-    <mast><a href="/">theLogBox.com</a>/linux</mast>
+    <mast><a href="/">theLogBox.com</a></mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
-      <headline>How to rip YouTube videos</headline>
+      <headline>Canvas Basics</headline>
       <author>
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
       <dateCreated>
-        written on April 12, 2012
+        written on December 22, 2014
         
       </dateCreated>
 
       <articleBody itempprop="articleBody">
-        <p>You can rip YouTube videos from the command line in Linux and OSX. There could be ways to do this in Windows via Cygwin, but I did not try that. </p>
+        <p>This works</p>
 
-<p>In Debian Linux, or any other distribution that uses the <strong>apt</strong> or <strong>aptitude</strong> package manager, you can get the <strong>youtube-dl</strong> program by pulling them from the repositories. Run the following command on a terminal window</p>
+<p>The reference HTML file. Nothing fantastic. The script tag on head references the JavaScript file <strong>hey.js</strong>. We will need to generate or emit this file from <strong>hey.ts</strong>, our TypeScript file</p>
 
-<pre><code>sudo apt-get install ffmpeg lame youtube-dl
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang="en"&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;script src="hey.js"&gt;&lt;/script&gt;
+  &lt;title&gt;Hey&lt;/title&gt;
+  &lt;style&gt;
+    canvas {border: 1px solid gray;}
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id="thecanvas" width="500" height="500"&gt;
+  You should not see this
+&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p>For OSX users, if you are using <strong>HomeBrew</strong>, you can get youtube-dl by running the commands</p>
+<p>This works</p>
 
-<pre><code>brew install youtube-dl
-brew install ffmpeg
-brew install lame
+<pre><code>window.onload = function() {
+
+  var canvas:HTMLCanvasElement = &lt;HTMLCanvasElement&gt; document.getElementById("thecanvas");
+  var ctx:CanvasRenderingContext2D = &lt;any&gt; canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+}
 </code></pre>
 
-<p><strong>Usage</strong></p>
+<p>This works too</p>
 
-<pre><code>youtube-dl http://&lt;youtubevideoaddress&gt;
+<pre><code>window.onload = function() {
+
+  var canvas:any = &lt;any&gt; document.getElementById("thecanvas");
+  var ctx:CanvasRenderingContext2D = &lt;any&gt; canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
 </code></pre>
 
-<p>The downloaded file could be have <strong>.webm</strong> extension, you can convert it to <strong>wav</strong> using the command</p>
+<p>So does this</p>
 
-<pre><code>ffmpeg -i &lt;DownloadedFileName.webm&gt; &lt;TargetFileName.wav&gt;
+<pre><code>window.onload = function() {
+
+  var canvas:any =  document.getElementById("thecanvas");
+  var ctx:CanvasRenderingContext2D = &lt;any&gt; canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
 </code></pre>
 
-<p>You can convert the resulting wav file to mp3 format with the following command</p>
+<p>This does not work. It says fillRect does not exist on HTMLCanvasElement. What is up with lib.d.ts, what is the answer to this.</p>
 
-<pre><code>lame &lt;FileName.wav&gt; &lt;FileName.mp3&gt;
+<pre><code>window.onload = function() {
+
+  var canvas:any =  document.getElementById("thecanvas");
+  var ctx:HTMLCanvasElement = &lt;any&gt; canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
 </code></pre>
+
+<p>But this works</p>
+
+<pre><code>window.onload = function() {
+
+  var canvas:any =  document.getElementById("thecanvas");
+  var ctx:CanvasRenderingContext2D =  canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
+</code></pre>
+
+<p>So it looks like I don’t have to cast the canvas nor the context. I only have to strongly type them. </p>
+
+<p>The code below works. I don’t even have to strongly type the context. As long the canvas is typed.</p>
+
+<pre><code>window.onload = function() {
+
+  var canvas:any =  document.getElementById("thecanvas");
+  var ctx =  canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
+</code></pre>
+
+<p>If I remove the typing of the canvas, even if it is just <strong>any</strong>, like this.</p>
+
+<pre><code>
+window.onload = function() {
+
+  var canvas =  document.getElementById("thecanvas");
+  var ctx =  canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
+</code></pre>
+
+<p>It throws an error. It says <strong>getContext</strong> does not exist on HTMLElement. Really, there is a rule here that I don’t understand. Welcome to the wonderful world of statically typed languages.</p>
+
+<p>This works. Why is casting working. Clearly, the HTMLCanvasElement  do contain the getContext call.</p>
+
+<pre><code>window.onload = function() {
+
+  var canvas =  &lt;HTMLCanvasElement&gt; document.getElementById("thecanvas");
+  var ctx =  canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
+</code></pre>
+
+<p>This does not work</p>
+
+<pre><code>window.onload = function() {
+
+  var canvas =  &lt;HTMLElement&gt; document.getElementById("thecanvas");
+  var ctx =  canvas.getContext("2d");
+
+  ctx.fillRect(100,100,50,50);
+
+}
+</code></pre>
+
+<p>It appears HTMLElement does not contain the definition of getContext</p>
 
  
       </articleBody>      
     </article>
-    
-    
-    <toc>
-      <div align="center">
-      <h2>Linux</h2>
-      </div> 
-
-    <div class="toc">
-      <ul>
-      <li><a href="/install-ssh-on-debian">SSH Server installation</a></li>
-      <li><a href="/easy-way-to-install-print-server-linux">Print Server installation</a></li>
-      <li><a href="/install-clp315-on-linux-print-server">Samsung CLP 315</a></li>
-      <li><a href="/connect-windows-to-cups-printer">Connect Windows to CUPS printer</a></li>
-      <li><a href="/file-sharing-osx-linux">File Sharing setup</a></li>
-      <li><a href="/wireless-linux-music-player">Wireless Music Player</a></li>
-      <li><a href="/automatically-backup-mysql-database">Automatic Backup of MySQL</a></li>
-      <li><a href="/remote-desktop-to-ubuntu-from-windows">Windows RDP to Ubuntu</a></li>
-      <li><a href="/send-receive-sms-messages-usb-modem-linux">Send Receive SMS via USB modem</a></li>
-      <li><a href="/rip-youtube-videos-linux-osx">Rip YouTube videos</a></li>
-      <li><a href="/linux-download-accelerator-cli">Download accelerator</a></li>
-    </ul>
-
-     <ul>
-      <li><a href="/linux/index.html">See All Tutorials &#8594;</a></li>
-    </ul>
-    
-    </div> 
-
-    </toc>    
+       
      <!-- DISQUS javascript -->
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -175,4 +254,3 @@ brew install lame
   <!-- End of StatCounter Code for Default Guide -->
   </body>
 </html>
-

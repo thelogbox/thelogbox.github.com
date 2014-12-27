@@ -5,13 +5,166 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2014-12-20T16:41:02+08:00</updated>
+ <updated>2014-12-27T23:00:53+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
    <email>ted@thelogbox.com</email>
  </author>
 
+ 
+ <entry>
+   <title>NoClassDefFound</title>
+   <link href="http://thelogbox.com/java/errors/noclassdeffound"/>
+   <updated>2014-12-26T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/java/errors/noclassdeffound</id>
+   <content type="html">&lt;p&gt;It means you are trying to execute a class file that does not exist&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Canvas Basics</title>
+   <link href="http://thelogbox.com/typescript/canvas-basics"/>
+   <updated>2014-12-22T00:00:00+08:00</updated>
+   <id>http://thelogbox.com/typescript/canvas-basics</id>
+   <content type="html">&lt;p&gt;This works&lt;/p&gt;
+
+&lt;p&gt;The reference HTML file. Nothing fantastic. The script tag on head references the JavaScript file &lt;strong&gt;hey.js&lt;/strong&gt;. We will need to generate or emit this file from &lt;strong&gt;hey.ts&lt;/strong&gt;, our TypeScript file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head lang=&quot;en&quot;&amp;gt;
+  &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+  &amp;lt;script src=&quot;hey.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;title&amp;gt;Hey&amp;lt;/title&amp;gt;
+  &amp;lt;style&amp;gt;
+    canvas {border: 1px solid gray;}
+  &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;canvas id=&quot;thecanvas&quot; width=&quot;500&quot; height=&quot;500&quot;&amp;gt;
+  You should not see this
+&amp;lt;/canvas&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This works&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:HTMLCanvasElement = &amp;lt;HTMLCanvasElement&amp;gt; document.getElementById(&quot;thecanvas&quot;);
+  var ctx:CanvasRenderingContext2D = &amp;lt;any&amp;gt; canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This works too&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:any = &amp;lt;any&amp;gt; document.getElementById(&quot;thecanvas&quot;);
+  var ctx:CanvasRenderingContext2D = &amp;lt;any&amp;gt; canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So does this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:any =  document.getElementById(&quot;thecanvas&quot;);
+  var ctx:CanvasRenderingContext2D = &amp;lt;any&amp;gt; canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This does not work. It says fillRect does not exist on HTMLCanvasElement. What is up with lib.d.ts, what is the answer to this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:any =  document.getElementById(&quot;thecanvas&quot;);
+  var ctx:HTMLCanvasElement = &amp;lt;any&amp;gt; canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this works&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:any =  document.getElementById(&quot;thecanvas&quot;);
+  var ctx:CanvasRenderingContext2D =  canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So it looks like I don’t have to cast the canvas nor the context. I only have to strongly type them. &lt;/p&gt;
+
+&lt;p&gt;The code below works. I don’t even have to strongly type the context. As long the canvas is typed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas:any =  document.getElementById(&quot;thecanvas&quot;);
+  var ctx =  canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If I remove the typing of the canvas, even if it is just &lt;strong&gt;any&lt;/strong&gt;, like this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+window.onload = function() {
+
+  var canvas =  document.getElementById(&quot;thecanvas&quot;);
+  var ctx =  canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It throws an error. It says &lt;strong&gt;getContext&lt;/strong&gt; does not exist on HTMLElement. Really, there is a rule here that I don’t understand. Welcome to the wonderful world of statically typed languages.&lt;/p&gt;
+
+&lt;p&gt;This works. Why is casting working. Clearly, the HTMLCanvasElement  do contain the getContext call.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas =  &amp;lt;HTMLCanvasElement&amp;gt; document.getElementById(&quot;thecanvas&quot;);
+  var ctx =  canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This does not work&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;window.onload = function() {
+
+  var canvas =  &amp;lt;HTMLElement&amp;gt; document.getElementById(&quot;thecanvas&quot;);
+  var ctx =  canvas.getContext(&quot;2d&quot;);
+
+  ctx.fillRect(100,100,50,50);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It appears HTMLElement does not contain the definition of getContext&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Boot Up, Login and Shutdown</title>
@@ -6510,9 +6663,9 @@ $ gem install thin
  
  <entry>
    <title>Sinatra</title>
-   <link href="http://thelogbox.com/ruby/sinatra/sinatra"/>
+   <link href="http://thelogbox.com/sinatra/sinatra"/>
    <updated>2012-10-12T00:00:00+08:00</updated>
-   <id>http://thelogbox.com/ruby/sinatra/sinatra</id>
+   <id>http://thelogbox.com/sinatra/sinatra</id>
    <content type="html">&lt;h2 id=&quot;get-up-and-running&quot;&gt;GET UP AND RUNNING&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -6687,9 +6840,9 @@ $ gem install thin
  
  <entry>
    <title>Sinatra</title>
-   <link href="http://thelogbox.com/sinatra/sinatra"/>
+   <link href="http://thelogbox.com/ruby/sinatra/sinatra"/>
    <updated>2012-10-12T00:00:00+08:00</updated>
-   <id>http://thelogbox.com/sinatra/sinatra</id>
+   <id>http://thelogbox.com/ruby/sinatra/sinatra</id>
    <content type="html">&lt;h2 id=&quot;get-up-and-running&quot;&gt;GET UP AND RUNNING&lt;/h2&gt;
 
 &lt;ol&gt;
