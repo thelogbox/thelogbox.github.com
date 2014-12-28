@@ -1,3 +1,17 @@
+
+    <button id="comment">Display Comments</button> 
+    <script>
+      window.onload = function() {
+
+        document.getElementById('disqus_thread').style.display="none";
+
+        document.getElementById('comment').onclick = function() {
+          document.getElementById('disqus_thread').style.display="block";
+          document.getElementById('comment').style.display="none";
+        }
+      }
+    </script>
+
  <!-- DISQUS javascript -->
     <div id="disqus_thread"></div>
     <script type="text/javascript">
