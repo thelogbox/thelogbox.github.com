@@ -1,10 +1,12 @@
 
-    <p/>
-    <button id="comment">Display Comments</button> 
+  
+    <a id="comment">Display Comments</a> 
+    
     <script>
       window.onload = function() {
 
         document.getElementById('disqus_thread').style.display="none";
+        document.getElementById('comment').style.cursor="pointer";
 
         document.getElementById('comment').onclick = function() {
           document.getElementById('disqus_thread').style.display="block";

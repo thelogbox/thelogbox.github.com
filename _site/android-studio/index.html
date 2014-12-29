@@ -195,12 +195,14 @@
     </div>
     </toc>   
     
-    <p/>
-    <button id="comment">Display Comments</button> 
+  
+    <a id="comment">Display Comments</a> 
+    
     <script>
       window.onload = function() {
 
         document.getElementById('disqus_thread').style.display="none";
+        document.getElementById('comment').style.cursor="pointer";
 
         document.getElementById('comment').onclick = function() {
           document.getElementById('disqus_thread').style.display="block";
@@ -227,16 +229,17 @@
       
 <!-- END Disqus-->
     <footer>
+
+Url : <a href=/android-studio>http://thelogbox.com/android-studio</a><br/>
+Rss Feed : <a href="http://thelogbox.com/feed/index.xml">http://thelogbox.com/feed/index.xml</a><br/>
 Copyright &copy; theLogBox.com. All rights reserved <br/>
-
-
 
 <!-- Begin MailChimp Signup Form -->
 <div id="mc_embed_signup">
 <form action="//thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=b8557d8e8a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
 	
-	<label for="mce-EMAIL">You can subscribe to the newsletter by providing your email address here &rarr; </label>
+	<label for="mce-EMAIL">Subscribe to the newsletter. Type your email address here &rarr; </label>
 	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 	
