@@ -1,0 +1,80 @@
+    body, html {margin:0;padding:0;}
+  
+    body  { padding:100px 0; margin:0 auto; font-family: 'Helvetica','Arial', sans-serif; font-weight:300; width:360px;}
+
+    a{
+      color:#000;
+      text-decoration:none;
+      font-weight:normal;
+    }
+    a:hover{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    
+    .headline {
+      text-align: center;
+      font-weight: normal;
+      color: #000;
+      background: #dedede; 
+    }
+
+    ul li {list-style: square; color: #dedede;}
+
+@media (min-width: 641px) {
+
+  .headline {background: #fff; color: #dedede;}
+
+  body {width: 100%;}
+
+    #nav{
+      width: 100%;
+      list-style:none;
+      margin:0;
+      padding:0;
+      text-align:center;
+      background: #f1f1f1;
+    }
+    #nav li{
+      position:relative;
+      display:inline;
+      background: #f1f1f1;
+      line-height: .7em;
+    }
+    #nav a{
+      display:inline-block;
+      padding:10px;
+    }
+    #nav ul{
+      position:absolute;
+      /*top:100%; Uncommenting this makes the dropdowns work in IE7 but looks a little worse in all other browsers. Your call. */
+      left:-9999px;
+      margin:0;
+      padding:0;
+      text-align:left;
+    }
+    #nav ul li{
+      display:block;
+    }
+    #nav li:hover ul{
+      left:0;
+    }
+    #nav li:hover a{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    #nav li:hover ul a{
+      text-decoration:none;
+      background:none;
+    }
+    #nav li:hover ul a:hover{
+      text-decoration:underline;
+      background:#f1f1f1;
+    }
+    #nav ul a{
+      white-space:nowrap;
+      display:block;
+      border-bottom:0px solid #ccc;
+    }
+}
+
