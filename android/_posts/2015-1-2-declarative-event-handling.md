@@ -37,6 +37,8 @@ Before proceeding to the lesson, you must have done the following
 
 When an application is launched, the android runtime inspects the AndroidManifest file. It looks an activity class which has been designated as the entry point. This activity class is then instantiated, goes through its life cycle and at some point, calls  one of its method, the **setContentView**, in order to render a user interface. This is the screen that the user sees when the application is launched. 
 
+![Android runtime and activity](../images/android-runtime-activity.png)
+
 The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.
 
 A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. The IDE also creates the AndroidManifest file and the xml file which the activity uses to render a user interface. 

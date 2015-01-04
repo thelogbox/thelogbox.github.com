@@ -82,9 +82,11 @@
   <li>Connecting a device</li>
 </ol>
 
-<h2 id="basic-concept">2 Basic Concept</h2>
+<h2 id="basic-concepts">2 Basic Concepts</h2>
 
 <p>When an application is launched, the android runtime inspects the AndroidManifest file. It looks an activity class which has been designated as the entry point. This activity class is then instantiated, goes through its life cycle and at some point, calls  one of its method, the <strong>setContentView</strong>, in order to render a user interface. This is the screen that the user sees when the application is launched. </p>
+
+<p><img src="../images/android-runtime-activity.png" alt="Android runtime and activity" /></p>
 
 <p>The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.</p>
 

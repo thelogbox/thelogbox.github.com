@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2015-01-04T22:30:00+08:00</updated>
+ <updated>2015-01-04T22:54:29+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -35,9 +35,11 @@
   &lt;li&gt;Connecting a device&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;basic-concept&quot;&gt;2 Basic Concept&lt;/h2&gt;
+&lt;h2 id=&quot;basic-concepts&quot;&gt;2 Basic Concepts&lt;/h2&gt;
 
 &lt;p&gt;When an application is launched, the android runtime inspects the AndroidManifest file. It looks an activity class which has been designated as the entry point. This activity class is then instantiated, goes through its life cycle and at some point, calls  one of its method, the &lt;strong&gt;setContentView&lt;/strong&gt;, in order to render a user interface. This is the screen that the user sees when the application is launched. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/android-runtime-activity.png&quot; alt=&quot;Android runtime and activity&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.&lt;/p&gt;
 
