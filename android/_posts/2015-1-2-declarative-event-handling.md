@@ -33,7 +33,7 @@ Before proceeding to the lesson, you must have done the following
 7. Emulator basics
 8. Connecting a device
 
-## 2 Basic Concept
+## 2 Basic Concepts
 
 When an application is launched, the android runtime inspects the AndroidManifest file. It looks an activity class which has been designated as the entry point. This activity class is then instantiated, goes through its life cycle and at some point, calls  one of its method, the **setContentView**, in order to render a user interface. This is the screen that the user sees when the application is launched. 
 
