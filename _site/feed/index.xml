@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2015-01-04T22:10:33+08:00</updated>
+ <updated>2015-01-04T22:30:00+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -41,9 +41,33 @@
 
 &lt;p&gt;The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.&lt;/p&gt;
 
-&lt;p&gt;A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. It creates the AndroidManifest file and the xml file which the activity uses to render a user interface. &lt;/p&gt;
+&lt;p&gt;A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. The IDE also creates the AndroidManifest file and the xml file which the activity uses to render a user interface. &lt;/p&gt;
 
-&lt;p&gt;Later in the exercise, we will create a new project using the Android Studio IDE. We will create a project with a blank activity and add a button view object to it. We will provide the necessary code so we can react to an event when the user clicks the button. We will bind the user click event to our code by adding an xml attribute to the button view’s definition in an xml file.&lt;/p&gt;
+&lt;p&gt;The generated xml file that is used for UI (user interface) definition is very spartan. It only contains a TextView object. What we will do is to add a Button object to our UI definition. The Button will be equipped with the appropriate xml attribute so it can listen for user events. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;Button
+  android:layout_width=&quot;wrap_content&quot;
+  android:layout_height=&quot;wrap_content&quot;
+  android:text=&quot;Click Me&quot;
+  android:onClick=&quot;showMe&quot;
+  android:layout_below=&quot;@+id/textView&quot;
+  android:layout_alignParentStart=&quot;true&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button’s surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the &lt;strong&gt;android:onClick&lt;/strong&gt; attribute&lt;/p&gt;
+
+&lt;p&gt;When the &lt;strong&gt;onClick&lt;/strong&gt; attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the &lt;strong&gt;onClick&lt;/strong&gt; attribute.&lt;/p&gt;
+
+&lt;p&gt;The program logic that will kick in when the user clicks our Button will be inside the Activity class. The code for the &lt;strong&gt;showMe&lt;/strong&gt; method is as follows.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  public void showMe(View v) {
+    Context ctx = getApplicationContext();
+    String msg = &quot;Hello World&quot;;
+    int duration = Toast.LENGTH_SHORT;
+    Toast notification = Toast.makeText(ctx,msg,duration);
+    notification.show();
+  }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;steps&quot;&gt;3 Steps&lt;/h2&gt;
 
@@ -175,53 +199,7 @@
 
 &lt;p&gt;&lt;strong&gt;9. Build the app and run Make&lt;/strong&gt;. &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;10. Run the project&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Emulator or a connected Android device&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Click Me&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:onClick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;showMe&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:layout_below=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;@+id/textView&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;android:layout_alignParentStart=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button’s surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the &lt;strong&gt;android:onClick&lt;/strong&gt; attribute&lt;/p&gt;
-
-&lt;p&gt;When the &lt;strong&gt;onClick&lt;/strong&gt; attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the &lt;strong&gt;onClick&lt;/strong&gt; attribute.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;thelogbox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;declareevent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.app.Activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.Menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.view.MenuItem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreateOptionsMenu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Menu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;getMenuInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;menu_main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onOptionsItemSelected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MenuItem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getItemId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;action_settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onOptionsItemSelected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;10. Run the project&lt;/strong&gt; using either an emulator or a connected Android device&lt;/p&gt;
 
 &lt;h2 id=&quot;glossary&quot;&gt;Glossary&lt;/h2&gt;
 

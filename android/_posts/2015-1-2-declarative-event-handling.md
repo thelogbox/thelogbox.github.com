@@ -39,13 +39,36 @@ When an application is launched, the android runtime inspects the AndroidManifes
 
 The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.
 
-A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. It creates the AndroidManifest file and the xml file which the activity uses to render a user interface. 
+A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. The IDE also creates the AndroidManifest file and the xml file which the activity uses to render a user interface. 
+
+The generated xml file that is used for UI (user interface) definition is very spartan. It only contains a TextView object. What we will do is to add a Button object to our UI definition. The Button will be equipped with the appropriate xml attribute so it can listen for user events. 
 
 
+~~~
+<Button
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:text="Click Me"
+  android:onClick="showMe"
+  android:layout_below="@+id/textView"
+  android:layout_alignParentStart="true"/>
+~~~
 
-Later in the exercise, we will create a new project using the Android Studio IDE. We will create a project with a blank activity and add a button view object to it. We will provide the necessary code so we can react to an event when the user clicks the button. We will bind the user click event to our code by adding an xml attribute to the button view's definition in an xml file.
+Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button's surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the **android:onClick** attribute
 
+When the **onClick** attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the **onClick** attribute.
 
+The program logic that will kick in when the user clicks our Button will be inside the Activity class. The code for the **showMe** method is as follows.
+
+~~~
+  public void showMe(View v) {
+    Context ctx = getApplicationContext();
+    String msg = "Hello World";
+    int duration = Toast.LENGTH_SHORT;
+    Toast notification = Toast.makeText(ctx,msg,duration);
+    notification.show();
+  }
+~~~
 
 ## 3 Steps
 
@@ -183,66 +206,7 @@ public class MainActivity extends Activity {
 
 **9. Build the app and run Make**. 
 
-**10. Run the project**
-
-Emulator or a connected Android device
-
-
-
-
-{% highlight xml %}
-<Button
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:text="Click Me"
-  android:onClick="showMe"
-  android:layout_below="@+id/textView"
-  android:layout_alignParentStart="true"/>
-{% endhighlight %}
-
-Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button's surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the **android:onClick** attribute
-
-When the **onClick** attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the **onClick** attribute.
-
-
-
-
-
-
-
-{% highlight java %}
-package com.thelogbox.declareevent;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
-
-public class MainActivity extends Activity {
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-  }
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_main, menu);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    int id = item.getItemId();
-    if (id == R.id.action_settings) {
-      return true;
-    }
-    return super.onOptionsItemSelected(item);
-  }
-}
-{% endhighlight %}
+**10. Run the project** using either an emulator or a connected Android device
 
 ## Glossary
 

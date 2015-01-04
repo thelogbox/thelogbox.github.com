@@ -88,9 +88,33 @@
 
 <p>The setContentView is parametrically polymorphic. It has been overloaded so it can take on different types of data. It can take a View Object, in which case that means you must have defined your user interface programmatically. Or it can take an integer value, in which case it means you defined the user interface on an xml file. At the moment, we are interested in the latter. Our exercise  will define the user interface declaratively using an xml file.</p>
 
-<p>A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. It creates the AndroidManifest file and the xml file which the activity uses to render a user interface. </p>
+<p>A blank activity project that is created using the Android IDE gives us a bootstrapped collection of projects assets. The IDE automatically creates a java source file which serves as the main activity. The IDE also creates the AndroidManifest file and the xml file which the activity uses to render a user interface. </p>
 
-<p>Later in the exercise, we will create a new project using the Android Studio IDE. We will create a project with a blank activity and add a button view object to it. We will provide the necessary code so we can react to an event when the user clicks the button. We will bind the user click event to our code by adding an xml attribute to the button view’s definition in an xml file.</p>
+<p>The generated xml file that is used for UI (user interface) definition is very spartan. It only contains a TextView object. What we will do is to add a Button object to our UI definition. The Button will be equipped with the appropriate xml attribute so it can listen for user events. </p>
+
+<pre><code>&lt;Button
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:text="Click Me"
+  android:onClick="showMe"
+  android:layout_below="@+id/textView"
+  android:layout_alignParentStart="true"/&gt;
+</code></pre>
+
+<p>Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button’s surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the <strong>android:onClick</strong> attribute</p>
+
+<p>When the <strong>onClick</strong> attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the <strong>onClick</strong> attribute.</p>
+
+<p>The program logic that will kick in when the user clicks our Button will be inside the Activity class. The code for the <strong>showMe</strong> method is as follows.</p>
+
+<pre><code>  public void showMe(View v) {
+    Context ctx = getApplicationContext();
+    String msg = "Hello World";
+    int duration = Toast.LENGTH_SHORT;
+    Toast notification = Toast.makeText(ctx,msg,duration);
+    notification.show();
+  }
+</code></pre>
 
 <h2 id="steps">3 Steps</h2>
 
@@ -222,53 +246,7 @@
 
 <p><strong>9. Build the app and run Make</strong>. </p>
 
-<p><strong>10. Run the project</strong></p>
-
-<p>Emulator or a connected Android device</p>
-
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;Button</span>
-  <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
-  <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-  <span class="na">android:text=</span><span class="s">&quot;Click Me&quot;</span>
-  <span class="na">android:onClick=</span><span class="s">&quot;showMe&quot;</span>
-  <span class="na">android:layout_below=</span><span class="s">&quot;@+id/textView&quot;</span>
-  <span class="na">android:layout_alignParentStart=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span></code></pre></div>
-
-<p>Most of the attributes of the Button node has to do with the way it looks, how tall and wide it should be, what text will you see on the button’s surface and where it should be positioned. In our case it is vertically aligned with its parent and horizontally positioned right below the TextView. The one attribute which is relevant to event handling is the <strong>android:onClick</strong> attribute</p>
-
-<p>When the <strong>onClick</strong> attribute is present, the android runtime will look inside the activity class that is associated with this xml file for a method. The name of that method must match the value of  the <strong>onClick</strong> attribute.</p>
-
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">thelogbox</span><span class="o">.</span><span class="na">declareevent</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.Menu</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.view.MenuItem</span><span class="o">;</span>
-
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-
-  <span class="nd">@Override</span>
-  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-  <span class="o">}</span>
-
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreateOptionsMenu</span><span class="o">(</span><span class="n">Menu</span> <span class="n">menu</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">getMenuInflater</span><span class="o">().</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">menu</span><span class="o">.</span><span class="na">menu_main</span><span class="o">,</span> <span class="n">menu</span><span class="o">);</span>
-    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">();</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">id</span> <span class="o">==</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">action_settings</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<p><strong>10. Run the project</strong> using either an emulator or a connected Android device</p>
 
 <h2 id="glossary">Glossary</h2>
 
