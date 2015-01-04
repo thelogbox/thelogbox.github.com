@@ -9,42 +9,30 @@
 
   <style>
 
-  mast, footer {
-    font-family: sans-serif;
-    color: #ccc;
-    display:block;
-    text-align: center;
-  }
+mast, footer {display:block;}
 
+/*
   mast a, footer a {color: #ccc;} mast a:hover, footer a:hover {color: blue;}
+*/
 
-  .pagetitle {
-    font-family: 'Georgia', serif; font-size:4em; font-weight: normal; text-align:center;
-  }
+.pagetitle {font-size:2em; font-weight:bold;}
 
-  body {
-    font-family: 'Times New Roman',serif;
-    font-size: 16px;
-    color: #222;
-  }
+body {
+  font-family: 'Times New Roman',serif;
+  font-size: 16px;
+  color: #222;
+}
 
-  .title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1.5em;
-  }
-  .category {
-    font-weight: bold;font-family: 'Palatino', serif; color: brown;
-  }
+.title {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.5em;
+}
+.category {font-weight: bold;color: brown;}
   
-  a {color: #222; text-decoration:none;} a:hover {text-decoration: underline;}
+a {color: #222; text-decoration:none;} a:hover {text-decoration: underline;}
 
-  .pagination {
-    display: block;
-    margin-top:20px;
-    margin-bottom:20px;
-  }
-
-  </style>
+.pagination {display: block;margin-top:20px;margin-bottom:20px;}
+</style>
 
 
 </head>
@@ -66,6 +54,21 @@
 </div>
   
   
+
+
+
+  <a href="/android/declarative-event-handling" class='title'>
+    01.02.15
+    Declarative Event Handling
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[android]</b> -->
+  
+    <span class="category">android</span>
+  
+  1 Prerequisite Before proceeding to the lesson, you must have done the following You need a properly installed Android Studio with API level 20 installed. We do not really need level 20 for this example so you can use a lower level API if that is what you’ve got Anatomy of an android project How to setup a project, either...
+  </p>
 
 
 
@@ -775,19 +778,6 @@ $ axel -n 10 http://wordpress.org/latest.zip
 
 
 
-  <a href="/android-studio" class='title'>
-    07.22.13
-    Using Android Studio
-  </a>
-  
-  <p class='archives'>
-  <!--<b>[]</b> -->
-  
-  We will use the Android Studio for these examples. Android Studio is an IDE specifically designed for Android Development. It does the things that Eclipse + ADT does. It basically combined all the tools you use when working on an Android app. It is based on IntelliJ, so you know it has pedigree. You don’t need to switch to this...
-  </p>
-
-
-
 <!-- Pagination links -->
 <div class="pagination">
   
@@ -800,7 +790,11 @@ $ axel -n 10 http://wordpress.org/latest.zip
 </div>
 
 
-<footer>Copyright &copy; theLogBox.com. All rights reserved</footer>
+<footer>
+Url : <a href=/archives/index.html>http://thelogbox.com/archives/index.html</a><br/>
+Rss Feed : <a href="http://thelogbox.com/feed/index.xml">http://thelogbox.com/feed/index.xml</a><br/>
+Copyright &copy; <a href="/">theLogBox.com</a>. All rights reserved <br/>
+</footer>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

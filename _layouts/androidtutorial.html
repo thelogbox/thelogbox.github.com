@@ -10,6 +10,8 @@
 
     <article itemscope itemtype="http://schema.org/Article" >    
       <headline>{{ page.title }}</headline>
+
+      <!--
       <author>
         By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
       </author>
@@ -21,6 +23,7 @@
           </dateModified>
         {% endif %}
       </dateCreated>
+      -->
 
 		  <articleBody itempprop="articleBody">
 		    {{ content }}	
@@ -64,9 +67,8 @@
       <li><a href="/logcat">Debugging with LogCat</a></li>
       <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
       <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
       <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
-      <li><a href="/android-event-handling-declarative">Declarative Event Handling</a></li>
+      <li><a href="/android/declarative-event-handling">Declarative Event Handling</a></li>
       <li><a href="/android-database-programming-basics">Database Programming</a></li>
       <li><a href="/android-check-connectivity">Network Connectivity</a></li>
       <li><a href="/android-location-api">GEO Location</a></li>
@@ -94,7 +96,10 @@
     </div>
     </toc>   
     {% include disqus.html %}
-    <footer>{% include footer.html %}</footer>
+    <footer>
+      {% include footer.html %}
+      {% include newsletter-android.html%}
+    </footer>
     {% include ga.html%}
     {% include statcounter.html %}
   </body>

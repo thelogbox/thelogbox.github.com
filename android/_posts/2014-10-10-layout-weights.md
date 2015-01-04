@@ -26,22 +26,26 @@ Real applications typically display some sophistication in their layouts. Let's 
 
 ## Review of LinearLayout
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas...">
-      android:orientation="vertical"
-      android:layout_width="fill_parent"
-    </LinearLayout>
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas...">
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+</LinearLayout>
+{% endhighlight %}
 
 The orientation is set to **vertical** and the layout_width is set to **fill_parent**. With those setting in effect, each View component you will add to this layout will be stacked on top of each other. The first View object to be added will be the one on top, the next View object will follow suit.
 
-    <LinearLayout>
-      android:orientation="vertical"
-      android:layout_width="fill_parent"  
-    
-      <Button ... />
-      <CheckBox ... />
-    
-    </LinearLayout>
+{% highlight xml %}
+<LinearLayout>
+  android:orientation="vertical"
+  android:layout_width="fill_parent"  
+
+  <Button ... />
+  <CheckBox ... />
+
+</LinearLayout>
+{% endhighlight %}
 
 The preceding code example will result in a screen which has a CheckBox with a Button View right on top of it. The Button occupied whole width of the screen because the LinearLayout container says **fill\_parent** on its layout width. The Checkbox did the same, it spanned the whole width of the screen for the same reason the Button did. No surprises here. This is how a linear layout is supposed to work. The behavior is expected. 
 
@@ -57,34 +61,36 @@ An EditText View allows for user input. If you have programming experience, you 
 
 Once we have created a new project with a default Activity, we can add the Views to our Layout. It could look like the next code sample
 
-    <LinearLayout
-      android:orientation="vertical"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      xmlns:android="http://schemas.android.com/apk/res/android">
-    
-      <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal"/>
-    
-      <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"/>
-    
-      <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal"/>
-    
-    </LinearLayout>
+{% highlight xml %}
+<LinearLayout
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/editText"
+    android:layout_gravity="center_horizontal"/>
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Large Text"
+    android:id="@+id/textView"
+    android:layout_gravity="center_horizontal"/>
+
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="New Button"
+    android:id="@+id/button"
+    android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
+{% endhighlight %}
 
 This will result to a screen where the EditText, TextView and the Button are stacked on top of one another. Each of the Views stretching out to the whole width of the screen. That may not be a problem for the width but it will be a problem for the height. Each View will vertically occupy just what it needs to display their content. The Button will size its height just enough to accomodate its label, the TextEdit will size itself accordingly to accomodate its current textual content and the EditText will size itself to accomodate a single line text input. 
 
@@ -98,37 +104,39 @@ LinearLayout allows weight assignment for each View that is contained within. Al
 
 To achieve our desired layout, we will make the weight of the Button and EditText zero and assign a weight of one to the TextView
 
-    <LinearLayout
-      android:orientation="vertical"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      xmlns:android="http://schemas.android.com/apk/res/android">
-    
-      <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0"/>
-    
-      <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"/>
-    
-      <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0"/>
-    
-    </LinearLayout>
+{% highlight xml %}
+<LinearLayout
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/editText"
+    android:layout_gravity="center_horizontal"
+    android:layout_weight="0"/>
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Large Text"
+    android:id="@+id/textView"
+    android:layout_gravity="center_horizontal"
+    android:layout_weight="1"/>
+
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="New Button"
+    android:id="@+id/button"
+    android:layout_gravity="center_horizontal"
+    android:layout_weight="0"/>
+
+</LinearLayout>
+{% endhighlight %}
 
 The EditText and Button Views are now pushed to the top and bottom and the TextView stretched its height to fill up the gap left by other two Views. Because only the TextView is assigned a weight more than zero, it is the only View that can grow beyond what it needs for display. 
 

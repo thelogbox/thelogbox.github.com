@@ -9,42 +9,30 @@
 
   <style>
 
-  mast, footer {
-    font-family: sans-serif;
-    color: #ccc;
-    display:block;
-    text-align: center;
-  }
+mast, footer {display:block;}
 
+/*
   mast a, footer a {color: #ccc;} mast a:hover, footer a:hover {color: blue;}
+*/
 
-  .pagetitle {
-    font-family: 'Georgia', serif; font-size:4em; font-weight: normal; text-align:center;
-  }
+.pagetitle {font-size:2em; font-weight:bold;}
 
-  body {
-    font-family: 'Times New Roman',serif;
-    font-size: 16px;
-    color: #222;
-  }
+body {
+  font-family: 'Times New Roman',serif;
+  font-size: 16px;
+  color: #222;
+}
 
-  .title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1.5em;
-  }
-  .category {
-    font-weight: bold;font-family: 'Palatino', serif; color: brown;
-  }
+.title {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.5em;
+}
+.category {font-weight: bold;color: brown;}
   
-  a {color: #222; text-decoration:none;} a:hover {text-decoration: underline;}
+a {color: #222; text-decoration:none;} a:hover {text-decoration: underline;}
 
-  .pagination {
-    display: block;
-    margin-top:20px;
-    margin-bottom:20px;
-  }
-
-  </style>
+.pagination {display: block;margin-top:20px;margin-bottom:20px;}
+</style>
 
 
 </head>
@@ -66,6 +54,19 @@
 </div>
   
   
+
+
+
+  <a href="/android-studio" class='title'>
+    07.22.13
+    Using Android Studio
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[]</b> -->
+  
+  We will use the Android Studio for these examples. Android Studio is an IDE specifically designed for Android Development. It does the things that Eclipse + ADT does. It basically combined all the tools you use when working on an Android app. It is based on IntelliJ, so you know it has pedigree. You don’t need to switch to this...
+  </p>
 
 
 
@@ -561,21 +562,6 @@ This content has moved. You can view it using the link below
 
 
 
-  <a href="/sinatra/sinatra" class='title'>
-    10.12.12
-    Sinatra
-  </a>
-  
-  <p class='archives'>
-  <!--<b>[sinatra]</b> -->
-  
-    <span class="category">sinatra</span>
-  
-  GET UP AND RUNNING Switch your ruby version Install Sinatra sudo gem install sinatra. While you are it, install the thin package as well sudo gem install thin. Sinatra apps will run without thin Make sure it’s running, do the HelloWorld app # helloworld.rb require &#39;rubygems&#39; if RUBY_VERSION &lt; &#39;1.9&#39; require &#39;sinatra&#39; get &#39;/&#39; do &quot;Hello World&quot; end Run the...
-  </p>
-
-
-
   <a href="/ruby/sinatra/sinatra" class='title'>
     10.12.12
     Sinatra
@@ -585,6 +571,21 @@ This content has moved. You can view it using the link below
   <!--<b>[ruby  ,sinatra]</b> -->
   
     <span class="category">ruby  ,sinatra</span>
+  
+  GET UP AND RUNNING Switch your ruby version Install Sinatra sudo gem install sinatra. While you are it, install the thin package as well sudo gem install thin. Sinatra apps will run without thin Make sure it’s running, do the HelloWorld app # helloworld.rb require &#39;rubygems&#39; if RUBY_VERSION &lt; &#39;1.9&#39; require &#39;sinatra&#39; get &#39;/&#39; do &quot;Hello World&quot; end Run the...
+  </p>
+
+
+
+  <a href="/sinatra/sinatra" class='title'>
+    10.12.12
+    Sinatra
+  </a>
+  
+  <p class='archives'>
+  <!--<b>[sinatra]</b> -->
+  
+    <span class="category">sinatra</span>
   
   GET UP AND RUNNING Switch your ruby version Install Sinatra sudo gem install sinatra. While you are it, install the thin package as well sudo gem install thin. Sinatra apps will run without thin Make sure it’s running, do the HelloWorld app # helloworld.rb require &#39;rubygems&#39; if RUBY_VERSION &lt; &#39;1.9&#39; require &#39;sinatra&#39; get &#39;/&#39; do &quot;Hello World&quot; end Run the...
   </p>
@@ -771,19 +772,6 @@ Connect the device, test it by running either adb or logcat on Terminal window.
 
 
 
-  <a href="/android-scrolling-edittext-using-scrollview" class='title'>
-    07.22.12
-    Scrollable Text
-  </a>
-  
-  <p class='archives'>
-  <!--<b>[]</b> -->
-  
-  There will be times when you will need to display multiple lines of text that will exceed the height of visible display. You will need to scroll to view the rest of the text. For example, if you read something from a datasource, a file or a database and display its contents, chances are the number of lines of the...
-  </p>
-
-
-
 <!-- Pagination links -->
 <div class="pagination">
   
@@ -796,7 +784,11 @@ Connect the device, test it by running either adb or logcat on Terminal window.
 </div>
 
 
-<footer>Copyright &copy; theLogBox.com. All rights reserved</footer>
+<footer>
+Url : <a href=/archives/page2/index.html>http://thelogbox.com/archives/page2/index.html</a><br/>
+Rss Feed : <a href="http://thelogbox.com/feed/index.xml">http://thelogbox.com/feed/index.xml</a><br/>
+Copyright &copy; <a href="/">theLogBox.com</a>. All rights reserved <br/>
+</footer>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
