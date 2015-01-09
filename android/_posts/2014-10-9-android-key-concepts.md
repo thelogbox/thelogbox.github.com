@@ -26,7 +26,7 @@ You will write your program in the Java programming language and compile them us
 
 When applications have been built and digitally signed, they can be distributed on market places like Google Play or Amazon. They don't have to be but these market places are frequented by a lot of people, your can benefit from exposure which the market places can offer. 
 
-#1.  Architecture
+##1.  Architecture
 
 Android may refer to many things, some people use it to refer to their mobile device and some others use the term to refer to the programming environment. That's fine. For our purpose, what we mean by Android is a platform which have runtime components where mobile apps can run.
 
@@ -40,7 +40,7 @@ Extending classes means utilizing the inheritance mechanism of Java to reuse exi
 
 The Android SDK is a collection of tools and code libraries. SDK is short for software development kit. You will need to download, install and configure the SDK before you can start any development work.
 
-#2. Versions and API level
+##2. Versions and API level
 
 Android has been around for quite some time. It has evolved so many times and as a result, there are various versions of it.
 
@@ -119,7 +119,7 @@ The API level is what you will see on the Android SDK manager. You will use the 
 
 By the time you read this, there could be changes or additions to the Android platform. The official site of Android keeps an updated list of this info over at <https://developer.android.com/about/dashboards/index.html>. 
 
-#3.  Fundamentals
+##3.  Fundamentals
 
 1.  Creation of an app starts by creating an Android project. It is a simple folder that contains the Java sources, XML files, videos, audio, images etc. Depending on what IDE or tool you use, a project can be created and managed using either Ant, Maven or Gradle. These are called build tools and they are usually managed by the IDE. Most of the time, they are invisible to you
 2.  Write the program logic using Java. Whether you would like to show something on the screen, listen to an event or do something in the background, Android has prebuilt classes to handle those. These prebuilt classes are part of the Android framework that lets us create rich apps by extending exisiting classes in the framework. We'll discuss Application components a bit more later
@@ -128,9 +128,9 @@ By the time you read this, there could be changes or additions to the Android pl
 5.  The Java source file are converted to an executable form and the XMl is flattened as a result of the compilation process. The XML is converted to byte code representation, this is what we mean by flattened
 6.  If the compilation is not successful, the compiler will you what's wrong with it and you should fix it then compile again. If it compiles successfully, you will test the application by deploying it either an emulator or a real device connected to your computer
 
-#4.  Application Components
+##4.  Application Components
 
-##4.1 Activities
+###4.1 Activities
 
 If you want to create a screen that can interact with the user, you can do that by creating an Activity class. It is called that because the class you will create will extend the existing Activity class that is part of the Android framework.
 
@@ -138,13 +138,13 @@ By extending this class, you will be able to create other components such as but
 
 An Activity is basically a single screen that a user can see and interact with. Most applications will have more than one Activity. They have more than one screen. You can stitch Activities together using **Intents**. You can define a button on one Activity then write program logic such that when the button is clicked, it will launch another Activity. You will use Intents to launch other Activities.  
 
-##4.2 Services
+###4.2 Services
 
 Sometimes you will need to write code that is invisible to the user. One that doesn't have a user interface. Surely you will need to launch it somehow from an Activity but once launched, the application just keeps on running. Even if the UI that launched it has already disappeared from view. A music player is such an example of this kind of app. A GPS enabled application which updates your location every now and then is another example.
 
 If you need to build these kinds of apps, you will use **Services**. These are long running operations that are executed in the background. A Service is independent of the Activity that launched. Even if the UI screen that was used to launch the service has already died, the Service code just keeps on going.
 
-##4.3 Content Providers
+###4.3 Content Providers
 
 Each application runs on its own process. Its own virtual machine. This behavior of Android protects each application. If one badly written application goes wonky, it cannot bring the other running applications down. Its good for application stability. But this makes it nearly impossible for one application to access data from another. 
 
@@ -152,7 +152,7 @@ Content Providers solves the problem of data sharing between applications. It is
 
 Don't confuse Content Provider with your own database. If you create an application that uses a SQLite database, of course your application can access that. If, for example, you want to allow other applications to gain access to your app's data, you can build a Content Provider. Your application will make the data available to other apps using standard URIs. 
 
-##4.4 Broadcast Receivers
+###4.4 Broadcast Receivers
 
 Broadcast Receivers are used if you want to execute some program logic in your app as a response to events generated by either the Android system or other applications. You can, for example, inititate a database write when the phone receives an SMS message. You probably want to examine the SMS message and if it fits a certain criteria, you will record it to the database. This is one example of how to use Broadcast receivers.  
 
@@ -162,7 +162,7 @@ Apart from listening to broadcasted events, you can also make your application b
 
 BroadcastReceivers typically don't have user interfaces. But you can create notifications that will show up on the status bar.
 
-##4.5 Android Manifest file
+###4.5 Android Manifest file
 
 This is one of the most important parts of an Android app. The manifest is an XML file that needs be on the root folder of the application project. Every project needs one, and there can only be one per project. It needs to be named **AndroidManifest.xml**. The manifest declares lots of things like:
 
@@ -175,7 +175,7 @@ This is one of the most important parts of an Android app. The manifest is an XM
 
 The Android manifest file is usually created by default when you start a new project. But it only provides some minimum declaration. Beyond the basic HelloWorld apps, you will need to learn how to work and manage the manifest file.
 
-##4.6 Other Resources
+###4.6 Other Resources
 
 Besides the programming components and the Android manifest file, your application may also include the following:
 
@@ -184,7 +184,7 @@ Besides the programming components and the Android manifest file, your applicati
 - **Video and Audio  Resources** .If you are building a game or a training application, your apps may contain lots of these
 - **Third Party Libraries**. You include codes that other people built e.g. social media functionalities. These are included in the project in the form of jar files (Java archive)
 
-#5.  Other ways to build Android apps
+##5.  Other ways to build Android apps
 
 There are other ways to build an Android app. You can build apps using using languages other than Java. An app can be built using HTML, CSS, JavaScript and a middleware like the Cordova API, a good example of this is Phonegap. You can use C# to write apps and retarget the compilation to Android using a product called Xamarin. There are ways to build Android apps as well using Ruby or Python.  
 

@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2015-01-08T11:19:29+08:00</updated>
+ <updated>2015-01-10T00:03:58+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -967,7 +967,7 @@ consistent.&lt;/p&gt;
 
 &lt;p&gt;When applications have been built and digitally signed, they can be distributed on market places like Google Play or Amazon. They don’t have to be but these market places are frequented by a lot of people, your can benefit from exposure which the market places can offer. &lt;/p&gt;
 
-&lt;h1 id=&quot;architecture&quot;&gt;1.  Architecture&lt;/h1&gt;
+&lt;h2 id=&quot;architecture&quot;&gt;1.  Architecture&lt;/h2&gt;
 
 &lt;p&gt;Android may refer to many things, some people use it to refer to their mobile device and some others use the term to refer to the programming environment. That’s fine. For our purpose, what we mean by Android is a platform which have runtime components where mobile apps can run.&lt;/p&gt;
 
@@ -981,7 +981,7 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;The Android SDK is a collection of tools and code libraries. SDK is short for software development kit. You will need to download, install and configure the SDK before you can start any development work.&lt;/p&gt;
 
-&lt;h1 id=&quot;versions-and-api-level&quot;&gt;2. Versions and API level&lt;/h1&gt;
+&lt;h2 id=&quot;versions-and-api-level&quot;&gt;2. Versions and API level&lt;/h2&gt;
 
 &lt;p&gt;Android has been around for quite some time. It has evolved so many times and as a result, there are various versions of it.&lt;/p&gt;
 
@@ -1060,7 +1060,7 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;By the time you read this, there could be changes or additions to the Android platform. The official site of Android keeps an updated list of this info over at &lt;a href=&quot;https://developer.android.com/about/dashboards/index.html&quot;&gt;https://developer.android.com/about/dashboards/index.html&lt;/a&gt;. &lt;/p&gt;
 
-&lt;h1 id=&quot;fundamentals&quot;&gt;3.  Fundamentals&lt;/h1&gt;
+&lt;h2 id=&quot;fundamentals&quot;&gt;3.  Fundamentals&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Creation of an app starts by creating an Android project. It is a simple folder that contains the Java sources, XML files, videos, audio, images etc. Depending on what IDE or tool you use, a project can be created and managed using either Ant, Maven or Gradle. These are called build tools and they are usually managed by the IDE. Most of the time, they are invisible to you&lt;/li&gt;
@@ -1071,9 +1071,9 @@ Android SDK.&lt;/p&gt;
   &lt;li&gt;If the compilation is not successful, the compiler will you what’s wrong with it and you should fix it then compile again. If it compiles successfully, you will test the application by deploying it either an emulator or a real device connected to your computer&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;application-components&quot;&gt;4.  Application Components&lt;/h1&gt;
+&lt;h2 id=&quot;application-components&quot;&gt;4.  Application Components&lt;/h2&gt;
 
-&lt;h2 id=&quot;activities&quot;&gt;4.1 Activities&lt;/h2&gt;
+&lt;h3 id=&quot;activities&quot;&gt;4.1 Activities&lt;/h3&gt;
 
 &lt;p&gt;If you want to create a screen that can interact with the user, you can do that by creating an Activity class. It is called that because the class you will create will extend the existing Activity class that is part of the Android framework.&lt;/p&gt;
 
@@ -1081,13 +1081,13 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;An Activity is basically a single screen that a user can see and interact with. Most applications will have more than one Activity. They have more than one screen. You can stitch Activities together using &lt;strong&gt;Intents&lt;/strong&gt;. You can define a button on one Activity then write program logic such that when the button is clicked, it will launch another Activity. You will use Intents to launch other Activities.  &lt;/p&gt;
 
-&lt;h2 id=&quot;services&quot;&gt;4.2 Services&lt;/h2&gt;
+&lt;h3 id=&quot;services&quot;&gt;4.2 Services&lt;/h3&gt;
 
 &lt;p&gt;Sometimes you will need to write code that is invisible to the user. One that doesn’t have a user interface. Surely you will need to launch it somehow from an Activity but once launched, the application just keeps on running. Even if the UI that launched it has already disappeared from view. A music player is such an example of this kind of app. A GPS enabled application which updates your location every now and then is another example.&lt;/p&gt;
 
 &lt;p&gt;If you need to build these kinds of apps, you will use &lt;strong&gt;Services&lt;/strong&gt;. These are long running operations that are executed in the background. A Service is independent of the Activity that launched. Even if the UI screen that was used to launch the service has already died, the Service code just keeps on going.&lt;/p&gt;
 
-&lt;h2 id=&quot;content-providers&quot;&gt;4.3 Content Providers&lt;/h2&gt;
+&lt;h3 id=&quot;content-providers&quot;&gt;4.3 Content Providers&lt;/h3&gt;
 
 &lt;p&gt;Each application runs on its own process. Its own virtual machine. This behavior of Android protects each application. If one badly written application goes wonky, it cannot bring the other running applications down. Its good for application stability. But this makes it nearly impossible for one application to access data from another. &lt;/p&gt;
 
@@ -1095,7 +1095,7 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;Don’t confuse Content Provider with your own database. If you create an application that uses a SQLite database, of course your application can access that. If, for example, you want to allow other applications to gain access to your app’s data, you can build a Content Provider. Your application will make the data available to other apps using standard URIs. &lt;/p&gt;
 
-&lt;h2 id=&quot;broadcast-receivers&quot;&gt;4.4 Broadcast Receivers&lt;/h2&gt;
+&lt;h3 id=&quot;broadcast-receivers&quot;&gt;4.4 Broadcast Receivers&lt;/h3&gt;
 
 &lt;p&gt;Broadcast Receivers are used if you want to execute some program logic in your app as a response to events generated by either the Android system or other applications. You can, for example, inititate a database write when the phone receives an SMS message. You probably want to examine the SMS message and if it fits a certain criteria, you will record it to the database. This is one example of how to use Broadcast receivers.  &lt;/p&gt;
 
@@ -1105,7 +1105,7 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;BroadcastReceivers typically don’t have user interfaces. But you can create notifications that will show up on the status bar.&lt;/p&gt;
 
-&lt;h2 id=&quot;android-manifest-file&quot;&gt;4.5 Android Manifest file&lt;/h2&gt;
+&lt;h3 id=&quot;android-manifest-file&quot;&gt;4.5 Android Manifest file&lt;/h3&gt;
 
 &lt;p&gt;This is one of the most important parts of an Android app. The manifest is an XML file that needs be on the root folder of the application project. Every project needs one, and there can only be one per project. It needs to be named &lt;strong&gt;AndroidManifest.xml&lt;/strong&gt;. The manifest declares lots of things like:&lt;/p&gt;
 
@@ -1120,7 +1120,7 @@ Android SDK.&lt;/p&gt;
 
 &lt;p&gt;The Android manifest file is usually created by default when you start a new project. But it only provides some minimum declaration. Beyond the basic HelloWorld apps, you will need to learn how to work and manage the manifest file.&lt;/p&gt;
 
-&lt;h2 id=&quot;other-resources&quot;&gt;4.6 Other Resources&lt;/h2&gt;
+&lt;h3 id=&quot;other-resources&quot;&gt;4.6 Other Resources&lt;/h3&gt;
 
 &lt;p&gt;Besides the programming components and the Android manifest file, your application may also include the following:&lt;/p&gt;
 
@@ -1131,7 +1131,7 @@ Android SDK.&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Third Party Libraries&lt;/strong&gt;. You include codes that other people built e.g. social media functionalities. These are included in the project in the form of jar files (Java archive)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;other-ways-to-build-android-apps&quot;&gt;5.  Other ways to build Android apps&lt;/h1&gt;
+&lt;h2 id=&quot;other-ways-to-build-android-apps&quot;&gt;5.  Other ways to build Android apps&lt;/h2&gt;
 
 &lt;p&gt;There are other ways to build an Android app. You can build apps using using languages other than Java. An app can be built using HTML, CSS, JavaScript and a middleware like the Cordova API, a good example of this is Phonegap. You can use C# to write apps and retarget the compilation to Android using a product called Xamarin. There are ways to build Android apps as well using Ruby or Python.  &lt;/p&gt;
 

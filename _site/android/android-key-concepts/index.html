@@ -52,7 +52,7 @@
     <mast><a href="/">theLogBox.com</a>/android</mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
-      <headline>Key Concepts in Android</headline>
+      <headline><h1>Key Concepts in Android</h1></headline>
 
       <!--
       <author>
@@ -71,7 +71,7 @@
 
 <p>When applications have been built and digitally signed, they can be distributed on market places like Google Play or Amazon. They don’t have to be but these market places are frequented by a lot of people, your can benefit from exposure which the market places can offer. </p>
 
-<h1 id="architecture">1.  Architecture</h1>
+<h2 id="architecture">1.  Architecture</h2>
 
 <p>Android may refer to many things, some people use it to refer to their mobile device and some others use the term to refer to the programming environment. That’s fine. For our purpose, what we mean by Android is a platform which have runtime components where mobile apps can run.</p>
 
@@ -85,7 +85,7 @@ Android SDK.</p>
 
 <p>The Android SDK is a collection of tools and code libraries. SDK is short for software development kit. You will need to download, install and configure the SDK before you can start any development work.</p>
 
-<h1 id="versions-and-api-level">2. Versions and API level</h1>
+<h2 id="versions-and-api-level">2. Versions and API level</h2>
 
 <p>Android has been around for quite some time. It has evolved so many times and as a result, there are various versions of it.</p>
 
@@ -164,7 +164,7 @@ Android SDK.</p>
 
 <p>By the time you read this, there could be changes or additions to the Android platform. The official site of Android keeps an updated list of this info over at <a href="https://developer.android.com/about/dashboards/index.html">https://developer.android.com/about/dashboards/index.html</a>. </p>
 
-<h1 id="fundamentals">3.  Fundamentals</h1>
+<h2 id="fundamentals">3.  Fundamentals</h2>
 
 <ol>
   <li>Creation of an app starts by creating an Android project. It is a simple folder that contains the Java sources, XML files, videos, audio, images etc. Depending on what IDE or tool you use, a project can be created and managed using either Ant, Maven or Gradle. These are called build tools and they are usually managed by the IDE. Most of the time, they are invisible to you</li>
@@ -175,9 +175,9 @@ Android SDK.</p>
   <li>If the compilation is not successful, the compiler will you what’s wrong with it and you should fix it then compile again. If it compiles successfully, you will test the application by deploying it either an emulator or a real device connected to your computer</li>
 </ol>
 
-<h1 id="application-components">4.  Application Components</h1>
+<h2 id="application-components">4.  Application Components</h2>
 
-<h2 id="activities">4.1 Activities</h2>
+<h3 id="activities">4.1 Activities</h3>
 
 <p>If you want to create a screen that can interact with the user, you can do that by creating an Activity class. It is called that because the class you will create will extend the existing Activity class that is part of the Android framework.</p>
 
@@ -185,13 +185,13 @@ Android SDK.</p>
 
 <p>An Activity is basically a single screen that a user can see and interact with. Most applications will have more than one Activity. They have more than one screen. You can stitch Activities together using <strong>Intents</strong>. You can define a button on one Activity then write program logic such that when the button is clicked, it will launch another Activity. You will use Intents to launch other Activities.  </p>
 
-<h2 id="services">4.2 Services</h2>
+<h3 id="services">4.2 Services</h3>
 
 <p>Sometimes you will need to write code that is invisible to the user. One that doesn’t have a user interface. Surely you will need to launch it somehow from an Activity but once launched, the application just keeps on running. Even if the UI that launched it has already disappeared from view. A music player is such an example of this kind of app. A GPS enabled application which updates your location every now and then is another example.</p>
 
 <p>If you need to build these kinds of apps, you will use <strong>Services</strong>. These are long running operations that are executed in the background. A Service is independent of the Activity that launched. Even if the UI screen that was used to launch the service has already died, the Service code just keeps on going.</p>
 
-<h2 id="content-providers">4.3 Content Providers</h2>
+<h3 id="content-providers">4.3 Content Providers</h3>
 
 <p>Each application runs on its own process. Its own virtual machine. This behavior of Android protects each application. If one badly written application goes wonky, it cannot bring the other running applications down. Its good for application stability. But this makes it nearly impossible for one application to access data from another. </p>
 
@@ -199,7 +199,7 @@ Android SDK.</p>
 
 <p>Don’t confuse Content Provider with your own database. If you create an application that uses a SQLite database, of course your application can access that. If, for example, you want to allow other applications to gain access to your app’s data, you can build a Content Provider. Your application will make the data available to other apps using standard URIs. </p>
 
-<h2 id="broadcast-receivers">4.4 Broadcast Receivers</h2>
+<h3 id="broadcast-receivers">4.4 Broadcast Receivers</h3>
 
 <p>Broadcast Receivers are used if you want to execute some program logic in your app as a response to events generated by either the Android system or other applications. You can, for example, inititate a database write when the phone receives an SMS message. You probably want to examine the SMS message and if it fits a certain criteria, you will record it to the database. This is one example of how to use Broadcast receivers.  </p>
 
@@ -209,7 +209,7 @@ Android SDK.</p>
 
 <p>BroadcastReceivers typically don’t have user interfaces. But you can create notifications that will show up on the status bar.</p>
 
-<h2 id="android-manifest-file">4.5 Android Manifest file</h2>
+<h3 id="android-manifest-file">4.5 Android Manifest file</h3>
 
 <p>This is one of the most important parts of an Android app. The manifest is an XML file that needs be on the root folder of the application project. Every project needs one, and there can only be one per project. It needs to be named <strong>AndroidManifest.xml</strong>. The manifest declares lots of things like:</p>
 
@@ -224,7 +224,7 @@ Android SDK.</p>
 
 <p>The Android manifest file is usually created by default when you start a new project. But it only provides some minimum declaration. Beyond the basic HelloWorld apps, you will need to learn how to work and manage the manifest file.</p>
 
-<h2 id="other-resources">4.6 Other Resources</h2>
+<h3 id="other-resources">4.6 Other Resources</h3>
 
 <p>Besides the programming components and the Android manifest file, your application may also include the following:</p>
 
@@ -235,7 +235,7 @@ Android SDK.</p>
   <li><strong>Third Party Libraries</strong>. You include codes that other people built e.g. social media functionalities. These are included in the project in the form of jar files (Java archive)</li>
 </ul>
 
-<h1 id="other-ways-to-build-android-apps">5.  Other ways to build Android apps</h1>
+<h2 id="other-ways-to-build-android-apps">5.  Other ways to build Android apps</h2>
 
 <p>There are other ways to build an Android app. You can build apps using using languages other than Java. An app can be built using HTML, CSS, JavaScript and a middleware like the Cordova API, a good example of this is Phonegap. You can use C# to write apps and retarget the compilation to Android using a product called Xamarin. There are ways to build Android apps as well using Ruby or Python.  </p>
 
@@ -273,10 +273,8 @@ Android SDK.</p>
 		</article>
     
     
+    <h2>Other Android Tutorials</h2>
     <toc>
-      <div align="center">
-      <h2>Android Programming Tutorials</h2>
-      </div> 
     <div class="toc">      
       <ul>
       <li><a href="/android/android-key-concepts">Key Concepts in Android</a></li>
@@ -304,19 +302,15 @@ Android SDK.</p>
   
       <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
       <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
-    </ul>
-      
-    <ul>
+          
       <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
       <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
       <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
       <li><a href="/android-studio">Android Studio</a></li>
       <li><a href="/android-project-workflow">Project Workflow</a></li>
       <li><a href="/cannot-find-buildxml">Cannot find build.xml</a></li>
-    </ul>
     
-    <ul>
-      <li><a href="/android/index.html">See All Tutorials &#8594;</a></li>
+      <li><a href="/android/index.html">List of All Android Tutorials &raquo;</a></li>
     </ul>
 
     </div>

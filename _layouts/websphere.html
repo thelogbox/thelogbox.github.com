@@ -9,31 +9,16 @@
     <mast><a href="/">theLogBox.com</a>/websphere</mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
-      <headline>{{ page.title }}</headline>
+      <headline><h1>{{ page.title }}</h1></headline>
       
-      <!--
-      <author>
-        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
-      </author>
-      <dateCreated>
-        written on {{ page.date | date: "%B %d, %Y" }}
-        {% if page.lastupdated %}
-          <dateModified>
-            updated on {{ page.lastupdated | "%B %d, %Y"}}
-          </dateModified>
-        {% endif %}
-      </dateCreated>
-      -->
-
       <articleBody itempprop="articleBody">
         {{ content }} 
       </articleBody>      
     </article>
     
     
+    <h2>Other Tutorials in WebSphere</h2>
     <toc>
-      <h2 class="center">WebSphere</h2> 
-      
     <div class="toc">        
       <ul>
       <li><a href="#">Introduction</a></li>
