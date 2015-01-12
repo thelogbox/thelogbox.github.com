@@ -49,24 +49,10 @@
   </head>
   <body>
 
-    <mast><a href="/">theLogBox.com</a>/android</mast>
+    <mast><a href="/">home</a>/<a href="/android/">android</a></mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
       <headline><h1>Cannot Find Build.Xml</h1></headline>
-
-      <!--
-      <author>
-        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
-      </author>
-      <dateCreated>
-        written on July 01, 2012
-        
-          <dateModified>
-            updated on December 18, 2014
-          </dateModified>
-        
-      </dateCreated>
-      -->
 
 		  <articleBody itempprop="articleBody">
 		    <p>This compilation error means the android sdk is looking for the build.xml file which is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.</p>
@@ -96,13 +82,9 @@ sdk.dir=/Users/ted/progtools/android-sdk-macosx
 
 <h2 id="how-to-fix">2 How to Fix</h2>
 
-<p><strong>1. Open the local.properties file</strong></p>
+<p><strong>1. Open the local.properties file</strong>. Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk </p>
 
-<p>Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk </p>
-
-<p><strong>2. Fix the value of sdk.dir</strong></p>
-
-<p>You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don’t mess around with it. Your changes will be overwritten. </p>
+<p><strong>2. Fix the value of sdk.dir</strong>. You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don’t mess around with it. Your changes will be overwritten. </p>
 
 <p>What we can do is to update the project in order to restore the value of sdk.dir. </p>
 
@@ -112,33 +94,17 @@ android update project --path .
 
 <p>There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify</p>
 
-<p><strong>3. Inspect your .gitignore file</strong></p>
-
-<p>The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.</p>
+<p><strong>3. Inspect your .gitignore file</strong>. The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.</p>
 
 <p>If you are using <strong>git</strong>, add the local.properties file to the .gitignore file so the next time you push or pull from a repository, the local.properties will be ignored by git</p>
 
 	
 		  </articleBody>
-      
-      <!--
-      <table bgcolor="#f1f1f1" cellpadding="10" id="book">
-        <tr>
-          <td width="25%">
-            <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 
-          </td>
-          <td width="75%">
-            Ted is writing an android book for beginners. It's a work in progress.
-            <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
-            can read it (free) online</a> over at LeanPub.
-          </td>
-        </tr>
-      </table>
-      -->
-      
+            
 		</article>
     
     
+    <!--
     <h2>Other Android Tutorials</h2>
     <toc>
     <div class="toc">      
@@ -180,41 +146,9 @@ android update project --path .
     </ul>
 
     </div>
-    </toc>   
-    
-  
-    <a id="comment">Show Comments</a> 
-    
-    <script>
-      window.onload = function() {
-
-        document.getElementById('disqus_thread').style.display="none";
-        document.getElementById('comment').style.cursor="pointer";
-
-        document.getElementById('comment').onclick = function() {
-          document.getElementById('disqus_thread').style.display="block";
-          document.getElementById('comment').style.display="none";
-        }
-      }
-    </script>
-
- <!-- DISQUS javascript -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'logbox'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
-      
-<!-- END Disqus-->
+    </toc>
+    -->
+       
     <footer>
       
 <author>
@@ -260,35 +194,5 @@ Copyright &copy; <a href="/">theLogBox.com</a>. All rights reserved <br/>
 
 <!--End mc_embed_signup-->
     </footer>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    <!-- Start of StatCounter Code for Default Guide -->
-	
-  <script type="text/javascript">
-  var sc_project=7827488; 
-  var sc_invisible=1; 
-  var sc_security="069357c9"; 
-  </script>
-  <script type="text/javascript"
-      src="http://www.statcounter.com/counter/counter.js"></script>
-  <noscript><div class="statcounter"><a title="customizable
-      counter" href="http://statcounter.com/free-hit-counter/"
-      target="_blank"><img class="statcounter"
-      src="http://c.statcounter.com/7827488/0/069357c9/1/"
-      alt="customizable counter"></a></div></noscript>
-  <!-- End of StatCounter Code for Default Guide -->
   </body>
 </html>

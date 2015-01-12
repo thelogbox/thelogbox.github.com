@@ -1,35 +1,22 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Droid+Serif:400);
-
-mast,headline,author,dateCreated, author {
-  text-align: left;display:block;
-}
+mast, headline, author, dateCreated {text-align: left;display:block;}
+mast a {font-size: 115%;}
 .center {text-align: center;}
 
-mast a {color: #222;}
+body {font-family: 'Georgia', serif; color:#2c2c2c;}
+a {color: blue; text-decoration: underline;} a:hover {color:red;}
 
-body {font-family: 'Source Sans Pro'; font-weight:400; color: #333;
- width: 92%; margin-left:auto; margin-right: auto;
-}
 
-b, strong {font-weight: 400;}
+h1, h2, h3, h4, headline h1 {font-weight:normal;color: #222; font-family:'Georgia';}
+headline h1 {font-size:2.2em;}
 
-a {color: blue; text-decoration: none;} a:hover {color:blue;}
-
-h1, h2, h3, h4 { font-weight: 400;color: #222;font-family: 'Droid Serif'}
-  headline h1 {font-size:1.8em;margin-top: 30px;}
-
-img {
-  display: block;
-  width: 100%;
-}
+img {display: block;width: 100%;}
 
 pre {
   font-weight: normal;  
   margin-bottom:2em;
   margin-top:2em;
   white-space: pre-wrap;
-/*  background: #ccddcc;  */
-  background: #ddd;
+/*  background: #ddd; */
   color: #000;
   padding: 2px 3px 3px 3px;
   white-space:pre-wrap;
@@ -48,7 +35,6 @@ pre.code {
 toc {
   font-size: 0.915em;
   display:block;
-/*  border-top: 3px solid #222;border-bottom: 3px solid #222; */
   margin-top: 10px;
   margin-bottom: 10px;
   padding-bottom: 10px;  
@@ -68,9 +54,7 @@ toc li {color: gray;}
 
 #mce-EMAIL {border: 1px solid gray;}
 
-footer {20px 0px 30px 0px; padding-top:20px; font-size: .85em;}
-
-/* footer a {color:#434343;} */
+footer {margin-bottom:30px;margin-top: 40px;font-size: 0.85em;}
 
 @media (min-width: 550px) {
   .toc {
@@ -79,6 +63,7 @@ footer {20px 0px 30px 0px; padding-top:20px; font-size: .85em;}
     -webkit-column-count:2; /* Safari and Chrome */
   }
   img {width: 90%;}
+  mast {float:right;margin-top:0; margin-left: 30px;}
 }
 @media (min-width: 768px) {
   img {width:80%;}
@@ -90,13 +75,14 @@ footer {20px 0px 30px 0px; padding-top:20px; font-size: .85em;}
 }
 @media (min-width: 769px) {
 /*  p, table, pre, pre.code, toc {margin-right:12px;margin-left:12px;} */
-  body {width:759px; margin-left:auto;margin-right:auto;}
+/*  body {width:759px; margin-left:auto;margin-right:auto;} */
   .toc {
     column-count:3;
     -moz-column-count:3; /* Firefox */
     -webkit-column-count:3; /* Safari and Chrome */
   }
   img {width:70%;}
+  toc {width: 760px;}
 }
 
 .highlight pre {background: #f1f1f1; border: 1px solid #ddd;}

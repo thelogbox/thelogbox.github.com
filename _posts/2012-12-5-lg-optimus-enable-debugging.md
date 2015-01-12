@@ -1,6 +1,6 @@
 ---
-layout: post
-title: LG optimus, prepare for development
+layout: androidtutorial
+title: How to Prepare an LG Optimus Phone for Android Development
 
 description: Prepare LG Optimus for Android Development
 

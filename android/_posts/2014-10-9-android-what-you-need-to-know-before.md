@@ -1,12 +1,14 @@
 ---
 
 layout: androidtutorial
-title: What you need to know 
+
+title: Android Programming Prerequisite
 author: Ted Hagos
 description:
 tags:
 categories:
 
+lastupdated: January 12, 2015
 ---
 
 

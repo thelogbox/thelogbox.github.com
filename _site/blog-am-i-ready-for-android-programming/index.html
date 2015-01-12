@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <head>				
+  <head>
 		<!--
 <link href='http://fonts.googleapis.com/css?family=Neuton:300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -32,7 +32,7 @@
 <meta charset="utf-8">
  
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="keywords" content="Android">
+<meta name="keywords" content="android">
 <meta name="author" content="Ted Hagos">
 <meta name="description" content="Are you ready for Android Programming" />
 
@@ -40,685 +40,151 @@
 
 <title>
   
-    Programming Readiness | theLogBox
+    Android Programming Prerequisite | theLogBox
   
 </title>
 
 
-    <style>
-
-
-@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400|Open+Sans+Condensed:300,700|Roboto:300,400,500,700|Open+Sans:300,400);
-
-#sharebuttons { float: right; line-height: inherit; margin-right: 5em; padding-top: 5px;}
-
-em {
-  font-style:normal;
-  font-weight: 400;
-  color: brown;
-}
-
-body {
-  font-size:15px;   
-  font-family:'Lucida Sans Unicode','Lucida Grande','Roboto';
-  font-weight: 300;
-  margin:0;
-  padding:0;
-  border:0;
-  color: #2c2c2c;
-  /*color: #2d2d2d;
-  background: #f6f6f6;  
-  background:#eff3f9; */
-  /*background: #f4f6fa; */
-  line-height: 1.4em;
-}
-
-#wrap, .toc, .promo {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.toc, .promo {
-  margin:0;padding:0;border:0;
-}
-
-.tutorial-writeup {
-  text-align: left;
-  width: 90%;
-  font-size: 18px;
-  margin: 0 auto;
-  color: #555555;
-  background: inherit;
-  text-transform: uppercase;
-}
-
-.vspacer {height:20px;}
-
-table {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-th, td {text-align: left;}
-
-#wrap {
-	margin: 0 auto;
-}
-
-/* FOR THE article block */
-
-#articletitle {
-	font-size: 28px;
-	font-weight: 400;
-  text-align: left;
-  line-height: 1.4em;
-  /*color: #292929; */
-  margin-top: 0;
-  padding-top: 0;
-  text-rendering: optimizeLegibility;
-}
-
-.content-meta {
-	font-style: normal;
-  margin-top: 5px;
-	margin-bottom:20px;
-  text-align: left;
-}
-
-.archivestitle {
-  font-size: 1.5em;
-}
-.toc {
-  text-align:left;  
-  margin-top: 30px;
-  padding: 20px;
-  column-count:3;
-  -moz-column-count:3; /* Firefox */
-  -webkit-column-count:3; /* Safari and Chrome */
-  /*background:#e9e9e9;*/
-}
-
-
-.toc a:link, .toc a:visited {
-  font-family: 'Open Sans Condensed';
-  font-size: 1.1em;
-  /* color: #008385; 
-  color: #2c2c2c; */
-  color: #667CA3;
-  text-decoration: none; 
-  font-weight:300;
-  background: none;
-}
-.toc a:hover {
-  color:#000; 
-  text-decoration:underline;
-}
-
-.toc b, .toc strong {font-weight: bold;}
-.running-head a:link {
-  text-decoration: underline;
-  background:none;
-}
-
-/*
-
-ol, ul {padding-left:20px;}
-ol {counter-reset: mycounter; margin-left:0; padding-left:0; list-style-type:none;}
-ol > li {position: relative; padding: 4px 2px;margin:0 0 1px 2em;}
-ol > li:before {
-  position: absolute;
-  content: counter(mycounter, decimal-leading-zero) ".";
-  counter-increment: mycounter;
-  font-style: normal;
-  left: -2em;
-}
-
-*/
-
-/* .toc a:link, .toc a:visited {color: blue;}
-.toc li {color: #3a5d9f; list-style: none; line-height:1.3em; margin-bottom:6px;}
-.toc ul {padding-left: 0;} */
-
-
-h1, h2, h3 {
-  
-  font-weight: 400;
-  /*color: #404040; */
-  color: #222;
-  margin-left: 0px;
-  padding-left: 0px;
-  padding-top: 20px;
-  text-rendering: optimizeLegibility;
-}
-
-strong, b {font-weight:bold;}
-
-h1 {font-size: 25px;}
-h2 {font-size: 22px; } /* h2.section {padding-bottom:0px; border-bottom: 1px solid #CACACA;} */
-h3 {font-size: 18px; }
-h4 {margin-bottom: 0px; padding-bottom: 0px;}
-
-
-
-#feature {
-  min-height: 400px;
-  padding-top:40px;
-  padding-bottom:40px;
-  border-bottom: 1px dashed #CACACA;
-}
-
-.feature-title {
-  font-weight: 400;
-  font-size: 1em;
-  color: #2F2F2F;
-  text-align: center;
-  padding-top:40px;
-  padding-bottom:40px;
-  line-height:1.3em;
-  width: 80%;
-  margin: 0 auto;  
-}
-
-.feature-article {
-  font-size: 17px;
-  color: #555555;
-  line-height: 1.5em; 
-  width: 80%;
-  margin: 0 auto; 
-}
-
-.feature-banner{
-  display:block;
-  font-size: 20px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  line-height:1.5em;
-  margin-bottom:40px;
-  margin-top:40px;
-  text-align: left;
-}
-
-.feature-banner-text {
-  font-size:42px;
-  line-height:135%;
-  letter-spacing: -1.3px;
-  /*color: #222; */
-  /* color: #676767; */
-  color: #5d5d5d;
-  font-weight: 300;
-}
-
-
-#feature-button {
-  text-align:center;
-  margin: 20px;
-}
-
-
-#disqus_thread {
-  clear: both;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-
-#discussions {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding: 15px;
-  border: 2px solid #DEDEDE;
-}
-
-hr {
-  border:0;
-  color: #DEDEDE;
-  background: #DEDEDE;
-  height: 1px;
-  margin-bottom:2em;
-  margin-top:2em;
-}
-
-hr .section {
-  background: #61781a;
-  color: #61781a;
-  border: 1px solid #DEDEDE;
-}
-
-pre {
-  font-size: 11px;
-  padding: 10px;
-  font-weight: normal;
-  /*
-  border-bottom: 2px solid #F0F2E7;
-  border-top: 2px solid #F0F2E7;
-  */
-  
-  margin-bottom:2em;
-  margin-top:2em;
-  white-space: pre-wrap;
-  
-/*  background: #dcdcff; */
-/*  
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 2px solid #2d2d2d;
-*/
-  
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 2px #eee; 
-  margin 1.2em;
-  white-space:pre-wrap;
-  overflow:auto;
-}
-
-
-code {font-size: 1.2em; font-family: 'Anonymous Pro'; color: #191919;}
-pre.code {
-  font-weight:400;
-  overflow: visible;
-  padding-top: 1.2em;
-}
-
-
-.codeblock, p.code {
-  font-weight:700;
-  font-size: .9em;
-  font-family: 'Anonymous Pro';
-  color: #000000;
-  padding:0px;
-  margin: 0px;
-  border: 0px;  
-}
-
-  pre.codeblock {
-    padding: 1.1em;
-    font-weight:700;
-    /*background: #e8ebef;*/
-    /*background: #dcdcFF; */ 
-    color: #000000;
-    /*line-height:120%; */
-}
-
-#lst {
-  color: #B30000;
-	font-style:normal;
-	font-size: 15px;
-	margin-top:0px;
-  margin-bottom: 15px;
-	padding-top:0px;
-	padding-bottom:10px;
-  text-align:center;
-}
-
-/* color of a:link previously #3a5d9f */
-
-a:link, a:visited { 
-  /*color: #667CA3; */
-  /*color: #5d5d5d; */
-  color: #2c2c2c; 
-  font-weight:300;
-  text-decoration: none; 
-  background: url(/img/underline.gif) repeat-x 100% 100%;
-  padding-bottom: 0;
-  white-space: nowrap;
-
-}
-
-a:hover {
-  color: #000; 
-  background:none;
-  text-decoration: underline;
-}
-
-#postmeta {
-  padding-top:0;
-  padding-bottom:0; 
-  font-weight:normal; 
-  font-size: 14px;
-  line-height:100%;
-  margin-left: 10px;
-  letter-spacing: normal;
-  display: none;
-}
-#postmeta a:link, #postmeta a:visited {color: #000;}
-
-footer {
-  color: #414141;
-	font-style:normal;
-  clear:both;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  line-height: 2em;
-  text-align: center;
-  /*border-top: 1px solid #dedede;*/
-}
-
-img {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top:2em;
-  margin-bottom:2em;
-  width: 75%;
-}
-  img.shadow {
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-    -moz-box-shadow: -5px 0 35px 10px #888;
-    -webkit-box-shadow: -5px 0 35px 10px #888;
-    box-shadow: -5px 0 35px 10px #888;
-
-  } 
-  img.small {
-    width: 65%;
-    -moz-box-shadow: -5px 0 35px 10px #888;
-    -webkit-box-shadow: -5px 0 35px 10px #888;
-    box-shadow: -5px 0 35px 10px #888;
-
-  }
-  img.default {
-    width: inherit;
-    margin: 8px auto;
-  }
-  img.thumbnail {
-    float:left;
-    width: 20%; 
-    margin-top: 10px;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-    -moz-box-shadow: -5px 0 35px 10px #888;
-    -webkit-box-shadow: -5px 0 35px 10px #888;
-    box-shadow: -5px 0 35px 10px #888;
-  }
-
-aside {
-  padding: 10px;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  border: 1px solid #CACACA;
-}
-
-.button {
-  position: relative;
-  display: inline-block;
-  display: inline;
-/*  background: #800000; */
-/*  background: #3a5d9f; */
-  padding-top: 5px;
-  padding-bottom:5px;
-  padding-left:20px;
-  padding-right:20px;
-  text-align:center;
-  border: 1px solid #CACACA;
-
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  
-  text-transform:uppercase;
-  text-decoration:none;
-  color: #555555;
-}
-
-.button:link, .button:visited {color: #555555;}
-.button:hover {background:#f1f1f1; border-bottom: 1px solid #CACACA; text-decoration: none;}
-
-/* overrides extra padding on button elements 
-   in Firefox */
-.button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-#training-sidebar {
-  float:right;
-  margin-right: 30px;
-  padding: 20px;
-  border: 1px solid #CACACA;
-  width: 30%;
-  margin-left: 20px;
-}
-
-#training-sidebar h4 {
-  color: #CC0000;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  text-rendering: optimizeLegibility;
-}
-
-/*
-iframe {display:block;}
-*/
-
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.video-container iframe,  
-.video-container object,  
-.video-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.toc ul { color: #667CA3;}
-
-
-
-@media (min-width: 650px) {
-  
-  #wrap, .toc, .promo {
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 750px) {
-  
-  #wrap, .toc, .promo {
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 850px) {
-  
-  #wrap, .toc, .promo {
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 860px) {
-  
-  code {font-size: 1.3em;}
-  
-  h1 {font-size: 1.7em;}
-  h2 {font-size: 1.5em; }
-  h3 {font-size: 1.3em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300;}
-
-  .toc {
-    width: 24%;
-    float:right;
-    column-count:1;
-    -moz-column-count:1; /* Firefox */
-    -webkit-column-count:1; /* Safari and Chrome */
-    padding: 10px;
-    border: 0;
-    margin-left: 3%;
-  }
-  article {
-    float:left;
-    width: 70%;
-  }  
-  #wrap {
-    width:96%;
-  }
-
-  .toc ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin:0;
-    line-height: 1.5em;
-  }
-}
-
-@media (min-width: 1020px) {
-
-  /*
-  article, #archives { 
-    column-count:2;
-    -moz-column-count:2;
-    -webkit-column-count:2 
-  }
- */
-
- /*
-  code {font-size: 1.3em;}
-  
-  h1 {font-size: 1.8em;}
-  h2 {font-size: 1.6em; }
-  h3 {font-size: 1.4em; }
-  h4 {margin-bottom: 0px; padding-bottom: 0px; font-weight:300; font-size: .9em;}
-
-  */
-  .toc {
-    width: 24%;
-    float:right;
-    column-count:1;
-    -moz-column-count:1; /* Firefox */
-    -webkit-column-count:1; /* Safari and Chrome */
-    padding: 10px;
-    border: 0;
-    margin-left:3%;
-  }
-  article {
-    float:left;
-    width: 70%;
-  }  
-	article.notoc {
-		width:100%;
-		float:none;
-	}
-  #wrap {
-    width:950px;
-  }
-  
-  .toc ul {
-    list-style-type: none;
-    margin:0;
-    padding:0;
-  }
-}
-
-.pagination {
-  font-size: 1.1em;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  font-family: Tahoma, Helvetica, 'Arial', sans-serif;
-}
-/*
-.pagination a:link, .pagination a:visited {
-  font-family: Tahoma, Helvetica, 'Arial', sans-serif;
-  color: steelblue;
-}
-*/
-.running-head {
-  font-size: 1.2em;
-  color: #CCC;
-  font-weight:normal;
-  margin-top:30px;
-}
-  .running-head a:link, .running-head a:visited {
-    color: #ccc;
-  }
-  .running-head a:hover {
-    color: #000;
-  }
-
-.postinfo {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  color: #ccc;
-}
-</style>
-
+    <link rel="stylesheet" type="text/css" href="/css/style_tutorial.css" /> 
   </head>
-	
   <body>
-    <div id="wrap" class='notoc'>
-    <header>
-      <div class='feature-title'>
-        Programming Readiness
-      </div>
-    </header>
-    <section>
-      <div class='feature article'>
-      <div id="feature-button">
 
-This content has been rewritten. I encourage you to read the more updated material. You can view by clicking the button link just right below .
-<p />
+    <mast><a href="/">home</a>/<a href="/android/">android</a></mast>
 
-<a href="/android-how-much-java-do-you-need" class="button">
-   How Much Java Do You Need for Android
-<a>
+    <article itemscope itemtype="http://schema.org/Article" >    
+      <headline><h1>Android Programming Prerequisite</h1></headline>
 
+		  <articleBody itempprop="articleBody">
+		    <p>Before diving into Android programming, there are a couple of skills you might want to look at. It is possible to simply jump into programming, build some basic screens by copying example codes from the internet or from other programmers. But you cannot go to the deep end. When you find yourself neckdeep in the not-so-trivial parts of Android programming and you feel stuck, that’s probably because you haven’t covered some bases.</p>
+
+<p>The ideal set of skills to bring into Android development includes experience in AWT/Swing, JDBC, Collections, Network and Thread programming and a couple of others. But not many people will have this. For one reason, AWT and Swing went out of favor a long time ago. Most Java programmers right now have experience on web development but not desktop. </p>
+
+<h2 id="object-oriented-concepts">1. Object Oriented Concepts</h2>
+
+<p>The Android framework uses OOP heavily. You need to be comfortable with the idiomatic use of things like class/interface inheritance, polymorphism etc. Even the humble Hello World application in most Android textbooks involves the use inheritance. </p>
+
+<h2 id="java-fundamentals">2. Java fundamentals</h2>
+
+<p>You will need to be familiar with programming fundamentals in Java. Even if Android uses a different VM to run the apps, the language used for native apps development is Java. The more familiarity you have with basic programming concepts in Java, the better. You should at least know the concept of variables, constants, branching and looping, packaging and scope visibility, basic I/O and file persistence.</p>
+
+<h2 id="java-collections">3. Java Collections</h2>
+
+<p>Beyond simple variables, you will need some skills to handle collections of data. A basic familiarity with rudimentary data structures like arrays, maps and sets will be essential.</p>
+
+<h2 id="java-event-model">4. Java Event model</h2>
+
+<p>Android applications are heavy on user interaction. For the most basic applications, you might be able to get away by simply knowing how to put the click handler on XML file. But for other gestures like long clicks, swipe etc, you will need to write Java codes to handle the event. The Java event model uses listeners and callbacks quite a lot.</p>
+
+<h2 id="xml">5. XML</h2>
+
+<p>A passing familiarity wih XML structures and validation rules should take you quite far in Android programming. You don’t need to work much with XML programmatically. Your usual need for XML will arise when you define layouts and when configuring permissions for the app. If you have coded HTML before without using WYSIWYG tools, you should be fine.</p>
+
+<h2 id="sql">6. SQL</h2>
+
+<p>Some, if not most, of the applications you will make will need to store data. Some data might be simple and can be stored either via the preferences or the SD card. But some might need the facility of a relational database. The Android runtime includes the SQLite database. You will talk to it using the Structured Query Language. SQL is not a difficult language, its quite enjoyable to learn actually because of its declarative nature. It is almost English like.</p>
+
+<h2 id="build-tools">7. Build tools</h2>
+
+<p>An Android project is a compilation of various files e.g. XML, image resources, compiled byte codes, source codes etc. Getting all these resources to stick and work together cannot be done by hand, well actually it can be, but it will not be practical. That is why even the barebones SDK requires the use Apache Ant to help in compiling, building and deploying your applications. </p>
+
+<h2 id="command-line-experience">8. Command line experience</h2>
+
+<p>Even if you plan to use a full blown IDE like Eclipse, Android Studio or NetBeans, its not a bad idea to invest some time getting some skills on the command line. They might take a while longer to learn than their GUI counterparts but the effort will pay off. When you run into some problems on the IDE, your CLI skills might save you. You don’t need to be a ninja on the terminal, you can get by with some basics e.g. creating and deleting files, moving around directories, invoking ant scripts, using adb etc.</p>
+	
+		  </articleBody>
+            
+		</article>
+    
+    
+    <!--
+    <h2>Other Android Tutorials</h2>
+    <toc>
+    <div class="toc">      
+      <ul>
+      <li><a href="/android/android-key-concepts">Key Concepts in Android</a></li>
+      <li><a href="/android/android-what-you-need-to-know-before">What you need to know</a></li>
+      <li><a href="/android-install-sdk-windows">Dev Setup - Windows</a></li>
+      <li><a href="/android-virtual-device">Virtual Device</a></li>      
+      <li><a href="/android/android-project-structure">Project Creation</a></li>
+      <li><a href="/android/android-create-project-cli">Create a Project using CLI</a></li>
+      <li><a href="#">Create a Project using Android Studio</a></li>
+      <li><a href="/android-activity">Activity and the UI</a></li>
+      <li><a href="/android-linear-layout">Linear Layout</a></li>
+      <li><a href="/android/layout-weights">Layout Weights</a></li>
+      <li><a href="/android-scrolling-edittext-using-scrollview">Scrolling Text</a></li>
+      <li><a href="/logcat">Debugging with LogCat</a></li>
+      <li><a href="/android-logging-and-adb-logcat">LogCat and ADB</a></li>
+      <li><a href="/android-event-handling-overview">Event Handling Overview</a></li>
+      <li><a href="/android-event-handling-programmatic">Programmatic Event Handling</a></li>
+      <li><a href="/android/declarative-event-handling">Declarative Event Handling</a></li>
+      <li><a href="/android-database-programming-basics">Database Programming</a></li>
+      <li><a href="/android-check-connectivity">Network Connectivity</a></li>
+      <li><a href="/android-location-api">GEO Location</a></li>
+      <li><a href="/simple-camera-code">Camera</a></li>
+      <li><a href="/android-java-recording-voice">How to use the Mic</a></li>
+      <li><a href="/signing-an-android-app">Signing your App</a></li>
   
-
-
-
-
-</a></a></div>
+      <li><a href="/blog-choosing-books-for-android">Bibliography</a></li>
+      <li><a href="/blog-studying-and-practicing-android">Study Tips</a></li>
+          
+      <li><a href="/developing-with-eclipse">Eclipse Development Environment</a></li>
+      <li><a href="/android-create-project-eclipse">Creating a project in Eclipse</a></li>
+      <li><a href="/developing-with-netbeans">Netbeans Development Environment</a></li>
+      <li><a href="/android-studio">Android Studio</a></li>
+      <li><a href="/android-project-workflow">Project Workflow</a></li>
+      <li><a href="/cannot-find-buildxml">Cannot find build.xml</a></li>
+    
+      <li><a href="/android/index.html">List of All Android Tutorials &raquo;</a></li>
+    </ul>
 
     </div>
-    </section>
-  </div>
-  <!-- Start of StatCounter Code for Default Guide -->
+    </toc>
+    -->
+       
+    <footer>
+      
+<author>
+  Author: <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
+</author>
+<dateCreated>
+	Date created: July 08, 2012
+  
+    <dateModified>
+      <br/>
+      Last updated: January 12, 2015
+    </dateModified>
+  
+</dateCreated>
+
+Url : <a href=/blog-am-i-ready-for-android-programming>http://thelogbox.com/blog-am-i-ready-for-android-programming</a><br/>
+Rss Feed : <a href="http://thelogbox.com/feed/index.xml">http://thelogbox.com/feed/index.xml</a><br/>
+Copyright &copy; <a href="/">theLogBox.com</a>. All rights reserved <br/>
+
+
+
+
+      <!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//thelogbox.us5.list-manage.com/subscribe/post?u=ccf5609c10396fa44241f5400&amp;id=6b64e9bdf9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
 	
-  <script type="text/javascript">
-  var sc_project=7827488; 
-  var sc_invisible=1; 
-  var sc_security="069357c9"; 
-  </script>
-  <script type="text/javascript"
-      src="http://www.statcounter.com/counter/counter.js"></script>
-  <noscript><div class="statcounter"><a title="customizable
-      counter" href="http://statcounter.com/free-hit-counter/"
-      target="_blank"><img class="statcounter"
-      src="http://c.statcounter.com/7827488/0/069357c9/1/"
-      alt="customizable counter"></a></div></noscript>
-  <!-- End of StatCounter Code for Default Guide -->
-  <script type="text/javascript">
+	<label for="mce-EMAIL">Get android programmming tips. Email Address &rarr; </label>
+	<input type="email" value="" placeholder="email address" name="EMAIL" class="required email" id="mce-EMAIL">
+	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+	
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    
+    <div style="position: absolute; left: -5000px;">
+    	<input type="text" name="b_ccf5609c10396fa44241f5400_6b64e9bdf9" tabindex="-1" value="">
+    </div>
+    </div>
+</form>
+</div>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38198657-1']);
-  _gaq.push(['_setDomainName', 'thelogbox.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<!--End mc_embed_signup-->
+    </footer>
   </body>
 </html>

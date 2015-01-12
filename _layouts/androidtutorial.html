@@ -6,47 +6,19 @@
   </head>
   <body>
 
-    <mast><a href="/">theLogBox.com</a>/android</mast>
+    <mast><a href="/">home</a>/<a href="/android/">android</a></mast>
 
     <article itemscope itemtype="http://schema.org/Article" >    
       <headline><h1>{{ page.title }}</h1></headline>
 
-      <!--
-      <author>
-        By <a href='https://plus.google.com/+TedHagos?rel=author'>Ted Hagos</a>
-      </author>
-      <dateCreated>
-        written on {{ page.date | date: "%B %d, %Y" }}
-        {% if page.lastupdated %}
-          <dateModified>
-            updated on {{ page.lastupdated | "%B %d, %Y"}}
-          </dateModified>
-        {% endif %}
-      </dateCreated>
-      -->
-
 		  <articleBody itempprop="articleBody">
 		    {{ content }}	
 		  </articleBody>
-      
-      <!--
-      <table bgcolor="#f1f1f1" cellpadding="10" id="book">
-        <tr>
-          <td width="25%">
-            <img src="http://titlepages.leanpub.com/minimumandroidprogramming/small" width="100%"/> 
-          </td>
-          <td width="75%">
-            Ted is writing an android book for beginners. It's a work in progress.
-            <a href="https://leanpub.com/minimumandroidprogramming/read" target="_blank">You  
-            can read it (free) online</a> over at LeanPub.
-          </td>
-        </tr>
-      </table>
-      -->
-      
+            
 		</article>
     
     
+    <!--
     <h2>Other Android Tutorials</h2>
     <toc>
     <div class="toc">      
@@ -88,13 +60,12 @@
     </ul>
 
     </div>
-    </toc>   
-    {% include disqus.html %}
+    </toc>
+    -->
+       
     <footer>
       {% include footer.html %}
       {% include newsletter-android.html%}
     </footer>
-    {% include ga.html%}
-    {% include statcounter.html %}
   </body>
 </html>

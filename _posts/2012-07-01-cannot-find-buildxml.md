@@ -45,13 +45,9 @@ The local.properties file is also generated as part of project creation process.
 
 ## 2 How to Fix
 
-**1. Open the local.properties file**
+**1. Open the local.properties file**. Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk 
 
- Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk 
-
-**2. Fix the value of sdk.dir**
-
-You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don't mess around with it. Your changes will be overwritten. 
+**2. Fix the value of sdk.dir**. You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don't mess around with it. Your changes will be overwritten. 
 
 What we can do is to update the project in order to restore the value of sdk.dir. 
 
@@ -62,9 +58,7 @@ android update project --path .
 
 There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify
 
-**3. Inspect your .gitignore file**
-
-The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.
+**3. Inspect your .gitignore file**. The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.
 
 If you are using **git**, add the local.properties file to the .gitignore file so the next time you push or pull from a repository, the local.properties will be ignored by git
 

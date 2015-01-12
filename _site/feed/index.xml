@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2015-01-10T00:03:58+08:00</updated>
+ <updated>2015-01-12T22:24:49+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -914,7 +914,7 @@ consistent.&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>What you need to know</title>
+   <title>Android Programming Prerequisite</title>
    <link href="http://thelogbox.com/android/android-what-you-need-to-know-before"/>
    <updated>2014-10-09T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android/android-what-you-need-to-know-before</id>
@@ -1183,9 +1183,6 @@ Android SDK.&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Android create project command won’t complete&lt;/strong&gt;. This is most likely a spelling error when typing the commands as shown earlier. Take care that you use a double dash when specifying the option. There is no space between the double dash and the option. Take note that there is a space between the option and the argument&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;video-container&quot;&gt;
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/r2oPAHUY1MY&quot; frameborder=&quot;0&quot; modestbranding=&quot;0&quot; showinfo=&quot;0&quot; vq=&quot;hd720&quot; rel=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
 </content>
  </entry>
  
@@ -3904,30 +3901,45 @@ WebSQL is already part of PhoneGap 3.0. Access to the database feature is no lon
  </entry>
  
  <entry>
-   <title>Theoretical Minimum</title>
+   <title>Android Programming Prerequisite</title>
    <link href="http://thelogbox.com/android-how-much-java-do-you-need"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android-how-much-java-do-you-need</id>
-   <content type="html">&lt;aside&gt;
-This document is no longer maintained. Go to &lt;a href=&quot;/android/android-what-you-need-to-know-before&quot;&gt;What you need to know before diving into Android&lt;/a&gt;
-&lt;/aside&gt;
+   <content type="html">&lt;p&gt;Before diving into Android programming, there are a couple of skills you might want to look at. It is possible to simply jump into programming, build some basic screens by copying example codes from the internet or from other programmers. But you cannot go to the deep end. When you find yourself neckdeep in the not-so-trivial parts of Android programming and you feel stuck, that’s probably because you haven’t covered some bases.&lt;/p&gt;
 
-&lt;p&gt;A list of things you need get a handle on before diving into Android programming.&lt;/p&gt;
+&lt;p&gt;The ideal set of skills to bring into Android development includes experience in AWT/Swing, JDBC, Collections, Network and Thread programming and a couple of others. But not many people will have this. For one reason, AWT and Swing went out of favor a long time ago. Most Java programmers right now have experience on web development but not desktop. &lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Inheritance&lt;/em&gt;. Knowledge of OOP is required not only in Android. You need to be very comfortable with this idiom or you will not go very far in Android programming. The most basic applications requires that you create an Activity class — that means you will create a class that inherits from android.app.Activity. You must be very familiar with the rules and characteristics of Java Inheritance. Java uses both &lt;em&gt;interface&lt;/em&gt; and &lt;em&gt;class&lt;/em&gt; inheritance. You need to understand both&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Polymorphism&lt;/em&gt;. Inheriting from android.app.Activity is one of the most fundamental skill you must have. Second to that is your ability to understand why you need to &lt;em&gt;override&lt;/em&gt; some of its methods. Your knowledge of Polymorphism and how it is used in the Java language is part of a theoretical minimum for Android Programming. &lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Callbacks&lt;/em&gt;. Event handling is common place in many mobile apps. Beginning programmers maybe able to handle events without knowing callbacks — using only the XML files to hook the events — but you will not get far with this technique. The events you can handle without programmatic techniques are very limited. If I am not mistaken, it is only the &lt;em&gt;click&lt;/em&gt; event. Modern mobile applications uses gestures, long clicks etc. Those needs to be handled programmatically. You need to know how to use the &lt;strong&gt;Listeners&lt;/strong&gt; in Android.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;XML&lt;/em&gt;. This is easy and should not be much of a trouble. Even beginning programmers can handle this without breaking a sweat. Android uses XML extensively — more than I prefer, but I digress. Android uses this to define UIs and maintain its most important configurations. You need to know the basic rules and anatomy of an XML file.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Java fundamentals&lt;/em&gt;. The usual Java stuff; primitive data types, objects and classes, flow of control, exception handling, overloading, access control, input/output, classes on the util package etc.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Database programming&lt;/em&gt;. Basic SQL so you can CREATE, READ, UPDATE AND DELETE records. The Android way of database programming will feel a bit different than the usual JDBC, but that learning curve is not much trouble. It can be handled with minimum sweat. Android uses SQLite3, so if you will practice for Android, get acquainted with SQLite. &lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Network programming&lt;/em&gt;. Learn the basics of HttpClient. Going a bit deeper on socket programming can’t hurt either. A mobile application is not always an offline application. Times are changing. Applications are getting more connected and consumes cloud-based services. Your familiarity with TCP and associated technologies will go a long way.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;REST&lt;/em&gt;. Web Services are shifting more and more to RESTful style. Get some familiarity with the associated technologies and idioms of this architecture. This may not be core Java, and in fact borders a lot on JavaScript. JSON (JavaScript Object Notation) is used heavily on RESTful apps.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Data structures&lt;/em&gt;. Know the basics of an &lt;em&gt;array&lt;/em&gt; and the &lt;em&gt;Array&lt;/em&gt; class. That’s the start. Go deeper with the other collection classes of Java. Know how to handle hash maps, vectors etc. &lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Threads&lt;/em&gt;. Modern devices are running on 4 cores. Android can take advantage of multiple cores. You need to know how to execute your code in the background, asynchronously.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Logging&lt;/em&gt;. Old school debugging using printf and System.out will still be useful. But get some familiarity using Log classes. Be mindful that Android development is starkly different from Desktop or Web programming. Your codes will run on a device, not in your PC. The primary interface with the runtime and debug environment is Android’s adb and ddms — short for android debugger and dalvik device monitor service, which has been replaced by the &lt;strong&gt;monitor&lt;/strong&gt; tool now.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Tool chain&lt;/em&gt;. You need to be familiar with the mainstream tools that Java programmer’s use. If you will not use the IDEs such as Eclipse, Netbeans or Android Studio, you need to be well acquainted with Apache ANT. Android uses ANT for builds.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;object-oriented-concepts&quot;&gt;1. Object Oriented Concepts&lt;/h2&gt;
+
+&lt;p&gt;The Android framework uses OOP heavily. You need to be comfortable with the idiomatic use of things like class/interface inheritance, polymorphism etc. Even the humble Hello World application in most Android textbooks involves the use inheritance. &lt;/p&gt;
+
+&lt;h2 id=&quot;java-fundamentals&quot;&gt;2. Java fundamentals&lt;/h2&gt;
+
+&lt;p&gt;You will need to be familiar with programming fundamentals in Java. Even if Android uses a different VM to run the apps, the language used for native apps development is Java. The more familiarity you have with basic programming concepts in Java, the better. You should at least know the concept of variables, constants, branching and looping, packaging and scope visibility, basic I/O and file persistence.&lt;/p&gt;
+
+&lt;h2 id=&quot;java-collections&quot;&gt;3. Java Collections&lt;/h2&gt;
+
+&lt;p&gt;Beyond simple variables, you will need some skills to handle collections of data. A basic familiarity with rudimentary data structures like arrays, maps and sets will be essential.&lt;/p&gt;
+
+&lt;h2 id=&quot;java-event-model&quot;&gt;4. Java Event model&lt;/h2&gt;
+
+&lt;p&gt;Android applications are heavy on user interaction. For the most basic applications, you might be able to get away by simply knowing how to put the click handler on XML file. But for other gestures like long clicks, swipe etc, you will need to write Java codes to handle the event. The Java event model uses listeners and callbacks quite a lot.&lt;/p&gt;
+
+&lt;h2 id=&quot;xml&quot;&gt;5. XML&lt;/h2&gt;
+
+&lt;p&gt;A passing familiarity wih XML structures and validation rules should take you quite far in Android programming. You don’t need to work much with XML programmatically. Your usual need for XML will arise when you define layouts and when configuring permissions for the app. If you have coded HTML before without using WYSIWYG tools, you should be fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;sql&quot;&gt;6. SQL&lt;/h2&gt;
+
+&lt;p&gt;Some, if not most, of the applications you will make will need to store data. Some data might be simple and can be stored either via the preferences or the SD card. But some might need the facility of a relational database. The Android runtime includes the SQLite database. You will talk to it using the Structured Query Language. SQL is not a difficult language, its quite enjoyable to learn actually because of its declarative nature. It is almost English like.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-tools&quot;&gt;7. Build tools&lt;/h2&gt;
+
+&lt;p&gt;An Android project is a compilation of various files e.g. XML, image resources, compiled byte codes, source codes etc. Getting all these resources to stick and work together cannot be done by hand, well actually it can be, but it will not be practical. That is why even the barebones SDK requires the use Apache Ant to help in compiling, building and deploying your applications. &lt;/p&gt;
+
+&lt;h2 id=&quot;command-line-experience&quot;&gt;8. Command line experience&lt;/h2&gt;
+
+&lt;p&gt;Even if you plan to use a full blown IDE like Eclipse, Android Studio or NetBeans, its not a bad idea to invest some time getting some skills on the command line. They might take a while longer to learn than their GUI counterparts but the effort will pay off. When you run into some problems on the IDE, your CLI skills might save you. You don’t need to be a ninja on the terminal, you can get by with some basics e.g. creating and deleting files, moving around directories, invoking ant scripts, using adb etc.&lt;/p&gt;
 </content>
  </entry>
  
@@ -5541,7 +5553,7 @@ This document is no longer maintained. Go to &lt;a href=&quot;/android/android-w
  </entry>
  
  <entry>
-   <title>LG optimus, prepare for development</title>
+   <title>How to Prepare an LG Optimus Phone for Android Development</title>
    <link href="http://thelogbox.com/android/lg-optimus-enable-debugging"/>
    <updated>2012-12-05T00:00:00+08:00</updated>
    <id>http://thelogbox.com/android/lg-optimus-enable-debugging</id>
@@ -13022,25 +13034,45 @@ This content has moved. If you click the button link below, it will take you to 
  </entry>
  
  <entry>
-   <title>Programming Readiness</title>
+   <title>Android Programming Prerequisite</title>
    <link href="http://thelogbox.com/blog-am-i-ready-for-android-programming"/>
    <updated>2012-07-08T00:00:00+08:00</updated>
    <id>http://thelogbox.com/blog-am-i-ready-for-android-programming</id>
-   <content type="html">&lt;div id=&quot;feature-button&quot;&gt;
+   <content type="html">&lt;p&gt;Before diving into Android programming, there are a couple of skills you might want to look at. It is possible to simply jump into programming, build some basic screens by copying example codes from the internet or from other programmers. But you cannot go to the deep end. When you find yourself neckdeep in the not-so-trivial parts of Android programming and you feel stuck, that’s probably because you haven’t covered some bases.&lt;/p&gt;
 
-This content has been rewritten. I encourage you to read the more updated material. You can view by clicking the button link just right below .
-&lt;p /&gt;
+&lt;p&gt;The ideal set of skills to bring into Android development includes experience in AWT/Swing, JDBC, Collections, Network and Thread programming and a couple of others. But not many people will have this. For one reason, AWT and Swing went out of favor a long time ago. Most Java programmers right now have experience on web development but not desktop. &lt;/p&gt;
 
-&lt;a href=&quot;/android-how-much-java-do-you-need&quot; class=&quot;button&quot;&gt;
-   How Much Java Do You Need for Android
-&lt;a&gt;
+&lt;h2 id=&quot;object-oriented-concepts&quot;&gt;1. Object Oriented Concepts&lt;/h2&gt;
 
-  
+&lt;p&gt;The Android framework uses OOP heavily. You need to be comfortable with the idiomatic use of things like class/interface inheritance, polymorphism etc. Even the humble Hello World application in most Android textbooks involves the use inheritance. &lt;/p&gt;
 
+&lt;h2 id=&quot;java-fundamentals&quot;&gt;2. Java fundamentals&lt;/h2&gt;
 
+&lt;p&gt;You will need to be familiar with programming fundamentals in Java. Even if Android uses a different VM to run the apps, the language used for native apps development is Java. The more familiarity you have with basic programming concepts in Java, the better. You should at least know the concept of variables, constants, branching and looping, packaging and scope visibility, basic I/O and file persistence.&lt;/p&gt;
 
+&lt;h2 id=&quot;java-collections&quot;&gt;3. Java Collections&lt;/h2&gt;
 
-&lt;/a&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;Beyond simple variables, you will need some skills to handle collections of data. A basic familiarity with rudimentary data structures like arrays, maps and sets will be essential.&lt;/p&gt;
+
+&lt;h2 id=&quot;java-event-model&quot;&gt;4. Java Event model&lt;/h2&gt;
+
+&lt;p&gt;Android applications are heavy on user interaction. For the most basic applications, you might be able to get away by simply knowing how to put the click handler on XML file. But for other gestures like long clicks, swipe etc, you will need to write Java codes to handle the event. The Java event model uses listeners and callbacks quite a lot.&lt;/p&gt;
+
+&lt;h2 id=&quot;xml&quot;&gt;5. XML&lt;/h2&gt;
+
+&lt;p&gt;A passing familiarity wih XML structures and validation rules should take you quite far in Android programming. You don’t need to work much with XML programmatically. Your usual need for XML will arise when you define layouts and when configuring permissions for the app. If you have coded HTML before without using WYSIWYG tools, you should be fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;sql&quot;&gt;6. SQL&lt;/h2&gt;
+
+&lt;p&gt;Some, if not most, of the applications you will make will need to store data. Some data might be simple and can be stored either via the preferences or the SD card. But some might need the facility of a relational database. The Android runtime includes the SQLite database. You will talk to it using the Structured Query Language. SQL is not a difficult language, its quite enjoyable to learn actually because of its declarative nature. It is almost English like.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-tools&quot;&gt;7. Build tools&lt;/h2&gt;
+
+&lt;p&gt;An Android project is a compilation of various files e.g. XML, image resources, compiled byte codes, source codes etc. Getting all these resources to stick and work together cannot be done by hand, well actually it can be, but it will not be practical. That is why even the barebones SDK requires the use Apache Ant to help in compiling, building and deploying your applications. &lt;/p&gt;
+
+&lt;h2 id=&quot;command-line-experience&quot;&gt;8. Command line experience&lt;/h2&gt;
+
+&lt;p&gt;Even if you plan to use a full blown IDE like Eclipse, Android Studio or NetBeans, its not a bad idea to invest some time getting some skills on the command line. They might take a while longer to learn than their GUI counterparts but the effort will pay off. When you run into some problems on the IDE, your CLI skills might save you. You don’t need to be a ninja on the terminal, you can get by with some basics e.g. creating and deleting files, moving around directories, invoking ant scripts, using adb etc.&lt;/p&gt;
 </content>
  </entry>
  
@@ -13415,13 +13447,9 @@ sdk.dir=/Users/ted/progtools/android-sdk-macosx
 
 &lt;h2 id=&quot;how-to-fix&quot;&gt;2 How to Fix&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;1. Open the local.properties file&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Open the local.properties file&lt;/strong&gt;. Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk &lt;/p&gt;
 
-&lt;p&gt;Inspect the contents of the file. Verify that the value of sdk.dir is really pointing to the folder where you installed the android sdk &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2. Fix the value of sdk.dir&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don’t mess around with it. Your changes will be overwritten. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Fix the value of sdk.dir&lt;/strong&gt;. You can try to change the sdk.dir value by directly editing local.properties, but did you see the commented section of local.properties? It said don’t mess around with it. Your changes will be overwritten. &lt;/p&gt;
 
 &lt;p&gt;What we can do is to update the project in order to restore the value of sdk.dir. &lt;/p&gt;
 
@@ -13431,9 +13459,7 @@ android update project --path .
 
 &lt;p&gt;There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;3. Inspect your .gitignore file&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Inspect your .gitignore file&lt;/strong&gt;. The local.properties file must unique to your machine setup. One of the reasons why the sdk.dir is messed up is because the local.properties file in your project is not really yours. It probably belongs to somebody else and it got into your machine because you pulled the project from a source code repository.&lt;/p&gt;
 
 &lt;p&gt;If you are using &lt;strong&gt;git&lt;/strong&gt;, add the local.properties file to the .gitignore file so the next time you push or pull from a repository, the local.properties will be ignored by git&lt;/p&gt;
 
