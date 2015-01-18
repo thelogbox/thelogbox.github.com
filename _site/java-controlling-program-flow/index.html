@@ -50,11 +50,14 @@
 
 <h1 id="if-statement">IF statement</h1>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">statement</span> <span class="mi">1</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">2</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="n">n</span><span class="o">;</span>
-<span class="o">}</span></code></pre></div>
+<pre><code class="language-java">
+if(condition) {
+  statement 1;
+  statement 2;
+  statement n;
+}
+
+</code></pre>
 
 <p>The <em>if</em> statement allows you to conditionally perform some commands. It allows you side-step the main flow of your code. If you remember the flowcharting symbols, when you see the diamond shape, it means you have a fork in the road. When a condition is met, you either go left or right. That is what the <em>if</em> statement does. It allows you to test for conditions. When the condition is true, you go to the beginning of the if block (the opening curly brace) and begin executing all the statements there until all the statements are exhausted. When you have reached the end of the block (the closing curly brace), then there are no more commands to execute. The flow of control will resume immediately after the end of the curly brace. </p>
 
@@ -62,10 +65,11 @@
 
 <p><strong>GOTCHA</strong></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-<span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;but i is equal to one&quot;</span><span class="o">);</span>
-<span class="o">}</span></code></pre></div>
+<pre><code>int i = 0;
+if(i = 1) {
+  System.out.println("but i is equal to one");
+}
+</code></pre>
 
 <p>If you have coded in <strong>C</strong> before, you might fall into this gotcha. Do not  worry though, Java will not allow you to make a mess like this. This will be caught by the compiler. </p>
 
@@ -86,19 +90,16 @@
   <li>Use the <em>for</em> loop if you actually know how many times you will need to go through the loop</li>
 </ol>
 
-<p>The canonical form of the <strong>while loop</strong></p>
+<p>The <strong>while</strong> loop is usually written like this</p>
 
-<pre class="codeblock">
+<pre><code class="language-java">while(condition) {
 
-while(condition) {
-  
-	statement 1;
-	statement 2;
-	statement n;
+  statement 1;
+  statement 2;
+  statement n;
 
 }
-
-</pre>
+</code></pre>
 
 <p>The <em>condition</em> is either a literal (the keywords true or false) or an expression that will evaluate to either true or false (boolean values).</p>
 
@@ -119,50 +120,50 @@ while(condition) {
 
 <p>Example code:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">static</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">System</span><span class="o">.</span><span class="na">out</span><span class="o">;</span>
+<pre><code>import static java.lang.System.out;
 
-    <span class="kd">class</span> <span class="nc">While</span> <span class="o">{</span>
+class While {
+  public static void main (String [] args){
 
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-    
-            <span class="kt">boolean</span> <span class="n">condition</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    boolean condition = true;
+    int counter = 0;
 
-            <span class="k">while</span><span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">counter</span><span class="o">);</span>
-                <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">counter</span> <span class="o">&gt;</span><span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">condition</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span></code></pre></div>
+    while(condition) {
+      out.println(counter);
+      counter = counter + 1;
+      if(counter &gt;10) {
+        condition = false;
+      }
+    }
+  }
+}
+</code></pre>
 
 <p>Like the <em>if</em> statement, you can also nest a while loop inside another while loop.</p>
 
 <h1 id="for-statement">FOR statement</h1>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="n">beginning</span> <span class="n">value</span><span class="o">;</span> <span class="n">ending</span> <span class="n">value</span><span class="o">;</span> <span class="n">step</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">statement</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="n">statement</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="n">statement</span> <span class="mi">3</span><span class="o">;</span>
-    <span class="o">}</span></code></pre></div>
+<pre><code class="language-java">for(beginning value; ending value; step) {
+  statement 1;
+  statement 2;
+  statement 3;
+}
+</code></pre>
 
-<p>The <em>for loop</em> like the <em>while loop</em> allows you to iterate and perform a group of statements over and over again. The for loop though, allows for more control.  </p>
+<p>The <em><strong>for loop</strong> like the *while loop</em> allows you to iterate and perform a group of statements over and over again. The for loop though, allows for more control.  </p>
 
 <p>A key concept in using the for loop is the counter (the <strong>step</strong>). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the <strong>step</strong> value is incremented. The incremented step value is then compared to the <strong>ending value</strong>, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block. </p>
 
 <p>In this example, we print some numeric values from zero (0) to ten (10). This is the exact thing that our <em>while</em> example was doing earlier.  </p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">for_sample</span> <span class="o">{</span>
-
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">10</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-    <span class="o">}</span></code></pre></div>
+<pre><code>class for_sample {
+  public static void main (String [] args) {
+    for(int i=0; i&lt;=10;i++) {
+      System.out.println(i);
+    }
+  }
+}
+</code></pre>
 
 <h1 id="switch-statement">SWITCH statement</h1>
 
@@ -170,52 +171,53 @@ while(condition) {
 
 <p>The syntax of the switch statement is;</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">switch</span><span class="o">(</span><span class="n">expression</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">case</span> <span class="nl">CONSTANTEXPR:</span>
-  <span class="k">case</span> <span class="nl">ENUMCONSTANTNAME:</span>
-  <span class="k">default</span><span class="o">:</span>
-<span class="o">}</span></code></pre></div>
+<pre><code class="language-java">switch(expression) {
+  case CONSTANTEXPR:
+  case ENUMCONSTANTNAME:
+  default:
+}
+</code></pre>
 
 <p>Where expression can either be a char, byte, short, int OR Character, Byte, Short, Integer OR an enum type. By the way, Character is not the same as char, that wasn’t a typo. Character is a Java class which is a wrapper class for the char primitive. </p>
 
 <p>Let’s take a look at some sample code. The <em>SwitchSample.java</em> code extracts the <em>Day of Week</em> value from a Java Calendar object. The Day of Week is returned as integer, which makes it perfect to filter using a Switch statement rather than nested <em>ifs</em></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+<pre><code class="language-java">import java.util.Calendar;
 
-<span class="kd">class</span> <span class="nc">SwitchSample</span> <span class="o">{</span>
+class SwitchSample {
+  public static void main(String args[]) {
 
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span>
+    Calendar now = Calendar.getInstance();
+    int dow = now.get(Calendar.DAY_OF_WEEK);
 
-		<span class="n">Calendar</span> <span class="n">now</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-		<span class="kt">int</span> <span class="n">dow</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_WEEK</span><span class="o">);</span>
-
-		<span class="k">switch</span><span class="o">(</span><span class="n">dow</span><span class="o">)</span> <span class="o">{</span>
-			<span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Sunday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Monday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Tuesday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Wednesday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Thursday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Friday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Saturday&quot;</span><span class="o">);</span>
-				<span class="k">break</span><span class="o">;</span>
-			<span class="k">default</span><span class="o">:</span>
-				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;What the value really is = &quot;</span> <span class="o">+</span> <span class="n">dow</span><span class="o">);</span>
-			<span class="o">}</span>
-		<span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+    switch (dow) {
+      case 0:
+        System.out.println("Sunday");
+        break;
+      case 1:
+        System.out.println("Monday");
+        break;
+      case 2:
+        System.out.println("Tuesday");
+        break;
+      case 3:
+        System.out.println("Wednesday");
+        break;
+      case 4:
+        System.out.println("Thursday");
+        break;
+      case 5:
+        System.out.println("Friday");
+        break;
+      case 6:
+        System.out.println("Saturday");
+        break;
+      default:
+        System.out.println("What the value really is = " + dow);
+    }
+  }
+}
+</code></pre>
 
 <p>The switch is really simple to use, just put the expression which you’d like to test as an argument to the switch statement, then have a series of case statements inside the switch body.</p>
 
@@ -235,59 +237,66 @@ while(condition) {
 
 <p>We all know how to do this arithmetically, but if we were to write a code for this using Java, it may stomp us for a little while. Look closely though and you will start to see a plan of attack. That is, if I write a <em>for loop</em> to walk through the values of the first column (1..6), it would look like.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">6</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-        <span class="n">print</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-		<span class="o">}</span></code></pre></div>
+<pre><code class="language-java">for(int i=1; i&lt;=6 ; i++) {
+  print(i);
+} 
+</code></pre>
 
 <p>Let’s make a minor change on the statement inside the <em>for loop</em></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">6</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-		<span class="n">print</span><span class="o">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">1</span><span class="o">);</span>
-	<span class="o">}</span></code></pre></div>
+<pre><code class="language-java">for(int i=1; i&lt;=6 ; i++) {
+  print(i * 1);
+}	 
+</code></pre>
 
 <p>This does not really change our output arithmetically, anything multiplied by 1 is equal to itself. This small modification though gives us further insight into our Cartesian problem and one step closer to the solution.</p>
 
 <p>We can programatically increase the value of the multiplier by one, which then allows us to generate the values for the rows (2..4). We can use another loop inside the first <em>for loop</em>.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">col</span><span class="o">;</span> <span class="n">col</span><span class="o">&lt;=</span><span class="mi">6</span> <span class="o">;</span> <span class="n">col</span><span class="o">++)</span> <span class="o">{</span>
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">row</span><span class="o">&lt;=</span><span class="mi">4</span><span class="o">;</span><span class="n">row</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="n">print</span><span class="o">(</span><span class="n">col</span><span class="o">*</span><span class="n">row</span><span class="o">);</span>
-		<span class="o">}</span>
-	<span class="o">}</span></code></pre></div>
+<pre><code class="language-java">for(int i=col; col&lt;=6 ; col++) {
+  for(int row=1;row&lt;=4;row++) {
+    print(col*row);
+  }
+}
+</code></pre>
 
 <h2 id="break-and-continue">BREAK AND CONTINUE</h2>
 
 <p>The <strong>break</strong> and <strong>continue</strong> keywords disrupts program flow inside loops, whether the for-loop or while-loop. </p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">while</span><span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">statement</span> <span class="mi">1</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">2</span><span class="o">;</span>
-	<span class="k">break</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">3</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">4</span><span class="o">;</span>
-<span class="o">}</span>
+<pre><code>while(condition) {
 
-<span class="n">statement</span> <span class="mi">5</span><span class="o">;</span>
-<span class="n">statement</span> <span class="n">n</span><span class="o">;</span></code></pre></div>
+  statement 1;
+  statement 2;
+  break;
+  statement 3;
+  statement 4;
+}
+
+statement 5;
+statement n;
+</code></pre>
 
 <p>The <strong>break</strong> statement causes the program flow inside a block to forcibly exit (whether for-loop or while-loop). In example code above, as soon as the <strong>break</strong> statement is encountered, the program control will ignore statement 3 and 4. The while loop will go out of scope and program control will be transferred to the first executable statement immediately after the while block – in this case, statement 5.  </p>
 
 <p>You normally will not use the <strong>break</strong> statement in this fashion because it doesn’t make sense. This statement is usually deployed with more logic finesse. Let me show you an example.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">while</span><span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">statement</span> <span class="mi">1</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">2</span><span class="o">;</span>
-	
-	<span class="k">if</span><span class="o">(</span><span class="n">someCondition</span><span class="o">)</span> <span class="o">{</span>
-		<span class="k">break</span><span class="o">;</span>
-	<span class="o">}</span>	
+<pre><code class="language-java">while(condition) {
 
-	<span class="n">statement</span> <span class="mi">3</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">4</span><span class="o">;</span>
-<span class="o">}</span>
+  statement 1;
+  statement 2;
 
-<span class="n">statement</span> <span class="mi">5</span><span class="o">;</span>
-<span class="n">statement</span> <span class="n">n</span><span class="o">;</span></code></pre></div>
+  if(someCondition) {
+    break;
+  }	
+
+  statement 3;
+  statement 4;
+}
+
+statement 5;
+statement n;
+</code></pre>
 
 <p>This is a more likely use of the <strong>break</strong> statement. I should warn you though that this is a frowned upon practice. A truly structured programming should have only one entry point and one exit point. Because of the introduction the <strong>break</strong> statement, our control structure now has one entry point and two exit points.  </p>
 
@@ -295,16 +304,19 @@ while(condition) {
 
 <p>Next is the <strong>continue</strong> keyword. Here is how it behaves.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">while</span><span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-	<span class="n">statement</span> <span class="mi">1</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">2</span><span class="o">;</span>
-	<span class="k">continue</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">3</span><span class="o">;</span>
-	<span class="n">statement</span> <span class="mi">4</span><span class="o">;</span>
-<span class="o">}</span>
+<pre><code class="language-java">
+while(condition) {
 
-<span class="n">statement</span> <span class="mi">5</span><span class="o">;</span>
-<span class="n">statement</span> <span class="n">n</span><span class="o">;</span></code></pre></div>
+  statement 1;
+  statement 2;
+  continue;
+  statement 3;
+  statement 4;
+}
+
+statement 5;
+statement n;
+</code></pre>
 
 <p>When the <strong>continue</strong> statement is encountered, statements 3 and 4 will be ignored (just like how it was with the break). Unlike the case in <strong>break</strong> though, the loop will not go out of scope and will not be immediately terminated.  </p>
 

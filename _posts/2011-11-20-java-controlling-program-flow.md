@@ -14,8 +14,6 @@ tags:
 
 ---
 
-
-
 Your ability to direct and command the flow of control in your program is one of the defining skills for a programmer. There are basically 3 ways that you can arrange the commands in your program code. They are;
 
 1. You can execute commands one after another -- **sequencing**
@@ -34,15 +32,16 @@ Your ability to direct and command the flow of control in your program is one of
 
 # IF statement
 
-{% highlight java %}
+
+~~~ java
 
 if(condition) {
-	statement 1;
-	statement 2;
-	statement n;
+  statement 1;
+  statement 2;
+  statement n;
 }
 
-{% endhighlight %}
+~~~
 
 The *if* statement allows you to conditionally perform some commands. It allows you side-step the main flow of your code. If you remember the flowcharting symbols, when you see the diamond shape, it means you have a fork in the road. When a condition is met, you either go left or right. That is what the *if* statement does. It allows you to test for conditions. When the condition is true, you go to the beginning of the if block (the opening curly brace) and begin executing all the statements there until all the statements are exhausted. When you have reached the end of the block (the closing curly brace), then there are no more commands to execute. The flow of control will resume immediately after the end of the curly brace. 
 
@@ -51,14 +50,12 @@ The *condition* in the *if* statement can be written as expressions that will ev
 
 **GOTCHA**
 
-{% highlight java %}
-
+~~~
 int i = 0;
 if(i = 1) {
-	System.out.println("but i is equal to one");
+  System.out.println("but i is equal to one");
 }
-
-{% endhighlight %}
+~~~
 
 If you have coded in **C** before, you might fall into this gotcha. Do not  worry though, Java will not allow you to make a mess like this. This will be caught by the compiler. 
 
@@ -77,20 +74,17 @@ The *while* loop and *for* loop may overlap at times because they have a similar
 1. Use the *while* loop if you do not know how many times you need to loop
 2. Use the *for* loop if you actually know how many times you will need to go through the loop
 
-The canonical form of the **while loop**
+The **while** loop is usually written like this
 
-
-<pre class='codeblock'>
-
+~~~ java
 while(condition) {
-  
-	statement 1;
-	statement 2;
-	statement n;
+
+  statement 1;
+  statement 2;
+  statement n;
 
 }
-
-</pre>
+~~~
 
 The *condition* is either a literal (the keywords true or false) or an expression that will evaluate to either true or false (boolean values).
 
@@ -110,44 +104,39 @@ You will only drop off end of the while block if and when the condition evaluate
 Example code:
 
 
-{% highlight java %}
+~~~
+import static java.lang.System.out;
 
-    import static java.lang.System.out;
+class While {
+  public static void main (String [] args){
 
-    class While {
+    boolean condition = true;
+    int counter = 0;
 
-        public static void main (String [] args){
-    
-            boolean condition = true;
-            int counter = 0;
-
-            while(condition) {
-                out.println(counter);
-                counter = counter + 1;
-                if(counter >10) {
-                    condition = false;
-                }
-            }
-        }
+    while(condition) {
+      out.println(counter);
+      counter = counter + 1;
+      if(counter >10) {
+        condition = false;
+      }
     }
-
-{% endhighlight %}
+  }
+}
+~~~
 
 Like the *if* statement, you can also nest a while loop inside another while loop.
 
 # FOR statement
 
-{% highlight java %}
+~~~ java
+for(beginning value; ending value; step) {
+  statement 1;
+  statement 2;
+  statement 3;
+}
+~~~
 
-    for(beginning value; ending value; step) {
-        statement 1;
-        statement 2;
-        statement 3;
-    }
-
-{% endhighlight %}
-
-The *for loop* like the *while loop* allows you to iterate and perform a group of statements over and over again. The for loop though, allows for more control.  
+The ***for loop** like the *while loop* allows you to iterate and perform a group of statements over and over again. The for loop though, allows for more control.  
 
 
 A key concept in using the for loop is the counter (the **step**). Loop will perform all the statements inside the block for a finite and determined number of times. Each time that the whole block is evaluated, the **step** value is incremented. The incremented step value is then compared to the **ending value**, and when the ending value is reached, the for loop will then terminate. The program control will fall over to first statement immediately after the for loop block. 
@@ -156,21 +145,15 @@ A key concept in using the for loop is the counter (the **step**). Loop will per
 In this example, we print some numeric values from zero (0) to ten (10). This is the exact thing that our *while* example was doing earlier.  
 
 
-{% highlight java %}
-
-    class for_sample {
-
-        public static void main (String [] args) {
-            for(int i=0; i<=10;i++) {
-                System.out.println(i);
-            }
-        }
-
+~~~
+class for_sample {
+  public static void main (String [] args) {
+    for(int i=0; i<=10;i++) {
+      System.out.println(i);
     }
-
-
-{% endhighlight %}
-
+  }
+}
+~~~
 
 # SWITCH statement
 
@@ -178,60 +161,55 @@ When the nature of the decision you need to make is a bit on the fuzzy side, it 
 
 The syntax of the switch statement is;
 
-{% highlight java %}
-
+~~~ java
 switch(expression) {
   case CONSTANTEXPR:
   case ENUMCONSTANTNAME:
   default:
 }
-
-{% endhighlight %}
+~~~
 
 Where expression can either be a char, byte, short, int OR Character, Byte, Short, Integer OR an enum type. By the way, Character is not the same as char, that wasn't a typo. Character is a Java class which is a wrapper class for the char primitive. 
 
 Let's take a look at some sample code. The *SwitchSample.java* code extracts the *Day of Week* value from a Java Calendar object. The Day of Week is returned as integer, which makes it perfect to filter using a Switch statement rather than nested *ifs*
 
-{% highlight java %}
-
+~~~ java
 import java.util.Calendar;
 
 class SwitchSample {
+  public static void main(String args[]) {
 
-	public static void main(String args[]){
+    Calendar now = Calendar.getInstance();
+    int dow = now.get(Calendar.DAY_OF_WEEK);
 
-		Calendar now = Calendar.getInstance();
-		int dow = now.get(Calendar.DAY_OF_WEEK);
-
-		switch(dow) {
-			case 0:
-				System.out.println("Sunday");
-				break;
-			case 1:
-				System.out.println("Monday");
-				break;
-			case 2:
-				System.out.println("Tuesday");
-				break;
-			case 3:
-				System.out.println("Wednesday");
-				break;
-			case 4:
-				System.out.println("Thursday");
-				break;
-			case 5:
-				System.out.println("Friday");
-				break;
-			case 6:
-				System.out.println("Saturday");
-				break;
-			default:
-				System.out.println("What the value really is = " + dow);
-			}
-		}
+    switch (dow) {
+      case 0:
+        System.out.println("Sunday");
+        break;
+      case 1:
+        System.out.println("Monday");
+        break;
+      case 2:
+        System.out.println("Tuesday");
+        break;
+      case 3:
+        System.out.println("Wednesday");
+        break;
+      case 4:
+        System.out.println("Thursday");
+        break;
+      case 5:
+        System.out.println("Friday");
+        break;
+      case 6:
+        System.out.println("Saturday");
+        break;
+      default:
+        System.out.println("What the value really is = " + dow);
+    }
+  }
 }
-
-{% endhighlight %}
+~~~
 
 The switch is really simple to use, just put the expression which you'd like to test as an argument to the switch statement, then have a series of case statements inside the switch body.
 
@@ -252,24 +230,20 @@ Imagine the multiplication table, if we were to generate the multiplication tabl
 
 We all know how to do this arithmetically, but if we were to write a code for this using Java, it may stomp us for a little while. Look closely though and you will start to see a plan of attack. That is, if I write a *for loop* to walk through the values of the first column (1..6), it would look like.
 
-{% highlight java %}
-
-    for(int i=1; i<=6 ; i++) {
-        print(i);
-		}
-    
-{% endhighlight %}
+~~~ java
+for(int i=1; i<=6 ; i++) {
+  print(i);
+} 
+~~~
 
 
 Let’s make a minor change on the statement inside the *for loop*
 
-{% highlight java %}
-
-	for(int i=1; i<=6 ; i++) {
-		print(i * 1);
-	}	
-  
-{% endhighlight %}
+~~~ java
+for(int i=1; i<=6 ; i++) {
+  print(i * 1);
+}	 
+~~~
 
 This does not really change our output arithmetically, anything multiplied by 1 is equal to itself. This small modification though gives us further insight into our Cartesian problem and one step closer to the solution.
 
@@ -278,57 +252,53 @@ This does not really change our output arithmetically, anything multiplied by 1 
 We can programatically increase the value of the multiplier by one, which then allows us to generate the values for the rows (2..4). We can use another loop inside the first *for loop*.
 
 
-{% highlight java %}
-
-	for(int i=col; col<=6 ; col++) {
-		for(int row=1;row<=4;row++) {
-			print(col*row);
-		}
-	}
-
-{% endhighlight %}
+~~~ java
+for(int i=col; col<=6 ; col++) {
+  for(int row=1;row<=4;row++) {
+    print(col*row);
+  }
+}
+~~~
 
 ## BREAK AND CONTINUE
 
 The **break** and **continue** keywords disrupts program flow inside loops, whether the for-loop or while-loop. 
 
-{% highlight java %}
-
+~~~
 while(condition) {
-	statement 1;
-	statement 2;
-	break;
-	statement 3;
-	statement 4;
+
+  statement 1;
+  statement 2;
+  break;
+  statement 3;
+  statement 4;
 }
 
 statement 5;
 statement n;
-
-{% endhighlight %}
+~~~
 
 The **break** statement causes the program flow inside a block to forcibly exit (whether for-loop or while-loop). In example code above, as soon as the **break** statement is encountered, the program control will ignore statement 3 and 4. The while loop will go out of scope and program control will be transferred to the first executable statement immediately after the while block -- in this case, statement 5.  
 
 You normally will not use the **break** statement in this fashion because it doesn't make sense. This statement is usually deployed with more logic finesse. Let me show you an example.
 
-{% highlight java %}
-
+~~~ java
 while(condition) {
-	statement 1;
-	statement 2;
-	
-	if(someCondition) {
-		break;
-	}	
 
-	statement 3;
-	statement 4;
+  statement 1;
+  statement 2;
+
+  if(someCondition) {
+    break;
+  }	
+
+  statement 3;
+  statement 4;
 }
 
 statement 5;
 statement n;
-
-{% endhighlight %}
+~~~
 
 This is a more likely use of the **break** statement. I should warn you though that this is a frowned upon practice. A truly structured programming should have only one entry point and one exit point. Because of the introduction the **break** statement, our control structure now has one entry point and two exit points.  
 
@@ -336,20 +306,20 @@ While this code is innocent enough right now, it could get very hairy and compli
 
 Next is the **continue** keyword. Here is how it behaves.
 
-{% highlight java %}
+~~~ java
 
 while(condition) {
-	statement 1;
-	statement 2;
-	continue;
-	statement 3;
-	statement 4;
+
+  statement 1;
+  statement 2;
+  continue;
+  statement 3;
+  statement 4;
 }
 
 statement 5;
 statement n;
-
-{% endhighlight %}
+~~~
 
 When the **continue** statement is encountered, statements 3 and 4 will be ignored (just like how it was with the break). Unlike the case in **break** though, the loop will not go out of scope and will not be immediately terminated.  
 
