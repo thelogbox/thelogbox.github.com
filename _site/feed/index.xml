@@ -5,7 +5,7 @@
  <title>Ted's blog'</title>
  <link href="http://thelogbox.com/feed/" rel="self"/>
  <link href="http://thelogbox.com/"/>
- <updated>2015-01-13T23:37:24+08:00</updated>
+ <updated>2015-01-18T12:52:44+08:00</updated>
  <id>http://thelogbox.com/</id>
  <author>
    <name>Ted Hagos</name>
@@ -13420,7 +13420,7 @@ class MyClass{}&lt;/p&gt;
    <link href="http://thelogbox.com/cannot-find-buildxml"/>
    <updated>2012-07-01T00:00:00+08:00</updated>
    <id>http://thelogbox.com/cannot-find-buildxml</id>
-   <content type="html">&lt;p&gt;This compilation error means the android sdk is looking for the build.xml file which is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This compilation error means the android sdk is looking for the build.xml file which is inside the folder &lt;strong&gt;sdk.dir/tools/ant&lt;/strong&gt;. The compiler cannot find it, hence the error.&lt;/p&gt;
 
 &lt;h2 id=&quot;basic-concepts&quot;&gt;1 Basic Concepts&lt;/h2&gt;
 
@@ -13453,8 +13453,8 @@ sdk.dir=/Users/ted/progtools/android-sdk-macosx
 
 &lt;p&gt;What we can do is to update the project in order to restore the value of sdk.dir. &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cd ~/project_path
-android update project --path .
+&lt;pre&gt;&lt;code&gt;$ cd ~/project_path
+$ android update project --path .
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify&lt;/p&gt;

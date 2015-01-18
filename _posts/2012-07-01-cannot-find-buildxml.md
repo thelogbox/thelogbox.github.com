@@ -16,7 +16,7 @@ lastupdated: December 18, 2014
 
 ---
 
-This compilation error means the android sdk is looking for the build.xml file which is inside the folder sdk.dir/tools/ant. The compiler cannot find it, hence the error.
+This compilation error means the android sdk is looking for the build.xml file which is inside the folder **sdk.dir/tools/ant**. The compiler cannot find it, hence the error.
 
 
 ## 1 Basic Concepts
@@ -52,8 +52,8 @@ The local.properties file is also generated as part of project creation process.
 What we can do is to update the project in order to restore the value of sdk.dir. 
 
 ~~~
-cd ~/project_path
-android update project --path .
+$ cd ~/project_path
+$ android update project --path .
 ~~~
 
 There is a period at the end the command snippet above. It may not be visible on the screen but it is there. After running the project update command, the sdk.dir value will be fixed. Open the local.properties file to verify
